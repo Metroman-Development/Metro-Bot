@@ -718,6 +718,9 @@ class ConfigureHandler extends AccessCore {
         
         items[index] = updatedItem;
         this.currentConfig.lastUpdated = new Date().toISOString();
+
+
+        console.log(this.currentConfig) 
         
         this.currentConfig.changeHistory.push({
             timestamp: new Date().toISOString(),
