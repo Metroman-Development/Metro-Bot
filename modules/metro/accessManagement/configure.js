@@ -1087,7 +1087,7 @@ this.updateItemInConfig(item.id, item, itemType);
 
             try {
                 const segments = pathStr.split('→')
- {
+ 
                     
 
                 config.escalators.push({
