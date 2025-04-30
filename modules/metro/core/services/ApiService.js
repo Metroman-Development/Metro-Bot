@@ -1,5 +1,5 @@
 // modules/metro/core/services/ApiService.js// modules/metro/core/services/ApiService.js
-
+require('dotenv').config()
 // modules/metro/core/services/ApiService.js
 const EventEmitter = require('events');
 const { fetch } = require('undici');
@@ -46,7 +46,7 @@ class ApiService extends EventEmitter {
         this.cacheDir = path.join(__dirname, '../../../../data');
         this.cacheFile = path.join(this.cacheDir, '/cache/network-status.json');
         this.processedDataFile = path.join(this.cacheDir, 'processedEstadoRed.php.json');
-        this.legacyCacheFile = path.join(__dirname, '../../../../data/estadoRedDetalle.php.json');
+        this.legacyCacheFile = path.join(__dirname, '../../../../data/estadoRed.json');
 
         // State management
         this.lastRawData = null;
@@ -660,7 +660,7 @@ async activateEventOverrides(eventDetails) {
 
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = await fetch(config.api.endpoint, {
+                const response = await fetch(process.env.ESTADO_RED, {
                     headers: config.api.headers,
                     signal: AbortSignal.timeout(timeout)
                 });
