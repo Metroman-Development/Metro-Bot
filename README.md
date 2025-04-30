@@ -15,7 +15,7 @@ MetroBot es un Bot de Discord desarrollado en **Node.js**, diseñado para propor
 ¿Quieres ayudar a mejorar MetroBot? Siéntete libre de hacer un fork del repositorio y enviar pull requests.
 
 ## Comunidad 🌍
-Puedes encontrar al desarrollador y participar en la comunidad de MetroBot en [Comunidad Metro de Santiago](https://www.metroman.me/comunidades/comunidad-metro-de-santiago/).
+Puedes encontrar al desarrollador y participar en la [Comunidad No Oficial del Metro de Santiago](https://www.metroman.me/comunidades/comunidad-metro-de-santiago/).
 
 ## Descargo de responsabilidad ⚠️
 MetroBot prioriza la **seguridad y confidencialidad** de la API de Metro de Santiago. Para garantizar un uso responsable:
