@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 const styles = require('../../../../config/metro/styles.json');
-const estadoRedTemplate = require('../../../../templates/estadoRedDetalle.php.json');
+const estadoRedTemplate = require('../../../../templates/estadoRed.json');
 
 module.exports = {
   source: 'linesData.json + estadoRedDetalle.php',
