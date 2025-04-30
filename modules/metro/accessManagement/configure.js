@@ -1008,4 +1008,4 @@ class ConfigureHandler extends AccessCore {
     }
 }
 
-module.exports = new ConfigureHandler();
+module.exports = ConfigureHandler;
