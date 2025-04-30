@@ -1042,25 +1042,21 @@ this.updateItemInConfig(item.id, item, itemType);
             .filter(Boolean);
 
         for (const entry of entries) {
-            const [idPart, ...pathParts] = entry.split(':');
-            const id = clean(idPart);
-            const pathStr = clean(pathParts.join(':'));
+            const [idPart, pathParts] = entry.split(':');
+            const id = idPart;
+            const pathStr = pathParts;
 
             if (!id || !pathStr) continue;
 
             try {
                 // Enhanced path parsing with multiple segments support
-                const segments = pathStr.split(/\s*,\s*/).map(segment => {
-                    const parts = segment.split('→').map(p => clean(p));
+                const segments = pathStr.split('→')
                     
-                    return parts;
-                });
-
                 config.elevators.push({
                     id: id.toUpperCase(),
                     from: segments[0],
                     to: segments[segments.length - 1],
-                    fullPath: segments.join('→'),
+                    fullPath: pathStr,
                     segments: segments,
                     status: 'operativo',
                     notes: '',
@@ -1084,25 +1080,21 @@ this.updateItemInConfig(item.id, item, itemType);
 
         for (const entry of entries) {
             const [idPart, ...pathParts] = entry.split(':');
-            const id = clean(idPart);
-            const pathStr = clean(pathParts.join(':'));
+            const id = idPart;
+            const pathStr = pathParts;
 
             if (!id || !pathStr) continue;
 
             try {
-                const segments = pathStr.split(/\s*,\s*/).map(segment => {
-                    const parts = segment.split('→').map(p => clean(p));
-                    if (parts.length !== 2 || !parts[0] || !parts[1]) {
-                        throw new Error(`Formato de segmento inválido: ${segment}`);
-                    }
-                    return parts;
-                });
+                const segments = pathStr.split('→')
+ {
+                    
 
                 config.escalators.push({
                     id: id.toUpperCase(),
                     from: segments[0],
                     to: segments[segments.length - 1],
-                    fullPath: segments.join('→'),
+                    fullPath: pathStr,
                     segments: segments,
                     status: 'operativo',
                     notes: '',
