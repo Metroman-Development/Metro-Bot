@@ -1095,7 +1095,7 @@ this.updateItemInConfig(item.id, item, itemType);
                     if (parts.length !== 2 || !parts[0] || !parts[1]) {
                         throw new Error(`Formato de segmento inválido: ${segment}`);
                     }
-                    return { from: parts[0], to: parts[1] };
+                    return parts;
                 });
 
                 config.escalators.push({
