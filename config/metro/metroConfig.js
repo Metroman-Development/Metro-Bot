@@ -284,7 +284,9 @@ accessCards: {
     accessibility: {
         
         ascensor: "<:Ascensor:1365310145990754425>", 
-        
+
+        escaleras: "<:Scalators:1367116647525257237>"
+      
         logo: "<:access:1365270122725376111>", 
         
         estado: {
