@@ -19,87 +19,253 @@ class ConfigureHandler extends AccessCore {
         this.EDIT_TIMEOUT = 180000;
     }
 
+
     /* CORE METHODS */
-    async handle(message, args) {
-        try {
+async handle(message, args) {
+    try {
+        this.batch = new BatchConfigure();
+        this.message = message;
+        this.cleanupCollectors();
 
-            this.batch = new BatchConfigure();
-            
-            this.message = message;
-            this.cleanupCollectors();
+        // Handle batch operations
+        if (args[0]?.toLowerCase() === 'aedit') {
+            return this.batch.handleAdvancedEdit.call(this, message, args.slice(1));
+        }
+        
+        if (args[0]?.toLowerCase() === 'replace') {
+            return this.batch.handleReplaceOperation.call(this, message, args.slice(1));
+        }
 
-            // Handle batch operations
-            if (args[0]?.toLowerCase() === 'aedit') {
-                return this.batch.handleAdvancedEdit.call(this, message, args.slice(1));
-            }
-            
-            if (args[0]?.toLowerCase() === 'replace') {
-                return this.batch.handleReplaceOperation.call(this, message, args.slice(1));
-            }
-
-            const parsedArgs = this.parseQuotedArgs(args);
-            const rawName = parsedArgs[0];
-            const rawLine = parsedArgs[1];
-            
-            if (!rawName || !rawLine) {
-                return this.sendError(message, 
-                    '❌ Debes especificar nombre de estación y línea\n' +
-                    'Ejemplo: `configurar "Plaza Egaña" L4`\n' +
-                    'O: `configurar Tobalaba L1`'
-                );
-            }
-
-            await this.ensureAccessDetailsDir();
-            this.stationKey = `${rawName} ${rawLine}`;
-            this.normalizedKey = this.normalizeKey(this.stationKey);
-            this.message = message;
-
-            this.currentConfig = await this.getAccessConfig(this.normalizedKey);
-            
-            if (!this.currentConfig) {
-                this.currentConfig = this.createNewConfig(rawName, rawLine);
-                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-                return this.setupInitialConfigCollector(message);
-            }
-
-            this.currentPage = 0;
-            this.currentSection = 'all';
-            
-            const totalItems = this.currentConfig.accesses.length + 
-                             this.currentConfig.elevators.length + 
-                             this.currentConfig.escalators.length;
-
-            if (totalItems <= 10) {
-                return this.showFullConfiguration();
-            }
-            return this.showPaginatedConfiguration();
-
-        } catch (error) {
-            console.error('Configuration Error:', error);
-            this.cleanupCollectors();
+        const parsedArgs = this.parseQuotedArgs(args);
+        const rawName = parsedArgs[0];
+        const rawLine = parsedArgs[1];
+        
+        if (!rawName || !rawLine) {
             return this.sendError(message, 
-                `❌ Error en configuración:\n\`\`\`${error.message}\`\`\``
+                '❌ Debes especificar nombre de estación y línea\n' +
+                'Ejemplo: `configurar "Plaza Egaña" L4`\n' +
+                'O: `configurar Tobalaba L1`'
             );
         }
-    }
 
-    /* CONFIGURATION MANAGEMENT */
-    createNewConfig(stationName, line) {
-        return {
-            station: stationName,
-            line: line,
-            accesses: [],
-            elevators: [],
-            escalators: [],
-            lastUpdated: new Date().toISOString(),
-            changeHistory: [{
-                timestamp: new Date().toISOString(),
-                user: 'System',
-                action: 'config_created',
-                details: 'Configuración inicial creada'
-            }]
-        };
+        await this.ensureAccessDetailsDir();
+        this.stationKey = `${rawName} ${rawLine}`;
+        this.normalizedKey = this.normalizeKey(this.stationKey);
+        this.message = message;
+
+        this.currentConfig = await this.getAccessConfig(this.normalizedKey);
+        
+        if (!this.currentConfig) {
+            return this.initiateNewStationSetup(rawName, rawLine);
+        }
+
+        // Check for incomplete configuration
+        if (this.isConfigurationIncomplete(this.currentConfig)) {
+            return this.promptForConfigurationRepair();
+        }
+
+        this.currentPage = 0;
+        this.currentSection = 'all';
+        
+        const totalItems = this.currentConfig.accesses.length + 
+                         this.currentConfig.elevators.length + 
+                         this.currentConfig.escalators.length;
+
+        if (totalItems <= 10) {
+            return this.showFullConfiguration();
+        }
+        return this.showPaginatedConfiguration();
+
+    } catch (error) {
+        console.error('Configuration Error:', error);
+        this.cleanupCollectors();
+        return this.sendError(message, 
+            `❌ Error en configuración:\n\`\`\`${error.message}\`\`\``
+        );
     }
+}
+
+/* NEW HELPER METHODS */
+async initiateNewStationSetup(stationName, line) {
+    const embed = new EmbedBuilder()
+        .setColor(0xFFFF00)
+        .setTitle(`🆕 Configuración inicial para ${stationName} ${line}`)
+        .setDescription([
+            '**No existe configuración para esta estación.**',
+            'Por favor ingresa los datos en el siguiente formato:',
+            '```',
+            'Accesos: Nombre Acceso (Descripción: ubicación), Otro Acceso',
+            'Ascensores: ID: Desde→Hasta, ID2: Desde→Hasta',
+            'Escaleras: ID: Desde→Hasta, ID2: Desde→Hasta',
+            '```',
+            'Ejemplo completo:',
+            '```',
+            'Accesos: Acceso Norte (Descripción: Frente al mall), Acceso Sur',
+            'Ascensores: A: Calle→Boletería, B: Boletería→Andén',
+            'Escaleras: E1: Andén→Pasillo, E2: Pasillo→Calle',
+            '```',
+            'Escribe "cancelar" para abortar.'
+        ].join('\n'));
+
+    await this.message.reply({ embeds: [embed] });
+    return this.setupInitialConfigCollector();
+}
+
+isConfigurationIncomplete(config) {
+    return (
+        config.accesses.length === 0 ||
+        (config.elevators.length === 0 && config.escalators.length === 0)
+    );
+}
+
+async promptForConfigurationRepair() {
+    const missingElements = [];
+    if (this.currentConfig.accesses.length === 0) missingElements.push('accesos');
+    if (this.currentConfig.elevators.length === 0) missingElements.push('ascensores');
+    if (this.currentConfig.escalators.length === 0) missingElements.push('escaleras');
+
+    const embed = new EmbedBuilder()
+        .setColor(0xFFA500)
+        .setTitle(`⚠️ Configuración incompleta para ${this.stationKey}`)
+        .setDescription([
+            `Esta estación no tiene ${missingElements.join(', ')} configurados.`,
+            '¿Deseas configurarlos ahora? (sí/no)'
+        ].join('\n'));
+
+    const prompt = await this.message.reply({ embeds: [embed] });
+    const responses = await this.message.channel.awaitMessages({
+        filter: m => m.author.id === this.message.author.id,
+        max: 1,
+        time: 30000
+    });
+    
+    await prompt.delete().catch(() => {});
+    const response = responses.first()?.content.toLowerCase() || '';
+
+    if (response === 'sí' || response === 'si' || response === 'yes') {
+        return this.initiateNewStationSetup(
+            this.currentConfig.station, 
+            this.currentConfig.line
+        );
+    }
+    
+    return this.message.reply('✅ Continuando con la configuración actual.');
+}
+
+/* IMPROVED INITIAL CONFIG COLLECTOR */
+async setupInitialConfigCollector() {
+    const collector = this.message.channel.createMessageCollector({
+        filter: m => m.author.id === this.message.author.id,
+        time: this.EDIT_TIMEOUT
+    });
+
+    this.activeCollector = collector;
+
+    collector.on('collect', async (msg) => {
+        try {
+            const input = msg.content.trim();
+            
+            if (input.toLowerCase() === 'cancelar') {
+                collector.stop();
+                await this.message.reply('❌ Configuración cancelada');
+                return;
+            }
+
+            const config = await this.parseConfigurationInput(input, this.currentConfig?.station || '', this.currentConfig?.line || '');
+            
+            if (config.accesses.length === 0) {
+                await this.message.reply('❌ Debes incluir al menos 1 acceso');
+                return;
+            }
+
+            // Validate at least one mobility option
+            if (config.elevators.length === 0 && config.escalators.length === 0) {
+                await this.message.reply('❌ Debes incluir al menos 1 ascensor o escalera');
+                return;
+            }
+
+            const previewEmbed = new EmbedBuilder()
+                .setColor(0x00FF00)
+                .setTitle('📝 Resumen de configuración')
+                .setDescription(this.renderConfigPreview(config))
+                .addFields(
+                    { name: '🚪 Accesos', value: config.accesses.slice(0, 3).map(a => `• ${a.name}${a.description ? ` (${a.description})` : ''}`).join('\n') || 'Ninguno', inline: true },
+                    { name: '🛗 Ascensores', value: config.elevators.slice(0, 3).map(e => `• ${e.id}: ${e.from}→${e.to}`).join('\n') || 'Ninguno', inline: true },
+                    { name: '📶 Escaleras', value: config.escalators.slice(0, 3).map(s => `• ${s.id}: ${s.from}→${s.to}`).join('\n') || 'Ninguno', inline: true }
+                )
+                .setFooter({ text: '¿Confirmar esta configuración? (sí/no)' });
+
+            const confirmMsg = await this.message.reply({ embeds: [previewEmbed] });
+            
+            const confirmResponse = await this.message.channel.awaitMessages({
+                filter: m => m.author.id === this.message.author.id,
+                max: 1,
+                time: 30000
+            });
+
+            await confirmMsg.delete().catch(() => {});
+
+            const confirmation = confirmResponse.first()?.content.toLowerCase() || '';
+            
+            if (confirmation === 'sí' || confirmation === 'si' || confirmation === 'yes') {
+                if (!this.currentConfig) {
+                    this.currentConfig = config;
+                    this.currentConfig.changeHistory = [{
+                        timestamp: new Date().toISOString(),
+                        user: this.message.author.tag,
+                        action: 'initial_config',
+                        details: 'Configuración inicial'
+                    }];
+                } else {
+                    this.currentConfig.accesses = config.accesses;
+                    this.currentConfig.elevators = config.elevators;
+                    this.currentConfig.escalators = config.escalators;
+                    this.currentConfig.changeHistory.push({
+                        timestamp: new Date().toISOString(),
+                        user: this.message.author.tag,
+                        action: 'config_repair',
+                        details: 'Reparación de configuración incompleta'
+                    });
+                }
+
+                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
+                collector.stop();
+                await this.message.reply(`✅ Configuración guardada para ${this.stationKey}`);
+                return this.showFullConfiguration();
+            }
+
+            await this.message.reply('Por favor ingresa la configuración nuevamente o escribe "cancelar"');
+
+        } catch (error) {
+            await this.message.reply(
+                `❌ Error: ${error.message}\n` +
+                "Ejemplo válido:\n```\n" +
+                "Accesos: Acceso A (Descripción: Ubicación), Acceso B\n" +
+                "Ascensores: A: Calle→Boletería, Boletería→Andén\n" +
+                "Escaleras: E1: Andén→Pasillo\n" +
+                "```"
+            );
+        }
+    });
+
+    collector.on('end', () => {
+        this.activeCollector = null;
+    });
+}
+
+/* IMPROVED RENDER CONFIG PREVIEW */
+renderConfigPreview(config) {
+    const preview = [
+        `**Estación:** ${config.station} ${config.line}`,
+        `**Accesos:** ${config.accesses.length > 0 ? config.accesses.map(a => a.name).join(', ') : '❌ Ninguno configurado'}`,
+        `**Ascensores:** ${config.elevators.length > 0 ? config.elevators.length : '❌ Ninguno configurado'}`,
+        `**Escaleras:** ${config.escalators.length > 0 ? config.escalators.length : '❌ Ninguna configurada'}`,
+        '',
+        '**Revisa que todo esté correcto antes de confirmar.**'
+    ];
+    
+    return preview.join('\n');
+}
 
     async setupInitialConfigCollector(message) {
         const collector = message.channel.createMessageCollector({
