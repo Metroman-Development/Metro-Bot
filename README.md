@@ -9,7 +9,7 @@ MetroBot es un chatbot en español desarrollado en **Node.js**, diseñado para p
 - **Accesibilidad:** Encuentra información sobre ascensores, rampas y servicios para personas con discapacidad.
 
 ## Cómo utilizar 🔧
-Interactúa con MetroBot a través de comandos en español para obtener información en tiempo real.
+Únete al Discord de la Comunidad de Metro de Santiago para utilizar el bot, empieza por `/estacion info` o `/bot comandos` 
 
 ## Contribuir 🤝
 ¿Quieres ayudar a mejorar MetroBot? Siéntete libre de hacer un fork del repositorio y enviar pull requests.
