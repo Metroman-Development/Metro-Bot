@@ -106,15 +106,13 @@ combIcons: {
    
     
     // API endpoint for Metro data
-    apiEndpoint: 'https://www.metro.cl/api/estadoRedDetalle.php',
-    
+        
     // In metroConfig.js
     // In metroConfig.js - ONLY MODIFY THE api SECTION LIKE THIS:
 
     // From metroConfig.js
 api: {
-  endpoint: 'https://www.metro.cl/api/estadoRedDetalle.php',
-  headers: {
+    headers: {
     'User-Agent': 'MetroSystem/1.0',
     'Accept': 'application/json'
   },
