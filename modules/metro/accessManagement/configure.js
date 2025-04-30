@@ -22,6 +22,7 @@ class ConfigureHandler extends AccessCore {
     /* CORE METHODS */
     async handle(message, args) {
         try {
+            this.message = message;
             this.cleanupCollectors();
 
             // Handle batch operations
