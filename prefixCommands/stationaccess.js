@@ -11,7 +11,7 @@ const HistoryHandler = require('../modules/metro/accessManagement/history');
 
 // Initialize handlers with proper error handling
 const handlers = {
-    config: new ConfigureHandler.ConfigureHandler(),
+    config: new ConfigureHandler,
     status: new StatusHandler(),
     view: new ViewHandler(),
     list: new ListHandler(),
