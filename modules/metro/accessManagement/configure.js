@@ -967,14 +967,7 @@ this.updateItemInConfig(item.id, item, itemType);
         return responses.first()?.content || '';
     }
 
-    renderConfigPreview(config) {
-        return [
-            `**Estación:** ${config.station} ${config.line}`,
-            `**Accesos:** ${config.accesses.map(a => a.name).join(', ')}`,
-            `**Ascensores:** ${config.elevators.length}`,
-            `**Escaleras:** ${config.escalators.length}`
-        ].join('\n');
-    }
+    
 
     async parseConfigurationInput(input, stationName, line) {
         const config = {
