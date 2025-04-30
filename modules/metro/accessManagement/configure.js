@@ -721,6 +721,9 @@ class ConfigureHandler extends AccessCore {
 
 
         console.log(this.currentConfig) 
+        console.log(id) 
+        console.log(updatedItem)
+        console.log(type) 
         
         this.currentConfig.changeHistory.push({
             timestamp: new Date().toISOString(),
