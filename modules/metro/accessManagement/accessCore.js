@@ -184,7 +184,7 @@ class AccessCore {
         });
     }
 
-    renderConfigPreview(config) {
+ /*   renderConfigPreview(config) {
         let preview = "```\n";
 
         preview += "ACCESOS:\n";
@@ -219,7 +219,8 @@ class AccessCore {
         }
 
         return preview + "\n```";
-    }
+    }*/
+    
 
     async promptForConfirmation(message, promptText) {
         const prompt = await message.reply(promptText);
