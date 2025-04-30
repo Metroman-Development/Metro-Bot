@@ -204,8 +204,8 @@ class StationAccessibilityEmbed extends BaseEmbed {
 
     _getElevatorStatusEmoji(status) {
         return {
-            'operativa' :${config.accessibility.estado.ope},
-            'fuera de servicio': ${config.accessibility.estado.fes},
+            'operativa' :config.accessibility.estado.ope,
+            'fuera de servicio': config.accessibility.estado.fes,
             'en mantención': '🟡'
         }[status?.toLowerCase()] || '⚪';
     }
