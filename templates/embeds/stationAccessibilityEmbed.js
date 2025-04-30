@@ -136,13 +136,13 @@ class StationAccessibilityEmbed extends BaseEmbed {
         // Elevators Summary
         if (accessDetails.elevators?.length > 0) {
             const operational = accessDetails.elevators.filter(e => e.status === 'operativa').length;
-            description += `🛗 **Ascensores:** ${operational}/${accessDetails.elevators.length} operativos\n`;
+            description += `${config.accessibility.ascensor} **Ascensores:** ${operational}/${accessDetails.elevators.length} operativos\n`;
         }
 
         // Escalators Summary
         if (accessDetails.escalators?.length > 0) {
             const operational = accessDetails.escalators.filter(e => e.status === 'operativa').length;
-            description += `🪜 **Escaleras:** ${operational}/${accessDetails.escalators.length} operativas\n`;
+            description += `${config.accessibility.escaleras} **Escaleras:** ${operational}/${accessDetails.escalators.length} operativas\n`;
         }
 
         // Accesses Summary
@@ -204,8 +204,8 @@ class StationAccessibilityEmbed extends BaseEmbed {
 
     _getElevatorStatusEmoji(status) {
         return {
-            operativa: '🟢',
-            'fuera de servicio': '🔴',
+            operativa:${config.accessibility.estado.ope},
+            'fuera de servicio': ${config.accessibility.estado.fes},
             'en mantención': '🟡'
         }[status?.toLowerCase()] || '⚪';
     }
