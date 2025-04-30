@@ -237,6 +237,8 @@ async setupInitialConfigCollector() {
             await this.message.reply('Por favor ingresa la configuración nuevamente o escribe "cancelar"');
 
         } catch (error) {
+
+            console.log(error) 
             await this.message.reply(
                 `❌ Error: ${error.message}\n` +
                 "Ejemplo válido:\n```\n" +
