@@ -177,16 +177,16 @@ class StationAccessibilityEmbed extends BaseEmbed {
                     `Acceso ${String.fromCodePoint(0x1F170 + letter.charCodeAt(0) - 65)}`)
                 
                 // Add status emojis
-                .replace(/operativa/gi, '🟢 Operativa')
-                .replace(/fuera de servicio/gi, '🔴 Fuera de servicio')
+                .replace(/operativa/gi, `${config.accessibility.estado.ope}  Operativa`)
+                .replace(/fuera de servicio/gi, `${config.accessibility.estado.fes} Fuera de servicio`)
                 .replace(/en mantención/gi, '🟡 En mantención');
 
             // Add elevator/escalator emojis
             if (processed.toLowerCase().includes('ascensor')) {
-                processed = `🛗 ${processed}`;
+                processed = `${config.accessibility.ascensor} ${processed}`;
             }
             if (processed.toLowerCase().includes('escalera')) {
-                processed = `🪜 ${processed}`;
+                processed = `${config.accessibility.escaleras} ${processed}`;
             }
 
             return processed;
