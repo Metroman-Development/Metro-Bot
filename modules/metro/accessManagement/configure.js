@@ -87,6 +87,15 @@ async handle(message, args) {
 
 /* NEW HELPER METHODS */
 async initiateNewStationSetup(stationName, line) {
+
+
+
+
+this.currentConfig = {} 
+    this.currentConfig.station = stationName;
+    this.currentConfig.line = line;
+
+    
     const embed = new EmbedBuilder()
         .setColor(0xFFFF00)
         .setTitle(`🆕 Configuración inicial para ${stationName} ${line}`)
