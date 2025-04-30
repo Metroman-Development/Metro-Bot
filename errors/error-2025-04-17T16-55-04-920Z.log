@@ -1,0 +1,14 @@
+[2025-04-17T16-55-04-920Z] ERROR:
+Name: Error
+Message: [UpdateProcessor] Update changes-1744908903818-tu6t failed
+Stack:
+Error: [UpdateProcessor] Update changes-1744908903818-tu6t failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateProcessor._handleUpdateError (/home/container/modules/status/embeds/UpdateProcessor.js:641:16)
+    at UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:259:18)
+    at UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:114:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {
+  "context": {}
+}
+

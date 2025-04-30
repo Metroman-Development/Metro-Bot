@@ -1,0 +1,143 @@
+{
+  "station": "Pedro de Valdivia",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.794Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Providencia / La Concepción"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.794Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Providencia / Monseñor Nuncio Sótero Sanz"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.794Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Nueva Providencia / Av. Pedro de Valdivia"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.794Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Nueva Providencia / Marchant Pereira"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:46:01.364Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:46:01.364Z",
+      "notes": ""
+    },
+    {
+      "id": "EXAB",
+      "from": "Pasillo Accesos A y B",
+      "to": "Exterior Avenida Providencia Vereda Sur",
+      "fullPath": "Pasillo Accesos A y B→Exterior Avenida Providencia Vereda Sur",
+      "segments": [
+        "Pasillo Accesos A y B",
+        "Exterior Avenida Providencia Vereda Sur"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:46:01.364Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-28T19:38:15.794Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T11:46:27.394Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T11:47:11.299Z",
+      "user": "metromanrrss",
+      "action": "Editado C",
+      "details": "description cambiado de \"Av. Providencia / Av. Pedro de Valdivia\" a \"Av. Nueva Providencia / Av. Pedro de Valdivia\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.323Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.323Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.323Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.323Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.794Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.794Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.794Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.794Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

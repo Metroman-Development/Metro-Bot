@@ -1,0 +1,12 @@
+[2025-04-13T22-10-48-498Z] ERROR:
+Name: Error
+Message: Error building status message: Cannot read properties of undefined (reading 'getProcessedData')
+Stack:
+Error: Error building status message: Cannot read properties of undefined (reading 'getProcessedData')
+    at Object.error (/home/container/events/logger.js:152:27)
+    at buildStatusMessage (/home/container/events/presenceUpdater.js:126:16)
+    at Timeout.updatePresence [as _onTimeout] (/home/container/events/presenceUpdater.js:141:35)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {}
+

@@ -1,0 +1,22 @@
+[2025-04-16T19-26-08-918Z] ERROR:
+Name: Error
+Message: Error loading buttons templates:
+Stack:
+Error: Error loading buttons templates:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at InteractionHandler._loadComponentTemplates (/home/container/modules/interactions/interactionHandler.js:76:20)
+    at InteractionHandler._loadAllTemplates (/home/container/modules/interactions/interactionHandler.js:51:18)
+    at InteractionHandler._initialize (/home/container/modules/interactions/interactionHandler.js:25:14)
+    at new InteractionHandler (/home/container/modules/interactions/interactionHandler.js:17:14)
+    at Object.<anonymous> (/home/container/modules/interactions/interactionHandler.js:277:18)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+Metadata: {
+  "errno": -2,
+  "code": "ENOENT",
+  "syscall": "scandir",
+  "path": "/home/container/modules/components/buttons/templates"
+}
+

@@ -1,0 +1,16 @@
+[2025-04-17T22-50-20-761Z] ERROR:
+Name: Error
+Message: [UpdateProcessor] Processing error
+Stack:
+Error: [UpdateProcessor] Processing error
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateProcessor._handleProcessingError (/home/container/modules/status/embeds/UpdateProcessor.js:689:16)
+    at UpdateProcessor.processChanges (/home/container/modules/status/embeds/UpdateProcessor.js:103:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:241:30)
+    at async UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:120:17)
+Metadata: {
+  "context": "changes",
+  "error": "this.parent.metroCore.api.lastProcessedData is not a function"
+}
+

@@ -1,0 +1,17 @@
+[2025-04-15T10-35-02-138Z] ERROR:
+Name: Error
+Message: CONFIG_ERROR
+Stack:
+Error: CONFIG_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at validateConfig (/home/container/config/chronosConfig.js:165:16)
+    at Object.<anonymous> (/home/container/config/chronosConfig.js:197:1)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)
+    at Module.require (node:internal/modules/cjs/loader:1311:12)
+Metadata: "Invalid time format: [object Object]. Use HH:MM or HH:MM:SS format."
+

@@ -1,0 +1,321 @@
+[2025-04-15T09-45-15-237Z] ERROR:
+Name: Error
+Message: OVERVIEW_EMBED_FAILED
+Stack:
+Error: OVERVIEW_EMBED_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:61:20)
+    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)
+    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)
+    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:190:13)
+    at async /home/container/modules/metro/core/MetroCore.js:128:13
+Metadata: {
+  "error": "Received one or more errors",
+  "stack": "Error: Received one or more errors\n    at _ArrayValidator.handle (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:1254:70)\n    at _ArrayValidator.parse (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:972:90)\n    at EmbedBuilder.addFields (/home/container/node_modules/@discordjs/builders/dist/index.js:225:31)\n    at #addTransferStatusField (/home/container/modules/status/embeds/StatusEmbedBuilder.js:171:19)\n    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:42:41)\n    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)\n    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)\n    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)\n    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "input": {
+    "status": "Toda la red operativa",
+    "statusEn": "Full network operational",
+    "statusCode": "1",
+    "networkScale": 1,
+    "totalSeverity": 88,
+    "severityLabel": "Baja",
+    "severityLabelEn": "Low",
+    "details": {
+      "lines": {},
+      "stations": [
+        {
+          "id": "nub",
+          "name": "Ñuble L6",
+          "line": "l6",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 32,
+          "connectedLines": [
+            "l5"
+          ]
+        },
+        {
+          "id": "pt",
+          "name": "Patronato",
+          "line": "l2",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 16,
+          "connectedLines": [
+            "l2"
+          ]
+        },
+        {
+          "id": "tri",
+          "name": "Trinidad",
+          "line": "l4",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 15,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "uc",
+          "name": "Universidad Católica",
+          "line": "l1",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 7,
+          "connectedLines": [
+            "l1"
+          ]
+        },
+        {
+          "id": "mq",
+          "name": "Manquehue",
+          "line": "l1",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 7,
+          "connectedLines": [
+            "l1"
+          ]
+        },
+        {
+          "id": "si",
+          "name": "Santa Isabel",
+          "line": "l5",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 6,
+          "connectedLines": [
+            "l5"
+          ]
+        },
+        {
+          "id": "lpr",
+          "name": "Los Presidentes",
+          "line": "l4",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 5,
+          "connectedLines": [
+            "l4"
+          ]
+        }
+      ],
+      "transfers": [
+        {
+          "station": "uc",
+          "lines": [
+            "l1",
+            "l1"
+          ],
+          "totalSeverity": 7
+        },
+        {
+          "station": "mq",
+          "lines": [
+            "l1",
+            "l1"
+          ],
+          "totalSeverity": 7
+        },
+        {
+          "station": "pt",
+          "lines": [
+            "l2",
+            "l2"
+          ],
+          "totalSeverity": 16
+        },
+        {
+          "station": "lpr",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 5
+        },
+        {
+          "station": "tri",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 15
+        },
+        {
+          "station": "si",
+          "lines": [
+            "l5",
+            "l5"
+          ],
+          "totalSeverity": 6
+        },
+        {
+          "station": "nub",
+          "lines": [
+            "l6",
+            "l5"
+          ],
+          "totalSeverity": 32
+        }
+      ]
+    },
+    "segments": {},
+    "summary": {
+      "es": {
+        "estadoGeneral": "Toda la red operativa",
+        "escalaRed": 1,
+        "severidadTotal": 88,
+        "nivelSeveridad": "Baja",
+        "resumenDetallado": {
+          "lineasAfectadas": [],
+          "segmentosCriticos": [],
+          "transferenciasAfectadas": [
+            {
+              "estacion": "UC",
+              "lineas": "L1 ↔ L1",
+              "severidad": 7
+            },
+            {
+              "estacion": "MQ",
+              "lineas": "L1 ↔ L1",
+              "severidad": 7
+            },
+            {
+              "estacion": "PT",
+              "lineas": "L2 ↔ L2",
+              "severidad": 16
+            },
+            {
+              "estacion": "LPR",
+              "lineas": "L4 ↔ L4",
+              "severidad": 5
+            },
+            {
+              "estacion": "TRI",
+              "lineas": "L4 ↔ L4",
+              "severidad": 15
+            },
+            {
+              "estacion": "SI",
+              "lineas": "L5 ↔ L5",
+              "severidad": 6
+            },
+            {
+              "estacion": "NUB",
+              "lineas": "L6 ↔ L5",
+              "severidad": 32
+            }
+          ],
+          "estacionesCriticas": [
+            {
+              "estacion": "Ñuble L6",
+              "lineas": "L6 + L5",
+              "severidad": 32
+            },
+            {
+              "estacion": "Patronato",
+              "lineas": "L2 + L2",
+              "severidad": 16
+            },
+            {
+              "estacion": "Trinidad",
+              "lineas": "L4 + L4",
+              "severidad": 15
+            },
+            {
+              "estacion": "Universidad Católica",
+              "lineas": "L1 + L1",
+              "severidad": 7
+            },
+            {
+              "estacion": "Manquehue",
+              "lineas": "L1 + L1",
+              "severidad": 7
+            }
+          ]
+        }
+      },
+      "en": {
+        "overallStatus": "Toda la red operativa",
+        "networkScale": 1,
+        "totalSeverity": 88,
+        "severityLevel": "Low",
+        "detailedSummary": {
+          "affectedLines": [],
+          "criticalSegments": [],
+          "affectedTransfers": [
+            {
+              "station": "UC",
+              "lines": "L1 ↔ L1",
+              "severity": 7
+            },
+            {
+              "station": "MQ",
+              "lines": "L1 ↔ L1",
+              "severity": 7
+            },
+            {
+              "station": "PT",
+              "lines": "L2 ↔ L2",
+              "severity": 16
+            },
+            {
+              "station": "LPR",
+              "lines": "L4 ↔ L4",
+              "severity": 5
+            },
+            {
+              "station": "TRI",
+              "lines": "L4 ↔ L4",
+              "severity": 15
+            },
+            {
+              "station": "SI",
+              "lines": "L5 ↔ L5",
+              "severity": 6
+            },
+            {
+              "station": "NUB",
+              "lines": "L6 ↔ L5",
+              "severity": 32
+            }
+          ],
+          "criticalStations": [
+            {
+              "station": "Ñuble L6",
+              "lines": "L6 + L5",
+              "severity": 32
+            },
+            {
+              "station": "Patronato",
+              "lines": "L2 + L2",
+              "severity": 16
+            },
+            {
+              "station": "Trinidad",
+              "lines": "L4 + L4",
+              "severity": 15
+            },
+            {
+              "station": "Universidad Católica",
+              "lines": "L1 + L1",
+              "severity": 7
+            },
+            {
+              "station": "Manquehue",
+              "lines": "L1 + L1",
+              "severity": 7
+            }
+          ]
+        }
+      }
+    },
+    "timestamp": "2025-04-15T09:45:08.407Z"
+  }
+}
+

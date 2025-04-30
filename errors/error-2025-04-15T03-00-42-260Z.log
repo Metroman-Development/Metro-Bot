@@ -1,0 +1,17 @@
+[2025-04-15T03-00-42-260Z] ERROR:
+Name: Error
+Message: [UpdateListener] Error processing SERVICE_HOURS_END
+Stack:
+Error: [UpdateListener] Error processing SERVICE_HOURS_END
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateListener._handleHandlerError (/home/container/modules/status/embeds/UpdateListener.js:686:16)
+    at UpdateListener._trackEventTiming (/home/container/modules/status/embeds/UpdateListener.js:661:18)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:555:9)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {
+  "error": "Cannot read properties of undefined (reading 'handleTimeEvent')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'handleTimeEvent')\n    at /home/container/modules/status/embeds/UpdateListener.js:341:55\n    at Job.task (/home/container/modules/status/embeds/UpdateListener.js:640:51)\n    at /home/container/node_modules/bottleneck/lib/Job.js:141:109\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (/home/container/node_modules/bottleneck/lib/Job.js:3:103)\n    at _next (/home/container/node_modules/bottleneck/lib/Job.js:5:194)\n    at /home/container/node_modules/bottleneck/lib/Job.js:5:364\n    at new Promise (<anonymous>)\n    at /home/container/node_modules/bottleneck/lib/Job.js:5:97\n    at Job.doExecute (/home/container/node_modules/bottleneck/lib/Job.js:156:7)",
+  "handler": "SERVICE_HOURS_END"
+}
+

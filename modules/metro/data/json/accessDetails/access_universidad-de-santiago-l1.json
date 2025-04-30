@@ -1,0 +1,99 @@
+{
+  "station": "Universidad de Santiago",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Ruiz Tagle",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.804Z"
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Manuel Umaña",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.804Z"
+    },
+    {
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Alameda Libertador Bernardo O'Higgins Sur / Terminal de Buses Santiago",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.804Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:08:09.715Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:08:09.715Z",
+      "notes": ""
+    },
+    {
+      "id": "EXC",
+      "from": "Boletería",
+      "to": "Exterior Acceso C",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:08:09.715Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-28T19:38:15.804Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T09:08:18.245Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.394Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.394Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.394Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.804Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.804Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.804Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

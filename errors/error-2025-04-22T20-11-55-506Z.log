@@ -1,0 +1,17 @@
+[2025-04-22T20-11-55-506Z] ERROR:
+Name: Error
+Message: [EmbedManager] Line updates failed
+Stack:
+Error: [EmbedManager] Line updates failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at EmbedManager.updateAllLineEmbeds (/home/container/modules/status/embeds/EmbedManager.js:207:20)
+    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:296:18)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:111:20)
+    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:204:13)
+    at async /home/container/modules/metro/core/MetroCore.js:145:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {}
+

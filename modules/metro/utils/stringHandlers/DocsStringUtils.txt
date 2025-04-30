@@ -1,0 +1,171 @@
+# **Documentación de Utils de MetroCore**  
+
+## **📌 Visión General**  
+El módulo `stringHandlers` contiene herramientas esenciales para:  
+✅ **Normalización** de datos (estaciones, líneas)  
+✅ **Decoración** con emojis (Discord-friendly)  
+✅ **Validación** de entradas  
+✅ **Formateo** de nombres y códigos  
+
+---
+
+## **📂 Estructura de Archivos**  
+```
+modules/metro/utils/stringHandlers
+├── decorators.js       # Emojis y formato visual
+├── lineProcessing.js   # Manejo de códigos de línea
+├── stationFormatting.js # Formateo de nombres de estación
+├── validators.js       # Validación de datos
+└── normalization.js    # Normalización de texto
+```
+
+---
+
+## **🔧 lineProcessing.js**  
+**Funciones para procesar códigos de líneas del metro.**  
+
+### **Métodos Disponibles**  
+| Método | Descripción | Ejemplo |  
+|--------|-------------|---------|  
+| `normalizeKey(lineCode)` | Estandariza códigos (`"1"` → `"l1"`) | `normalizeKey("L2") → "l2"` |  
+| `formatDisplay(lineCode)` | Formato amigable (`"l1"` → `"Línea 1"`) | `formatDisplay("4a") → "Línea 4A"` |  
+| `extractNumber(input)` | Extrae número de línea (`"L1"` → `"1"`) | `extractNumber("Línea 2") → "2"` |  
+
+**Uso:**  
+```js
+const { normalizeKey } = require('./lineProcessing');
+const lineKey = normalizeKey(userInput); // "l1"
+```
+
+---
+
+## **🏷️ stationFormatting.js**  
+**Formateo de nombres de estaciones.**  
+
+### **Métodos Disponibles**  
+| Método | Descripción | Ejemplo |  
+|--------|-------------|---------|  
+| `formatName(stationName)` | Capitaliza correctamente | `formatName("estación los héroes") → "Los Heroes"` |  
+| `removeLineSuffix(stationName)` | Elimina sufijos (`"Baquedano L1"` → `"Baquedano"`) | `removeLineSuffix("Puente Cal y Canto L2") → "Puente Cal y Canto"` |  
+| `generateId(stationName, lineCode)` | Crea ID único (`"Los Heroes-l1"`) | `generateId("Los Heroes", "L1") → "losheroes-l1"` |  
+
+**Uso:**  
+```js
+const { formatName } = require('./stationFormatting');
+const cleanName = formatName(rawStationName);
+```
+
+---
+
+## **🎨 decorators.js**  
+**Decora elementos con emojis para Discord.**  
+
+### **Métodos Disponibles**  
+| Método | Descripción | Ejemplo |  
+|--------|-------------|---------|  
+| `decorateStation(name, options)` | Añade emojis de estado/línea | `decorateStation("Baquedano", { line: "L1", status: "1" })` → `"🟩 <:Linea1:123> Baquedano"` |  
+| `decorateLine(lineCode)` | Devuelve emoji de línea | `decorateLine("L5")` → `<:Linea5:456>` |  
+| `getConnectionEmoji(type)` | Emoji para conexiones (`"Centropuerto"` → `"🚌"`) | `getConnectionEmoji("BiciMetro")` → `<:bicimetro:789>` |  
+
+**Ejemplo en Discord:**  
+```js
+const { decorateStation } = require('./decorators');
+const message = decorateStation("Los Héroes", { 
+    line: "L1", 
+    status: "1", 
+    transfer: true 
+});
+// → "🟩 <:Linea1:123> Los Héroes ↔️"
+```
+
+---
+
+## **🛡️ validators.js**  
+**Validación de datos de entrada.**  
+
+### **Métodos Disponibles**  
+| Método | Descripción | Ejemplo |  
+|--------|-------------|---------|  
+| `isValidLine(lineCode)` | Verifica si una línea existe | `isValidLine("L7") → false` |  
+| `isTransferStation(stationName, line)` | Comprueba si es estación de combinación | `isTransferStation("Baquedano", "L1") → true` |  
+
+**Uso:**  
+```js
+const { isValidLine } = require('./validators');
+if (!isValidLine(userInput)) {
+    reply("❌ Línea no válida");
+}
+```
+
+---
+
+## **🔠 normalization.js**  
+**Normalización de texto para búsquedas.**  
+
+### **Métodos Disponibles**  
+| Método | Descripción | Ejemplo |  
+|--------|-------------|---------|  
+| `normalize(text)` | Elimina acentos y símbolos | `normalize("Máquina Verá") → "maquina vera"` |  
+| `sanitize(input)` | Limpia texto peligroso | `sanitize("<script>Hola</script>") → "Hola"` |  
+| `isMetroRelated(text)` | Detecta si el texto menciona el metro | `isMetroRelated("¿Dónde está la estación?") → true` |  
+
+**Uso:**  
+```js
+const { normalize } = require('./normalization');
+const searchTerm = normalize(userInput); // Para búsquedas
+```
+
+---
+
+## **📌 Ejemplo de Uso Combinado**  
+
+```js
+const { normalizeKey } = require('./lineProcessing');
+const { formatName } = require('./stationFormatting');
+const { decorateStation } = require('./decorators');
+const { isValidLine } = require('./validators');
+
+function showStationInfo(rawName, lineCode) {
+    if (!isValidLine(lineCode)) {
+        return "❌ Línea no válida";
+    }
+
+    const cleanName = formatName(rawName);
+    const lineKey = normalizeKey(lineCode);
+    return decorateStation(cleanName, { 
+        line: lineKey,
+        status: "1" 
+    });
+}
+
+// Output: "🟩 <:Linea1:123> Los Heroes"
+console.log(showStationInfo("estación LOS HÉROES", "L1"));
+```
+
+---
+
+## **⚙️ Integración con MetroCore**  
+Los utils se usan internamente en `MetroCore` para:  
+- Formatear nombres de estaciones en `getStation()`  
+- Normalizar búsquedas en `searchStations()`  
+- Decorar mensajes en handlers de Discord  
+
+```js
+// Dentro de MetroCore.js
+const station = {
+    name: this.utils.formatName(rawName),
+    line: this.utils.normalizeKey(lineCode),
+    display: this.utils.decorate.decorateStation(rawName, { line: lineCode })
+};
+```
+
+---
+
+## **📌 Notas Clave**  
+1. **Consistencia**: Todos los métodos manejan `null`/`undefined` de forma segura.  
+2. **Eficiencia**: Las operaciones están optimizadas para alto rendimiento.  
+3. **Discord**: Los decorators usan formatos compatibles con Discord (emojis personalizados).  
+
+---
+
+Esta documentación cubre todas las utilidades esenciales para el manejo de datos en el sistema MetroCore. 🚇

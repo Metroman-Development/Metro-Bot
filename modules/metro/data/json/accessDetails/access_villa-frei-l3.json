@@ -1,0 +1,94 @@
+{
+  "station": "villa frei",
+  "line": "l3",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Irarrázaval",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T13:08:00.331Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "EXA",
+      "from": "Exterior Acceso A",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso A→Servicios",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:08:00.331Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUCA",
+      "from": "Andén Plaza Quilicura",
+      "to": "Cambio de Andén",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:08:00.331Z",
+      "notes": ""
+    },
+    {
+      "id": "FCVCASR",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén→Servicios",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén", 
+          "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:08:00.332Z",
+      "notes": ""
+    }
+
+  ],
+  "escalators": [
+    {
+      "id": "SREXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:08:00.332Z",
+      "notes": ""
+    },
+    {
+      "id": "CASR",
+      "from": "Cambio de Andén",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén→Servicios",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:08:00.332Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T13:08:00.330Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T13:08:01.879Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

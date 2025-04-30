@@ -1,0 +1,17 @@
+[2025-04-25T18-01-35-315Z] ERROR:
+Name: Error
+Message: DISCORD_CLIENT_ERROR
+Stack:
+Error: DISCORD_CLIENT_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/error.js:7:16)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at emitUnhandledRejectionOrErr (node:events:401:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Metadata: {
+  "error": "The reply to this interaction has already been sent or deferred.",
+  "stack": "Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.\n    at ButtonInteraction.reply (/home/container/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:163:46)\n    at CommerceResultsManager.handleInteraction (/home/container/modules/interactions/buttons/CommerceResultsManager.js:67:31)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "timestamp": "2025-04-25T18:01:35.315Z"
+}
+

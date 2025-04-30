@@ -1,0 +1,16 @@
+[2025-04-16T16-13-28-495Z] ERROR:
+Name: Error
+Message: [UpdateProcessor] Batch update failed
+Stack:
+Error: [UpdateProcessor] Batch update failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateProcessor._handleBatchUpdateError (/home/container/modules/status/embeds/UpdateProcessor.js:479:16)
+    at UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:215:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:88:17)
+Metadata: {
+  "updateId": "data_update-1744819827493-4xdy",
+  "error": "changes is not defined",
+  "retryCount": 3
+}
+

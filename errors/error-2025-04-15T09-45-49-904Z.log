@@ -1,0 +1,389 @@
+[2025-04-15T09-45-49-904Z] ERROR:
+Name: Error
+Message: OVERVIEW_EMBED_FAILED
+Stack:
+Error: OVERVIEW_EMBED_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:61:20)
+    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)
+    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)
+    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:190:13)
+    at async /home/container/modules/metro/core/MetroCore.js:128:13
+Metadata: {
+  "error": "Received one or more errors",
+  "stack": "Error: Received one or more errors\n    at _ArrayValidator.handle (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:1254:70)\n    at _ArrayValidator.parse (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:972:90)\n    at EmbedBuilder.addFields (/home/container/node_modules/@discordjs/builders/dist/index.js:225:31)\n    at #addTransferStatusField (/home/container/modules/status/embeds/StatusEmbedBuilder.js:171:19)\n    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:42:41)\n    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)\n    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)\n    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)\n    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "input": {
+    "status": "Toda la red operativa",
+    "statusEn": "Full network operational",
+    "statusCode": "1",
+    "networkScale": 1,
+    "totalSeverity": 124,
+    "severityLabel": "Moderada",
+    "severityLabelEn": "Moderate",
+    "details": {
+      "lines": {
+        "l2": {
+          "name": "Línea 2",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 8,
+          "connectedTransfers": []
+        },
+        "l4a": {
+          "name": "Línea 4a",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 1,
+          "connectedTransfers": []
+        }
+      },
+      "stations": [
+        {
+          "id": "sp",
+          "name": "San Pablo L1",
+          "line": "l1",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 52,
+          "connectedLines": [
+            "l5"
+          ]
+        },
+        {
+          "id": "hsr",
+          "name": "Hospital Sótero del Río",
+          "line": "l4",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 20,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "eco",
+          "name": "Elisa Correa",
+          "line": "l4",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 15,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "lib",
+          "name": "Los Libertadores",
+          "line": "l3",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 12,
+          "connectedLines": [
+            "l3"
+          ]
+        },
+        {
+          "id": "fr",
+          "name": "Franklin L2",
+          "line": "l2",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 6,
+          "connectedLines": [
+            "l6"
+          ]
+        },
+        {
+          "id": "rqu",
+          "name": "Quilín",
+          "line": "l4",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 5,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "mac",
+          "name": "Macul",
+          "line": "l4",
+          "status": "suspendido",
+          "statusEn": "suspended",
+          "severity": 5,
+          "connectedLines": [
+            "l4"
+          ]
+        }
+      ],
+      "transfers": [
+        {
+          "station": "sp",
+          "lines": [
+            "l1",
+            "l5"
+          ],
+          "totalSeverity": 52
+        },
+        {
+          "station": "fr",
+          "lines": [
+            "l2",
+            "l6"
+          ],
+          "totalSeverity": 6
+        },
+        {
+          "station": "lib",
+          "lines": [
+            "l3",
+            "l3"
+          ],
+          "totalSeverity": 12
+        },
+        {
+          "station": "rqu",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 5
+        },
+        {
+          "station": "mac",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 5
+        },
+        {
+          "station": "eco",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 15
+        },
+        {
+          "station": "hsr",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 20
+        }
+      ]
+    },
+    "segments": {
+      "l2": [
+        {
+          "line": "l2",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "stations": [
+            "FR"
+          ],
+          "firstStation": "FR",
+          "lastStation": "FR",
+          "count": 1,
+          "severity": 8
+        }
+      ]
+    },
+    "summary": {
+      "es": {
+        "estadoGeneral": "Toda la red operativa",
+        "escalaRed": 1,
+        "severidadTotal": 124,
+        "nivelSeveridad": "Moderada",
+        "resumenDetallado": {
+          "lineasAfectadas": [
+            {
+              "linea": "Línea 2",
+              "estado": "servicio parcial",
+              "severidad": 8
+            },
+            {
+              "linea": "Línea 4a",
+              "estado": "suspendido",
+              "severidad": 1
+            }
+          ],
+          "segmentosCriticos": [
+            {
+              "linea": "L2",
+              "segmento": "FR ↔ FR",
+              "estaciones": 1,
+              "estado": "servicio parcial",
+              "severidad": 8
+            }
+          ],
+          "transferenciasAfectadas": [
+            {
+              "estacion": "SP",
+              "lineas": "L1 ↔ L5",
+              "severidad": 52
+            },
+            {
+              "estacion": "FR",
+              "lineas": "L2 ↔ L6",
+              "severidad": 6
+            },
+            {
+              "estacion": "LIB",
+              "lineas": "L3 ↔ L3",
+              "severidad": 12
+            },
+            {
+              "estacion": "RQU",
+              "lineas": "L4 ↔ L4",
+              "severidad": 5
+            },
+            {
+              "estacion": "MAC",
+              "lineas": "L4 ↔ L4",
+              "severidad": 5
+            },
+            {
+              "estacion": "ECO",
+              "lineas": "L4 ↔ L4",
+              "severidad": 15
+            },
+            {
+              "estacion": "HSR",
+              "lineas": "L4 ↔ L4",
+              "severidad": 20
+            }
+          ],
+          "estacionesCriticas": [
+            {
+              "estacion": "San Pablo L1",
+              "lineas": "L1 + L5",
+              "severidad": 52
+            },
+            {
+              "estacion": "Hospital Sótero del Río",
+              "lineas": "L4 + L4",
+              "severidad": 20
+            },
+            {
+              "estacion": "Elisa Correa",
+              "lineas": "L4 + L4",
+              "severidad": 15
+            },
+            {
+              "estacion": "Los Libertadores",
+              "lineas": "L3 + L3",
+              "severidad": 12
+            },
+            {
+              "estacion": "Franklin L2",
+              "lineas": "L2 + L6",
+              "severidad": 6
+            }
+          ]
+        }
+      },
+      "en": {
+        "overallStatus": "Toda la red operativa",
+        "networkScale": 1,
+        "totalSeverity": 124,
+        "severityLevel": "Moderate",
+        "detailedSummary": {
+          "affectedLines": [
+            {
+              "line": "Línea 2",
+              "status": "partial",
+              "severity": 8
+            },
+            {
+              "line": "Línea 4a",
+              "status": "suspended",
+              "severity": 1
+            }
+          ],
+          "criticalSegments": [
+            {
+              "line": "L2",
+              "segment": "FR ↔ FR",
+              "stations": 1,
+              "status": "partial",
+              "severity": 8
+            }
+          ],
+          "affectedTransfers": [
+            {
+              "station": "SP",
+              "lines": "L1 ↔ L5",
+              "severity": 52
+            },
+            {
+              "station": "FR",
+              "lines": "L2 ↔ L6",
+              "severity": 6
+            },
+            {
+              "station": "LIB",
+              "lines": "L3 ↔ L3",
+              "severity": 12
+            },
+            {
+              "station": "RQU",
+              "lines": "L4 ↔ L4",
+              "severity": 5
+            },
+            {
+              "station": "MAC",
+              "lines": "L4 ↔ L4",
+              "severity": 5
+            },
+            {
+              "station": "ECO",
+              "lines": "L4 ↔ L4",
+              "severity": 15
+            },
+            {
+              "station": "HSR",
+              "lines": "L4 ↔ L4",
+              "severity": 20
+            }
+          ],
+          "criticalStations": [
+            {
+              "station": "San Pablo L1",
+              "lines": "L1 + L5",
+              "severity": 52
+            },
+            {
+              "station": "Hospital Sótero del Río",
+              "lines": "L4 + L4",
+              "severity": 20
+            },
+            {
+              "station": "Elisa Correa",
+              "lines": "L4 + L4",
+              "severity": 15
+            },
+            {
+              "station": "Los Libertadores",
+              "lines": "L3 + L3",
+              "severity": 12
+            },
+            {
+              "station": "Franklin L2",
+              "lines": "L2 + L6",
+              "severity": 6
+            }
+          ]
+        }
+      }
+    },
+    "timestamp": "2025-04-15T09:45:43.723Z"
+  }
+}
+

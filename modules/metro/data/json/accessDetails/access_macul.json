@@ -1,0 +1,61 @@
+{
+  "station": "macul",
+  "line": "l4",
+  "accesses": [
+    {
+      "id": "AccesoA(Descripción",
+      "name": "Acceso A (Descripción",
+      "description": ""
+    },
+    {
+      "id": "AccesoB",
+      "name": "Acceso B",
+      "description": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "A",
+      "from": "Calle",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T23:47:32.929Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "from": "Boletería",
+      "to": "Andén",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T23:47:32.929Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "1",
+      "from": "Andén",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T23:47:32.929Z",
+      "notes": ""
+    },
+    {
+      "id": "2",
+      "from": "Boletería",
+      "to": "Calle",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T23:47:32.929Z",
+      "notes": ""
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-25T23:47:32.929Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ],
+  "lastUpdated": "2025-04-25T23:47:32.929Z"
+}

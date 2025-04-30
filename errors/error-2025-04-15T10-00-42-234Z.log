@@ -1,0 +1,17 @@
+[2025-04-15T10-00-42-234Z] ERROR:
+Name: Error
+Message: [UpdateProcessor] No allStations data available for message generation, falling back
+Stack:
+Error: [UpdateProcessor] No allStations data available for message generation, falling back
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateProcessor._prepareChangeMessages (/home/container/modules/status/embeds/UpdateProcessor.js:98:16)
+    at UpdateProcessor.processChanges (/home/container/modules/status/embeds/UpdateProcessor.js:82:37)
+    at /home/container/modules/status/embeds/UpdateListener.js:245:45
+    at Job.task (/home/container/modules/status/embeds/UpdateListener.js:646:51)
+    at /home/container/node_modules/bottleneck/lib/Job.js:141:109
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (/home/container/node_modules/bottleneck/lib/Job.js:3:103)
+    at _next (/home/container/node_modules/bottleneck/lib/Job.js:5:194)
+    at /home/container/node_modules/bottleneck/lib/Job.js:5:364
+Metadata: {}
+

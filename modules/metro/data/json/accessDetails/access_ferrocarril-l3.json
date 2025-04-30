@@ -1,0 +1,92 @@
+{
+  "station": "ferrocarril",
+  "line": "l3",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Manuel Antonio Matta",
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "EXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUSR",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios",
+      "fullPath": "Andén Plaza Quilicura→Servicios",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    },
+    {
+      "id": "FCVSR",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios",
+      "fullPath": "Andén Fernando Castillo Velasco→Servicios",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "SR01EXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    },
+    {
+      "id": "EXA02SR",
+      "from": "Exterior Acceso A",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso A→Servicios",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:17:05.506Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-27T14:17:05.506Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-27T14:17:14.351Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

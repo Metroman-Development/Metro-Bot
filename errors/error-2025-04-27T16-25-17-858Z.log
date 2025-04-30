@@ -1,0 +1,17 @@
+[2025-04-27T16-25-17-858Z] ERROR:
+Name: Error
+Message: Failed to load button template DisambiguationHandler.js:
+Stack:
+Error: Failed to load button template DisambiguationHandler.js:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at /home/container/modules/interactions/interactionHandler.js:59:32
+    at Array.forEach (<anonymous>)
+    at InteractionHandler._loadButtonTemplates (/home/container/modules/interactions/interactionHandler.js:40:18)
+    at InteractionHandler._loadTemplates (/home/container/modules/interactions/interactionHandler.js:23:14)
+    at new InteractionHandler (/home/container/modules/interactions/interactionHandler.js:15:14)
+    at Object.<anonymous> (/home/container/modules/interactions/interactionHandler.js:176:18)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+Metadata: {}
+

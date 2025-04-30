@@ -1,0 +1,55 @@
+{
+  "l7": {
+    "Comunas": ["Renca", "Cerro Navia", "Quinta Normal", "Santiago", "Recoleta", "Providencia", "Las Condes", "Vitacura"],
+    "Estreno": "2028 (estimado)",
+    "Longitud": "26 km",
+    "N° estaciones": "19",
+    "Electrificación": "1500 VCC (catenaria)",
+    "Características": "Nueva línea que conecta el norponiente con el nororiente de Santiago, con interconexiones a múltiples líneas existentes y futuras.",
+    "Flota": ["Alstom AS-2022"],
+    "Color": "Gris",
+    "Interconexiones": {
+      "Línea 1": ["Baquedano", "Pedro de Valdivia"],
+      "Línea 2": ["Puente Cal y Canto"],
+      "Línea 3": ["Puente Cal y Canto"],
+      "Línea 5": ["Baquedano"],
+      "Línea 6": ["Isidora Goyenechea"],
+      "Línea 9 (futura)": ["Puente Cal y Canto (a partir de 2032)"]
+    }
+  },
+  "l8": {
+    "Comunas": ["Providencia", "Ñuñoa", "Macul", "La Florida", "Puente Alto"],
+    "Estreno": "2032 (estimado)",
+    "Longitud": "19 km",
+    "N° estaciones": "14",
+    "Electrificación": "750 VCC",
+    "Características": "Nueva línea que conecta el nororiente con el suroriente de Santiago, pasando por comunas densamente pobladas.",
+    "Flota": ["Por definir (en licitación)"],
+    "Color": "Naranjo",
+    "Interconexiones": {
+      "Línea 1": ["Los Leones"],
+      "Línea 3": ["Chile España"],
+      "Línea 4": ["Macul"],
+      "Línea 6": ["Los Leones"]
+    }
+  },
+  "l9": {
+    "Comunas": ["Santiago", "San Miguel", "La Cisterna", "San Ramón", "La Granja", "La Pintana", "Puente Alto"],
+    "Estreno": "2032 (estimado)",
+    "Longitud": "25 km",
+    "N° estaciones": "18",
+    "Electrificación": "750 VCC",
+    "Características": "Conectará el centro de Santiago con el sector suroriente, incluyendo Puente Alto.",
+    "Flota": ["Por definir"],
+    "Color": "Rosado",
+    "Interconexiones": {
+      "Línea 1": ["Santa Lucía"],
+      "Línea 2": ["Puente Cal y Canto"],
+      "Línea 3": ["Matta", "Puente Cal y Canto"],
+      "Línea 4": ["Plaza de Puente Alto"],
+      "Línea 4A": ["Santa Rosa"],
+      "Línea 6": ["Bío Bío"],
+      "Línea 7": ["Puente Cal y Canto"]
+    }
+  }
+}

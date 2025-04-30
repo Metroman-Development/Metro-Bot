@@ -1,0 +1,262 @@
+{
+  "station": "Universidad de Chile",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Paseo Nueva York",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.803Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Arturo Prat",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.803Z",
+      "notes": ""
+    },
+    {
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Paseo Estado",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.803Z",
+      "notes": ""
+    },
+    {
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Serrano",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.803Z",
+      "notes": ""
+    },
+    {
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Arturo Prat",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.803Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LDSPBL1",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "SPLDBL1",
+      "from": "Andén San Pablo",
+      "to": "Boletería Línea 1",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB",
+      "to": "Exterior Acceso B",
+      "from": "Boletería Línea 1",
+      "fullPath": "Boletería Línea 1→Exterior Acceso B",
+      "segments": [
+        "Boletería Línea 1",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "LD01BL1",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "LD02BL1",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "SP03BL1",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "SP04BL1",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "BL1EXA",
+      "from": "Boletería",
+      "to": "Acceso A Paseo Nueva York",
+      "fullPath": "Boletería→Acceso A Paseo Nueva York",
+      "segments": [
+        "Boletería",
+        "Acceso A Paseo Nueva York"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "BL1EXE",
+      "from": "Boletería",
+      "to": "Acceso E Arturo Prat",
+      "fullPath": "Boletería→Acceso E Arturo Prat",
+      "segments": [
+        "Boletería",
+        "Acceso E Arturo Prat"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "BL1EXD",
+      "from": "Boletería",
+      "to": "Acceso D Paseo Serrano",
+      "fullPath": "Boletería→Acceso D Paseo Serrano",
+      "segments": [
+        "Boletería",
+        "Acceso D Paseo Serrano"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    },
+    {
+      "id": "BL1EXC",
+      "from": "Boletería",
+      "to": "Acceso C Paseo Estado",
+      "fullPath": "Boletería→Acceso C Paseo Estado",
+      "segments": [
+        "Boletería",
+        "Acceso C Paseo Estado"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:20:55.754Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T19:38:15.803Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T12:21:07.854Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.393Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.393Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.393Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.393Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.393Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "E: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.803Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.803Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.803Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.803Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.803Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "E: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[2025-04-13T22-57-00-684Z] ERROR:
+Name: Error
+Message: Error building status message: metroCore.api.changes.getLastChange is not a function
+Stack:
+Error: Error building status message: metroCore.api.changes.getLastChange is not a function
+    at Object.error (/home/container/events/logger.js:152:27)
+    at buildStatusMessage (/home/container/events/presenceUpdater.js:122:16)
+    at updatePresence (/home/container/events/presenceUpdater.js:150:35)
+    at initializePresenceUpdates (/home/container/events/presenceUpdater.js:168:5)
+    at Object.execute (/home/container/events/Discord/ready.js:22:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+

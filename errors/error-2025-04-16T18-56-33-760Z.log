@@ -1,0 +1,22 @@
+[2025-04-16T18-56-33-760Z] ERROR:
+Name: Error
+Message: Error loading contextMenus templates:
+Stack:
+Error: Error loading contextMenus templates:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at /home/container/modules/interactions/interactionHandler.js:62:16
+    at Array.forEach (<anonymous>)
+    at InteractionHandler.loadTemplates (/home/container/modules/interactions/interactionHandler.js:26:20)
+    at new InteractionHandler (/home/container/modules/interactions/interactionHandler.js:15:10)
+    at Object.<anonymous> (/home/container/modules/interactions/interactionHandler.js:170:18)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+Metadata: {
+  "errno": -2,
+  "code": "ENOENT",
+  "syscall": "stat",
+  "path": "/home/container/modules/interactions/contextMenus/templates"
+}
+

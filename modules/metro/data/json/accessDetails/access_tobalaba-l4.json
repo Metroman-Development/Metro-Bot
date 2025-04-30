@@ -1,0 +1,455 @@
+{
+  "station": "tobalaba",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.602Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.602Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Nueva Providencia"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Tobalaba"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Luis Thayer Ojeda Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Encomenderos"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": "",
+      "id": "F",
+      "name": "Acceso F",
+      "description": "Av. Apoquindo"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "SPHL4EXB",
+      "from": "Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+      "to": "Exterior Acceso B",
+      "fullPath": "Combinación Línea 1 Andén San Pablo / Hall Línea 4→Exterior Acceso B",
+      "segments": [
+        "Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "LDHL4EXC",
+      "from": "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+      "to": "Exterior Acceso C",
+      "fullPath": "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4→Exterior Acceso C",
+      "segments": [
+        "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+        "Exterior Acceso C"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "PPALDHL4",
+      "from": "Andén Plaza de Puente Alto",
+      "to": "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+      "fullPath": "Andén Plaza de Puente Alto→Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "PPASPHL4",
+      "from": "Andén Plaza de Puente Alto",
+      "to": "Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+      "fullPath": "Andén Plaza de Puente Alto→Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Combinación Línea 1 Andén San Pablo / Hall Línea 4"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOBLDHL4",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+      "fullPath": "Andén Tobalaba→Combinación Línea 1 Andén Los Dominicos / Hall Línea 4",
+      "segments": [
+        "Andén Tobalaba",
+        "Combinación Línea 1 Andén Los Dominicos / Hall Línea 4"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOBSPHL4",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+      "fullPath": "Andén Tobalaba→Combinación Línea 1 Andén San Pablo / Hall Línea 4",
+      "segments": [
+        "Andén Tobalaba",
+        "Combinación Línea 1 Andén San Pablo / Hall Línea 4"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "EXA",
+      "from": "Boletería Línea 4",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería Línea 4→Exterior Acceso A",
+      "segments": [
+        "Boletería Línea 4",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "SPBL4",
+      "from": "Combinación Línea 1 Andén San Pablo",
+      "to": "Boletería Línea 4",
+      "fullPath": "Combinación Línea 1 Andén San Pablo→Boletería Línea 4",
+      "segments": [
+        "Combinación Línea 1 Andén San Pablo",
+        "Boletería Línea 4"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOB10LD",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén Los Dominicos",
+      "fullPath": "Andén Tobalaba→Combinación Línea 1 Andén Los Dominicos",
+      "segments": [
+        "Andén Tobalaba",
+        "Combinación Línea 1 Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOB11LD",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén Los Dominicos",
+      "fullPath": "Andén Tobalaba→Combinación Línea 1 Andén Los Dominicos",
+      "segments": [
+        "Andén Tobalaba",
+        "Combinación Línea 1 Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOB12EXE",
+      "from": "Andén Tobalaba",
+      "to": "Exterior Acceso E",
+      "fullPath": "Andén Tobalaba→Exterior Acceso E",
+      "segments": [
+        "Andén Tobalaba",
+        "Exterior Acceso E"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "TOB13EXE",
+      "from": "Andén Tobalaba",
+      "to": "Exterior Acceso E",
+      "fullPath": "Andén Tobalaba→Exterior Acceso E",
+      "segments": [
+        "Andén Tobalaba",
+        "Exterior Acceso E"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL14DSEXF",
+      "from": "Explanada",
+      "to": "Descanso Exterior Acceso F",
+      "fullPath": "Explanada→Descanso Exterior Acceso F",
+      "segments": [
+        "Explanada",
+        "Descanso Exterior Acceso F"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL15DSEXF",
+      "from": "Explanada",
+      "to": "Descanso Exterior Acceso F",
+      "fullPath": "Explanada→Descanso Exterior Acceso F",
+      "segments": [
+        "Explanada",
+        "Descanso Exterior Acceso F"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "DS16EXF",
+      "from": "Descanso",
+      "to": "Salida Exterior Acceso F",
+      "fullPath": "Descanso→Salida Exterior Acceso F",
+      "segments": [
+        "Descanso",
+        "Salida Exterior Acceso F"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "DS17EXF",
+      "from": "Descanso",
+      "to": "Salida Exterior Acceso F",
+      "fullPath": "Descanso→Salida Exterior Acceso F",
+      "segments": [
+        "Descanso",
+        "Salida Exterior Acceso F"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL18DS1EXE",
+      "from": "Explanada",
+      "to": "Primer Descanso Exterior Acceso E",
+      "fullPath": "Explanada→Primer Descanso Exterior Acceso E",
+      "segments": [
+        "Explanada",
+        "Primer Descanso Exterior Acceso E"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL19DS1EXE",
+      "from": "Explanada",
+      "to": "Primer Descanso Exterior Acceso E",
+      "fullPath": "Explanada→Primer Descanso Exterior Acceso E",
+      "segments": [
+        "Explanada",
+        "Primer Descanso Exterior Acceso E"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB",
+      "from": "Acceso",
+      "to": "Exterior Acceso B",
+      "fullPath": "Acceso→Exterior Acceso B",
+      "segments": [
+        "Acceso",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL20DS2EXE",
+      "from": "Explanada",
+      "to": "Segundo Descanso Exterior Acceso E",
+      "fullPath": "Explanada→Segundo Descanso Exterior Acceso E",
+      "segments": [
+        "Explanada",
+        "Segundo Descanso Exterior Acceso E"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:26:42.603Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL21DS2EXE",
+      "from": "Explanada",
+      "to": "Segundo Descanso Acceso E",
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:31:55.901Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL22DS2EXE",
+      "from": "Explanada",
+      "to": "Segundo Descanso Acceso E",
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:33:19.763Z",
+      "notes": ""
+    },
+    {
+      "id": "EPL23DS2EXE",
+      "from": "Explanada",
+      "to": "Segundo Descanso Acceso E",
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:35:44.488Z",
+      "notes": ""
+    },
+    {
+      "id": "LDBL4",
+      "from": "Combinación Línea 1 Andén Los Dominicos",
+      "to": "Boletería Línea 4",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-04-28T14:37:33.852Z",
+      "notes": ""
+    },
+    {
+      "id": "EXC",
+      "from": "Acceso",
+      "to": "Exterior Acceso C",
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:39:16.690Z",
+      "notes": ""
+    },
+    {
+      "id": "TOB06SP",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén San Pablo",
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:40:36.948Z",
+      "notes": ""
+    }, 
+      {
+
+      "id": "TOB07SP",
+
+      "from": "Andén Tobalaba",
+
+      "to": "Combinación Línea 1 Andén San Pablo",
+
+      "status": "operativa",
+
+      "lastUpdated": "2025-04-28T14:40:36.948Z",
+
+      "notes": ""
+
+    }, 
+      {
+
+      "id": "TOB08LD",
+
+      "from": "Andén Tobalaba",
+
+      "to": "Combinación Línea 1 Andén Los Dominicos", 
+
+          
+
+         
+
+      "status": "operativa",
+
+      "lastUpdated": "2025-04-28T14:40:36.948Z",
+
+      "notes": ""
+
+    }, 
+      {
+      "id": "TOB09LD",
+      "from": "Andén Tobalaba",
+      "to": "Combinación Línea 1 Andén Los Dominicos", 
+          
+         
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T14:40:36.948Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T14:40:36.948Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T14:26:46.768Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T14:31:55.901Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: EPL21DSEXE, Rutas: Explanada→Segundo Descanso Acceso E"
+    },
+    {
+      "timestamp": "2025-04-28T14:33:19.763Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: EPL22DS2EXE, Rutas: Explanada→Segundo Descanso Acceso E"
+    },
+    {
+      "timestamp": "2025-04-28T14:35:44.488Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: EPL23DS2EXE, Rutas: Explanada→Segundo Descanso Acceso E"
+    },
+    {
+      "timestamp": "2025-04-28T14:37:33.852Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: LDBL4, Rutas: Combinación Línea 1 Andén Los Dominicos→Boletería Línea 4"
+    },
+    {
+      "timestamp": "2025-04-28T14:39:16.690Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: EXC, Rutas: Acceso→Exterior Acceso C"
+    },
+    {
+      "timestamp": "2025-04-28T14:40:36.948Z",
+      "user": "metromanrrss",
+      "action": "Añadida escalera",
+      "details": "ID: TOB06SP, Rutas: Andén Tobalaba→Combinación Línea 1 Andén San Pablo"
+    }
+  ]
+}

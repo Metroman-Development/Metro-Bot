@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "version": 2,
+    "migratedAt": "2025-04-11T16:22:19.866Z",
+    "source": [
+      "template"
+    ],
+    "lastUpdated": "2025-04-11T16:22:19.866Z"
+  },
+  "basicInfo": {
+    "id": "plaza_egana_",
+    "lineId": "l4",
+    "name": "Plaza Egaña L4",
+    "code": "PEG",
+    "displayName": "Plaza Egaña L4",
+    "color": "#00a1e4"
+  },
+  "status": {
+    "code": "1",
+    "description": "Estación Operativa",
+    "appMessage": "Habilitada",
+    "combination": "L3"
+  },
+  "services": {
+    "tickets": {
+      "selfService": false,
+      "atm": false,
+      "phones": false,
+      "bibliometro": false,
+      "clientService": false,
+      "vendingMachines": false
+    },
+    "topUp": {
+      "bipPoints": false,
+      "mobileTopUp": false
+    },
+    "info": {
+      "metroArte": false,
+      "metroInforma": false
+    }
+  },
+  "access": {
+    "points": [],
+    "accessibility": []
+  },
+  "connections": {
+    "transports": [],
+    "bikes": []
+  },
+  "amenities": [],
+  "commerce": [],
+  "schematics": [],
+  "images": []
+}

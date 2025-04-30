@@ -1,0 +1,13 @@
+[2025-04-29T13-15-07-630Z] ERROR:
+Name: Error
+Message: [StatusOverride] Failed to load overrides
+Stack:
+Error: [StatusOverride] Failed to load overrides
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:105:20)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:464:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:200:21)
+    at async /home/container/modules/metro/core/MetroCore.js:145:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {}
+

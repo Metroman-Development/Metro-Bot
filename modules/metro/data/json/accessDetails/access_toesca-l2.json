@@ -1,0 +1,60 @@
+{
+  "station": "toesca",
+  "line": "l2",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Santa Isabel",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:57:41.407Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Manuel Rodríguez",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:57:41.407Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "PIBLN",
+      "from": "Andén Hospital El Pino",
+      "to": "Boletería Norte",
+      "fullPath": "Andén Hospital El Pino→Boletería Norte",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Boletería Norte"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T16:57:41.407Z",
+      "notes": ""
+    },
+    {
+      "id": "AVBLN",
+      "from": "Andén Vespucio Norte",
+      "to": "Boletería Norte",
+      "fullPath": "Andén Vespucio Norte→Boletería Norte",
+      "segments": [
+        "Andén Vespucio Norte",
+        "Boletería Norte"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T16:57:41.407Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-26T16:57:41.407Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T16:58:00.746Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

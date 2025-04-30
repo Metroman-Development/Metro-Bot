@@ -1,0 +1,17 @@
+[2025-04-16T19-10-34-355Z] ERROR:
+Name: Error
+Message: [InteractionHandler] Failed to load buttons template baseButton.js:
+Stack:
+Error: [InteractionHandler] Failed to load buttons template baseButton.js:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at /home/container/modules/interactions/interactionHandler.js:67:36
+    at Array.forEach (<anonymous>)
+    at /home/container/modules/interactions/interactionHandler.js:46:22
+    at Array.forEach (<anonymous>)
+    at InteractionHandler.loadTemplates (/home/container/modules/interactions/interactionHandler.js:35:24)
+    at InteractionHandler.initialize (/home/container/modules/interactions/interactionHandler.js:23:14)
+    at new InteractionHandler (/home/container/modules/interactions/interactionHandler.js:16:14)
+    at Object.<anonymous> (/home/container/modules/interactions/interactionHandler.js:247:18)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+Metadata: {}
+

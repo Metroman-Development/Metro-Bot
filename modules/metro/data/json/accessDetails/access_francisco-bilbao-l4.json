@@ -1,0 +1,113 @@
+{
+  "station": "francisco Bilbao",
+  "line": "l4",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Tobalaba Oriente",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T17:12:19.151Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Tobalaba Poniente",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T17:12:19.151Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "TOB",
+      "from": "Andén Tobalaba",
+      "to": "Boletería",
+      "fullPath": "Andén Tobalaba→Boletería",
+      "segments": [
+        "Andén Tobalaba",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.151Z",
+      "notes": ""
+    },
+    {
+      "id": "PPA",
+      "from": "Andén Plaza de Puente Alto",
+      "to": "Boletería",
+      "fullPath": "Andén Plaza de Puente Alto→Boletería",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.151Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB",
+      "from": "Boletería",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería→Exterior Acceso B",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.152Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "BL01EXA",
+      "from": "Boletería",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería→Exterior Acceso A",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.152Z",
+      "notes": ""
+    },
+    {
+      "id": "BL02EXA",
+      "from": "Boletería",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería→Exterior Acceso A",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.152Z",
+      "notes": ""
+    },
+    {
+      "id": "BLEXA",
+      "from": "Boletería",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería→Exterior Acceso B",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T17:12:19.152Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T17:12:19.149Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T17:12:23.757Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

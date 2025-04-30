@@ -1,0 +1,351 @@
+{
+  "station": "Universidad de Chile",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Paseo Nueva York"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Paseo Ahumada"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Paseo Estado"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Serrano"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Arturo Prat"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "FCVCA3",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUCA3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO3SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO3LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": ""
+    },
+    {
+      "id": "SREXA",
+      "from": "Servicios Línea 3",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios Línea 3→Exterior Acceso A",
+      "segments": [
+        "Servicios Línea 3",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "SR301EXB",
+      "from": "Servicios Línea 3",
+      "to": "Acceso B Paseo Ahumada",
+      "fullPath": "Servicios Línea 3→Acceso B",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "CA310SR3",
+      "from": "Cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Cambio de Andén Línea 1→Servicios Línea 3",
+      "segments": [
+        "Cambio de Andén Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "SR311CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén Línea 1",
+      "fullPath": "Servicios Línea 3→Cambio de Andén",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO313SR3",
+      "from": "Combinación a Línea 1",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 1→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO314SR3",
+      "from": "Combinación a Línea 1",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 1→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO315SR3",
+      "from": "Combinación a Línea 1",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 1→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "SR316CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén Línea 1",
+      "fullPath": "Servicios Línea 3→Cambio de Andén Línea 1",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "SR317CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén Línea 1",
+      "fullPath": "Servicios Línea 3→Cambio de Andén Línea 1",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "CA318SR3",
+      "from": "Cambio de Andén Línea 1",
+      "to": "Servicios Línea 3",
+      "fullPath": "Cambio de Andén Línea 1→Servicios Línea 3",
+      "segments": [
+        "Cambio de Andén Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "SR302EXB",
+      "from": "Servicios Línea 3",
+      "to": "Acceso B",
+      "fullPath": "Servicios Línea 3→Acceso B",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB03SR3",
+      "from": "Acceso B",
+      "to": "Servicios Línea 3",
+      "fullPath": "Acceso B→Servicios Línea 3",
+      "segments": [
+        "Acceso B",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB04SR3",
+      "from": "Acceso B",
+      "to": "Servicios Línea 3",
+      "fullPath": "Acceso B→Servicios Línea 3",
+      "segments": [
+        "Acceso B",
+        "Servicios Línea 3"
+      ],
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-04-28T12:11:04.707Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO305SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO306SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO307LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO308LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    },
+    {
+      "id": "1CO309SR3",
+      "from": "Combinación a Línea 1",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 1→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 1",
+        "Servicios Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.689Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T12:11:04.707Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T12:00:39.026Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T12:11:04.707Z",
+      "user": "metromanrrss",
+      "action": "Editado EXB04SR3",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    }
+  ]
+}

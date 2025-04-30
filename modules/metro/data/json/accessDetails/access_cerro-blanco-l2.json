@@ -1,0 +1,126 @@
+{
+  "station": "Cerro Blanco",
+  "line": "l2",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Santos Dumont",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Doctor Raimundo Charlin",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "PI",
+      "from": "Andén Hospital El Pino",
+      "to": "Boletería",
+      "fullPath": "Andén Hospital El Pino→Boletería",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    },
+    {
+      "id": "AV",
+      "from": "Andén Vespucio Norte",
+      "to": "Boletería",
+      "fullPath": "Andén Vespucio Norte→Boletería",
+      "segments": [
+        "Andén Vespucio Norte",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    },
+    {
+      "id": "EXA",
+      "from": "Boletería",
+      "to": "Av. Recoleta entre Accesos A y B",
+      "fullPath": "Boletería→Av. Recoleta entre Accesos A y B",
+      "segments": [
+        "Boletería",
+        "Av. Recoleta entre Accesos A y B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "BLDSA",
+      "from": "Boletería",
+      "to": "Descanso Acceso A",
+      "fullPath": "Boletería→Descanso Acceso A",
+      "segments": [
+        "Boletería",
+        "Descanso Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": ""
+    },
+    {
+      "id": "BLDSB",
+      "from": "Boletería",
+      "to": "Descanso Acceso B",
+      "fullPath": "Boletería→Descanso Acceso B",
+      "segments": [
+        "Boletería",
+        "Descanso Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.755Z",
+      "notes": ""
+    },
+    {
+      "id": "DSAEXA",
+      "from": "Descanso Acceso A",
+      "to": "Exterior Acceso A",
+      "fullPath": "Descanso Acceso A→Exterior Acceso A",
+      "segments": [
+        "Descanso Acceso A",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.755Z",
+      "notes": ""
+    },
+    {
+      "id": "DSBEXB",
+      "from": "Descanso Acceso B",
+      "to": "Exterior Acceso B",
+      "fullPath": "Descanso Acceso B→Exterior Acceso B",
+      "segments": [
+        "Descanso Acceso B",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:11:26.755Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-26T15:11:26.754Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T15:11:40.349Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

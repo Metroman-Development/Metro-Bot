@@ -1,0 +1,156 @@
+{
+  "lines": {
+    "0": {
+      "estado": 5,
+      "mensaje": "Servicio afectado por Evento: System Of A Down",
+      "mensaje_app": "Servicio afectado por Evento",
+      "enabled": false
+    },
+    "l1": {
+      "estado": "1",
+      "mensaje": "Línea con demoras por mantenimiento",
+      "mensaje_app": "Line delayed due to maintenance",
+      "enabled": false,
+      "expressSupressed": false,
+      "stations": [],
+      "metadata": {
+        "lastUpdated": "2025-04-29T12:37:36.682Z",
+        "updatedBy": "system"
+      }
+    },
+    "l5": {
+      "estado": "3",
+      "mensaje": "Servicio parcial entre Plaza de Maipú y Baquedano",
+      "mensaje_app": "Partial service between Plaza de Maipú and Baquedano",
+      "enabled": false,
+      "expressSupressed": true,
+      "stations": [],
+      "metadata": {
+        "lastUpdated": "2025-04-29T12:37:36.682Z",
+        "updatedBy": "system"
+      }
+    },
+    "L6": {
+      "estado": 5,
+      "mensaje": "Servicio afectado por Evento: System Of A Down",
+      "mensaje_app": "Servicio afectado por Evento",
+      "enabled": false
+    },
+    "L3": {
+      "estado": 5,
+      "mensaje": "Servicio afectado por Evento: System Of A Down",
+      "mensaje_app": "Servicio afectado por Evento",
+      "enabled": false
+    }
+  },
+  "stations": {
+    "vva": {
+      "estado": "2",
+      "descripcion": "Estación Cerrada",
+      "descripcion_app": "Cierre Temporal",
+      "enabled": false,
+      "isTransferOperational": true,
+      "accessPointsOperational": false,
+      "metadata": {
+        "lastUpdated": "2025-04-29T12:37:36.682Z",
+        "updatedBy": "system"
+      }
+    },
+    "go": {
+      "estado": "5",
+      "descripcion": "Estación de Ingreso Extensión Horaria",
+      "descripcion_app": "Extensión",
+      "enabled": false,
+      "isTransferOperational": false,
+      "accessPointsOperational": false,
+      "metadata": {
+        "lastUpdated": "2025-04-29T12:37:36.682Z",
+        "updatedBy": "system"
+      }
+    },
+    "cer": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "fra": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "nub": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "isu": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "len": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "pze": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "ira": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "uch": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "hos": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "cch": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "pqu": {
+      "estado": 5,
+      "descripcion": "Servicio Extendido Únicamente para Salida",
+      "descripcion_app": "Closed for special event",
+      "enabled": false
+    },
+    "esn": {
+      "estado": "1",
+      "descripcion": "Servicio Extendido Únicamente para Entrada",
+      "descripcion_app": "Horario Extendido por Evento",
+      "enabled": false,
+      "isTransferOperational": false,
+      "accessPointsOperational": false,
+      "metadata": {
+        "lastUpdated": "2025-04-29T13:25:15.791Z",
+        "updatedBy": "system"
+      }
+    },
+    "ESN": {
+      "estado": 1,
+      "descripcion": "Servicio Extendido Únicamente para Entrada",
+      "descripcion_app": "Horario Extendido por Evento",
+      "enabled": false
+    }
+  }
+}

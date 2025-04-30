@@ -1,0 +1,5 @@
+discord.js
+dotenv
+node-fetch
+python-shell
+string-similarity

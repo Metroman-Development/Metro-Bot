@@ -1,0 +1,18 @@
+[2025-04-16T13-08-27-676Z] ERROR:
+Name: Error
+Message: [ChangeDetector] Analysis failed
+Stack:
+Error: [ChangeDetector] Analysis failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at ChangeDetector.analyze (/home/container/modules/metro/core/services/ChangeDetector.js:54:20)
+    at UpdateProcessor._processDataUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:223:58)
+    at UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:185:41)
+    at UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:88:28)
+    at Timeout._onTimeout (/home/container/modules/status/embeds/UpdateProcessor.js:422:18)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {
+  "error": "Cannot convert undefined or null to object",
+  "stack": "TypeError: Cannot convert undefined or null to object\n    at Function.entries (<anonymous>)\n    at ChangeDetector._detectChanges (/home/container/modules/metro/core/services/ChangeDetector.js:70:16)\n    at ChangeDetector.analyze (/home/container/modules/metro/core/services/ChangeDetector.js:44:34)\n    at UpdateProcessor._processDataUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:223:58)\n    at UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:185:41)\n    at UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:88:28)\n    at Timeout._onTimeout (/home/container/modules/status/embeds/UpdateProcessor.js:422:18)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"
+}
+

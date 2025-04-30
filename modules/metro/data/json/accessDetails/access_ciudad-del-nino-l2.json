@@ -1,0 +1,73 @@
+{
+  "station": "Ciudad del Niño",
+  "line": "l2",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Gran Avenida José Miguel Carrera Poniente",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:44:11.690Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Gran Avenida José Miguel Carrera Oriente",
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:44:11.690Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "EXB",
+      "from": "Boletería",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería→Exterior Acceso B",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:44:11.690Z",
+      "notes": ""
+    },
+    {
+      "id": "PI",
+      "from": "Andén Hospital El Pino",
+      "to": "Boletería",
+      "fullPath": "Andén Hospital El Pino→Boletería",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:44:11.690Z",
+      "notes": ""
+    },
+    {
+      "id": "AV",
+      "from": "Andén Vespucio Norte",
+      "to": "Boletería",
+      "fullPath": "Andén Vespucio Norte→Boletería",
+      "segments": [
+        "Andén Vespucio Norte",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:44:11.690Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-26T17:44:11.690Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T17:44:19.168Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

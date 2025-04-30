@@ -1,0 +1,80 @@
+{
+  "station": "Universidad Católica",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Alameda Libertador Bernardo O'Higgins Norte",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.802Z"
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Alameda Libertador Bernardo O'Higgins Sur",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.802Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:50:12.977Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:50:12.977Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB",
+      "from": "Boletería",
+      "to": "Exterior Acceso B",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:50:12.977Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-28T19:38:15.802Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T09:50:32.501Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.338Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.338Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.802Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.802Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

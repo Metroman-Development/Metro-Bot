@@ -1,0 +1,22 @@
+[2025-04-22T20-36-18-008Z] ERROR:
+Name: Error
+Message: [MetroCore] Failed to emit undefined
+Stack:
+Error: [MetroCore] Failed to emit undefined
+    at Object.error (/home/container/events/logger.js:152:27)
+    at EventEngine.safeEmit (/home/container/modules/metro/core/internal/EventEngine.js:157:20)
+    at MetroCore.refreshStaticData (/home/container/modules/metro/core/MetroCore.js:346:14)
+    at async ApiService._ensureStaticDataFreshness (/home/container/modules/metro/core/services/ApiService.js:267:31)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:180:9)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:196:21)
+    at async /home/container/modules/metro/core/MetroCore.js:145:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {
+  "error": "Event undefined not registered",
+  "stack": "Error: Event undefined not registered\n    at EventEngine.safeEmit (/home/container/modules/metro/core/internal/EventEngine.js:138:23)\n    at MetroCore.refreshStaticData (/home/container/modules/metro/core/MetroCore.js:346:14)\n    at async ApiService._ensureStaticDataFreshness (/home/container/modules/metro/core/services/ApiService.js:267:31)\n    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:180:9)\n    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:196:21)\n    at async /home/container/modules/metro/core/MetroCore.js:145:13\n    at async Object.execute (/home/container/events/Discord/ready.js:19:27)",
+  "originalData": {
+    "version": "1.0.0-1745354178007",
+    "timestamp": 1745354178007
+  }
+}
+

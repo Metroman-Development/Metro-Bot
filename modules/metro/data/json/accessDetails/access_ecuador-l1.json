@@ -1,0 +1,105 @@
+{
+  "station": "\"Ecuador\"",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Alameda Libertador Bernardo O'Higgins Norte",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.776Z"
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Purísima Norte",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.776Z"
+    },
+    {
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Purísima Sur / Instituto Teletón Santiago",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.777Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T00:42:12.373Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T00:42:12.373Z",
+      "notes": ""
+    },
+    {
+      "id": "EXC",
+      "from": "Boletería",
+      "to": "Exterior Acceso C",
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T00:42:12.373Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-04-28T19:38:15.777Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T00:42:36.478Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T00:43:51.952Z",
+      "user": "metromanrrss",
+      "action": "Editado C",
+      "details": "description cambiado de \"Purísima Sur\" a \"Purísima Sur / Instituto Teletón Santiago\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.301Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.301Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.301Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.776Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.776Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.777Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

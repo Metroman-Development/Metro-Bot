@@ -1,0 +1,140 @@
+{
+  "station": "Puente cal y canto",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Centro Cultural Estación Mapocho"
+    },
+    {
+      "status": "cerrado",
+      "lastUpdated": "2025-04-26T16:28:33.392Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. La Paz Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. La Paz Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Puente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "General Mackenna Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": "",
+      "id": "F",
+      "name": "Acceso F",
+      "description": "General Mackenna Poniente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "2CO3PISR",
+      "from": "Conexión L2 L3",
+      "to": "Servicios Línea 2",
+      "fullPath": "Conexión L2 L3→Andén Hospital el Pino→Servicios Línea 2",
+      "segments": [
+        "Conexión L2 L3",
+        "Andén Hospital el Pino",
+        "Servicios Línea 2"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": ""
+    },
+    {
+      "id": "2CO3AVSR",
+      "from": "Conexión L2 L3",
+      "to": "Servicios Línea 2",
+      "fullPath": "Conexión L2 L3→Andén Vespucio Norte→Servicios Línea 2",
+      "segments": [
+        "Conexión L2 L3",
+        "Andén Vespucio Norte",
+        "Servicios Línea 2"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": ""
+    },
+    {
+      "id": "EXD",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería Línea 2→Exterior Acceso D",
+      "segments": [
+        "Boletería Línea 2",
+        "Exterior Acceso D"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "BL01EXD",
+      "from": "Boletería",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería→Exterior Acceso D",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso D"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": ""
+    },
+    {
+      "id": "BL02EXD",
+      "from": "Boletería",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería→Exterior Acceso D",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso D"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T15:58:52.316Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-26T16:28:33.392Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T15:59:02.962Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T16:28:33.392Z",
+      "user": "metromanrrss",
+      "action": "Editado B",
+      "details": "status cambiado de \"abierto\" a \"cerrado\""
+    }
+  ]
+}

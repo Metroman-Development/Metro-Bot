@@ -1,0 +1,924 @@
+Ns-74
+Datos generales
+Fabricante
+Alsthom Groupe Brissonneau
+Año fabricación
+1972-1981
+Unidades fabricadas
+49 trenes (245 unidades)
+24 trenes en servicio (168 unidades)[1]​[2]​
+Matriculación nacional
+3001 a 3049
+Servicios
+Pasajeros
+Operador
+Metro de Santiago
+Características técnicas
+Tipo de tracción
+Eléctrica
+Disposición de ejes
+B'B' (coches M y N)
+2'2' (coches P y R)
+Ancho de vía
+1435 mm
+Composición
+5 coches: M+P+N+R+M
+7 coches: M+P+N+R+N+R+M
+Velocidad máxima
+80 km/h
+Longitud
+5 coches: 82,90 m
+7 coches: 116,26 m
+Anchura
+2,6 m
+Altura
+3,61 m
+Peso
+5 coches: 126 t
+7 coches: 175 t
+Motores eléctricos
+Número de motores
+4 por coche motor
+Alimentación
+750 VCC barra guía
+Tipo
+Asíncrono
+Potencia
+1442 kW
+Transmisión
+JH
+Equipo de freno
+Dinámico
+Reostático
+Regenerativo
+Servicio
+Neumático
+A bordo
+Prestaciones
+Ventilación forzada
+Nº plazas
+5 coches: 950
+7 coches: 1315
+Conexiones
+Acoplamiento
+Scharfenberg
+Equipamiento
+Protección del tren
+Palancas de alarma
+SACEM
+
+Ns-93
+Datos generales
+
+Fabricante
+
+GEC-Alsthom
+
+Año fabricación
+
+1996-2003
+
+Unidades fabricadas
+
+34 trenes (236 unidades)
+
+32 trenes en servicio (231 unidades)
+
+Matriculación nacional
+
+2051 a 2084
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Disposición de ejes
+
+B'B' (coche N)
+
+2'2' (coches S y R)
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+6 coches: S+N+NP+N+N+S
+
+7 coches: S+N+NP+N+R+N+S
+
+8 coches: S+N+N+NP+N+R+N+S
+
+Velocidad máxima
+
+80 km/h
+
+Longitud
+
+6 coches: 90,28 m
+
+7 coches: 105,16 m
+
+8 coches: 120,04 m
+
+Anchura
+
+2,5 m
+
+Altura
+
+3,7 m
+
+Peso
+
+6 coches: 144 t
+
+7 coches: 156 t
+
+8 coches: 188 t
+
+Motores eléctricos
+
+Número de motores
+
+4 por coche motor
+
+Alimentación
+
+750 VCC barra guía
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+2700 kW
+
+Transmisión
+
+IGBT – GTO
+
+Equipo de freno
+
+Dinámico
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Ventilación forzada
+
+Aire acondicionado
+
+Nº plazas
+
+6 coches: 1145
+
+7 coches: 1315
+
+8 coches: 1400
+
+Conexiones
+
+Acoplamiento
+
+Scharfenberg
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+CBTC
+
+SACEM
+
+Ns-88
+Datos generales
+
+Fabricante
+
+Concarril
+
+Año fabricación
+
+1987
+
+Unidades fabricadas
+
+1 tren
+
+(5 unidades)
+
+Matriculación nacional
+
+3050
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Disposición de ejes
+
+B'B' (coches M y N)
+
+2'2' (coches P y R)
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+5 coches: M+P+N+R+M
+
+Velocidad máxima
+
+90 km/h
+
+Longitud
+
+81 m
+
+Anchura
+
+2,5 m
+
+Altura
+
+3,61 m
+
+Peso
+
+126 t
+
+Motores eléctricos
+
+Número de motores
+
+4 por coche motor
+
+Alimentación
+
+750 VCC barra guía
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+1442 kW
+
+Transmisión
+
+JH
+
+Equipo de freno
+
+Dinámico
+
+Reostático
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Ventilación forzada
+
+Nº plazas
+
+950
+
+Conexiones
+
+Acoplamiento
+
+Scharfenberg
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+SACEM
+
+As-02
+Datos generales
+
+Fabricante
+
+Alstom Brasil
+
+Año fabricación
+
+2004-2010
+
+Unidades fabricadas
+
+72 trenes (216 coches)
+
+69 trenes en servicio (207 coches)
+
+Matriculación nacional
+
+4401 a 4472
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+3 coches: M+R+M (tren modular)
+
+Velocidad máxima
+
+100 km/h
+
+Longitud
+
+67,25 m
+
+Anchura
+
+2,9 m
+
+
+Altura
+
+3,6 m
+
+Peso
+
+160 t
+
+Motores eléctricos
+
+Alimentación
+
+750 VCC tercer riel
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+2400 kW
+
+Transmisión
+
+IGBT
+
+Equipo de freno
+
+Dinámico
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Ventilación forzada
+
+Conexiones
+
+Mando múltiple
+
+2 módulos
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+Urbalis
+
+NS-04
+Datos generales
+
+Fabricante
+
+Alstom Brasil
+
+Año fabricación
+
+2006-2007
+
+Unidades fabricadas
+
+11 trenes
+
+(85 unidades)
+
+Matriculación nacional
+
+2085 a 2095
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Disposición de ejes
+
+B'B' (coche N)
+
+2'2' (coche S)
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+7 coches: S+N+NP+N+N+N+S
+
+8 coches: S+N+N+NP+N+N+N+S
+
+Velocidad máxima
+
+80 km/h
+
+Longitud
+
+7 coches: 115,26 m
+
+8 coches: 131,44 m
+
+Anchura
+
+2,6 m
+
+Altura
+
+3,61 m
+
+Peso
+
+261 t
+
+Motores eléctricos
+
+Número de motores
+
+4 por coche motor
+
+Alimentación
+
+750 VCC barra guía
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+2400 kW
+
+Transmisión
+
+IGBT
+
+Equipo de freno
+
+Dinámico
+
+Regenerativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Ventilación forzada
+
+Nº plazas
+
+1300
+
+Conexiones
+
+Acoplamiento
+
+Scharfenberg
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+SACEM 
+
+Ns-07
+Datos generales
+
+Fabricante
+
+CAF
+
+Año fabricación
+
+2009-2010
+
+Unidades fabricadas
+
+20 trenes (180 unidades)
+
+19 trenes en servicio (171 unidades)
+
+Matriculación nacional
+
+2096 a 2115
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+9 coches: M+R+N+NP+R+N+N+R+M
+
+Velocidad máxima
+
+80 km/h
+
+Longitud
+
+135,68 m
+
+Anchura
+
+2,6 m
+
+Altura
+
+3,7 m
+
+Peso
+
+218 t
+
+Motores eléctricos
+
+Alimentación
+
+750 VCC barra guía
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+2500 kW
+
+Transmisión
+
+IGBT
+
+Equipo de freno
+
+Dinámico
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Aire acondicionado
+
+Nº plazas
+
+1494
+
+Conexiones
+
+Acoplamiento
+
+Scharfenberg
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+CBTC 
+
+Ns-2012
+Datos generales
+
+Fabricante
+
+Construcciones y Auxiliar de Ferrocarriles
+
+Año fabricación
+
+2012-2013
+
+Unidades fabricadas
+
+14 trenes
+
+(126 unidades)
+
+Matriculación nacional
+
+2116 a 2129
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+9 coches: M+R+N+NP+R+N+N+R+M
+
+Velocidad máxima
+
+80 km/h
+
+Longitud
+
+135,68 m
+
+Anchura
+
+2,6 m
+
+Altura
+
+3,7 m
+
+Peso
+
+218 t
+
+Motores eléctricos
+
+Alimentación
+
+750 VCC barra guía
+
+Tipo
+
+Asíncrono
+
+Potencia
+
+2500 kW
+
+Transmisión
+
+IGBT
+
+Equipo de freno
+
+Dinámico
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Aire acondicionado
+
+Nº plazas
+
+1494
+
+Conexiones
+
+Acoplamiento
+
+Scharfenberg
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+CBTC 
+
+
+As-14
+
+Datos generales
+
+Fabricante
+
+CAF
+
+Año fabricación
+
+2015-2017
+
+Unidades fabricadas
+
+41 trenes
+
+(205 unidades)[1]
+
+Matriculación nacional
+
+2201 a 2241
+
+Servicios
+
+Pasajeros
+
+Operador
+
+Metro de Santiago
+
+Características técnicas
+
+Tipo de tracción
+
+Eléctrica
+
+Ancho de vía
+
+1435 mm
+
+Composición
+
+5 coches S+N+NP+N+S[1]
+
+Velocidad máxima
+
+80 km/h
+
+Longitud
+
+120 m[1]
+
+Anchura
+
+2,9 m
+
+Altura
+
+3,6 m (sin pantógrafo)
+
+Peso
+
+170 t
+
+Motores eléctricos
+
+Alimentación
+
+750 VCC catenaria[2]
+
+Tipo
+
+Asíncrono
+
+Transmisión
+
+IGBT
+
+Equipo de freno
+
+Dinámico
+
+Regererativo
+
+Servicio
+
+Neumático
+
+A bordo
+
+Prestaciones
+
+Aire acondicionado[1]
+
+Nº plazas
+
+1285
+
+Conexiones
+
+Pantógrafos
+
+2
+
+Equipamiento
+
+Protección del tren
+
+Palancas de alarma
+
+CBTC

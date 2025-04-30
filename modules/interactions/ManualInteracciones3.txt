@@ -1,0 +1,246 @@
+# **Manual Completo del Sistema de Interacciones para Discord.js**  
+**Versión: 1.0**  
+**Directorio: `modules/interactions`**  
+
+---
+
+## **📌 1. Introducción**  
+Este sistema modular permite gestionar interacciones (botones, menús de selección, modales y comandos de contexto) en Discord.js v14+, con:  
+✅ **Flexibilidad total** (sin ejemplos predefinidos)  
+✅ **Persistencia de datos** (memoria + SQLite/JSON)  
+✅ **Validación de usuarios**  
+✅ **Gestión de expiración**  
+✅ **Estructura escalable**  
+
+---
+
+## **🛠 2. Estructura del Sistema**  
+```
+modules/
+└── interactions/
+    ├── buttons/              # Botones interactivos
+    ├── selectMenus/          # Menús desplegables
+    ├── modals/               # Formularios modales
+    ├── contextMenus/         # Menús contextuales (click derecho)
+    ├── utils/                # Utilidades centrales
+    └── interactionHandler.js # Núcleo del sistema
+```
+
+---
+
+## **⚙ 3. Configuración Inicial**  
+
+### **3.1. Instalación de Dependencias**  
+```bash
+npm install discord.js quick.db lowdb
+```
+
+### **3.2. Registro en el Cliente**  
+En tu archivo principal (`index.js`):  
+```javascript
+const { Client } = require('discord.js');
+const interactionHandler = require('./modules/interactions/interactionHandler');
+
+const client = new Client({ intents: [...] });
+
+client.on('ready', () => {
+  console.log(`Bot listo como ${client.user.tag}`);
+});
+
+client.on(interactionHandler.name, interactionHandler.execute);
+```
+
+---
+
+## **🧩 4. Creación de Componentes**  
+
+### **4.1. Botones Personalizados**  
+**Archivo:** `modules/interactions/buttons/templates/baseButton.js`  
+
+#### **Uso Básico**  
+```javascript
+const BaseButton = require('./baseButton');
+
+class MiBoton extends BaseButton {
+  constructor() {
+    super();
+    this.customIdPrefix = 'miBoton';
+    this.cooldown = 5000; // 5 segundos
+  }
+
+  async build(metadata) {
+    const customId = this.generateCustomId(metadata);
+    return new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId(customId)
+        .setLabel('Presionar')
+        .setStyle(ButtonStyle.Primary)
+    );
+  }
+
+  async handleInteraction(interaction, metadata) {
+    await interaction.reply({
+      content: `Botón presionado con metadata: ${JSON.stringify(metadata)}`,
+      ephemeral: true
+    });
+  }
+}
+
+// Registro en el sistema
+buttons.register(MiBoton);
+```
+
+---
+
+### **4.2. Menús de Selección**  
+**Archivo:** `modules/interactions/selectMenus/templates/baseSelectMenu.js`  
+
+#### **Ejemplo:**  
+```javascript
+const BaseSelectMenu = require('./baseSelectMenu');
+
+class MiMenu extends BaseSelectMenu {
+  constructor() {
+    super();
+    this.customIdPrefix = 'miMenu';
+  }
+
+  async handleInteraction(interaction, metadata, selectedValues) {
+    await interaction.reply({
+      content: `Seleccionaste: ${selectedValues.join(', ')}`,
+      ephemeral: true
+    });
+  }
+}
+
+// Registro
+selectMenus.register(MiMenu);
+```
+
+---
+
+### **4.3. Modales (Formularios)**  
+**Archivo:** `modules/interactions/modals/templates/baseModal.js`  
+
+#### **Implementación:**  
+```javascript
+const BaseModal = require('./baseModal');
+
+class MiModal extends BaseModal {
+  constructor() {
+    super();
+    this.customIdPrefix = 'miModal';
+  }
+
+  async build(metadata) {
+    const modal = new ModalBuilder()
+      .setCustomId(this.generateCustomId(metadata))
+      .setTitle('Formulario');
+
+    modal.addComponents(
+      new ActionRowBuilder().addComponents(
+        new TextInputBuilder()
+          .setCustomId('respuesta')
+          .setLabel('Ingresa tu respuesta')
+          .setStyle(TextInputStyle.Paragraph)
+      )
+    );
+
+    return modal;
+  }
+
+  async handleInteraction(interaction, metadata) {
+    const respuesta = interaction.fields.getTextInputValue('respuesta');
+    await interaction.reply(`Respondiste: ${respuesta}`);
+  }
+}
+
+// Registro
+modals.register(MiModal);
+```
+
+---
+
+## **🔧 5. Gestión de Datos**  
+
+### **5.1. Almacenamiento en Memoria (`interactionStore`)**  
+```javascript
+// Guardar datos (expira en 5 minutos por defecto)
+interactionStore.set('clave', { dato: 'valor' }, 300000);
+
+// Obtener datos
+const datos = interactionStore.get('clave');
+
+// Eliminar datos
+interactionStore.delete('clave');
+```
+
+### **5.2. Persistencia en Base de Datos (`dataStore`)**  
+```javascript
+// Guardar datos permanentemente
+await dataStore.set('usuario:123', { nombre: 'Ejemplo' });
+
+// Recuperar datos
+const usuario = await dataStore.get('usuario:123');
+
+// Eliminar datos
+await dataStore.delete('usuario:123');
+```
+
+---
+
+## **⚠ 6. Manejo de Errores**  
+El sistema incluye captura automática de errores. Para personalizar:  
+```javascript
+async handleError(interaction, error) {
+  await interaction.reply({
+    content: '❌ Error personalizado: ' + error.message,
+    ephemeral: true
+  });
+}
+```
+
+---
+
+## **🔄 7. Mantenimiento**  
+
+### **7.1. Actualizaciones**  
+- **Interacciones:** Actualiza los métodos `build()` y `handleInteraction()` sin modificar el núcleo.  
+- **Persistencia:** Cambia `dataStore.js` para usar MongoDB/PostgreSQL si es necesario.  
+
+### **7.2. Limpieza Automática**  
+El `interactionStore` limpia datos expirados cada hora. Para limpieza manual:  
+```javascript
+interactionStore.clearExpired();
+```
+
+### **7.3. Debugging**  
+Habilita logs en `interactionHandler.js`:  
+```javascript
+console.log('Interacción recibida:', interaction.type);
+```
+
+---
+
+## **🎯 8. Mejores Prácticas**  
+1. **Prefix Únicos:** Usa `customIdPrefix` distintos para cada componente.  
+2. **Metadata Ligera:** No almacenes objetos complejos en `interactionStore`.  
+3. **Cooldowns:** Evita spam con `this.cooldown` en los componentes.  
+4. **Persistencia Selectiva:** Usa `dataStore` solo para datos críticos.  
+
+---
+
+
+--- 
+
+**🛠 ¿Problemas?**  
+Consulta los logs de error o abre un issue en el repositorio.  
+
+**🚀 ¡Listo para implementar!**  
+```javascript
+const boton = new MiBoton();
+await interaction.reply({
+  content: '¡Interactúa!',
+  components: [await boton.build({ id: 1 })]
+});
+```

@@ -1,0 +1,17 @@
+[2025-04-14T10-57-05-677Z] ERROR:
+Name: Error
+Message: [StatusProcessor] Processing failed
+Stack:
+Error: [StatusProcessor] Processing failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusProcessor.processRawAPIData (/home/container/modules/status/utils/StatusProcessor.js:99:14)
+    at ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:169:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:185:13)
+    at async /home/container/modules/metro/core/MetroCore.js:128:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {
+  "error": "hasClosedStations is not defined",
+  "stack": "ReferenceError: hasClosedStations is not defined\n    at StatusProcessor._getOverallNetworkStatus (/home/container/modules/status/utils/StatusProcessor.js:767:21)\n    at StatusProcessor._transformNetworkStatus (/home/container/modules/status/utils/StatusProcessor.js:298:30)\n    at StatusProcessor.processRawAPIData (/home/container/modules/status/utils/StatusProcessor.js:53:28)\n    at ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:169:40)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:185:13)\n    at async /home/container/modules/metro/core/MetroCore.js:128:13\n    at async Object.execute (/home/container/events/Discord/ready.js:19:27)"
+}
+

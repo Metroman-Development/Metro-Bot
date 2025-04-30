@@ -1,0 +1,121 @@
+{
+  "station": "Plaza Egaña",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-29T18:54:14.887Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Plaza Egaña"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-29T18:54:14.887Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Larraín"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-29T18:54:14.887Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Irarrázaval"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "TOB",
+      "from": "Andén Tobalaba",
+      "to": "Boletería Línea 4",
+      "fullPath": "Andén Tobalaba→Boletería Línea 4",
+      "segments": [
+        "Andén Tobalaba",
+        "Boletería Línea 4"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "PPA",
+      "from": "Andén Plaza de Puente Alto",
+      "to": "Boletería Línea 4",
+      "fullPath": "Andén Plaza de Puente Alto→Boletería Línea 4",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Boletería Línea 4"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "EXA",
+      "from": "Boletería Línea 4",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería Línea 4→Exterior Acceso A",
+      "segments": [
+        "Boletería Línea 4",
+        "Exterior Acceso A"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "BL404EXB",
+      "from": "Boletería Línea 4",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería Línea 4→Exterior Acceso B",
+      "segments": [
+        "Boletería Línea 4",
+        "Exterior Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "BL405EXB",
+      "from": "Boletería Línea 4",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería Línea 4→Exterior Acceso B",
+      "segments": [
+        "Boletería Línea 4",
+        "Exterior Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-29T18:54:14.888Z",
+      "notes": "",
+      "id": "BL4MALL",
+      "from": "Boletería Línea 4",
+      "to": "Mall",
+      "fullPath": "Boletería Línea 4→Mall",
+      "segments": [
+        "Boletería Línea 4",
+        "Mall"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-29T18:54:14.887Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-29T18:54:23.725Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

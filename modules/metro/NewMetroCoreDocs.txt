@@ -1,0 +1,327 @@
+# **MetroCore System Documentation**  
+
+## **📌 Overview**  
+
+`MetroCore` is the central management system for metro data, handling real-time updates, caching, database persistence, and station/line information. It features:  
+
+✅ **Multi-layer caching** (Memory + Database)  
+
+✅ **Automatic data updates** with configurable intervals  
+
+✅ **Emergency fallback modes**  
+
+✅ **Debug & massive logging** for troubleshooting  
+
+✅ **Discord integration** (via client reference)  
+
+---
+
+## **⚙️ Configuration Options**  
+
+When initializing `MetroCore`, you can customize its behavior:  
+
+| Option | Type | Default | Description |  
+
+|--------|------|---------|-------------|  
+
+| `debug` | `boolean` | `false` | Enables detailed operational logging |  
+
+| `massive` | `boolean` | `false` | Logs full data dumps (VERBOSE) |  
+
+| `maxRetries` | `number` | `3` | Max retries for API/database operations |  
+
+| `retryDelay` | `number` | `2000` (ms) | Delay between retries |  
+
+| `shouldRetry` | `function` | `(err) => !err.isFatal` | Custom retry condition |  
+
+```js
+
+const metro = new MetroCore(discordClient, {
+
+    debug: true,       // Logs system operations  
+
+    massive: false,    // Avoids huge data dumps  
+
+    maxRetries: 5      // More resilient retries  
+
+});
+
+```
+
+---
+
+## **🚀 Core Features**  
+
+### **1. Data Loading & Caching**  
+
+- **Smart Fallback System**:  
+
+  - Tries **API → Cache → Database → Emergency Data**  
+
+  - Auto-refreshes cache at intervals (`DATA_REFRESH_INTERVAL`)  
+
+- **Cache Layers**:  
+
+  - **Memory (Fast)**: `MEM_CACHE_SIZE=1000` (items)  
+
+  - **Database (Persistent)**: `metro_cache` table  
+
+```js
+
+await metro.initialize(); // Loads data & builds indexes  
+
+```
+
+### **2. Emergency Mode**  
+
+If the system fails to fetch data:  
+
+1. Attempts cached data  
+
+2. Falls back to database  
+
+3. Finally uses **predefined closed-state data**  
+
+```js
+
+if (metro.isEmergency) {
+
+    console.log("⚠️ System in fallback mode!");
+
+}
+
+```
+
+---
+
+## **🔍 Query Methods**  
+
+### **📌 Stations**  
+
+| Method | Returns | Example |  
+
+|--------|---------|---------|  
+
+| `getStation(id)` | `StationData` | `metro.getStation("Baquedano")` |  
+
+| `getStationTransfers(id)` | `string[]` (lines) | `metro.getStationTransfers("Los Héroes")` |  
+
+| `getAllTransferStations()` | `StationData[]` | `metro.getAllTransferStations()` |  
+
+### **📌 Lines**  
+
+| Method | Returns | Example |  
+
+|--------|---------|---------|  
+
+| `getLine(id)` | `LineData` | `metro.getLine("l1")` |  
+
+| `getLineStations(id)` | `StationData[]` | `metro.getLineStations("l5")` |  
+
+### **📌 System Status**  
+
+| Property | Type | Description |  
+
+|----------|------|-------------|  
+
+| `isReady` | `boolean` | If system initialized successfully |  
+
+| `lastUpdated` | `number` | Timestamp of last update |  
+
+| `isEmergency` | `boolean` | If fallback mode is active |  
+
+---
+
+## **📊 Debugging & Logging**  
+
+### **Log Types**  
+
+| Type | Trigger | Output |  
+
+|------|---------|--------|  
+
+| **Debug** | `debug: true` | Operational logs (`DATA_LOADED`, `API_FETCH`) |  
+
+| **Massive** | `massive: true` | Full data dumps (API responses, DB records) |  
+
+| **Error** | Always | Critical failures with stack traces |  
+
+**Example Debug Output:**  
+
+```
+
+[METRO_DATA_LOAD] Loading system data  
+
+[METRO_API_FETCH] Fetching from endpoint: https://api.metro.example  
+
+[METRO_INDEX_BUILT] Built indexes for 6 lines and 150 stations  
+
+```
+
+---
+
+## **⚡ Performance Optimization**  
+
+- **In-memory indexes** for fast station/line lookups  
+
+- **LRU memory cache** (configurable size)  
+
+- **Batch updates** to minimize database writes  
+
+---
+
+## **🔌 Event System**  
+
+`MetroCore` extends `EventEmitter` and emits:  
+
+| Event | Description | Data |  
+
+|-------|-------------|------|  
+
+| `ready` | System initialized | `(data)` |  
+
+| `update` | New data loaded | `(newData)` |  
+
+| `emergency` | Fallback mode activated | `(fallbackData)` |  
+
+| `closed` | System shutdown | `none` |  
+
+```js
+
+metro.on('update', (newData) => {
+
+    console.log("📡 Data updated!");
+
+});
+
+```
+
+---
+
+## **📜 Full Method Reference**  
+
+### **Core Methods**  
+
+| Method | Description |  
+
+|--------|-------------|  
+
+| `initialize()` | Loads data, builds indexes |  
+
+| `updateCache()` | Manually refreshes data |  
+
+| `close()` | Clean shutdown (stops updates, closes DB) |  
+
+### **Data Fetching**  
+
+| Method | Description |  
+
+|--------|-------------|  
+
+| `fetchFromAPI()` | Gets live data from endpoint |  
+
+| `fetchFromDatabase()` | Retrieves historical data |  
+
+### **Internal Helpers**  
+
+| Method | Description |  
+
+|--------|-------------|  
+
+| `_transformAPIData()` | Standardizes API responses |  
+
+| `_buildIndexes()` | Creates fast lookup maps |  
+
+| `_emergencyShutdown()` | Fallback procedure |  
+
+---
+
+## **🚨 Error Handling**  
+
+- **Automatic retries** (configurable attempts)  
+
+- **Graceful degradation** (emergency mode)  
+
+- **Detailed error logs** (with stack traces if `critical`)  
+
+```js
+
+try {
+
+    await metro.initialize();
+
+} catch (err) {
+
+    console.error("💥 Failed to start MetroCore:", err);
+
+}
+
+```
+
+---
+
+## **📌 Example Usage**  
+
+```js
+
+const MetroCore = require('./modules/metro/MetroCore');
+
+const discordClient = require('./discordClient');
+
+// Initialize
+
+const metro = new MetroCore(discordClient, {
+
+    debug: true,
+
+    maxRetries: 5
+
+});
+
+// Start system
+
+metro.initialize()
+
+    .then(() => {
+
+        console.log("✅ MetroCore ready!");
+
+        const line1 = metro.getLine("l1");
+
+        console.log(line1);
+
+    })
+
+    .catch(console.error);
+
+// Listen for updates
+
+metro.on('update', () => {
+
+    console.log("🔄 Data updated!");
+
+});
+
+// Clean shutdown
+
+process.on('SIGINT', () => metro.close());
+
+```
+
+---
+
+## **🎯 Key Benefits**  
+
+✔ **High availability** (multiple fallback layers)  
+
+✔ **Real-time updates** with caching  
+
+✔ **Fast queries** using memory indexes  
+
+✔ **Easy debugging** with logging options  
+
+✔ **Scalable** for large metro networks  
+
+---
+
+This documentation covers all critical aspects of `MetroCore`. For advanced usage (custom adapters, Redis integration), refer to the **source code comments**. 🚇

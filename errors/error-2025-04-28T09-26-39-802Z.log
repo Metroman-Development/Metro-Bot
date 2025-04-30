@@ -1,0 +1,17 @@
+[2025-04-28T09-26-39-802Z] ERROR:
+Name: Error
+Message: DISCORD_CLIENT_ERROR
+Stack:
+Error: DISCORD_CLIENT_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/error.js:7:16)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at emitUnhandledRejectionOrErr (node:events:401:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Metadata: {
+  "error": "The reply to this interaction has not been sent or deferred.",
+  "stack": "Error [InteractionNotReplied]: The reply to this interaction has not been sent or deferred.\n    at ButtonInteraction.editReply (/home/container/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:247:48)\n    at StationInfoButton.handleError (/home/container/modules/interactions/buttons/templates/baseButton.js:156:31)\n    at StationInfoButton.execute (/home/container/modules/interactions/buttons/templates/baseButton.js:100:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async InteractionHandler._handleButton (/home/container/modules/interactions/interactionHandler.js:118:9)",
+  "timestamp": "2025-04-28T09:26:39.802Z"
+}
+

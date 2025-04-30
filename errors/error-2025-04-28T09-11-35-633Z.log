@@ -1,0 +1,35 @@
+[2025-04-28T09-11-35-633Z] ERROR:
+Name: Error
+Message: UNHANDLED_REJECTION
+Stack:
+Error: UNHANDLED_REJECTION
+    at Object.error (/home/container/events/logger.js:152:27)
+    at process.<anonymous> (/home/container/index.js:210:10)
+    at process.emit (node:events:518:28)
+    at emitUnhandledRejection (node:internal/process/promises:252:13)
+    at throwUnhandledRejectionsMode (node:internal/process/promises:388:19)
+    at processPromiseRejections (node:internal/process/promises:475:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:106:32)
+Metadata: {
+  "requestBody": {
+    "files": [],
+    "json": {
+      "type": 4,
+      "data": {
+        "content": "Error al procesar la interacción",
+        "tts": false,
+        "enforce_nonce": false,
+        "flags": 64
+      }
+    }
+  },
+  "rawError": {
+    "message": "Interaction has already been acknowledged.",
+    "code": 40060
+  },
+  "code": 40060,
+  "status": 400,
+  "method": "POST",
+  "url": "https://discord.com/api/v10/interactions/1366341065220689930/aW50ZXJhY3Rpb246MTM2NjM0MTA2NTIyMDY4OTkzMDo4V1VaeUlqa1dxOGVWV2pGajB3bnFVNW4wUk9oN0FiODhOcndHczEyTGsweWtuczJXSlFYS3doeE9PRVBzMnlMNDJZTFl0Y0IzeVdBMXBFelI1cTZyTjllQWV2QW04MTA1RmZ4T0xHbEwxSExmbjZzczQxQ0RzelJzYUowc3Q5cw/callback?with_response=false"
+}
+

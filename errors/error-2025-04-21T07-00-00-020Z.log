@@ -1,0 +1,16 @@
+[2025-04-21T07-00-00-020Z] ERROR:
+Name: Error
+Message: DailyReloadJob
+Stack:
+Error: DailyReloadJob
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DailyReloadJob.loadConfig (/home/container/modules/chronos/jobs/DailyReloadJob.js:101:25)
+    at DailyReloadJob.execute (/home/container/modules/chronos/jobs/DailyReloadJob.js:74:42)
+    at Job.job (/home/container/modules/chronos/core/SchedulerCore.js:18:27)
+    at Job.invoke (/home/container/node_modules/node-schedule/lib/Job.js:171:15)
+    at /home/container/node_modules/node-schedule/lib/Invocation.js:268:28
+    at Timeout._onTimeout (/home/container/node_modules/node-schedule/lib/Invocation.js:228:7)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: "Config load failed"
+

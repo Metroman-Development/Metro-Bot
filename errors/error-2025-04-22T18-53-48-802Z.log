@@ -1,0 +1,11 @@
+[2025-04-22T18-53-48-802Z] ERROR:
+Name: Error
+Message: [MetroCore] Initialization failed
+Stack:
+Error: [MetroCore] Initialization failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:195:20)
+    at async /home/container/modules/metro/core/MetroCore.js:163:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {}
+

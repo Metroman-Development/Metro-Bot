@@ -1,0 +1,121 @@
+{
+  "station": "pajaritos",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "AccesoA",
+      "name": "Acceso A",
+      "description": "Av. General Óscar Bonilla Poniente y Pasarela",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z"
+    },
+    {
+      "id": "AccesoB",
+      "name": "Acceso B",
+      "description": "Av. General Óscar Bonilla",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z"
+    },
+    {
+      "id": "AccesoC",
+      "name": "Acceso C",
+      "description": "Av. General Óscar Bonilla Oriente",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T22:57:44.537Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "status": "operativa",
+      "lastUpdated": "2025-04-25T22:57:44.537Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-25T22:57:44.537Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-25T23:12:36.255Z",
+      "user": "metromanrrss",
+      "action": "Editado AccesoA",
+      "details": "description cambiado de \"\" a \"Av. General Óscar Bonilla Poniente y Pasarela\""
+    },
+    {
+      "timestamp": "2025-04-25T23:14:39.713Z",
+      "user": "metromanrrss",
+      "action": "Editado AccesoB",
+      "details": "description cambiado de \"\" a \"Av. General Óscar Bonilla\""
+    },
+    {
+      "timestamp": "2025-04-25T23:15:20.133Z",
+      "user": "metromanrrss",
+      "action": "Editado AccesoB",
+      "details": "description cambiado de \"Av. General Óscar Bonilla\" a \"Av. General Óscar Bonilla Oriente\""
+    },
+    {
+      "timestamp": "2025-04-25T23:16:11.528Z",
+      "user": "metromanrrss",
+      "action": "Editado AccesoB",
+      "details": "description cambiado de \"Av. General Óscar Bonilla Oriente\" a \"Av. General Óscar Bonilla\""
+    },
+    {
+      "timestamp": "2025-04-25T23:16:30.490Z",
+      "user": "metromanrrss",
+      "action": "Editado AccesoC",
+      "details": "description cambiado de \"\" a \"Av. General Óscar Bonilla Oriente\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.321Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoA: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.321Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoB: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.321Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoC: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.792Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoA: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.792Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoB: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.792Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "AccesoC: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ],
+  "lastUpdated": "2025-04-28T19:38:15.792Z"
+}

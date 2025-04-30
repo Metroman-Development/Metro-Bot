@@ -1,0 +1,195 @@
+{
+  "station": "Baquedano",
+  "line": "l1",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. General Bustamante",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z"
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Ramón Carnicer",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z"
+    },
+    {
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Vicuña Mackenna",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z"
+    },
+    {
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Providencia",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    },
+    {
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    },
+    {
+      "id": "VVBL",
+      "from": "Andén Vicente Valdés",
+      "to": "Boletería Línea 5 y Combinación a Línea 1",
+      "fullPath": "Andén Vicente Valdés→Intermedio -3→Boletería Línea 5 y Combinación a Línea 1",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Intermedio -3",
+        "Boletería Línea 5 y Combinación a Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    },
+    {
+      "id": "PMBLEXA",
+      "from": "Andén Plaza de Maipú",
+      "to": "Exterior Acceso A",
+      "fullPath": "Andén Plaza de Maipú→Intermedio -3→Boletería Línea 5 y Combinación a Línea 1→Exterior Acceso A",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Intermedio -3",
+        "Boletería Línea 5 y Combinación a Línea 1",
+        "Exterior Acceso A"
+      ],
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-04-26T11:06:05.796Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "01CA5CO1",
+      "from": "Cambio de Andén Línea 5",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Cambio de Andén Línea 5→Combinación a Línea 1",
+      "segments": [
+        "Cambio de Andén Línea 5",
+        "Combinación a Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    },
+    {
+      "id": "01CA5CO1",
+      "from": "02CA5CO1:Cambio de Andén Línea 5",
+      "to": "Combinación a Línea 1",
+      "fullPath": "02CA5CO1:Cambio de Andén Línea 5→Combinación a Línea 1",
+      "segments": [
+        "02CA5CO1:Cambio de Andén Línea 5",
+        "Combinación a Línea 1"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    },
+    {
+      "id": "01CA5CO1",
+      "from": "VVCOLD:Andén Vicente Valdés",
+      "to": "Combinación a Línea 1 Andén Los Dominicos",
+      "fullPath": "VVCOLD:Andén Vicente Valdés→Combinación a Línea 1 Andén Los Dominicos",
+      "segments": [
+        "VVCOLD:Andén Vicente Valdés",
+        "Combinación a Línea 1 Andén Los Dominicos"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T19:38:15.772Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T11:05:05.234Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T11:06:05.796Z",
+      "user": "metromanrrss",
+      "action": "Editado PMBLEXA",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"operativa\" a \"abierto\""
+    }
+  ]
+}

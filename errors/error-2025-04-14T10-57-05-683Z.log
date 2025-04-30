@@ -1,0 +1,20 @@
+[2025-04-14T10-57-05-683Z] ERROR:
+Name: Error
+Message: [StatusProcessor] Processing failed
+Stack:
+Error: [StatusProcessor] Processing failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusProcessor.processRawAPIData (/home/container/modules/status/utils/StatusProcessor.js:99:14)
+    at DataEngine.handleRawData (/home/container/modules/metro/core/internal/DataEngine.js:21:80)
+    at ApiService.<anonymous> (/home/container/modules/metro/core/internal/EventEngine.js:47:24)
+    at ApiService.emit (node:events:518:28)
+    at ApiService._emitRawData (/home/container/modules/metro/core/services/ApiService.js:396:14)
+    at ApiService._updateState (/home/container/modules/metro/core/services/ApiService.js:351:14)
+    at ApiService._fallbackToCachedData (/home/container/modules/metro/core/services/ApiService.js:599:18)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:185:13)
+    at async /home/container/modules/metro/core/MetroCore.js:128:13
+Metadata: {
+  "error": "hasClosedStations is not defined",
+  "stack": "ReferenceError: hasClosedStations is not defined\n    at StatusProcessor._getOverallNetworkStatus (/home/container/modules/status/utils/StatusProcessor.js:767:21)\n    at StatusProcessor._transformNetworkStatus (/home/container/modules/status/utils/StatusProcessor.js:298:30)\n    at StatusProcessor.processRawAPIData (/home/container/modules/status/utils/StatusProcessor.js:53:28)\n    at DataEngine.handleRawData (/home/container/modules/metro/core/internal/DataEngine.js:21:80)\n    at ApiService.<anonymous> (/home/container/modules/metro/core/internal/EventEngine.js:47:24)\n    at ApiService.emit (node:events:518:28)\n    at ApiService._emitRawData (/home/container/modules/metro/core/services/ApiService.js:396:14)\n    at ApiService._updateState (/home/container/modules/metro/core/services/ApiService.js:351:14)\n    at ApiService._fallbackToCachedData (/home/container/modules/metro/core/services/ApiService.js:599:18)\n    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:185:13)"
+}
+

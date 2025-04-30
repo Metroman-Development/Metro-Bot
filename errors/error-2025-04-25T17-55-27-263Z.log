@@ -1,0 +1,17 @@
+[2025-04-25T17-55-27-263Z] ERROR:
+Name: Error
+Message: Error registering command _meeventos.js:
+Stack:
+Error: Error registering command _meeventos.js:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at AdvancedCommandLoader.registerCommand (/home/container/core/loaders/AdvancedCommandLoader.js:86:20)
+    at AdvancedCommandLoader.loadCommands (/home/container/core/loaders/AdvancedCommandLoader.js:39:30)
+    at new AdvancedCommandLoader (/home/container/core/loaders/AdvancedCommandLoader.js:15:14)
+    at Object.<anonymous> (/home/container/index.js:56:24)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+Metadata: {}
+

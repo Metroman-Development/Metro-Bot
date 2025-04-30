@@ -1,0 +1,131 @@
+Aquí tienes una **guía completa del sistema de Bip!Coins**, que incluye una descripción general del sistema, un manual de mantenimiento, y detalles relacionados con su funcionamiento. Esta guía está diseñada para ayudar a los desarrolladores y administradores a entender, mantener y escalar el sistema.
+
+---
+
+## **Guía Completa del Sistema de Bip!Coins**
+
+---
+
+### **1. Descripción General**
+
+El sistema de Bip!Coins es un sistema de recompensas basado en la actividad de los usuarios en un servidor de Discord. Los usuarios ganan Bip!Coins al realizar actividades como enviar mensajes, usar comandos o estar en canales de voz. Estos Bip!Coins se pueden usar para subir de nivel y desbloquear roles especiales.
+
+#### **Características Principales:**
+- **Bip!Coins**: Moneda virtual que los usuarios ganan por su actividad.
+- **Niveles**: Los usuarios suben de nivel basado en la cantidad de Bip!Coins que tienen.
+- **Roles**: Los usuarios desbloquean roles especiales al alcanzar ciertos niveles.
+- **Rachas**: Los usuarios reciben bonificaciones por mantener una racha de actividad diaria.
+- **Anuncios**: El sistema envía anuncios cuando los usuarios suben de nivel, desbloquean roles o rompen una racha.
+
+---
+
+### **2. Estructura del Sistema**
+
+El sistema está compuesto por los siguientes archivos y módulos:
+
+#### **Archivos Principales:**
+1. **`bipCoinSystem.js`**:
+   - Contiene la lógica principal del sistema, incluyendo la asignación de roles y la adición de Bip!Coins.
+   - Funciones clave:
+     - `assignRole(userId, username, client)`: Asigna roles basados en los Bip!Coins del usuario.
+     - `addBipCoinsWithActivity(userId, username, client, activityType)`: Añade Bip!Coins basados en la actividad del usuario.
+
+2. **`bipAnnouncements.js`**:
+   - Maneja los anuncios en el servidor de Discord.
+   - Funciones clave:
+     - `sendAnnouncement(client, userId, type, value)`: Envía anuncios al canal correspondiente.
+
+3. **`utils/bipcoinUtils.js`**:
+   - Contiene funciones comunes utilizadas en el sistema.
+   - Funciones clave:
+     - `calculateLevel(bipCoins)`: Calcula el nivel basado en los Bip!Coins.
+     - `calculateBipCoinsForLevel(level)`: Calcula los Bip!Coins necesarios para un nivel específico.
+     - `isSameDay(date1, date2)`: Verifica si dos fechas son el mismo día.
+     - `checkCooldown(userId, cooldowns, cooldownTime)`: Verifica si un usuario está en cooldown.
+
+4. **`config/bipConfig.js`**:
+   - Contiene configuraciones globales y activos relacionados con el sistema.
+   - Configuraciones clave:
+     - `ROLES`: Mapeo de roles y sus IDs.
+     - `BASE_POINTS`: Puntos base por tipo de actividad.
+     - `COOLDOWN_TIME`: Tiempo de cooldown entre actividades.
+     - `CHANNELS`: IDs de canales importantes.
+     - `LEVEL_REWARDS`: Recompensas por nivel.
+
+5. **`commands/niveles.js`**:
+   - Comando `/niveles` que muestra cuántos Bip!Coins se necesitan para cada nivel.
+
+---
+
+### **3. Manual de Mantenimiento**
+
+#### **3.1. Actualización de Configuraciones**
+- **Roles**: Si necesitas añadir o modificar roles, actualiza el objeto `ROLES` en `config/bipConfig.js`.
+- **Puntos Base**: Si deseas cambiar los puntos base por actividad, modifica el objeto `BASE_POINTS` en `config/bipConfig.js`.
+- **Cooldown**: Si necesitas ajustar el tiempo de cooldown, cambia el valor de `COOLDOWN_TIME` en `config/bipConfig.js`.
+- **Canales**: Si cambias el canal de anuncios, actualiza el ID en `CHANNELS.announcements`.
+
+#### **3.2. Añadir Nuevas Funcionalidades**
+- **Nuevos Comandos**: Si deseas añadir nuevos comandos, crea un archivo en la carpeta `commands` y sigue la estructura de los comandos existentes.
+- **Nuevas Recompensas**: Si quieres añadir nuevas recompensas por nivel, modifica el array `LEVEL_REWARDS` en `config/bipConfig.js`.
+
+#### **3.3. Depuración y Resolución de Problemas**
+- **Logs**: Revisa los logs generados por el sistema para identificar errores o comportamientos inesperados.
+- **Cooldown**: Si los usuarios reportan problemas con el cooldown, verifica la función `checkCooldown` en `utils/bipcoinUtils.js`.
+- **Roles**: Si los roles no se asignan correctamente, revisa la función `assignRole` en `bipCoinSystem.js`.
+
+#### **3.4. Escalabilidad**
+- **Base de Datos**: Si el sistema crece, considera migrar a una base de datos más robusta o optimizar las consultas actuales.
+- **Anuncios**: Si el canal de anuncios se satura, considera dividir los anuncios en varios canales o usar un sistema de prioridades.
+
+---
+
+### **4. Flujo de Trabajo del Sistema**
+
+1. **Actividad del Usuario**:
+   - Un usuario realiza una actividad (mensaje, comando, voz).
+   - El sistema verifica si el usuario está en cooldown.
+   - Si no está en cooldown, se calculan los Bip!Coins ganados.
+
+2. **Actualización de Bip!Coins**:
+   - Los Bip!Coins se añaden a la base de datos.
+   - Se verifica si el usuario ha subido de nivel.
+
+3. **Asignación de Roles**:
+   - Si el usuario ha alcanzado un nuevo nivel, se le asigna el rol correspondiente.
+   - Se envía un anuncio al canal de anuncios.
+
+4. **Rachas y Bonificaciones**:
+   - Si el usuario mantiene una racha de actividad, recibe bonificaciones adicionales.
+   - Si rompe una racha, se envía un anuncio.
+
+---
+
+### **5. Ejemplos de Uso**
+
+#### **5.1. Comando `/niveles`**
+- **Descripción**: Muestra cuántos Bip!Coins se necesitan para cada nivel.
+- **Uso**: `/niveles`
+- **Salida**: Un embed con los niveles del 1 al 100 y los Bip!Coins requeridos.
+
+#### **5.2. Comando `/rank`**
+- **Descripción**: Muestra el rango, nivel, Bip!Coins y racha del usuario.
+- **Uso**: `/rank` o `/rank @usuario`
+- **Salida**: Un embed con la información del usuario.
+
+#### **5.3. Comando `/rewards`**
+- **Descripción**: Muestra las recompensas disponibles por nivel.
+- **Uso**: `/rewards`
+- **Salida**: Un embed con los roles que se pueden desbloquear en cada nivel.
+
+---
+
+### **6. Consideraciones Finales**
+
+- **Pruebas**: Antes de implementar cambios importantes, realiza pruebas en un entorno de desarrollo.
+- **Documentación**: Mantén la documentación actualizada para facilitar el mantenimiento y la escalabilidad.
+- **Comunidad**: Escucha los comentarios de la comunidad para mejorar el sistema y añadir nuevas funcionalidades.
+
+---
+
+Con esta guía, deberías tener una comprensión completa del sistema de Bip!Coins y las herramientas necesarias para mantenerlo y escalarlo en el futuro. ¡Buena suerte! 🚀

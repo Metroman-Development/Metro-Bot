@@ -1,0 +1,12 @@
+[2025-04-20T21-38-25-665Z] ERROR:
+Name: Error
+Message: [NewsService] Invalid news format in testNews copy.json
+Stack:
+Error: [NewsService] Invalid news format in testNews copy.json
+    at Object.error (/home/container/events/logger.js:152:27)
+    at NewsService._parseNewsFile (/home/container/modules/metro/core/services/NewsService.js:130:20)
+    at NewsService._processNewsFile (/home/container/modules/metro/core/services/NewsService.js:80:36)
+    at async NewsService.checkNews (/home/container/modules/metro/core/services/NewsService.js:49:40)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:304:36)
+Metadata: {}
+

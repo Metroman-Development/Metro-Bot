@@ -1,0 +1,204 @@
+{
+  "station": "Plaza Quilicura",
+  "line": "l3",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Manuel Antonio Matta Norte",
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Manuel Antonio Matta Sur",
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "FCVSR",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios",
+      "fullPath": "Andén Fernando Castillo Velasco→Servicios",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUSR",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios",
+      "fullPath": "Andén Plaza Quilicura→Servicios",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "SREXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "SREXB",
+      "from": "Servicios",
+      "to": "Exterior Acceso B",
+      "fullPath": "Servicios→Exterior Acceso B",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "EXA01SR",
+      "from": "Exterior Acceso A",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso A→Servicios",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "SR10EXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "PQU03SR",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios",
+      "fullPath": "Andén Plaza Quilicura→Servicios",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "PQU04SR",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios",
+      "fullPath": "Andén Plaza Quilicura→Servicios",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "FCV05SR",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios",
+      "fullPath": "Andén Fernando Castillo Velasco→Servicios",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "FCV06SR",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios",
+      "fullPath": "Andén Fernando Castillo Velasco→Servicios",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "SR07EXB",
+      "from": "Servicios",
+      "to": "Exterior Acceso B",
+      "fullPath": "Servicios→Exterior Acceso B",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso B"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB08SR",
+      "from": "Exterior Acceso B",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso B→Servicios",
+      "segments": [
+        "Exterior Acceso B",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    },
+    {
+      "id": "EXB09SR",
+      "from": "Exterior Acceso B",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso B→Servicios",
+      "segments": [
+        "Exterior Acceso B",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-27T13:53:56.718Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-27T13:54:21.736Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

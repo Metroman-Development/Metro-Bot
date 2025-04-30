@@ -1,0 +1,118 @@
+{
+  "station": "Cardenal caro",
+  "line": "l3",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Independencia",
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "EXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    },
+    {
+      "id": "CASR",
+      "from": "Cambio de Andén",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén→Servicios",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUSR",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios",
+      "fullPath": "Andén Plaza Quilicura→Servicios",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    },
+    {
+      "id": "FCVCA",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Cambio de Andén",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "EXA01SR",
+      "from": "Exterior Acceso A",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso A→Servicios",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    },
+    {
+      "id": "SR02EXA",
+      "from": "Servicios",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    },
+    {
+      "id": "CA03SR",
+      "from": "Cambio de Andén",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén→Servicios",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-27T14:26:06.742Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-27T14:26:09.572Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}

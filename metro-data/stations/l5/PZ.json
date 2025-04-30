@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "version": 2,
+    "migratedAt": "2025-04-11T16:22:19.865Z",
+    "source": [
+      "template"
+    ],
+    "lastUpdated": "2025-04-11T16:22:19.865Z"
+  },
+  "basicInfo": {
+    "id": "plaza_de_armas_",
+    "lineId": "l5",
+    "name": "Plaza de Armas L5",
+    "code": "PZ",
+    "displayName": "Plaza de Armas L5",
+    "color": "#a05eb5"
+  },
+  "status": {
+    "code": "1",
+    "description": "Estación Operativa",
+    "appMessage": "Habilitada",
+    "combination": "L3"
+  },
+  "services": {
+    "tickets": {
+      "selfService": false,
+      "atm": false,
+      "phones": false,
+      "bibliometro": false,
+      "clientService": false,
+      "vendingMachines": false
+    },
+    "topUp": {
+      "bipPoints": false,
+      "mobileTopUp": false
+    },
+    "info": {
+      "metroArte": false,
+      "metroInforma": false
+    }
+  },
+  "access": {
+    "points": [],
+    "accessibility": []
+  },
+  "connections": {
+    "transports": [],
+    "bikes": []
+  },
+  "amenities": [],
+  "commerce": [],
+  "schematics": [],
+  "images": []
+}

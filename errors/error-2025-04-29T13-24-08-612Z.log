@@ -1,0 +1,27 @@
+[2025-04-29T13-24-08-612Z] ERROR:
+Name: Error
+Message: [DiscordBot] Error al enviar mensaje
+Stack:
+Error: [DiscordBot] Error al enviar mensaje
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:62:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)
+    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:472:13)
+Metadata: {
+  "error": "Cannot read properties of null (reading 'replace')",
+  "change": {
+    "type": "accessPointsOperational",
+    "stationCode": "fra",
+    "lineId": null,
+    "newState": false,
+    "timestamp": "2025-04-29T13:24:07.688Z",
+    "metadata": {
+      "lastUpdated": "2025-04-29T13:24:07.688Z",
+      "updatedBy": "system"
+    }
+  },
+  "stack": "TypeError: Cannot read properties of null (reading 'replace')\n    at DiscordBotService._configureAccessEmbed (/home/container/modules/metro/core/services/DiscordBotService.js:152:45)\n    at DiscordBotService._createSpanishEmbed (/home/container/modules/metro/core/services/DiscordBotService.js:91:22)\n    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:56:32)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)\n    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)\n    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:472:13)"
+}
+

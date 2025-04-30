@@ -1,0 +1,94 @@
+{
+  "station": "Ñuñoa",
+  "line": "l3",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Pedro de Valdivia",
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    }
+  ],
+  "elevators": [
+    {
+      "id": "EXA",
+      "from": "Exterior Acceso A",
+      "to": "Servicios Línea 6",
+      "fullPath": "Exterior Acceso A→Servicios Línea 6",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios Línea 6"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    },
+    {
+      "id": "PQUCA3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    },
+    {
+      "id": "FCVCA3CA6SR6",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios Línea 6",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3→Cambio de Andén Línea 6→Servicios Línea 6",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6",
+        "Servicios Línea 6"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    }
+  ],
+  "escalators": [
+    {
+      "id": "CA3CA6",
+      "from": "Cambio de Andén Línea 3",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": "Cambio de Andén Línea 3→Cambio de Andén Línea 6",
+      "segments": [
+        "Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    },
+    {
+      "id": "CA6CA3",
+      "from": "Cambio de Andén Línea 6",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Cambio de Andén Línea 6→Cambio de Andén Línea 3",
+      "segments": [
+        "Cambio de Andén Línea 6",
+        "Cambio de Andén Línea 3"
+      ],
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": ""
+    }
+  ],
+  "lastUpdated": "2025-04-28T12:56:27.439Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T12:56:42.580Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    }
+  ]
+}
