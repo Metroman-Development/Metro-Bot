@@ -15,138 +15,71 @@ class ConfigureHandler extends AccessCore {
         this.stationKey = '';
         this.normalizedKey = '';
         this.activeCollector = null;
-        this.NAVIGATION_TIMEOUT = 120000; // 2 minutes
+        this.NAVIGATION_TIMEOUT = 120000;
+        this.EDIT_TIMEOUT = 180000;
     }
 
-    getNavigationInstructions() {
-        if (this.currentSection === 'all') {
-            return [
-                '**Comandos de navegación:**',
-                '`accesos` - Mostrar accesos',
-                '`ascensores` - Mostrar ascensores',
-                '`escaleras` - Mostrar escaleras',
-                '`salir` - Finalizar navegación',
-                '\n**Para editar:**',
-                '`editar [tipo] [id]` - Editar un elemento específico',
-                '`añadir [tipo]` - Añadir nuevo elemento',
-                '`eliminar [tipo] [id]` - Eliminar elemento'
-            ].join('\n');
-        } else {
-            return [
-                '**Comandos de navegación:**',
-                '`anterior` - Página anterior',
-                '`siguiente` - Página siguiente',
-                '`inicio` - Volver a vista general',
-                '`salir` - Finalizar navegación',
-                '\n**Para editar:**',
-                '`editar [id]` - Editar este elemento',
-                '`eliminar [id]` - Eliminar este elemento',
-                '`añadir` - Añadir nuevo elemento'
-            ].join('\n');
-        }
-    }
-
+    /* CORE METHODS */
     async handle(message, args) {
-    try {
-        
-        this.message
-        // Clear any existing collectors to prevent memory leaks
-        if (this.activeCollector) {
-            this.activeCollector.stop();
-            this.activeCollector = null;
-        }
+        try {
+            this.cleanupCollectors();
 
-        // Handle advanced operations first
-        if (args[0]?.toLowerCase() === 'aedit') {
-            return this.batch.handleAdvancedEdit.call(this, message, args.slice(1));
-        }
-        
-        if (args[0]?.toLowerCase() === 'replace') {
-            return this.batch.handleReplaceOperation.call(this, message, args.slice(1));
-        }
+            // Handle batch operations
+            if (args[0]?.toLowerCase() === 'aedit') {
+                return this.batch.handleAdvancedEdit.call(this, message, args.slice(1));
+            }
+            
+            if (args[0]?.toLowerCase() === 'replace') {
+                return this.batch.handleReplaceOperation.call(this, message, args.slice(1));
+            }
 
-        // Parse quoted arguments (supports station names with spaces)
-        const parsedArgs = this.parseQuotedArgs(args);
-        const rawName = parsedArgs[0];
-        const rawLine = parsedArgs[1];
-        
-        // Validate required arguments
-        if (!rawName || !rawLine) {
+            const parsedArgs = this.parseQuotedArgs(args);
+            const rawName = parsedArgs[0];
+            const rawLine = parsedArgs[1];
+            
+            if (!rawName || !rawLine) {
+                return this.sendError(message, 
+                    '❌ Debes especificar nombre de estación y línea\n' +
+                    'Ejemplo: `configurar "Plaza Egaña" L4`\n' +
+                    'O: `configurar Tobalaba L1`'
+                );
+            }
+
+            await this.ensureAccessDetailsDir();
+            this.stationKey = `${rawName} ${rawLine}`;
+            this.normalizedKey = this.normalizeKey(this.stationKey);
+            this.message = message;
+
+            this.currentConfig = await this.getAccessConfig(this.normalizedKey);
+            
+            if (!this.currentConfig) {
+                this.currentConfig = this.createNewConfig(rawName, rawLine);
+                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
+                return this.setupInitialConfigCollector(message);
+            }
+
+            this.currentPage = 0;
+            this.currentSection = 'all';
+            
+            const totalItems = this.currentConfig.accesses.length + 
+                             this.currentConfig.elevators.length + 
+                             this.currentConfig.escalators.length;
+
+            if (totalItems <= 10) {
+                return this.showFullConfiguration();
+            }
+            return this.showPaginatedConfiguration();
+
+        } catch (error) {
+            console.error('Configuration Error:', error);
+            this.cleanupCollectors();
             return this.sendError(message, 
-                '❌ Debes especificar nombre de estación y línea\n' +
-                'Ejemplo: `configurar "Plaza Egaña" L4`\n' +
-                'O: `configurar Tobalaba L1`'
+                `❌ Error en configuración:\n\`\`\`${error.message}\`\`\``
             );
         }
-
-        // Ensure data directory exists
-        await this.ensureAccessDetailsDir();
-
-        // Create normalized keys
-        this.stationKey = `${rawName} ${rawLine}`;
-        this.normalizedKey = this.normalizeKey(this.stationKey);
-        this.message = message;  // Store the message object for later use
-
-        // Try to load existing config
-        this.currentConfig = await this.getAccessConfig(this.normalizedKey);
-        
-        console.log(this.currentConfig)
-
-        // Handle new station configuration
-        if (!this.currentConfig) {
-            this.currentConfig = this.createNewConfig(rawName, rawLine);
-            await  this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-            
-            // Send initial configuration prompt
-            const promptEmbed = new EmbedBuilder()
-                .setColor(0xFFFF00)
-                .setTitle(`🆕 Nueva estación: ${this.stationKey}`)
-                .setDescription([
-                    'Esta estación no tiene configuración existente.',
-                    '**Por favor provee los detalles iniciales:**',
-                    '```',
-                    'Accesos: Acceso A (Descripción: Ubicación), Acceso B',
-                    'Ascensores: A: Calle→Boletería, Boletería→Andén',
-                    'Escaleras: 1: Andén→Boletería, 2: Boletería→Calle',
-                    '```',
-                    'Escribe "cancelar" para abortar.'
-                ].join('\n'));
-
-            const promptMessage = await message.reply({ embeds: [promptEmbed] });
-            return this.setupInitialConfigCollector(promptMessage);
-        }
-
-        // Reset view state for existing station
-        this.currentPage = 0;
-        this.currentSection = 'all';
-
-        // Show appropriate view based on item count
-        const totalItems = this.currentConfig.accesses.length + 
-                         this.currentConfig.elevators.length + 
-                         this.currentConfig.escalators.length;
-
-        if (totalItems <= 10) {
-            return this.showFullConfiguration();
-        }
-        return this.showPaginatedConfiguration();
-
-    } catch (error) {
-        console.error('Configuration Error:', error);
-        
-        // Clean up on error
-        if (this.activeCollector) {
-            this.activeCollector.stop();
-            this.activeCollector = null;
-        }
-
-        return this.sendError(message, 
-            `❌ Error crítico en configuración:\n` +
-            `\`\`\`${error.message}\`\`\`\n` +
-            `Por favor reporta este error al administrador.`
-        );
     }
-}
-    
+
+    /* CONFIGURATION MANAGEMENT */
     createNewConfig(stationName, line) {
         return {
             station: stationName,
@@ -154,252 +87,126 @@ class ConfigureHandler extends AccessCore {
             accesses: [],
             elevators: [],
             escalators: [],
-            changeHistory: [],
-            lastUpdated: new Date().toISOString()
+            lastUpdated: new Date().toISOString(),
+            changeHistory: [{
+                timestamp: new Date().toISOString(),
+                user: 'System',
+                action: 'config_created',
+                details: 'Configuración inicial creada'
+            }]
         };
     }
 
-    
+    async setupInitialConfigCollector(message) {
+        const collector = message.channel.createMessageCollector({
+            filter: m => m.author.id === message.author.id,
+            time: this.EDIT_TIMEOUT
+        });
 
-    async handleEditItem(message, item, itemType) {
-        const embed = new EmbedBuilder()
-            .setColor(0xFFFF00)
-            .setTitle(`Editando ${item.id}`)
-            .setDescription(`Actual: ${JSON.stringify(item, null, 2)}`)
-            .addFields(
-                { name: 'Comandos', value: 'Escribe los nuevos valores en formato JSON o "cancelar"' }
-            );
+        this.activeCollector = collector;
 
-        await this.message.reply({ embeds: [embed] });
-
-        try {
-            const responses = await message.channel.awaitMessages({
-                filter: m => m.author.id === message.author.id,
-                max: 1,
-                time: 60000
-            });
-
-            const response = responses.first();
-            if (response.content.toLowerCase() === 'cancelar') {
-                await message.reply('Edición cancelada');
-                return;
-            }
-
+        collector.on('collect', async (msg) => {
             try {
-                const updatedItem = JSON.parse(response.content);
-                this.updateItemInConfig(item.id, updatedItem, itemType);
-                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-                await message.reply('✅ Elemento actualizado correctamente');
-            } catch (parseError) {
-                await message.reply('❌ Formato inválido. Usa formato JSON válido');
-            }
-        } catch (error) {
-            console.error('Error editing item:', error);
-            await message.reply('❌ Error al editar el elemento');
-        }
-    }
-
-    async handleAddItem(message, type) {
-        const validTypes = ['acceso', 'ascensor', 'escalera'];
-        const normalizedType = type.toLowerCase();
-        
-        if (!validTypes.includes(normalizedType)) {
-            await message.reply(`❌ Tipo inválido. Usa: ${validTypes.join(', ')}`);
-            return;
-        }
-
-        const example = this.getAddExample(normalizedType);
-        const embed = new EmbedBuilder()
-            .setColor(0xFFFF00)
-            .setTitle(`Añadiendo nuevo ${type}`)
-            .setDescription(`Proporciona los detalles en formato JSON\nEjemplo:\n\`\`\`json\n${example}\n\`\`\``)
-            .addFields(
-                { name: 'Comandos', value: 'Escribe los datos del nuevo elemento o "cancelar"' }
-            );
-
-        await message.reply({ embeds: [embed] });
-
-        try {
-            const responses = await message.channel.awaitMessages({
-                filter: m => m.author.id === message.author.id,
-                max: 1,
-                time: 60000
-            });
-
-            const response = responses.first();
-            if (response.content.toLowerCase() === 'cancelar') {
-                await message.reply('Adición cancelada');
-                return;
-            }
-
-            try {
-                const newItem = JSON.parse(response.content);
-                if (!newItem.id) {
-                    await message.reply('❌ El elemento debe tener un campo "id"');
+                const input = msg.content.trim();
+                
+                if (input.toLowerCase() === 'cancelar') {
+                    collector.stop();
+                    await message.reply('❌ Configuración cancelada');
                     return;
                 }
+
+                const config = await this.parseConfigurationInput(input, this.currentConfig.station, this.currentConfig.line);
                 
-                this.addItemToConfig(normalizedType, newItem);
-                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-                await message.reply(`✅ ${type} añadido correctamente`);
-            } catch (parseError) {
-                await message.reply('❌ Formato inválido. Usa formato JSON válido');
+                if (config.accesses.length === 0) {
+                    await message.reply('❌ Debes incluir al menos 1 acceso');
+                    return;
+                }
+
+                const confirm = await this.promptForConfirmation(
+                    message,
+                    "**Resumen de configuración:**\n" +
+                    this.renderConfigPreview(config) +
+                    "\n¿Confirmar esta configuración? (sí/no)"
+                );
+
+                if (confirm.toLowerCase() === 'sí' || confirm.toLowerCase() === 'si') {
+                    config.changeHistory = [{
+                        timestamp: new Date().toISOString(),
+                        user: message.author.tag,
+                        action: 'initial_config',
+                        details: 'Configuración inicial'
+                    }];
+
+                    await this.saveAccessConfig(this.normalizedKey, config);
+                    this.currentConfig = config;
+                    collector.stop();
+                    await message.reply(`✅ Configuración guardada para ${config.station} ${config.line}`);
+                    return this.showFullConfiguration();
+                }
+
+                await message.reply('Por favor ingresa la configuración nuevamente o escribe "cancelar"');
+
+            } catch (error) {
+                await message.reply(
+                    `❌ Error: ${error.message}\n` +
+                    "Ejemplo válido:\n```\n" +
+                    "Accesos: Acceso A (Descripción: Ubicación), Acceso B\n" +
+                    "Ascensores: A: Calle→Boletería, Boletería→Andén\n" +
+                    "```"
+                );
             }
-        } catch (error) {
-            console.error('Error adding item:', error);
-            await message.reply('❌ Error al añadir el elemento');
-        }
-    }
+        });
 
-    getAddExample(type) {
-        switch (type) {
-            case 'acceso':
-                return JSON.stringify({
-                    id: "A1",
-                    name: "Acceso Norte",
-                    description: "Ubicado en calle principal",
-                    status: "abierto",
-                    notes: ""
-                }, null, 2);
-            case 'ascensor':
-                return JSON.stringify({
-                    id: "E1",
-                    from: "Andén",
-                    to: "Boletería",
-                    status: "operativo",
-                    notes: ""
-                }, null, 2);
-            case 'escalera':
-                return JSON.stringify({
-                    id: "S1",
-                    from: "Boletería",
-                    to: "Calle",
-                    status: "operativa",
-                    notes: ""
-                }, null, 2);
-            default:
-                return "";
-        }
-    }
-
-    async handleDeleteItem(message, id, type) {
-        const itemType = type || this.currentSection;
-        const item = this.findItemById(id, itemType);
-        if (!item) {
-            await message.reply('❌ No se encontró el elemento con ese ID');
-            return;
-        }
-
-        const embed = new EmbedBuilder()
-            .setColor(0xFF0000)
-            .setTitle(`Eliminar ${item.id}`)
-            .setDescription(`¿Estás seguro de que quieres eliminar este elemento? (sí/no)\n\`\`\`json\n${JSON.stringify(item, null, 2)}\n\`\`\``);
-
-        await message.reply({ embeds: [embed] });
-
-        try {
-            const responses = await message.channel.awaitMessages({
-                filter: m => m.author.id === message.author.id,
-                max: 1,
-                time: 30000
-            });
-
-            const response = responses.first();
-            if (response.content.toLowerCase() === 'sí' || response.content.toLowerCase() === 'si') {
-                this.removeItemFromConfig(id, itemType);
-                await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-                await message.reply('✅ Elemento eliminado correctamente');
-            } else {
-                await message.reply('Eliminación cancelada');
-            }
-        } catch (error) {
-            console.error('Error deleting item:', error);
-            await message.reply('❌ Error al eliminar el elemento');
-        }
-    }
-
-    findItemById(id, type = null) {
-        
-        let section = type;
-        
-        if (!section) {
-          section= this.currentSection === 'all' ? 'accesses' : this.currentSection;
-            }
-            
-        
-        
-        
-        console.log("322",id)
-        console.log("323",section)
-        
-        return this.currentConfig[section]?.find(item => item.id === id) ;
-    }
-
-    updateItemInConfig(id, updatedItem, type = null) {
-        const section = type || this.currentSection === 'all' ? 'accesses' : this.currentSection;
-        const index = this.currentConfig[section].findIndex(item => item.id === id);
-        if (index !== -1) {
-            this.currentConfig[section][index] = { ...this.currentConfig[section][index], ...updatedItem };
-            this.currentConfig.lastUpdated = new Date().toISOString();
-            this.recordChange('update', id, section);
-        }
-    }
-
-    addItemToConfig(type, newItem) {
-        const sectionMap = {
-            'acceso': 'accesses',
-            'ascensor': 'elevators',
-            'escalera': 'escalators'
-        };
-        
-        const section = sectionMap[type.toLowerCase()];
-        if (section) {
-            this.currentConfig[section].push(newItem);
-            this.currentConfig.lastUpdated = new Date().toISOString();
-            this.recordChange('add', newItem.id, section);
-        }
-    }
-
-    removeItemFromConfig(id, type = null) {
-        const section = type || this.currentSection === 'all' ? 'accesses' : this.currentSection;
-        this.currentConfig[section] = this.currentConfig[section].filter(item => item.id !== id);
-        this.currentConfig.lastUpdated = new Date().toISOString();
-        this.recordChange('remove', id, section);
-    }
-
-    recordChange(action, itemId, section) {
-        this.currentConfig.changeHistory.push({
-            timestamp: new Date().toISOString(),
-            user: this.message.author.tag,
-            action: `${action}_${section}`,
-            details: `Modified item ${itemId}`
+        collector.on('end', () => {
+            this.activeCollector = null;
         });
     }
 
-    hasPreviousPage() {
-        return this.currentPage > 0;
-    }
+    /* VIEW MANAGEMENT */
+    async showFullConfiguration() {
+        const embed = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle(`📝 Configuración completa: ${this.stationKey}`)
+            .addFields(
+                {
+                    name: '🚪 Accesos',
+                    value: this.currentConfig.accesses.slice(0, 5).map(a => 
+                        `• **${a.name}** (${a.id})\n` +
+                        `  - Estado: ${a.status || 'desconocido'}\n` +
+                        `  - Descripción: ${a.description || 'N/A'}`
+                    ).join('\n') || 'No hay accesos registrados',
+                    inline: false
+                },
+                {
+                    name: '🛗 Ascensores',
+                    value: this.currentConfig.elevators.slice(0, 5).map(e => 
+                        `• **${e.id}**: ${e.from} → ${e.to}\n` +
+                        `  - Estado: ${e.status || 'desconocido'}\n` +
+                        `  - Ruta: ${e.fullPath || 'N/A'}`
+                    ).join('\n') || 'No hay ascensores registrados',
+                    inline: false
+                },
+                {
+                    name: '📶 Escaleras',
+                    value: this.currentConfig.escalators.slice(0, 5).map(s => 
+                        `• **${s.id}**: ${s.from} → ${s.to}\n` +
+                        `  - Estado: ${s.status || 'desconocido'}\n` +
+                        `  - Ruta: ${s.fullPath || 'N/A'}`
+                    ).join('\n') || 'No hay escaleras registradas',
+                    inline: false
+                }
+            )
+            .setFooter({ 
+                text: `Total: ${this.currentConfig.accesses.length} accesos | ` +
+                      `${this.currentConfig.elevators.length} ascensores | ` +
+                      `${this.currentConfig.escalators.length} escaleras`
+            });
 
-    hasNextPage() {
-        switch (this.currentSection) {
-            case 'accesses':
-                return (this.currentPage + 1) * 7 < this.currentConfig.accesses.length;
-            case 'elevators':
-                return (this.currentPage + 1) * 7 < this.currentConfig.elevators.length;
-            case 'escalators':
-                return (this.currentPage + 1) * 7 < this.currentConfig.escalators.length;
-            default:
-                return false;
-        }
-    }
-
-    getSectionName(section) {
-        switch (section) {
-            case 'accesses': return 'Accesos';
-            case 'elevators': return 'Ascensores';
-            case 'escalators': return 'Escaleras';
-            default: return 'General';
-        }
+        const sentMessage = await this.message.reply({ 
+            embeds: [embed],
+            content: this.getNavigationInstructions()
+        });
+        await this.setupMessageCollector(sentMessage);
     }
 
     createPaginatedEmbed() {
@@ -407,540 +214,559 @@ class ConfigureHandler extends AccessCore {
             .setColor(0x0099FF)
             .setTitle(`Configuración: ${this.stationKey}`)
             .setFooter({ 
-                text: `Página ${this.currentPage + 1} | Sección: ${this.getSectionName(this.currentSection)}` 
+                text: `Página ${this.currentPage + 1} | ${this.getSectionName(this.currentSection)}` 
             });
+
+        const items = this.getCurrentPageItems();
+        const totalItems = this.getTotalItems();
+
+        if (items.length === 0) {
+            embed.setDescription(`No hay ${this.currentSection} registrados`);
+            return embed;
+        }
 
         switch (this.currentSection) {
             case 'accesses':
-                embed.setDescription('**Accesos**');
-                embed.addFields(this.getAccessesPage());
+                embed.setDescription(`**Accesos (${totalItems})**`);
+                embed.addFields({
+                    name: `Mostrando ${this.currentPage * 7 + 1}-${Math.min((this.currentPage + 1) * 7, totalItems)}`,
+                    value: items.map(a => 
+                        `• ${a.name} (${a.id})\n` +
+                        `  Estado: ${a.status || 'desconocido'}\n` +
+                        `  Descripción: ${a.description || 'N/A'}`
+                    ).join('\n\n')
+                });
                 break;
+
             case 'elevators':
-                embed.setDescription('**Ascensores**');
-                embed.addFields(this.getElevatorsPage());
+                embed.setDescription(`**Ascensores (${totalItems})**`);
+                embed.addFields({
+                    name: `Mostrando ${this.currentPage * 7 + 1}-${Math.min((this.currentPage + 1) * 7, totalItems)}`,
+                    value: items.map(e => 
+                        `• ${e.id}: ${e.from} → ${e.to}\n` +
+                        `  Estado: ${e.status || 'desconocido'}\n` +
+                        `  Ruta: ${e.fullPath || 'N/A'}`
+                    ).join('\n\n')
+                });
                 break;
+
             case 'escalators':
-                embed.setDescription('**Escaleras**');
-                embed.addFields(this.getEscalatorsPage());
+                embed.setDescription(`**Escaleras (${totalItems})**`);
+                embed.addFields({
+                    name: `Mostrando ${this.currentPage * 7 + 1}-${Math.min((this.currentPage + 1) * 7, totalItems)}`,
+                    value: items.map(s => 
+                        `• ${s.id}: ${s.from} → ${s.to}\n` +
+                        `  Estado: ${s.status || 'desconocido'}\n` +
+                        `  Ruta: ${s.fullPath || 'N/A'}`
+                    ).join('\n\n')
+                });
                 break;
-            default:
-                embed.setDescription('**Vista general**\nSelecciona una sección para ver detalles');
-                embed.addFields(
-                    { 
-                        name: 'Accesos', 
-                        value: `${this.currentConfig.accesses.length} registrados\nUsa \`accesos\` para ver`, 
-                        inline: true 
-                    },
-                    { 
-                        name: 'Ascensores', 
-                        value: `${this.currentConfig.elevators.length} registrados\nUsa \`ascensores\` para ver`, 
-                        inline: true 
-                    },
-                    { 
-                        name: 'Escaleras', 
-                        value: `${this.currentConfig.escalators.length} registradas\nUsa \`escaleras\` para ver`, 
-                        inline: true 
-                    }
-                );
         }
 
         return embed;
     }
 
-    getAccessesPage() {
-        const startIdx = this.currentPage * 7;
-        const pageItems = this.currentConfig.accesses.slice(startIdx, startIdx + 7);
-        return {
-            name: `Accesos (${startIdx + 1}-${startIdx + pageItems.length} de ${this.currentConfig.accesses.length})`,
-            value: pageItems.map(a => `• ${a.name} (${a.id})`).join('\n') || 'No hay accesos',
-            inline: false
-        };
-    }
-
-    getElevatorsPage() {
-        const startIdx = this.currentPage * 7;
-        const pageItems = this.currentConfig.elevators.slice(startIdx, startIdx + 7);
-        return {
-            name: `Ascensores (${startIdx + 1}-${startIdx + pageItems.length} de ${this.currentConfig.elevators.length})`,
-            value: pageItems.map(e => `• ${e.id}: ${e.from} → ${e.to}`).join('\n') || 'No hay ascensores',
-            inline: false
-        };
-    }
-
-    getEscalatorsPage() {
-        const startIdx = this.currentPage * 7;
-        const pageItems = this.currentConfig.escalators.slice(startIdx, startIdx + 7);
-        return {
-            name: `Escaleras (${startIdx + 1}-${startIdx + pageItems.length} de ${this.currentConfig.escalators.length})`,
-            value: pageItems.map(e => `• ${e.id}: ${e.from} → ${e.to}`).join('\n') || 'No hay escaleras',
-            inline: false
-        };
-    }
-
     async showPaginatedConfiguration() {
-    const embed = this.createPaginatedEmbed();
-    const instructions = this.getNavigationInstructions();
-    
-    const sentMessage = await this.message.reply({ 
-        content: instructions,
-        embeds: [embed] 
-    });
-
-    await this.setupMessageCollector(sentMessage);
-}
-
-async showFullConfiguration() {
-    const embed = new EmbedBuilder()
-        .setColor(0x0099FF)
-        .setTitle(`Configuración actual: ${this.stationKey}`)
-        .addFields(
-            // ... existing field definitions ...
-        )
-        .setFooter({ text: 'Responde con "editar [tipo] [id]" o "añadir [tipo]" o "cancelar"' });
-
-    const sentMessage = await this.message.reply({ embeds: [embed] });
-    await this.setupMessageCollector(sentMessage);
-}
-    
-    formatAccesses(accesses) {
-        return accesses.map(a => `• ${a.name} (${a.id})`).join('\n') || 'Ninguno';
+        const embed = this.createPaginatedEmbed();
+        const sentMessage = await this.message.reply({ 
+            content: this.getNavigationInstructions(),
+            embeds: [embed] 
+        });
+        await this.setupMessageCollector(sentMessage);
     }
 
-    formatElevators(elevators) {
-        return elevators.map(e => `• ${e.id}: ${e.from} → ${e.to}`).join('\n') || 'Ninguno';
-    }
-
-    formatEscalators(escalators) {
-        return escalators.map(e => `• ${e.id}: ${e.from} → ${e.to}`).join('\n') || 'Ninguna';
-    }
-    
-    async setupMessageCollector(sentMessage) {
-    if (this.activeCollector) {
-        this.activeCollector.stop();
-    }
-
-    const collector = this.message.channel.createMessageCollector({
-        filter: m => m.author.id === this.message.author.id,
-        time: this.NAVIGATION_TIMEOUT
-    });
-
-    this.activeCollector = collector;
-
-    collector.on('collect', async (msg) => {
+    /* EDITING SYSTEM */
+    async handleEditItem(message, item, itemType) {
         try {
-            const input = msg.content.toLowerCase().trim();
+            let continueEditing = true;
             
-            // Immediate delete to keep chat clean
-            await msg.delete().catch(() => {});
-
-            // Handle cancellation first
-            if (input === 'cancelar' || input === 'salir') {
-                collector.stop();
-                await sentMessage.edit({ 
-                    content: '❌ Operación cancelada',
-                    embeds: [] 
-                });
-                return;
-            }
-
-            // Unified command processing
-            const response = await this.processCommand(input, msg);
-            if (response.updateView) {
-                const newEmbed = this.createPaginatedEmbed();
-                await sentMessage.edit({
-                    embeds: [newEmbed],
-                    content: this.getNavigationInstructions()
-                });
-            }
-        } catch (error) {
-            console.error('Error processing command:', error);
-            await this.message.reply({
-                content: `❌ Error: ${error.message}`,
-                deleteAfter: 5000
-            }).catch(() => {});
-        }
-    });
-
-    collector.on('end', () => {
-        this.activeCollector = null;
-    });
-}
-    
-    // In your processCommand function, replace the error handling 
-async processCommand(input, originalMessage) {
-    const response = { updateView: false, shouldExit: false };
-    const normalizedInput = input.toLowerCase().trim();
-    
-    try {
-        // Navigation commands
-        const navigationMap = {
-            'accesos': 'accesses',
-            'access': 'accesses',
-            'a': 'accesses',
-            'ascensores': 'elevators',
-            'elevators': 'elevators',
-            'e': 'elevators',
-            'escaleras': 'escalators',
-            'escalators': 'escalators',
-            's': 'escalators',
-            'inicio': 'all',
-            'home': 'all',
-            'h': 'all',
-            'general': 'all',
-            'g': 'all'
-        };
-
-        // Handle navigation commands
-        if (navigationMap[normalizedInput]) {
-            this.currentSection = navigationMap[normalizedInput];
-            this.currentPage = 0;
-            response.updateView = true;
-            return response;
-        }
-
-        // Pagination commands
-        if (['anterior', 'prev', 'p', 'atrás', 'back'].includes(normalizedInput)) {
-            if (this.hasPreviousPage()) {
-                this.currentPage--;
-                response.updateView = true;
-            } else {
-                await originalMessage.reply({ 
-                    content: '⚠️ Ya estás en la primera página', 
-                    ephemeral: true 
-                });
-            }
-            return response;
-        }
-
-        if (['siguiente', 'next', 'n', 'avanzar'].includes(normalizedInput)) {
-            if (this.hasNextPage()) {
-                this.currentPage++;
-                response.updateView = true;
-            } else {
-                await originalMessage.reply({ 
-                    content: '⚠️ Ya estás en la última página', 
-                    ephemeral: true 
-                });
-            }
-            return response;
-        }
-
-        // Edit command - enhanced version
-        if (normalizedInput.startsWith('editar ') || normalizedInput.startsWith('edit ')) {
-            const parts = originalMessage.content.split(/\s+/);
-            
-            // Determine type and ID based on current view
-            let type, id;
-            if (this.currentSection === 'all') {
-                if (parts.length < 3) {
-                    throw new Error('Formato: `editar [tipo] [id]` o `editar [id]` en vista detallada');
-                }
-                type = parts[1].toLowerCase();
-                id = parts[2];
-            } else {
-                if (parts.length < 2) {
-                    throw new Error('Formato: `editar [id]` en vista detallada');
-                }
-                type = this.currentSection;
-                id = parts[1];
-            }
-
-            // Validate type
-            const validTypes = ['accesses', 'elevators', 'escalators', 
-                               'accesos', 'ascensores', 'escaleras',
-                               'a', 'e', 's'];
-            
-            if (!validTypes.includes(type.toLowerCase())) {
-                throw new Error(`Tipo inválido. Usa: ${validTypes.join(', ')}`);
-            }
-
-            // Normalize type to English
-            if (type === 'accesos' || type === 'a') type = 'accesses';
-            if (type === 'ascensores' || type === 'e') type = 'elevators';
-            if (type === 'escaleras' || type === 's') type = 'escalators';
-
-            const item = this.findItemById(id, type);
-            if (!item) throw new Error(`No se encontró ${type.slice(0, -1)} con ID ${id}`);
-
-            // Start interactive editing
-            const success = await this.handleEditItem(originalMessage, item, type);
-            if (success) {
-                response.updateView = true;
-            }
-            return response;
-        }
-
-        // Add command
-        if (normalizedInput.startsWith('añadir ') || normalizedInput.startsWith('add ')) {
-            const parts = originalMessage.content.split(/\s+/);
-            let type = parts[1]?.toLowerCase();
-            
-            // If in detailed view, use current section
-            if (this.currentSection !== 'all' && parts.length === 1) {
-                type = this.currentSection;
-            }
-
-            if (!type) {
-                throw new Error('Formato: `añadir [tipo]` o `añadir` en vista detallada');
-            }
-
-            // Normalize type
-            if (type === 'accesos' || type === 'a') type = 'accesses';
-            if (type === 'ascensores' || type === 'e') type = 'elevators';
-            if (type === 'escaleras' || type === 's') type = 'escalators';
-
-            await this.handleAddItem(originalMessage, type);
-            response.updateView = true;
-            return response;
-        }
-
-        // Delete command
-        if (normalizedInput.startsWith('eliminar ') || normalizedInput.startsWith('delete ')) {
-            const parts = originalMessage.content.split(/\s+/);
-            
-            // Determine type and ID based on current view
-            let type, id;
-            if (this.currentSection === 'all') {
-                if (parts.length < 3) {
-                    throw new Error('Formato: `eliminar [tipo] [id]` o `eliminar [id]` en vista detallada');
-                }
-                type = parts[1].toLowerCase();
-                id = parts[2];
-            } else {
-                if (parts.length < 2) {
-                    throw new Error('Formato: `eliminar [id]` en vista detallada');
-                }
-                type = this.currentSection;
-                id = parts[1];
-            }
-
-            // Normalize type
-            if (type === 'accesos' || type === 'a') type = 'accesses';
-            if (type === 'ascensores' || type === 'e') type = 'elevators';
-            if (type === 'escaleras' || type === 's') type = 'escalators';
-
-            await this.handleDeleteItem(originalMessage, id, type);
-            response.updateView = true;
-            return response;
-        }
-
-        // Help command
-        if (normalizedInput === 'ayuda' || normalizedInput === 'help') {
-            await originalMessage.reply({
-                content: this.getNavigationInstructions(),
-                ephemeral: true
-            });
-            return response;
-        }
-
-        // Cancel/exit command
-        if (['cancelar', 'salir', 'exit', 'quit', 'done'].includes(normalizedInput)) {
-            if (this.activeCollector) {
-                this.activeCollector.stop();
-                this.activeCollector = null;
-            }
-            response.shouldExit = true;
-            await originalMessage.reply({ 
-                content: '✅ Operación finalizada', 
-                ephemeral: true 
-            });
-            return response;
-        }
-
-        // View current item (only in detailed view)
-        if (normalizedInput === 'ver' && this.currentSection !== 'all') {
-            const items = this.getCurrentPageItems();
-            if (items.length > 0) {
+            while (continueEditing) {
+                const currentState = this.formatItemForEditing(item, itemType);
                 const embed = new EmbedBuilder()
-                    .setTitle(`Elementos en página ${this.currentPage + 1}`)
-                    .setDescription(items.map((item, i) => 
-                        `${i + 1}. ${item.id} - ${item.name || `${item.from}→${item.to}`}`
-                    ).join('\n'));
-                
-                await originalMessage.reply({ 
-                    embeds: [embed],
-                    ephemeral: true 
-                });
-            }
-            return response;
-        }
+                    .setColor(0xFFFF00)
+                    .setTitle(`✏️ Editando ${item.id} (${this.getSectionName(itemType)})`)
+                    .setDescription("**Estado actual:**\n" + currentState)
+                    .addFields({
+                        name: 'Instrucciones',
+                        value: [
+                            "Escribe cambios como:",
+                            "`clave: valor` (ej: `status: fuera de servicio`)",
+                            "`segmentoX: nuevo_valor` (ej: `segment1: Andén→Pasillo`)",
+                            "`reemplazar: viejo→nuevo` (para reemplazar en rutas)",
+                            "Opciones:",
+                            "`listo` - Guardar cambios",
+                            "`cancelar` - Descartar cambios",
+                            "`ver` - Ver estado actual"
+                        ].join('\n')
+                    });
 
-        // Unknown command - only show error if not in active interaction
-        if (!this.isActiveInteraction()) {
-            const suggestion = this.getCommandSuggestion(normalizedInput);
-            throw new Error(suggestion || 'Comando no reconocido. Escribe `ayuda` para ver opciones.');
-        }
+                await message.reply({ embeds: [embed] });
 
-        return response;
-
-    } catch (error) {
-        // Only show error if it's not part of an expected flow
-        if (!this.isExpectedError(error)) {
-            console.error('Command Processing Error:', error);
-            
-            const cleanMessage = this.cleanErrorMessage(error.message);
-            await originalMessage.reply({
-                content: `⚠️ ${cleanMessage}`,
-                ephemeral: true
-            }).catch(console.error);
-        }
-        return { updateView: false, shouldExit: false };
-    }
-}
-
-// Helper Methods:
-
-isActiveInteraction() {
-    return !!this.activeCollector || this.currentSection !== 'all';
-}
-
-getCommandSuggestion(input) {
-    const commandMap = {
-        'listo': '¿Querías finalizar la edición? Usa `listo` solo durante edición interactiva.',
-        '!stationaccess': 'El comando correcto es: `!accesos estación "Nombre Estación" Línea`',
-        'ver todos': 'Para ver todo usa: `inicio` o `general`',
-        'mostrar': 'Usa `ver` para detalles o `accesos`/`ascensores`/`escaleras` para secciones'
-    };
-
-    // Check for direct matches first
-    if (commandMap[input]) {
-        return commandMap[input];
-    }
-
-    // Check for partial matches
-    for (const [wrongCmd, suggestion] of Object.entries(commandMap)) {
-        if (input.includes(wrongCmd)) {
-            return suggestion;
-        }
-    }
-
-    return null;
-}
-
-cleanErrorMessage(msg) {
-    // Remove redundant prefixes and format consistently
-    return msg
-        .replace(/^(error|❌|⚠️)\s*[:]\s*/i, '')
-        .replace(/(\.|\!|\?)+$/, '') // Remove trailing punctuation
-        .trim() + '.'; // Ensure single period at end
-}
-
-isExpectedError(error) {
-    const expectedErrors = [
-        'cancelar', 
-        'salir',
-        'timeout',
-        'collector ended',
-        'operation cancelled'
-    ];
-    return expectedErrors.some(e => error.message.toLowerCase().includes(e));
-}
-
-getCurrentPageItems() {
-    switch (this.currentSection) {
-        case 'accesses': 
-            return this.currentConfig.accesses.slice(this.currentPage * 7, (this.currentPage + 1) * 7);
-        case 'elevators':
-            return this.currentConfig.elevators.slice(this.currentPage * 7, (this.currentPage + 1) * 7);
-        case 'escalators':
-            return this.currentConfig.escalators.slice(this.currentPage * 7, (this.currentPage + 1) * 7);
-        default:
-            return [];
-    }
-}
-// Add these helper methods to your class:
-
-    
-    async promptForConfiguration(message, stationKey, currentConfig) {
-        const embed = new EmbedBuilder()
-            .setColor(0xFFFF00)
-            .setTitle(`🛗 Configuración inicial para ${currentConfig.station} ${currentConfig.line}`)
-            .setDescription([
-                '**Formato requerido:**',
-                '```',
-                'Accesos: Acceso A (Descripción: Ubicación), Acceso B',
-                'Ascensores: ID: From→To, From→To, ID2: From→To',
-                'Escaleras: ID: From→To, From→To',
-                '```',
-                'Ejemplo real:',
-                '```',
-                'Accesos: Acceso A (Descripción: Av. Alameda), Acceso B (Descripción: Av. María Rozas)',
-                'Ascensores: LD: Andén Los Dominicos→Boletería, SP: Andén San Pablo→Boletería',
-                'Escaleras: 1: Andén→Boletería, 2: Boletería→Calle',
-                '```',
-                'Separa múltiples elementos con comas. Escribe "cancelar" para terminar.'
-            ].join('\n'));
-
-        const prompt = await message.reply({ embeds: [embed] });
-        return this.waitForInitialConfiguration(message, prompt, stationKey, currentConfig);
-    }
-
-    async waitForInitialConfiguration(message, prompt, stationKey, currentConfig) {
-        const MAX_ATTEMPTS = 3;
-        let attempts = 0;
-        
-        while (attempts < MAX_ATTEMPTS) {
-            try {
                 const responses = await message.channel.awaitMessages({
                     filter: m => m.author.id === message.author.id,
                     max: 1,
-                    time: 300000,
-                    errors: ['time']
+                    time: this.EDIT_TIMEOUT
                 });
-
-                const response = responses.first().content;
-                if (response.toLowerCase() === 'cancelar') {
-                    return this.sendSuccess(message, '❌ Configuración cancelada');
-                }
-
-                const config = await this.parseConfigurationInput(response, currentConfig.station, currentConfig.line);
                 
-                if (config.accesses.length === 0) {
-                    throw new Error("Debe incluir al menos 1 acceso");
+                const input = responses.first().content.trim().toLowerCase();
+                
+                if (input === 'listo') {
+                    this.updateItemInConfig(item.id, item, itemType);
+                    await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
+                    await message.reply('✅ Cambios guardados correctamente');
+                    return true;
                 }
-
-                const confirm = await this.promptForConfirmation(
-                    message,
-                    "**Resumen de configuración:**\n" +
-                    this.renderConfigPreview(config) +
-                    "\n¿Confirmar esta configuración? (sí/no/cancelar)"
-                );
-
-                if (confirm.toLowerCase() === 'cancelar') {
-                    return this.sendSuccess(message, '❌ Configuración cancelada');
-                } else if (confirm.toLowerCase() === 'sí' || confirm.toLowerCase() === 'si') {
-                    config.changeHistory = [{
-                        timestamp: new Date().toISOString(),
-                        user: message.author.tag,
-                        action: 'Configuración inicial',
-                        details: 'Creación de archivo de accesibilidad'
-                    }];
-
-                    await this.saveAccessConfig(stationKey, config);
-                    return this.sendSuccess(message, `✅ Configuración guardada para ${config.station} ${config.line}`);
-                } else {
-                    attempts++;
-                    await message.reply(`Intento ${attempts}/${MAX_ATTEMPTS}. Por favor reintente.`);
+                
+                if (input === 'cancelar') {
+                    await message.reply('❌ Edición cancelada');
+                    return false;
                 }
-            } catch (error) {
-                if (error.name === 'TimeoutError') {
-                    return this.sendError(message, 'Tiempo agotado. Por favor intenta nuevamente.');
+                
+                if (input === 'ver') continue;
+
+                const changesMade = await this.processEditInput(input, item, itemType, message);
+                
+                if (changesMade) {
+                    const confirm = await message.reply({ 
+                        content: '✅ Cambio aplicado. ¿Quieres hacer más cambios? (sí/no)',
+                        ephemeral: true 
+                    });
+                    
+                    const confirmResponse = await message.channel.awaitMessages({
+                        filter: m => m.author.id === message.author.id,
+                        max: 1,
+                        time: 30000
+                    });
+                    
+                    continueEditing = confirmResponse.first().content.toLowerCase().startsWith('s');
                 }
-                attempts++;
-                await message.reply(
-                    `❌ Error: ${error.message}\n` +
-                    `Intento ${attempts}/${MAX_ATTEMPTS}. Por favor corrija:\n` +
-                    "Ejemplo válido:\n" +
-                    "```\n" +
-                    "Accesos: Acceso A (Descripción: Ubicación), Acceso B\n" +
-                    "Ascensores: A: Calle→Boletería, Boletería→Andén\n" +
-                    "```\n" +
-                    "Escribe 'cancelar' para terminar."
-                );
             }
+            
+            return true;
+        } catch (error) {
+            console.error('Edit Error:', error);
+            await message.reply('❌ Error en el proceso de edición');
+            return false;
+        }
+    }
+
+    /* COLLECTOR MANAGEMENT */
+    async setupMessageCollector(sentMessage) {
+        this.cleanupCollectors();
+
+        const collector = sentMessage.channel.createMessageCollector({
+            filter: m => m.author.id === this.message.author.id,
+            time: this.NAVIGATION_TIMEOUT
+        });
+
+        this.activeCollector = collector;
+
+        collector.on('collect', async (msg) => {
+            try {
+                await msg.delete().catch(() => {});
+                const input = msg.content.trim();
+                
+                if (input.toLowerCase() === 'ver') {
+                    const currentView = this.currentSection === 'all' 
+                        ? await this.showFullConfiguration() 
+                        : await this.showPaginatedConfiguration();
+                    return;
+                }
+
+                const response = await this.processCommand(input, msg);
+                
+                if (response.shouldExit) {
+                    collector.stop();
+                    return;
+                }
+
+                if (response.updateView) {
+                    const newEmbed = this.currentSection === 'all'
+                        ? this.createFullEmbed()
+                        : this.createPaginatedEmbed();
+                    
+                    await sentMessage.edit({
+                        content: this.getNavigationInstructions(),
+                        embeds: [newEmbed]
+                    });
+                }
+
+            } catch (error) {
+                if (!this.isExpectedError(error)) {
+                    await this.sendTemporaryReply(msg, `⚠️ ${this.cleanErrorMessage(error.message)}`);
+                }
+            }
+        });
+
+        collector.on('end', () => {
+            this.activeCollector = null;
+            try {
+                sentMessage.edit({ content: "Sesión terminada", embeds: [] });
+            } catch (error) {
+                console.error("Error cleaning up message:", error);
+            }
+        });
+    }
+
+    /* UTILITY METHODS */
+    getNavigationInstructions() {
+        if (this.currentSection === 'all') {
+            return [
+                '**Comandos de navegación:**',
+                '`accesos` - Mostrar accesos',
+                '`ascensores` - Mostrar ascensores',
+                '`escaleras` - Mostrar escaleras',
+                '`salir` - Finalizar',
+                '\n**Edición:**',
+                '`editar [tipo] [id]` - Editar elemento',
+                '`añadir [tipo]` - Añadir nuevo',
+                '`eliminar [tipo] [id]` - Eliminar'
+            ].join('\n');
+        } else {
+            return [
+                '**Comandos:**',
+                '`anterior`/`siguiente` - Navegar páginas',
+                '`inicio` - Vista general',
+                '`salir` - Finalizar',
+                '\n**Edición:**',
+                '`editar [id]` - Editar elemento',
+                '`añadir` - Añadir nuevo',
+                '`eliminar [id]` - Eliminar',
+                '`ver` - Mostrar detalles'
+            ].join('\n');
+        }
+    }
+
+    formatItemForEditing(item, itemType) {
+        let formatted = [];
+        
+        formatted.push(`• ID: ${item.id}`);
+        if (item.status) formatted.push(`• Estado: ${item.status}`);
+        if (item.notes) formatted.push(`• Notas: ${item.notes}`);
+        
+        switch (itemType) {
+            case 'accesses':
+                formatted.push(`• Nombre: ${item.name}`);
+                if (item.description) formatted.push(`• Descripción: ${item.description}`);
+                break;
+                
+            case 'elevators':
+            case 'escalators':
+                formatted.push(`• Desde: ${item.from}`);
+                formatted.push(`• Hasta: ${item.to}`);
+                if (item.fullPath) formatted.push(`• Ruta completa: ${item.fullPath}`);
+                
+                if (item.segments?.length > 0) {
+                    formatted.push('\n**Segmentos:**');
+                    item.segments.forEach((seg, i) => {
+                        formatted.push(`• Segmento ${i+1}: ${seg.from}→${seg.to}`);
+                    });
+                }
+                break;
         }
         
-        return this.sendError(message, 'Máximo de intentos alcanzado. Comando cancelado.');
+        return formatted.join('\n');
+    }
+
+    async processEditInput(input, item, itemType, message) {
+        const keyValueMatch = input.match(/^([a-záéíóúñ]+)\s*:\s*(.+)$/i);
+        if (keyValueMatch) {
+            const [_, key, value] = keyValueMatch;
+            const validKeys = this.getValidKeysForType(itemType);
+            
+            if (!validKeys.includes(key.toLowerCase())) {
+                await message.reply(`❌ Clave inválida. Claves válidas: ${validKeys.join(', ')}`);
+                return false;
+            }
+            
+            if (key === 'from' || key === 'to') {
+                await this.handlePathUpdate(item, key, value.trim());
+            } else {
+                item[key] = value.trim();
+            }
+            
+            return true;
+        }
+        
+        const segmentMatch = input.match(/^segmento?(\d+)\s*:\s*([^→]+)→([^→]+)$/i);
+        if (segmentMatch) {
+            const [_, index, from, to] = segmentMatch;
+            const segIndex = parseInt(index) - 1;
+            
+            if (!item.segments || segIndex >= item.segments.length) {
+                await message.reply(`❌ No existe el segmento ${index}`);
+                return false;
+            }
+            
+            item.segments[segIndex] = { from: from.trim(), to: to.trim() };
+            this.rebuildFullPath(item);
+            return true;
+        }
+        
+        const replaceMatch = input.match(/^reemplazar\s*:\s*([^→]+)→([^→]+)$/i);
+        if (replaceMatch) {
+            const [_, oldVal, newVal] = replaceMatch;
+            let changesMade = false;
+            
+            if (item.from?.includes(oldVal)) {
+                item.from = item.from.replace(oldVal, newVal);
+                changesMade = true;
+            }
+            if (item.to?.includes(oldVal)) {
+                item.to = item.to.replace(oldVal, newVal);
+                changesMade = true;
+            }
+            
+            if (item.segments) {
+                item.segments.forEach(seg => {
+                    if (seg.from.includes(oldVal)) {
+                        seg.from = seg.from.replace(oldVal, newVal);
+                        changesMade = true;
+                    }
+                    if (seg.to.includes(oldVal)) {
+                        seg.to = seg.to.replace(oldVal, newVal);
+                        changesMade = true;
+                    }
+                });
+            }
+            
+            if (changesMade) {
+                this.rebuildFullPath(item);
+                return true;
+            }
+            
+            await message.reply('❌ No se encontró el texto a reemplazar');
+            return false;
+        }
+        
+        await message.reply('❌ Formato no reconocido');
+        return false;
+    }
+
+    rebuildFullPath(item) {
+        if (!item.segments?.length) {
+            if (item.from && item.to) {
+                item.fullPath = `${item.from}→${item.to}`;
+            }
+            return;
+        }
+        
+        item.from = item.segments[0].from;
+        item.to = item.segments[item.segments.length - 1].to;
+        item.fullPath = item.segments.map(seg => `${seg.from}→${seg.to}`).join(', ');
+    }
+
+    /* COMPLETE PROCESSCOMMAND */
+    async processCommand(input, originalMessage) {
+        const response = { updateView: false, shouldExit: false };
+        const normalizedInput = input.toLowerCase().trim();
+        
+        try {
+            const navigationMap = {
+                'accesos': 'accesses', 'access': 'accesses', 'a': 'accesses',
+                'ascensores': 'elevators', 'elevators': 'elevators', 'e': 'elevators',
+                'escaleras': 'escalators', 'escalators': 'escalators', 's': 'escalators',
+                'inicio': 'all', 'home': 'all', 'h': 'all', 'general': 'all', 'g': 'all'
+            };
+
+            if (navigationMap[normalizedInput]) {
+                this.currentSection = navigationMap[normalizedInput];
+                this.currentPage = 0;
+                response.updateView = true;
+                return response;
+            }
+
+            if (['anterior', 'prev', 'p', 'atrás', 'back'].includes(normalizedInput)) {
+                if (this.hasPreviousPage()) {
+                    this.currentPage--;
+                    response.updateView = true;
+                } else {
+                    await this.sendTemporaryReply(originalMessage, '⚠️ Ya estás en la primera página');
+                }
+                return response;
+            }
+
+            if (['siguiente', 'next', 'n', 'avanzar'].includes(normalizedInput)) {
+                if (this.hasNextPage()) {
+                    this.currentPage++;
+                    response.updateView = true;
+                } else {
+                    await this.sendTemporaryReply(originalMessage, '⚠️ Ya estás en la última página');
+                }
+                return response;
+            }
+
+            if (normalizedInput.startsWith('editar ') || normalizedInput.startsWith('edit ')) {
+                const parts = originalMessage.content.split(/\s+/);
+                let type, id;
+                
+                if (this.currentSection === 'all') {
+                    if (parts.length < 3) throw new Error('Formato: `editar [tipo] [id]`');
+                    type = parts[1].toLowerCase();
+                    id = parts[2];
+                } else {
+                    if (parts.length < 2) throw new Error('Formato: `editar [id]`');
+                    type = this.currentSection;
+                    id = parts[1];
+                }
+
+                if (type === 'accesos' || type === 'a') type = 'accesses';
+                if (type === 'ascensores' || type === 'e') type = 'elevators';
+                if (type === 'escaleras' || type === 's') type = 'escalators';
+
+                const item = this.findItemById(id, type);
+                if (!item) throw new Error(`No se encontró ${type.slice(0, -1)} con ID ${id}`);
+
+                const success = await this.handleEditItem(originalMessage, item, type);
+                response.updateView = success;
+                return response;
+            }
+
+            if (normalizedInput === 'salir' || normalizedInput === 'exit') {
+                response.shouldExit = true;
+                return response;
+            }
+
+            if (!this.isActiveInteraction()) {
+                const suggestion = this.getCommandSuggestion(normalizedInput);
+                throw new Error(suggestion || 'Comando no reconocido. Escribe `ayuda` para ver opciones.');
+            }
+
+            return response;
+
+        } catch (error) {
+            if (!this.isExpectedError(error)) {
+                console.error('Command Error:', error);
+                await this.sendTemporaryReply(originalMessage, `⚠️ ${this.cleanErrorMessage(error.message)}`);
+            }
+            return response;
+        }
+    }
+
+    /* HELPER METHODS */
+    getValidKeysForType(itemType) {
+        const baseKeys = ['id', 'status', 'notes'];
+        
+        switch (itemType) {
+            case 'accesses': return [...baseKeys, 'name', 'description'];
+            case 'elevators': case 'escalators': 
+                return [...baseKeys, 'from', 'to', 'fullpath'];
+            default: return baseKeys;
+        }
+    }
+
+    getCommandSuggestion(input) {
+        const commandMap = {
+            'listo': 'Usa `listo` solo durante edición interactiva',
+            '!stationaccess': 'Comando correcto: `!accesos estación "Nombre" Línea`',
+            'ver todos': 'Para ver todo usa: `inicio` o `general`'
+        };
+
+        for (const [wrongCmd, suggestion] of Object.entries(commandMap)) {
+            if (input.includes(wrongCmd)) return suggestion;
+        }
+        return null;
+    }
+
+    cleanupCollectors() {
+        if (this.activeCollector) {
+            this.activeCollector.stop();
+            this.activeCollector = null;
+        }
+    }
+
+    getSectionName(section) {
+        const names = {
+            'accesses': 'Accesos',
+            'elevators': 'Ascensores',
+            'escalators': 'Escaleras',
+            'all': 'Vista General'
+        };
+        return names[section] || section;
+    }
+
+    getCurrentPageItems() {
+        const items = this.currentConfig[this.currentSection] || [];
+        const start = this.currentPage * 7;
+        return items.slice(start, start + 7);
+    }
+
+    getTotalItems() {
+        return this.currentConfig[this.currentSection]?.length || 0;
+    }
+
+    hasPreviousPage() {
+        return this.currentPage > 0;
+    }
+
+    hasNextPage() {
+        return (this.currentPage + 1) * 7 < this.getTotalItems();
+    }
+
+    findItemById(id, type) {
+        const items = this.currentConfig[type];
+        if (!items) return null;
+        return items.find(item => item.id.toLowerCase() === id.toLowerCase());
+    }
+
+    updateItemInConfig(id, updatedItem, type) {
+        const items = this.currentConfig[type];
+        if (!items) return false;
+        
+        const index = items.findIndex(item => item.id === id);
+        if (index === -1) return false;
+        
+        items[index] = updatedItem;
+        this.currentConfig.lastUpdated = new Date().toISOString();
+        
+        this.currentConfig.changeHistory.push({
+            timestamp: new Date().toISOString(),
+            user: this.message.author.tag,
+            action: `${type.slice(0, -1)}_updated`,
+            details: `Updated ${id}`
+        });
+        
+        return true;
+    }
+
+    isExpectedError(error) {
+        const expectedErrors = [
+            'Comando no reconocido',
+            'Ya estás en la',
+            'Formato:'
+        ];
+        return expectedErrors.some(e => error.message.includes(e));
+    }
+
+    cleanErrorMessage(msg) {
+        return msg.length > 1000 ? msg.substring(0, 1000) + '...' : msg;
+    }
+
+    async sendTemporaryReply(message, content, timeout = 10000) {
+        const reply = await message.reply(content);
+        setTimeout(() => reply.delete().catch(() => {}), timeout);
+        return reply;
+    }
+
+    async promptForConfirmation(message, promptText) {
+        const prompt = await message.reply(promptText);
+        const responses = await message.channel.awaitMessages({
+            filter: m => m.author.id === message.author.id,
+            max: 1,
+            time: 30000
+        });
+        
+        await prompt.delete().catch(() => {});
+        return responses.first()?.content || '';
+    }
+
+    renderConfigPreview(config) {
+        return [
+            `**Estación:** ${config.station} ${config.line}`,
+            `**Accesos:** ${config.accesses.map(a => a.name).join(', ')}`,
+            `**Ascensores:** ${config.elevators.length}`,
+            `**Escaleras:** ${config.escalators.length}`
+        ].join('\n');
     }
 
     async parseConfigurationInput(input, stationName, line) {
@@ -954,100 +780,65 @@ getCurrentPageItems() {
             changeHistory: []
         };
 
-        const clean = (str) => str.trim().replace(/\s+/g, ' ');
+        const clean = (str) => str.trim().replace(/\s+/g, ' ').replace(/[“”]/g, '"');
 
-        // Parse Access Points
-        const accessSection = input.match(/Accesos:\s*([^]*?)(?=\nAscensores:|$)/is);
-        if (accessSection) {
-            config.accesses = accessSection[1].split(',')
+        const accessRegex = /Accesos:\s*((?:(?!\n[Aa]scensores?:)[\s\S])*)/i;
+        const accessMatch = input.match(accessRegex);
+        
+        if (accessMatch && accessMatch[1]) {
+            config.accesses = accessMatch[1].split(',')
                 .map(item => {
                     const trimmed = clean(item);
                     if (!trimmed) return null;
                     
-                    const descMatch = trimmed.match(/(.*?)\s*\(Descripción:\s*([^)]+)\)/i);
-                    const name = descMatch ? clean(descMatch[1]) : trimmed;
-                    const description = descMatch ? clean(descMatch[2]) : '';
+                    const descMatch = trimmed.match(/(.*?)\s*\([Dd]escripción:\s*([^)]+)\)/);
+                    const name = clean(descMatch ? descMatch[1] : trimmed);
+                    const description = clean(descMatch ? descMatch[2] : '');
                     
-                    let id = name.startsWith('Acceso ') 
-                        ? name.split(' ')[1] 
-                        : name.replace(/Acceso/gi, '').trim();
-                    
-                    id = id.replace(/[^a-z0-9áéíóúñ]/gi, '');
+                    let id = name.replace(/Acceso\s*/i, '').replace(/[^a-z0-9áéíóúñ]/gi, '');
 
                     return {
-                        id,
-                        name,
-                        description,
-                        status: 'abierto',
-                        lastUpdated: new Date().toISOString(),
-                        notes: ''
+                        id: id || `A${config.accesses.length + 1}`,
+                        name: name,
+                        description: description,
+                        status: 'operativo',
+                        notes: '',
+                        lastUpdated: new Date().toISOString()
                     };
                 })
                 .filter(Boolean);
         }
 
-        // Parse Elevators
-        const elevatorSection = input.match(/Ascensores:\s*([^]*?)(?=\nEscaleras:|$)/is);
-        if (elevatorSection) {
-            const normalizedInput = elevatorSection[1].replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-            const elevatorEntries = normalizedInput.split(/(?<=]),\s*(?=[A-Za-z0-9]+:)|(?<=\S)\s+(?=[A-Za-z0-9]+:)/);
+        const elevatorRegex = /Ascensores:\s*((?:(?!\nEscaleras?:)[\s\S])*)/i;
+        const elevatorMatch = input.match(elevatorRegex);
+        
+        if (elevatorMatch && elevatorMatch[1]) {
+            const entries = elevatorMatch[1].split(/(?<=[^,])\s+(?=[A-Za-z0-9]+:)/)
+                .flatMap(entry => entry.split(','))
+                .map(clean)
+                .filter(Boolean);
             
-            for (const entry of elevatorEntries) {
-                const colonIndex = entry.indexOf(':');
-                if (colonIndex === -1) continue;
-                
-                const id = clean(entry.substring(0, colonIndex));
-                const pathStr = clean(entry.substring(colonIndex + 1));
+            for (const entry of entries) {
+                const [idPart, ...pathParts] = entry.split(':');
+                const id = clean(idPart);
+                const pathStr = clean(pathParts.join(':'));
                 
                 if (!id || !pathStr) continue;
                 
                 try {
-                    const { from, to, fullPath, segments } = this.parsePath(pathStr);
+                    const { from, to } = this.parsePathSegment(pathStr);
                     config.elevators.push({
-                        id,
-                        from,
-                        to,
-                        fullPath,
-                        segments,
-                        status: 'operativa',
-                        lastUpdated: new Date().toISOString(),
-                        notes: ''
+                        id: id,
+                        from: from,
+                        to: to,
+                        fullPath: `${from}→${to}`,
+                        segments: [{ from, to }],
+                        status: 'operativo',
+                        notes: '',
+                        lastUpdated: new Date().toISOString()
                     });
                 } catch (error) {
-                    console.error(`Error parsing elevator ${id}: ${pathStr} - ${error.message}`);
-                }
-            }
-        }
-
-        // Parse Escalators
-        const escalatorSection = input.match(/Escaleras:\s*([^]*?)(?=\n|$)/is);
-        if (escalatorSection) {
-            const normalizedInput = escalatorSection[1].replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-            const escalatorEntries = normalizedInput.split(/(?<=]),\s*(?=[A-Za-z0-9]+:)|(?<=\S)\s+(?=[A-Za-z0-9]+:)/);
-            
-            for (const entry of escalatorEntries) {
-                const colonIndex = entry.indexOf(':');
-                if (colonIndex === -1) continue;
-                
-                const id = clean(entry.substring(0, colonIndex));
-                const pathStr = clean(entry.substring(colonIndex + 1));
-                
-                if (!id || !pathStr) continue;
-                
-                try {
-                    const { from, to, fullPath, segments } = this.parsePath(pathStr);
-                    config.escalators.push({
-                        id,
-                        from,
-                        to,
-                        fullPath,
-                        segments,
-                        status: 'operativa',
-                        lastUpdated: new Date().toISOString(),
-                        notes: ''
-                    });
-                } catch (error) {
-                    console.error(`Error parsing escalator ${id}: ${pathStr} - ${error.message}`);
+                    console.error(`Error parsing elevator ${id}: ${error.message}`);
                 }
             }
         }
@@ -1059,58 +850,17 @@ getCurrentPageItems() {
         return config;
     }
 
-    renderConfigPreview(config) {
-        let preview = `**Estación:** ${config.station} ${config.line}\n\n`;
-        
-        preview += `**Accesos (${config.accesses.length}):**\n`;
-        preview += config.accesses.slice(0, 3).map(a => `- ${a.name} (${a.id})`).join('\n');
-        if (config.accesses.length > 3) preview += `\n...y ${config.accesses.length - 3} más`;
-        
-        preview += `\n\n**Ascensores (${config.elevators.length}):**\n`;
-        preview += config.elevators.slice(0, 3).map(e => `- ${e.id}: ${e.from}→${e.to}`).join('\n');
-        if (config.elevators.length > 3) preview += `\n...y ${config.elevators.length - 3} más`;
-        
-        preview += `\n\n**Escaleras (${config.escalators.length}):**\n`;
-        preview += config.escalators.slice(0, 3).map(e => `- ${e.id}: ${e.from}→${e.to}`).join('\n');
-        if (config.escalators.length > 3) preview += `\n...y ${config.escalators.length - 3} más`;
-        
-        return preview;
-    }
-    async promptForConfirmation(message, promptText) {
-        const prompt = await message.reply(promptText);
-        
-        try {
-            const responses = await message.channel.awaitMessages({
-                filter: m => m.author.id === message.author.id,
-                max: 1,
-                time: 60000,
-                errors: ['time']
-            });
-            
-            return responses.first().content;
-        } catch (error) {
-            if (error.name === 'TimeoutError') {
-                await message.reply('Tiempo agotado. Confirmación cancelada.');
-            }
-            return 'cancelar';
+    parsePathSegment(pathStr) {
+        const parts = pathStr.split('→').map(p => p.trim());
+        if (parts.length !== 2 || !parts[0] || !parts[1]) {
+            throw new Error(`Formato de ruta inválido: ${pathStr}`);
         }
+        return { from: parts[0], to: parts[1] };
     }
 
-    // Static method to get legacy references
-    static getLegacyReferences(instance) {
-        return {
-            handleAdvancedEdit: instance.batch.handleAdvancedEdit.bind(instance),
-            handleReplaceOperation: instance.batch.handleReplaceOperation.bind(instance),
-            parseAdvancedEditParams: instance.batch.parseAdvancedEditParams.bind(instance),
-            processBatchEdit: instance.batch.processBatchEdit.bind(instance)
-        };
+    isActiveInteraction() {
+        return !!this.activeCollector;
     }
 }
 
-module.exports = {
-    ConfigureHandler,
-    getLegacyFunctions: () => {
-        const instance = new ConfigureHandler();
-        return ConfigureHandler.getLegacyReferences(instance);
-    }
-};
+module.exports = ConfigureHandler;
