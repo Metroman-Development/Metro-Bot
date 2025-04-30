@@ -122,7 +122,7 @@ async promptForConfigurationRepair() {
     const missingElements = [];
     if (this.currentConfig.accesses.length === 0) missingElements.push('accesos');
     if (this.currentConfig.elevators.length === 0) missingElements.push('ascensores');
-    if (this.currentConfig.escalators.length === 0) missingElements.push('escaleras');
+//  if (this.currentConfig.escalators.length === 0) missingElements.push('escaleras');
 
     const embed = new EmbedBuilder()
         .setColor(0xFFA500)
@@ -281,14 +281,14 @@ renderConfigPreview(config) {
                 
                 if (input.toLowerCase() === 'cancelar') {
                     collector.stop();
-                    await message.reply('❌ Configuración cancelada');
+                    await this.message.reply('❌ Configuración cancelada');
                     return;
                 }
 
                 const config = await this.parseConfigurationInput(input, this.currentConfig.station, this.currentConfig.line);
                 
                 if (config.accesses.length === 0) {
-                    await message.reply('❌ Debes incluir al menos 1 acceso');
+                    await this.message.reply('❌ Debes incluir al menos 1 acceso');
                     return;
                 }
 
@@ -310,14 +310,14 @@ renderConfigPreview(config) {
                     await this.saveAccessConfig(this.normalizedKey, config);
                     this.currentConfig = config;
                     collector.stop();
-                    await message.reply(`✅ Configuración guardada para ${config.station} ${config.line}`);
+                    await this.message.reply(`✅ Configuración guardada para ${config.station} ${config.line}`);
                     return this.showFullConfiguration();
                 }
 
-                await message.reply('Por favor ingresa la configuración nuevamente o escribe "cancelar"');
+                await this.message.reply('Por favor ingresa la configuración nuevamente o escribe "cancelar"');
 
             } catch (error) {
-                await message.reply(
+                await this.message.reply(
                     `❌ Error: ${error.message}\n` +
                     "Ejemplo válido:\n```\n" +
                     "Accesos: Acceso A (Descripción: Ubicación), Acceso B\n" +
