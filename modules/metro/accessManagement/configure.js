@@ -268,8 +268,8 @@ renderConfigPreview(config) {
 }
 
     async setupInitialConfigCollector(message) {
-        const collector = message.channel.createMessageCollector({
-            filter: m => m.author.id === message.author.id,
+        const collector = this.message.channel.createMessageCollector({
+            filter: m => m.author.id === this.message.author.id,
             time: this.EDIT_TIMEOUT
         });
 
