@@ -315,15 +315,21 @@ class ConfigureHandler extends AccessCore {
                 const input = responses.first().content.trim().toLowerCase();
                 
                 if (input === 'listo') {
-                    this.updateItemInConfig(item.id, item, itemType);
+                   
+this.cleanupCollectors();
+
+ this.updateItemInConfig(item.id, item, itemType);
                     await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
                     await this.message.reply('✅ Cambios guardados correctamente');
                     return true;
                 }
                 
                 if (input === 'cancelar') {
-                    await this.message.reply('❌ Edición cancelada');
-                    return false;
+         
+           this.cleanupCollectors();
+
+await this.message.reply('❌ Edición cancelada');
+                   return false;
                 }
                 
                 if (input === 'ver') continue;
@@ -343,6 +349,10 @@ class ConfigureHandler extends AccessCore {
                     });
                     
                     continueEditing = confirmResponse.first().content.toLowerCase().startsWith('s');
+
+if(!continueEditing) this.cleanupCollectors();
+
+
                 }
             }
             
@@ -627,6 +637,8 @@ class ConfigureHandler extends AccessCore {
             }
 
             if (normalizedInput === 'salir' || normalizedInput === 'exit') {
+                this.cleanupCollectors();
+                
                 response.shouldExit = true;
                 return response;
             }
