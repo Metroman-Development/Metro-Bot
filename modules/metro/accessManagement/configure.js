@@ -872,6 +872,13 @@ class ConfigureHandler extends AccessCore {
         return !!this.activeCollector;
     }
 
+    
+cleanupCollectors() {
+    if (this.activeCollector) {
+        this.activeCollector.stop();
+        this.activeCollector = null;
+    }
+}
 
     createFullEmbed() {
     const config = this.currentConfig;
