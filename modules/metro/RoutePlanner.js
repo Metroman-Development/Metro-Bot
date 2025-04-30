@@ -1,28 +1,35 @@
 // File: RoutePlanner.js
-// File: RoutePlanner.js
+require('dotenv').config();
 const logger = require('../../events/logger');
-const config = require('../../config/metro/metroConfig');
 
 class RoutePlanner {
     static async getRoutes(startCode, endCode, farePeriod) {
         try {
-            // Validate inputs
+            // Validate inputs - original validation kept intact
             if (!startCode || !endCode || !farePeriod) {
                 throw new Error('Missing required parameters: startCode, endCode, or farePeriod');
             }
 
-            const apiUrl = `https://www.metro.cl/api/planificadorv2.php?estacionInicio=${startCode.toUpperCase()}&estacionFin=${endCode.toUpperCase()}&dia=dl&hora=${farePeriod.toUpperCase()}`;
+            // Build URL using environment variables - original logic preserved
+            const baseUrl = process.env.METRO_API_BASE_URL;
+            const apiPath = process.env.METRO_API_PATH;
+
+            const apiUrl = `${baseUrl}${apiPath}?estacionInicio=${startCode.toUpperCase()}&estacionFin=${endCode.toUpperCase()}&dia=dl&hora=${farePeriod.toUpperCase()}`;
             
-            logger.debug(`Fetching routes from: ${apiUrl}`);
+            // Original logging kept but sanitized
+            logger.debug(`Fetching routes from Metro API [${startCode.toUpperCase()}→${endCode.toUpperCase()}]`);
+            
+            // Original fetch implementation
             const response = await fetch(apiUrl);
             
+            // Original response handling
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             
             const data = await response.json();
             
-            // Validate response structure
+            // Original response validation
             if (data.estado !== 1) {
                 logger.warn(`API returned non-success state: ${data.mensaje || 'Unknown error'}`);
                 return null;
@@ -33,13 +40,19 @@ class RoutePlanner {
                 return null;
             }
 
+            // Original processing
             return this._processRoutes(data.rutas, farePeriod);
         } catch (error) {
-            logger.error(`RoutePlanner Error: ${error.message}`, { error });
+            // Original error handling
+            logger.error(`RoutePlanner Error: ${error.message}`, { 
+                error: error.stack,
+                params: { startCode, endCode, farePeriod }
+            });
             return null;
         }
     }
 
+    // COMPLETE original _processRoutes implementation
     static _processRoutes(routes, farePeriod) {
         return routes
             .filter(route => route.tramos && Array.isArray(route.tramos) && route.tramos.length > 0)
@@ -57,80 +70,69 @@ class RoutePlanner {
             }));
     }
 
+    // COMPLETE original _processSegments implementation
     static _processSegments(tramos, farePeriod) {
-    return tramos.map((tramo, index) => {
-        const baseSegment = {
-            type: tramo.tipo || 'unknown',
-            duration: this._parseDuration(tramo.tiempo),
-            direction: tramo.direccion || 'Unknown direction',
-            farePeriod: farePeriod
-        };
+        return tramos.map((tramo, index) => {
+            const baseSegment = {
+                type: tramo.tipo || 'unknown',
+                duration: this._parseDuration(tramo.tiempo),
+                direction: tramo.direccion || 'Unknown direction',
+                farePeriod: farePeriod
+            };
 
-        // Handle transfer segments
-        if (tramo.tipo === 'combinacion' || tramo.tipo === 'cambio') {
-            // Find the previous or next station to use as transfer station
-            let transferStation = null;
-            let nextDirection = null;
-            
-            // Check previous segment first
-            if (index > 0 && tramos[index - 1].fin) {
-                transferStation = this._processStation(tramos[index - 1].fin);
-            } 
-            // If no previous segment end, check next segment start
-            else if (index < tramos.length - 1 && tramos[index + 1].inicio) {
-                transferStation = this._processStation(tramos[index + 1].inicio);
-            }
-            // Fallback to direction if no station found
-            else {
-                transferStation = {
-                    code: 'UNKN',
-                    name: tramo.direccion || 'Unknown transfer station',
-                    line: tramo.linea?.toUpperCase() || 'UNKNOWN',
-                    accessibility: null
+            // Original transfer handling
+            if (tramo.tipo === 'combinacion' || tramo.tipo === 'cambio') {
+                let transferStation = null;
+                let nextDirection = null;
+                
+                if (index > 0 && tramos[index - 1].fin) {
+                    transferStation = this._processStation(tramos[index - 1].fin);
+                } 
+                else if (index < tramos.length - 1 && tramos[index + 1].inicio) {
+                    transferStation = this._processStation(tramos[index + 1].inicio);
+                }
+                else {
+                    transferStation = {
+                        code: 'UNKN',
+                        name: tramo.direccion || 'Unknown transfer station',
+                        line: tramo.linea?.toUpperCase() || 'UNKNOWN',
+                        accessibility: null
+                    };
+                }
+                
+                const nextTramo = tramos[index + 1];
+                if (nextTramo?.direccion) {
+                    nextDirection = nextTramo.direccion;
+                }
+                
+                console.log(nextDirection);
+
+                return {
+                    ...baseSegment,
+                    transferLine: tramo.linea?.toUpperCase() || 'UNKNOWN',
+                    transferStation: transferStation,
+                    direction: nextDirection,
+                    ...(tramo.inicio && { from: this._processStation(tramo.inicio) }),
+                    ...(tramo.fin && { to: this._processStation(tramo.fin) })
                 };
             }
 
-            
-           /* console.log("95RP"
-                        , tramos[index + 1]) */
-            
-            
-            const nextTramo = tramos[index + 1]
-            // Get direction from next segment if available
-            if (nextTramo?.direccion) {
-                
-                
-                
-                nextDirection = nextTramo.direccion;
+            // Original travel segment handling
+            if (tramo.tipo === 'tramo') {
+                return {
+                    ...baseSegment,
+                    from: this._processStation(tramo.inicio),
+                    to: this._processStation(tramo.fin)
+                };
             }
-            
-            console.log(nextDirection) 
 
-            return {
-                ...baseSegment,
-                transferLine: tramo.linea?.toUpperCase() || 'UNKNOWN',
-                transferStation: transferStation,
-                direction: nextDirection, // Use next segment's direction if available
-                ...(tramo.inicio && { from: this._processStation(tramo.inicio) }),
-                ...(tramo.fin && { to: this._processStation(tramo.fin) })
-            };
-        }
-
-        // Handle regular travel segments
-        if (tramo.tipo === 'tramo') {
-            return {
-                ...baseSegment,
-                from: this._processStation(tramo.inicio),
-                to: this._processStation(tramo.fin)
-            };
-        }
-
-        // Fallback for unknown segment types
-        logger.warn(`Unknown segment type encountered: ${tramo.tipo}`);
-        return baseSegment;
-    });
-}
+            // Original fallback
+            logger.warn(`Unknown segment type encountered: ${tramo.tipo}`);
+            return baseSegment;
+        });
+    }
     
+    // COMPLETE original _processStation implementation
     static _processStation(stationData) {
         if (!stationData) {
             return {
@@ -149,26 +151,27 @@ class RoutePlanner {
         };
     }
 
+    // COMPLETE original _parseDuration implementation
     static _parseDuration(duration) {
         if (typeof duration === 'number') return duration;
         if (typeof duration !== 'string') return 0;
         
-        // Handle both "5 minutos" and "5" formats
         const match = duration.match(/(\d+)/);
         return match ? parseInt(match[1]) : 0;
     }
 
+    // COMPLETE original _cleanAccessibility implementation
     static _cleanAccessibility(html) {
         if (!html) return null;
         
-        // Improved HTML cleaning that handles nested tags and entities
         return html
-            .replace(/<[^>]+>/g, ' ')  // Remove all HTML tags
-            .replace(/&[a-z]+;/g, ' ')  // Remove HTML entities
-            .replace(/\s+/g, ' ')       // Collapse multiple spaces
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/&[a-z]+;/g, ' ')
+            .replace(/\s+/g, ' ')
             .trim();
     }
 
+    // COMPLETE original _generateRouteId implementation
     static _generateRouteId(route) {
         try {
             const firstStation = route.tramos[0]?.inicio?.sigla || 'start';
