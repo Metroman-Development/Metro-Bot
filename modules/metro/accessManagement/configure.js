@@ -1022,7 +1022,7 @@ this.updateItemInConfig(item.id, item, itemType);
                     id: id,
                     name: name,
                     description: description,
-                    status: 'operativo',
+                    status: 'abierto',
                     notes: '',
                     lastUpdated: new Date().toISOString()
                 };
@@ -1052,17 +1052,15 @@ this.updateItemInConfig(item.id, item, itemType);
                 // Enhanced path parsing with multiple segments support
                 const segments = pathStr.split(/\s*,\s*/).map(segment => {
                     const parts = segment.split('→').map(p => clean(p));
-                    if (parts.length !== 2 || !parts[0] || !parts[1]) {
-                        throw new Error(`Formato de segmento inválido: ${segment}`);
-                    }
-                    return { from: parts[0], to: parts[1] };
+                    
+                    return parts;
                 });
 
                 config.elevators.push({
                     id: id.toUpperCase(),
-                    from: segments[0].from,
-                    to: segments[segments.length - 1].to,
-                    fullPath: segments.map(s => `${s.from}→${s.to}`).join(', '),
+                    from: segments[0],
+                    to: segments[segments.length - 1],
+                    fullPath: segments.join('→'),
                     segments: segments,
                     status: 'operativo',
                     notes: '',
@@ -1102,9 +1100,9 @@ this.updateItemInConfig(item.id, item, itemType);
 
                 config.escalators.push({
                     id: id.toUpperCase(),
-                    from: segments[0].from,
-                    to: segments[segments.length - 1].to,
-                    fullPath: segments.map(s => `${s.from}→${s.to}`).join(', '),
+                    from: segments[0],
+                    to: segments[segments.length - 1],
+                    fullPath: segments.join('→'),
                     segments: segments,
                     status: 'operativo',
                     notes: '',
