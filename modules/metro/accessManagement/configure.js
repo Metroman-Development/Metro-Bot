@@ -1079,7 +1079,7 @@ this.updateItemInConfig(item.id, item, itemType);
             .filter(Boolean);
 
         for (const entry of entries) {
-            const [idPart, ...pathParts] = entry.split(':');
+            const [idPart, pathParts] = entry.split(':');
             const id = idPart;
             const pathStr = pathParts;
 
