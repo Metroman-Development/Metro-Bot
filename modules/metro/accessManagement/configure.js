@@ -316,7 +316,7 @@ renderConfigPreview(config) {
                 if (confirm.toLowerCase() === 'sí' || confirm.toLowerCase() === 'si') {
                     config.changeHistory = [{
                         timestamp: new Date().toISOString(),
-                        user: message.author.tag,
+                        user: this.message.author.tag,
                         action: 'initial_config',
                         details: 'Configuración inicial'
                     }];
@@ -950,7 +950,7 @@ this.updateItemInConfig(item.id, item, itemType);
     }
 
     async sendTemporaryReply(message, content, timeout = 10000) {
-        const reply = await message.reply(content);
+        const reply = await this.message.reply(content);
         setTimeout(() => reply.delete().catch(() => {}), timeout);
         return reply;
     }
@@ -967,89 +967,172 @@ this.updateItemInConfig(item.id, item, itemType);
         return responses.first()?.content || '';
     }
 
-    
-
     async parseConfigurationInput(input, stationName, line) {
-        const config = {
-            station: stationName,
-            line: line,
-            accesses: [],
-            elevators: [],
-            escalators: [],
-            lastUpdated: new Date().toISOString(),
-            changeHistory: []
-        };
+    const config = {
+        station: stationName,
+        line: line,
+        accesses: [],
+        elevators: [],
+        escalators: [],
+        lastUpdated: new Date().toISOString(),
+        changeHistory: []
+    };
 
-        const clean = (str) => str.trim().replace(/\s+/g, ' ').replace(/[“”]/g, '"');
+    // Helper function to clean and normalize strings
+    const clean = (str) => {
+        if (!str) return '';
+        return str.trim()
+            .replace(/\s+/g, ' ')
+            .replace(/[“”]/g, '"')
+            .replace(/[‘’]/g, "'");
+    };
 
-        const accessRegex = /Accesos:\s*((?:(?!\n[Aa]scensores?:)[\s\S])*)/i;
-        const accessMatch = input.match(accessRegex);
-        
-        if (accessMatch && accessMatch[1]) {
-            config.accesses = accessMatch[1].split(',')
-                .map(item => {
-                    const trimmed = clean(item);
-                    if (!trimmed) return null;
-                    
-                    const descMatch = trimmed.match(/(.*?)\s*\([Dd]escripción:\s*([^)]+)\)/);
-                    const name = clean(descMatch ? descMatch[1] : trimmed);
-                    const description = clean(descMatch ? descMatch[2] : '');
-                    
-                    let id = name.replace(/Acceso\s*/i, '').replace(/[^a-z0-9áéíóúñ]/gi, '');
+    // Enhanced regex patterns with better multiline support
+    const accessRegex = /Accesos:\s*((?:(?!(?:\n|\r)\s*(?:Ascensores|Escaleras):)[\s\S])*)/i;
+    const elevatorRegex = /Ascensores:\s*((?:(?!(?:\n|\r)\s*Escaleras:)[\s\S])*)/i;
+    const escalatorRegex = /Escaleras:\s*((?:(?!(?:\n|\r)\s*(?:Accesos|Ascensores):)[\s\S])*)/i;
 
-                    return {
-                        id: id || `A${config.accesses.length + 1}`,
-                        name: name,
-                        description: description,
-                        status: 'operativo',
-                        notes: '',
-                        lastUpdated: new Date().toISOString()
-                    };
-                })
-                .filter(Boolean);
-        }
+    // Process Accesses
+    const accessMatch = input.match(accessRegex);
+    if (accessMatch && accessMatch[1]) {
+        const accessContent = accessMatch[1].replace(/\n/g, ' ').replace(/\r/g, ' ');
+        const accessItems = accessContent.split(',')
+            .map(item => {
+                const trimmed = clean(item);
+                if (!trimmed) return null;
 
-        const elevatorRegex = /Ascensores:\s*((?:(?!\nEscaleras?:)[\s\S])*)/i;
-        const elevatorMatch = input.match(elevatorRegex);
-        
-        if (elevatorMatch && elevatorMatch[1]) {
-            const entries = elevatorMatch[1].split(/(?<=[^,])\s+(?=[A-Za-z0-9]+:)/)
-                .flatMap(entry => entry.split(','))
-                .map(clean)
-                .filter(Boolean);
-            
-            for (const entry of entries) {
-                const [idPart, ...pathParts] = entry.split(':');
-                const id = clean(idPart);
-                const pathStr = clean(pathParts.join(':'));
-                
-                if (!id || !pathStr) continue;
-                
-                try {
-                    const { from, to } = this.parsePathSegment(pathStr);
-                    config.elevators.push({
-                        id: id,
-                        from: from,
-                        to: to,
-                        fullPath: `${from}→${to}`,
-                        segments: [{ from, to }],
-                        status: 'operativo',
-                        notes: '',
-                        lastUpdated: new Date().toISOString()
-                    });
-                } catch (error) {
-                    console.error(`Error parsing elevator ${id}: ${error.message}`);
+                // Enhanced description parsing with multiple formats
+                const descMatch = trimmed.match(/(.*?)\s*(?:\([Dd]escripci[oó]n:\s*([^)]+)\)|\[[Dd]esc:\s*([^\]]+)\])/);
+                const name = clean(descMatch ? descMatch[1] : trimmed);
+                const description = clean(descMatch ? (descMatch[2] || descMatch[3]) : '');
+
+                // Generate ID from name with better normalization
+                let id = name
+                    .replace(/Acceso\s*/i, '')
+                    .replace(/\s+/g, '_')
+                    .replace(/[^a-z0-9áéíóúñ_]/gi, '')
+                    .toUpperCase();
+
+                // Fallback ID generation if empty
+                if (!id) {
+                    id = `A${config.accesses.length + 1}`;
                 }
-            }
-        }
 
-        if (config.accesses.length === 0) {
-            throw new Error("Debe incluir al menos 1 acceso");
-        }
+                return {
+                    id: id,
+                    name: name,
+                    description: description,
+                    status: 'operativo',
+                    notes: '',
+                    lastUpdated: new Date().toISOString()
+                };
+            })
+            .filter(Boolean);
 
-        return config;
+        config.accesses = accessItems;
     }
 
+    // Process Elevators with enhanced parsing
+    const elevatorMatch = input.match(elevatorRegex);
+    if (elevatorMatch && elevatorMatch[1]) {
+        const elevatorContent = elevatorMatch[1].replace(/\n/g, ' ').replace(/\r/g, ' ');
+        const entries = elevatorContent.split(/(?<=[^,])\s+(?=[A-Za-z0-9]+:)/)
+            .flatMap(entry => entry.split(','))
+            .map(clean)
+            .filter(Boolean);
+
+        for (const entry of entries) {
+            const [idPart, ...pathParts] = entry.split(':');
+            const id = clean(idPart);
+            const pathStr = clean(pathParts.join(':'));
+
+            if (!id || !pathStr) continue;
+
+            try {
+                // Enhanced path parsing with multiple segments support
+                const segments = pathStr.split(/\s*,\s*/).map(segment => {
+                    const parts = segment.split('→').map(p => clean(p));
+                    if (parts.length !== 2 || !parts[0] || !parts[1]) {
+                        throw new Error(`Formato de segmento inválido: ${segment}`);
+                    }
+                    return { from: parts[0], to: parts[1] };
+                });
+
+                config.elevators.push({
+                    id: id.toUpperCase(),
+                    from: segments[0].from,
+                    to: segments[segments.length - 1].to,
+                    fullPath: segments.map(s => `${s.from}→${s.to}`).join(', '),
+                    segments: segments,
+                    status: 'operativo',
+                    notes: '',
+                    lastUpdated: new Date().toISOString()
+                });
+            } catch (error) {
+                console.error(`Error parsing elevator ${id}: ${error.message}`);
+                throw new Error(`Error en ascensor ${id}: ${error.message}`);
+            }
+        }
+    }
+
+    // Process Escalators with identical parsing logic to elevators
+    const escalatorMatch = input.match(escalatorRegex);
+    if (escalatorMatch && escalatorMatch[1]) {
+        const escalatorContent = escalatorMatch[1].replace(/\n/g, ' ').replace(/\r/g, ' ');
+        const entries = escalatorContent.split(/(?<=[^,])\s+(?=[A-Za-z0-9]+:)/)
+            .flatMap(entry => entry.split(','))
+            .map(clean)
+            .filter(Boolean);
+
+        for (const entry of entries) {
+            const [idPart, ...pathParts] = entry.split(':');
+            const id = clean(idPart);
+            const pathStr = clean(pathParts.join(':'));
+
+            if (!id || !pathStr) continue;
+
+            try {
+                const segments = pathStr.split(/\s*,\s*/).map(segment => {
+                    const parts = segment.split('→').map(p => clean(p));
+                    if (parts.length !== 2 || !parts[0] || !parts[1]) {
+                        throw new Error(`Formato de segmento inválido: ${segment}`);
+                    }
+                    return { from: parts[0], to: parts[1] };
+                });
+
+                config.escalators.push({
+                    id: id.toUpperCase(),
+                    from: segments[0].from,
+                    to: segments[segments.length - 1].to,
+                    fullPath: segments.map(s => `${s.from}→${s.to}`).join(', '),
+                    segments: segments,
+                    status: 'operativo',
+                    notes: '',
+                    lastUpdated: new Date().toISOString()
+                });
+            } catch (error) {
+                console.error(`Error parsing escalator ${id}: ${error.message}`);
+                throw new Error(`Error en escalera ${id}: ${error.message}`);
+            }
+        }
+    }
+
+    // Validation
+    if (config.accesses.length === 0) {
+        throw new Error("Debe incluir al menos 1 acceso");
+    }
+
+    // Add automatic notes if mobility options are missing
+    if (config.elevators.length === 0 && config.escalators.length === 0) {
+        config.notes = "⚠️ No se configuraron ascensores ni escaleras";
+    } else if (config.elevators.length === 0) {
+        config.notes = "⚠️ No se configuraron ascensores";
+   }
+
+    return config;
+}
+
+    
     parsePathSegment(pathStr) {
         const parts = pathStr.split('→').map(p => p.trim());
         if (parts.length !== 2 || !parts[0] || !parts[1]) {
