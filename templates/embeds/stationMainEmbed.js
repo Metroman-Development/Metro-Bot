@@ -211,6 +211,13 @@ class StationMainEmbed extends BaseEmbed {
             // Normalize for comparison
             const lowerLine = processedLine.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             
+
+            if (lowerLine.includes('todos los ascensores disponibles') || 
+                lowerLine.match(/todos los ascensores (operativos|disponibles)/)) {
+                return `${this.metro.config.accessibility?.estado?.ope || '✅'} ${processedLine}`;
+            }
+            
+            
             // Add elevator icons
             if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
                 if (lowerLine.includes('fuera de servicio') || lowerLine.includes('no disponible')) {
@@ -220,10 +227,6 @@ class StationMainEmbed extends BaseEmbed {
             }
             
             // Add status icons
-            if (lowerLine.includes('todos los ascensores disponibles') || 
-                lowerLine.match(/todos los ascensores (operativos|disponibles)/)) {
-                return `${this.metro.config.accessibility?.estado?.ope || '✅'} ${processedLine}`;
-            }
             
             // Add exit icons
             if (lowerLine.includes('salida de estación') || 
