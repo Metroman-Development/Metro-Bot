@@ -333,7 +333,7 @@ class ConfigureHandler extends AccessCore {
                     });
                     
                     const confirmResponse = await this.message.channel.awaitMessages({
-                        filter: m => m.author.id === message.author.id,
+                        filter: m => m.author.id === this.message.author.id,
                         max: 1,
                         time: 30000
                     });
@@ -475,7 +475,7 @@ class ConfigureHandler extends AccessCore {
             const validKeys = this.getValidKeysForType(itemType);
             
             if (!validKeys.includes(key.toLowerCase())) {
-                await message.reply(`❌ Clave inválida. Claves válidas: ${validKeys.join(', ')}`);
+                await this.message.reply(`❌ Clave inválida. Claves válidas: ${validKeys.join(', ')}`);
                 return false;
             }
             
@@ -494,7 +494,7 @@ class ConfigureHandler extends AccessCore {
             const segIndex = parseInt(index) - 1;
             
             if (!item.segments || segIndex >= item.segments.length) {
-                await message.reply(`❌ No existe el segmento ${index}`);
+                await this.message.reply(`❌ No existe el segmento ${index}`);
                 return false;
             }
             
@@ -535,11 +535,11 @@ class ConfigureHandler extends AccessCore {
                 return true;
             }
             
-            await message.reply('❌ No se encontró el texto a reemplazar');
+            await this.message.reply('❌ No se encontró el texto a reemplazar');
             return false;
         }
         
-        await message.reply('❌ Formato no reconocido');
+        await this.message.reply('❌ Formato no reconocido');
         return false;
     }
 
@@ -749,7 +749,7 @@ class ConfigureHandler extends AccessCore {
     }
 
     async sendTemporaryReply(message, content, timeout = 10000) {
-        const reply = await this.message.reply(content);
+        const reply = await message.reply(content);
         setTimeout(() => reply.delete().catch(() => {}), timeout);
         return reply;
     }
