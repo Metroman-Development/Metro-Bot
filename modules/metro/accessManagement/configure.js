@@ -1058,7 +1058,7 @@ this.updateItemInConfig(item.id, item, itemType);
                     to: segments[segments.length - 1],
                     fullPath: pathStr,
                     segments: segments,
-                    status: 'operativo',
+                    status: 'operativa',
                     notes: '',
                     lastUpdated: new Date().toISOString()
                 });
@@ -1096,7 +1096,7 @@ this.updateItemInConfig(item.id, item, itemType);
                     to: segments[segments.length - 1],
                     fullPath: pathStr,
                     segments: segments,
-                    status: 'operativo',
+                    status: 'operativa',
                     notes: '',
                     lastUpdated: new Date().toISOString()
                 });
