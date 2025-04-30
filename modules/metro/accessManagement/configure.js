@@ -300,10 +300,10 @@ class ConfigureHandler extends AccessCore {
                         ].join('\n')
                     });
 
-                await message.reply({ embeds: [embed] });
+                await this.message.reply({ embeds: [embed] });
 
-                const responses = await message.channel.awaitMessages({
-                    filter: m => m.author.id === message.author.id,
+                const responses = await this.message.channel.awaitMessages({
+                    filter: m => m.author.id === this.message.author.id,
                     max: 1,
                     time: this.EDIT_TIMEOUT
                 });
@@ -313,12 +313,12 @@ class ConfigureHandler extends AccessCore {
                 if (input === 'listo') {
                     this.updateItemInConfig(item.id, item, itemType);
                     await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
-                    await message.reply('✅ Cambios guardados correctamente');
+                    await this.message.reply('✅ Cambios guardados correctamente');
                     return true;
                 }
                 
                 if (input === 'cancelar') {
-                    await message.reply('❌ Edición cancelada');
+                    await this.message.reply('❌ Edición cancelada');
                     return false;
                 }
                 
@@ -327,12 +327,12 @@ class ConfigureHandler extends AccessCore {
                 const changesMade = await this.processEditInput(input, item, itemType, message);
                 
                 if (changesMade) {
-                    const confirm = await message.reply({ 
+                    const confirm = await this.message.reply({ 
                         content: '✅ Cambio aplicado. ¿Quieres hacer más cambios? (sí/no)',
                         ephemeral: true 
                     });
                     
-                    const confirmResponse = await message.channel.awaitMessages({
+                    const confirmResponse = await this.message.channel.awaitMessages({
                         filter: m => m.author.id === message.author.id,
                         max: 1,
                         time: 30000
@@ -345,7 +345,7 @@ class ConfigureHandler extends AccessCore {
             return true;
         } catch (error) {
             console.error('Edit Error:', error);
-            await message.reply('❌ Error en el proceso de edición');
+            await this.message.reply('❌ Error en el proceso de edición');
             return false;
         }
     }
