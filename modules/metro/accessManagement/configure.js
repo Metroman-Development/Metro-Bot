@@ -350,8 +350,13 @@ await this.message.reply('❌ Edición cancelada');
                     
                     continueEditing = confirmResponse.first().content.toLowerCase().startsWith('s');
 
-if(!continueEditing) this.cleanupCollectors();
+if(!continueEditing) {
+    this.cleanupCollectors();
+this.updateItemInConfig(item.id, item, itemType);
+                    await this.saveAccessConfig(this.normalizedKey, this.currentConfig);
+                    await this.message.reply('✅ Cambios guardados correctamente');
 
+   } 
 
                 }
             }
