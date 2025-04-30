@@ -861,6 +861,144 @@ class ConfigureHandler extends AccessCore {
     isActiveInteraction() {
         return !!this.activeCollector;
     }
+
+
+    createFullEmbed() {
+    const config = this.currentConfig;
+    
+    // Main embed setup
+    const embed = new EmbedBuilder()
+        .setColor(0x0099FF)
+        .setTitle(`📊 Configuración Completa: ${config.station} ${config.line}`)
+        .setFooter({ 
+            text: `Última actualización: ${new Date(config.lastUpdated).toLocaleString()}` 
+        });
+
+    // Add Access Section
+    if (config.accesses.length > 0) {
+        embed.addFields({
+            name: `🚪 Accesos (${config.accesses.length})`,
+            value: config.accesses.map(access => 
+                `• **${access.name}** (${access.id})\n` +
+                `  - Estado: ${access.status || 'sin especificar'}\n` +
+                (access.description ? `  - Descripción: ${access.description}\n` : '') +
+                (access.notes ? `  - Notas: ${access.notes}` : '')
+            ).join('\n'),
+            inline: false
+        });
+    } else {
+        embed.addFields({
+            name: '🚪 Accesos',
+            value: 'No hay accesos configurados',
+            inline: false
+        });
+    }
+
+    // Add Elevators Section
+    if (config.elevators.length > 0) {
+        embed.addFields({
+            name: `🛗 Ascensores (${config.elevators.length})`,
+            value: config.elevators.map(elevator => 
+                `• **${elevator.id}**: ${elevator.from} → ${elevator.to}\n` +
+                `  - Estado: ${elevator.status || 'sin especificar'}\n` +
+                (elevator.fullPath ? `  - Ruta completa: ${elevator.fullPath}\n` : '') +
+                (elevator.notes ? `  - Notas: ${elevator.notes}` : '')
+            ).join('\n'),
+            inline: false
+        });
+    } else {
+        embed.addFields({
+            name: '🛗 Ascensores',
+            value: 'No hay ascensores configurados',
+            inline: false
+        });
+    }
+
+    // Add Escalators Section
+    if (config.escalators.length > 0) {
+        embed.addFields({
+            name: `📶 Escaleras (${config.escalators.length})`,
+            value: config.escalators.map(escalator => 
+                `• **${escalator.id}**: ${escalator.from} → ${escalator.to}\n` +
+                `  - Estado: ${escalator.status || 'sin especificar'}\n` +
+                (escalator.fullPath ? `  - Ruta completa: ${escalator.fullPath}\n` : '') +
+                (escalator.notes ? `  - Notas: ${escalator.notes}` : '')
+            ).join('\n'),
+            inline: false
+        });
+    } else {
+        embed.addFields({
+            name: '📶 Escaleras',
+            value: 'No hay escaleras configuradas',
+            inline: false
+        });
+    }
+
+    // Add Change History if exists
+    if (config.changeHistory?.length > 0) {
+        const latestChanges = config.changeHistory
+            .slice(0, 3)
+            .map(change => 
+                `• ${new Date(change.timestamp).toLocaleString()}: ${change.action} por ${change.user}`
+            )
+            .join('\n');
+
+        embed.addFields({
+            name: '🕒 Historial de Cambios',
+            value: latestChanges + (config.changeHistory.length > 3 ? 
+                `\n...y ${config.changeHistory.length - 3} cambios más` : ''),
+            inline: false
+        });
+    }
+
+    return embed;
+}
+
+// Supporting methods used in createFullEmbed:
+
+
+    getSectionName(section) {
+    const names = {
+        'accesses': 'Accesos',
+        'elevators': 'Ascensores',
+        'escalators': 'Escaleras'
+    };
+   
+        return names[section] || section;
+
+    }
+
+
+    formatStatus(status) {
+   
+        if (!status) return '🚫 sin especificar';
+  
+        const statusMap = {
+        'operativo': '✅ Operativo',
+        'fuera de servicio': '❌ Fuera de servicio',
+        'en reparación': '🛠 En reparación',
+        'limitado': '⚠️ Limitado'
+   
+        };
+   
+        return statusMap[status.toLowerCase()] || status;
+
+    }
+    
+
+
+    formatPath(item) {
+
+  
+        if (!item.segments || item.segments.length === 0) {
+  
+            return item.from && item.to ? `${item.from} → ${item.to}` : '';
+ 
+        }
+    
+        return item.segments.map(seg => `${seg.from} → ${seg.to}`).join(' → ');
+
+    }
 }
 
 module.exports = ConfigureHandler;
