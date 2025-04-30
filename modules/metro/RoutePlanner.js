@@ -2,6 +2,7 @@
 require('dotenv').config();
 const logger = require('../../events/logger');
 
+
 class RoutePlanner {
     static async getRoutes(startCode, endCode, farePeriod) {
         try {
