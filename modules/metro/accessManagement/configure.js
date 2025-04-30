@@ -743,15 +743,15 @@ class ConfigureHandler extends AccessCore {
     }
 
     async sendTemporaryReply(message, content, timeout = 10000) {
-        const reply = await message.reply(content);
+        const reply = await this.message.reply(content);
         setTimeout(() => reply.delete().catch(() => {}), timeout);
         return reply;
     }
 
     async promptForConfirmation(message, promptText) {
-        const prompt = await message.reply(promptText);
-        const responses = await message.channel.awaitMessages({
-            filter: m => m.author.id === message.author.id,
+        const prompt = await this.message.reply(promptText);
+        const responses = await this.message.channel.awaitMessages({
+            filter: m => m.author.id === this.message.author.id,
             max: 1,
             time: 30000
         });
