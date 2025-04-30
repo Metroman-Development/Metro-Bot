@@ -7,7 +7,7 @@ const BatchConfigure = require('./batchConfigure');
 class ConfigureHandler extends AccessCore {
     constructor() {
         super();
-        this.batch = new BatchConfigure();
+        this.batch = null;
         this.currentSection = 'all';
         this.currentPage = 0;
         this.message = null;
@@ -22,6 +22,9 @@ class ConfigureHandler extends AccessCore {
     /* CORE METHODS */
     async handle(message, args) {
         try {
+
+            this.batch = new BatchConfigure();
+            
             this.message = message;
             this.cleanupCollectors();
 
@@ -1008,4 +1011,4 @@ class ConfigureHandler extends AccessCore {
     }
 }
 
-module.exports = ConfigureHandler;
+module.exports =  ConfigureHandler;
