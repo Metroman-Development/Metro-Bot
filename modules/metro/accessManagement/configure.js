@@ -266,6 +266,9 @@ async setupInitialConfigCollector() {
 
 /* IMPROVED RENDER CONFIG PREVIEW */
 renderConfigPreview(config) {
+
+    console.log(config) 
+    
     const preview = [
         `**Estación:** ${config.station} ${config.line}`,
         `**Accesos:** ${config.accesses.length > 0 ? config.accesses.map(a => a.name).join(', ') : '❌ Ninguno configurado'}`,
