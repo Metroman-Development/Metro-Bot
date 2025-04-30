@@ -1,6 +1,6 @@
 # MetroBot 🚇
 
-MetroBot es un chatbot en español desarrollado en **Node.js**, diseñado para proporcionar información actualizada sobre el Metro de Santiago. Con MetroBot, puedes planificar tu viaje, verificar el estado de la red y conocer los detalles de cada estación.
+MetroBot es un Bot de Discord desarrollado en **Node.js**, diseñado para proporcionar información actualizada sobre el Metro de Santiago. Con MetroBot, puedes planificar tu viaje, verificar el estado de la red, conocer los detalles de cada estación y mucho más.
 
 ## Funcionalidades 🌟
 - **Planificación de viaje:** Obtén rutas óptimas según tu ubicación y destino.
