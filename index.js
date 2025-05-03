@@ -239,6 +239,7 @@ process.on('SIGINT', async () => {
 });
 
 // Start bot
+client.on('debug', console.log);
 
 client.login(process.env.DISCORD_TOKEN)
 
