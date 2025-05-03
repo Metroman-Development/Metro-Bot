@@ -193,9 +193,9 @@ client.on('messageCreate', async message => {
 
 // ======================
 
-const newsWatcher = new NewsWatcher(client, '899842767096791060');
+/*const newsWatcher = new NewsWatcher(client, '899842767096791060');
 
-newsWatcher.initialize();
+newsWatcher.initialize();*/
 
 loadEvents(client);
 
