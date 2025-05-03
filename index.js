@@ -81,7 +81,7 @@ readdirSync(prefixCommandsPath)
 
 // ======================
 setClient(client); 
-
+loadEvents(client);
 
 const interactionHandler = require('./modules/interactions/interactionHandler');
 
@@ -197,7 +197,7 @@ client.on('messageCreate', async message => {
 
 newsWatcher.initialize();*/
 
-loadEvents(client);
+
 
 // ======================
 
