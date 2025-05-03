@@ -36,7 +36,7 @@ const client = new Client({
 
 });
 
-loadEvents(client);
+
 
 // Collections for command storage (maintained for compatibility)
 
@@ -248,3 +248,5 @@ client.login(process.env.DISCORD_TOKEN)
     process.exit(1);
 
   });
+
+loadEvents(client);
