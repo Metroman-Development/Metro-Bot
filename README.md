@@ -25,4 +25,3 @@ MetroBot prioriza la **seguridad y confidencialidad** de la API de Metro de Sant
 - Solo realiza solicitudes a la API **una vez por minuto** para evitar sobrecarga del servicio.
 - La funcionalidad de planificación de viaje tiene **restricciones de uso** para optimizar el rendimiento y la accesibilidad de la información, procurando evitar la sobrecarga de sistemas de terceros.
 - Diríjase al link de Comunidad Metro de Santiago si desea hablar con el Desarrollador. 
->>>>>>> master
