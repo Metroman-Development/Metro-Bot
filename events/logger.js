@@ -38,6 +38,7 @@ async function sendErrorEmbed(error, metadata = {}) {
         // First log the error to file
         logErrorToFile(error, metadata);
 
+        console.log(error, metadata) 
         const client = getClient(); // Get the client using clientManager
         if (!client || !client.channels) {
             console.error('Client or client channels are not available.');
