@@ -51,7 +51,7 @@ async function sendErrorEmbed(error, metadata = {}) {
         }
 
         // Create an embed for the error
-        const embed = createEmbed(
+      /*  const embed = createEmbed(
             `**Error Type:** ${error.name}\n` +
             `**Error Message:** ${error.message}\n` +
             `**Stack Trace:**\n\`\`\`${error.stack}\`\`\`\n` +
@@ -62,7 +62,7 @@ async function sendErrorEmbed(error, metadata = {}) {
 
         // Send the embed to the error channel
         await errorChannel.send({ embeds: [embed] });
-        console.log('Error embed sent to the error channel.');
+        */console.log('Error embed sent to the error channel.');
     } catch (error) {
         console.log(`Failed to send error embed: ${error.message}`);
     }
