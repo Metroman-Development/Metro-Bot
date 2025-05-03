@@ -244,7 +244,7 @@ client.login(process.env.DISCORD_TOKEN)
 
   .catch(error => {
 
-    logger.error('LOGIN_FAILED', error);
+    console.error('LOGIN_FAILED', error);
 
     process.exit(1);
 
