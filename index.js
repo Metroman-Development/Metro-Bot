@@ -36,6 +36,8 @@ const client = new Client({
 
 });
 
+loadEvents(client);
+
 // Collections for command storage (maintained for compatibility)
 
 client.commands = new Collection();
@@ -56,6 +58,7 @@ client.prefixCommands = new Collection();
 client.commandLoader = new AdvancedCommandLoader(client);
 
 // Maintain legacy prefix command loading
+
 
 const prefixCommandsPath = join(__dirname, 'prefixCommands');
 
@@ -81,7 +84,7 @@ readdirSync(prefixCommandsPath)
 
 // ======================
 setClient(client); 
-loadEvents(client);
+
 
 const interactionHandler = require('./modules/interactions/interactionHandler');
 
