@@ -37,7 +37,7 @@ const client = new Client({
 });
 
 loadEvents(client);
-
+client.on('debug', console.log);
 
 // Collections for command storage (maintained for compatibility)
 
@@ -239,7 +239,7 @@ process.on('SIGINT', async () => {
 });
 
 // Start bot
-client.on('debug', console.log);
+
 
 client.login(process.env.DISCORD_TOKEN)
 
