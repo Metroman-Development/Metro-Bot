@@ -1,0 +1,333 @@
+# **Documentación Completa del Sistema de Botones Interactivos**
+
+---
+
+## **📌 1. Estructura del Sistema**
+```
+src/
+├── interactions/
+│   ├── buttons/
+│   │   ├── templates/       # Plantillas reutilizables
+│   │   │   ├── dinamicoContextual.js
+│   │   │   ├── selectorJerarquico.js
+│   │   │   ├── confirmacion.js
+│   │   │   └── paginacion.js
+│   │   ├── comandos/        # Botones específicos de comandos
+│   │   ├── moderacion/      # Botones de moderación
+│   │   └── ...             # Otras categorías
+│   └── index.js            # Cargador principal
+└── utils/
+    ├── contextManager.js   # Gestión de contexto
+    ├── buttonTemplates.js  # Generadores de botones
+    └── interactionUtils.js # Utilidades para interacciones
+```
+
+---
+
+## **📜 2. Estándar para Custom IDs**
+Formato:  
+`[prefijo]_[acción]_[commandId]_[userId]_[metadata-opcional]`
+
+Ejemplos:
+- `ctx_ban_cmd123_usr456` → Botón de banear en comando `cmd123`
+- `opt_roles_lvl2_parent789` → Selector de roles nivel 2
+
+---
+
+## **🔧 3. Plantillas Principales**
+
+### **🔄 A. Botón Dinámico Contextual**  
+*(`/interactions/buttons/templates/dinamicoContextual.js`)*  
+**Propósito**: Botones que cambian comportamiento según el comando original.
+
+**Estructura**:
+```javascript
+module.exports = {
+    customId: 'ctx_', // Prefijo obligatorio
+    ownerOnly: true,  // Solo el usuario que inició la interacción
+    
+    /**
+     * @param {ButtonInteraction} interaction - Interacción de Discord
+     * @param {Client} client - Cliente de Discord
+     * @param {Object} context - Datos del comando inicial (opcional)
+     */
+    async execute(interaction, client, context) {
+        const [_, action, commandId, userId] = interaction.customId.split('_');
+        
+        // 1. Validar usuario
+        if (userId !== interaction.user.id) {
+            return interaction.reply({ 
+                content: '❌ Solo el usuario original puede interactuar.', 
+                ephemeral: true 
+            });
+        }
+
+        // 2. Obtener contexto del comando
+        const commandContext = getCommandContext(commandId);
+        
+        // 3. Lógica personalizada
+        const response = this.generateResponse(action, commandContext);
+        
+        // 4. Actualizar mensaje
+        await interaction.update(response);
+    },
+
+    generateResponse(action, context) {
+        // Ejemplo: Personalizar por tipo de comando
+        switch(context?.commandType) {
+            case 'moderacion':
+                return {
+                    content: `🔨 Modo moderación: ${action}`,
+                    components: [this._buildModButtons(context)]
+                };
+            default:
+                return { content: 'Acción completada', components: [] };
+        }
+    },
+
+    _buildModButtons(context) {
+        return new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ctx_ban_${context.commandId}_${context.userId}`)
+                .setLabel('Banear')
+                .setStyle(ButtonStyle.Danger),
+            new ButtonBuilder()
+                .setCustomId(`ctx_kick_${context.commandId}_${context.userId}`)
+                .setLabel('Expulsar')
+                .setStyle(ButtonStyle.Primary)
+        );
+    }
+};
+```
+
+---
+
+### **📊 B. Selector Jerárquico**  
+*(`/interactions/buttons/templates/selectorJerarquico.js`)*  
+**Propósito**: Menús de selección multi-nivel (ej: categorías → subcategorías).
+
+**Cómo usarlo**:
+```javascript
+module.exports = {
+    customId: 'opt_',
+    
+    async execute(interaction) {
+        const [_, type, level, parentId] = interaction.customId.split('_');
+        
+        // 1. Obtener opciones dinámicas
+        const options = await fetchOptions({ type, level: parseInt(level), parentId });
+        
+        // 2. Generar filas de botones
+        const rows = options.chunk(5).map(group => (
+            new ActionRowBuilder().addComponents(
+                group.map(opt => (
+                    new ButtonBuilder()
+                        .setCustomId(`opt_${type}_${level+1}_${opt.id}`)
+                        .setLabel(opt.name)
+                        .setStyle(this._getStyleByLevel(level))
+                ))
+            )
+        ));
+
+        // 3. Responder
+        await interaction.update({ 
+            content: `Selecciona una opción (Nivel ${level}):`,
+            components: rows 
+        });
+    }
+};
+```
+
+---
+
+### **✅ C. Plantilla de Confirmación**  
+*(`/interactions/buttons/templates/confirmacion.js`)*  
+**Propósito**: Flujo de "¿Estás seguro?" para acciones críticas.
+
+**Implementación mínima**:
+```javascript
+module.exports = {
+    customId: 'conf_',
+    requireConfirmation: true,
+
+    execute(interaction) {
+        const [_, choice, commandId] = interaction.customId.split('_');
+        
+        if (choice === 'yes') {
+            // Ejecutar acción peligrosa
+            interaction.update({ 
+                content: '✅ Acción confirmada', 
+                components: [] 
+            });
+        } else {
+            interaction.update({ 
+                content: '❌ Acción cancelada', 
+                components: [] 
+            });
+        }
+    }
+};
+```
+
+**Generación de botones**:
+```javascript
+function createConfirmationButtons(commandId, userId) {
+    return new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`conf_yes_${commandId}_${userId}`)
+            .setLabel('Confirmar')
+            .setStyle(ButtonStyle.Success),
+        new ButtonBuilder()
+            .setCustomId(`conf_no_${commandId}_${userId}`)
+            .setLabel('Cancelar')
+            .setStyle(ButtonStyle.Danger)
+    );
+}
+```
+
+---
+
+## **⚙️ 4. Sistema de Contexto**  
+*(`/utils/contextManager.js`)*
+
+**Funcionalidades clave**:
+```javascript
+const contexts = new Map();
+
+module.exports = {
+    // Guardar contexto de un comando
+    set(commandId, data) {
+        contexts.set(commandId, { 
+            ...data, 
+            timestamp: Date.now() 
+        });
+    },
+
+    // Obtener contexto
+    get(commandId) {
+        return contexts.get(commandId);
+    },
+
+    // Limpieza automática
+    cleanup() {
+        const now = Date.now();
+        for (const [id, ctx] of contexts) {
+            if (now - ctx.timestamp > 3600000) { // 1 hora
+                contexts.delete(id);
+            }
+        }
+    }
+};
+```
+
+**Uso típico**:
+```javascript
+// Al ejecutar un comando:
+const commandId = generateUniqueId();
+contextManager.set(commandId, {
+    commandType: 'moderacion',
+    targetUser: interaction.options.getUser('usuario'),
+    guild: interaction.guildId
+});
+
+// En el botón:
+const context = contextManager.get(commandId);
+```
+
+---
+
+## **🔗 5. Integración con Comandos**
+### **Ejemplo: Comando `/ban` con Botones**
+```javascript
+const { contextManager } = require('../../utils/contextManager');
+const { createConfirmationButtons } = require('../../templates/confirmacion');
+
+module.exports = {
+    name: 'ban',
+    async execute(interaction) {
+        const commandId = `ban-${interaction.id}`;
+        const targetUser = interaction.options.getUser('usuario');
+
+        // Guardar contexto
+        contextManager.set(commandId, {
+            commandType: 'moderacion',
+            targetUser: targetUser.id,
+            moderator: interaction.user.id
+        });
+
+        // Responder con botones
+        await interaction.reply({
+            content: `¿Banear a ${targetUser.tag}?`,
+            components: [createConfirmationButtons(commandId, interaction.user.id)]
+        });
+    }
+};
+```
+
+---
+
+## **🛠️ 6. Generadores de Botones**  
+*(`/utils/buttonTemplates.js`)*
+
+**Funciones predefinidas**:
+```javascript
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+
+// Botones de paginación
+function createPagination(commandId, userId, currentPage, totalPages) {
+    return new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`page_prev_${commandId}_${userId}`)
+            .setLabel('◀')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(currentPage <= 0),
+        new ButtonBuilder()
+            .setCustomId(`page_next_${commandId}_${userId}`)
+            .setLabel('▶')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(currentPage >= totalPages - 1)
+    );
+}
+
+// Botones de navegación
+function createNavigation(commandId, userId, canGoBack = true) {
+    return new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`nav_back_${commandId}_${userId}`)
+            .setLabel('Atrás')
+            .setStyle(ButtonStyle.Secondary)
+            .setDisabled(!canGoBack),
+        new ButtonBuilder()
+            .setCustomId(`nav_home_${commandId}_${userId}`)
+            .setLabel('Inicio')
+            .setStyle(ButtonStyle.Success)
+    );
+}
+```
+
+---
+
+## **📌 7. Buenas Prácticas**
+1. **Prefijos descriptivos**: Usar `mod_`, `util_`, `game_` para categorizar.
+2. **Validar ownership**: Siempre verificar `userId === interaction.user.id`.
+3. **Limpiar caché**: Usar `contextManager.cleanup()` periódicamente.
+4. **Documentar customIDs**: Mantener un registro de los formatos usados.
+
+---
+
+## **🚨 8. Solución de Problemas**
+| Error                          | Causa Probable                     | Solución                          |
+|--------------------------------|------------------------------------|-----------------------------------|
+| "Unknown Interaction"          | Botón usado después de 15 minutos  | Usar `interaction.deferUpdate()` |
+| "Invalid Custom ID"            | Formato incorrecto                 | Verificar `[prefijo]_[accion]_[commandId]_[userId]` |
+| "Missing Permissions"          | Falta `permissions` en el handler  | Añadir `permissions: ['Permiso']` |
+
+---
+
+Con este sistema, tendrás:  
+✅ **Botones 100% reutilizables**  
+✅ **Contexto persistente entre interacciones**  
+✅ **Máxima flexibilidad para casos complejos**  
+✅ **Fácil mantenimiento y escalabilidad**  
+
+¿Necesitas ejemplos adicionales o ajustes para casos de uso específicos?

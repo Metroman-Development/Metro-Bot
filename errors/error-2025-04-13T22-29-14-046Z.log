@@ -1,0 +1,12 @@
+[2025-04-13T22-29-14-046Z] ERROR:
+Name: Error
+Message: Error building status message: Cannot read properties of undefined (reading 'getStatusSummary')
+Stack:
+Error: Error building status message: Cannot read properties of undefined (reading 'getStatusSummary')
+    at Object.error (/home/container/events/logger.js:152:27)
+    at buildStatusMessage (/home/container/events/presenceUpdater.js:127:16)
+    at Timeout.updatePresence [as _onTimeout] (/home/container/events/presenceUpdater.js:155:35)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {}
+

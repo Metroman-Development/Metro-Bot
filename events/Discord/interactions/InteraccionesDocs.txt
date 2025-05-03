@@ -1,0 +1,524 @@
+Aquí tienes la documentación completa para gestionar **todas las interacciones** en tu bot de Discord, integrando el sistema de botones con otros componentes:
+
+---
+
+## **🛠️ Sistema Unificado de Interacciones**
+### **Estructura Recomendada**
+```
+src/
+├── interactions/
+│   ├── buttons/          # Botones (ya cubierto)
+│   ├── modals/           # Formularios modales
+│   ├── selectMenus/      # Menús desplegables
+│   ├── contextMenus/     # Menús contextuales (click derecho)
+│   ├── autocomplete/     # Autocompletado de opciones
+│   └── index.js          # Cargador principal
+└── utils/
+    ├── interactionUtils.js # Funciones compartidas
+    ├── contextManager.js   # Gestión de estado
+```
+
+---
+
+## **📜 1. Menús de Selección (Select Menus)**
+### **Plantilla Básica** (`/interactions/selectMenus/roles.js`)
+```javascript
+module.exports = {
+    customId: 'select-roles', // ID único
+    permissions: ['ManageRoles'],
+    
+    async execute(interaction) {
+        const selectedRoleId = interaction.values[0];
+        
+        // 1. Validar rol
+        if (!interaction.guild.roles.cache.has(selectedRoleId)) {
+            return interaction.reply({ 
+                content: '❌ Rol no encontrado', 
+                ephemeral: true 
+            });
+        }
+
+        // 2. Asignar rol
+        await interaction.member.roles.add(selectedRoleId);
+        
+        // 3. Responder
+        await interaction.update({ 
+            content: `✅ Rol asignado: <@&${selectedRoleId}>`, 
+            components: [] 
+        });
+    }
+};
+```
+
+### **Cómo registrarlo**:
+```javascript
+// En tu comando o handler principal:
+const selectMenu = new StringSelectMenuBuilder()
+    .setCustomId('select-roles')
+    .setPlaceholder('Selecciona un rol')
+    .addOptions(
+        roles.map(role => ({
+            label: role.name,
+            value: role.id
+        }))
+);
+
+await interaction.reply({
+    components: [new ActionRowBuilder().addComponents(selectMenu)]
+});
+```
+
+---
+
+## **📋 2. Formularios Modales**
+### **Ejemplo: Formulario de Reporte** (`/interactions/modals/reporte.js`)
+```javascript
+module.exports = {
+    customId: 'modal-reporte',
+    fields: ['titulo', 'descripcion'], // Campos esperados
+
+    async execute(interaction) {
+        const titulo = interaction.fields.getTextInputValue('titulo');
+        const descripcion = interaction.fields.getTextInputValue('descripcion');
+        
+        // Guardar en DB o enviar a un canal
+        await interaction.reply({ 
+            content: `📝 Reporte enviado: **${titulo}**`, 
+            ephemeral: true 
+        });
+    }
+};
+```
+
+### **Uso con Botones**:
+```javascript
+// 1. Botón que abre el modal
+const button = new ButtonBuilder()
+    .setCustomId('abrir-modal-reporte')
+    .setLabel('Reportar Bug')
+    .setStyle(ButtonStyle.Danger);
+
+// 2. Handler del botón
+module.exports = {
+    customId: 'abrir-modal-reporte',
+    async execute(interaction) {
+        const modal = new ModalBuilder()
+            .setCustomId('modal-reporte')
+            .setTitle('Reporte de Bug')
+            .addComponents(
+                new ActionRowBuilder().addComponents(
+                    new TextInputBuilder()
+                        .setCustomId('titulo')
+                        .setLabel('Título')
+                        .setStyle(TextInputStyle.Short)
+                ),
+                new ActionRowBuilder().addComponents(
+                    new TextInputBuilder()
+                        .setCustomId('descripcion')
+                        .setLabel('Descripción')
+                        .setStyle(TextInputStyle.Paragraph)
+                )
+            );
+
+        await interaction.showModal(modal);
+    }
+};
+```
+
+---
+
+## **🖱️ 3. Menús Contextuales**
+### **Ejemplo: Obtener Info de Usuario** (`/interactions/contextMenus/userInfo.js`)
+```javascript
+module.exports = {
+    name: 'Obtener Info', // Nombre visible en el menú
+    type: ApplicationCommandType.User, // Tipo: User/Message
+
+    async execute(interaction) {
+        const user = interaction.targetUser;
+        
+        await interaction.reply({ 
+            embeds: [
+                new EmbedBuilder()
+                    .setTitle(`Información de ${user.username}`)
+                    .addFields(
+                        { name: 'ID', value: user.id },
+                        { name: 'Cuenta creada', value: user.createdAt.toLocaleDateString() }
+                    )
+            ],
+            ephemeral: true
+        });
+    }
+};
+```
+
+---
+
+## **🔍 4. Autocompletado**
+### **Ejemplo: Búsqueda de Comandos** (`/interactions/autocomplete/commands.js`)
+```javascript
+module.exports = {
+    commandName: 'ayuda', // Nombre del comando asociado
+    optionName: 'comando', // Nombre de la opción a autocompletar
+
+    async execute(interaction) {
+        const focusedValue = interaction.options.getFocused().toLowerCase();
+        const commands = client.commands.filter(cmd => 
+            cmd.name.includes(focusedValue)
+            .map(cmd => ({
+                name: cmd.name,
+                value: cmd.name
+            }))
+            .slice(0, 25); // Límite de Discord
+
+        await interaction.respond(commands);
+    }
+};
+```
+
+---
+
+## **🔄 5. Integración con Botones**
+### **Flujo Combinado: Botón → Modal → Select Menu**
+1. **Botón inicial** (`/buttons/iniciar-flujo.js`):
+   ```javascript
+   module.exports = {
+       customId: 'iniciar-flujo',
+       async execute(interaction) {
+           await interaction.showModal(/* ... */);
+       }
+   };
+   ```
+
+2. **Modal** (`/modals/formulario.js`):
+   ```javascript
+   module.exports = {
+       customId: 'formulario',
+       async execute(interaction) {
+           const data = interaction.fields.getTextInputValue('dato');
+           await interaction.reply({ 
+               content: 'Selecciona una opción:', 
+               components: [/* Select Menu */] 
+           });
+       }
+   };
+   ```
+
+3. **Select Menu** (`/selectMenus/opciones.js`):
+   ```javascript
+   module.exports = {
+       customId: 'opciones',
+       async execute(interaction) {
+           await interaction.update({ 
+               content: '✅ Flujo completado', 
+               components: [] 
+           });
+       }
+   };
+   ```
+
+---
+
+## **⚙️ 6. Configuración del Cargador Principal**
+### (`/interactions/index.js`)
+```javascript
+const { loadButtons, loadModals, loadSelectMenus } = require('./loaders');
+
+module.exports = async (client) => {
+    await Promise.all([
+        loadButtons(client),
+        loadModals(client),
+        loadSelectMenus(client),
+        // ...otros loaders
+    ]);
+};
+```
+
+---
+
+## **📌 7. Buenas Prácticas para Todas las Interacciones**
+1. **Validación de Usuario**:  
+   ```javascript
+   if (interaction.user.id !== expectedUserId) {
+       return interaction.reply({ content: '❌ No autorizado', ephemeral: true });
+   }
+   ```
+
+2. **Gestión de Estado**:  
+   Usa `contextManager.set()` para persistir datos entre pasos.
+
+3. **Limpieza Automática**:  
+   Programa `contextManager.cleanup()` para borrar datos antiguos.
+
+4. **Respuestas Ephemeral**:  
+   Usa `ephemeral: true` para interacciones sensibles.
+
+---
+
+## **🎨 8. Ejemplo Avanzado: Sistema de Tickets Completo**
+Combina múltiples interacciones:
+1. **Botón** "Crear Ticket" → Abre **Modal** con detalles.
+2. **Modal** envía datos → Muestra **Select Menu** para categoría.
+3. **Select Menu** cierra el flujo y notifica al staff.
+
+```mermaid
+sequenceDiagram
+    Usuario->>Bot: Click en "Crear Ticket" (Botón)
+    Bot->>Usuario: Muestra Modal
+    Usuario->>Bot: Envía Formulario (Modal)
+    Bot->>Usuario: Pide Categoría (Select Menu)
+    Usuario->>Bot: Selecciona Opción
+    Bot->>Canal-Staff: Notifica Ticket Nuevo
+```
+
+---
+
+## **🚨 9. Solución de Problemas Comunes**
+| Error                          | Causa                     | Solución                          |
+|--------------------------------|---------------------------|-----------------------------------|
+| "Interaction Failed"           | Handler no registrado     | Verificar carga en `/interactions/index.js` |
+| "Invalid Form Body"            | Custom ID duplicado       | Usar IDs únicos por tipo          |
+| "Missing Permissions"          | Falta `ephemeral`         | Añadir `ephemeral: true` si es necesario |
+
+---
+
+Con este sistema, tendrás un **control completo** sobre todas las interacciones de Discord, manteniendo consistencia y escalabilidad. ¿Necesitas ejemplos adicionales para algún tipo específico de interacción?
+
+# **Guía Definitiva: Sistema de Botones e Interacciones Avanzado**
+
+---
+
+## **📌 1. Introducción**
+Este sistema unificado permite:
+- **Botones dinámicos** que se adaptan al contexto.
+- **Gestión de estado** entre interacciones.
+- **Reutilización máxima** mediante plantillas.
+- **Escalabilidad** para bots complejos.
+
+---
+
+## **🚀 2. Migración desde el Sistema Anterior**
+
+### **Pasos Clave:**
+1. **Reorganiza tus botones** en la nueva estructura de carpetas:
+   ```
+   /interactions/buttons/
+   ├── templates/      # Plantillas reutilizables
+   ├── comandos/       # Botones de comandos específicos
+   └── moderacion/     # Botones de moderación
+   ```
+
+2. **Actualiza los Custom IDs** al formato:
+   ```plaintext
+   [prefijo]_[acción]_[commandId]_[userId]_[metadata]
+   ```
+   Ejemplo: `mod_ban_cmd123_usr456_guild789`
+
+3. **Refactoriza los handlers** para usar:
+   - `contextManager` para persistir datos.
+   - Plantillas estándar (`paginacion`, `confirmacion`, etc.).
+
+---
+
+## **🛠️ 3. Creación de Nuevos Botones**
+
+### **A. Plantilla Básica** (`/interactions/buttons/comandos/ejemplo.js`)
+```javascript
+const { getCommandContext } = require('../../../utils/contextManager');
+
+module.exports = {
+    customId: 'ejemplo_', // Prefijo único
+    permissions: ['ViewChannel'], // Permisos requeridos
+    ownerOnly: true, // Solo el creador puede interactuar
+
+    async execute(interaction, client) {
+        const [_, action, commandId, userId] = interaction.customId.split('_');
+        
+        // 1. Validar usuario
+        if (userId !== interaction.user.id) {
+            return interaction.reply({ 
+                content: '❌ Acceso denegado', 
+                ephemeral: true 
+            });
+        }
+
+        // 2. Obtener contexto del comando original
+        const context = getCommandContext(commandId);
+        
+        // 3. Lógica personalizada
+        const response = await this._handleAction(action, context);
+        
+        // 4. Responder
+        await interaction.update(response);
+    },
+
+    async _handleAction(action, context) {
+        switch(action) {
+            case 'edit':
+                return { 
+                    content: `Editando: ${context.target}`, 
+                    components: [] 
+                };
+            default:
+                return { content: 'Acción no válida', components: [] };
+        }
+    }
+};
+```
+
+### **B. Registro en el Cargador Principal** (`/interactions/index.js`)
+```javascript
+const { loadButtons } = require('./buttons');
+
+module.exports = async (client) => {
+    await loadButtons(client); // Carga todos los handlers
+};
+```
+
+---
+
+## **🔗 4. Uso con Comandos Existentes**
+
+### **Ejemplo: Comando `/config` con Botones**
+```javascript
+const { contextManager } = require('../../utils/contextManager');
+const { createConfigButtons } = require('../../templates/config');
+
+module.exports = {
+    name: 'config',
+    async execute(interaction) {
+        const commandId = `config-${interaction.id}`;
+        
+        // Guardar contexto
+        contextManager.set(commandId, {
+            guild: interaction.guildId,
+            currentTab: 'general'
+        });
+
+        // Responder con botones dinámicos
+        await interaction.reply({
+            content: 'Panel de Configuración',
+            components: createConfigButtons(commandId, interaction.user.id)
+        });
+    }
+};
+```
+
+---
+
+## **🎨 5. Plantillas Predefinidas**
+
+### **A. Paginación** (`/templates/paginacion.js`)
+```javascript
+function createPagination(commandId, userId, currentPage, totalPages) {
+    return [
+        new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId(`page_prev_${commandId}_${userId}`)
+                .setLabel('◀')
+                .setStyle(ButtonStyle.Primary)
+                .setDisabled(currentPage <= 0),
+            new ButtonBuilder()
+                .setCustomId(`page_next_${commandId}_${userId}`)
+                .setLabel('▶')
+                .setStyle(ButtonStyle.Primary)
+                .setDisabled(currentPage >= totalPages - 1)
+        )
+    ];
+}
+```
+
+### **B. Confirmación** (`/templates/confirmacion.js`)
+```javascript
+function createConfirmation(commandId, userId, question = '¿Confirmas?') {
+    return {
+        content: question,
+        components: [
+            new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId(`conf_yes_${commandId}_${userId}`)
+                    .setLabel('✅ Sí')
+                    .setStyle(ButtonStyle.Success),
+                new ButtonBuilder()
+                    .setCustomId(`conf_no_${commandId}_${userId}`)
+                    .setLabel('❌ No')
+                    .setStyle(ButtonStyle.Danger)
+            )
+        ]
+    };
+}
+```
+
+---
+
+## **⚡ 6. Mejores Prácticas**
+
+### **Para Migración:**
+1. **Empieza con comandos simples**: Migra primero `/help` o `/info`.
+2. **Usa wrappers**: Crea funciones que conviertan tus botones antiguos al nuevo formato:
+   ```javascript
+   function convertOldButton(oldId) {
+       const [action, userId] = oldId.split('-');
+       return `legacy_${action}_migrated_${userId}`;
+   }
+   ```
+
+### **Para Nuevos Proyectos:**
+1. **Prefijos claros**: Usa `mod_`, `util_`, `game_` para categorizar.
+2. **Documenta tus Custom IDs**: Mantén un registro en `/docs/button-ids.md`.
+3. **Limpia caché automáticamente**:
+   ```javascript
+   setInterval(() => contextManager.cleanup(), 3600000); // Cada hora
+   ```
+
+---
+
+## **🚨 7. Solución de Problemas Comunes**
+
+| Error                          | Causa                     | Solución                          |
+|--------------------------------|---------------------------|-----------------------------------|
+| "Unknown Interaction"          | Botón usado después de 15min | Usar `interaction.deferUpdate()` |
+| "Invalid Custom ID"            | Formato incorrecto        | Verificar `[prefijo]_[acción]_[commandId]_[userId]` |
+| "Missing Context"              | No se guardó el contexto  | Asegurar `contextManager.set()` |
+
+---
+
+## **📈 8. Ventajas Clave**
+
+✅ **Flexibilidad**: Botones se comportan según el comando que los generó.  
+✅ **Estado persistente**: Mantiene datos entre interacciones.  
+✅ **Código limpio**: Separa lógica en plantillas reutilizables.  
+✅ **Escalable**: Fácil de extender para nuevos tipos de interacciones.  
+
+---
+
+## **🔮 9. Ejemplo Avanzado: Sistema de Tickets**
+```javascript
+// 1. Comando /ticket create
+const commandId = `ticket-${interaction.user.id}`;
+contextManager.set(commandId, {
+    category: 'support',
+    user: interaction.user.id
+});
+
+// 2. Botones generados
+await interaction.reply({
+    content: 'Opciones de Ticket:',
+    components: [
+        new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket_open_${commandId}_${interaction.user.id}`)
+                .setLabel('Abrir Ticket')
+                .setStyle(ButtonStyle.Success),
+            new ButtonBuilder()
+                .setCustomId(`ticket_close_${commandId}_${interaction.user.id}`)
+                .setLabel('Cerrar')
+                .setStyle(ButtonStyle.Danger)
+        )
+    ]
+});
+```
+
+---
+
+Con este sistema, tendrás un flujo de trabajo **robusto, mantenible y escalable** para todas las interacciones de tu bot. ¿Necesitas ejemplos adicionales para casos de uso específicos?

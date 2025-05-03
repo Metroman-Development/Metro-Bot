@@ -1,0 +1,18 @@
+[2025-04-20T15-14-19-358Z] ERROR:
+Name: Error
+Message: DatabaseCache set error: Database error: Table 's336679_metromegabase.cache' doesn't exist
+Stack:
+Error: DatabaseCache set error: Database error: Table 's336679_metromegabase.cache' doesn't exist
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DatabaseCache.set (/home/container/core/cache/adapters/DatabaseCache.js:60:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async CacheManager.set (/home/container/core/cache/CacheManager.js:70:13)
+    at async Object.execute (/home/container/prefixCommands/log.js:164:17)
+    at async Client.<anonymous> (/home/container/index.js:178:5)
+Metadata: {
+  "namespace": "bot:logs",
+  "key": "last_version",
+  "error": "Error: Database error: Table 's336679_metromegabase.cache' doesn't exist\n    at DatabaseManager.formatError (/home/container/core/database/DatabaseManager.js:192:27)\n    at DatabaseManager.query (/home/container/core/database/DatabaseManager.js:169:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async DatabaseCache.set (/home/container/core/cache/adapters/DatabaseCache.js:55:13)\n    at async Promise.all (index 1)\n    at async CacheManager.set (/home/container/core/cache/CacheManager.js:70:13)\n    at async Object.execute (/home/container/prefixCommands/log.js:164:17)\n    at async Client.<anonymous> (/home/container/index.js:178:5)"
+}
+

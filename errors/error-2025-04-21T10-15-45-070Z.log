@@ -1,0 +1,21 @@
+[2025-04-21T10-15-45-070Z] ERROR:
+Name: Error
+Message: LINE_EMBED_FAILED
+Stack:
+Error: LINE_EMBED_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusEmbedBuilder.buildLineEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:305:20)
+    at EmbedManager.updateLineEmbed (/home/container/modules/status/embeds/EmbedManager.js:223:46)
+    at /home/container/modules/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/home/container/modules/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:296:18)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:111:20)
+    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {
+  "line": "l3",
+  "error": "config is not defined",
+  "stack": "ReferenceError: config is not defined\n    at #formatLineStatus (/home/container/modules/status/embeds/StatusEmbedBuilder.js:335:46)\n    at StatusEmbedBuilder.buildLineEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:256:55)\n    at EmbedManager.updateLineEmbed (/home/container/modules/status/embeds/EmbedManager.js:223:46)\n    at /home/container/modules/status/embeds/EmbedManager.js:195:26\n    at Array.map (<anonymous>)\n    at EmbedManager.updateAllLineEmbeds (/home/container/modules/status/embeds/EmbedManager.js:194:41)\n    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:296:18)\n    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:111:20)\n    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+

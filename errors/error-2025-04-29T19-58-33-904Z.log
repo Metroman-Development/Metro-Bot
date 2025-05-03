@@ -1,0 +1,17 @@
+[2025-04-29T19-58-33-904Z] ERROR:
+Name: Error
+Message: DISCORD_CLIENT_ERROR
+Stack:
+Error: DISCORD_CLIENT_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/error.js:7:16)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at emitUnhandledRejectionOrErr (node:events:401:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Metadata: {
+  "error": "Invalid Form Body\nmessage_reference[MESSAGE_REFERENCE_UNKNOWN_MESSAGE]: Unknown message",
+  "stack": "DiscordAPIError[50035]: Invalid Form Body\nmessage_reference[MESSAGE_REFERENCE_UNKNOWN_MESSAGE]: Unknown message\n    at handleErrors (/home/container/node_modules/@discordjs/rest/dist/index.js:727:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async SequentialHandler.runRequest (/home/container/node_modules/@discordjs/rest/dist/index.js:1128:23)\n    at async SequentialHandler.queueRequest (/home/container/node_modules/@discordjs/rest/dist/index.js:959:14)\n    at async _REST.request (/home/container/node_modules/@discordjs/rest/dist/index.js:1272:22)\n    at async TextChannel.send (/home/container/node_modules/discord.js/src/structures/interfaces/TextBasedChannel.js:190:15)\n    at async Client.<anonymous> (/home/container/index.js:184:5)",
+  "timestamp": "2025-04-29T19:58:33.904Z"
+}
+

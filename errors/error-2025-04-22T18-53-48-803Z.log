@@ -1,0 +1,357 @@
+[2025-04-22T18-53-48-803Z] ERROR:
+Name: Error
+Message: [MetroCore] Failed to emit undefined
+Stack:
+Error: [MetroCore] Failed to emit undefined
+    at Object.error (/home/container/events/logger.js:152:27)
+    at EventEngine.safeEmit (/home/container/modules/metro/core/internal/EventEngine.js:157:20)
+    at StatusEngine.enterSafeMode (/home/container/modules/metro/core/internal/StatusEngine.js:30:20)
+    at MetroCore._handleInitFailure (/home/container/modules/metro/core/MetroCore.js:268:14)
+    at MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:196:18)
+    at async /home/container/modules/metro/core/MetroCore.js:163:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {
+  "error": "Event undefined not registered",
+  "stack": "Error: Event undefined not registered\n    at EventEngine.safeEmit (/home/container/modules/metro/core/internal/EventEngine.js:138:23)\n    at StatusEngine.enterSafeMode (/home/container/modules/metro/core/internal/StatusEngine.js:30:20)\n    at MetroCore._handleInitFailure (/home/container/modules/metro/core/MetroCore.js:268:14)\n    at MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:196:18)\n    at async /home/container/modules/metro/core/MetroCore.js:163:13\n    at async Object.execute (/home/container/events/Discord/ready.js:19:27)",
+  "originalData": {
+    "timestamp": "2025-04-22T18:53:48.803Z",
+    "data": {
+      "reason": "Excessive errors",
+      "timestamp": "2025-04-22T18:53:48.803Z",
+      "systemState": {
+        "version": "0.0.0",
+        "network": {
+          "status": "initializing"
+        },
+        "lines": [],
+        "lastUpdated": "1970-01-01T00:00:00.000Z"
+      }
+    },
+    "metadata": {
+      "source": "unknown",
+      "severity": "critical",
+      "eventId": "2025-04-22T18:53:48.803Z-08y8chjn"
+    },
+    "errors": [],
+    "_validator": {
+      "schemas": {
+        "time:day_type_change": {
+          "required": [
+            "dayType",
+            "nextTransition"
+          ],
+          "dayType": {
+            "type": "string",
+            "enum": [
+              "weekday",
+              "saturday",
+              "sunday",
+              "festive"
+            ]
+          },
+          "nextTransition": {
+            "type": {
+              "type": "string"
+            },
+            "required": [
+              "time",
+              "type"
+            ],
+            "time": {
+              "type": "string",
+              "pattern": {}
+            }
+          }
+        },
+        "schedule:service_transition": {
+          "required": [
+            "type",
+            "opening",
+            "closing"
+          ],
+          "type": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "extended",
+              "special"
+            ]
+          },
+          "opening": {
+            "type": "string",
+            "pattern": {}
+          },
+          "closing": {
+            "type": "string",
+            "pattern": {}
+          },
+          "eventName": {
+            "type": "string",
+            "optional": true
+          }
+        },
+        "undefined": {
+          "required": [
+            "query",
+            "duration"
+          ],
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration": {
+            "type": "number",
+            "min": 0
+          },
+          "rows": {
+            "type": "number",
+            "optional": true
+          }
+        },
+        "schedule:fare_period_change": {
+          "required": [
+            "periodType",
+            "name"
+          ],
+          "periodType": {
+            "type": "string",
+            "enum": [
+              "morning_peak",
+              "evening_peak",
+              "off_peak",
+              "night"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "system:ready": {
+          "required": [
+            "version",
+            "startupTime"
+          ],
+          "version": {
+            "type": "string",
+            "pattern": {}
+          },
+          "startupTime": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "system:fatal_error": {
+          "required": [
+            "error",
+            "component"
+          ],
+          "error": {
+            "type": "object",
+            "required": [
+              "message",
+              "stack"
+            ],
+            "message": {
+              "type": "string",
+              "minLength": 1
+            },
+            "stack": {
+              "type": "string"
+            }
+          },
+          "component": {
+            "type": "string",
+            "enum": [
+              "core",
+              "api",
+              "db",
+              "scheduler"
+            ]
+          }
+        },
+        "data:updated": {
+          "required": [
+            "version",
+            "stations",
+            "lines",
+            "network"
+          ],
+          "version": {
+            "type": "string",
+            "minLength": 10
+          },
+          "stations": {
+            "type": "object"
+          },
+          "lines": {
+            "type": "object"
+          },
+          "network": {
+            "type": "object",
+            "required": [
+              "status",
+              "lastUpdated"
+            ],
+            "status": {
+              "type": "string",
+              "enum": [
+                "operational",
+                "degraded",
+                "outage"
+              ]
+            }
+          }
+        },
+        "poll:success": {
+          "required": [
+            "duration",
+            "dataVersion"
+          ],
+          "duration": {
+            "type": "number",
+            "min": 0,
+            "max": 30000
+          },
+          "dataVersion": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "number",
+            "optional": true
+          }
+        },
+        "poll:failure": {
+          "required": [
+            "error",
+            "consecutiveFailures"
+          ],
+          "error": {
+            "type": "object",
+            "required": [
+              "message"
+            ]
+          },
+          "consecutiveFailures": {
+            "type": "number",
+            "min": 1
+          },
+          "retryIn": {
+            "type": "number",
+            "min": 1000
+          }
+        },
+        "embed:generated": {
+          "required": [
+            "success",
+            "generationTime"
+          ],
+          "success": {
+            "type": "boolean"
+          },
+          "generationTime": {
+            "type": "number",
+            "min": 0
+          },
+          "embedStats": {
+            "type": "object",
+            "optional": true,
+            "fields": {
+              "type": "number",
+              "min": 1
+            },
+            "linesTracked": {
+              "type": "number",
+              "min": 0
+            }
+          },
+          "error": {
+            "type": "object",
+            "optional": true,
+            "required": [
+              "message"
+            ]
+          }
+        },
+        "entity:line_status_changed": {
+          "required": [
+            "lineId",
+            "from",
+            "to"
+          ],
+          "lineId": {
+            "type": "string",
+            "pattern": {}
+          },
+          "from": {
+            "type": "string",
+            "enum": [
+              "operational",
+              "delayed",
+              "suspended"
+            ]
+          },
+          "to": {
+            "type": "string",
+            "enum": [
+              "operational",
+              "delayed",
+              "suspended"
+            ]
+          },
+          "affectedStations": {
+            "type": "number",
+            "min": 0,
+            "optional": true
+          }
+        },
+        "entity:not_found": {
+          "required": [
+            "entityType",
+            "entityId"
+          ],
+          "entityType": {
+            "type": "string",
+            "enum": [
+              "station",
+              "line"
+            ]
+          },
+          "entityId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "change:detected": {
+          "required": [
+            "changes",
+            "metadata"
+          ],
+          "changes": {
+            "type": "array"
+          },
+          "metadata": {
+            "required": [
+              "severity"
+            ],
+            "severity": {
+              "type": "string",
+              "enum": [
+                "critical",
+                "high",
+                "medium",
+                "low",
+                "none"
+              ]
+            },
+            "groupedStations": {
+              "type": "array",
+              "optional": true
+            }
+          }
+        }
+      },
+      "validators": {}
+    }
+  }
+}
+

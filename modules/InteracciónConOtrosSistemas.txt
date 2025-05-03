@@ -1,0 +1,357 @@
+# **Guía Completa de Integración: Comandos de Discord con Sistema Metro**
+
+## **🚇 Visión General**
+Este documento explica cómo interactuar con **todos los componentes del sistema Metro** mediante comandos de Discord (/), incluyendo:
+- Búsqueda de estaciones/líneas
+- Consulta de estados operativos
+- Gestión de datos en tiempo real
+- Sistemas de notificaciones
+
+## **📚 Tabla de Contenidos**
+1. [Estructura Básica](#estructura-básica)
+2. [Búsqueda de Estaciones](#búsqueda-de-estaciones)
+3. [Consulta de Líneas](#consulta-de-líneas)
+4. [Estado Operativo](#estado-operativo)
+5. [Notificaciones](#notificaciones)
+6. [Sistemas Avanzados](#sistemas-avanzados)
+7. [Manejo de Errores](#manejo-de-errores)
+8. [Ejemplos Completos](#ejemplos-completos)
+
+---
+
+## **1️⃣ Estructura Básica**
+
+### **Configuración Inicial**
+```javascript
+// Importación de módulos
+const { MetroCore, SearchCore } = require('./modules/metro');
+const { EmbedBuilder } = require('discord.js');
+
+// Inicialización
+const metro = new MetroCore();
+const search = new SearchCore('station');
+```
+
+### **Esqueleto de Comando**
+```javascript
+module.exports = {
+    name: 'metro',
+    description: 'Interactúa con el sistema Metro',
+    options: [], // Definidos en cada sección
+    async execute(interaction) {
+        await metro.initialize(); // Asegurar datos cargados
+        // Lógica específica
+    }
+};
+```
+
+---
+
+## **2️⃣ Búsqueda de Estaciones**
+
+### **Comando `/buscar-estacion`**
+```javascript
+options: [
+    {
+        name: 'nombre',
+        description: 'Nombre de la estación',
+        type: 3, // STRING
+        required: true
+    },
+    {
+        name: 'linea',
+        description: 'Filtrar por línea',
+        type: 3, // STRING
+        choices: [
+            { name: 'Línea 1', value: 'l1' },
+            // ... otras líneas
+        ]
+    }
+],
+
+async execute(interaction) {
+    const query = interaction.options.getString('nombre');
+    const lineFilter = interaction.options.getString('linea');
+
+    const results = await search.search(query, { 
+        lineFilter,
+        maxResults: 5 
+    });
+
+    if (results.length === 0) {
+        return interaction.reply('❌ No se encontraron estaciones');
+    }
+
+    const embed = new EmbedBuilder()
+        .setTitle(`Resultados para "${query}"`)
+        .addFields(
+            results.map(r => ({
+                name: r.name,
+                value: `Línea: ${r.line.toUpperCase()} | Score: ${r.score.toFixed(2)}`
+            }))
+        );
+
+    await interaction.reply({ embeds: [embed] });
+}
+```
+
+---
+
+## **3️⃣ Consulta de Líneas**
+
+### **Comando `/info-linea`**
+```javascript
+options: [
+    {
+        name: 'linea',
+        description: 'Línea a consultar',
+        type: 3, // STRING
+        required: true,
+        choices: [
+            { name: 'Línea 1', value: 'l1' },
+            // ... otras líneas
+        ]
+    }
+],
+
+async execute(interaction) {
+    const lineId = interaction.options.getString('linea');
+    const line = metro.lines.get(lineId);
+    const status = metro.getLineStatus(lineId);
+
+    const embed = new EmbedBuilder()
+        .setTitle(`Información Línea ${lineId.toUpperCase()}`)
+        .setColor(line.color)
+        .addFields(
+            { name: 'Estado', value: status, inline: true },
+            { name: 'Estaciones', value: line.stations.length.toString(), inline: true },
+            { name: 'Flota', value: line.fleet.map(t => t.id).join(', ') }
+        );
+
+    await interaction.reply({ embeds: [embed] });
+}
+```
+
+---
+
+## **4️⃣ Estado Operativo**
+
+### **Comando `/estado`**
+```javascript
+options: [
+    {
+        name: 'tipo',
+        description: 'Tipo de consulta',
+        type: 3, // STRING
+        choices: [
+            { name: 'Red Completa', value: 'full' },
+            { name: 'Línea Específica', value: 'line' }
+        ]
+    }
+],
+
+async execute(interaction) {
+    const type = interaction.options.getString('tipo') || 'full';
+
+    if (type === 'line') {
+        // Implementar selección de línea similar a /info-linea
+    } else {
+        const allStatus = metro.lines.getAll().map(line => {
+            return `${line.id.toUpperCase()}: ${metro.getLineStatus(line.id)}`;
+        });
+
+        await interaction.reply({
+            content: `**Estado de la Red:**\n${allStatus.join('\n')}`,
+            ephemeral: true
+        });
+    }
+}
+```
+
+---
+
+## **5️⃣ Notificaciones**
+
+### **Sistema de Suscripciones**
+```javascript
+options: [
+    {
+        name: 'accion',
+        description: 'Acción a realizar',
+        type: 3, // STRING
+        choices: [
+            { name: 'Suscribir', value: 'subscribe' },
+            { name: 'Desuscribir', value: 'unsubscribe' }
+        ],
+        required: true
+    },
+    {
+        name: 'linea',
+        description: 'Línea a monitorear',
+        type: 3, // STRING
+        choices: [
+            { name: 'Todas', value: 'all' },
+            // ... líneas individuales
+        ]
+    }
+],
+
+async execute(interaction) {
+    const action = interaction.options.getString('accion');
+    const line = interaction.options.getString('linea');
+
+    // Lógica de suscripción
+    if (action === 'subscribe') {
+        metro.subscribe(interaction.user.id, line || 'all');
+        await interaction.reply({
+            content: `✅ Suscrito a actualizaciones de ${line === 'all' ? 'todas las líneas' : 'Línea ' + line.toUpperCase()}`,
+            ephemeral: true
+        });
+    } else {
+        metro.unsubscribe(interaction.user.id);
+        await interaction.reply({
+            content: '❌ Suscripción cancelada',
+            ephemeral: true
+        });
+    }
+}
+```
+
+---
+
+## **6️⃣ Sistemas Avanzados**
+
+### **Comando `/ruta` (Cálculo de Trayectos)**
+```javascript
+options: [
+    {
+        name: 'origen',
+        description: 'Estación de origen',
+        type: 3, // STRING
+        required: true,
+        autocomplete: true
+    },
+    {
+        name: 'destino',
+        description: 'Estación de destino',
+        type: 3, // STRING
+        required: true,
+        autocomplete: true
+    }
+],
+
+async execute(interaction) {
+    const from = interaction.options.getString('origen');
+    const to = interaction.options.getString('destino');
+
+    const route = metro.calculateRoute(from, to);
+
+    // Implementar lógica de visualización
+    await interaction.reply({
+        embeds: [/* Embed con detalles de ruta */],
+        components: [/* Botones para más opciones */]
+    });
+}
+```
+
+---
+
+## **7️⃣ Manejo de Errores**
+
+### **Ejemplo Robustecido**
+```javascript
+async execute(interaction) {
+    try {
+        await metro.initialize();
+        
+        const line = interaction.options.getString('linea');
+        if (!metro.lines.get(line)) {
+            return interaction.reply({
+                content: '❌ Línea no válida',
+                ephemeral: true
+            });
+        }
+
+        // Resto de lógica...
+
+    } catch (error) {
+        console.error(error);
+        await interaction.reply({
+            content: '⚠️ Error al procesar la solicitud',
+            ephemeral: true
+        });
+    }
+}
+```
+
+---
+
+## **8️⃣ Ejemplos Completos**
+
+### **Flujo Completo: Búsqueda + Información**
+```mermaid
+sequenceDiagram
+    Usuario->>Bot: /buscar-estacion nombre:"Plaza" linea:l1
+    Bot->>Sistema Metro: search("Plaza", {lineFilter: "l1"})
+    Sistema Metro-->>Bot: Resultados
+    Bot->>Usuario: Muestra embed con opciones
+    Usuario->>Bot: Selecciona estación (botón/interacción)
+    Bot->>Sistema Metro: getStationDetails()
+    Sistema Metro-->>Bot: Datos completos
+    Bot->>Usuario: Muestra información detallada
+```
+
+### **Implementación con Componentes**
+```javascript
+// Búsqueda inicial
+const results = await search.search(query);
+await interaction.reply({
+    content: 'Selecciona una estación:',
+    components: [
+        new ActionRowBuilder().addComponents(
+            new StringSelectMenuBuilder()
+                .setCustomId('select-station')
+                .addOptions(
+                    results.map(r => ({
+                        label: r.name,
+                        value: r.id
+                    }))
+                )
+        )
+    ]
+});
+
+// Handler para selección
+module.exports = {
+    customId: 'select-station',
+    async execute(interaction) {
+        const stationId = interaction.values[0];
+        const station = metro.stations.get(stationId);
+        
+        await interaction.update({
+            content: `Información de ${station.name}`,
+            embeds: [/* Embed con detalles */],
+            components: [] // Limpiar componentes
+        });
+    }
+};
+```
+
+---
+
+## **📌 Mejores Prácticas**
+1. **Validar datos**: Siempre verificar que estaciones/líneas existan
+2. **Usar ephemeral**: Para respuestas sensibles o prolongadas
+3. **Limitar resultados**: Paginar cuando hay muchos datos
+4. **Actualizar caché**: Verificar `metro.lastUpdated` para datos frescos
+5. **Manejar timeouts**: Usar `interaction.deferReply()` para operaciones largas
+
+---
+
+Este sistema permite **acceso completo** a todas las funcionalidades del Metro desde Discord, con:
+- Consultas en tiempo real
+- Interfaz intuitiva
+- Manejo robusto de errores
+- Integración con componentes interactivos
+
+¿Necesitas ejemplos adicionales para casos de uso específicos?

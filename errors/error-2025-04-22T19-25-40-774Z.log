@@ -1,0 +1,16 @@
+[2025-04-22T19-25-40-774Z] ERROR:
+Name: Error
+Message: [StatusUpdater] Initialization failed
+Stack:
+Error: [StatusUpdater] Initialization failed
+    at Object.fatal (/home/container/events/logger.js:165:27)
+    at StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:148:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:198:13)
+    at async /home/container/modules/metro/core/MetroCore.js:141:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {
+  "error": "this.parent.metroCore.api.getProcessedData is not a function",
+  "stack": "TypeError: this.parent.metroCore.api.getProcessedData is not a function\n    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:65)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)\n    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:198:13)\n    at async /home/container/modules/metro/core/MetroCore.js:141:13\n    at async Object.execute (/home/container/events/Discord/ready.js:19:27)"
+}
+

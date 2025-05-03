@@ -1,0 +1,20 @@
+{
+  "transporte": [
+    "Tren",
+    "Buses"
+  ],
+  "servicios": [
+    "Máquina de Carga Autoservicio",
+    "Redbanc",
+    "Teléfonos"
+  ],
+  "accesibilidad": [],
+  "comercio": [
+    "Coffee Market"
+  ],
+  "cultura": [
+    "Metroinforma",
+    "Metroarte"
+  ],
+  "link": []
+}

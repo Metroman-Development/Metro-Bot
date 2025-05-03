@@ -1,0 +1,17 @@
+[2025-04-16T03-00-55-375Z] ERROR:
+Name: Error
+Message: [UpdateListener] Error processing SERVICE_HOURS_END
+Stack:
+Error: [UpdateListener] Error processing SERVICE_HOURS_END
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateListener._handleHandlerError (/home/container/modules/status/embeds/UpdateListener.js:692:16)
+    at UpdateListener._trackEventTiming (/home/container/modules/status/embeds/UpdateListener.js:667:18)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:555:9)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {
+  "error": "Cannot read properties of undefined (reading 'getDayType')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'getDayType')\n    at /home/container/modules/status/embeds/UpdateListener.js:344:54\n    at Job.task (/home/container/modules/status/embeds/UpdateListener.js:646:51)\n    at /home/container/node_modules/bottleneck/lib/Job.js:141:109\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (/home/container/node_modules/bottleneck/lib/Job.js:3:103)\n    at _next (/home/container/node_modules/bottleneck/lib/Job.js:5:194)\n    at /home/container/node_modules/bottleneck/lib/Job.js:5:364\n    at new Promise (<anonymous>)\n    at /home/container/node_modules/bottleneck/lib/Job.js:5:97\n    at Job.doExecute (/home/container/node_modules/bottleneck/lib/Job.js:156:7)",
+  "handler": "SERVICE_HOURS_END"
+}
+

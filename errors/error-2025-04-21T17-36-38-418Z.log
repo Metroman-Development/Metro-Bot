@@ -1,0 +1,10 @@
+[2025-04-21T17-36-38-418Z] ERROR:
+Name: Error
+Message: Initialization failed:
+Stack:
+Error: Initialization failed:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/ready.js:38:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+

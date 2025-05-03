@@ -1,0 +1,21 @@
+[2025-04-17T17-07-47-683Z] ERROR:
+Name: Error
+Message: GUILD_INIT_FAILED
+Stack:
+Error: GUILD_INIT_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/guildCreate.js:18:20)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at module.exports [as GUILD_CREATE] (/home/container/node_modules/discord.js/src/client/websocket/handlers/GUILD_CREATE.js:30:14)
+    at WebSocketManager.handlePacket (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:348:31)
+    at WebSocketManager.<anonymous> (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:232:12)
+    at WebSocketManager.emit (/home/container/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+    at WebSocketShard.<anonymous> (/home/container/node_modules/@discordjs/ws/dist/index.js:1190:51)
+    at WebSocketShard.emit (/home/container/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+Metadata: {
+  "guild": "1218300692922630255",
+  "error": "initializeGuildSystems is not defined",
+  "stack": "ReferenceError: initializeGuildSystems is not defined\n    at Object.execute (/home/container/events/Discord/guildCreate.js:15:13)\n    at Client.<anonymous> (/home/container/events/index.js:17:54)\n    at Client.emit (node:events:518:28)\n    at module.exports [as GUILD_CREATE] (/home/container/node_modules/discord.js/src/client/websocket/handlers/GUILD_CREATE.js:30:14)\n    at WebSocketManager.handlePacket (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:348:31)\n    at WebSocketManager.<anonymous> (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:232:12)\n    at WebSocketManager.emit (/home/container/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)\n    at WebSocketShard.<anonymous> (/home/container/node_modules/@discordjs/ws/dist/index.js:1190:51)\n    at WebSocketShard.emit (/home/container/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)\n    at WebSocketShard.onMessage (/home/container/node_modules/@discordjs/ws/dist/index.js:1007:14)"
+}
+

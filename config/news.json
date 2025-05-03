@@ -1,0 +1,15 @@
+{
+    "lastUpdated": "ISO_TIMESTAMP",
+    "items": [
+        {
+            "id": "UNIQUE_ID",
+            "type": "update|alert|maintenance|event",
+            "title": "News Title",
+            "content": "Detailed content...",
+            "priority": "low|medium|high",
+            "timestamp": "ISO_TIMESTAMP",
+            "source": "Optional source",
+            "image": "Optional URL"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+[2025-04-17T16-54-04-936Z] ERROR:
+Name: Error
+Message: [UpdateProcessor] Update changes-1744908843838-n6rd failed
+Stack:
+Error: [UpdateProcessor] Update changes-1744908843838-n6rd failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateProcessor._handleUpdateError (/home/container/modules/status/embeds/UpdateProcessor.js:641:16)
+    at UpdateProcessor._processSingleUpdate (/home/container/modules/status/embeds/UpdateProcessor.js:259:18)
+    at UpdateProcessor.processPendingUpdates (/home/container/modules/status/embeds/UpdateProcessor.js:114:28)
+    at Timeout._onTimeout (/home/container/modules/status/embeds/UpdateProcessor.js:534:18)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+Metadata: {
+  "context": {}
+}
+

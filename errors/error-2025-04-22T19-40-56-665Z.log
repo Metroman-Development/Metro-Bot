@@ -1,0 +1,12 @@
+[2025-04-22T19-40-56-665Z] ERROR:
+Name: Error
+Message: Error al actualizar presencia: metro.api?.getProcessedData is not a function
+Stack:
+Error: Error al actualizar presencia: metro.api?.getProcessedData is not a function
+    at Object.error (/home/container/events/logger.js:152:27)
+    at updatePresence (/home/container/events/presenceUpdater.js:383:20)
+    at initializePresenceUpdates (/home/container/events/presenceUpdater.js:388:5)
+    at Object.execute (/home/container/events/Discord/ready.js:22:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+

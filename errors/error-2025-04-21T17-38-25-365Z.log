@@ -1,0 +1,28 @@
+[2025-04-21T17-38-25-365Z] ERROR:
+Name: Error
+Message: [DiscordBot] Error al enviar mensaje
+Stack:
+Error: [DiscordBot] Error al enviar mensaje
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:46:20)
+    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)
+    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:173:13)
+Metadata: {
+  "error": "config is not defined",
+  "change": {
+    "type": "isTransferOperational",
+    "stationCode": "vva",
+    "lineId": null,
+    "connectedLines": [],
+    "previousState": true,
+    "newState": false,
+    "timestamp": "2025-04-21T17:38:25.362Z",
+    "metadata": {
+      "lastUpdated": "2025-04-21T17:38:25.362Z",
+      "updatedBy": "system"
+    }
+  },
+  "stack": "ReferenceError: config is not defined\n    at DiscordBotService._getColorForChange (/home/container/modules/metro/core/services/DiscordBotService.js:186:58)\n    at DiscordBotService._createSpanishEmbed (/home/container/modules/metro/core/services/DiscordBotService.js:59:29)\n    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:40:32)\n    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)\n    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)\n    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:173:13)"
+}
+

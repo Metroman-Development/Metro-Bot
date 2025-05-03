@@ -1,0 +1,23 @@
+[2025-04-21T15-57-48-331Z] ERROR:
+Name: Error
+Message: [DiscordBot] Failed to send override change
+Stack:
+Error: [DiscordBot] Failed to send override change
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:68:20)
+    at async StatusOverrideService._notifyDiscordChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:144:17)
+    at async StatusOverrideService.checkForSpecialOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:135:13)
+    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:39:13)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:173:13)
+Metadata: {
+  "error": "Cannot read properties of null (reading 'replace')",
+  "change": {
+    "type": "isTransferOperational",
+    "stationCode": "VVA",
+    "lineId": null,
+    "previousState": false,
+    "newState": true,
+    "timestamp": "2025-04-21T15:57:48.331Z"
+  }
+}
+

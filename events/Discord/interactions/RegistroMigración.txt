@@ -1,0 +1,421 @@
+Aquí tienes el análisis detallado de cada botón, indicando si es reemplazable por plantillas o necesita versión modificada:
+
+---
+
+### **1. `commandInfoButton.js`**
+**🔍 Reemplazable al 90%**  
+**📌 Plantilla recomendada:** `navigation.js` + `BridgeManager`  
+**🔄 Cambios necesarios:**
+```javascript
+// Versión nueva (/buttons/commands/commandInfo.js)
+const { NavigationTemplate } = require('../../templates/navigation');
+
+module.exports = NavigationTemplate.create({
+    idPrefix: 'cmd_info',
+    validateUser: true, // Auto-verifica owner del botón
+    async fetchState(contextId) {
+        return {
+            command: await CommandModel.get(contextId),
+            history: [] // Opcional para navegación
+        };
+    },
+    buildEmbed(data) {
+        return new EmbedBuilder()
+            .setTitle(`Info: ${data.command.name}`)
+            .addFields(
+                { name: 'Uso', value: data.command.usage }
+            );
+    }
+});
+```
+**📝 Notas:**  
+- Elimina manualmente la lógica de caché (ahora gestionada por `BridgeManager`)  
+- Mantén los campos específicos de comandos en `buildEmbed()`
+
+---
+
+### **2. `disambiguationButton.js`**
+**🔍 Reemplazable al 100%**  
+**📌 Plantilla recomendada:** `selection.js`  
+**🔄 Versión final:**
+```javascript
+// Versión nueva (/buttons/transport/disambiguation.js)
+const { SelectionTemplate } = require('../../templates/selection');
+
+module.exports = SelectionTemplate.create({
+    idPrefix: 'station_amb',
+    style: 'buttons', // Opción: 'menu' para selectMenus
+    async fetchOptions() {
+        return (await StationManager.getAmbiguous()).map(s => ({
+            label: `${s.name} (Línea ${s.line})`,
+            value: s.id,
+            emoji: '🚇'
+        }));
+    },
+    onSelect(interaction, stationId) {
+        const station = StationManager.resolve(stationId);
+        interaction.update(StationEmbed.build(station));
+    }
+});
+```
+
+---
+
+### **3. `expressButtons.js`**
+**🔍 Reemplazable al 100%**  
+**📌 Plantilla recomendada:** `pagination.js`  
+**🔄 Versión final:**
+```javascript
+// Versión nueva (/buttons/transport/expressRoutes.js)
+const { PaginationTemplate } = require('../../templates/pagination');
+
+module.exports = PaginationTemplate.create({
+    idPrefix: 'express',
+    async fetchData(page) {
+        const [routes, total] = await Promise.all([
+            RouteAPI.getPaginated(page),
+            RouteAPI.getCount()
+        ]);
+        return { items: routes, totalPages: Math.ceil(total / 10) };
+    },
+    buildEmbed(data) {
+        return new EmbedBuilder()
+            .setTitle(`Rutas Express - Pág. ${data.currentPage + 1}`)
+            .setDescription(data.items.map(r => `• ${r.name}`).join('\n'));
+    }
+});
+```
+
+---
+
+### **4. `ayudaVolver.js`**
+**🔍 Reemplazable al 100%**  
+**📌 Plantilla recomendada:** `navigation.js#backButton`  
+**🔄 Versión final:**
+```javascript
+// Versión nueva (/buttons/utilities/ayudaVolver.js)
+const { NavigationTemplate } = require('../../templates/navigation');
+module.exports = NavigationTemplate.backButton('ayuda');
+```
+
+---
+
+### **5. `intermodalButtons.js`**
+**🔍 Reemplazable al 70%**  
+**📌 Partes reemplazables:**  
+- Lógica de pestañas → Usar `tabs.js`  
+- Persistencia → Usar `BridgeManager`  
+
+**✏️ Versión modificada:**
+```javascript
+// Versión nueva (/buttons/transport/intermodal.js)
+const { TabsTemplate } = require('../../templates/tabs');
+
+module.exports = TabsTemplate.create({
+    idPrefix: 'intermodal',
+    tabs: [
+        { id: 'info', label: 'Información', emoji: 'ℹ️' },
+        { id: 'routes', label: 'Recorridos', emoji: '🔄' }
+    ],
+    async fetchTabData(tabId, interaction) {
+        return IntermodalManager.getData(
+            tabId, 
+            interaction.customId.split('_')[3] // stationId
+        );
+    }
+});
+```
+
+---
+
+### **6. `fareButtons.js`**
+**🔍 Reemplazable al 100%**  
+**📌 Plantilla recomendada:** `toggle.js`  
+**🔄 Versión final:**
+```javascript
+// Versión nueva (/buttons/transport/fares.js)
+const { ToggleTemplate } = require('../../templates/toggle');
+
+module.exports = ToggleTemplate.create({
+    idPrefix: 'fare_type',
+    options: [
+        { id: 'metro', label: 'Metro', emoji: '🚇' },
+        { id: 'combi', label: 'Combinación', emoji: '🔄' }
+    ],
+    async onToggle(interaction, selectedId) {
+        const fare = await FareCalculator.get(selectedId);
+        interaction.update(FareEmbed.build(fare));
+    }
+});
+```
+
+---
+
+### **7. `helpCategory.js` (Select Menu)**
+**🔍 Reemplazable al 100%**  
+**📌 Plantilla recomendada:** `FlexibleSelector`  
+**🔄 Versión final:**
+```javascript
+// Versión nueva (/selectMenus/helpCategories.js)
+const { FlexibleSelector } = require('../../templates/selection');
+
+module.exports = FlexibleSelector.create({
+    idPrefix: 'help_cat',
+    style: 'menu',
+    async fetchOptions() {
+        return Object.entries(HelpCategories).map(([id, cat]) => ({
+            label: cat.name,
+            value: id,
+            description: `${cat.commands.length} comandos`
+        }));
+    },
+    onSelect(interaction, categoryId) {
+        interaction.update(HelpEmbed.build(categoryId));
+    }
+});
+```
+
+---
+
+## **📌 Resumen de Reemplazos**
+| Archivo Original       | ¿Reemplazable? | Plantilla Usada      | Archivo Nuevo               |
+|------------------------|----------------|----------------------|-----------------------------|
+| `commandInfoButton.js` | Parcial        | `navigation.js`      | `/buttons/commands/info.js` |
+| `disambiguationButton.js` | Sí          | `selection.js`       | `/buttons/transport/stationSelect.js` |
+| `expressButtons.js`    | Sí            | `pagination.js`      | `/buttons/transport/routePagination.js` |
+| `ayudaVolver.js`       | Sí            | `navigation.js#back` | `/buttons/utilities/back.js` |
+| `intermodalButtons.js` | Parcial       | `tabs.js`            | `/buttons/transport/intermodalTabs.js` |
+| `fareButtons.js`       | Sí            | `toggle.js`          | `/buttons/transport/fareToggle.js` |
+| `helpCategory.js`      | Sí            | `FlexibleSelector`   | `/selectMenus/helpCategories.js` |
+
+---
+
+## **⚡ ¿Cómo Proceder?**
+1. **Para botones 100% reemplazables**:  
+   - Elimina el archivo original  
+   - Usa la versión con plantilla proporcionada  
+
+2. **Para botones parcialmente reemplazables**:  
+   - Conserva solo la lógica única (ej: cálculos de tarifas)  
+   - Usa utilities de las plantillas para lo demás  
+
+3. **Para selectMenus**:  
+   - Migra a `FlexibleSelector` cuando sea posible  
+
+¿Necesitas que desarrolle más alguno de los reemplazos propuestos?
+
+Here's the concise documentation you need to proceed, structured for easy reference:
+
+---
+
+### **📜 Core System Documentation**
+
+#### **1. `tabs.js` Template**
+
+**Purpose**: Manage multi-view interfaces with stateful tabs.  
+
+**Location**: `/src/templates/tabs.js`  
+
+**Usage**:
+
+```javascript
+
+const stationTabs = TabsTemplate.create({
+
+    idPrefix: 'station', // Required for button IDs
+
+    tabs: [ // Array of tab definitions
+
+        { id: 'info', label: 'Info', emoji: 'ℹ️' },
+
+        { id: 'schedule', label: 'Schedule', emoji: '🕒' }
+
+    ],
+
+    fetchTabData: async (tabId, interaction) => {
+
+        // Return data for the requested tab
+
+    },
+
+    buildEmbed: (tabData) => {
+
+        // Return EmbedBuilder instance
+
+    }
+
+});
+
+```
+
+**Key Methods**:
+
+- `fetchTabData(tabId, interaction)` → Fetch tab-specific data
+
+- `buildEmbed(tabData)` → Constructs the embed for the tab
+
+---
+
+#### **2. Cache Manager v2**
+
+**Purpose**: Unified multi-layer caching system.  
+
+**Location**: `/src/core/cache/CacheManager.js`  
+
+**Key Methods**:
+
+| Method | Parameters | Description |
+
+|--------|------------|-------------|
+
+| `get` | `(key: string)` | Retrieves value from cache layers (memory → DB) |
+
+| `set` | `(key: string, value: any, ttl?: number)` | Stores value in all layers (default TTL: 5min) |
+
+| `wrap` | `(key: string, fetchFn: Function, ttl?: number)` | Cache-aside pattern |
+
+**Migration Cheatsheet**:
+
+```javascript
+
+// Old → New
+
+getCache(key)         → CacheManager.get(key)
+
+setCache(key, value)  → CacheManager.set(key, value, ttl)
+
+// New feature:
+
+CacheManager.wrap(key, async () => {...}, ttl);
+
+```
+
+---
+
+### **🛠️ Implementation Quickstart**
+
+#### **A. Creating Tabs**
+
+1. Define tabs in your command:
+
+```javascript
+
+const tabs = TabsTemplate.create({
+
+    idPrefix: 'product',
+
+    tabs: [
+
+        { id: 'details', label: 'Details' },
+
+        { id: 'reviews', label: 'Reviews' }
+
+    ],
+
+    fetchTabData: async (tabId) => {
+
+        return DB.fetchProductTab(interaction.productId, tabId);
+
+    }
+
+});
+
+```
+
+2. Register handler:
+
+```javascript
+
+client.buttons.set(tabs.customId, tabs);
+
+```
+
+#### **B. Using Cache**
+
+```javascript
+
+// Simple set/get
+
+await CacheManager.set('user:prefs', preferences, 3600000);
+
+const prefs = await CacheManager.get('user:prefs');
+
+// Cache-aside pattern
+
+const data = await CacheManager.wrap(
+
+    'heavy:data',
+
+    async () => computeExpensiveData(),
+
+    60000
+
+);
+
+```
+
+---
+
+### **⚡ Expected Behavior**
+
+| Component | Input | Output |
+
+|-----------|-------|--------|
+
+| `tabs.js` | Button click | Updates embed to target tab, highlights active tab button |
+
+| `CacheManager` | `get('missing_key')` | Returns `undefined` → triggers `fetchFn` in `wrap()` |
+
+| `CacheManager` | `set('key', val, 10000)` | Available in cache for exactly 10 seconds |
+
+---
+
+### **📌 What's Next?**
+
+1. **Implement these in your buttons**  
+
+   - Replace old caching calls  
+
+   - Migrate multi-view interfaces to `tabs.js`
+
+2. **Verify functionality**  
+
+   - Test tab switching behavior  
+
+   - Monitor cache hit/miss ratios
+
+3. **Proceed to**:
+
+   - [ ] Modal interactions  
+
+   - [ ] Dynamic select menus  
+
+   - [ ] Advanced rate limiting
+
+---
+
+### **🚨 Troubleshooting**
+
+**Issue**: Tabs not updating  
+
+**Fix**: Ensure `fetchTabData()` returns valid embed data  
+
+**Issue**: Cache not persisting  
+
+**Check**:
+
+```javascript
+
+// Verify DB cache table exists
+
+SHOW TABLES LIKE 'cache';
+
+// Test direct DB access
+
+SELECT * FROM cache WHERE `key` = 'test_key';
+
+```
+
+---
+
+This documentation provides everything needed to integrate these systems. Confirm when you've implemented these changes and we'll move to the next phase!

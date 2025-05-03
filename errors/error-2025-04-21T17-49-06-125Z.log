@@ -1,0 +1,28 @@
+[2025-04-21T17-49-06-125Z] ERROR:
+Name: Error
+Message: [DiscordBot] Error al enviar mensaje
+Stack:
+Error: [DiscordBot] Error al enviar mensaje
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:62:20)
+    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)
+    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:173:13)
+Metadata: {
+  "error": "Received one or more errors",
+  "change": {
+    "type": "isTransferOperational",
+    "stationCode": "vva",
+    "lineId": null,
+    "connectedLines": [],
+    "previousState": true,
+    "newState": false,
+    "timestamp": "2025-04-21T17:49:06.124Z",
+    "metadata": {
+      "lastUpdated": "2025-04-21T17:49:06.123Z",
+      "updatedBy": "system"
+    }
+  },
+  "stack": "Error: Received one or more errors\n    at _UnionValidator.handle (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:1965:23)\n    at _UnionValidator.parse (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:972:90)\n    at EmbedBuilder.setThumbnail (/home/container/node_modules/@discordjs/builders/dist/index.js:349:23)\n    at DiscordBotService._configureTransferEmbed (/home/container/modules/metro/core/services/DiscordBotService.js:122:14)\n    at DiscordBotService._createSpanishEmbed (/home/container/modules/metro/core/services/DiscordBotService.js:85:22)\n    at DiscordBotService.sendOverrideChange (/home/container/modules/metro/core/services/DiscordBotService.js:56:32)\n    at async StatusOverrideService._handleChanges (/home/container/modules/metro/core/services/StatusOverrideService.js:397:17)\n    at async StatusOverrideService.loadOverrides (/home/container/modules/metro/core/services/StatusOverrideService.js:89:17)\n    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:173:13)"
+}
+

@@ -1,0 +1,76 @@
+[2025-04-20T21-36-25-918Z] ERROR:
+Name: Error
+Message: [NewsService] Error processing file testNews.json:
+Stack:
+Error: [NewsService] Error processing file testNews.json:
+    at Object.error (/home/container/events/logger.js:152:27)
+    at NewsService.checkNews (/home/container/modules/metro/core/services/NewsService.js:53:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ApiService.fetchNetworkStatus (/home/container/modules/metro/core/services/ApiService.js:304:36)
+Metadata: {
+  "requestBody": {
+    "files": [],
+    "json": {
+      "tts": false,
+      "enforce_nonce": false,
+      "embeds": [
+        {
+          "title": "🚇 Nuevo Sistema de Noticias del Metro",
+          "description": "A partir de hoy, todas las novedades y actualizaciones del metro se publicarán automáticamente en este canal.",
+          "color": 2201331,
+          "timestamp": "2025-04-20T21:36:25.670Z",
+          "footer": {
+            "text": "Sistema Automático de Noticias del Metro | v1.0"
+          },
+          "thumbnail": {
+            "url": {
+              "url": "https://i.imgur.com/7W3zJ9a.png"
+            }
+          },
+          "fields": [
+            {
+              "name": "¿Cómo funciona?",
+              "value": "• Se detectan nuevos anuncios automáticamente\n• Se publican en este canal\n• Incluye información relevante sobre el estado del metro",
+              "inline": false
+            },
+            {
+              "name": "Frecuencia",
+              "value": "Las noticias se publicarán:\n• Al detectar cambios importantes\n• Durante actualizaciones programadas\n• En situaciones de emergencia",
+              "inline": true
+            },
+            {
+              "name": "Contenido",
+              "value": "• Estado de líneas\n• Cierres temporales\n• Servicios especiales\n• Información relevante",
+              "inline": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rawError": {
+    "message": "Invalid Form Body",
+    "code": 50035,
+    "errors": {
+      "embeds": {
+        "0": {
+          "thumbnail": {
+            "url": {
+              "_errors": [
+                {
+                  "code": "STRING_TYPE_CONVERT",
+                  "message": "Could not interpret \"{'url': 'https://i.imgur.com/7W3zJ9a.png'}\" as string."
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "code": 50035,
+  "status": 400,
+  "method": "POST",
+  "url": "https://discord.com/api/v10/channels/899842767096791060/messages"
+}
+

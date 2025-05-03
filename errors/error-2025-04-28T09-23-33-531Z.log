@@ -1,0 +1,17 @@
+[2025-04-28T09-23-33-531Z] ERROR:
+Name: Error
+Message: DISCORD_CLIENT_ERROR
+Stack:
+Error: DISCORD_CLIENT_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/error.js:7:16)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at emitUnhandledRejectionOrErr (node:events:401:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Metadata: {
+  "error": "Interaction has already been acknowledged.",
+  "stack": "DiscordAPIError[40060]: Interaction has already been acknowledged.\n    at handleErrors (/home/container/node_modules/@discordjs/rest/dist/index.js:727:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async BurstHandler.runRequest (/home/container/node_modules/@discordjs/rest/dist/index.js:831:23)\n    at async _REST.request (/home/container/node_modules/@discordjs/rest/dist/index.js:1272:22)\n    at async ButtonInteraction.reply (/home/container/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:194:22)\n    at async StationInfoButton.handleError (/home/container/modules/interactions/buttons/templates/baseButton.js:156:13)\n    at async InteractionHandler._handleButton (/home/container/modules/interactions/interactionHandler.js:118:9)",
+  "timestamp": "2025-04-28T09:23:33.530Z"
+}
+

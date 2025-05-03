@@ -1,0 +1,62 @@
+[2025-04-14T11-25-20-591Z] ERROR:
+Name: Error
+Message: OVERVIEW_EMBED_FAILED
+Stack:
+Error: OVERVIEW_EMBED_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:58:20)
+    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)
+    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)
+    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:190:13)
+    at async /home/container/modules/metro/core/MetroCore.js:128:13
+Metadata: {
+  "error": "this[#generateEnhancedStatusLegend](...).join is not a function",
+  "stack": "TypeError: this[#generateEnhancedStatusLegend](...).join is not a function\n    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:47:61)\n    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)\n    at EmbedManager._executeBatchUpdate (/home/container/modules/status/embeds/EmbedManager.js:262:18)\n    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:91:24)\n    at EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)\n    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:190:13)\n    at async /home/container/modules/metro/core/MetroCore.js:128:13\n    at async Object.execute (/home/container/events/Discord/ready.js:19:27)",
+  "input": {
+    "status": "Toda la red operativa",
+    "statusEn": "Full network operational",
+    "statusCode": "1",
+    "networkScale": 1,
+    "totalSeverity": 0,
+    "severityLabel": "Normal",
+    "severityLabelEn": "Normal",
+    "details": {
+      "lines": {},
+      "stations": [],
+      "transfers": []
+    },
+    "segments": {},
+    "summary": {
+      "es": {
+        "estadoGeneral": "Toda la red operativa",
+        "escalaRed": 1,
+        "severidadTotal": 0,
+        "nivelSeveridad": "Normal",
+        "resumenDetallado": {
+          "lineasAfectadas": [],
+          "segmentosCriticos": [],
+          "transferenciasAfectadas": [],
+          "estacionesCriticas": []
+        }
+      },
+      "en": {
+        "overallStatus": "Toda la red operativa",
+        "networkScale": 1,
+        "totalSeverity": 0,
+        "severityLevel": "Normal",
+        "detailedSummary": {
+          "affectedLines": [],
+          "criticalSegments": [],
+          "affectedTransfers": [],
+          "criticalStations": []
+        }
+      }
+    },
+    "timestamp": "2025-04-14T11:25:13.712Z"
+  }
+}
+

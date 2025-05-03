@@ -1,0 +1,15 @@
+[2025-04-22T19-51-31-700Z] ERROR:
+Name: Error
+Message: [EmbedManager] Full update failed
+Stack:
+Error: [EmbedManager] Full update failed
+    at Object.error (/home/container/events/logger.js:152:27)
+    at EmbedManager.updateAllEmbeds (/home/container/modules/status/embeds/EmbedManager.js:125:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async EmbedManager.cacheEmbedMessages (/home/container/modules/status/embeds/EmbedManager.js:57:12)
+    at async StatusUpdater.initialize (/home/container/modules/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/home/container/modules/metro/core/MetroCore.js:204:13)
+    at async /home/container/modules/metro/core/MetroCore.js:145:13
+    at async Object.execute (/home/container/events/Discord/ready.js:19:27)
+Metadata: {}
+

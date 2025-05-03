@@ -1,0 +1,17 @@
+[2025-04-20T16-31-59-235Z] ERROR:
+Name: Error
+Message: DatabaseCache get error: this.db.findOne is not a function
+Stack:
+Error: DatabaseCache get error: this.db.findOne is not a function
+    at Object.error (/home/container/events/logger.js:152:27)
+    at DatabaseCache.get (/home/container/core/cache/adapters/DatabaseCache.js:39:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheManager.get (/home/container/core/cache/CacheManager.js:42:25)
+    at async Object.execute (/home/container/prefixCommands/log.js:135:31)
+    at async Client.<anonymous> (/home/container/index.js:178:5)
+Metadata: {
+  "namespace": "bot:logs",
+  "key": "last_version",
+  "error": "TypeError: this.db.findOne is not a function\n    at CacheModel.get (/home/container/core/database/models/CacheModel.js:7:24)\n    at DatabaseCache.get (/home/container/core/cache/adapters/DatabaseCache.js:34:50)\n    at CacheManager.get (/home/container/core/cache/CacheManager.js:42:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Object.execute (/home/container/prefixCommands/log.js:135:31)\n    at async Client.<anonymous> (/home/container/index.js:178:5)"
+}
+

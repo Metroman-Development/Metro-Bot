@@ -1,0 +1,14 @@
+[2025-04-15T09-47-52-506Z] ERROR:
+Name: Error
+Message: [UpdateListener] Failed to process update
+Stack:
+Error: [UpdateListener] Failed to process update
+    at Object.error (/home/container/events/logger.js:152:27)
+    at UpdateListener._processUpdateQueue (/home/container/modules/status/embeds/UpdateListener.js:479:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {
+  "type": "changes",
+  "error": "Cannot read properties of undefined (reading 'lines')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'lines')\n    at /home/container/modules/status/embeds/UpdateListener.js:527:36\n    at Array.map (<anonymous>)\n    at UpdateListener._handleChangesUpdate (/home/container/modules/status/embeds/UpdateListener.js:525:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async UpdateListener._processUpdateQueue (/home/container/modules/status/embeds/UpdateListener.js:475:29)"
+}
+

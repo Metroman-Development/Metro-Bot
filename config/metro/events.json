@@ -1,0 +1,17 @@
+{
+    "events": [
+        {
+            "date": "2025-04-30",
+            "name": "System Of A Down",
+            "inStations": ["Estadio Nacional"],
+            "outStations": {
+                "L6": ["Cerrillos", "Franklin", "Ñuble", "Inés de Suárez", "Los Leones"],
+                "L3": ["Plaza Egaña", "Irarrázaval", "Universidad de Chile", "Hospitales", "Conchalí", "Plaza Quilicura"]
+            },
+            "extendedHours": {
+                "closing": "00:30"
+            },
+            "notes": "Combinación disponible en Ñuñoa entre L6 y L3. Horario extendido hasta 00:30 hrs."
+        }
+    ]
+}

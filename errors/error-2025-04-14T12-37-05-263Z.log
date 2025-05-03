@@ -1,0 +1,17 @@
+[2025-04-14T12-37-05-263Z] ERROR:
+Name: Error
+Message: DISCORD_CLIENT_ERROR
+Stack:
+Error: DISCORD_CLIENT_ERROR
+    at Object.error (/home/container/events/logger.js:152:27)
+    at Object.execute (/home/container/events/Discord/error.js:7:16)
+    at Client.<anonymous> (/home/container/events/index.js:17:54)
+    at Client.emit (node:events:518:28)
+    at emitUnhandledRejectionOrErr (node:events:401:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:92:21)
+Metadata: {
+  "error": "The reply to this interaction has not been sent or deferred.",
+  "stack": "Error [InteractionNotReplied]: The reply to this interaction has not been sent or deferred.\n    at ButtonInteraction.editReply (/home/container/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:247:48)\n    at InteractionHandler.handleUnknownInteraction (/home/container/modules/interactions/interactionHandler.js:157:23)\n    at InteractionHandler.execute (/home/container/modules/interactions/interactionHandler.js:98:23)\n    at Client.<anonymous> (/home/container/index.js:108:33)\n    at Client.emit (node:events:530:35)\n    at InteractionCreateAction.handle (/home/container/node_modules/discord.js/src/client/actions/InteractionCreate.js:97:12)\n    at module.exports [as INTERACTION_CREATE] (/home/container/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)\n    at WebSocketManager.handlePacket (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:348:31)\n    at WebSocketManager.<anonymous> (/home/container/node_modules/discord.js/src/client/websocket/WebSocketManager.js:232:12)\n    at WebSocketManager.emit (/home/container/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)",
+  "timestamp": "2025-04-14T12:37:05.263Z"
+}
+

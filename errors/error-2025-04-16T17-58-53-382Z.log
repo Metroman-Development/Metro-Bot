@@ -1,0 +1,12 @@
+[2025-04-16T17-58-53-382Z] ERROR:
+Name: Error
+Message: RoutePlanner Error: TypeError: Cannot read properties of undefined (reading 'match')
+Stack:
+Error: RoutePlanner Error: TypeError: Cannot read properties of undefined (reading 'match')
+    at Object.error (/home/container/events/logger.js:152:27)
+    at RoutePlanner.getRoutes (/home/container/modules/metro/RoutePlanner.js:24:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.execute (/home/container/slashCommands/Info_Metro/_metplanificar.js:73:28)
+    at async Client.<anonymous> (/home/container/index.js:120:7)
+Metadata: {}
+

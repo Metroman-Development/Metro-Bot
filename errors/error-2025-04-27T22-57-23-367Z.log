@@ -1,0 +1,35 @@
+[2025-04-27T22-57-23-367Z] ERROR:
+Name: Error
+Message: UNHANDLED_REJECTION
+Stack:
+Error: UNHANDLED_REJECTION
+    at Object.error (/home/container/events/logger.js:152:27)
+    at process.<anonymous> (/home/container/index.js:210:10)
+    at process.emit (node:events:518:28)
+    at emitUnhandledRejection (node:internal/process/promises:252:13)
+    at throwUnhandledRejectionsMode (node:internal/process/promises:388:19)
+    at processPromiseRejections (node:internal/process/promises:475:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:106:32)
+Metadata: {
+  "requestBody": {
+    "files": [],
+    "json": {
+      "type": 4,
+      "data": {
+        "content": "Error al procesar la interacción",
+        "tts": false,
+        "enforce_nonce": false,
+        "flags": 64
+      }
+    }
+  },
+  "rawError": {
+    "message": "Unknown interaction",
+    "code": 10062
+  },
+  "code": 10062,
+  "status": 404,
+  "method": "POST",
+  "url": "https://discord.com/api/v10/interactions/1366186495660134502/aW50ZXJhY3Rpb246MTM2NjE4NjQ5NTY2MDEzNDUwMjpEZmlCcTlwWnJTSjlnbHQ3N0dZZkdCN0pONzBwb085dFBMTldDTXNraFAyOGtoNlYyQ0ZZVzR6aG9CVlpuWFBNMzNKTmNaZ3d5cXAzQ1BRbmdNQktCaFBXM1dPWXczTWlERlpLR1laNXV0T3dhODNmNDY3UjV3aUtzbWluM0tBeQ/callback?with_response=false"
+}
+

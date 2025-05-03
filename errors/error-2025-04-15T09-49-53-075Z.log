@@ -1,0 +1,398 @@
+[2025-04-15T09-49-53-075Z] ERROR:
+Name: Error
+Message: OVERVIEW_EMBED_FAILED
+Stack:
+Error: OVERVIEW_EMBED_FAILED
+    at Object.error (/home/container/events/logger.js:152:27)
+    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:61:20)
+    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)
+    at UpdateProcessor._updateEmbedsForChanges (/home/container/modules/status/embeds/UpdateProcessor.js:350:34)
+    at UpdateProcessor.processChanges (/home/container/modules/status/embeds/UpdateProcessor.js:86:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /home/container/modules/status/embeds/UpdateListener.js:245:17
+Metadata: {
+  "error": "Received one or more errors",
+  "stack": "Error: Received one or more errors\n    at _ArrayValidator.handle (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:1254:70)\n    at _ArrayValidator.parse (/home/container/node_modules/@sapphire/shapeshift/dist/cjs/index.cjs:972:90)\n    at EmbedBuilder.addFields (/home/container/node_modules/@discordjs/builders/dist/index.js:225:31)\n    at #addTransferStatusField (/home/container/modules/status/embeds/StatusEmbedBuilder.js:171:19)\n    at StatusEmbedBuilder.buildOverviewEmbed (/home/container/modules/status/embeds/StatusEmbedBuilder.js:42:41)\n    at EmbedManager.updateOverviewEmbed (/home/container/modules/status/embeds/EmbedManager.js:115:46)\n    at UpdateProcessor._updateEmbedsForChanges (/home/container/modules/status/embeds/UpdateProcessor.js:350:34)\n    at UpdateProcessor.processChanges (/home/container/modules/status/embeds/UpdateProcessor.js:86:20)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /home/container/modules/status/embeds/UpdateListener.js:245:17",
+  "input": {
+    "status": "Toda la red operativa",
+    "statusEn": "Full network operational",
+    "statusCode": "1",
+    "networkScale": 1,
+    "totalSeverity": 171,
+    "severityLabel": "Alta",
+    "severityLabelEn": "High",
+    "details": {
+      "lines": {
+        "l4": {
+          "name": "Línea 4",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 15,
+          "connectedTransfers": []
+        }
+      },
+      "stations": [
+        {
+          "id": "tb",
+          "name": "Tobalaba L1",
+          "line": "l1",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 36,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "mt",
+          "name": "Monte Tabor",
+          "line": "l5",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "severity": 24,
+          "connectedLines": [
+            "l5"
+          ]
+        },
+        {
+          "id": "lm",
+          "name": "La Moneda",
+          "line": "l1",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 21,
+          "connectedLines": [
+            "l1"
+          ]
+        },
+        {
+          "id": "mq",
+          "name": "Manquehue",
+          "line": "l1",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 21,
+          "connectedLines": [
+            "l1"
+          ]
+        },
+        {
+          "id": "sj",
+          "name": "San Joaquín",
+          "line": "l5",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 18,
+          "connectedLines": [
+            "l5"
+          ]
+        },
+        {
+          "id": "lqu",
+          "name": "Los Quillayes",
+          "line": "l4",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 15,
+          "connectedLines": [
+            "l4"
+          ]
+        },
+        {
+          "id": "pt",
+          "name": "Patronato",
+          "line": "l2",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 12,
+          "connectedLines": [
+            "l2"
+          ]
+        },
+        {
+          "id": "mat",
+          "name": "Matta",
+          "line": "l3",
+          "status": "servicio parcial",
+          "statusEn": "partial",
+          "severity": 9,
+          "connectedLines": [
+            "l3"
+          ]
+        }
+      ],
+      "transfers": [
+        {
+          "station": "lm",
+          "lines": [
+            "l1",
+            "l1"
+          ],
+          "totalSeverity": 21
+        },
+        {
+          "station": "tb",
+          "lines": [
+            "l1",
+            "l4"
+          ],
+          "totalSeverity": 36
+        },
+        {
+          "station": "mq",
+          "lines": [
+            "l1",
+            "l1"
+          ],
+          "totalSeverity": 21
+        },
+        {
+          "station": "pt",
+          "lines": [
+            "l2",
+            "l2"
+          ],
+          "totalSeverity": 12
+        },
+        {
+          "station": "mat",
+          "lines": [
+            "l3",
+            "l3"
+          ],
+          "totalSeverity": 9
+        },
+        {
+          "station": "lqu",
+          "lines": [
+            "l4",
+            "l4"
+          ],
+          "totalSeverity": 15
+        },
+        {
+          "station": "mt",
+          "lines": [
+            "l5",
+            "l5"
+          ],
+          "totalSeverity": 24
+        },
+        {
+          "station": "sj",
+          "lines": [
+            "l5",
+            "l5"
+          ],
+          "totalSeverity": 18
+        }
+      ]
+    },
+    "segments": {
+      "l4": [
+        {
+          "line": "l4",
+          "status": "con demoras",
+          "statusEn": "delayed",
+          "stations": [
+            "LQU"
+          ],
+          "firstStation": "LQU",
+          "lastStation": "LQU",
+          "count": 1,
+          "severity": 15
+        }
+      ]
+    },
+    "summary": {
+      "es": {
+        "estadoGeneral": "Toda la red operativa",
+        "escalaRed": 1,
+        "severidadTotal": 171,
+        "nivelSeveridad": "Alta",
+        "resumenDetallado": {
+          "lineasAfectadas": [
+            {
+              "linea": "Línea 4",
+              "estado": "con demoras",
+              "severidad": 15
+            }
+          ],
+          "segmentosCriticos": [
+            {
+              "linea": "L4",
+              "segmento": "LQU ↔ LQU",
+              "estaciones": 1,
+              "estado": "con demoras",
+              "severidad": 15
+            }
+          ],
+          "transferenciasAfectadas": [
+            {
+              "estacion": "LM",
+              "lineas": "L1 ↔ L1",
+              "severidad": 21
+            },
+            {
+              "estacion": "TB",
+              "lineas": "L1 ↔ L4",
+              "severidad": 36
+            },
+            {
+              "estacion": "MQ",
+              "lineas": "L1 ↔ L1",
+              "severidad": 21
+            },
+            {
+              "estacion": "PT",
+              "lineas": "L2 ↔ L2",
+              "severidad": 12
+            },
+            {
+              "estacion": "MAT",
+              "lineas": "L3 ↔ L3",
+              "severidad": 9
+            },
+            {
+              "estacion": "LQU",
+              "lineas": "L4 ↔ L4",
+              "severidad": 15
+            },
+            {
+              "estacion": "MT",
+              "lineas": "L5 ↔ L5",
+              "severidad": 24
+            },
+            {
+              "estacion": "SJ",
+              "lineas": "L5 ↔ L5",
+              "severidad": 18
+            }
+          ],
+          "estacionesCriticas": [
+            {
+              "estacion": "Tobalaba L1",
+              "lineas": "L1 + L4",
+              "severidad": 36
+            },
+            {
+              "estacion": "Monte Tabor",
+              "lineas": "L5 + L5",
+              "severidad": 24
+            },
+            {
+              "estacion": "La Moneda",
+              "lineas": "L1 + L1",
+              "severidad": 21
+            },
+            {
+              "estacion": "Manquehue",
+              "lineas": "L1 + L1",
+              "severidad": 21
+            },
+            {
+              "estacion": "San Joaquín",
+              "lineas": "L5 + L5",
+              "severidad": 18
+            }
+          ]
+        }
+      },
+      "en": {
+        "overallStatus": "Toda la red operativa",
+        "networkScale": 1,
+        "totalSeverity": 171,
+        "severityLevel": "High",
+        "detailedSummary": {
+          "affectedLines": [
+            {
+              "line": "Línea 4",
+              "status": "delayed",
+              "severity": 15
+            }
+          ],
+          "criticalSegments": [
+            {
+              "line": "L4",
+              "segment": "LQU ↔ LQU",
+              "stations": 1,
+              "status": "delayed",
+              "severity": 15
+            }
+          ],
+          "affectedTransfers": [
+            {
+              "station": "LM",
+              "lines": "L1 ↔ L1",
+              "severity": 21
+            },
+            {
+              "station": "TB",
+              "lines": "L1 ↔ L4",
+              "severity": 36
+            },
+            {
+              "station": "MQ",
+              "lines": "L1 ↔ L1",
+              "severity": 21
+            },
+            {
+              "station": "PT",
+              "lines": "L2 ↔ L2",
+              "severity": 12
+            },
+            {
+              "station": "MAT",
+              "lines": "L3 ↔ L3",
+              "severity": 9
+            },
+            {
+              "station": "LQU",
+              "lines": "L4 ↔ L4",
+              "severity": 15
+            },
+            {
+              "station": "MT",
+              "lines": "L5 ↔ L5",
+              "severity": 24
+            },
+            {
+              "station": "SJ",
+              "lines": "L5 ↔ L5",
+              "severity": 18
+            }
+          ],
+          "criticalStations": [
+            {
+              "station": "Tobalaba L1",
+              "lines": "L1 + L4",
+              "severity": 36
+            },
+            {
+              "station": "Monte Tabor",
+              "lines": "L5 + L5",
+              "severity": 24
+            },
+            {
+              "station": "La Moneda",
+              "lines": "L1 + L1",
+              "severity": 21
+            },
+            {
+              "station": "Manquehue",
+              "lines": "L1 + L1",
+              "severity": 21
+            },
+            {
+              "station": "San Joaquín",
+              "lines": "L5 + L5",
+              "severity": 18
+            }
+          ]
+        }
+      }
+    },
+    "timestamp": "2025-04-15T09:49:43.794Z"
+  }
+}
+

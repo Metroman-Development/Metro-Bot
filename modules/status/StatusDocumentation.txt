@@ -1,0 +1,183 @@
+# Documentación del Sistema Modular de Estado del Metro
+
+## Tabla de Contenidos
+1. [Introducción](#introducción)  
+2. [Componentes Principales](#componentes-principales)  
+3. [Flujo de Trabajo](#flujo-de-trabajo)  
+4. [Configuración de Estados](#configuración-de-estados)  
+5. [Manejo de Eventos y Horarios](#manejo-de-eventos-y-horarios)  
+6. [Integración con Discord](#integración-con-discord)  
+7. [Ejemplos de Uso](#ejemplos-de-uso)  
+
+---
+
+## 1. Introducción <a name="introducción"></a>
+Este sistema monitoriza y gestiona el estado operativo del metro en tiempo real, integrando:  
+- Detección automática de cambios  
+- Gestión de horarios y eventos especiales  
+- Generación de embeds para Discord  
+- Priorización de estados según normas chilenas  
+
+**Características clave**:  
+- Soporte para 6 estados operativos (0-5)  
+- Zona horaria automática (America/Santiago)  
+- Actualizaciones cada 5 minutos  
+- Historial de cambios (últimas 100 actualizaciones)  
+
+---
+
+## 2. Componentes Principales <a name="componentes-principales"></a>
+
+### 2.1. `MetroCore`  
+**Responsabilidad**:  
+- Fuente central de datos del metro  
+- Conexión con API y base de datos  
+- Construcción de índices rápidos  
+
+**Métodos clave**:  
+```javascript
+await metro.core.initialize()      // Inicialización
+await metro.core.updateCache()     // Actualización manual
+metro.core.generateClosedState()   // Generar estado de cierre
+```
+
+### 2.2. `ChangeDetector`  
+**Funcionalidad**:  
+- Compara estados anteriores/actuales  
+- Detecta:  
+  - Cambios en líneas/estaciones  
+  - Eventos especiales  
+  - Anomalías temporales  
+
+**Estructura de cambios**:  
+```javascript
+{
+  timestamp: Date,
+  network: { statusChanged: boolean, oldStatus: string, newStatus: string },
+  lines: Array<{ lineId: string, changeType: string }>,
+  stations: Array<{ stationId: string, changeType: string }>,
+  events: Array<{ type: string, event: object }>
+}
+```
+
+### 2.3. `StatusConfig`  
+**Configuraciones**:  
+```javascript
+// modules/status/config/statusConfig.js
+{
+  STATUS_CODES: {
+    0: { name: 'nocturno', emoji: '🌙', color: '#3498db' },
+    1: { name: 'operativo', emoji: '🟢', color: '#2ecc71' },
+    2: { name: 'cerrado', emoji: '⛔', color: '#95a5a6' },
+    3: { name: 'parcial', emoji: '🟡', color: '#f39c12' },
+    4: { name: 'retrasado', emoji: '⚠️', color: '#e67e22' },
+    5: { name: 'extendido', emoji: '🌙➕', color: '#9b59b6' }
+  },
+  TIMEZONE: 'America/Santiago'
+}
+```
+
+### 2.4. `StatusEmbedBuilder`  
+**Ejemplo de Embed**:  
+![Embed de Ejemplo](https://via.placeholder.com/400x200.png?text=Estado+de+Línea+1+🟢+Operativa)
+
+---
+
+## 3. Flujo de Trabajo <a name="flujo-de-trabajo"></a>
+```mermaid
+graph TD
+  A[Actualización de Datos] --> B[ChangeDetector]
+  B --> C{¿Cambios?}
+  C -->|Sí| D[Generar Embeds]
+  C -->|No| E[Registrar Estabilidad]
+  D --> F[Actualizar Mensajes en Discord]
+  F --> G[Notificar a Canales]
+```
+
+---
+
+## 4. Configuración de Estados <a name="configuración-de-estados"></a>
+| Código | Estado        | Condiciones                          |
+|--------|---------------|--------------------------------------|
+| 0      | Nocturno      | 00:00 - 06:00 horas                  |
+| 1      | Operativo     | Horario normal                       |
+| 2      | Cerrado       | Fuera de horario                     |
+| 3      | Parcial       | Fallas técnicas parciales           |
+| 4      | Retrasado     | Demoras mayores a 15 minutos         |
+| 5      | Extendido     | Eventos especiales (+1 hora cierre)  |
+
+---
+
+## 5. Manejo de Eventos y Horarios <a name="manejo-de-eventos-y-horarios"></a>
+### 5.1. Eventos Especiales (`events.json`)
+```json
+{
+  "events": [
+    {
+      "date": "2025-03-23",
+      "name": "Lollapalooza 2025",
+      "extendedHours": {
+        "opening": "06:30",
+        "closing": "01:30"
+      },
+      "affectedStations": ["PAJARITOS", "BAQUEDANO"]
+    }
+  ]
+}
+```
+
+### 5.2. Prioridades
+1. **Eventos activos** > Horario normal  
+2. **Horario extendido** aplica solo a estaciones listadas  
+3. **Cierres programados** anulan otros estados  
+
+---
+
+## 6. Integración con Discord <a name="integración-con-discord"></a>
+**Ejemplo de implementación**:  
+```javascript
+// En tu bot de Discord
+const { updateOverviewEmbed, updateLineEmbeds } = require('./modules/status/embeds');
+
+client.on('ready', async () => {
+  await metro.initialize(client);
+  
+  setInterval(async () => {
+    const changes = metro.changeDetector.analyzeChanges();
+    await updateOverviewEmbed(changes.summary);
+    await updateLineEmbeds(changes.details);
+  }, 300000); // 5 minutos
+});
+```
+
+---
+
+## 7. Ejemplos de Uso <a name="ejemplos-de-uso"></a>
+### 7.1. Obtener estado de línea
+```javascript
+const linea1 = metro.lines.getLineInfo('l1');
+console.log(linea1);
+// Salida: { status: 1, stations: [...], lastUpdate: '2025-03-20T15:00:00-03:00' }
+```
+
+### 7.2. Forzar cierre por mantención
+```javascript
+metro.forceClosedState();
+// Actualiza todos los estados a código 2
+```
+
+### 7.3. Monitorear cambios
+```javascript
+metro.changeDetector.on('change', (changes) => {
+  console.log('Cambios detectados:', changes);
+});
+```
+
+---
+
+**Nota**: Esta documentación asume el uso de Node.js 16+ y las dependencias:  
+- `moment-timezone`  
+- `discord.js`  
+- `luxon` (para manejo de fechas)  
+
+Para soporte técnico, contactar al equipo de desarrollo.
