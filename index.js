@@ -36,6 +36,7 @@ const client = new Client({
 
 });
 
+loadEvents(client);
 
 
 // Collections for command storage (maintained for compatibility)
@@ -249,4 +250,3 @@ client.login(process.env.DISCORD_TOKEN)
 
   });
 
-loadEvents(client);
