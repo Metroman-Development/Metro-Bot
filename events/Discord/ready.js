@@ -24,7 +24,7 @@ module.exports = {
             client.on('shardDisconnect', cleanupPresenceUpdates);
 
             // 3. Send initial status
-            await metro.sendFullStatusReport();
+            //await metro.sendFullStatusReport();
 
             // 4. Send status embed
             const statusEmbed = StatusEmbedBuilder.buildOverviewEmbed(
