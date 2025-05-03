@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # MetroBot
-Version 5.0.0
+Version 5.1.3
 =======
 # MetroBot 🚇
 
