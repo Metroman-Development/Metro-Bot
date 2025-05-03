@@ -8,6 +8,7 @@ const initializePresenceUpdates = require('../presenceUpdater');
 
 module.exports = {
     name: 'ready',
+    once : true, 
     async execute(client) {
         client = client || getClient();
         
