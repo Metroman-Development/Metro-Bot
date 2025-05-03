@@ -64,7 +64,7 @@ async function sendErrorEmbed(error, metadata = {}) {
         await errorChannel.send({ embeds: [embed] });
         console.log('Error embed sent to the error channel.');
     } catch (error) {
-        console.error(`Failed to send error embed: ${error.message}`);
+        console.log(`Failed to send error embed: ${error.message}`);
     }
 }
 
