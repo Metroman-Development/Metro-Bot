@@ -8,7 +8,7 @@ const config = require('../config/metro/metroConfig');
 
 // Configuration - Now with dynamic weighting system
 const PRESENCE_CONFIG = {
-    updateInterval: 30000, // 30 seconds
+    updateInterval: 75000, // 30 seconds
     messages: {
         // All status messages in a single weighted array
         statusMessages: [

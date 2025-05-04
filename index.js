@@ -36,6 +36,9 @@ const client = new Client({
 
 });
 
+loadEvents(client);
+client.on('debug', console.log);
+
 // Collections for command storage (maintained for compatibility)
 
 client.commands = new Collection();
@@ -56,6 +59,7 @@ client.prefixCommands = new Collection();
 client.commandLoader = new AdvancedCommandLoader(client);
 
 // Maintain legacy prefix command loading
+
 
 const prefixCommandsPath = join(__dirname, 'prefixCommands');
 
@@ -193,11 +197,11 @@ client.on('messageCreate', async message => {
 
 // ======================
 
-const newsWatcher = new NewsWatcher(client, '899842767096791060');
+/*const newsWatcher = new NewsWatcher(client, '899842767096791060');
 
-newsWatcher.initialize();
+newsWatcher.initialize();*/
 
-loadEvents(client);
+
 
 // ======================
 
@@ -236,12 +240,16 @@ process.on('SIGINT', async () => {
 
 // Start bot
 
+
 client.login(process.env.DISCORD_TOKEN)
 
   .catch(error => {
 
-    logger.error('LOGIN_FAILED', error);
+    console.error('LOGIN_FAILED', error);
 
     process.exit(1);
 
   });
+
+console.log("Bot logged in successfully") 
+

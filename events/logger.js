@@ -38,6 +38,7 @@ async function sendErrorEmbed(error, metadata = {}) {
         // First log the error to file
         logErrorToFile(error, metadata);
 
+        console.log(error, metadata) 
         const client = getClient(); // Get the client using clientManager
         if (!client || !client.channels) {
             console.error('Client or client channels are not available.');
@@ -51,7 +52,7 @@ async function sendErrorEmbed(error, metadata = {}) {
         }
 
         // Create an embed for the error
-        const embed = createEmbed(
+      /*  const embed = createEmbed(
             `**Error Type:** ${error.name}\n` +
             `**Error Message:** ${error.message}\n` +
             `**Stack Trace:**\n\`\`\`${error.stack}\`\`\`\n` +
@@ -62,9 +63,10 @@ async function sendErrorEmbed(error, metadata = {}) {
 
         // Send the embed to the error channel
         await errorChannel.send({ embeds: [embed] });
-        console.log('Error embed sent to the error channel.');
-    } catch (error) {
-        console.error(`Failed to send error embed: ${error.message}`);
+        */console.log('Error embed sent to the error channel.');
+    } catch (err) {
+        console.log(error) 
+        
     }
 }
 
