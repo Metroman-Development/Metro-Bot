@@ -49,7 +49,7 @@ module.exports = {
     async execute(message, args) {
         try {
             // Check permissions
-            if (!message.member.permissions.has(this.permissions)||!message.member.roles.cache.has('1376996679751831652')) {
+            if (!message.member.permissions.has(this.permissions)&&!message.member.roles.cache.has('1376996679751831652')) {
                 return message.reply('🔒 Necesitas permisos de administrador.');
             }
 
