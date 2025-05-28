@@ -247,13 +247,13 @@ client.on('messageCreate', async message => {
 // Helper functions (add these as methods to your client or module)
 function _translateUrgencyEmoji(emoji) {
     const urgencyMap = {
-        '🚨': 'High',
-        '⚠️': 'Medium',
-        'ℹ️': 'Low',
-        '🔵': 'Information',
-        '🟢': 'Normal',
-        '🟡': 'Warning',
-        '🔴': 'Critical'
+        ':rotating_light:': 'High',
+        ':warning:': 'Medium',
+        ':information_source:': 'Low',
+        ':blue_circle:': 'Information',
+        ':green_circle:': 'Normal',
+        ':yellow_circle:': 'Warning',
+        ':red_circle:': 'Critical'
     };
     return urgencyMap[emoji] || '';
 }
@@ -273,9 +273,23 @@ function _getUrgencyColor(urgency) {
 
 function _processLineKeywords(text) {
     if (typeof text !== 'string') return text;
+
+    // Finally process standalone line codes (l1, l2, etc.)
+    let processedText = text
+        .replace(/\bl1\b/gi, metroConfig.linesEmojis.l1)
+        .replace(/\bl2\b/gi, metroConfig.linesEmojis.l2)
+        .replace(/\bl3\b/gi, metroConfig.linesEmojis.l3)
+        .replace(/\bl4\b/gi, metroConfig.linesEmojis.l4)
+        .replace(/\bl4a\b/gi, metroConfig.linesEmojis.l4a)
+        .replace(/\bl5\b/gi, metroConfig.linesEmojis.l5)
+        .replace(/\bl6\b/gi, metroConfig.linesEmojis.l6)
+        .replace(/\bl7\b/gi, metroConfig.linesEmojis.l7)
+        .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
+        .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
     
+  
     // First process line numbers (Línea X)
-    let processedText = text.toLowerCase()
+    processedText = processedText.toLowerCase()
         .replace(/\blínea\s*1\b/gi, `Línea ${metroConfig.linesEmojis.l1}`)
         .replace(/\blínea\s*2\b/gi, `Línea ${metroConfig.linesEmojis.l2}`)
         .replace(/\blínea\s*3\b/gi, `Línea ${metroConfig.linesEmojis.l3}`)
@@ -289,23 +303,11 @@ function _processLineKeywords(text) {
     
     // Then process route colors
     processedText = processedText
-        .replace(/\bruta\s*🔴\b/gi, metroConfig.stationIcons.roja.emoji)
-        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/\bruta\s*🔴\s*🟢\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
-        .replace(/\bruta\s*🟢\s*🔴\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
+        .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/\bruta\s*:red_circle:\s*:green_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+        .replace(/\bruta\s*:green_circle:\s*:red_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
     
-    // Finally process standalone line codes (l1, l2, etc.)
-    processedText = processedText
-        .replace(/\bl1\b/gi, metroConfig.linesEmojis.l1)
-        .replace(/\bl2\b/gi, metroConfig.linesEmojis.l2)
-        .replace(/\bl3\b/gi, metroConfig.linesEmojis.l3)
-        .replace(/\bl4\b/gi, metroConfig.linesEmojis.l4)
-        .replace(/\bl4a\b/gi, metroConfig.linesEmojis.l4a)
-        .replace(/\bl5\b/gi, metroConfig.linesEmojis.l5)
-        .replace(/\bl6\b/gi, metroConfig.linesEmojis.l6)
-        .replace(/\bl7\b/gi, metroConfig.linesEmojis.l7)
-        .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
-        .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
     
     return processedText;
 }
