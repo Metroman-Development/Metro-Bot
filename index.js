@@ -250,13 +250,13 @@ function _translateUrgencyEmoji(emoji) {
   console.log(emoji);
   
   const urgencyMap = {
-        ':rotating_light:': 'High',
-        ':warning:': 'Medium',
-        ':information_source:': 'Low',
-        ':blue_circle:': 'Information',
-        ':green_circle:': 'Normal',
-        ':yellow_circle:': 'Warning',
-        ':red_circle:': 'Critical'
+        '🚨': 'High',
+        '⚠️': 'Medium',
+        'ℹ️': 'Low',
+        '🔵': 'Information',
+        '🟢': 'Normal',
+        '🟡': 'Warning',
+        '🔴': 'Critical'
     };
     return urgencyMap[emoji] || '';
 }
@@ -305,8 +305,8 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`);
     
     // Then process route colors
-    processedText = processedText
-        .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.roja.emoji)
+    processedText = processedText.toLowercase()
+        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.roja.emoji)
         .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.verde.emoji)
         .replace(/\bruta\s*:red_circle:\s*:green_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
         .replace(/\bruta\s*:green_circle:\s*:red_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
