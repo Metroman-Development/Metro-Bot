@@ -340,7 +340,7 @@ class AccessibilityResultsManager extends BaseButton {
         let cacheData = interactionStore.get(cacheKey);
 
         if (!cacheData) {
-            return interaction.reply({
+            return interaction.editReply({
                 content: 'Esta búsqueda ha expirado. Por favor realiza una nueva búsqueda.',
                 ephemeral: true
             });
@@ -366,7 +366,7 @@ class AccessibilityResultsManager extends BaseButton {
         }, this.cacheDuration);
 
         try {
-            await interaction.update(this._createResultsMessage(cacheData));
+            await interaction.editReply(this._createResultsMessage(cacheData));
         } catch (error) {
             console.error('Error updating accessibility results:', error);
             if ([10062, 10008].includes(error.code)) {
@@ -376,7 +376,7 @@ class AccessibilityResultsManager extends BaseButton {
                     flags: 64
                 });
             } else {
-                await interaction.reply({
+                await interaction.followUp({
                     content: 'Ocurrió un error al actualizar los resultados.',
                     ephemeral: true
                 });
