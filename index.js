@@ -190,6 +190,10 @@ client.on('messageCreate', async message => {
   }
 
   
+    if ( message.channel.id !== '1377398484931575938') return;
+
+    
+
 
     const targetChannel = await client.channels.fetch('1347146518943105085');
     if (!targetChannel) return;
