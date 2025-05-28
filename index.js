@@ -250,26 +250,26 @@ function _translateUrgencyEmoji(emoji) {
   console.log(emoji);
   
   const urgencyMap = {
-        '🚨': 'High',
-        '⚠️': 'Medium',
-        'ℹ️': 'Low',
-        '🔵': 'Information',
+        '🚨': 'Alta',
+        '⚠️': 'Media',
+        'ℹ️': 'Baja',
+        '🔵': 'Informativa',
         '🟢': 'Normal',
-        '🟡': 'Warning',
-        '🔴': 'Critical'
+        '🟡': 'Advertencia',
+        '🔴': 'Crítica'
     };
     return urgencyMap[emoji] || '';
 }
 
 function _getUrgencyColor(urgency) {
     const colorMap = {
-        'High': 0xFF0000,
-        'Medium': 0xFFA500,
-        'Low': 0xFFFF00,
-        'Information': 0x0000FF,
+        'Alta': 0xFF0000,
+        'Media': 0xFFA500,
+        'Baja': 0xFFFF00,
+        'Informativa': 0x0000FF,
         'Normal': 0x00FF00,
-        'Warning': 0xFFA500,
-        'Critical': 0xFF0000
+        'Advertencia': 0xFFA500,
+        'Crítica': 0xFF0000
     };
     return colorMap[urgency] || 0x3498DB; // Default blue
 }
@@ -302,14 +302,11 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*6\b/gi, `Línea ${metroConfig.linesEmojis.l6}`)
         .replace(/\blínea\s*7\b/gi, `Línea ${metroConfig.linesEmojis.l7}`)
         .replace(/\blínea\s*8\b/gi, `Línea ${metroConfig.linesEmojis.l8}`)
-        .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`);
-    
-    // Then process route colors
-    processedText = processedText.toLowerCase()
-        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.roja.emoji)
-        .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/\bruta\s*:red_circle:\s*:green_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
-        .replace(/\bruta\s*:green_circle:\s*:red_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
+        .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`)
+        .replace(/\bruta\s*🔴\b/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/\bruta\s*🔴\s*🟢\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+        .replace(/\bruta\s*🟢\s*🔴\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
     
     
     return processedText;
