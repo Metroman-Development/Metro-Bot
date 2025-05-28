@@ -202,7 +202,7 @@ client.on('messageCreate', async message => {
     try {
         // Parse urgency emoji (first character if it's a known emoji)
         let urgency = '';
-        const firstChar = message.content.trim()[0];
+        const firstChar = message.content.split(" ")[0];
         if (firstChar) {
             urgency = _translateUrgencyEmoji(firstChar);
         }
