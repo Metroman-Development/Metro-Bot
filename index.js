@@ -308,8 +308,8 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`)
         .replace(/\bruta\s*🔴\b/gi, metroConfig.stationIcons.roja.emoji)
         .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/\bruta\s*🔴\s*🟢/gi, `${metroConfig.stationIcons.comun.emoji}`)
-        .replace(/\bruta\s*🟢\s*🔴/gi, `${metroConfig.stationIcons.comun.emoji}`);
+        .replace(/\bruta\s*🔴\s*🟢\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+        .replace(/\bruta\s*🟢\s*🔴\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
     
     
     return processedText;
