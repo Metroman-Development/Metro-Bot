@@ -226,7 +226,7 @@ client.on('messageCreate', async message => {
             .setTimestamp();
 
         if (title) embed.setTitle(title);
-        if (urgency) embed.setAuthor({ name: `Urgency: ${urgency}` });
+        if (urgency) embed.setAuthor({ name: `Urgencia: ${urgency}` });
 
         // Prepare message options
         const options = { embeds: [embed] };
