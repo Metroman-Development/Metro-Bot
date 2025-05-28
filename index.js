@@ -290,6 +290,9 @@ function _processLineKeywords(text) {
         .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
         .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
     
+
+
+    console.log(processedText)
   
     // First process line numbers (Línea X)
     processedText = processedText
