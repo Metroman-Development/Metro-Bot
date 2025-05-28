@@ -189,7 +189,101 @@ client.on('messageCreate', async message => {
 
   }
 
+  
+
+    const targetChannel = await client.channels.fetch('1347146518943105085');
+    if (!targetChannel) return;
+
+    try {
+        // Parse urgency emoji (first character if it's a known emoji)
+        let urgency = '';
+        const firstChar = message.content.trim()[0];
+        if (firstChar) {
+            urgency = this._translateUrgencyEmoji(firstChar);
+        }
+
+        // Extract title (content between $& $&)
+        let title = '';
+        let content = message.content;
+        const titleMatch = content.match(/\$&(.*?)\$&/);
+        if (titleMatch) {
+            title = titleMatch[1].trim();
+            content = content.replace(titleMatch[0], '').trim();
+        }
+
+        // Process line keywords (l1, l2, etc.)
+        content = this._processLineKeywords(content);
+
+        // Create embed
+        const embed = new EmbedBuilder()
+            .setDescription(content)
+            .setColor(this._getUrgencyColor(urgency))
+            .setTimestamp();
+
+        if (title) embed.setTitle(title);
+        if (urgency) embed.setAuthor({ name: `Urgency: ${urgency}` });
+
+        // Prepare message options
+        const options = { embeds: [embed] };
+
+        // Add attachments if present
+        if (message.attachments.size > 0) {
+            options.files = [...message.attachments.values()];
+        }
+
+        // Send to target channel
+        await targetChannel.send(options);
+
+    } catch (error) {
+        console.error('Error resending message:', error);
+    }
+
+})
+// Helper functions (add these as methods to your client or module)
+function _translateUrgencyEmoji(emoji) {
+    const urgencyMap = {
+        '🚨': 'High',
+        '⚠️': 'Medium',
+        'ℹ️': 'Low',
+        '🔵': 'Information',
+        '🟢': 'Normal',
+        '🟡': 'Warning',
+        '🔴': 'Critical'
+    };
+    return urgencyMap[emoji] || '';
+}
+
+function _getUrgencyColor(urgency) {
+    const colorMap = {
+        'High': 0xFF0000,
+        'Medium': 0xFFA500,
+        'Low': 0xFFFF00,
+        'Information': 0x0000FF,
+        'Normal': 0x00FF00,
+        'Warning': 0xFFA500,
+        'Critical': 0xFF0000
+    };
+    return colorMap[urgency] || 0x3498DB; // Default blue
+}
+
+function _processLineKeywords(text) {
+    if (typeof text !== 'string') return text;
+    
+    return text.toLowerCase()
+        .replace(/\bl1\b/gi, metroConfig.linesEmojis.l1)
+        .replace(/\bl2\b/gi, metroConfig.linesEmojis.l2)
+        .replace(/\bl3\b/gi, metroConfig.linesEmojis.l3)
+        .replace(/\bl4\b/gi, metroConfig.linesEmojis.l4)
+        .replace(/\bl4a\b/gi, metroConfig.linesEmojis.l4a)
+        .replace(/\bl5\b/gi, metroConfig.linesEmojis.l5)
+        .replace(/\bl6\b/gi, metroConfig.linesEmojis.l6)
+        .replace(/\bl7\b/gi, metroConfig.linesEmojis.l7)
+        .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
+        .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
+
+}
 });
+ 
 
 // ======================
 
