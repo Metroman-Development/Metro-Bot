@@ -13,25 +13,178 @@ class AccessibilityResultsManager extends BaseButton {
 
         this._cachingInProgress = new Set();
         this.cacheDuration = 15 * 60 * 1000;
-        this.resultsPerPage = 3;
+        this.MAX_FIELD_LENGTH = 1024; // Discord's embed field limit
+        this.MAX_STATIONS_PER_PAGE = 3; // Base value, will adjust dynamically
+        this.MAX_CONTENT_PER_PAGE = 6000; // Approximate Discord embed total content limit
     }
 
     async build(query, filters, results, userId) {
         const cacheKey = this._getCacheKey(query, userId);
-        const totalPages = Math.ceil(results.length / this.resultsPerPage);
+        
+        // Pre-process all results to calculate optimal pagination
+        const processedResults = results.map(station => {
+            const accessibilityInfo = this._processAccessibilityData(station);
+            const stationName = this._cleanStationName(station.name);
+            
+            return {
+                ...station,
+                processedName: stationName,
+                processedAccessibility: accessibilityInfo,
+                parts: this._splitLongAccessibilityText(accessibilityInfo),
+                totalParts: 1 // Will be updated in calculatePagination
+            };
+        });
+
+        // Calculate optimal pagination
+        const paginationPlan = this._calculatePagination(processedResults);
+        const totalPages = paginationPlan.length;
 
         const cacheData = {
             query,
             filters,
-            results,
+            rawResults: results,
+            processedResults,
             userId,
             currentPage: 1,
             totalPages,
+            paginationPlan,
             timestamp: Date.now()
         };
 
         interactionStore.set(cacheKey, cacheData, this.cacheDuration);
         return this._createResultsMessage(cacheData);
+    }
+
+    _splitLongAccessibilityText(text) {
+        if (!text || text.length <= this.MAX_FIELD_LENGTH) {
+            return [text];
+        }
+
+        const parts = [];
+        const paragraphs = text.split('\n\n'); // Split by paragraphs first
+        let currentPart = '';
+        
+        for (const paragraph of paragraphs) {
+            if (currentPart.length + paragraph.length > this.MAX_FIELD_LENGTH) {
+                parts.push(currentPart);
+                currentPart = paragraph + '\n\n';
+            } else {
+                currentPart += paragraph + '\n\n';
+            }
+        }
+        
+        if (currentPart) {
+            parts.push(currentPart.trim());
+        }
+        
+        return parts;
+    }
+
+    _calculatePagination(results) {
+        const paginationPlan = [];
+        let currentPage = [];
+        let currentPageLength = 0;
+
+        for (const station of results) {
+            // Calculate total length for this station including all parts
+            const stationLength = station.processedName.length + 
+                station.parts.reduce((sum, part) => sum + part.length, 0);
+
+            // If adding this station would exceed limits, finalize current page
+            if (currentPage.length > 0 && 
+                (currentPageLength + stationLength > this.MAX_CONTENT_PER_PAGE || 
+                 currentPage.length >= this.MAX_STATIONS_PER_PAGE)) {
+                paginationPlan.push([...currentPage]);
+                currentPage = [];
+                currentPageLength = 0;
+            }
+
+            // Update station's total parts count
+            station.totalParts = station.parts.length;
+            
+            currentPage.push(station);
+            currentPageLength += stationLength;
+        }
+
+        // Add the last page if it has content
+        if (currentPage.length > 0) {
+            paginationPlan.push(currentPage);
+        }
+
+        return paginationPlan;
+    }
+
+    _createResultsMessage(cacheData) {
+        const { query, filters, paginationPlan, currentPage, totalPages } = cacheData;
+        const pageStations = paginationPlan[currentPage - 1] || [];
+
+        const embed = new EmbedBuilder()
+            .setTitle(`${config.accessibility.logo} Estaciones con accesibilidad: ${query === 'Operativa' ? '🟢 Operativas' : '🔴 Con problemas'}`)
+            .setColor(query === 'Operativa' ? '#2ECC71' : '#E74C3C')
+            .setFooter({ 
+                text: `Página ${currentPage}/${totalPages} • ${cacheData.processedResults.length} estaciones encontradas`,
+                iconURL: 'https://media.discordapp.net/attachments/792250794296606743/900913086343548958/unknown.png'
+            });
+
+        // Show applied filters
+        if (filters.ascensor || filters.escaleraMecanica) {
+            const filterParts = [];
+            if (filters.ascensor) filterParts.push(`${config.accessibility.ascensor} Ascensores`);
+            if (filters.escaleraMecanica) filterParts.push(`${config.accessibility.escalera} Escaleras Mecánicas`);
+            
+            embed.setDescription(`**Filtros aplicados:** ${filterParts.join(' • ')}`);
+        }
+
+        // Group stations by line
+        const lineGroups = {};
+        pageStations.forEach((station, stationIndex) => {
+            const lineKey = `${station.line}`;
+            if (!lineGroups[lineKey]) lineGroups[lineKey] = [];
+            
+            // Add station name (only once per station)
+            if (stationIndex === 0 || pageStations[stationIndex-1].id !== station.id) {
+                lineGroups[lineKey].push(`**${station.processedName}**`);
+            }
+            
+            // Add all parts of the station's accessibility info
+            station.parts.forEach((part) => {
+                lineGroups[lineKey].push(part);
+            });
+        });
+
+        // Add fields for each line group
+        Object.entries(lineGroups).forEach(([line, content]) => {
+            const lineKey = line.toLowerCase();
+            const lineEmoji = config.linesEmojis[lineKey] || '🚇';
+            const lineNumber = line.replace(/[^\d]/g, '');
+            
+            // Join all content for this line and split if still too long
+            const fullContent = content.join('\n\n');
+            if (fullContent.length <= this.MAX_FIELD_LENGTH) {
+                embed.addFields({
+                    name: `${lineEmoji} Línea ${lineNumber}`,
+                    value: fullContent,
+                    inline: true
+                });
+            } else {
+                // Split into multiple fields if needed
+                let partNumber = 1;
+                for (let i = 0; i < content.length; i++) {
+                    const chunk = content[i];
+                    embed.addFields({
+                        name: `${lineEmoji} Línea ${lineNumber}${partNumber > 1 ? ` (Parte ${partNumber})` : ''}`,
+                        value: chunk,
+                        inline: true
+                    });
+                    partNumber++;
+                }
+            }
+        });
+
+        return {
+            embeds: [embed],
+            components: this._createPaginationButtons(cacheData)
+        };
     }
 
     _processAccessibilityData(station) {
@@ -137,63 +290,6 @@ class AccessibilityResultsManager extends BaseButton {
             .join('\n');
     }
 
-    _createResultsMessage(cacheData) {
-        const { query, filters, results, currentPage, totalPages } = cacheData;
-        const startIdx = (currentPage - 1) * this.resultsPerPage;
-        const endIdx = startIdx + this.resultsPerPage;
-        const pageResults = results.slice(startIdx, endIdx);
-
-        const embed = new EmbedBuilder()
-            .setTitle(`${config.accessibility.logo} Estaciones con accesibilidad: ${query === 'Operativa' ? '🟢 Operativas' : '🔴 Con problemas'}`)
-            .setColor(query === 'Operativa' ? '#2ECC71' : '#E74C3C')
-            .setFooter({ 
-                text: `Página ${currentPage}/${totalPages} • ${results.length} resultados encontrados`,
-                iconURL: 'https://media.discordapp.net/attachments/792250794296606743/900913086343548958/unknown.png'
-            });
-
-        // Show applied filters
-        if (filters.ascensor || filters.escaleraMecanica) {
-            const filterParts = [];
-            if (filters.ascensor) filterParts.push(`${config.accessibility.ascensor} Ascensores`);
-            if (filters.escaleraMecanica) filterParts.push(`${config.accessibility.escalera} Escaleras Mecánicas`);
-            
-            embed.setDescription(`**Filtros aplicados:** ${filterParts.join(' • ')}`);
-        }
-
-        // Group stations by line
-        const lineGroups = {};
-        pageResults.forEach(station => {
-            const lineKey = `${station.line}`;
-            if (!lineGroups[lineKey]) lineGroups[lineKey] = [];
-            
-            const accessibilityInfo = this._processAccessibilityData(station);
-            const stationName = this._cleanStationName(station.name);
-            
-            lineGroups[lineKey].push(
-                `👉 **${stationName}**\n` +
-                `${accessibilityInfo}`
-            );
-        });
-
-        // Add fields for each line group
-        Object.entries(lineGroups).forEach(([line, stations]) => {
-            const lineKey = line.toLowerCase();
-            const lineEmoji = config.linesEmojis[lineKey] || '🚇';
-            const lineNumber = line.replace(/[^\d]/g, '');
-            
-            embed.addFields({
-                name: `${lineEmoji} Línea ${lineNumber}`,
-                value: stations.join('\n\n'),
-                inline: true
-            });
-        });
-
-        return {
-            embeds: [embed],
-            components: this._createPaginationButtons(cacheData)
-        };
-    }
-
     _cleanStationName(name) {
         return name.replace(/\bl[1-9]a?\b\s*/gi, "")
                    .replace("Línea", "")
@@ -270,7 +366,7 @@ class AccessibilityResultsManager extends BaseButton {
         }, this.cacheDuration);
 
         try {
-            await interaction.editReply(this._createResultsMessage(cacheData));
+            await interaction.update(this._createResultsMessage(cacheData));
         } catch (error) {
             console.error('Error updating accessibility results:', error);
             if ([10062, 10008].includes(error.code)) {
