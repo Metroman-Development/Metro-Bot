@@ -306,9 +306,12 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*7\b/gi, `Línea ${metroConfig.linesEmojis.l7}`)
         .replace(/\blínea\s*8\b/gi, `Línea ${metroConfig.linesEmojis.l8}`)
         .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`)
-        .replace(/\b$verde\b/gi, metroConfig.stationIcons.roja.emoji)
-        .replace(/\b$roja\b/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/\b$comun\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+        
+      
+      
+      processedText = processedText.replace(/$verde/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/$roja/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/$comun/gi, `${metroConfig.stationIcons.comun.emoji}`)
 
     
     return processedText;
