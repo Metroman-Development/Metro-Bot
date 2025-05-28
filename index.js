@@ -16,7 +16,7 @@ const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader'); /
 
 const { setClient} = require('./utils/clientManager') 
 
-
+const metroConfig = require('./config/metro/metroConfig')
 
 // Initialize client with necessary intents
 
