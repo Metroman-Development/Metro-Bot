@@ -1,6 +1,3 @@
-// AccessibilityResultsManager.jsAccessibilityResultsManager;
-// AccessibilityResultsManager.js
-// AccessibilityResultsManager.js
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const BaseButton = require('./templates/baseButton');
 const interactionStore = require('../utils/interactionStore');
@@ -37,7 +34,62 @@ class AccessibilityResultsManager extends BaseButton {
         return this._createResultsMessage(cacheData);
     }
 
-    _processAccessibilityText(text) {
+    _processAccessibilityData(station) {
+        if (station.isNewFormat) {
+            return this._formatNewAccessibilityData(station);
+        }
+        return this._processLegacyAccessibilityText(station.accessibility);
+    }
+
+    _formatNewAccessibilityData(station) {
+        const accData = station.accessibility;
+        const lines = [];
+
+        // Format accesses
+        if (accData.accesses.length > 0) {
+            lines.push('**Accesos:**');
+            accData.accesses.forEach(access => {
+                let line = `- ${access.name}`;
+                if (access.description) line += ` (${access.description})`;
+                if (access.status) line += ` [${this._formatStatus(access.status)}]`;
+                lines.push(line);
+            });
+        }
+
+        // Format elevators
+        if (accData.elevators.length > 0) {
+            lines.push('\n**Ascensores:**');
+            accData.elevators.forEach(elevator => {
+                let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
+                if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
+                lines.push(line);
+            });
+        }
+
+        // Format escalators
+        if (accData.escalators.length > 0) {
+            lines.push('\n**Escaleras Mecánicas:**');
+            accData.escalators.forEach(escalator => {
+                let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
+                if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
+                lines.push(line);
+            });
+        }
+
+        return lines.join('\n');
+    }
+
+    _formatStatus(status) {
+        const statusMap = {
+            'operativo': '🟢 Operativo',
+            'fuera de servicio': '🔴 Fuera de servicio',
+            'en reparación': '🟡 En reparación',
+            'limitado': '🟠 Limitado'
+        };
+        return statusMap[status.toLowerCase()] || status;
+    }
+
+    _processLegacyAccessibilityText(text) {
         if (!text) return 'No hay información de accesibilidad';
         
         return text.split('\n')
@@ -45,13 +97,13 @@ class AccessibilityResultsManager extends BaseButton {
                 let processedLine = line.trim();
                 const lowerLine = processedLine.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-                // Identical to StationInfoButton processing
+                // Handle letter indicators
                 processedLine = processedLine.replace(/\(([a-z])\)/gi, (match, letter) => {
                     const upperLetter = letter.toUpperCase();
                     return String.fromCodePoint(0x1F170 + upperLetter.charCodeAt(0) - 65) + (upperLetter > 'A' ? '' : '️');
                 });
 
-               
+                // Add appropriate icons
                 if (lowerLine.includes('escala mecánica') || lowerLine.includes('escalera mecánica')) {
                     return `${config.accessibility.escalera} ${processedLine}`;
                 }
@@ -73,19 +125,12 @@ class AccessibilityResultsManager extends BaseButton {
                     return `${config.accessibility.salida} ${processedLine}`;
                 }
             
-             if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
-
+                if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
                     if (lowerLine.includes('al exterior') || lowerLine.includes('desde anden') || lowerLine.includes('desde andenes')) {
-
                         return `${config.accessibility.ascensor} ${processedLine}`;
-
                     }
-
                     return `${config.accessibility.ascensor} ${processedLine}`;
-
                 }
-
-                
                 
                 return `${processedLine}`;
             })
@@ -99,14 +144,14 @@ class AccessibilityResultsManager extends BaseButton {
         const pageResults = results.slice(startIdx, endIdx);
 
         const embed = new EmbedBuilder()
-            .setTitle(`${config.accessibility.logo} Estaciones con accesibilidad: ${query}`)
-            .setColor('#1E90FF')
+            .setTitle(`${config.accessibility.logo} Estaciones con accesibilidad: ${query === 'Operativa' ? '🟢 Operativas' : '🔴 Con problemas'}`)
+            .setColor(query === 'Operativa' ? '#2ECC71' : '#E74C3C')
             .setFooter({ 
                 text: `Página ${currentPage}/${totalPages} • ${results.length} resultados encontrados`,
                 iconURL: 'https://media.discordapp.net/attachments/792250794296606743/900913086343548958/unknown.png'
             });
 
-        // Identical filter display pattern
+        // Show applied filters
         if (filters.ascensor || filters.escaleraMecanica) {
             const filterParts = [];
             if (filters.ascensor) filterParts.push(`${config.accessibility.ascensor} Ascensores`);
@@ -115,14 +160,14 @@ class AccessibilityResultsManager extends BaseButton {
             embed.setDescription(`**Filtros aplicados:** ${filterParts.join(' • ')}`);
         }
 
-        // Same line grouping logic
+        // Group stations by line
         const lineGroups = {};
         pageResults.forEach(station => {
             const lineKey = `${station.line}`;
             if (!lineGroups[lineKey]) lineGroups[lineKey] = [];
             
-            const accessibilityInfo = this._processAccessibilityText(station.accessibility);
-            const stationName = station.name.replace(/\bl[1-9]a?\b\s*/gi, "").replace("Línea", "").trim();
+            const accessibilityInfo = this._processAccessibilityData(station);
+            const stationName = this._cleanStationName(station.name);
             
             lineGroups[lineKey].push(
                 `👉 **${stationName}**\n` +
@@ -130,7 +175,7 @@ class AccessibilityResultsManager extends BaseButton {
             );
         });
 
-        // Same field creation pattern
+        // Add fields for each line group
         Object.entries(lineGroups).forEach(([line, stations]) => {
             const lineKey = line.toLowerCase();
             const lineEmoji = config.linesEmojis[lineKey] || '🚇';
@@ -149,6 +194,13 @@ class AccessibilityResultsManager extends BaseButton {
         };
     }
 
+    _cleanStationName(name) {
+        return name.replace(/\bl[1-9]a?\b\s*/gi, "")
+                   .replace("Línea", "")
+                   .replace(/\s+/g, ' ')
+                   .trim();
+    }
+
     _createPaginationButtons(cacheData) {
         const { currentPage, totalPages, query, userId } = cacheData;
         
@@ -156,7 +208,7 @@ class AccessibilityResultsManager extends BaseButton {
 
         const row = new ActionRowBuilder();
 
-        // Previous Button - Original ID format
+        // Previous Button
         row.addComponents(
             new ButtonBuilder()
                 .setCustomId(`accessibilityResultsPrev:${this.customIdPrefix}:${query}:${userId}`)
@@ -165,7 +217,7 @@ class AccessibilityResultsManager extends BaseButton {
                 .setDisabled(currentPage === 1)
         );
 
-        // Page Counter - Original ID format
+        // Page Counter
         row.addComponents(
             new ButtonBuilder()
                 .setCustomId(`accessibilityResultsPage:${this.customIdPrefix}:${query}:${userId}:${currentPage}`)
@@ -174,7 +226,7 @@ class AccessibilityResultsManager extends BaseButton {
                 .setDisabled(true)
         );
 
-        // Next Button - Original ID format
+        // Next Button
         row.addComponents(
             new ButtonBuilder()
                 .setCustomId(`accessibilityResultsNext:${this.customIdPrefix}:${query}:${userId}`)
@@ -198,7 +250,7 @@ class AccessibilityResultsManager extends BaseButton {
             });
         }
 
-        // Original interaction handling logic
+        // Update page based on interaction
         switch(action) {
             case 'accessibilityResultsPrev':
                 cacheData.currentPage = Math.max(1, cacheData.currentPage - 1);
@@ -211,7 +263,7 @@ class AccessibilityResultsManager extends BaseButton {
                 break;
         }
 
-        // Original cache update pattern
+        // Update cache
         interactionStore.set(cacheKey, {
             ...cacheData,
             timestamp: Date.now()
