@@ -274,7 +274,28 @@ function _getUrgencyColor(urgency) {
 function _processLineKeywords(text) {
     if (typeof text !== 'string') return text;
     
-    return text.toLowerCase()
+    // First process line numbers (Línea X)
+    let processedText = text.toLowerCase()
+        .replace(/\blínea\s*1\b/gi, `Línea ${metroConfig.linesEmojis.l1}`)
+        .replace(/\blínea\s*2\b/gi, `Línea ${metroConfig.linesEmojis.l2}`)
+        .replace(/\blínea\s*3\b/gi, `Línea ${metroConfig.linesEmojis.l3}`)
+        .replace(/\blínea\s*4\b/gi, `Línea ${metroConfig.linesEmojis.l4}`)
+        .replace(/\blínea\s*4a\b/gi, `Línea ${metroConfig.linesEmojis.l4a}`)
+        .replace(/\blínea\s*5\b/gi, `Línea ${metroConfig.linesEmojis.l5}`)
+        .replace(/\blínea\s*6\b/gi, `Línea ${metroConfig.linesEmojis.l6}`)
+        .replace(/\blínea\s*7\b/gi, `Línea ${metroConfig.linesEmojis.l7}`)
+        .replace(/\blínea\s*8\b/gi, `Línea ${metroConfig.linesEmojis.l8}`)
+        .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`);
+    
+    // Then process route colors
+    processedText = processedText
+        .replace(/\bruta\s*🔴\b/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/\bruta\s*🔴\s*🟢\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+        .replace(/\bruta\s*🟢\s*🔴\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
+    
+    // Finally process standalone line codes (l1, l2, etc.)
+    processedText = processedText
         .replace(/\bl1\b/gi, metroConfig.linesEmojis.l1)
         .replace(/\bl2\b/gi, metroConfig.linesEmojis.l2)
         .replace(/\bl3\b/gi, metroConfig.linesEmojis.l3)
@@ -285,9 +306,9 @@ function _processLineKeywords(text) {
         .replace(/\bl7\b/gi, metroConfig.linesEmojis.l7)
         .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
         .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
-
+    
+    return processedText;
 }
-
  
 
 // ======================
