@@ -292,7 +292,7 @@ function _processLineKeywords(text) {
     
   
     // First process line numbers (Línea X)
-    processedText = processedText.toLowerCase()
+    processedText = processedText
         .replace(/\blínea\s*1\b/gi, `Línea ${metroConfig.linesEmojis.l1}`)
         .replace(/\blínea\s*2\b/gi, `Línea ${metroConfig.linesEmojis.l2}`)
         .replace(/\blínea\s*3\b/gi, `Línea ${metroConfig.linesEmojis.l3}`)
