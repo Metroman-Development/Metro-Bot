@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 const { readdirSync } = require('fs');
 
