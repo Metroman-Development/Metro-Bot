@@ -282,7 +282,7 @@ function _processLineKeywords(text) {
         .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9);
 
 }
-});
+
  
 
 // ======================
