@@ -309,9 +309,9 @@ function _processLineKeywords(text) {
         
       
       
-      processedText = processedText.replace(/$verde/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/$roja/gi, metroConfig.stationIcons.roja.emoji)
-        .replace(/$comun/gi, `${metroConfig.stationIcons.comun.emoji}`)
+      processedText = processedText.replace(/\$verde/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/\$roja/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/\$comun/gi, `${metroConfig.stationIcons.comun.emoji}`)
 
     
     return processedText;
