@@ -167,7 +167,7 @@ client.on('messageCreate', async message => {
 
   const prefix = '!';
 
-  if (!message.content.startsWith(prefix)) return;
+  if (message.content.startsWith(prefix)) {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
 
@@ -189,7 +189,7 @@ client.on('messageCreate', async message => {
 
   }
 
-  
+ }
     if ( message.channel.id !== '1377398484931575938') return;
 
     
@@ -203,7 +203,7 @@ client.on('messageCreate', async message => {
         let urgency = '';
         const firstChar = message.content.trim()[0];
         if (firstChar) {
-            urgency = this._translateUrgencyEmoji(firstChar);
+            urgency = _translateUrgencyEmoji(firstChar);
         }
 
         // Extract title (content between $& $&)
@@ -216,12 +216,12 @@ client.on('messageCreate', async message => {
         }
 
         // Process line keywords (l1, l2, etc.)
-        content = this._processLineKeywords(content);
+        content = _processLineKeywords(content);
 
         // Create embed
         const embed = new EmbedBuilder()
             .setDescription(content)
-            .setColor(this._getUrgencyColor(urgency))
+            .setColor(_getUrgencyColor(urgency))
             .setTimestamp();
 
         if (title) embed.setTitle(title);
