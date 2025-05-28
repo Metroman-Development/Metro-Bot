@@ -1,3 +1,4 @@
+
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const BaseButton = require('./templates/baseButton');
 const interactionStore = require('../utils/interactionStore');
@@ -23,7 +24,7 @@ class AccessibilityResultsManager extends BaseButton {
         
         // Pre-process all results to calculate optimal pagination
         const processedResults = results.map(station => {
-            const accessibilityInfo = this._processAccessibilityData(station);
+            const accessibilityInfo = this._processAccessibilityData(station, filters);
             const stationName = this._cleanStationName(station.name);
             
             return {
@@ -127,10 +128,12 @@ class AccessibilityResultsManager extends BaseButton {
             });
 
         // Show applied filters
-        if (filters.ascensor || filters.escaleraMecanica) {
+        if (filters.ascensor || filters.escaleraMecanica || filters.operativo || filters.fueraDeServicio) {
             const filterParts = [];
             if (filters.ascensor) filterParts.push(`${config.accessibility.ascensor} Ascensores`);
             if (filters.escaleraMecanica) filterParts.push(`${config.accessibility.escalera} Escaleras Mecánicas`);
+            if (filters.operativo) filterParts.push(`🟢 Operativos`);
+            if (filters.fueraDeServicio) filterParts.push(`🔴 Fuera de servicio`);
             
             embed.setDescription(`**Filtros aplicados:** ${filterParts.join(' • ')}`);
         }
@@ -187,49 +190,74 @@ class AccessibilityResultsManager extends BaseButton {
         };
     }
 
-    _processAccessibilityData(station) {
+    _processAccessibilityData(station, filters = {}) {
         if (station.isNewFormat) {
-            return this._formatNewAccessibilityData(station);
+            return this._formatNewAccessibilityData(station, filters);
         }
-        return this._processLegacyAccessibilityText(station.accessibility);
+        return this._processLegacyAccessibilityText(station.accessibility, filters);
     }
 
-    _formatNewAccessibilityData(station) {
+    _formatNewAccessibilityData(station, filters = {}) {
         const accData = station.accessibility;
         const lines = [];
+        const statusFilter = this._getStatusFilter(filters);
 
-        // Format accesses
+        // Format accesses - always show as they don't have status
         if (accData.accesses.length > 0) {
             lines.push('**Accesos:**');
             accData.accesses.forEach(access => {
                 let line = `- ${access.name}`;
                 if (access.description) line += ` (${access.description})`;
-                if (access.status) line += ` [${this._formatStatus(access.status)}]`;
                 lines.push(line);
             });
         }
 
-        // Format elevators
-        if (accData.elevators.length > 0) {
-            lines.push('\n**Ascensores:**');
-            accData.elevators.forEach(elevator => {
-                let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
-                if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
-                lines.push(line);
-            });
+        // Format elevators if ascensor filter is enabled or no equipment filters
+        if ((filters.ascensor || (!filters.ascensor && !filters.escaleraMecanica)) && accData.elevators.length > 0) {
+            const filteredElevators = accData.elevators.filter(elevator => 
+                !statusFilter || !elevator.status || this._matchesStatusFilter(elevator.status, statusFilter)
+            );
+
+            if (filteredElevators.length > 0) {
+                lines.push('\n**Ascensores:**');
+                filteredElevators.forEach(elevator => {
+                    let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
+                    if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
+                    lines.push(line);
+                });
+            }
         }
 
-        // Format escalators
-        if (accData.escalators.length > 0) {
-            lines.push('\n**Escaleras Mecánicas:**');
-            accData.escalators.forEach(escalator => {
-                let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
-                if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
-                lines.push(line);
-            });
+        // Format escalators if escaleraMecanica filter is enabled or no equipment filters
+        if ((filters.escaleraMecanica || (!filters.ascensor && !filters.escaleraMecanica)) && accData.escalators.length > 0) {
+            const filteredEscalators = accData.escalators.filter(escalator => 
+                !statusFilter || !escalator.status || this._matchesStatusFilter(escalator.status, statusFilter)
+            );
+
+            if (filteredEscalators.length > 0) {
+                lines.push('\n**Escaleras Mecánicas:**');
+                filteredEscalators.forEach(escalator => {
+                    let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
+                    if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
+                    lines.push(line);
+                });
+            }
         }
 
-        return lines.join('\n');
+        return lines.length > 0 ? lines.join('\n') : 'No hay equipos que coincidan con los filtros aplicados';
+    }
+
+    _getStatusFilter(filters) {
+        if (filters.operativo) return 'operativo';
+        if (filters.fueraDeServicio) return 'fuera de servicio';
+        return null;
+    }
+
+    _matchesStatusFilter(actualStatus, filterStatus) {
+        const normalizedActual = actualStatus.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const normalizedFilter = filterStatus.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        
+        return normalizedActual.includes(normalizedFilter);
     }
 
     _formatStatus(status) {
@@ -242,52 +270,83 @@ class AccessibilityResultsManager extends BaseButton {
         return statusMap[status.toLowerCase()] || status;
     }
 
-    _processLegacyAccessibilityText(text) {
+    _processLegacyAccessibilityText(text, filters = {}) {
         if (!text) return 'No hay información de accesibilidad';
         
-        return text.split('\n')
-            .map(line => {
-                let processedLine = line.trim();
-                const lowerLine = processedLine.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const statusFilter = this._getStatusFilter(filters);
+        const lines = text.split('\n');
+        const filteredLines = [];
+        let includeEquipment = true;
 
-                // Handle letter indicators
-                processedLine = processedLine.replace(/\(([a-z])\)/gi, (match, letter) => {
-                    const upperLetter = letter.toUpperCase();
-                    return String.fromCodePoint(0x1F170 + upperLetter.charCodeAt(0) - 65) + (upperLetter > 'A' ? '' : '️');
-                });
+        for (const line of lines) {
+            let processedLine = line.trim();
+            const lowerLine = processedLine.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-                // Add appropriate icons
-                if (lowerLine.includes('escala mecánica') || lowerLine.includes('escalera mecánica')) {
-                    return `${config.accessibility.escalera} ${processedLine}`;
+            // Skip if this is equipment and doesn't match status filter
+            if (statusFilter) {
+                const isEquipmentLine = lowerLine.includes('ascensor') || lowerLine.includes('escala mecánica') || lowerLine.includes('escalera mecánica');
+                if (isEquipmentLine && !lowerLine.includes(statusFilter)) {
+                    continue;
                 }
-                
-                if (lowerLine.includes('todos los ascensores disponibles') || 
-                    lowerLine.match(/todos los ascensores (operativos|disponibles)/)) {
-                    return `${config.accessibility.estado.ope} ${processedLine}`;
+            }
+
+            // Handle letter indicators
+            processedLine = processedLine.replace(/\(([a-z])\)/gi, (match, letter) => {
+                const upperLetter = letter.toUpperCase();
+                return String.fromCodePoint(0x1F170 + upperLetter.charCodeAt(0) - 65) + (upperLetter > 'A' ? '' : '️');
+            });
+
+            // Add appropriate icons
+            if (lowerLine.includes('escala mecánica') || lowerLine.includes('escalera mecánica')) {
+                if (filters.escaleraMecanica || (!filters.ascensor && !filters.escaleraMecanica)) {
+                    processedLine = `${config.accessibility.escalera} ${processedLine}`;
+                } else {
+                    continue;
                 }
-                
-                if (lowerLine.includes('fuera de servicio') || 
-                    lowerLine.includes('no disponible') ||
-                    lowerLine.includes('no operativo')) {
-                    return `${config.accessibility.estado.fes} ${processedLine}`;
-                }
-                
-                if (lowerLine.includes('salida de estación') || 
-                    lowerLine.includes('a nivel de vereda') || 
-                    lowerLine.includes('a nivel de calle')) {
-                    return `${config.accessibility.salida} ${processedLine}`;
-                }
+            }
             
-                if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
-                    if (lowerLine.includes('al exterior') || lowerLine.includes('desde anden') || lowerLine.includes('desde andenes')) {
-                        return `${config.accessibility.ascensor} ${processedLine}`;
-                    }
-                    return `${config.accessibility.ascensor} ${processedLine}`;
+            if (lowerLine.includes('todos los ascensores disponibles') || 
+                lowerLine.match(/todos los ascensores (operativos|disponibles)/)) {
+                if (filters.ascensor || (!filters.ascensor && !filters.escaleraMecanica)) {
+                    processedLine = `${config.accessibility.estado.ope} ${processedLine}`;
+                } else {
+                    continue;
                 }
-                
-                return `${processedLine}`;
-            })
-            .join('\n');
+            }
+            
+            if (lowerLine.includes('fuera de servicio') || 
+                lowerLine.includes('no disponible') ||
+                lowerLine.includes('no operativo')) {
+                if ((filters.ascensor || filters.escaleraMecanica || (!filters.ascensor && !filters.escaleraMecanica)) &&
+                    (!statusFilter || lowerLine.includes(statusFilter))) {
+                    processedLine = `${config.accessibility.estado.fes} ${processedLine}`;
+                } else {
+                    continue;
+                }
+            }
+        
+            if (lowerLine.includes('salida de estación') || 
+                lowerLine.includes('a nivel de vereda') || 
+                lowerLine.includes('a nivel de calle')) {
+                processedLine = `${config.accessibility.salida} ${processedLine}`;
+            }
+        
+            if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
+                if (filters.ascensor || (!filters.ascensor && !filters.escaleraMecanica)) {
+                    if (lowerLine.includes('al exterior') || lowerLine.includes('desde anden') || lowerLine.includes('desde andenes')) {
+                        processedLine = `${config.accessibility.ascensor} ${processedLine}`;
+                    } else {
+                        processedLine = `${config.accessibility.ascensor} ${processedLine}`;
+                    }
+                } else {
+                    continue;
+                }
+            }
+            
+            filteredLines.push(processedLine);
+        }
+        
+        return filteredLines.join('\n');
     }
 
     _cleanStationName(name) {
