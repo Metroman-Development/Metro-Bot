@@ -306,11 +306,10 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*7\b/gi, `Línea ${metroConfig.linesEmojis.l7}`)
         .replace(/\blínea\s*8\b/gi, `Línea ${metroConfig.linesEmojis.l8}`)
         .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`)
-        .replace(/\bruta\s*🔴\b/gi, metroConfig.stationIcons.roja.emoji)
-        .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.verde.emoji)
-        .replace(/\bruta\s*🔴\s*🟢\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
-        .replace(/\bruta\s*🟢\s*🔴\b/gi, `${metroConfig.stationIcons.comun.emoji}`);
-    
+        .replace(/\b$verde\b/gi, metroConfig.stationIcons.roja.emoji)
+        .replace(/\b$roja\b/gi, metroConfig.stationIcons.verde.emoji)
+        .replace(/\b$comun\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
+
     
     return processedText;
 }
