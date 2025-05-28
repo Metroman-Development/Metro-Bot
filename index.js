@@ -305,7 +305,7 @@ function _processLineKeywords(text) {
         .replace(/\blínea\s*9\b/gi, `Línea ${metroConfig.linesEmojis.l9}`);
     
     // Then process route colors
-    processedText = processedText.toLowercase()
+    processedText = processedText.toLowerCase()
         .replace(/\bruta\s*🟢\b/gi, metroConfig.stationIcons.roja.emoji)
         .replace(/\bruta\s*:green_circle:\b/gi, metroConfig.stationIcons.verde.emoji)
         .replace(/\bruta\s*:red_circle:\s*:green_circle:\b/gi, `${metroConfig.stationIcons.comun.emoji}`)
