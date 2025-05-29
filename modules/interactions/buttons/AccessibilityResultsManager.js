@@ -197,14 +197,16 @@ class AccessibilityResultsManager extends BaseButton {
         return this._processLegacyAccessibilityText(station.accessibility, filters);
     }
 
+
+
     _formatNewAccessibilityData(station, filters = {}) {
     const accData = station.accessDetails;
     const lines = [];
     const statusFilter = this._getStatusFilter(filters);
     const hasEquipmentFilter = filters.ascensor || filters.escaleraMecanica;
 
-    // Format accesses - only show if no status filter is applied (since accesses don't have status)
-    if (accData.accesses.length > 0 && !statusFilter) {
+    // Only show accesses if no filters are applied
+    if (accData.accesses.length > 0 && !statusFilter && !hasEquipmentFilter) {
         lines.push('**Accesos:**');
         accData.accesses.forEach(access => {
             let line = `- ${access.name}`;
@@ -213,11 +215,14 @@ class AccessibilityResultsManager extends BaseButton {
         });
     }
 
-    // Format elevators if ascensor filter is enabled or no equipment filters
-    if ((filters.ascensor || (!hasEquipmentFilter)) && accData.elevators.length > 0) {
-        const filteredElevators = accData.elevators.filter(elevator => 
-            !statusFilter || (elevator.status && this._matchesStatusFilter(elevator.status, statusFilter))
-        );
+    // Process elevators
+    if ((filters.ascensor || !hasEquipmentFilter) && accData.elevators.length > 0) {
+        const filteredElevators = accData.elevators.filter(elevator => {
+            // If status filter is active, must match status
+            const statusMatches = !statusFilter || 
+                                (elevator.status && this._matchesStatusFilter(elevator.status, statusFilter));
+            return statusMatches;
+        });
 
         if (filteredElevators.length > 0) {
             lines.push('\n**Ascensores:**');
@@ -229,11 +234,14 @@ class AccessibilityResultsManager extends BaseButton {
         }
     }
 
-    // Format escalators if escaleraMecanica filter is enabled or no equipment filters
-    if ((filters.escaleraMecanica || (!hasEquipmentFilter)) && accData.escalators.length > 0) {
-        const filteredEscalators = accData.escalators.filter(escalator => 
-            !statusFilter || (escalator.status && this._matchesStatusFilter(escalator.status, statusFilter))
-        );
+    // Process escalators
+    if ((filters.escaleraMecanica || !hasEquipmentFilter) && accData.escalators.length > 0) {
+        const filteredEscalators = accData.escalators.filter(escalator => {
+            // If status filter is active, must match status
+            const statusMatches = !statusFilter || 
+                               (escalator.status && this._matchesStatusFilter(escalator.status, statusFilter));
+            return statusMatches;
+        });
 
         if (filteredEscalators.length > 0) {
             lines.push('\n**Escaleras Mecánicas:**');
@@ -249,11 +257,11 @@ class AccessibilityResultsManager extends BaseButton {
 }
 
 _getStatusFilter(filters) {
+    // Only return a filter if exactly one status is selected
     if (filters.operativo && !filters.fueraDeServicio) return 'operativo';
     if (filters.fueraDeServicio && !filters.operativo) return 'fuera de servicio';
     return null;
 }
-
     
 
     _matchesStatusFilter(actualStatus, filterStatus) {
