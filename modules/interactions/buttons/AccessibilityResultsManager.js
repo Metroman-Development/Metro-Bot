@@ -191,6 +191,10 @@ class AccessibilityResultsManager extends BaseButton {
     }
 
     _processAccessibilityData(station, filters = {}) {
+        
+        console.log(station.accessDetails) 
+        
+        
         if (station.accessDetails) {
             return this._formatNewAccessibilityData(station, filters);
         }
