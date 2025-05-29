@@ -82,7 +82,7 @@ module.exports = {
         let hasElevator = accData.elevators.length > 0;
         let hasEscalator = accData.escalators.length > 0;
 
-        
+        console.log(accData.escalators) 
         
         // Check equipment status
         let elevatorStatus = hasElevator 
