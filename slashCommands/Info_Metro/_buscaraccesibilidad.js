@@ -81,6 +81,8 @@ module.exports = {
         const accData = station.accessibility;
         let hasElevator = accData.elevators.length > 0;
         let hasEscalator = accData.escalators.length > 0;
+
+        
         
         // Check equipment status
         let elevatorStatus = hasElevator 
@@ -89,10 +91,13 @@ module.exports = {
             : null;
             
         let escalatorStatus = hasEscalator 
-            ? accData.escalators.some(e => e.status && e.status.toLowerCase().includes('fuera de servicio')) 
+            ? accData.escalators.some(e => e.status && e.status.toLowerCase().includes('fuera')) 
                 ? 'FueraServicio' : 'Operativa'
             : null;
 
+        console.log(accData.escalators)
+
+        console.log(escalatorStatus)
         // Apply equipment filter
         let matchesEquipment = true;
         if (equipmentFilter) {
