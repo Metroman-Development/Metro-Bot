@@ -216,7 +216,7 @@ class AccessibilityResultsManager extends BaseButton {
 
     // Only show accesses if no filters are applied
     if (accData.accesses.length > 0 && !statusFilter && !hasEquipmentFilter) {
-        lines.push('**Accesos:**');
+        lines.push('### **Accesos:**');
         accData.accesses.forEach(access => {
             let line = `- ${access.name}`;
             if (access.description) line += ` (${access.description})`;
@@ -235,9 +235,9 @@ class AccessibilityResultsManager extends BaseButton {
         });
 
         if (filteredElevators.length > 0) {
-            lines.push('\n**Ascensores:**');
+            lines.push('\n### **Ascensores:**');
             filteredElevators.forEach(elevator => {
-                let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
+                let line = `- ${elevator.id}: Desde ${elevator.from} hacia ${elevator.to}`;
                 if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
                 lines.push(line);
             });
@@ -254,16 +254,16 @@ class AccessibilityResultsManager extends BaseButton {
         });
 
         if (filteredEscalators.length > 0) {
-            lines.push('\n**Escaleras Mecánicas:**');
+            lines.push('\n### **Escaleras Mecánicas:**');
             filteredEscalators.forEach(escalator => {
-                let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
+                let line = `- ${escalator.id}: Desde ${escalator.from} hacia ${escalator.to}`;
                 if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
                 lines.push(line);
             });
         }
     }
 
-    return lines.length > 0 ? lines.join('\n') : 'No hay equipos que coincidan con los filtros aplicados';
+    return lines.length > 0 ? lines.join(' ') : 'No hay equipos que coincidan con los filtros aplicados';
 }
 
 _getStatusFilter(filters) {
