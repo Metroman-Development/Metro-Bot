@@ -37,6 +37,9 @@ module.exports = {
         Object.values(staticData.stations).forEach(station => {
             if (!station.accessibility) return;
 
+
+            console.log(station.accessibility) 
+            
             // Check if station uses new format (accessibility object)
             if (typeof station.accessibility === 'object' && station.accessibility.accesses) {
                 const newFormatResult = this.processNewFormat(station, statusQuery, equipmentFilter);
