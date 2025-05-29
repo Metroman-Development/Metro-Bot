@@ -216,7 +216,7 @@ class AccessibilityResultsManager extends BaseButton {
 
     // Only show accesses if no filters are applied
     if (accData.accesses.length > 0 && !statusFilter && !hasEquipmentFilter) {
-        lines.push('### Accesos:');
+        lines.push('***Accesos:***');
         accData.accesses.forEach(access => {
             let line = `- ${access.name}`;
             if (access.description) line += ` (${access.description})`;
@@ -235,7 +235,7 @@ class AccessibilityResultsManager extends BaseButton {
         });
 
         if (filteredElevators.length > 0) {
-            lines.push('### Ascensores:');
+            lines.push('***Ascensores:***');
             filteredElevators.forEach(elevator => {
                 let line = `- ${elevator.id}: Desde ${elevator.from} hacia ${elevator.to}`;
                 if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
@@ -254,7 +254,7 @@ class AccessibilityResultsManager extends BaseButton {
         });
 
         if (filteredEscalators.length > 0) {
-            lines.push('### Escaleras Mecánicas:');
+            lines.push('***Escaleras Mecánicas:***');
             filteredEscalators.forEach(escalator => {
                 let line = `- ${escalator.id}: Desde ${escalator.from} hacia ${escalator.to}`;
                 if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
