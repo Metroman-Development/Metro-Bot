@@ -258,7 +258,7 @@ class AccessibilityResultsManager extends BaseButton {
 
 _getStatusFilter(filters) {
     // Only return a filter if exactly one status is selected
-    if (filters.operativo && !filters.fueraDeServicio) return 'operativo';
+    if (filters.operativo && !filters.fueraDeServicio) return 'operativa';
     if (filters.fueraDeServicio && !filters.operativo) return 'fuera de servicio';
     return null;
 }
