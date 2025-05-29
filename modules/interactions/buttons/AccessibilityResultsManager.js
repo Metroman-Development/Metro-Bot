@@ -202,7 +202,7 @@ class AccessibilityResultsManager extends BaseButton {
     _formatNewAccessibilityData(station, filters = {}) {
    
 
-        console.log(filters) 
+        console.log("Filtros ", filters) 
         
         const accData = station.accessDetails;
     const lines = [];
