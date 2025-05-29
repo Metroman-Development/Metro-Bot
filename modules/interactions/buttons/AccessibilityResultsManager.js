@@ -198,7 +198,7 @@ class AccessibilityResultsManager extends BaseButton {
     }
 
     _formatNewAccessibilityData(station, filters = {}) {
-        const accData = station.accessibility;
+        const accData = station.accessDetails;
         const lines = [];
         const statusFilter = this._getStatusFilter(filters);
 
