@@ -64,7 +64,10 @@ module.exports = {
         const manager = new AccessibilityResultsManager();
         const filters = {
             ascensor: equipmentFilter === 'ascensor' || equipmentFilter === 'ambos',
-            escaleraMecanica: equipmentFilter === 'escalera' || equipmentFilter === 'ambos'
+            escaleraMecanica: equipmentFilter === 'escalera' || equipmentFilter === 'ambos', 
+            operativo: statusQuery === 'Operativa', 
+            fueraDeServicio : statusQuery !== 'Operativa'
+        
         };
         
         const messageData = await manager.build(
