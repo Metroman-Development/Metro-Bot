@@ -81,9 +81,9 @@ module.exports = {
      * Processes stations with the new accessibility format (object with structured data)
      */
     processNewFormat(station, statusQuery, equipmentFilter) {
-        const accData = station.accessibility;
-        let hasElevator = accData.elevators.length > 0;
-        let hasEscalator = accData.escalators.length > 0;
+        const accData = station.accessDetails;
+        let hasElevator = accData.elevators?.length > 0;
+        let hasEscalator = accData.escalators?.length > 0;
 
         console.log(accData) 
         
