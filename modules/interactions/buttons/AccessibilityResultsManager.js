@@ -200,7 +200,11 @@ class AccessibilityResultsManager extends BaseButton {
 
 
     _formatNewAccessibilityData(station, filters = {}) {
-    const accData = station.accessDetails;
+   
+
+        console.log(filters) 
+        
+        const accData = station.accessDetails;
     const lines = [];
     const statusFilter = this._getStatusFilter(filters);
     const hasEquipmentFilter = filters.ascensor || filters.escaleraMecanica;
@@ -215,7 +219,8 @@ class AccessibilityResultsManager extends BaseButton {
         });
     }
 
-    // Process elevators
+
+        // Process elevators
     if ((filters.ascensor || !hasEquipmentFilter) && accData.elevators.length > 0) {
         const filteredElevators = accData.elevators.filter(elevator => {
             // If status filter is active, must match status
