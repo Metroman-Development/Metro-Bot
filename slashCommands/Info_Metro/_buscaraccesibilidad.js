@@ -41,7 +41,7 @@ module.exports = {
             console.log(station) 
             
             // Check if station uses new format (accessibility object)
-            if (typeof station.accessibility === 'object' && station.accessibility.accesses) {
+            if (station.accessDetails && station.accessDetails.accesses?.length() >0) {
                 const newFormatResult = this.processNewFormat(station, statusQuery, equipmentFilter);
                 if (newFormatResult) {
                     allResults.push(newFormatResult);
