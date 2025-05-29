@@ -191,7 +191,7 @@ class AccessibilityResultsManager extends BaseButton {
     }
 
     _processAccessibilityData(station, filters = {}) {
-        if (station.isNewFormat) {
+        if (station.accessDetails) {
             return this._formatNewAccessibilityData(station, filters);
         }
         return this._processLegacyAccessibilityText(station.accessibility, filters);
