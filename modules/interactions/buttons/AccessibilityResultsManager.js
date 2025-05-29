@@ -198,60 +198,63 @@ class AccessibilityResultsManager extends BaseButton {
     }
 
     _formatNewAccessibilityData(station, filters = {}) {
-        const accData = station.accessDetails;
-        const lines = [];
-        const statusFilter = this._getStatusFilter(filters);
+    const accData = station.accessDetails;
+    const lines = [];
+    const statusFilter = this._getStatusFilter(filters);
+    const hasEquipmentFilter = filters.ascensor || filters.escaleraMecanica;
 
-        // Format accesses - always show as they don't have status
-        if (accData.accesses.length > 0) {
-            lines.push('**Accesos:**');
-            accData.accesses.forEach(access => {
-                let line = `- ${access.name}`;
-                if (access.description) line += ` (${access.description})`;
+    // Format accesses - only show if no status filter is applied (since accesses don't have status)
+    if (accData.accesses.length > 0 && !statusFilter) {
+        lines.push('**Accesos:**');
+        accData.accesses.forEach(access => {
+            let line = `- ${access.name}`;
+            if (access.description) line += ` (${access.description})`;
+            lines.push(line);
+        });
+    }
+
+    // Format elevators if ascensor filter is enabled or no equipment filters
+    if ((filters.ascensor || (!hasEquipmentFilter)) && accData.elevators.length > 0) {
+        const filteredElevators = accData.elevators.filter(elevator => 
+            !statusFilter || (elevator.status && this._matchesStatusFilter(elevator.status, statusFilter))
+        );
+
+        if (filteredElevators.length > 0) {
+            lines.push('\n**Ascensores:**');
+            filteredElevators.forEach(elevator => {
+                let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
+                if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
                 lines.push(line);
             });
         }
-
-        // Format elevators if ascensor filter is enabled or no equipment filters
-        if ((filters.ascensor || (!filters.ascensor && !filters.escaleraMecanica)) && accData.elevators.length > 0) {
-            const filteredElevators = accData.elevators.filter(elevator => 
-                !statusFilter || !elevator.status || this._matchesStatusFilter(elevator.status, statusFilter)
-            );
-
-            if (filteredElevators.length > 0) {
-                lines.push('\n**Ascensores:**');
-                filteredElevators.forEach(elevator => {
-                    let line = `- ${elevator.id}: ${elevator.from} → ${elevator.to}`;
-                    if (elevator.status) line += ` [${this._formatStatus(elevator.status)}]`;
-                    lines.push(line);
-                });
-            }
-        }
-
-        // Format escalators if escaleraMecanica filter is enabled or no equipment filters
-        if ((filters.escaleraMecanica || (!filters.ascensor && !filters.escaleraMecanica)) && accData.escalators.length > 0) {
-            const filteredEscalators = accData.escalators.filter(escalator => 
-                !statusFilter || !escalator.status || this._matchesStatusFilter(escalator.status, statusFilter)
-            );
-
-            if (filteredEscalators.length > 0) {
-                lines.push('\n**Escaleras Mecánicas:**');
-                filteredEscalators.forEach(escalator => {
-                    let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
-                    if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
-                    lines.push(line);
-                });
-            }
-        }
-
-        return lines.length > 0 ? lines.join('\n') : 'No hay equipos que coincidan con los filtros aplicados';
     }
 
-    _getStatusFilter(filters) {
-        if (filters.operativo) return 'operativo';
-        if (filters.fueraDeServicio) return 'fuera de servicio';
-        return null;
+    // Format escalators if escaleraMecanica filter is enabled or no equipment filters
+    if ((filters.escaleraMecanica || (!hasEquipmentFilter)) && accData.escalators.length > 0) {
+        const filteredEscalators = accData.escalators.filter(escalator => 
+            !statusFilter || (escalator.status && this._matchesStatusFilter(escalator.status, statusFilter))
+        );
+
+        if (filteredEscalators.length > 0) {
+            lines.push('\n**Escaleras Mecánicas:**');
+            filteredEscalators.forEach(escalator => {
+                let line = `- ${escalator.id}: ${escalator.from} → ${escalator.to}`;
+                if (escalator.status) line += ` [${this._formatStatus(escalator.status)}]`;
+                lines.push(line);
+            });
+        }
     }
+
+    return lines.length > 0 ? lines.join('\n') : 'No hay equipos que coincidan con los filtros aplicados';
+}
+
+_getStatusFilter(filters) {
+    if (filters.operativo && !filters.fueraDeServicio) return 'operativo';
+    if (filters.fueraDeServicio && !filters.operativo) return 'fuera de servicio';
+    return null;
+}
+
+    
 
     _matchesStatusFilter(actualStatus, filterStatus) {
         const normalizedActual = actualStatus.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
