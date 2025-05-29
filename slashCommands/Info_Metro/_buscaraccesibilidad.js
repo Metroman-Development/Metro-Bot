@@ -38,7 +38,7 @@ module.exports = {
             if (!station.accessibility) return;
 
 
-            console.log(station) 
+          //  console.log(station) 
             
             // Check if station uses new format (accessibility object)
             if (station.accessDetails && station.accessDetails.accesses?.length >0) {
@@ -85,7 +85,7 @@ module.exports = {
         let hasElevator = accData.elevators?.length > 0;
         let hasEscalator = accData.escalators?.length > 0;
 
-        console.log(accData) 
+       // console.log(accData) 
         
         // Check equipment status
         let elevatorStatus = hasElevator 
