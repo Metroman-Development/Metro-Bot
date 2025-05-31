@@ -67,6 +67,8 @@ discordClient.on('interactionCreate', async interaction => {
   }
 });
 
+setClient(discordClient) 
+
 // Message handling (your original metro alert system)
 discordClient.on('messageCreate', async message => {
   if (message.author.bot) return;
