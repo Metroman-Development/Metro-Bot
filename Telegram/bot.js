@@ -23,7 +23,7 @@ class TelegramBot {
     }
   }
   
-  async sendCompactAnnouncement(messages, allStations = {}) {
+  async sendCompactAnnouncement(messages) {
     try {
          
       if (messages.length === 0) {
