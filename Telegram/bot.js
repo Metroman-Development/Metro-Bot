@@ -1,6 +1,7 @@
 const { Telegraf } = require('telegraf');
 const config = require('./config');
 const pingCommand = require('./commands/ping');
+const metEstado= require('./commands/metroestado'); 
 
 class TelegramBot {
   constructor() {
@@ -43,8 +44,9 @@ class TelegramBot {
   _loadCommands() {
     // Register commands
     this.bot.command('ping', pingCommand.execute);
-
-    // Error handling
+    this.bot.command('estadored', metEstado.execute);
+ 
+    //   handling
     this.bot.catch((err, ctx) => {
       console.error('Telegram Bot Error:', err);
       ctx.reply('⚠️ An error occurred.');
