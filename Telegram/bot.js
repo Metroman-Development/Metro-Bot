@@ -39,7 +39,7 @@ class TelegramBot {
   }
 
   
-  async sendCompactAnnouncement(changes, allStations = {}) {
+  async sendCompactAnnouncement(messages, allStations = {}) {
     try {
          
       if (messages.length === 0) {
