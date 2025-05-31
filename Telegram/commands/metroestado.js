@@ -16,6 +16,29 @@ const LINE_EMOJIS = {
     'default': '🚇' // Default emoji
 };
 
+formatTimestamp(timestamp) {
+        if (!timestamp) return 'Desconocido';
+        
+        let fixedTimestamp = timestamp;
+        if (timestamp.length > 23 && !timestamp.includes('T')) {
+            fixedTimestamp = timestamp.substring(0, 10) + 'T' + timestamp.substring(11);
+        }
+        
+        try {
+            const date = new Date(fixedTimestamp);
+            return date.toLocaleString('es-CL', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'America/Santiago'
+            });
+        } catch (e) {
+            return fixedTimestamp;
+        }
+    }
+
 module.exports = {
     command: 'estado',
     description: 'Muestra el estado del Metro de Santiago',
@@ -92,26 +115,5 @@ module.exports = {
     },
 
    
-    formatTimestamp(timestamp) {
-        if (!timestamp) return 'Desconocido';
-        
-        let fixedTimestamp = timestamp;
-        if (timestamp.length > 23 && !timestamp.includes('T')) {
-            fixedTimestamp = timestamp.substring(0, 10) + 'T' + timestamp.substring(11);
-        }
-        
-        try {
-            const date = new Date(fixedTimestamp);
-            return date.toLocaleString('es-CL', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'America/Santiago'
-            });
-        } catch (e) {
-            return fixedTimestamp;
-        }
-    }
+    
 };
