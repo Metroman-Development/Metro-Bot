@@ -169,36 +169,20 @@ function _processLineKeywords(text) {
 // ======================
 // TELEGRAM BOT (New Code)
 // ======================
-const { Telegraf } = require('telegraf');
-const telegramBot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-// Reuse your metroConfig for Telegram
-telegramBot.command('metro', (ctx) => {
-  const lines = Object.entries(metroConfig.linesEmojis)
-    .map(([line, emoji]) => `${line}: ${emoji}`)
-    .join('\n');
-  
-  ctx.replyWithHTML(`<b>🚇 Metro Lines</b>\n${lines}`);
-});
+const TelegramBot = require('./Telegram/bot');
+const telegramBot = new TelegramBot();
 
-// Error handling
-telegramBot.catch((err, ctx) => {
-  console.error('Telegram error:', err);
-  ctx.reply('⚠️ Bot error occurred');
-});
-
-// ======================
-// LAUNCH BOTH BOTS
-// ======================
+// Launch Both Bots
 (async () => {
   try {
     // Start Discord
     await discordClient.login(process.env.DISCORD_TOKEN);
-    console.log('Discord bot ready');
+    console.log('✅Discord bot ready');
 
     // Start Telegram
     await telegramBot.launch();
-    console.log('Telegram bot ready');
+    console.log('✅Telegram bot ready');
 
     // Graceful shutdown
     process.once('SIGINT', () => {
