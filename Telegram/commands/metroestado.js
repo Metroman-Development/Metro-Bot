@@ -16,7 +16,7 @@ const LINE_EMOJIS = {
     'default': '🚇' // Default emoji
 };
 
-formatTimestamp(timestamp) {
+function formatTimestamp(timestamp) {
         if (!timestamp) return 'Desconocido';
         
         let fixedTimestamp = timestamp;
