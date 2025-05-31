@@ -233,7 +233,7 @@ function _processLineKeywords(text) {
 // ======================
 
 const TelegramBot = require('./Telegram/bot');
-const telegramBot = TelegramBot();
+const telegramBot = TelegramBot;
 
 // Launch Both Bots
 (async () => {
