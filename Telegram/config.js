@@ -1,4 +1,4 @@
 module.exports = {
   // Add Telegram-specific configs here
-  adminIds: [12345678], // Your Telegram user ID
+  adminIds: [6566554074], // Your Telegram user ID
 };
