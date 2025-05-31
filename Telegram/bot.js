@@ -60,4 +60,4 @@ class TelegramBot {
   }
 }
 
-module.exports = TelegramBot;
+module.exports = new TelegramBot();
