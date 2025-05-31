@@ -38,6 +38,24 @@ class TelegramBot {
     }
   }
 
+  
+  async sendCompactAnnouncement(changes, allStations = {}) {
+    try {
+         
+      if (messages.length === 0) {
+        return;
+      }
+      
+      // Combine messages with double newlines between them
+      const combinedMessage = messages.join('\n\n');
+      await this.sendToChannel(combinedMessage);
+    } catch (error) {
+      console.error('Failed to send compact announcement:', error);
+    }
+  }
+
+ 
+
   _loadCommands() {
     // Register commands
     this.bot.command('ping', pingCommand.execute);
