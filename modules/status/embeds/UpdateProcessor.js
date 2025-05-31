@@ -3,6 +3,7 @@ const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { performance } = require('perf_hooks');
 const timeUtils = require('../../chronos/timeHelpers');
+const { TelegramBot } = require('../../../../Telegram/bot');
 
 class UpdateProcessor {
     constructor(statusUpdater) {
@@ -460,7 +461,6 @@ class UpdateProcessor {
     // =====================
     // UTILITY METHODS
     // =====================
-const TelegramBot = require('../../../../Telegram/bot');
     
     async _prepareChangeMessages(changes, allStations) {
         if (!allStations) {
