@@ -6,6 +6,36 @@ class TelegramBot {
   constructor() {
     this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
     this._loadCommands();
+    
+    this.channelId = process.env.TELEGRAM_CHANNEL_ID; // Add to .env
+    }
+
+  // Add this new method
+  async sendToChannel(message, options = {}) {
+    try {
+      await this.bot.telegram.sendMessage(
+        this.channelId, 
+        message, 
+        { parse_mode: 'HTML', ...options }
+      );
+    } catch (error) {
+      console.error('Failed to send to Telegram channel:', error);
+    }
+  }
+
+   
+
+  // Add this new method
+  async sendToChannel(message, options = {}) {
+    try {
+      await this.bot.telegram.sendMessage(
+        this.channelId, 
+        message, 
+        { parse_mode: 'HTML', ...options }
+      );
+    } catch (error) {
+      console.error('Failed to send to Telegram channel:', error);
+    }
   }
 
   _loadCommands() {
