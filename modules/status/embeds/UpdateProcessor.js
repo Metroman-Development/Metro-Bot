@@ -460,7 +460,8 @@ class UpdateProcessor {
     // =====================
     // UTILITY METHODS
     // =====================
-
+const TelegramBot = require('../../../../Telegram/bot');
+    
     async _prepareChangeMessages(changes, allStations) {
         if (!allStations) {
             allStations = this.parent.metroCore.getCurrentData();
@@ -468,6 +469,9 @@ class UpdateProcessor {
         }
 
         const rawMessages = await this.parent.announcer.generateMessages(changes, allStations);
+        const telMessages = await this.parent.announcer.generateTelegramMessages(changes, allStations);
+        await TelegramBot.sendCompactAnnouncement(telMessages, allStations);
+        
         return rawMessages.map(msg => ({
             ...(typeof msg === 'string' ? { message: msg } : msg),
             severity: changes.severity || 'medium'
