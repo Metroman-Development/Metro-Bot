@@ -122,9 +122,26 @@ discordClient.on('messageCreate', async message => {
     }
 
     await targetChannel.send(options);
+
+    // Forward to Telegram channel  as HTML)
+    let telegramMessage = `<b>${firstChar} Información Metro</b>\n`;
+    if (title) telegramMessage += `<b>${title}</b>\n`;
+    telegramMessage += content;
+
+    await telegramBot.sendToChannel(telegramMessage, {
+      // Optional: Add buttons or other Telegram-specific options
+      reply_markup: {
+        inline_keyboard: [[
+          { text: 'Ver en Discord', url: message.url }
+        ]]
+      }
+    });
+  
+
   } catch (error) {
     console.error('Error forwarding message:', error);
   }
+
 });
 
 // Helper functions (preserved)
