@@ -8,11 +8,11 @@ const MetroCore = require('../../modules/metro/core/MetroCore');
 const LINE_EMOJIS = {
     'l1': '🔴',  // Línea 1
     'l2': '🟡',  // Línea 2
-    'l3': '🟢',  // Línea 3
+    'l3': '🟤',  // Línea 3
     'l4': '🔵',  // Línea 4
-    'l4a': '🟠', // Línea 4A
-    'l5': '🟣',  // Línea 5
-    'l6': '🟤',  // Línea 6
+    'l4a': '🔵A', // Línea 4A
+    'l5': '🟢',  // Línea 5
+    'l6': '🟣',  // Línea 6
     'default': '🚇' // Default emoji
 };
 
@@ -81,7 +81,7 @@ module.exports = {
             });
 
             // Add timestamp
-            message += `\n\n<i>Actualizado: ${this.formatTimestamp(network.timestamp)}</i>`;
+            message += `\n\n<i>Actualizado: ${formatTimestamp(network.timestamp)}</i>`;
 
             await ctx.replyWithHTML(message);
 
@@ -91,6 +91,7 @@ module.exports = {
         }
     },
 
+   
     formatTimestamp(timestamp) {
         if (!timestamp) return 'Desconocido';
         
