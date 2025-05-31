@@ -4,6 +4,7 @@ const EventPayload = require('../../../core/EventPayload');
 const { performance } = require('perf_hooks');
 const timeUtils = require('../../chronos/timeHelpers');
 const { TelegramBot } = require('../../../Telegram/bot');
+const ChangeAnnouncer = require('../utils ChangeAnnouncer');
 
 class UpdateProcessor {
     constructor(statusUpdater) {
@@ -467,9 +468,11 @@ class UpdateProcessor {
             allStations = this.parent.metroCore.getCurrentData();
             logger.warn('[UpdateProcessor] Using fallback station data');
         }
-
+        
+        const changeAnnouncer = new ChangeAnnouncer();
+      
         const rawMessages = await this.parent.announcer.generateMessages(changes, allStations);
-        const telMessages = await this.parent.announcer.generateTelegramMessages(changes, allStations);
+        const telMessages = await changeAnnouncer.generateTelegramMessages(changes, allStations);
         await TelegramBot.sendCompactAnnouncement(telMessages, allStations);
         
         return rawMessages.map(msg => ({
