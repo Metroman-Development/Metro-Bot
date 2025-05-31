@@ -70,11 +70,12 @@ discordClient.on('interactionCreate', async interaction => {
 setClient(discordClient) 
 
 // Message handling (your original metro alert system)
+// Metro alert forwarding (your original code)
 discordClient.on('messageCreate', async message => {
   if (message.author.bot) return;
   const prefix = '!';
   
-  // Prefix commands
+  // Prefix commands (unchanged)
   if (message.content.startsWith(prefix)) {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -88,7 +89,7 @@ discordClient.on('messageCreate', async message => {
     }
   }
 
-  // Metro alert forwarding (your original code)
+  // Metro alert forwarding
   if (message.channel.id !== '1377398484931575938') return;
   const targetChannel = await discordClient.channels.fetch('1347146518943105085');
   if (!targetChannel) return;
@@ -123,26 +124,70 @@ discordClient.on('messageCreate', async message => {
 
     await targetChannel.send(options);
 
-    // Forward to Telegram channel  as HTML)
-    let telegramMessage = `<b>${firstChar} Información Metro</b>\n`;
+    // Modified Telegram message handling
+    let telegramMessage = '';
+    
+    // Add urgency emoji/text
+    if (firstChar) {
+      const telegramEmoji = _translateToTelegramEmoji(firstChar);
+      telegramMessage += `${telegramEmoji} `;
+    }
+    
+    telegramMessage += `<b>Información Metro</b>\n`;
     if (title) telegramMessage += `<b>${title}</b>\n`;
-    telegramMessage += content;
+    
+    // Process content for Telegram (replace Discord-specific emojis)
+    const telegramContent = _processForTelegram(content);
+    telegramMessage += telegramContent;
 
     await telegramBot.sendToChannel(telegramMessage, {
-      // Optional: Add buttons or other Telegram-specific options
       reply_markup: {
         inline_keyboard: [[
           { text: 'Ver en Discord', url: message.url }
         ]]
       }
     });
-  
 
   } catch (error) {
     console.error('Error forwarding message:', error);
   }
-
 });
+
+// New helper functions for Telegram
+function _translateToTelegramEmoji(discordEmoji) {
+  const emojiMap = {
+    '🚨': '🚨', // Alarm
+    '⚠️': '⚠️', // Warning
+    'ℹ️': 'ℹ️', // Info
+    '🔵': '🔵', // Blue circle
+    '🟢': '🟢', // Green circle
+    '🟡': '🟡', // Yellow circle
+    '🔴': '🔴'  // Red circle
+  };
+  return emojiMap[discordEmoji] || '';
+}
+
+function _processForTelegram(text) {
+  if (typeof text !== 'string') return text;
+  
+  // Replace line indicators with text representations
+  let processedText = text
+    .replace(/\bl1\b/gi, 'Línea 1')
+    .replace(/\bl2\b/gi, 'Línea 2')
+    .replace(/\bl3\b/gi, 'Línea 3')
+    .replace(/\bl4\b/gi, 'Línea 4')
+    .replace(/\bl4a\b/gi, 'Línea 4A')
+    .replace(/\bl5\b/gi, 'Línea 5')
+    .replace(/\bl6\b/gi, 'Línea 6')
+    .replace(/\bl7\b/gi, 'Línea 7')
+    .replace(/\bl8\b/gi, 'Línea 8')
+    .replace(/\bl9\b/gi, 'Línea 9')
+    .replace(/\$verde/gi, '[Estación Verde]')
+    .replace(/\$roja/gi, '[Estación Roja]')
+    .replace(/\$comun/gi, '[Estación Común]');
+    
+  return processedText;
+}
 
 // Helper functions (preserved)
 function _translateUrgencyEmoji(emoji) {
