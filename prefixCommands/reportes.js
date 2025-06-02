@@ -159,19 +159,32 @@ module.exports = {
                 .setFooter({ text: 'React with ✅ to confirm or ❌ to cancel' });
             
             const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
-            await confirmMessage.react('✅');
-            await confirmMessage.react('❌');
-            
-            const filter = (reaction, user) => {
-                return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
-            };
-            
-            const reactions = await confirmMessage.awaitReactions({ 
-                filter, 
-                max: 1, 
-                time: 30000, 
-                errors: ['time'] 
-            });
+            const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
+await confirmMessage.react('✅');
+await confirmMessage.react('❌');
+
+const filter = (reaction, user) => {
+    return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+try {
+    const collected = await confirmMessage.awaitReactions({ 
+        filter, 
+        max: 1, 
+        time: 30000,
+        errors: ['time']
+    });
+
+    const reaction = collected.first();
+
+    if (reaction.emoji.name === '✅') {
+        message.channel.send("You confirmed ✅!");
+    } else if (reaction.emoji.name === '❌') {
+        message.channel.send("You declined ❌.");
+    }
+} catch (error) {
+    message.channel.send("Time expired! No reaction was received.");
+}
             
             const reaction = reactions.first();
             if (reaction.emoji.name === '❌') {
