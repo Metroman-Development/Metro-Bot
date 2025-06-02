@@ -62,10 +62,21 @@ module.exports = {
                 iconURL: metroConfig.metroLogo.v4
             }).setTimestamp();
 
+            if (lineKey==="la" ) {
+
+
+                
+               await interaction.editReply({ 
+                embeds: [embed],
+                 })
+
+               } else{
+
+            
             await interaction.editReply({ 
                 embeds: [embed],
                 files: [lineImage]
-            });
+            });} 
 
         } catch (error) {
             console.error('Error en comando linea proyecto:', error);
