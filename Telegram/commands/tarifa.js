@@ -2,8 +2,11 @@ const { Telegraf, Markup } = require('telegraf');
 const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
-module.exports = (bot) => {
-    bot.command('tarifa', async (ctx) => {
+module.exports = {
+    command: 'tarifa',
+    description: 'Muestra información tarifaria del Metro de Santiago',
+
+    async execute(ctx) {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             
