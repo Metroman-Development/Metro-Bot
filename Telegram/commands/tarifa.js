@@ -36,19 +36,40 @@ module.exports = {
             );
         } catch (error) {
             console.error('Error en comando /tarifa:', error);
-            ctx.reply('❌ Error al obtener información de tarifas');
+            await ctx.reply('❌ Error al obtener información de tarifas');
         }
     },
 
     registerActions(bot) {
-        // Handle all fare type buttons
-        bot.action('fare_normal', async (ctx) => this.showSpecificFare(ctx, 'normal'));
-        bot.action('fare_estudiante', async (ctx) => this.showSpecificFare(ctx, 'estudiante'));
-        bot.action('fare_adulto_mayor', async (ctx) => this.showSpecificFare(ctx, 'adulto_mayor'));
-        bot.action('fare_bip_adulto_mayor', async (ctx) => this.showSpecificFare(ctx, 'bip_adulto_mayor'));
-        bot.action('fare_nos', async (ctx) => this.showSpecificFare(ctx, 'nos'));
-        bot.action('fare_transantiago', async (ctx) => this.showSpecificFare(ctx, 'transantiago'));
-        bot.action('fare_all', async (ctx) => this.showAllFares(ctx));
+        // Explicitly register each action handler with proper error handling
+        const actions = {
+            'fare_normal': 'normal',
+            'fare_estudiante': 'estudiante',
+            'fare_adulto_mayor': 'adulto_mayor',
+            'fare_bip_adulto_mayor': 'bip_adulto_mayor',
+            'fare_nos': 'nos',
+            'fare_transantiago': 'transantiago',
+            'fare_all': 'all'
+        };
+
+        Object.entries(actions).forEach(([action, fareType]) => {
+            bot.action(action, async (ctx) => {
+                try {
+                    if (fareType === 'all') {
+                        await this.showAllFares(ctx);
+                    } else {
+                        await this.showSpecificFare(ctx, fareType);
+                    }
+                } catch (error) {
+                    console.error(`Error in ${action} handler:`, error);
+                    try {
+                        await ctx.answerCbQuery('❌ Error al procesar la solicitud');
+                    } catch (err) {
+                        console.error('Failed to answer callback query:', err);
+                    }
+                }
+            });
+        });
     },
 
     async showAllFares(ctx) {
@@ -65,14 +86,15 @@ module.exports = {
                 'Red': metroConfig.tarifario['t_transantiago']
             };
 
-            let message = `💰 *Todas las Tarifas*\n\n` +
-                         `*Período Actual:* ${currentPeriod.name}\n` +
-                         `*Próximo Cambio:* ${nextTransition.time}\n\n` +
-                         Object.entries(fares).map(([name, amount]) => 
-                             `*${name}:* $${amount}`
-                         ).join('\n');
+            let message = `💰 *Todas las Tarifas*\n\n`;
+            message += `*Período Actual:* ${currentPeriod.name}\n`;
+            message += `*Próximo Cambio:* ${nextTransition.time}\n\n`;
+            
+            for (const [name, amount] of Object.entries(fares)) {
+                message += `*${name}:* $${amount}\n`;
+            }
 
-            // Keep the original keyboard
+            // Recreate the keyboard to maintain navigation
             const keyboard = Markup.inlineKeyboard([
                 [
                     Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
@@ -97,8 +119,9 @@ module.exports = {
             });
             await ctx.answerCbQuery();
         } catch (error) {
-            console.error('Error showing all fares:', error);
+            console.error('Error in showAllFares:', error);
             await ctx.answerCbQuery('❌ Error al mostrar tarifas');
+            throw error; // Re-throw to be caught by the action handler
         }
     },
 
@@ -147,17 +170,21 @@ module.exports = {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             const isFlatFare = fareType === 'transantiago';
             
-            let message = `${config.emoji} *${config.name}*\n` +
-                         `${config.description}\n\n` +
-                         (isFlatFare 
-                             ? `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`
-                             : `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n` +
-                               `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n` +
-                               `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`) +
-                         `\n*Período Actual:* ${currentPeriod.name}\n` +
-                         `${TimeHelpers.formatTime(new Date())}`;
+            let message = `${config.emoji} *${config.name}*\n`;
+            message += `${config.description}\n\n`;
+            
+            if (isFlatFare) {
+                message += `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`;
+            } else {
+                message += `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n`;
+                message += `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n`;
+                message += `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`;
+            }
 
-            // Keep the original keyboard
+            message += `\n*Período Actual:* ${currentPeriod.name}\n`;
+            message += `${TimeHelpers.formatTime(new Date())}`;
+
+            // Recreate the keyboard to maintain navigation
             const keyboard = Markup.inlineKeyboard([
                 [
                     Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
@@ -182,8 +209,9 @@ module.exports = {
             });
             await ctx.answerCbQuery();
         } catch (error) {
-            console.error(`Error showing ${fareType} fare:`, error);
+            console.error(`Error in showSpecificFare for ${fareType}:`, error);
             await ctx.answerCbQuery('❌ Error al mostrar tarifa');
+            throw error; // Re-throw to be caught by the action handler
         }
     }
 };
