@@ -182,7 +182,7 @@ module.exports = {
             }
             
             // Execute deletion
-            const [result] = await db.query(query, params);
+            const result = await db.query(query, params);
             
             embed.setColor('#00ff00')
                  .setTitle('✅ Cleanup Complete')
