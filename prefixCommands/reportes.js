@@ -609,7 +609,7 @@ module.exports = {
         }
 
         const [reports] = await db.query(
-            `SELECT id, linea, problema, descripcion, status, created_at, updated_at, ip 
+            `SELECT id, linea, problema, descripcion, status, created_at, ip 
              FROM reports 
              ORDER BY created_at DESC 
              LIMIT 1000`
