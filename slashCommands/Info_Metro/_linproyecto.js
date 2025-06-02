@@ -15,7 +15,9 @@ module.exports = {
                 .addChoices(
                     { name: '🚇 Línea 7', value: 'l7' },
                     { name: '🚇 Línea 8', value: 'l8' },
-                    { name: '🚇 Línea 9', value: 'l9' }
+                    { name: '🚇 Línea 9', value: 'l9' }, 
+                    { name: '🚇 Línea A', value: 'la' }
+ 
                 )
         ),
 
