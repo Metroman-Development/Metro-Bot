@@ -608,7 +608,7 @@ module.exports = {
             throw new Error('Invalid format. Use either "csv" or "json"');
         }
 
-        const [reports] = await db.query(
+        const reports = await db.query(
             `SELECT id, linea, problema, descripcion, status, created_at, ip 
              FROM reports 
              ORDER BY created_at DESC 
