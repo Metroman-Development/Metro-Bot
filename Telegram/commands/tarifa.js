@@ -1,3 +1,4 @@
+
 const { Markup } = require('telegraf');
 const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
@@ -10,7 +11,6 @@ module.exports = {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             
-            // Create inline keyboard for fare selection
             const keyboard = Markup.inlineKeyboard([
                 [
                     Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
@@ -29,13 +29,11 @@ module.exports = {
                 ]
             ]);
 
-            await ctx.replyWithPhoto(
-                { url: metroConfig.metroLogo.v4 },
-                {
-                    caption: `💰 *Tarifas del Metro*\n\nPeríodo actual: *${currentPeriod.name}*\n${TimeHelpers.formatForEmbed()}`,
-                    parse_mode: 'Markdown',
-                    ...keyboard
-                }
+            await ctx.replyWithMarkdown(
+                `💰 *Tarifas del Metro*\n\n` +
+                `Período actual: *${currentPeriod.name}*\n` +
+                `${TimeHelpers.formatForEmbed()}`,
+                keyboard
             );
         } catch (error) {
             console.error('Error en comando /tarifa:', error);
@@ -44,15 +42,12 @@ module.exports = {
     },
 
     setupActions(bot) {
-        // Handle button callbacks
         bot.action(/fare_(.+)/, async (ctx) => {
             try {
                 const fareType = ctx.match[1];
-                
                 if (fareType === 'all') {
                     return await this.showAllFares(ctx);
                 }
-                
                 await this.showSpecificFare(ctx, fareType);
             } catch (error) {
                 console.error('Error en acción de tarifa:', error);
@@ -74,17 +69,16 @@ module.exports = {
             'Red': metroConfig.tarifario['t_transantiago']
         };
 
-        let message = `💰 *Todas las Tarifas*\n\n`;
-        message += `*Período Actual:* ${currentPeriod.name}\n`;
-        message += `*Próximo Cambio:* ${nextTransition.time}\n\n`;
-        
-        for (const [name, amount] of Object.entries(fares)) {
-            message += `*${name}:* $${amount}\n`;
-        }
+        let message = `💰 *Todas las Tarifas*\n\n` +
+                     `*Período Actual:* ${currentPeriod.name}\n` +
+                     `*Próximo Cambio:* ${nextTransition.time}\n\n` +
+                     Object.entries(fares).map(([name, amount]) => 
+                         `*${name}:* $${amount}`
+                     ).join('\n');
 
-        await ctx.editMessageCaption({
-            caption: message,
-            parse_mode: 'Markdown'
+        await ctx.editMessageText(message, { 
+            parse_mode: 'Markdown',
+            reply_markup: ctx.update.callback_query.message.reply_markup
         });
         ctx.answerCbQuery();
     },
@@ -133,23 +127,19 @@ module.exports = {
         const currentPeriod = TimeHelpers.getCurrentPeriod();
         const isFlatFare = fareType === 'transantiago';
         
-        let message = `${config.emoji} *${config.name}*\n`;
-        message += `${config.description}\n\n`;
-        
-        if (isFlatFare) {
-            message += `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`;
-        } else {
-            message += `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n`;
-            message += `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n`;
-            message += `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`;
-        }
+        let message = `${config.emoji} *${config.name}*\n` +
+                     `${config.description}\n\n` +
+                     (isFlatFare 
+                         ? `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`
+                         : `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n` +
+                           `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n` +
+                           `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`) +
+                     `\n*Período Actual:* ${currentPeriod.name}\n` +
+                     `${TimeHelpers.formatTime(new Date())}`;
 
-        message += `\n*Período Actual:* ${currentPeriod.name}\n`;
-        message += `${TimeHelpers.formatTime(new Date())}`;
-
-        await ctx.editMessageCaption({
-            caption: message,
-            parse_mode: 'Markdown'
+        await ctx.editMessageText(message, { 
+            parse_mode: 'Markdown',
+            reply_markup: ctx.update.callback_query.message.reply_markup
         });
         ctx.answerCbQuery();
     }
