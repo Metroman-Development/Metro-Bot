@@ -159,8 +159,7 @@ module.exports = {
                 .setFooter({ text: 'React with ✅ to confirm or ❌ to cancel' });
             
             const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
-            const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
-await confirmMessage.react('✅');
+            await confirmMessage.react('✅');
 await confirmMessage.react('❌');
 
 const filter = (reaction, user) => {
