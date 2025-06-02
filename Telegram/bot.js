@@ -1,17 +1,15 @@
 const { Telegraf } = require('telegraf');
+const fs = require('fs');
+const path = require('path');
 const config = require('./config');
-const pingCommand = require('./commands/ping');
-const metEstado= require('./commands/metroestado'); 
 
 class TelegramBot {
   constructor() {
     this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
     this._loadCommands();
-    
-    this.channelId = process.env.TELEGRAM_CHANNEL_ID; // Add to .env
-    }
+    this.channelId = process.env.TELEGRAM_CHANNEL_ID;
+  }
 
-  // Add this new method
   async sendToChannel(message, options = {}) {
     try {
       await this.bot.telegram.sendMessage(
@@ -26,12 +24,10 @@ class TelegramBot {
   
   async sendCompactAnnouncement(messages) {
     try {
-         
       if (messages.length === 0) {
         return;
       }
       
-      // Combine messages with double newlines between them
       const combinedMessage = messages.join('\n\n');
       await this.sendToChannel(combinedMessage);
     } catch (error) {
@@ -39,14 +35,31 @@ class TelegramBot {
     }
   }
 
- 
-
   _loadCommands() {
-    // Register commands
-    this.bot.command('ping', pingCommand.execute);
-    this.bot.command('estadored', metEstado.execute);
- 
-    //   handling
+    // Get all files in the commands directory
+    const commandsPath = path.join(__dirname, 'commands');
+    const commandFiles = fs.readdirSync(commandsPath).filter(file => 
+      file.endsWith('.js') && !file.startsWith('.')
+    );
+
+    // Dynamically register each command
+    for (const file of commandFiles) {
+      try {
+        const command = require(path.join(commandsPath, file));
+        const commandName = file.replace('.js', '').toLowerCase();
+        
+        if (command.execute && typeof command.execute === 'function') {
+          this.bot.command(commandName, command.execute);
+          console.log(`Registered command: /${commandName}`);
+        } else {
+          console.warn(`Skipping ${file} - missing execute function`);
+        }
+      } catch (error) {
+        console.error(`Error loading command ${file}:`, error);
+      }
+    }
+
+    // Error handling
     this.bot.catch((err, ctx) => {
       console.error('Telegram Bot Error:', err);
       ctx.reply('⚠️ An error occurred.');
