@@ -615,6 +615,8 @@ module.exports = {
              LIMIT 1000`
         );
 
+        console.log(reports) 
+
         if (reports.length === 0) {
             embed.setDescription('No reports to export.');
             return message.channel.send({ embeds: [embed] });
