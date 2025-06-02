@@ -64,7 +64,7 @@ module.exports = {
 
 // Create optimized embed with enhanced visuals
              embed = new EmbedBuilder()
-                .setTitle(`${lineEmoji} Línea ${lineNumber} (En proyecto) • ${lineInfo.Estreno}`)
+                .setTitle(`${lineEmoji} Línea A (En proyecto) • ${lineInfo.Estreno}`)
                 .setColor(this._getColorCode(lineInfo.Color))
                 //.setThumbnail(metroConfig.metroLogo.v4)
                   .setDescription(this._buildDescription(lineInfo));
