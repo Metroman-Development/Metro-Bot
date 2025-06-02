@@ -40,6 +40,8 @@ module.exports = {
             const lineNumber = lineKey.slice(1);
             const imageUrl = `https://raw.githubusercontent.com/MetroManSR/MetroWeb/main/metrobot/assets/L%C3%ADnea_${lineNumber}_del_Metro_de_Santiago.svg.png`;
 
+
+            if (lineKey! =="la" ) {
             // Process image
             const lineImage = await ImageProcessor.processForDiscord(imageUrl, {
                 filename: `${lineKey}_proyecto.png`,
@@ -56,6 +58,18 @@ module.exports = {
                 .setImage(`attachment://${lineKey}_proyecto.png`)
                 .setDescription(this._buildDescription(lineInfo));
 
+       } else {
+
+
+// Create optimized embed with enhanced visuals
+            const embed = new EmbedBuilder()
+                .setTitle(`${lineEmoji} Línea ${lineNumber} (En proyecto) • ${lineInfo.Estreno}`)
+                .setColor(this._getColorCode(lineInfo.Color))
+                //.setThumbnail(metroConfig.metroLogo.v4)
+                  .setDescription(this._buildDescription(lineInfo));
+
+               } 
+                 
             // Set footer with project-specific icon
             embed.setFooter({ 
                 text: 'Sistema Metro de Santiago - Proyectos futuros', 
