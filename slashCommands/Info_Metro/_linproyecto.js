@@ -41,7 +41,7 @@ module.exports = {
             const imageUrl = `https://raw.githubusercontent.com/MetroManSR/MetroWeb/main/metrobot/assets/L%C3%ADnea_${lineNumber}_del_Metro_de_Santiago.svg.png`;
 
 
-            if (lineKey! =="la" ) {
+            if (lineKey!=="la" ) {
             // Process image
             const lineImage = await ImageProcessor.processForDiscord(imageUrl, {
                 filename: `${lineKey}_proyecto.png`,
