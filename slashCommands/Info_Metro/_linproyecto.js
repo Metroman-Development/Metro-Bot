@@ -42,9 +42,10 @@ module.exports = {
 
 
             let embed = null;
+            let lineImage = null;
             if (lineKey!=="la" ) {
             // Process image
-            const lineImage = await ImageProcessor.processForDiscord(imageUrl, {
+            lineImage = await ImageProcessor.processForDiscord(imageUrl, {
                 filename: `${lineKey}_proyecto.png`,
                 description: `Mapa de Línea ${lineNumber} (Proyecto)`,
                 backgroundColor: '#FFFFFF',
