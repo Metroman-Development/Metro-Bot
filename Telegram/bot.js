@@ -7,7 +7,22 @@ class TelegramBot {
   constructor() {
     this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
     this._loadCommands();
+    this._setupWelcomeHandler(); // Add welcome handler setup
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
+  }
+
+  _setupWelcomeHandler() {
+    this.bot.on('new_chat_members', (ctx) => {
+      // Handle each new member
+      ctx.message.new_chat_members.forEach((newMember) => {
+        const welcomeMessage = 
+          `Bienvenido ${newMember.first_name} a la Comunidad Social Informativa y de Reportes del Metro de Santiago 🚇🫂. Esperamos que lo pases bien con nosotros.`;
+        
+        ctx.reply(welcomeMessage, {
+          parse_mode: 'HTML'
+        });
+      });
+    });
   }
 
   async sendToChannel(message, options = {}) {
