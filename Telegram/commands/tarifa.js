@@ -1,11 +1,11 @@
-const { Telegraf, Markup } = require('telegraf');
+const { Markup } = require('telegraf');
 const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
 module.exports = {
     command: 'tarifa',
-    description: 'Muestra información tarifaria del Metro de Santiago',
-
+    description: 'Consulta las tarifas del Metro con opciones interactivas',
+    
     async execute(ctx) {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
@@ -41,25 +41,27 @@ module.exports = {
             console.error('Error en comando /tarifa:', error);
             ctx.reply('❌ Error al obtener información de tarifas');
         }
-    });
+    },
 
-    // Handle button callbacks
-    bot.action(/fare_(.+)/, async (ctx) => {
-        try {
-            const fareType = ctx.match[1];
-            
-            if (fareType === 'all') {
-                return await showAllFares(ctx);
+    setupActions(bot) {
+        // Handle button callbacks
+        bot.action(/fare_(.+)/, async (ctx) => {
+            try {
+                const fareType = ctx.match[1];
+                
+                if (fareType === 'all') {
+                    return await this.showAllFares(ctx);
+                }
+                
+                await this.showSpecificFare(ctx, fareType);
+            } catch (error) {
+                console.error('Error en acción de tarifa:', error);
+                ctx.answerCbQuery('❌ Error al mostrar la tarifa');
             }
-            
-            await showSpecificFare(ctx, fareType);
-        } catch (error) {
-            console.error('Error en acción de tarifa:', error);
-            ctx.answerCbQuery('❌ Error al mostrar la tarifa');
-        }
-    });
+        });
+    },
 
-    async function showAllFares(ctx) {
+    async showAllFares(ctx) {
         const currentPeriod = TimeHelpers.getCurrentPeriod();
         const nextTransition = TimeHelpers.getNextTransition();
         
@@ -85,9 +87,9 @@ module.exports = {
             parse_mode: 'Markdown'
         });
         ctx.answerCbQuery();
-    }
+    },
 
-    async function showSpecificFare(ctx, fareType) {
+    async showSpecificFare(ctx, fareType) {
         const fareConfig = {
             'normal': { 
                 keys: ['t_metro_punta', 't_metro_valle', 't_metro_bajo'], 
