@@ -87,8 +87,7 @@ module.exports = {
             `SELECT id, linea, problema, status, created_at 
              FROM reports 
              ORDER BY created_at DESC 
-             LIMIT ?`, 
-            [maxLimit]
+             `
         );
         
         if (reports.length === 0) {
