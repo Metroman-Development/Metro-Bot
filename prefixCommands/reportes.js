@@ -1,3 +1,4 @@
+
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const DatabaseManager = require('../core/database/DatabaseManager');
 const logger = require('../events/logger');
@@ -53,10 +54,29 @@ module.exports = {
                     await this.showHelp(message, embed);
             }
         } catch (error) {
-            logger.error('Reportes command error:', error);
+            logger.error('Reportes command execution failed:', {
+                error: error.message,
+                stack: error.stack,
+                command: 'reportes',
+                args: args,
+                userId: message.author.id,
+                channelId: message.channel.id
+            });
+            
             embed.setColor('#ff0000')
-                 .setTitle('Error')
-                 .setDescription(`❌ ${error.message}`);
+                 .setTitle('Command Execution Failed')
+                 .setDescription('❌ An error occurred while processing your request. The error has been logged.')
+                 .addFields(
+                    { name: 'Error', value: error.message.length > 1000 ? error.message.substring(0, 1000) + '...' : error.message }
+                 );
+            
+            if (error.stack) {
+                embed.addFields({
+                    name: 'Technical Details',
+                    value: '```' + error.stack.substring(0, 1000) + (error.stack.length > 1000 ? '...' : '') + '```'
+                });
+            }
+            
             await message.channel.send({ embeds: [embed] });
         }
     },
@@ -101,31 +121,56 @@ module.exports = {
         }
     },
 
-    async handleCleanup(message, db, embed, days = '30') {
-        const daysToKeep = parseInt(days) || 30;
-        if (daysToKeep < 1) {
-            throw new Error('Days parameter must be at least 1');
-        }
-        
-        const confirmEmbed = new EmbedBuilder()
-            .setColor('#ffcc00')
-            .setTitle('⚠️ Confirm Cleanup')
-            .setDescription(`Are you sure you want to delete all reports older than ${daysToKeep} days?`)
-            .setFooter({ text: 'React with ✅ to confirm or ❌ to cancel' });
-        
-        const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
-        await confirmMessage.react('✅');
-        await confirmMessage.react('❌');
-        
-        const filter = (reaction, user) => {
-            return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
-        };
-        
+    async handleCleanup(message, db, embed, days = 'all') {
         try {
+            let query;
+            let params = [];
+            let description;
+            
+            if (days.toLowerCase() === 'all') {
+                query = 'DELETE FROM reports';
+                description = 'ALL reports from the database';
+            } else {
+                const daysToKeep = parseInt(days) || 30;
+                if (daysToKeep < 1) {
+                    throw new Error('Days parameter must be at least 1 or "all"');
+                }
+                query = 'DELETE FROM reports WHERE created_at < DATE_SUB(NOW(), INTERVAL ? DAY)';
+                params = [daysToKeep];
+                description = `reports older than ${daysToKeep} days`;
+            }
+            
+            // Get count of records that will be deleted
+            const countQuery = query.replace('DELETE', 'SELECT COUNT(*) as count');
+            const [countResult] = await db.query(countQuery, params);
+            const count = countResult[0].count;
+            
+            if (count === 0) {
+                embed.setColor('#ffcc00')
+                     .setTitle('No Reports to Cleanup')
+                     .setDescription('No reports match your cleanup criteria.');
+                return message.channel.send({ embeds: [embed] });
+            }
+            
+            // Confirmation
+            const confirmEmbed = new EmbedBuilder()
+                .setColor('#ffcc00')
+                .setTitle('⚠️ Confirm Cleanup')
+                .setDescription(`You are about to delete ${count} ${description}. This action cannot be undone.`)
+                .setFooter({ text: 'React with ✅ to confirm or ❌ to cancel' });
+            
+            const confirmMessage = await message.channel.send({ embeds: [confirmEmbed] });
+            await confirmMessage.react('✅');
+            await confirmMessage.react('❌');
+            
+            const filter = (reaction, user) => {
+                return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+            };
+            
             const reactions = await confirmMessage.awaitReactions({ 
                 filter, 
                 max: 1, 
-                time: 15000, 
+                time: 30000, 
                 errors: ['time'] 
             });
             
@@ -137,15 +182,12 @@ module.exports = {
                 return message.channel.send({ embeds: [embed] });
             }
             
-            const [result] = await db.query(
-                `DELETE FROM reports 
-                 WHERE created_at < DATE_SUB(NOW(), INTERVAL ? DAY)`,
-                [daysToKeep]
-            );
+            // Execute deletion
+            const [result] = await db.query(query, params);
             
             embed.setColor('#00ff00')
                  .setTitle('✅ Cleanup Complete')
-                 .setDescription(`Successfully deleted ${result.affectedRows} reports older than ${daysToKeep} days.`);
+                 .setDescription(`Successfully deleted ${result.affectedRows} ${description}.`);
             
             await message.channel.send({ embeds: [embed] });
             
@@ -311,7 +353,7 @@ module.exports = {
         }
 
         await db.query(
-            'UPDATE reports SET status = ? WHERE id = ?',
+            'UPDATE reports SET status = ?, updated_at = NOW() WHERE id = ?',
             [newStatus, reportId]
         );
 
@@ -614,7 +656,7 @@ module.exports = {
              .addFields(
                 { name: 'Commands', value: [
                     '`!reportes list [limit]` - List recent reports (default: 50, max: 100)',
-                    '`!reportes cleanup [days]` - Delete reports older than X days (default: 30)',
+                    '`!reportes cleanup [days|all]` - Delete reports older than X days or all reports',
                     '`!reportes stats` - Show detailed report statistics',
                     '`!reportes search <term>` - Search reports by line, status, or keyword',
                     '`!reportes update <id> <status>` - Update single report status',
