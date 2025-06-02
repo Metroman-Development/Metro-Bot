@@ -83,7 +83,7 @@ module.exports = {
 
     async handleListReports(message, db, embed, limit = '50') {
         const maxLimit = Math.min(parseInt(limit) || 50, 100);
-        const [reports] = await db.query(
+        const reports = await db.query(
             `SELECT id, linea, problema, status, created_at 
              FROM reports 
              ORDER BY created_at DESC 
@@ -141,7 +141,7 @@ module.exports = {
             
             // Get count of records that will be deleted
             const countQuery = query.replace('DELETE', 'SELECT COUNT(*) as count');
-            const [countResult] = await db.query(countQuery, params);
+            const countResult = await db.query(countQuery, params);
             const count = countResult[0].count;
             
             if (count === 0) {
@@ -203,7 +203,7 @@ module.exports = {
     },
 
     async handleStats(message, db, embed) {
-        const [stats] = await db.query(`
+        const stats = await db.query(`
             SELECT 
                 COUNT(*) as total,
                 SUM(CASE WHEN status = 'pendiente' THEN 1 ELSE 0 END) as pending,
@@ -214,7 +214,7 @@ module.exports = {
             FROM reports
         `);
         
-        const [lineStats] = await db.query(`
+        const lineStats = await db.query(`
             SELECT 
                 linea,
                 COUNT(*) as count,
@@ -224,7 +224,7 @@ module.exports = {
             ORDER BY count DESC
         `);
         
-        const [typeStats] = await db.query(`
+        const typeStats = await db.query(`
             SELECT 
                 problema,
                 COUNT(*) as count
@@ -297,7 +297,7 @@ module.exports = {
             params = [`%${searchTerm}%`, `%${searchTerm}%`];
         }
         
-        const [results] = await db.query(query, params);
+        const results = await db.query(query, params);
         
         if (results.length === 0) {
             embed.setDescription(`No reports found matching "${searchTerm}".`);
@@ -342,7 +342,7 @@ module.exports = {
             throw new Error(`Invalid status. Valid options are: ${validStatuses.join(', ')}`);
         }
 
-        const [report] = await db.query(
+        const report = await db.query(
             'SELECT id, linea, problema, status FROM reports WHERE id = ?',
             [reportId]
         );
@@ -371,7 +371,7 @@ module.exports = {
             throw new Error('Please provide a report ID to view');
         }
 
-        const [report] = await db.query(
+        const report = await db.query(
             `SELECT 
                 id, 
                 linea, 
