@@ -41,6 +41,7 @@ module.exports = {
             const imageUrl = `https://raw.githubusercontent.com/MetroManSR/MetroWeb/main/metrobot/assets/L%C3%ADnea_${lineNumber}_del_Metro_de_Santiago.svg.png`;
 
 
+            let embed = null;
             if (lineKey!=="la" ) {
             // Process image
             const lineImage = await ImageProcessor.processForDiscord(imageUrl, {
@@ -51,7 +52,7 @@ module.exports = {
             });
 
             // Create optimized embed with enhanced visuals
-            const embed = new EmbedBuilder()
+             embed = new EmbedBuilder()
                 .setTitle(`${lineEmoji} Línea ${lineNumber} (En proyecto) • ${lineInfo.Estreno}`)
                 .setColor(this._getColorCode(lineInfo.Color))
                 //.setThumbnail(metroConfig.metroLogo.v4)
@@ -62,7 +63,7 @@ module.exports = {
 
 
 // Create optimized embed with enhanced visuals
-            const embed = new EmbedBuilder()
+             embed = new EmbedBuilder()
                 .setTitle(`${lineEmoji} Línea ${lineNumber} (En proyecto) • ${lineInfo.Estreno}`)
                 .setColor(this._getColorCode(lineInfo.Color))
                 //.setThumbnail(metroConfig.metroLogo.v4)
