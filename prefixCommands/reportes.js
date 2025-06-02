@@ -166,16 +166,22 @@ const filter = (reaction, user) => {
     return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-try {
-    const collected = await confirmMessage.awaitReactions({ 
+            let collected = null;
+            let reaction = {emoji:{name:'✅'}};  
+
+            try {
+     collected = await confirmMessage.awaitReactions({ 
         filter, 
         max: 1, 
         time: 30000,
         errors: ['time']
     });
 
-    const reaction = collected.first();
+     reaction = collected.first();
 
+
+      console.log(reaction)        
+                
     if (reaction.emoji.name === '✅') {
         message.channel.send("You confirmed ✅!");
     } else if (reaction.emoji.name === '❌') {
@@ -185,7 +191,7 @@ try {
     message.channel.send("Time expired! No reaction was received.");
 }
             
-            const reaction = reactions.first();
+        
             if (reaction.emoji.name === '❌') {
                 embed.setColor('#ffcc00')
                      .setTitle('Cleanup Cancelled')
