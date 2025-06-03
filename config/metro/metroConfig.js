@@ -180,7 +180,7 @@ api: {
         t_nos_punta: "870", // NOS peak fare
         t_nos_valle: "790", // NOS midday fare
         t_nos_bajo: "710", // NOS off-peak fare
-        t_transantiago: "700", // Transantiago fare
+        t_transantiago: "770", // Transantiago fare
     },
 
     // Festive days (public holidays in Chile for 2025)
