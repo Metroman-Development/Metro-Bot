@@ -734,16 +734,16 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     const statusInfo = this._getStatusInfo(lineChange.to, false);
                     
                     // Skip if changing to/from status 0
-                    if ((typeof lineChange.to === 'object' && lineChange.to.code === 0) || 
-                        (typeof lineChange.from === 'object' && lineChange.from.code === 0) ||
-                        lineChange.to === 0 || lineChange.from === 0) {
+                    if ((typeof lineChange.to === 'object' && lineChange.to.code === '0') || 
+                        (typeof lineChange.from === 'object' && lineChange.from.code === '0') ||
+                        lineChange.to === '0' || lineChange.from === '0') {
                         continue;
                     }
 
                     const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
                     const lineName = lineData.displayName || `Línea ${lineNumber}`;
                     
-                    if (lineChange.to === 1 || (typeof lineChange.to === 'object' && lineChange.to.code === 1)) {
+                    if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
                         // Service normalized
                         lineMessage = `${statusInfo.emoji} Servicio en #${lineName} se encuentra normalizado`;
                         
@@ -765,8 +765,8 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                 // Process station changes (only include closed stations - status 2 or 3)
                 const closedStations = group.stationChanges.filter(change => {
                     const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-                    return (statusCode === 2 || statusCode === 3) && 
-                           !((typeof change.from === 'object' && change.from.code === 0) || change.from === 0);
+                    return (statusCode === '2' || statusCode === '3') && 
+                           !((typeof change.from === 'object' && change.from.code === '0') || change.from === '0');
                 });
                 
                 if (closedStations.length > 0) {
@@ -776,7 +776,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     // Group by status
                     const groupedByStatus = closedStations.reduce((acc, change) => {
                         const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-                        const statusKey = statusCode === 2 ? 'closed' : 'partial';
+                        const statusKey = statusCode === '2' ? 'closed' : 'partial';
                         
                         acc[statusKey] = acc[statusKey] || [];
                         const station = allStations.stations?.[change.id] || {};
@@ -810,6 +810,8 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                 console.error(`Error processing line ${lineId} for Telegram:`, error);
             }
         }
+
+        console.log("Mensajes al final: ",messages)
 
         return messages;
     } catch (error) {
