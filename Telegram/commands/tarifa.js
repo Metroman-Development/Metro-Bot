@@ -76,13 +76,27 @@ module.exports = {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             const nextTransition = TimeHelpers.getNextTransition();
+            let tarifaMetro = "No aplica por horario";
+            let tarifaEstudiante = "No aplica por horario";
+            let tarifaAdultoMayor = metroConfig.tarifario['t_adulto_valle'];
+            let tarifaBipAdultoMayor = metroConfig.tarifario['t_adultobip_valle'];
+            let tarifaNos = "No aplica por horario";
+            
+            if (metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`]) {
+                tarifaMetro = metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`];
+                tarifaEstudiante =  metroConfig.tarifario[`t_estudiante_${currentPeriod.type.toLowerCase()}`];
+                tarifaAdultoMayor = metroConfig.tarifario[`t_adulto_${currentPeriod.type.toLowerCase()}`];
+                tarifaBipAdultoMayor = metroConfig.tarifario[`t_adultobip_${currentPeriod.type.toLowerCase()}`]
+                tarifaNos = metroConfig.tarifario[`t_nos_${currentPeriod.type.toLowerCase()}`];
+                
+            } 
             
             const fares = {
-                'Normal (BIP)': metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`],
-                'Estudiante (TNE)': metroConfig.tarifario[`t_estudiante_${currentPeriod.type.toLowerCase()}`],
-                'Adulto Mayor': metroConfig.tarifario[`t_adulto_${currentPeriod.type.toLowerCase()}`],
-                'BIP Adulto Mayor': metroConfig.tarifario[`t_adultobip_${currentPeriod.type.toLowerCase()}`],
-                'NOS': metroConfig.tarifario[`t_nos_${currentPeriod.type.toLowerCase()}`],
+                'Normal (Metro)': tarifaMetro,
+                'Estudiante (TNE)': tarifaEstudiante,
+                'Adulto Mayor': tarifaAdultoMayor,
+                'BIP Adulto Mayor': tarifaBipAdultoMayor,
+                'NOS': tarifaNos,
                 'Red': metroConfig.tarifario['t_transantiago']
             };
 
@@ -97,7 +111,7 @@ module.exports = {
             // Recreate the keyboard to maintain navigation
             const keyboard = Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
+                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
                     Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
                 ],
                 [
