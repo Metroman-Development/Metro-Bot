@@ -473,6 +473,7 @@ class UpdateProcessor {
       
         const rawMessages = await this.parent.announcer.generateMessages(changes, allStations);
         const telMessages = await changeAnnouncer.generateTelegramMessages(changes, allStations);
+        console.log(telMessages)
         await TelegramBot.sendCompactAnnouncement(telMessages);
         
         return rawMessages.map(msg => ({
