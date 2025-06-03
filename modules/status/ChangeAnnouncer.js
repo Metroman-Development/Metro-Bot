@@ -742,6 +742,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
 
                     const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
                     const lineName = lineData.displayName || `Línea ${lineNumber}`;
+                    let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' éstá ';
                     
                     if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
                         // Service normalized
@@ -752,7 +753,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                         }
                     } else {
                         // Other line status changes
-                        lineMessage = `${statusInfo.emoji} Informamos que *#${lineName} ${statusInfo.text.toLowerCase()}*`;
+                        lineMessage = `${statusInfo.emoji} Informamos que *#${lineName}${muleta}${statusInfo.text.toLowerCase()}*`;
                         
                         if (lineChange.reason || lineChange.description) {
                             lineMessage += ` ${lineChange.reason || lineChange.description}`;
@@ -785,7 +786,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     }, {});
                     
                     if (groupedByStatus.closed?.length > 0) {
-                        stationsMessage += `Las siguientes estaciones se encuentran sin servicio:\n\n`;
+                        stationsMessage += `Las siguientes estaciones se encuentran sin servicio en Línea ${lineNumber}:\n\n`;
                         stationsMessage += groupedByStatus.closed.map(name => `❌ ${name}`).join('\n');
                     }
                     
