@@ -26,16 +26,22 @@ class TelegramBot {
   }
 
   async sendToChannel(message, options = {}) {
-    try {
-      await this.bot.telegram.sendMessage(
-        this.channelId, 
-        message, 
-        { parse_mode: 'HTML', ...options }
-      );
-    } catch (error) {
-      console.error('Failed to send to Telegram channel:', error);
-    }
+  try {
+    // Convert Discord emojis to Telegram compatible format
+    const processedMessage = message.replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match, p1, p2) => {
+      const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
+      return `:${emojiName.toUpperCase()}:`;
+    });
+
+    await this.bot.telegram.sendMessage(
+      this.channelId, 
+      processedMessage, 
+      { parse_mode: 'HTML', ...options }
+    );
+  } catch (error) {
+    console.error('Failed to send to Telegram channel:', error);
   }
+}
   
   async sendCompactAnnouncement(messages) {
     try {
