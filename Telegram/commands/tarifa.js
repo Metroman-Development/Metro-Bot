@@ -12,7 +12,7 @@ module.exports = {
             
             const keyboard = Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
+                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
                     Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
                 ],
                 [
@@ -144,7 +144,7 @@ module.exports = {
             const fareConfig = {
                 'normal': { 
                     keys: ['t_metro_punta', 't_metro_valle', 't_metro_bajo'], 
-                    name: 'Normal (BIP)',
+                    name: 'Normal (Metro)',
                     emoji: '🚇',
                     description: 'Tarifa estándar para usuarios con tarjeta BIP'
                 },
@@ -201,7 +201,7 @@ module.exports = {
             // Recreate the keyboard to maintain navigation
             const keyboard = Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('🚇 Normal (BIP)', 'fare_normal'),
+                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
                     Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
                 ],
                 [
