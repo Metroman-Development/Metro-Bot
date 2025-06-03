@@ -753,7 +753,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                         }
                     } else {
                         // Other line status changes
-                        lineMessage = `${statusInfo.emoji} Informamos que *#${lineName}${muleta}${statusInfo.text.toLowerCase()}*`;
+                        lineMessage = `${statusInfo.emoji} Informamos que <b>#L${lineNumber}${muleta}${statusInfo.text.toLowerCase()}</b>`;
                         
                         if (lineChange.reason || lineChange.description) {
                             lineMessage += ` ${lineChange.reason || lineChange.description}`;
@@ -792,7 +792,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     
                     if (groupedByStatus.partial?.length > 0) {
                         if (stationsMessage) stationsMessage += '\n\n';
-                        stationsMessage += `Estaciones con accesos cerrados:\n\n`;
+                        stationsMessage += `Estaciones con accesos cerrados en Línea ${lineNumber}:\n\n`;
                         stationsMessage += groupedByStatus.partial.map(name => `🟡 ${name}`).join('\n');
                     }
                     
