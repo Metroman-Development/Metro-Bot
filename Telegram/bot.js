@@ -85,14 +85,7 @@ class TelegramBot {
     console.error('Telegram Bot Error:', err);
     ctx.reply('⚠️ An error occurred.');
   });
-}
-
-    // Error handling
-    this.bot.catch((err, ctx) => {
-      console.error('Telegram Bot Error:', err);
-      ctx.reply('⚠️ An error occurred.');
-    });
-  }
+  
 
   launch() {
     return this.bot.launch();
