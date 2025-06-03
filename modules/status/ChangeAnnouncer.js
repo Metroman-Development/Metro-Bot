@@ -735,18 +735,22 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     
                     const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
                     const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' éstá ';
+                    let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' está ';
+                    if (lineChange.to === '0') {
+                        muleta = ' se encuentra ';
+
+                    }
                     
                     if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
                         // Service normalized
-                        lineMessage = `${statusInfo.emoji} Servicio en #L${lineNumber} se encuentra normalizado`;
+                        lineMessage = `${statusInfo.emoji} Servicio en #L${lineNumber} se encuentra operativo nuevamente`;
                         
                         if (statusInfo.victoryMessage) {
                             lineMessage += `\n${statusInfo.victoryMessage(lineChange.from)}`;
                         }
                     } else {
                         // Other line status changes
-                        lineMessage = `${statusInfo.emoji} Informamos que <b>#L${lineNumber}${muleta}${statusInfo.text.toLowerCase()}</b>`;
+                        lineMessage = `${statusInfo.emoji} Informamos que <b>#L${lineNumber}${muleta}${statusInfo.text}</b>`;
                         
                         if (lineChange.reason || lineChange.description) {
                             lineMessage += ` ${lineChange.reason || lineChange.description}`;
