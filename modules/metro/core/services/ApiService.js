@@ -463,7 +463,7 @@ async activateEventOverrides(eventDetails) {
                 : await this._readCachedData();
 
             // PHASE 2b: Apply operational state
-            if (!this.timeHelpers.isWithinOperatingHours()) {
+            if (this.timeHelpers.isWithinOperatingHours()) {
                 rawData = this._generateClosedState(rawData);
                 this.metrics.cacheHits++;
             }
