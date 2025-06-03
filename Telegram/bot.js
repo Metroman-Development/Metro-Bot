@@ -27,11 +27,17 @@ class TelegramBot {
 
   async sendToChannel(message, options = {}) {
   try {
-    // Convert Discord emojis to Telegram compatible format
-    const processedMessage = message.replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match, p1, p2) => {
-      const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
-      return `:${emojiName.toUpperCase()}:`;
-    });
+    // Convert Discord emojis and special line formats
+    const processedMessage = message
+      // Convert Discord emoji format <:name:id> to :NAME:
+      .replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match) => {
+        const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
+        return `:${emojiName.toUpperCase()}:`;
+      })
+      // Convert special line formats to proper Spanish names
+      .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
+        return `Línea ${line.toUpperCase()}`;
+      });
 
     await this.bot.telegram.sendMessage(
       this.channelId, 
