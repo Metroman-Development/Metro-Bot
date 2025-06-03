@@ -733,20 +733,13 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     const lineChange = group.lineChanges[0];
                     const statusInfo = this._getStatusInfo(lineChange.to, false);
                     
-                    // Skip if changing to/from status 0
-                    if ((typeof lineChange.to === 'object' && lineChange.to.code === '0') || 
-                        (typeof lineChange.from === 'object' && lineChange.from.code === '0') ||
-                        lineChange.to === '0' || lineChange.from === '0') {
-                        continue;
-                    }
-
                     const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
                     const lineName = lineData.displayName || `Línea ${lineNumber}`;
                     let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' éstá ';
                     
                     if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
                         // Service normalized
-                        lineMessage = `${statusInfo.emoji} Servicio en #${lineName} se encuentra normalizado`;
+                        lineMessage = `${statusInfo.emoji} Servicio en #L${lineNumber} se encuentra normalizado`;
                         
                         if (statusInfo.victoryMessage) {
                             lineMessage += `\n${statusInfo.victoryMessage(lineChange.from)}`;
