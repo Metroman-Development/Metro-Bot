@@ -21,16 +21,19 @@ class TelegramBot {
         return;
       }
 
-      const { topics } = await this.bot.telegram.getForumTopics(forumChatId);
+      // Use the correct method name for getting forum topics
+      const result = await this.bot.telegram.callApi('getForumTopics', {
+        chat_id: forumChatId
+      });
       
-      if (!topics || topics.length === 0) {
+      if (!result.topics || result.topics.length === 0) {
         console.log('ℹ️ No topics found in the forum group.');
         return;
       }
 
       console.log('\n📢 ACTIVE FORUM TOPICS:');
       console.log('----------------------');
-      topics.forEach((topic, index) => {
+      result.topics.forEach((topic, index) => {
         console.log(`${index + 1}. ${topic.name} (Thread ID: ${topic.message_thread_id})`);
       });
       console.log('\n');
@@ -40,6 +43,8 @@ class TelegramBot {
       if (error.response) {
         console.error('Telegram API Response:', error.response.description);
       }
+      // Don't throw the error, just log it and continue
+      console.log('ℹ️ Continuing bot startup without forum topics logging...');
     }
   }
 
