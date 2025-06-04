@@ -43,7 +43,7 @@ class TelegramBot {
         { 
           parse_mode: 'HTML',
           message_thread_id: this.topicId, // Add topic ID here
-          ...options 
+         // ...options 
         }
       );
     } catch (error) {
