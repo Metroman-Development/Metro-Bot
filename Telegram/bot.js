@@ -9,43 +9,7 @@ class TelegramBot {
     this._loadCommands();
     this._setupWelcomeHandler();
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
-  }
-
-  async _logForumTopicsOnStartup() {
-    try {
-      // Use the configured channel ID or replace with your forum group ID
-      const forumChatId = this.channelId; // Format: -1001234567890
-      
-      if (!forumChatId) {
-        console.warn('⚠️ No channel/forum ID configured. Skipping topic logging.');
-        return;
-      }
-
-      // Use the correct method name for getting forum topics
-      const result = await this.bot.telegram.callApi('getForumTopics', {
-        chat_id: forumChatId
-      });
-      
-      if (!result.topics || result.topics.length === 0) {
-        console.log('ℹ️ No topics found in the forum group.');
-        return;
-      }
-
-      console.log('\n📢 ACTIVE FORUM TOPICS:');
-      console.log('----------------------');
-      result.topics.forEach((topic, index) => {
-        console.log(`${index + 1}. ${topic.name} (Thread ID: ${topic.message_thread_id})`);
-      });
-      console.log('\n');
-
-    } catch (error) {
-      console.error('❌ TOPIC LOGGING ERROR:', error.message);
-      if (error.response) {
-        console.error('Telegram API Response:', error.response.description);
-      }
-      // Don't throw the error, just log it and continue
-      console.log('ℹ️ Continuing bot startup without forum topics logging...');
-    }
+    this.topicId = 4; // Your specified topic ID
   }
 
   _setupWelcomeHandler() {
@@ -72,20 +36,36 @@ class TelegramBot {
           return `Línea ${line.toUpperCase()}`;
         });
 
+      // Modified to include topic ID
       await this.bot.telegram.sendMessage(
         this.channelId, 
         processedMessage, 
-        { parse_mode: 'HTML', ...options }
+        { 
+          parse_mode: 'HTML',
+          message_thread_id: this.topicId, // Add topic ID here
+          ...options 
+        }
       );
     } catch (error) {
       console.error('Failed to send to Telegram channel:', error);
+      if (error.response) {
+        console.error('Telegram API Error:', error.response.description);
+      }
     }
   }
   
   async sendCompactAnnouncement(messages) {
     try {
       if (messages.length === 0) return;
-      await this.sendToChannel(messages.join('\n\n'));
+      
+      // Modified to include topic ID
+      await this.bot.telegram.sendMessage(
+        this.channelId,
+        messages.join('\n\n'),
+        {
+          message_thread_id: this.topicId // Add topic ID here
+        }
+      );
     } catch (error) {
       console.error('Failed to send compact announcement:', error);
     }
@@ -104,36 +84,30 @@ class TelegramBot {
         
         if (command.execute && typeof command.execute === 'function') {
           this.bot.command(commandName, command.execute);
-          console.log(`✅ Registered command: /${commandName}`);
+          console.log(`Registered command: /${commandName}`);
           
           if (command.registerActions && typeof command.registerActions === 'function') {
             command.registerActions(this.bot);
-            console.log(`   ↳ Registered actions for: /${commandName}`);
+            console.log(`Registered actions for: /${commandName}`);
           }
-        } else {
-          console.warn(`⚠️ Skipping ${file} - missing execute function`);
         }
       } catch (error) {
-        console.error(`❌ Error loading command ${file}:`, error);
+        console.error(`Error loading command ${file}:`, error);
       }
     }
 
     this.bot.catch((err, ctx) => {
-      console.error('⚠️ Telegram Bot Error:', err);
+      console.error('Telegram Bot Error:', err);
       ctx.reply('An error occurred. Please try again later.');
     });
   }
 
   launch() {
-    this._logForumTopicsOnStartup(); // Log topics immediately on launch
-    return this.bot.launch()
-      .then(() => console.log('🤖 Bot is now running'))
-      .catch(err => console.error('‼️ Bot launch failed:', err));
+    return this.bot.launch();
   }
 
   stop(reason) {
     this.bot.stop(reason);
-    console.log(`🛑 Bot stopped: ${reason || 'No reason provided'}`);
   }
 }
 
