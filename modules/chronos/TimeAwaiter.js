@@ -235,7 +235,7 @@ async checkTime() {
         if (eventDetails) {
             const eventDate = moment(eventDetails.date);
             const isEventDay = now.isSame(eventDate, 'day') || 
-                              (now.isAfter(eventDate) && now.diff(eventDate, 'hours') < 24;
+                              (now.isAfter(eventDate) && now.diff(eventDate, 'hours') < 24);
 
             // Prepare overrides when entering event day window
             if (isEventDay && !this._lastEventDay) {
