@@ -150,7 +150,7 @@ async _activateExtendedHoursOverrides(eventDetails) {
     });
 }
 
-_cleanupExtendedHoursOverrides(eventDetails) {
+async _cleanupExtendedHoursOverrides(eventDetails) {
     const apiService = this.metroCore.api;
     if (!apiService) {
         console.error('[TimeAwaiter] Could not access ApiService');
