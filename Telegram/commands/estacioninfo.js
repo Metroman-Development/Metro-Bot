@@ -34,8 +34,8 @@ module.exports = {
    
       // Search for the station
       const searcher = new SearchCore('station');
-      searcher.setDataSource(metroData);  const results = await searcher.search(query, { maxResults: 5 });
-
+      searcher.setDataSource(metroData);  
+        
       const results = await searcher.search(query, { 
                 maxResults: 5,
                 needsOneMatch: true 
