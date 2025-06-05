@@ -72,8 +72,8 @@ _handleExtendedHoursTransition(isStarting) {
 }
 
 _prepareExtendedHoursOverrides(eventDetails) {
-    const overrideService = this.metroCore.getService('StatusOverrideService');
-    if (!overrideService) return;
+    //const overrideService = this.metroCore.getService('StatusOverrideService');
+    //if (!overrideService) return;
 
     /*// Create overrides for closed stations
     Object.entries(eventDetails.closedStations || {}).forEach(([lineId, stations]) => {
