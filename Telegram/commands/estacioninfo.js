@@ -181,7 +181,8 @@ async function getStationTabContent(station, tabId, page = 0) {
         { hide: isActive }
       )
     );
-  });
+  );
+   });
   
   // Add direct transfer button if available
   if (station.transferLines?.length) {
