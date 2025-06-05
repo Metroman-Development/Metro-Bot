@@ -19,7 +19,7 @@ const config = {
     // Schedule Configuration (Unified Structure)
     schedule: {
         // Base schedules (HH:MM format)
-        weekday: ["06:00", "16:00"],
+        weekday: ["06:00", "23:00"],
         saturday: ["06:30", "23:00"],
         sunday: ["07:30", "23:00"],
         
