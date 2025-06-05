@@ -109,8 +109,15 @@ module.exports = {
 async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
   try {
     // Get station data (simplified for Telegram)
-    const searcher = new SearchCore('station');
-    const station = await searcher.getById(stationId);
+    const metro = await getMetroCore();
+
+      const metroData = metro.api.getProcessedData();
+   
+      // Search for the station
+      const searcher = new SearchCore('station');
+      searcher.setDataSource(metroData);  
+
+      const station = await searcher.getById(stationId);
     
     if (!station) {
       return ctx.reply('No se pudo cargar la información de la estación.');
