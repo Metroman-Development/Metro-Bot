@@ -503,7 +503,7 @@ async activateEventOverrides(eventDetails) {
                 await this._checkForNewsUpdates();
             }
             
-            this.timeAwaiter.checkTime();
+            this.timeAwaiter.checkTime(this);
             this.metrics.lastSuccess = new Date();
             
            // console.log(this.lastProcessedData) 
