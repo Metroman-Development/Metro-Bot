@@ -138,7 +138,7 @@ _activateExtendedHoursOverrides(eventDetails) {
     });
 
     // Apply updates
-    apiService.updateOverrides({
+    await apiService.updateOverrides({
         lines: lineOverrides,
         stations: stationOverrides
     }).then(success => {
@@ -163,7 +163,7 @@ _cleanupExtendedHoursOverrides(eventDetails) {
     };
 
     // Apply removals
-    apiService.removeOverrides(removals).then(success => {
+    await apiService.removeOverrides(removals).then(success => {
         if (success) {
             console.log('[TimeAwaiter] Extended hours overrides cleaned up');
         } else {
