@@ -224,13 +224,30 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         searcher.setDataSource(metroData);
         let station = await searcher.getById(stationId);
 
+        let staticStation = null;
+        if (station) { 
+        
          console.log(station) 
         console.log(metro._staticData.stations) 
 
         
-        let staticStation = metro._staticData.stations[station.name];
-
+         staticStation = metro._staticData.stations[station.name];       
+            
         staticStation.status = station.status;
+       } else {
+
+
+            station = await searcher.search(stationId, { 
+                maxResults: 1,
+                needsOneMatch: true 
+            });  
+                    
+         staticStation = metro._staticData.stations[station.name];         
+      
+         staticStation.status = station.status         
+
+        } 
+
         
         if (!station) {
             return ctx.reply('No se pudo cargar la información de la estación.');
