@@ -105,7 +105,7 @@ _prepareExtendedHoursOverrides(eventDetails) {
 
     // In TimeAwaiter class
 
-_activateExtendedHoursOverrides(eventDetails) {
+async _activateExtendedHoursOverrides(eventDetails) {
     const apiService = this.metroCore.api;
     if (!apiService) {
         console.error('[TimeAwaiter] Could not access ApiService');
