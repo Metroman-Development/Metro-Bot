@@ -2,6 +2,17 @@
 const { Markup } = require('telegraf');
 const SearchCore = require('../../modules/metro/search/SearchCore');
 const { chunkArray } = require('../../utils/arrayUtils');
+const MetroCore = require('../../modules/metro/core/MetroCore');
+
+// MetroCore instance (singleton pattern)
+let metroCoreInstance = null;
+
+async function getMetroCore() {
+    if (!metroCoreInstance) {
+        metroCoreInstance = await MetroCore.getInstance();
+    }
+    return metroCoreInstance;
+}
 
 module.exports = {
   execute: async (ctx) => {
@@ -18,11 +29,18 @@ module.exports = {
 
       // Show loading message
       const loadingMsg = await ctx.reply('Buscando información de la estación... ⏳');
-
+      const metro = await getMetroCore();
+      const metroData = metro.api.getProcessedData();
+   
       // Search for the station
       const searcher = new SearchCore('station');
-      const results = await searcher.search(query, { maxResults: 5 });
+      searcher.setDataSource(metroData);  const results = await searcher.search(query, { maxResults: 5 });
 
+      const results = await searcher.search(query, { 
+                maxResults: 5,
+                needsOneMatch: true 
+            }); 
+      
       if (!results.length) {
         await ctx.telegram.deleteMessage(ctx.chat.id, loadingMsg.message_id);
         return ctx.reply(
