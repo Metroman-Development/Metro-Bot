@@ -224,10 +224,11 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         searcher.setDataSource(metroData);
         let station = await searcher.getById(stationId);
 
-        
-        console.log(metro._staticData) 
+         console.log(station) 
+        console.log(metro._staticData.stations) 
 
-        let staticStation = metro._staticData(station.name);
+        
+        let staticStation = metro._staticData.stations[station.name];
 
         staticStation.status = station.status;
         
