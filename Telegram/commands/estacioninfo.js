@@ -222,13 +222,20 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         const metroData = metro.api.getProcessedData();
         const searcher = new SearchCore('station');
         searcher.setDataSource(metroData);
-        const station = await searcher.getById(stationId);
-    
+        let station = await searcher.getById(stationId);
+
+        
+        console.log(metro._staticData) 
+
+        let staticStation = metro._staticData(station.name);
+
+        staticStation.status = station.status;
+        
         if (!station) {
             return ctx.reply('No se pudo cargar la información de la estación.');
         }
         
-        const { message, keyboard } = await getStationTabContent(station, tabId, page);
+        const { message, keyboard } = await getStationTabContent(staticStation, tabId, page);
         
         if (ctx.callbackQuery) {
             await ctx.editMessageText(message, {
