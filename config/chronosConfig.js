@@ -59,7 +59,7 @@ const config = {
 
     // Service Hours (Enhanced with HH:MM format)
     serviceHours: {
-        weekday: { start: "06:00", end: "15:00" },
+        weekday: { start: "06:00", end: "23:00" },
         saturday: { start: "06:30", end: "23:00" },
         sunday: { start: "07:30", end: "23:00" },
         festive: { start: "07:30", end: "23:00" }
