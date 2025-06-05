@@ -52,6 +52,23 @@ class SearchCore {
     return this;
   }
 
+
+  async getById(id) {
+  if (!this.dataSource) {
+    throw new Error('Data source not loaded');
+  }
+
+  if (this.type === 'station' && this.dataSource.stations[id]) {
+    return this._createMatchObject(this.dataSource.stations[id], 'exact');
+  }
+
+  if (this.type === 'line' && this.dataSource.lines[id]) {
+    return this._createMatchObject(this.dataSource.lines[id], 'exact');
+  }
+
+  return null;
+  }
+
   _normalizeDataStructure(data) {
     const result = {
       stations: {},
