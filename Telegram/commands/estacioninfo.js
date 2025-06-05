@@ -224,13 +224,17 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         const metroData = metro.api.getProcessedData();
         const searcher = new SearchCore('station');
         searcher.setDataSource(metroData);
-        let station = await searcher.getById(stationId);
+        let station = await searcher.getById(stationId)
 
+        if (!station) station = await searcher.search(stationId, { 
+                maxResults: 5,
+                needsOneMatch: true 
+            }); 
         let staticStation = null;
         if (station) { 
         
          console.log(station) 
-        console.log(metro._staticData.stations) 
+    //    console.log(metro._staticData.stations) 
 
         
          staticStation = metro._staticData.stations[station.name];       
@@ -238,18 +242,9 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         staticStation.status = station.status;
        } else {
 
-            console.log(stationId) 
-
-
-            station = await searcher.search(stationId, { 
-                maxResults: 1,
-                needsOneMatch: true 
-            });  
-                    
-         staticStation = metro._staticData.stations[station.name];         
+                            
+         staticStation = metro._staticData.stations[stationId];         
       
-         staticStation.status = station.status         
-
         } 
 
         
