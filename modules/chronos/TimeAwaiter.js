@@ -75,7 +75,7 @@ _prepareExtendedHoursOverrides(eventDetails) {
     const overrideService = this.metroCore.getService('StatusOverrideService');
     if (!overrideService) return;
 
-    // Create overrides for closed stations
+    /*// Create overrides for closed stations
     Object.entries(eventDetails.closedStations || {}).forEach(([lineId, stations]) => {
         stations.forEach(stationId => {
             overrideService.addOverride('stations', stationId, {
@@ -83,7 +83,7 @@ _prepareExtendedHoursOverrides(eventDetails) {
                 estado: "4", // Suspended
                 descripcion: "Cerrada por evento especial",
                 descripcion_app: "Closed for special event",
-                isTransferOperational: false
+             //   isTransferOperational: false
             });
         });
     });
@@ -97,7 +97,7 @@ _prepareExtendedHoursOverrides(eventDetails) {
             mensaje_app: `Service affected by ${eventDetails.name} event`,
             expressSupressed: true
         });
-    });
+    });*/
 
     console.log('[TimeAwaiter] Prepared extended hours overrides (disabled)');
 }
