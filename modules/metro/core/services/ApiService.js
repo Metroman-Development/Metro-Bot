@@ -315,7 +315,7 @@ async removeOverrides(removals = {}) {
                             estado: 5,
                             descripcion: "Servicio Extendido Únicamente para Salida",
                             descripcion_app: "Horario Extendido por Evento",
-                            descripcion_app: "Closed for special event",
+                            
                             enabled: false
                         };
                     } else {
@@ -346,7 +346,7 @@ async removeOverrides(removals = {}) {
                     
                     if (station) {
                         stationOverrides[station.codigo] = {
-                            estado: 1,
+                            estado: 5,
                             descripcion: "Servicio Extendido Únicamente para Entrada",
                             descripcion_app: "Horario Extendido por Evento",
                             enabled: false
