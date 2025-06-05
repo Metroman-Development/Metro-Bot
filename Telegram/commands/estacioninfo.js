@@ -176,13 +176,12 @@ async function getStationTabContent(station, tabId, page = 0) {
     
     mainNavRow.push(
       Markup.button.callback(
-        getTabEmoji(tab) + (isActive ? ` [${getTabName(tab)}]` : ` ${getTabName(tab)}`,
+        getTabEmoji(tab) + (isActive ? ` [${getTabName(tab)}]` : ` ${getTabName(tab)}`),
         isActive ? 'noop' : `station_tab:${station.id}:${tab}`,
         { hide: isActive }
       )
     );
-  );
-   });
+});
   
   // Add direct transfer button if available
   if (station.transferLines?.length) {
