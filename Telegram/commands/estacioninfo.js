@@ -248,7 +248,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         } 
 
         
-        if (!station) {
+        if (!station&&!staticStation) {
             return ctx.reply('No se pudo cargar la información de la estación.');
         }
         
