@@ -218,6 +218,8 @@ module.exports = {
 
 async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
     try {
+
+        
         const metro = await getMetroCore();
         const metroData = metro.api.getProcessedData();
         const searcher = new SearchCore('station');
@@ -235,6 +237,8 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
             
         staticStation.status = station.status;
        } else {
+
+            console.log(stationId) 
 
 
             station = await searcher.search(stationId, { 
