@@ -219,14 +219,16 @@ _handleFarePeriodChange(farePeriod, periodInfo) {
 // MODIFIED TIME CHECK METHOD
 // ======================
 
-async checkTime() {
+async checkTime(service = null) {
     try {
         const current = this._getCurrentState();
         const now = this.timeHelpers.currentTime;
         const operatingHours = this.timeHelpers.getOperatingHours();
         const eventDetails = this.timeHelpers.getEventDetails();
-        const apiService = this.metroCore.api;
+        let apiService = service ? service : this.metroCore.api;
 
+        
+        
         console.log(`[TimeAwaiter] Checking time at ${now.format('YYYY-MM-DD HH:mm:ss')}`);
         console.log(`[TimeAwaiter] Current state:`, current);
         console.log(`[TimeAwaiter] Last state:`, this._lastState);
