@@ -229,7 +229,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         if (!station) station = await searcher.search(stationId, { 
                 maxResults: 5,
                 needsOneMatch: true 
-            }); 
+            })[0]; 
         let staticStation = null;
         if (station) { 
         
