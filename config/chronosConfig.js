@@ -1,6 +1,4 @@
-// config/chronosConfig.js
-// config/chronosConfig.js
-// config/chronosConfig.js
+
 // config/chronosConfig.js
 const logger = require('../events/logger');
 
