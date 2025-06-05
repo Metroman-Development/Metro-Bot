@@ -219,7 +219,7 @@ _handleFarePeriodChange(farePeriod, periodInfo) {
 // MODIFIED TIME CHECK METHOD
 // ======================
 
-    async checkTime() {
+async checkTime() {
     try {
         const current = this._getCurrentState();
         const now = this.timeHelpers.currentTime;
@@ -235,7 +235,7 @@ _handleFarePeriodChange(farePeriod, periodInfo) {
         if (eventDetails) {
             const eventDate = moment(eventDetails.date);
             const isEventDay = now.isSame(eventDate, 'day') || 
-                              (now.isAfter(eventDate) && now.diff(eventDate, 'hours') < 24);
+                              (now.isAfter(eventDate) && now.diff(eventDate, 'hours') < 24;
 
             // Prepare overrides when entering event day window
             if (isEventDay && !this._lastEventDay) {
@@ -248,6 +248,19 @@ _handleFarePeriodChange(farePeriod, periodInfo) {
                 await apiService.cleanupEventOverridesIfNeeded(eventDetails);
             }
             this._lastEventDay = isEventDay;
+
+            // Check if we're in event period but before normal operating hours
+            if (isEventDay && !this.timeHelpers.isWithinOperatingHours()) {
+                const eventStart = moment(`${eventDetails.date} ${eventDetails.startTime || '00:00'}`);
+                const normalOpening = moment(`${eventDetails.date} ${operatingHours.opening}`);
+                
+                if (now.isBetween(eventStart, normalOpening)) {
+                    console.log('[TimeAwaiter] Pre-operating hours event period - activating overrides');
+                    await apiService.activateEventOverrides(eventDetails);
+                    this._lastExtendedHours = true;
+                    current.farePeriod = "EXTENDIDO";
+                }
+            }
         }
 
         // 2. EXTENDED HOURS HANDLING (midnight-crossing support)
@@ -349,7 +362,6 @@ _handleFarePeriodChange(farePeriod, periodInfo) {
         ));
     }
 }
-
 // Helper method to detect midnight crossings
 _doesExtensionCrossMidnight(eventDetails) {
     if (!eventDetails?.extendedHours) return false;
