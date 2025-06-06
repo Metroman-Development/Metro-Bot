@@ -137,6 +137,9 @@ function processAccessibilityText(text) {
 module.exports = {
     execute: async (ctx) => {
         try {
+            await ctx.editMessageReplyMarkup({
+reply_markup: { remove_keyboard: true },
+})
             const query = ctx.message.text.split(' ').slice(1).join(' ').trim();
             
             if (!query) {
