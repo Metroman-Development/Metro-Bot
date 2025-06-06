@@ -101,8 +101,8 @@ function getConfigPath(stationKey, linekey) {
     }
 } 
 
-async function getAccessConfig(stationKey) {
-    const configPath = getConfigPath(stationKey);
+async function getAccessConfig(stationKey, lineKey) {
+    const configPath = getConfigPath(stationKey,  lineKey);
     try {
         const data = await fs.readFile(configPath, 'utf8');
         const config = JSON.parse(data);
