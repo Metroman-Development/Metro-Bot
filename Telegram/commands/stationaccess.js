@@ -230,6 +230,14 @@ module.exports = {
             }
             await showMainMenu(ctx);
         });
+
+        // Add this to registerActions:
+bot.action(/access_list_page:(\d+)/, async (ctx) => {
+    await ctx.answerCbQuery();
+    const page = parseInt(ctx.match[1]);
+    await handleList(ctx, page);
+});
+
     },
 
     handleMessage: async (ctx) => {
@@ -267,6 +275,14 @@ async function checkAccessPermissions(userId) {
 
 // Error handling function
 async function handleError(ctx, error, action = 'procesar el comando') {
+
+  if (!ctx.session) {
+
+     ctx.session = {};
+
+     } 
+
+    
     console.error(`[StationAccess Error] Error al ${action}:`, error);
     
     let errorMessage;
@@ -339,18 +355,24 @@ async function showMainMenu(ctx) {
 }
 
 // List stations
-async function handleList(ctx) {
+async function handleList(ctx, page = 0) {
     try {
         const metro = await getMetroCore();
-        const stations = Object.values(metro._staticData.stations)
+        const allStations = Object.values(metro._staticData.stations)
             .filter(s => s.accessDetails)
             .sort((a, b) => a.displayName.localeCompare(b.displayName));
 
-        if (stations.length === 0) {
+        if (allStations.length === 0) {
             return ctx.reply('No hay estaciones con configuración de accesibilidad.');
         }
 
+        const STATIONS_PER_PAGE = 5;
+        const totalPages = Math.ceil(allStations.length / STATIONS_PER_PAGE);
+        const startIdx = page * STATIONS_PER_PAGE;
+        const stations = allStations.slice(startIdx, startIdx + STATIONS_PER_PAGE);
+
         let message = `<b>📋 Estaciones con configuración de accesibilidad</b>\n\n`;
+        message += `Página ${page + 1} de ${totalPages}\n\n`;
         
         const keyboard = stations.map(station => [
             Markup.button.callback(
@@ -359,16 +381,37 @@ async function handleList(ctx) {
             )
         ]);
 
+        // Add pagination controls if needed
+        const paginationRow = [];
+        if (page > 0) {
+            paginationRow.push(Markup.button.callback('⬅️ Anterior', `access_list_page:${page - 1}`));
+        }
+        if (page < totalPages - 1) {
+            paginationRow.push(Markup.button.callback('Siguiente ➡️', `access_list_page:${page + 1}`));
+        }
+        
+        if (paginationRow.length > 0) {
+            keyboard.push(paginationRow);
+        }
+
         keyboard.push([Markup.button.callback('🔙 Menú principal', 'access_main')]);
 
-        await ctx.editMessageText(message, {
-            parse_mode: 'HTML',
-            reply_markup: { inline_keyboard: keyboard }
-        });
+        if (ctx.callbackQuery) {
+            await ctx.editMessageText(message, {
+                parse_mode: 'HTML',
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        } else {
+            await ctx.replyWithHTML(message, {
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        }
     } catch (error) {
         handleError(ctx, error, 'listar estaciones');
     }
 }
+
+
 
 // Station access info
 async function showStationAccessInfo(ctx, stationId) {
