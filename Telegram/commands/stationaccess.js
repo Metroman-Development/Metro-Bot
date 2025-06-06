@@ -611,7 +611,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -660,7 +660,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         const station = metro._staticData.stations[stationId];
         
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -712,7 +712,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -781,7 +781,7 @@ async function showStationHistory(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
         if (!station.accessDetails.changelistory?.length) {
@@ -826,7 +826,7 @@ async function showGlobalHistory(ctx) {
         
         // Load history from all station JSON files
         for (const station of stations) {
-            const accessDetails = await getAccessConfig(station.id);
+            const accessDetails = await getAccessConfig(station.name,station.line);
             if (accessDetails.changelistory?.length) {
                 allChanges.push(...accessDetails.changelistory.map(change => ({
                     ...change,
@@ -928,7 +928,7 @@ async function showStationConfigMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>⚙️ Configuración - ${station.displayName}</b>\n\n`;
@@ -1007,7 +1007,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
         const [id, location, status, ...rest] = inputText.split(',').map(s => s.trim());
@@ -1077,7 +1077,7 @@ async function showRemoveElementMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId, station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>➖ Eliminar elemento - ${station.displayName}</b>\n\n`;
@@ -1151,7 +1151,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -1327,7 +1327,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId, station.line);
         station.accessDetails = accessDetails;
 
         if (field === 'notes') {
@@ -1449,7 +1449,7 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
             : [scope.endsWith('s') ? scope : `${scope}s`];
 
         for (const station of stations) {
-            const accessDetails = await getAccessConfig(station.id);
+            const accessDetails = await getAccessConfig(station.id, station.line);
             if (!accessDetails) continue;
 
             let stationChanged = false;
