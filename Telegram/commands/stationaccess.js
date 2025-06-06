@@ -704,6 +704,8 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
             Markup.button.callback('🔙 Atrás', `access_status:${stationId}:${elementType}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
+        
+        console.log(statusRows) 
 
         await ctx.editMessageText(message, {
             parse_mode: 'HTML',
