@@ -577,7 +577,7 @@ async function showStationAccessInfo(ctx, stationId) {
 
         // Latest change
         if (station.accessDetails.changeHistory?.length) {
-            const latestChange = station.accessDetails.changelistory
+            const latestChange = station.accessDetails.changeHistory
                 .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
             message += `📝 <b>Último cambio:</b>\n`;
             message += `- Acción: ${latestChange.action}\n`;
@@ -676,6 +676,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
 
         const elements = station.accessDetails[`${elementType}s`] || [];
         const element = elements.find(e => e.id === elementId);
+        console.log(elementType)
         const config = STATUS_CONFIG[elementType];
 
         if (!element) {
