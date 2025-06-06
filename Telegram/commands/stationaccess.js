@@ -256,10 +256,12 @@ module.exports = {
         // Element type selection actions
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [_, stationId, elementType] = ctx.match.slice(2);
+            const [stationId, elementType] = ctx.match.slice(2);
 
-            console.log("aactiln", stationId) 
-            await showStatusUpdateMenu(ctx, stationId, elementType);
+            console.log("match", ctx.match) 
+           console.log("id", stationId)
+
+ await showStatusUpdateMenu(ctx, stationId, elementType);
         });
 
         // Individual element update actions
