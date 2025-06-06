@@ -333,6 +333,33 @@ class TimeHelpers {
     }
 
     getCurrentPeriod() {
+    // First check if we're in extended hours
+    const event = this.getCurrentEvent();
+    if (event?.extendedHours) {
+        const operatingHours = this.getOperatingHours();
+        const now = this._currentTime;
+        
+        // Create moments for comparison
+        const closingTime = moment(event.extendedHours.closing, 'HH:mm');
+        const operatingEnd = moment(operatingHours.closing, 'HH:mm');
+        
+        // Handle midnight crossing
+        let isExtendedHours;
+        if (closingTime.isBefore(operatingEnd)) {
+            // Crosses midnight (e.g. 23:30 → 01:00)
+            isExtendedHours = now.isSameOrAfter(operatingEnd) || 
+                            now.isBefore(closingTime);
+        } else {
+            // Normal case (e.g. 23:30 → 00:30)
+            isExtendedHours = now.isSameOrAfter(operatingEnd) && 
+                            now.isBefore(closingTime);
+        }
+        
+        if (isExtendedHours) {
+            return { type: 'EXTENDIDO', name: 'Horario Extendido' };
+        }
+    }
+
     if (!this.isWithinOperatingHours()) {
         return { type: 'NOCHE', name: 'Fuera de Servicio' };
     }
