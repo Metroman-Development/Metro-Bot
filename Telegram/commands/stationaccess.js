@@ -2,11 +2,14 @@ const { Markup } = require('telegraf');
 const MetroCore = require('../../modules/metro/core/MetroCore');
 const { formatDate } = require('./estacioninfo');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
+const fs = require('fs').promises;
 
 // MetroCore instance (singleton pattern)
 let metroCoreInstance = null;
 const ADMIN_USER_ID = 6566554074;
 const EDIT_TIMEOUT = 300000; // 5 minutes
+const ACCESS_DETAILS_DIR = path.join(__dirname, '../../data/json/accessDetails');
 
 async function getMetroCore() {
     if (!metroCoreInstance) {
@@ -48,6 +51,113 @@ const STATUS_CONFIG = {
         }
     }
 };
+
+// Helper functions for JSON operations
+async function ensureAccessDetailsDir() {
+    try {
+        await fs.access(ACCESS_DETAILS_DIR);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            await fs.mkdir(ACCESS_DETAILS_DIR, { recursive: true });
+            console.log('Created accessDetails directory');
+        } else {
+            throw error;
+        }
+    }
+}
+
+function normalizeKey(str) {
+    return str.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '')
+        .trim();
+}
+
+function getConfigPath(stationKey) {
+    const normalized = normalizeKey(stationKey);
+    return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
+}
+
+async function getAccessConfig(stationKey) {
+    const configPath = getConfigPath(stationKey);
+    try {
+        const data = await fs.readFile(configPath, 'utf8');
+        const config = JSON.parse(data);
+        
+        // Ensure all required fields exist
+        config.accesses = config.accesses?.map(access => ({
+            status: 'abierto',
+            lastUpdated: new Date().toISOString(),
+            notes: '',
+            ...access
+        })) || [];
+        
+        config.elevators = config.elevators?.map(elevator => ({
+            status: 'operativa',
+            lastUpdated: new Date().toISOString(),
+            notes: '',
+            ...elevator
+        })) || [];
+        
+        config.escalators = config.escalators?.map(escalator => ({
+            status: 'operativa',
+            lastUpdated: new Date().toISOString(),
+            notes: '',
+            ...escalator
+        })) || [];
+
+        config.changelistory = config.changelistory || [];
+        
+        return config;
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return {
+                elevators: [],
+                escalators: [],
+                accesses: [],
+                changelistory: []
+            };
+        }
+        throw error;
+    }
+}
+
+async function saveAccessConfig(stationKey, config) {
+    await ensureAccessDetailsDir();
+    const configPath = getConfigPath(stationKey);
+    await fs.writeFile(configPath, JSON.stringify(config, null, 2), 'utf8');
+}
+
+async function updateMainAccessibilityStatus(stationName, accessConfig) {
+    try {
+        const metro = await getMetroCore();
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.displayName.toLowerCase() === stationName.toLowerCase()
+        );
+
+        if (!station) return;
+
+        const outOfService = [
+            ...accessConfig.elevators.filter(e => e.status.toLowerCase().includes('fuera de servicio')),
+            ...accessConfig.escalators.filter(e => e.status.toLowerCase().includes('fuera de servicio'))
+        ];
+
+        let statusText = 'Todos los ascensores y escaleras mecánicas están operativos';
+        if (outOfService.length > 0) {
+            statusText = outOfService.map(item => 
+                `${item.id} (${item.name}): ${item.status}`
+            ).join('\\n');
+        }
+
+        statusText += `\\n-# Última Actualización ${new Date().toLocaleString('es-CL')}`;
+
+        // Update in MetroCore's data
+        station.accessStatus = statusText;
+    } catch (error) {
+        console.error('Error updating main accessibility status:', error);
+    }
+}
 
 module.exports = {
     execute: async (ctx) => {
@@ -231,13 +341,11 @@ module.exports = {
             await showMainMenu(ctx);
         });
 
-        // Add this to registerActions:
-bot.action(/access_list_page:(\d+)/, async (ctx) => {
-    await ctx.answerCbQuery();
-    const page = parseInt(ctx.match[1]);
-    await handleList(ctx, page);
-});
-
+        bot.action(/access_list_page:(\d+)/, async (ctx) => {
+            await ctx.answerCbQuery();
+            const page = parseInt(ctx.match[1]);
+            await handleList(ctx, page);
+        });
     },
 
     handleMessage: async (ctx) => {
@@ -269,19 +377,14 @@ bot.action(/access_list_page:(\d+)/, async (ctx) => {
 
 // Permission check function
 async function checkAccessPermissions(userId) {
-    // In a real implementation, this would check against a database or config
     return userId === ADMIN_USER_ID;
 }
 
 // Error handling function
 async function handleError(ctx, error, action = 'procesar el comando') {
-
-  if (!ctx.session) {
-
-     ctx.session = {};
-
-     } 
-
+    if (!ctx.session) {
+        ctx.session = {};
+    }
     
     console.error(`[StationAccess Error] Error al ${action}:`, error);
     
@@ -318,13 +421,9 @@ async function handleError(ctx, error, action = 'procesar el comando') {
 
 // Main menu
 async function showMainMenu(ctx) {
-
     if (!ctx.session) {
-
         ctx.session = {};
-
-    } 
-
+    }
     
     const message = `🛗 <b>Menú Principal de Gestión de Accesibilidad</b>\n\nSelecciona una acción:`;
     
@@ -348,7 +447,6 @@ async function showMainMenu(ctx) {
         });
     }
 
-    // Clear any existing editing context
     if (ctx.session.editingContext) {
         delete ctx.session.editingContext;
     }
@@ -381,7 +479,6 @@ async function handleList(ctx, page = 0) {
             )
         ]);
 
-        // Add pagination controls if needed
         const paginationRow = [];
         if (page > 0) {
             paginationRow.push(Markup.button.callback('⬅️ Anterior', `access_list_page:${page - 1}`));
@@ -411,8 +508,6 @@ async function handleList(ctx, page = 0) {
     }
 }
 
-
-
 // Station access info
 async function showStationAccessInfo(ctx, stationId) {
     try {
@@ -423,14 +518,9 @@ async function showStationAccessInfo(ctx, stationId) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         let message = `<b>♿ ${station.displayName} - Accesibilidad</b>\n\n`;
         
@@ -502,14 +592,9 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
         const config = STATUS_CONFIG[elementType];
@@ -524,13 +609,11 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
             )
         ]);
 
-        // Add status options for all elements
         if (elements.length > 0) {
             const statusButtons = Object.entries(config.statuses).map(([status, label]) => 
                 Markup.button.callback(label, `access_status_set:${stationId}:${elementType}:all:${status}`)
             );
             
-            // Split into rows of 2 buttons each
             for (let i = 0; i < statusButtons.length; i += 2) {
                 keyboard.push(statusButtons.slice(i, i + 2));
             }
@@ -538,7 +621,6 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
             message += `No hay ${config.name.toLowerCase()}s configurados.\n`;
         }
 
-        // Add navigation buttons
         keyboard.push([
             Markup.button.callback('🔙 Atrás', `access_view:${stationId}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
@@ -558,7 +640,12 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
     try {
         const metro = await getMetroCore();
         const station = metro._staticData.stations[stationId];
-        const elements = station.accessDetails?.[`${elementType}s`] || [];
+        
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
+
+        const elements = station.accessDetails[`${elementType}s`] || [];
         const element = elements.find(e => e.id === elementId);
         const config = STATUS_CONFIG[elementType];
 
@@ -576,7 +663,6 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
             Markup.button.callback(label, `access_status_set:${stationId}:${elementType}:${elementId}:${status}`)
         );
 
-        // Split into rows of 2 buttons each
         const statusRows = [];
         for (let i = 0; i < keyboard.length; i += 2) {
             statusRows.push(keyboard.slice(i, i + 2));
@@ -607,31 +693,26 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
         let updatedElements = [];
         let actionDescription = '';
 
         if (scope === 'all') {
-            // Update all elements of this type
             for (const element of elements) {
                 element.status = newStatus;
+                element.lastUpdated = new Date().toISOString();
                 updatedElements.push(element.id || element.name);
             }
             actionDescription = `Actualizados todos los ${config.name.toLowerCase()}s a ${newStatus}`;
         } else {
-            // Update specific element
             const element = elements.find(e => e.id === scope);
             if (element) {
                 element.status = newStatus;
+                element.lastUpdated = new Date().toISOString();
                 updatedElements.push(element.id || element.name);
                 actionDescription = `Actualizado ${config.name.toLowerCase()} ${scope} a ${newStatus}`;
             } else {
@@ -640,18 +721,15 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Add to changelog
-        if (!station.accessDetails.changelistory) {
-            station.accessDetails.changelistory = [];
-        }
-        
         station.accessDetails.changelistory.push({
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: actionDescription
         });
 
-        // Save changes (in a real implementation, this would persist to database)
-        metro._staticData.stations[stationId] = station;
+        // Save changes to JSON file
+        await saveAccessConfig(stationId, station.accessDetails);
+        await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Estado actualizado</b>\n\n`;
         message += `<b>Estación:</b> ${station.displayName}\n`;
@@ -684,7 +762,11 @@ async function showStationHistory(ctx, stationId) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails?.changelistory?.length) {
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
+
+        if (!station.accessDetails.changelistory?.length) {
             return ctx.reply('No hay historial de cambios para esta estación.');
         }
 
@@ -720,20 +802,27 @@ async function showStationHistory(ctx, stationId) {
 async function showGlobalHistory(ctx) {
     try {
         const metro = await getMetroCore();
-        const stations = Object.values(metro._staticData.stations)
-            .filter(s => s.accessDetails?.changelistory?.length);
+        const stations = Object.values(metro._staticData.stations);
+
+        let allChanges = [];
+        
+        // Load history from all station JSON files
+        for (const station of stations) {
+            const accessDetails = await getAccessConfig(station.id);
+            if (accessDetails.changelistory?.length) {
+                allChanges.push(...accessDetails.changelistory.map(change => ({
+                    ...change,
+                    stationName: station.displayName
+                })));
+            }
+        }
+
+        allChanges = allChanges
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            .slice(0, 20);
 
         let message = `<b>📜 Historial Global de Accesibilidad</b>\n\n`;
         
-        // Get all changes, sort by date, and take the last 20
-        const allChanges = stations.flatMap(station => 
-            station.accessDetails.changelistory.map(change => ({
-                ...change,
-                stationName: station.displayName
-            }))
-        ).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-        .slice(0, 20);
-
         if (allChanges.length === 0) {
             message += 'No hay registros de cambios recientes.';
         } else {
@@ -820,14 +909,9 @@ async function showStationConfigMenu(ctx, stationId) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         let message = `<b>⚙️ Configuración - ${station.displayName}</b>\n\n`;
         message += `Opciones de configuración para esta estación:`;
@@ -904,14 +988,9 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         const [id, location, status, ...rest] = inputText.split(',').map(s => s.trim());
         
@@ -927,6 +1006,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
             id,
             name: location,
             status,
+            lastUpdated: new Date().toISOString(),
             notes: rest.join(', ') || ''
         };
 
@@ -939,8 +1019,9 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
             action: `Añadido ${config.name.toLowerCase()} ${id} (${status})`
         });
 
-        // Save changes
-        metro._staticData.stations[stationId] = station;
+        // Save changes to JSON file
+        await saveAccessConfig(stationId, station.accessDetails);
+        await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
         delete ctx.session.editingContext;
 
         let message = `<b>✅ ${config.name} añadido</b>\n\n`;
@@ -977,21 +1058,15 @@ async function showRemoveElementMenu(ctx, stationId) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         let message = `<b>➖ Eliminar elemento - ${station.displayName}</b>\n\n`;
         message += `Selecciona el elemento a eliminar:`;
 
         const keyboard = [];
 
-        // Add elevators
         if (station.accessDetails.elevators?.length > 0) {
             keyboard.push([Markup.button.callback('🛗 Ascensores', `access_status:${stationId}:elevator`)]);
             station.accessDetails.elevators.forEach(elevator => {
@@ -1004,7 +1079,6 @@ async function showRemoveElementMenu(ctx, stationId) {
             });
         }
 
-        // Add escalators
         if (station.accessDetails.escalators?.length > 0) {
             keyboard.push([Markup.button.callback('🪜 Escaleras', `access_status:${stationId}:escalator`)]);
             station.accessDetails.escalators.forEach(escalator => {
@@ -1017,7 +1091,6 @@ async function showRemoveElementMenu(ctx, stationId) {
             });
         }
 
-        // Add accesses
         if (station.accessDetails.accesses?.length > 0) {
             keyboard.push([Markup.button.callback('🚪 Accesos', `access_status:${stationId}:access`)]);
             station.accessDetails.accesses.forEach(access => {
@@ -1059,14 +1132,9 @@ async function removeElement(ctx, stationId, elementType, elementId) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
         const index = elements.findIndex(e => e.id === elementId);
@@ -1084,8 +1152,9 @@ async function removeElement(ctx, stationId, elementType, elementId) {
             action: `Eliminado ${config.name.toLowerCase()} ${elementId}`
         });
 
-        // Save changes
-        metro._staticData.stations[stationId] = station;
+        // Save changes to JSON file
+        await saveAccessConfig(stationId, station.accessDetails);
+        await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Elemento eliminado</b>\n\n`;
         message += `<b>Tipo:</b> ${config.name}\n`;
@@ -1135,7 +1204,6 @@ async function showAdvancedEditMenu(ctx) {
             )
         ]);
 
-        // Add navigation buttons
         keyboard.push([
             Markup.button.callback('🔙 Menú principal', 'access_main')
         ]);
@@ -1240,27 +1308,19 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
             throw new Error('Estación no encontrada');
         }
 
-        if (!station.accessDetails) {
-            station.accessDetails = {
-                elevators: [],
-                escalators: [],
-                accesses: [],
-                changelistory: []
-            };
-        }
+        // Load from JSON file
+        const accessDetails = await getAccessConfig(stationId);
+        station.accessDetails = accessDetails;
 
         if (field === 'notes') {
-            // Simple text field
             station.accessDetails.notes = inputText;
         } else {
-            // Complex field - parse JSON
             try {
                 const newValue = JSON.parse(inputText);
                 if (!Array.isArray(newValue)) {
                     throw new Error('Se esperaba un array de elementos');
                 }
                 
-                // Validate each element
                 const requiredFields = ['id', 'status'];
                 for (const element of newValue) {
                     for (const field of requiredFields) {
@@ -1283,8 +1343,9 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
             action: `Edición avanzada de ${field}`
         });
 
-        // Save changes
-        metro._staticData.stations[stationId] = station;
+        // Save changes to JSON file
+        await saveAccessConfig(stationId, station.accessDetails);
+        await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
         delete ctx.session.editingContext;
 
         let message = `<b>✅ Edición completada</b>\n\n`;
@@ -1346,7 +1407,7 @@ async function handleReplaceInput(ctx, inputText) {
 
         const searchValue = parts[0];
         const replaceValue = parts[1];
-        const scope = parts[2] || 'all'; // 'elevators', 'escalators', 'accesses', or 'all'
+        const scope = parts[2] || 'all';
 
         if (!searchValue || !replaceValue) {
             throw new Error('Debes especificar ambos valores');
@@ -1361,8 +1422,7 @@ async function handleReplaceInput(ctx, inputText) {
 async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
     try {
         const metro = await getMetroCore();
-        const stations = Object.values(metro._staticData.stations)
-            .filter(s => s.accessDetails);
+        const stations = Object.values(metro._staticData.stations);
 
         let affectedStations = 0;
         let affectedElements = 0;
@@ -1370,16 +1430,19 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
             ? ['elevators', 'escalators', 'accesses'] 
             : [scope.endsWith('s') ? scope : `${scope}s`];
 
-        // Perform the replacement
         for (const station of stations) {
+            const accessDetails = await getAccessConfig(station.id);
+            if (!accessDetails) continue;
+
             let stationChanged = false;
             
             for (const scope of scopes) {
-                if (!station.accessDetails[scope]) continue;
+                if (!accessDetails[scope]) continue;
                 
-                for (const element of station.accessDetails[scope]) {
+                for (const element of accessDetails[scope]) {
                     if (element.status === searchValue) {
                         element.status = replaceValue;
+                        element.lastUpdated = new Date().toISOString();
                         affectedElements++;
                         stationChanged = true;
                     }
@@ -1389,16 +1452,14 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
             if (stationChanged) {
                 affectedStations++;
                 
-                // Add to changelog
-                if (!station.accessDetails.changelistory) {
-                    station.accessDetails.changelistory = [];
-                }
-                
-                station.accessDetails.changelistory.push({
+                accessDetails.changelistory.push({
                     timestamp: new Date().toISOString(),
                     user: `${ctx.from.first_name} (${ctx.from.id})`,
                     action: `Reemplazo masivo: "${searchValue}" → "${replaceValue}"`
                 });
+
+                await saveAccessConfig(station.id, accessDetails);
+                await updateMainAccessibilityStatus(station.displayName, accessDetails);
             }
         }
 
@@ -1526,7 +1587,6 @@ async function handleHistory(ctx, args) {
 async function handleAdvancedEdit(ctx, args) {
     try {
         if (args.length > 0) {
-            // Handle direct advanced edit from command
             const stationName = args[0];
             const field = args[1] || 'all';
             
@@ -1558,7 +1618,6 @@ async function handleAdvancedEdit(ctx, args) {
 async function handleReplace(ctx, args) {
     try {
         if (args.length >= 2) {
-            // Handle direct replace from command
             const searchValue = args[0];
             const replaceValue = args[1];
             const scope = args[2] || 'all';
