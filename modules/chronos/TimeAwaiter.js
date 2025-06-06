@@ -408,24 +408,34 @@ _getCurrentState() {
         farePeriod: this.timeHelpers.getCurrentPeriod().type
     };
 
-    // Check for extended hours
+    // Check for extended hours (with midnight crossing support)
     const eventDetails = this.timeHelpers.getEventDetails();
     if (eventDetails?.extendedHours) {
+        const now = this.timeHelpers.currentTime;
         const operatingHours = this.timeHelpers.getOperatingHours();
-        const isExtendedHours = this.timeHelpers.isTimeBetween(
-            this.timeHelpers.currentTime,
-            operatingHours.closing,
-            eventDetails.extendedHours.closing
-        );
+        
+        // Create moments for the time comparisons
+        const closingTime = moment(eventDetails.extendedHours.closing, 'HH:mm');
+        const operatingEnd = moment(operatingHours.closing, 'HH:mm');
+        
+        // Handle midnight crossing
+        if (closingTime.isBefore(operatingEnd)) {
+            // Extended hours cross midnight (e.g., 23:30 -> 01:00)
+            baseState.isExtendedHours = now.isSameOrAfter(operatingEnd) || 
+                                     now.isBefore(closingTime);
+        } else {
+            // Normal case (e.g., 23:30 -> 00:30)
+            baseState.isExtendedHours = now.isSameOrAfter(operatingEnd) && 
+                                     now.isBefore(closingTime);
+        }
 
-        if (isExtendedHours) {
-            baseState.farePeriod = 'EXTENSION';
+        if (baseState.isExtendedHours) {
+            baseState.farePeriod = 'EXTENDIDO';
         }
     }
 
     return baseState;
 }
-    
     // ======================
     // STATE GETTERS
     // ======================
