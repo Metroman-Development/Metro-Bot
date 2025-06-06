@@ -137,16 +137,19 @@ function processAccessibilityText(text) {
 module.exports = {
     execute: async (ctx) => {
         try {
-            await ctx.editMessageReplyMarkup({
-reply_markup: { remove_keyboard: true },
-})
+            
             const query = ctx.message.text.split(' ').slice(1).join(' ').trim();
             
             if (!query) {
-                return ctx.reply(
+                ctx.reply(
                     'Por favor, especifica una estación. Ejemplo: /estacioninfo Plaza de Armas',
                  // Markup.keyboard([['Cancelar']]).oneTime().resize()
                 );
+                await ctx.editMessageReplyMarkup({
+reply_markup: { remove_keyboard: true },
+})             
+                return;
+                
             }
 
             const loadingMsg = await ctx.reply('Buscando información de la estación... ⏳');
