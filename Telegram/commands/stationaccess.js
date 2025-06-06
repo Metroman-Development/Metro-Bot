@@ -539,7 +539,9 @@ async function showStationAccessInfo(ctx, stationId) {
         console.log(stationId) 
         
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
 
         console.log(station) 
         
@@ -615,7 +617,10 @@ async function showStationAccessInfo(ctx, stationId) {
 async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -668,7 +673,10 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
 async function showElementStatusOptions(ctx, stationId, elementType, elementId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         // Load from JSON file
         const accessDetails = await getAccessConfig(stationId,station.line);
@@ -720,7 +728,10 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
 async function updateElementStatus(ctx, stationId, elementType, scope, newStatus) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         const config = STATUS_CONFIG[elementType];
         
         if (!station) {
@@ -793,7 +804,10 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
 async function showStationHistory(ctx, stationId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -940,7 +954,10 @@ function getStatusEmoji(status) {
 async function showStationConfigMenu(ctx, stationId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1018,7 +1035,10 @@ async function startAddElementFlow(ctx, stationId, elementType) {
 async function handleAddElementInput(ctx, stationId, elementType, inputText) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         const config = STATUS_CONFIG[elementType];
         
         if (!station) {
@@ -1089,7 +1109,10 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
 async function showRemoveElementMenu(ctx, stationId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1162,7 +1185,10 @@ async function showRemoveElementMenu(ctx, stationId) {
 async function removeElement(ctx, stationId, elementType, elementId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         const config = STATUS_CONFIG[elementType];
         
         if (!station) {
@@ -1257,7 +1283,10 @@ async function showAdvancedEditMenu(ctx) {
 async function showAdvancedEditStationOptions(ctx, stationId) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1339,7 +1368,10 @@ async function showAdvancedEditFieldOptions(ctx, stationId, field) {
 async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
     try {
         const metro = await getMetroCore();
-        const station = metro._staticData.stations[stationId];
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+        );
+
         
         if (!station) {
             throw new Error('Estación no encontrada');
