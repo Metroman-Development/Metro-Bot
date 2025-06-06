@@ -142,7 +142,7 @@ module.exports = {
             if (!query) {
                 return ctx.reply(
                     'Por favor, especifica una estación. Ejemplo: /estacioninfo Plaza de Armas',
-                    Markup.keyboard([['Cancelar']]).oneTime().resize()
+                 // Markup.keyboard([['Cancelar']]).oneTime().resize()
                 );
             }
 
