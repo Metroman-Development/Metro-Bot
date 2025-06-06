@@ -756,7 +756,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: actionDescription,
-            details: `Updated: ${updatedElements.join(', ')`,
+            details: `Updated: ${updatedElements.join(', ')}`,
         });
 
         // Save changes to JSON file
