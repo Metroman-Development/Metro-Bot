@@ -256,9 +256,9 @@ module.exports = {
         // Element type selection actions
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType] = ctx.match.slice(1);
+            const [_, stationId.trim(), elementType] = ctx.match.slice(2);
 
-            console.log("aactiln", ctx.match) 
+            console.log("aactiln", stationId) 
             await showStatusUpdateMenu(ctx, stationId, elementType);
         });
 
@@ -620,7 +620,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.displayName === stationId || s.code.toUpperCase() === stationId?.toUpperCase() 
+            s.displayName === stationId || s.code.toUpperCase() === stationId 
         );
 
         
@@ -628,7 +628,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
             throw new Error('Estación no encontrada');
         }
 
-        // Load from JSON file
+        // Load from JSON8 file
         const accessDetails = await getaccessconfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
