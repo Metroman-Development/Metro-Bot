@@ -302,6 +302,14 @@ async function handleError(ctx, error, action = 'procesar el comando') {
 
 // Main menu
 async function showMainMenu(ctx) {
+
+    if (!ctx.session) {
+
+        ctx.session = {};
+
+    } 
+
+    
     const message = `🛗 <b>Menú Principal de Gestión de Accesibilidad</b>\n\nSelecciona una acción:`;
     
     const keyboard = [
