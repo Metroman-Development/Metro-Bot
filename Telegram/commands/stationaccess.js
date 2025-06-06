@@ -257,6 +257,8 @@ module.exports = {
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
             const [stationId, elementType] = ctx.match.slice(1);
+
+            console.log("aactiln", ctx.match) 
             await showStatusUpdateMenu(ctx, stationId, elementType);
         });
 
@@ -618,7 +620,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.displayName === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.displayName === stationId || s.code.toUpperCase() === stationId?.toUpperCase() 
         );
 
         
