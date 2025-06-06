@@ -234,77 +234,104 @@ async checkTime(service = null) {
         console.log(`[TimeAwaiter] Last state:`, this._lastState);
 
         // 1. EVENT DAY MANAGEMENT (24-hour aware)
-        if (eventDetails) {
-            const eventDate = moment(eventDetails.date);
-            const isEventDay = now.isSame(eventDate, 'day') || 
-                              (now.isAfter(eventDate) && now.diff(eventDate, 'hours') < 24);
+        // In checkTime method, replace the event day management section with:
 
-            // Prepare overrides when entering event day window
-            if (isEventDay && !this._lastEventDay) {
-                console.log('[TimeAwaiter] Event period started - preparing overrides');
-                await apiService.prepareEventOverrides(eventDetails);
-            } 
-            // Clean up when completely past event period
-            else if (!isEventDay && this._lastEventDay) {
-                console.log('[TimeAwaiter] Event period completely ended - cleaning up');
-                await apiService.cleanupEventOverridesIfNeeded(eventDetails);
-            }
-            this._lastEventDay = isEventDay;
+// 1. EVENT DAY MANAGEMENT (24-hour aware)
+if (eventDetails) {
+    const eventDate = moment(eventDetails.date);
+    const eventEnd = moment(eventDetails.date).add(1, 'day'); // Event can span to next day
+    
+    // Check if we're within the event period (current day or next day before end time)
+    const isEventDay = now.isBetween(eventDate, eventEnd, null, '[]');
 
-            // Check if we're in event period but before normal operating hours
-            if (isEventDay && !this.timeHelpers.isWithinOperatingHours()) {
-                const eventStart = moment(`${eventDetails.date} ${eventDetails.startTime || '00:00'}`);
-                const normalOpening = moment(`${eventDetails.date} ${operatingHours.opening}`);
-                
-                if (now.isBetween(eventStart, normalOpening)) {
-                    console.log('[TimeAwaiter] Pre-operating hours event period - activating overrides');
-                    await apiService.activateEventOverrides(eventDetails);
-                    this._lastExtendedHours = true;
-                    current.farePeriod = "EXTENDIDO";
-                }
-            }
+    // Prepare overrides when entering event day window
+    if (isEventDay && !this._lastEventDay) {
+        console.log('[TimeAwaiter] Event period started - preparing overrides');
+        await apiService.prepareEventOverrides(eventDetails);
+    } 
+    // Clean up when completely past event period
+    else if (!isEventDay && this._lastEventDay) {
+        console.log('[TimeAwaiter] Event period completely ended - cleaning up');
+        await apiService.cleanupEventOverridesIfNeeded(eventDetails);
+    }
+    this._lastEventDay = isEventDay;
+
+    // Check if we're in event period but before normal operating hours
+    if (isEventDay && !this.timeHelpers.isWithinOperatingHours()) {
+        const eventStart = moment(`${eventDetails.date} ${eventDetails.startTime || '00:00'}`);
+        const normalOpening = moment(`${eventDetails.date} ${operatingHours.opening}`);
+        const extendedClosing = eventDetails.extendedHours ? 
+            moment(`${eventDetails.date} ${eventDetails.extendedHours.closing}`) : null;
+        
+        // Handle case where we're after midnight but still in extended hours
+        if (extendedClosing && now.isAfter(normalOpening.clone().add(1, 'day'))) {
+            // Still in extended hours period after midnight
+            console.log('[TimeAwaiter] Post-midnight extended hours period - keeping overrides');
+            this._lastExtendedHours = true;
+            current.farePeriod = "EXTENDIDO";
         }
+        else if (now.isBetween(eventStart, normalOpening)) {
+            console.log('[TimeAwaiter] Pre-operating hours event period - activating overrides');
+            await apiService.activateEventOverrides(eventDetails);
+            this._lastExtendedHours = true;
+            current.farePeriod = "EXTENDIDO";
+        }
+    }
+}
 
         // 2. EXTENDED HOURS HANDLING (midnight-crossing support)
-        let isExtendedHours = false;
-        if (eventDetails?.extendedHours) {
-            const closingTime = moment(eventDetails.extendedHours.closing, 'HH:mm');
-            const operatingEnd = moment(operatingHours.closing, 'HH:mm');
+  // In the extended hours handling section, replace with:
 
-            // Handle cases where extended hours cross midnight
-            if (closingTime.isBefore(operatingEnd)) {
-                // Extended hours cross midnight (e.g. 23:30 -> 01:00)
-                isExtendedHours = now.isSameOrAfter(operatingEnd) || 
-                                 now.isBefore(closingTime);
-            } else {
-                // Normal case (e.g. 23:30 -> 00:30)
-                isExtendedHours = now.isSameOrAfter(operatingEnd) && 
-                                 now.isBefore(closingTime);
-            }
+// 2. EXTENDED HOURS HANDLING (midnight-crossing support)
+let isExtendedHours = false;
+if (eventDetails?.extendedHours) {
+    const operatingEnd = moment(operatingHours.closing, 'HH:mm');
+    const extendedClosing = moment(eventDetails.extendedHours.closing, 'HH:mm');
+    
+    // Create moment objects for today's times
+    const todayOperatingEnd = now.clone()
+        .set({
+            hour: operatingEnd.hours(),
+            minute: operatingEnd.minutes(),
+            second: 0
+        });
+    
+    const todayExtendedClosing = now.clone()
+        .set({
+            hour: extendedClosing.hours(),
+            minute: extendedClosing.minutes(),
+            second: 0
+        });
+    
+    // Handle cases where extended hours cross midnight
+    if (extendedClosing.isBefore(operatingEnd)) {
+        // Extended hours cross midnight (e.g. 23:30 -> 01:00)
+        isExtendedHours = now.isSameOrAfter(todayOperatingEnd) || 
+                         now.isBefore(todayExtendedClosing);
+    } else {
+        // Normal case (e.g. 23:30 -> 00:30)
+        isExtendedHours = now.isSameOrAfter(todayOperatingEnd) && 
+                         now.isBefore(todayExtendedClosing);
+    }
 
-            // Activate overrides when entering extended hours
-            if (isExtendedHours && !this._lastExtendedHours) {
-                console.log('[TimeAwaiter] Extended hours started - activating overrides');
-                await apiService.activateEventOverrides(eventDetails);
-                this._handleExtendedHoursTransition(true);
-            } 
-            // Deactivate when leaving extended hours
-            else if (!isExtendedHours && this._lastExtendedHours) {
-                console.log('[TimeAwaiter] Extended hours ended');
-                this._handleExtendedHoursTransition(false);
-                
-                // Special case: if we're past midnight but still on event day
-                if (now.hours() < 6 && this._lastEventDay) {
-                    console.log('[TimeAwaiter] Early morning after event - keeping overrides disabled');
-                }
-            }
-            this._lastExtendedHours = isExtendedHours;
+    // Activate overrides when entering extended hours
+    if (isExtendedHours && !this._lastExtendedHours) {
+        console.log('[TimeAwaiter] Extended hours started - activating overrides');
+        await apiService.activateEventOverrides(eventDetails);
+        this._handleExtendedHoursTransition(true);
+    } 
+    // Deactivate when leaving extended hours
+    else if (!isExtendedHours && this._lastExtendedHours) {
+        console.log('[TimeAwaiter] Extended hours ended');
+        this._handleExtendedHoursTransition(false);
+    }
+    this._lastExtendedHours = isExtendedHours;
 
-            // Set special fare period during extended hours
-            if (isExtendedHours && current.farePeriod !== "EXTENDIDO") {
-                current.farePeriod = "EXTENDIDO";
-            }
-        }
+    // Set special fare period during extended hours
+    if (isExtendedHours && current.farePeriod !== "EXTENDIDO") {
+        current.farePeriod = "EXTENDIDO";
+    }
+}
 
         // 3. SERVICE HOURS TRANSITION (midnight-aware)
         if (current.isServiceRunning !== this._lastState.isServiceRunning) {
