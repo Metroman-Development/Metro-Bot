@@ -78,7 +78,7 @@ function getConfigPath(stationKey) {
     const normalized = normalizeKey(stationKey);
     console.log(normalized) 
     
-    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
+    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`));
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
 }
 
