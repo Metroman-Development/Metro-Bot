@@ -511,8 +511,13 @@ async function handleList(ctx, page = 0) {
 // Station access info
 async function showStationAccessInfo(ctx, stationId) {
     try {
+        
+        console.log(stationId) 
+        
         const metro = await getMetroCore();
         const station = metro._staticData.stations[stationId];
+
+        console.log(station) 
         
         if (!station) {
             throw new Error('Estación no encontrada');
