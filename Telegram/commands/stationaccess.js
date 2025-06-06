@@ -633,7 +633,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         }
 
         // Load from JSON8 file
-        const accessDetails = await getaccessconfig(station.displayName, station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -685,7 +685,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
 
         
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -745,7 +745,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -820,7 +820,7 @@ async function showStationHistory(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         if (!station.accessDetails.changeHistory?.length) {
@@ -970,7 +970,7 @@ async function showStationConfigMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>⚙️ Configuración - ${station.displayName}</b>\n\n`;
@@ -1052,7 +1052,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const [id, location, status, ...rest] = inputText.split(',').map(s => s.trim());
@@ -1126,7 +1126,7 @@ async function showRemoveElementMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName, station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>➖ Eliminar elemento - ${station.displayName}</b>\n\n`;
@@ -1203,7 +1203,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName, station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -1385,7 +1385,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.displayName, station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         if (field === 'notes') {
