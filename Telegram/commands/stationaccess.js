@@ -1205,7 +1205,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
             // Complex field - parse JSON
             try {
                 const newValue = JSON.parse(inputText);
-                if (!Array.isArray(newValue) {
+                if (!Array.isArray(newValue)) {
                     throw new Error('Se esperaba un array de elementos');
                 }
                 
