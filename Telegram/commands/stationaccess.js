@@ -256,7 +256,7 @@ module.exports = {
         // Element type selection actions
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType] = ctx.match.slice(2);
+            const [stationId, elementType] = ctx.match.slice(1);
 
             console.log("match", ctx.match) 
            console.log("id", stationId)
