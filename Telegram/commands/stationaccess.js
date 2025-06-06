@@ -689,6 +689,8 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         message += `<b>Estado actual:</b> ${getStatusEmoji(element.status)} ${element.status}\n\n`;
         message += `Selecciona el nuevo estado:`;
 
+        console.log(config) 
+
         const keyboard = Object.entries(config.statuses).map(([status, label]) => 
             Markup.button.callback(label, `access_status_set:${stationId}:${elementType}:${elementId}:${status}`)
         );
