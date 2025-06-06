@@ -283,55 +283,11 @@ if (eventDetails) {
   // In the extended hours handling section, replace with:
 
 // 2. EXTENDED HOURS HANDLING (midnight-crossing support)
-let isExtendedHours = false;
-if (eventDetails?.extendedHours) {
-    const operatingEnd = moment(operatingHours.closing, 'HH:mm');
-    const extendedClosing = moment(eventDetails.extendedHours.closing, 'HH:mm');
-    
-    // Create moment objects for today's times
-    const todayOperatingEnd = now.clone()
-        .set({
-            hour: operatingEnd.hours(),
-            minute: operatingEnd.minutes(),
-            second: 0
-        });
-    
-    const todayExtendedClosing = now.clone()
-        .set({
-            hour: extendedClosing.hours(),
-            minute: extendedClosing.minutes(),
-            second: 0
-        });
-    
-    // Handle cases where extended hours cross midnight
-    if (extendedClosing.isBefore(operatingEnd)) {
-        // Extended hours cross midnight (e.g. 23:30 -> 01:00)
-        isExtendedHours = now.isSameOrAfter(todayOperatingEnd) || 
-                         now.isBefore(todayExtendedClosing);
-    } else {
-        // Normal case (e.g. 23:30 -> 00:30)
-        isExtendedHours = now.isSameOrAfter(todayOperatingEnd) && 
-                         now.isBefore(todayExtendedClosing);
-    }
 
-    // Activate overrides when entering extended hours
-    if (isExtendedHours && !this._lastExtendedHours) {
-        console.log('[TimeAwaiter] Extended hours started - activating overrides');
-        await apiService.activateEventOverrides(eventDetails);
-        this._handleExtendedHoursTransition(true);
-    } 
-    // Deactivate when leaving extended hours
-    else if (!isExtendedHours && this._lastExtendedHours) {
-        console.log('[TimeAwaiter] Extended hours ended');
-        this._handleExtendedHoursTransition(false);
-    }
-    this._lastExtendedHours = isExtendedHours;
 
-    // Set special fare period during extended hours
-    if (isExtendedHours && current.farePeriod !== "EXTENDIDO") {
-        current.farePeriod = "EXTENDIDO";
-    }
-}
+// Better: Use TimeHelpers' built-in method
+const currentPeriod = this.timeHelpers.getCurrentPeriod();
+const isExtendedHours = currentPeriod.type === 'EXTENDED';
 
         // 3. SERVICE HOURS TRANSITION (midnight-aware)
         if (current.isServiceRunning !== this._lastState.isServiceRunning) {
