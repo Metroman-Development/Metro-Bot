@@ -9,7 +9,7 @@ const fs = require('fs').promises;
 let metroCoreInstance = null;
 const ADMIN_USER_ID = 6566554074;
 const EDIT_TIMEOUT = 300000; // 5 minutes
-const ACCESS_DETAILS_DIR = path.join(__dirname, '../../data/json/accessDetails');
+const ACCESS_DETAILS_DIR = path.join(__dirname, '../../modules/metro/data/json/accessDetails');
 
 async function getMetroCore() {
     if (!metroCoreInstance) {
@@ -74,13 +74,21 @@ function normalizeKey(str) {
         .trim();
 }
 
-function getConfigPath(stationKey) {
+function getConfigPath(stationKey, linekey) {
     const normalized = normalizeKey(stationKey);
     console.log(normalized) 
-    
-    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`));
+
+    const regex = /.*(l[1-6]|4la)$/;
+    if (regex.test(stationKey)) { ; // true  
+
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
-}
+                                 
+                                } else {
+    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`));
+    return path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`);
+
+    }
+} 
 
 async function getAccessConfig(stationKey) {
     const configPath = getConfigPath(stationKey);
