@@ -149,7 +149,7 @@ async function getAccessConfig(stationKey, lineKey) {
 
 async function saveAccessConfig(stationKey, config) {
     await ensureAccessDetailsDir();
-    const configPath = getConfigPath(stationKey);
+    const configPath = getConfigPath(stationKey, config.line);
     await fs.writeFile(configPath, JSON.stringify(config, null, 2), 'utf8');
 }
 
@@ -576,7 +576,7 @@ async function showStationAccessInfo(ctx, stationId) {
         }
 
         // Latest change
-        if (station.accessDetails.changelistory?.length) {
+        if (station.accessDetails.changeHistory?.length) {
             const latestChange = station.accessDetails.changelistory
                 .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
             message += `📝 <b>Último cambio:</b>\n`;
@@ -730,6 +730,8 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         let updatedElements = [];
         let actionDescription = '';
 
+        
+
         if (scope === 'all') {
             for (const element of elements) {
                 element.status = newStatus;
@@ -750,14 +752,15 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Add to changelog
-        station.accessDetails.changelistory.push({
+        station.accessDetails.changeHistory.push({
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
-            action: actionDescription
+            action: actionDescription,
+            details: `Updated: ${updatedElements.join(', '}`,
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(stationId, station.accessDetails);
+        await saveAccessConfig(stationId, station.accessDetails, station.line);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Estado actualizado</b>\n\n`;
@@ -795,11 +798,11 @@ async function showStationHistory(ctx, stationId) {
         const accessDetails = await getAccessConfig(stationId,station.line);
         station.accessDetails = accessDetails;
 
-        if (!station.accessDetails.changelistory?.length) {
+        if (!station.accessDetails.changeHistory?.length) {
             return ctx.reply('No hay historial de cambios para esta estación.');
         }
 
-        const history = station.accessDetails.changelistory
+        const history = station.accessDetails.changeHistory
             .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
             .slice(0, 15);
 
@@ -838,7 +841,7 @@ async function showGlobalHistory(ctx) {
         // Load history from all station JSON files
         for (const station of stations) {
             const accessDetails = await getAccessConfig(station.name,station.line);
-            if (accessDetails.changelistory?.length) {
+            if (accessDetails.changeHistory?.length) {
                 allChanges.push(...accessDetails.changelistory.map(change => ({
                     ...change,
                     stationName: station.displayName
@@ -1042,7 +1045,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         station.accessDetails[`${elementType}s`].push(newElement);
 
         // Add to changelog
-        station.accessDetails.changelistory.push({
+        station.accessDetails.changeHistory.push({
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Añadido ${config.name.toLowerCase()} ${id} (${status})`
@@ -1175,7 +1178,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
         const [removedElement] = elements.splice(index, 1);
 
         // Add to changelog
-        station.accessDetails.changelistory.push({
+        station.accessDetails.changeHistory.push({
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Eliminado ${config.name.toLowerCase()} ${elementId}`
@@ -1366,7 +1369,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         }
 
         // Add to changelog
-        station.accessDetails.changelistory.push({
+        station.accessDetails.changeHistory.push({
             timestamp: new Date().toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Edición avanzada de ${field}`
@@ -1481,7 +1484,7 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
             if (stationChanged) {
                 affectedStations++;
                 
-                accessDetails.changelistory.push({
+                accessDetails.changeHistory.push({
                     timestamp: new Date().toISOString(),
                     user: `${ctx.from.first_name} (${ctx.from.id})`,
                     action: `Reemplazo masivo: "${searchValue}" → "${replaceValue}"`
