@@ -20,7 +20,7 @@ async function getMetroCore() {
 
 // Status mapping configuration
 const STATUS_CONFIG = {
-    elevator: {
+    elevator: { 
         emoji: '🛗',
         name: 'Ascensor',
         statuses: {
@@ -76,6 +76,9 @@ function normalizeKey(str) {
 
 function getConfigPath(stationKey) {
     const normalized = normalizeKey(stationKey);
+    console.log(normalized) 
+    
+    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
 }
 
