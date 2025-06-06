@@ -1,6 +1,5 @@
 const { Markup } = require('telegraf');
 const MetroCore = require('../../modules/metro/core/MetroCore');
-const { formatDate } = require('./estacioninfo');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs').promises;
@@ -16,6 +15,18 @@ async function getMetroCore() {
         metroCoreInstance = await MetroCore.getInstance();
     }
     return metroCoreInstance;
+}
+
+function formatDate(dateString) {
+    if (!dateString) return 'Fecha desconocida';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-CL', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
 }
 
 // Status mapping configuration
