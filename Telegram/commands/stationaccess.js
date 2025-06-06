@@ -84,7 +84,7 @@ function getConfigPath(stationKey, linekey) {
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
                                  
                                 } else {
-    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`));
+    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`));
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`);
 
     }
