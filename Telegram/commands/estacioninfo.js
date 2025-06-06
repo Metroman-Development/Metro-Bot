@@ -143,6 +143,8 @@ module.exports = {
             if (!query) {
                 ctx.reply(
                     'Por favor, especifica una estación. Ejemplo: /estacioninfo Plaza de Armas',
+                     Markup.removeKeyboard() // This will remove any existing keyboard
+    
                  // Markup.keyboard([['Cancelar']]).oneTime().resize()
                 );
              //   await ctx.editMessageReplyMarkup({
