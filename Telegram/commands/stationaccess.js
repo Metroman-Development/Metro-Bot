@@ -268,7 +268,7 @@ module.exports = {
         });
 
         // Bulk status update actions
-        bot.action(/access_status_set:(.+):(.+):(.+):(.+)/, async (ctx) => {
+        bot.action(/ac_st_set:(.+):(.+):(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
             const [stationId, elementType, scope, newStatus] = ctx.match.slice(1);
             await updateElementStatus(ctx, stationId, elementType, scope, newStatus);
@@ -640,7 +640,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
 
         if (elements.length > 0) {
             const statusButtons = Object.entries(config.statuses).map(([status, label]) => 
-                Markup.button.callback(label, `access_status_set:${stationId}:${elementType}:all:${status}`)
+                Markup.button.callback(label, `ac_st_set:${stationId}:${elementType}:all:${status}`)
             );
             
             for (let i = 0; i < statusButtons.length; i += 2) {
@@ -692,7 +692,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         console.log(config) 
 
         const keyboard = Object.entries(config.statuses).map(([status, label]) => 
-            Markup.button.callback(label, `access_status_set:${stationId}:${elementType}:${elementId}:${status}`)
+            Markup.button.callback(label, `ac_st_set:${stationId}:${elementType}:${elementId}:${status}`)
         );
 
         const statusRows = [];
