@@ -735,7 +735,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         const config = STATUS_CONFIG[elementType];
