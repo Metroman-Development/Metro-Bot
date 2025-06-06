@@ -535,7 +535,7 @@ async function showStationAccessInfo(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(stationId);
+        const accessDetails = await getAccessConfig(stationId, station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>♿ ${station.displayName} - Accesibilidad</b>\n\n`;
