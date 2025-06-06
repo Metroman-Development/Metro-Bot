@@ -618,7 +618,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.displayName === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
         );
 
         
@@ -627,7 +627,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name, station.line);
+        const accessDetails = await getaccessconfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -679,7 +679,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
 
         
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name,station.line);
+        const accessDetails = await getaccessconfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
@@ -739,7 +739,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name,station.line);
+        const accessDetails = await getaccessconfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -776,7 +776,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.name, station.accessDetails, station.line);
+        await saveAccessConfig(station.displayName, station.accessDetails, station.line);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Estado actualizado</b>\n\n`;
@@ -814,7 +814,7 @@ async function showStationHistory(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name,station.line);
+        const accessDetails = await getaccessconfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         if (!station.accessDetails.changeHistory?.length) {
@@ -859,7 +859,7 @@ async function showGlobalHistory(ctx) {
         
         // Load history from all station JSON files
         for (const station of stations) {
-            const accessDetails = await getAccessConfig(station.name,station.line);
+            const accessDetails = await getAccessConfig(station.displayName,station.line);
             if (accessDetails.changeHistory?.length) {
                 allChanges.push(...accessDetails.changelistory.map(change => ({
                     ...change,
@@ -964,7 +964,7 @@ async function showStationConfigMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name,station.line);
+        const accessDetails = await getaccessconfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>⚙️ Configuración - ${station.displayName}</b>\n\n`;
@@ -1046,7 +1046,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name,station.line);
+        const accessDetails = await getaccessconfig(station.displayName,station.line);
         station.accessDetails = accessDetails;
 
         const [id, location, status, ...rest] = inputText.split(',').map(s => s.trim());
@@ -1077,7 +1077,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.name, station.accessDetails); 
+        await saveAccessConfig(station.displayName, station.accessDetails); 
                             
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
         delete ctx.session.editingContext;
@@ -1120,7 +1120,7 @@ async function showRemoveElementMenu(ctx, stationId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name, station.line);
+        const accessDetails = await getaccessconfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>➖ Eliminar elemento - ${station.displayName}</b>\n\n`;
@@ -1197,7 +1197,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name, station.line);
+        const accessDetails = await getaccessconfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
@@ -1217,7 +1217,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.name, station.accessDetails);
+        await saveAccessConfig(station.displayName, station.accessDetails);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Elemento eliminado</b>\n\n`;
@@ -1379,7 +1379,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getaccessconfig(station.name, station.line);
+        const accessDetails = await getaccessconfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         if (field === 'notes') {
@@ -1414,7 +1414,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.name, station.accessDetails);
+        await saveAccessConfig(station.displayName, station.accessDetails);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
         delete ctx.session.editingContext;
 
@@ -1501,7 +1501,7 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
             : [scope.endsWith('s') ? scope : `${scope}s`];
 
         for (const station of stations) {
-            const accessDetails = await getAccessConfig(station.name, station.line);
+            const accessDetails = await getAccessConfig(station.displayName, station.line);
             if (!accessDetails) continue;
 
             let stationChanged = false;
@@ -1528,7 +1528,7 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
                     action: `Reemplazo masivo: "${searchValue}" → "${replaceValue}"`
                 });
 
-                await saveAccessConfig(station.name, accessDetails); 
+                await saveAccessConfig(station.displayName, accessDetails); 
                                 
                 await updateMainAccessibilityStatus(station.displayName, accessDetails);
             }
@@ -1701,3 +1701,4 @@ async function handleReplace(ctx, args) {
         handleError(ctx, error, 'iniciar reemplazo');
     }
 }
+
