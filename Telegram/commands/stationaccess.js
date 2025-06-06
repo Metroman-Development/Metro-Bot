@@ -256,7 +256,7 @@ module.exports = {
         // Element type selection actions
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [_, stationId.trim(), elementType] = ctx.match.slice(2);
+            const [nan, stationId.trim(), elementType] = ctx.match.slice(2);
 
             console.log("aactiln", stationId) 
             await showStatusUpdateMenu(ctx, stationId, elementType);
