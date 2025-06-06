@@ -499,7 +499,7 @@ async function handleList(ctx, page = 0) {
         const keyboard = stations.map(station => [
             Markup.button.callback(
                 `${station.displayName}`,
-                `access_view:${station.id}`
+                `access_view:${station.code}`
             )
         ]);
 
@@ -589,15 +589,15 @@ async function showStationAccessInfo(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🛗 Ascensores', `access_status:${stationId}:elevator`),
-                Markup.button.callback('🪜 Escaleras', `access_status:${stationId}:escalator`)
+                Markup.button.callback('🛗 Ascensores', `access_status:${station.code} :elevator`),
+                Markup.button.callback('🪜 Escaleras', `access_status:${station.code} :escalator`)
             ],
             [
-                Markup.button.callback('🚪 Accesos', `access_status:${stationId}:access`),
-                Markup.button.callback('📋 Historial', `access_history:${stationId}`)
+                Markup.button.callback('🚪 Accesos', `access_status:${station.code} :access`),
+                Markup.button.callback('📋 Historial', `access_history:${station.code} `)
             ],
             [
-                Markup.button.callback('⚙️ Configurar', `access_config:${stationId}`),
+                Markup.button.callback('⚙️ Configurar', `access_config:${station.code} `),
                 Markup.button.callback('🔙 Menú principal', 'access_main')
             ]
         ];
@@ -634,13 +634,13 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         const keyboard = elements.map(element => [
             Markup.button.callback(
                 `${getStatusEmoji(element.status)} ${element.id || element.name} (${element.status})`,
-                `access_status_update:${stationId}:${elementType}:${element.id}`
+                `access_status_update:${station.code} :${elementType}:${element.id}`
             )
         ]);
 
         if (elements.length > 0) {
             const statusButtons = Object.entries(config.statuses).map(([status, label]) => 
-                Markup.button.callback(label, `ac_st_set:${stationId}:${elementType}:all:${status}`)
+                Markup.button.callback(label, `ac_st_set:${station.code} :${elementType}:all:${status}`)
             );
             
             for (let i = 0; i < statusButtons.length; i += 2) {
@@ -651,7 +651,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         }
 
         keyboard.push([
-            Markup.button.callback('🔙 Atrás', `access_view:${stationId}`),
+            Markup.button.callback('🔙 Atrás', `access_view:${station.code} `),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
 
@@ -692,7 +692,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         console.log(config) 
 
         const keyboard = Object.entries(config.statuses).map(([status, label]) => 
-            Markup.button.callback(label, `ac_st_set:${stationId}:${elementType}:${elementId}:${status}`)
+            Markup.button.callback(label, `ac_st_set:${station.code} :${elementType}:${elementId}:${status}`)
         );
 
         const statusRows = [];
@@ -701,7 +701,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         }
 
         statusRows.push([
-            Markup.button.callback('🔙 Atrás', `access_status:${stationId}:${elementType}`),
+            Markup.button.callback('🔙 Atrás', `access_status:${station.code} :${elementType}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
         
@@ -775,7 +775,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
 
         const keyboard = [
             [
-                Markup.button.callback('🔄 Actualizar otro', `access_status:${stationId}:${elementType}`),
+                Markup.button.callback('🔄 Actualizar otro', `access_status:${station.code} :${elementType}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -821,7 +821,7 @@ async function showStationHistory(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🔙 Volver', `access_view:${stationId}`),
+                Markup.button.callback('🔙 Volver', `access_view:${station.code} `),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -955,19 +955,19 @@ async function showStationConfigMenu(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('➕ Añadir ascensor', `access_config_add:${stationId}:elevator`),
-                Markup.button.callback('➕ Añadir escalera', `access_config_add:${stationId}:escalator`)
+                Markup.button.callback('➕ Añadir ascensor', `access_config_add:${station.code} :elevator`),
+                Markup.button.callback('➕ Añadir escalera', `access_config_add:${station.code}:escalator`)
             ],
             [
-                Markup.button.callback('➕ Añadir acceso', `access_config_add:${stationId}:access`),
-                Markup.button.callback('➖ Eliminar elemento', `access_config_remove:${stationId}`)
+                Markup.button.callback('➕ Añadir acceso', `access_config_add:${station.code} :access`),
+                Markup.button.callback('➖ Eliminar elemento', `access_config_remove:${station.code} `)
             ],
             [
-                Markup.button.callback('📝 Editar notas', `access_config_edit:${stationId}:notes`),
-                Markup.button.callback('🔄 Restablecer', `access_config_reset:${stationId}`)
+                Markup.button.callback('📝 Editar notas', `access_config_edit:${station.code} :notes`),
+                Markup.button.callback('🔄 Restablecer', `access_config_reset:${station.code} `)
             ],
             [
-                Markup.button.callback('🔙 Volver', `access_view:${stationId}`),
+                Markup.button.callback('🔙 Volver', `access_view:${station.code} `),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -996,14 +996,14 @@ async function startAddElementFlow(ctx, stationId, elementType) {
             timestamp: Date.now()
         };
 
-        let message = `<b>➕ Añadir ${config.name.toLowerCase()} - Estación ID: ${stationId}</b>\n\n`;
+        let message = `<b>➕ Añadir ${config.name.toLowerCase()} - Estación ID: ${station.code} </b>\n\n`;
         message += `Por favor, envía los detalles del nuevo ${config.name.toLowerCase()} en el siguiente formato:\n\n`;
         message += `<code>Identificador, Ubicación, Estado</code>\n\n`;
         message += `Ejemplo: <code>A1, Andén norte, operativa</code>\n\n`;
         message += `Estados disponibles: ${Object.keys(config.statuses).join(', ')}`;
 
         const keyboard = [
-            [Markup.button.callback('❌ Cancelar', `access_config:${stationId}`)]
+            [Markup.button.callback('❌ Cancelar', `access_config:${station.code} `)]
         ];
 
         await ctx.editMessageText(message, {
@@ -1069,8 +1069,8 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
 
         const keyboard = [
             [
-                Markup.button.callback('➕ Añadir otro', `access_config_add:${stationId}:${elementType}`),
-                Markup.button.callback('⚙️ Configuración', `access_config:${stationId}`)
+                Markup.button.callback('➕ Añadir otro', `access_config_add:${station.code} :${elementType}`),
+                Markup.button.callback('⚙️ Configuración', `access_config:${station.code} `)
             ],
             [
                 Markup.button.callback('🏠 Menú principal', 'access_main')
@@ -1105,36 +1105,36 @@ async function showRemoveElementMenu(ctx, stationId) {
         const keyboard = [];
 
         if (station.accessDetails.elevators?.length > 0) {
-            keyboard.push([Markup.button.callback('🛗 Ascensores', `access_status:${stationId}:elevator`)]);
+            keyboard.push([Markup.button.callback('🛗 Ascensores', `access_status:${station.code} :elevator`)]);
             station.accessDetails.elevators.forEach(elevator => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${elevator.id} (${elevator.status})`,
-                        `access_remove_confirm:${stationId}:elevator:${elevator.id}`
+                        `access_remove_confirm:${station.code} :elevator:${elevator.id}`
                     )
                 ]);
             });
         }
 
         if (station.accessDetails.escalators?.length > 0) {
-            keyboard.push([Markup.button.callback('🪜 Escaleras', `access_status:${stationId}:escalator`)]);
+            keyboard.push([Markup.button.callback('🪜 Escaleras', `access_status:${station.code} :escalator`)]);
             station.accessDetails.escalators.forEach(escalator => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${escalator.id} (${escalator.status})`,
-                        `access_remove_confirm:${stationId}:escalator:${escalator.id}`
+                        `access_remove_confirm:${station.code} :escalator:${escalator.id}`
                     )
                 ]);
             });
         }
 
         if (station.accessDetails.accesses?.length > 0) {
-            keyboard.push([Markup.button.callback('🚪 Accesos', `access_status:${stationId}:access`)]);
+            keyboard.push([Markup.button.callback('🚪 Accesos', `access_status:${station.code} :access`)]);
             station.accessDetails.accesses.forEach(access => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${access.id} (${access.status})`,
-                        `access_remove_confirm:${stationId}:access:${access.id}`
+                        `access_remove_confirm:${station.code} :access:${access.id}`
                     )
                 ]);
             });
@@ -1145,7 +1145,7 @@ async function showRemoveElementMenu(ctx, stationId) {
         }
 
         keyboard.push([
-            Markup.button.callback('🔙 Volver', `access_config:${stationId}`),
+            Markup.button.callback('🔙 Volver', `access_config:${station.code} `),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
 
@@ -1202,8 +1202,8 @@ async function removeElement(ctx, stationId, elementType, elementId) {
 
         const keyboard = [
             [
-                Markup.button.callback('➖ Eliminar otro', `access_config_remove:${stationId}`),
-                Markup.button.callback('⚙️ Configuración', `access_config:${stationId}`)
+                Markup.button.callback('➖ Eliminar otro', `access_config_remove:${station.code} `),
+                Markup.button.callback('⚙️ Configuración', `access_config:${station.code} `)
             ],
             [
                 Markup.button.callback('🏠 Menú principal', 'access_main')
@@ -1237,7 +1237,7 @@ async function showAdvancedEditMenu(ctx) {
         const keyboard = stations.map(station => [
             Markup.button.callback(
                 `${station.displayName}`,
-                `access_aedit_station:${station.id}`
+                `access_aedit_station:${station.code}`
             )
         ]);
 
@@ -1268,12 +1268,12 @@ async function showAdvancedEditStationOptions(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🛗 Ascensores', `access_aedit_field:${stationId}:elevators`),
-                Markup.button.callback('🪜 Escaleras', `access_aedit_field:${stationId}:escalators`)
+                Markup.button.callback('🛗 Ascensores', `access_aedit_field:${station.code} :elevators`),
+                Markup.button.callback('🪜 Escaleras', `access_aedit_field:${station.code} :escalators`)
             ],
             [
-                Markup.button.callback('🚪 Accesos', `access_aedit_field:${stationId}:accesses`),
-                Markup.button.callback('📝 Notas', `access_aedit_field:${stationId}:notes`)
+                Markup.button.callback('🚪 Accesos', `access_aedit_field:${station.code} :accesses`),
+                Markup.button.callback('📝 Notas', `access_aedit_field:${station.code} :notes`)
             ],
             [
                 Markup.button.callback('🔙 Atrás', 'access_aedit_start'),
@@ -1322,7 +1322,7 @@ async function showAdvancedEditFieldOptions(ctx, stationId, field) {
 
         const keyboard = [
             [
-                Markup.button.callback('❌ Cancelar', `access_aedit_station:${stationId}`),
+                Markup.button.callback('❌ Cancelar', `access_aedit_station:${station.code} `),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -1390,7 +1390,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
 
         const keyboard = [
             [
-                Markup.button.callback('⚙️ Editar otro campo', `access_aedit_station:${stationId}`),
+                Markup.button.callback('⚙️ Editar otro campo', `access_aedit_station:${station.code} `),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
