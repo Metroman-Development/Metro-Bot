@@ -79,7 +79,7 @@ function getConfigPath(stationKey, linekey) {
     console.log(normalized) 
 
     const regex = /.*(l[1-6]|4la)$/;
-    if (regex.test(stationKey)) { ; // true  
+    if (regex.test(normalized)) { ; // true  
 
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
                                  
@@ -95,7 +95,9 @@ async function getAccessConfig(stationKey) {
     try {
         const data = await fs.readFile(configPath, 'utf8');
         const config = JSON.parse(data);
-        
+
+
+        console.log(config);
         // Ensure all required fields exist
         config.accesses = config.accesses?.map(access => ({
             status: 'abierto',
