@@ -165,24 +165,25 @@ class TimeHelpers {
     }
 
     isEventActive() {
-        const event = this.getCurrentEvent();
-        if (!event) return false;
+    const event = this.getCurrentEvent();
+    if (!event) return false;
 
-        const eventDate = moment(event.date).tz(this._timezone);
-        const prevDate = eventDate.clone().subtract(1, 'day');
-        
-        const startTimeStr = event.startTime || this.getOperatingHours(prevDate).closing;
-        const eventStart = moment(`${event.date} ${startTimeStr}`).tz(this._timezone);
-        
-        const endTimeStr = event.endTime || this.getOperatingHours(eventDate).closing;
-        let eventEnd = moment(`${event.date} ${endTimeStr}`).tz(this._timezone);
-        
-        if (eventEnd.isBefore(eventStart)) {
-            eventEnd.add(1, 'day');
-        }
-
-        return this._currentTime.isBetween(eventStart, eventEnd, null, '[]');
+    const eventDate = moment(event.date).tz(this._timezone);
+    const prevDate = eventDate.clone().subtract(1, 'day');
+    
+    const startTimeStr = event.startTime || this.getOperatingHours(prevDate).closing;
+    const eventStart = moment(`${event.date} ${startTimeStr}`).tz(this._timezone);
+    
+    const endTimeStr = event.endTime || this.getOperatingHours(eventDate).closing;
+    let eventEnd = moment(`${event.date} ${endTimeStr}`).tz(this._timezone);
+    
+    // Handle midnight crossing
+    if (eventEnd.isBefore(eventStart)) {
+        eventEnd.add(1, 'day');
     }
+
+    return this._currentTime.isBetween(eventStart, eventEnd, null, '[]');
+}
 
     getExtendedHours() {
         const event = this.getCurrentEvent();
@@ -262,38 +263,39 @@ class TimeHelpers {
     }
 
     isTimeBetween(momentTime, startStr, endStr) {
-        if (!momentTime || !momentTime.isValid()) {
-            throw new Error('Invalid momentTime provided');
-        }
-        if (!this.isValidTimeString(startStr) || !this.isValidTimeString(endStr)) {
-            throw new Error('Invalid time string format. Use HH:mm');
-        }
-
-        const format = 'HH:mm';
-        const current = momentTime.clone().tz(this._timezone);
-        
-        const start = current.clone()
-            .set({
-                hour: moment(startStr, format).hour(),
-                minute: moment(startStr, format).minute(),
-                second: 0,
-                millisecond: 0
-            });
-        
-        const end = current.clone()
-            .set({
-                hour: moment(endStr, format).hour(),
-                minute: moment(endStr, format).minute(),
-                second: 0,
-                millisecond: 0
-            });
-
-        if (end.isBefore(start)) {
-            return current.isSameOrAfter(start) || current.isBefore(end);
-        }
-        
-        return current.isSameOrAfter(start) && current.isBefore(end);
+    if (!momentTime || !momentTime.isValid()) {
+        throw new Error('Invalid momentTime provided');
     }
+    if (!this.isValidTimeString(startStr) || !this.isValidTimeString(endStr)) {
+        throw new Error('Invalid time string format. Use HH:mm');
+    }
+
+    const format = 'HH:mm';
+    const current = momentTime.clone().tz(this._timezone);
+    
+    const start = current.clone()
+        .set({
+            hour: moment(startStr, format).hour(),
+            minute: moment(startStr, format).minute(),
+            second: 0,
+            millisecond: 0
+        });
+    
+    const end = current.clone()
+        .set({
+            hour: moment(endStr, format).hour(),
+            minute: moment(endStr, format).minute(),
+            second: 0,
+            millisecond: 0
+        });
+
+    // Handle midnight crossing
+    if (end.isBefore(start)) {
+        return current.isSameOrAfter(start) || current.isBefore(end);
+    }
+    
+    return current.isSameOrAfter(start) && current.isBefore(end);
+}
 
     isWithinOperatingHours() {
         const operatingHours = this.getOperatingHours();
@@ -332,7 +334,7 @@ class TimeHelpers {
         return this.getServiceStatus();
     }
 
-    getCurrentPeriod() {
+getCurrentPeriod() {
     // First check if we're in extended hours
     const event = this.getCurrentEvent();
     if (event?.extendedHours) {
@@ -356,9 +358,11 @@ class TimeHelpers {
         }
         
         if (isExtendedHours) {
-            return { type: 'EXTENDIDO', name: 'Horario Extendido' };
+            return { type: 'EXTENDED', name: 'Horario Extendido' };
         }
     }
+
+    
 
     if (!this.isWithinOperatingHours()) {
         return { type: 'NOCHE', name: 'Fuera de Servicio' };
