@@ -340,10 +340,14 @@ getCurrentPeriod() {
     if (event?.extendedHours) {
         const operatingHours = this.getOperatingHours();
         const now = this._currentTime;
-        
+
+        console.log(operatingHours) 
         // Create moments for comparison
         const closingTime = moment(event.extendedHours.closing, 'HH:mm');
         const operatingEnd = moment(operatingHours.closing, 'HH:mm');
+
+        console.log("Jwj", closingTime) 
+        console.log(operatingEnd) 
         
         // Handle midnight crossing
         let isExtendedHours;
