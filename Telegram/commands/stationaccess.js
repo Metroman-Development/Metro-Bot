@@ -621,8 +621,10 @@ async function showStationAccessInfo(ctx, stationId) {
 async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
+
+        console.log(metro._staticData.stations) 
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.displayName === stationId || s.code.toUpperCase() === stationId 
+            s.displayName === stationId || s === stationId 
         );
 
         
