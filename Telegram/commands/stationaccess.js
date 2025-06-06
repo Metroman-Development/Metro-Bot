@@ -624,7 +624,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
 
         console.log(metro._staticData.stations) 
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.displayName === stationId || s === stationId 
+            s.displayName === stationId || s.code === stationId.trim() 
         );
 
         
