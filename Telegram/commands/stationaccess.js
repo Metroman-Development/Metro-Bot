@@ -961,7 +961,7 @@ async function showStationConfigMenu(ctx, stationId) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         
@@ -1042,7 +1042,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         const config = STATUS_CONFIG[elementType];
@@ -1193,7 +1193,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         const config = STATUS_CONFIG[elementType];
@@ -1291,7 +1291,7 @@ async function showAdvancedEditStationOptions(ctx, stationId) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         
@@ -1376,7 +1376,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
     try {
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
-            s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
+            s.name === stationId || s.code === stationId.trim() 
         );
 
         
