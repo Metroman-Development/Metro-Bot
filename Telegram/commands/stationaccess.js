@@ -295,7 +295,7 @@ async function handleError(ctx, error, action = 'procesar el comando') {
         });
     }
 
-    if (ctx.session.editingContext) {
+    if (ctx.session?.editingContext) {
         delete ctx.session.editingContext;
     }
 }
