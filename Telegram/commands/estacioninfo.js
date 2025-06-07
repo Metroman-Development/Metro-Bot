@@ -241,11 +241,13 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         let staticStation = null;
         if (station) { 
         
-         console.log(station) 
-    //    console.log(metro._staticData.stations) 
+             //    console.log(metro._staticData.stations) 
 
         
          staticStation = metro._staticData.stations[station.name];       
+         station = metroData.stations[station.name];       
+         console.log(station) 
+ 
             
         staticStation.status = station.status;
        } else {
