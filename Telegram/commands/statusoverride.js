@@ -12,12 +12,12 @@ const OVERRIDE_TYPES = {
     'line': {
         emoji: '🟢',
         name: 'Línea',
-        fields: ['enabled', 'status', 'message']
+        fields: ['enabled', 'estado', 'mensaje', 'mensaje_app']
     },
     'station': {
         emoji: '🚉',
         name: 'Estación',
-        fields: ['enabled', 'status', 'message']
+        fields: ['enabled', 'estado', 'descripcion', 'descripcion_app']
     }
 };
 
@@ -95,7 +95,6 @@ async function showMainMenu(ctx) {
         [Markup.button.callback('🚉 Gestionar estaciones', 'override_list_stations')],
         [Markup.button.callback('➕ Añadir override', 'override_add_menu')],
         [Markup.button.callback('➖ Eliminar override', 'override_remove_menu')],
-        [Markup.button.callback('📜 Historial', 'override_history')],
         [Markup.button.callback('ℹ️ Ayuda', 'override_help')],
         [Markup.button.callback('✅ Finalizar', 'override_finish')]
     ];
@@ -186,7 +185,6 @@ async function listLines(ctx) {
     }
 }
 
-// List stations
 // List stations with pagination
 async function listStations(ctx, page = 0) {
     try {
@@ -237,8 +235,6 @@ async function listStations(ctx, page = 0) {
     }
 }
 
-
-
 // List lines for removal
 async function listLinesForRemoval(ctx) {
     try {
@@ -267,7 +263,6 @@ async function listLinesForRemoval(ctx) {
     }
 }
 
-// List stations for removal
 // List stations for removal with pagination
 async function listStationsForRemoval(ctx, page = 0) {
     try {
@@ -317,8 +312,6 @@ async function listStationsForRemoval(ctx, page = 0) {
         handleError(ctx, error, 'listar estaciones para eliminación');
     }
 }
-
-
 
 // Add line override
 async function addLineOverride(ctx) {
@@ -405,11 +398,22 @@ async function viewOverride(ctx, type, id) {
         }
 
         const config = OVERRIDE_TYPES[type];
+        const displayName = item.displayName || item.name;
         
-        let message = `<b>${config.emoji} ${item.displayName || item.name}</b>\n\n`;
+        let message = `<b>${config.emoji} ${displayName}</b>\n\n`;
         message += `<b>Estado:</b> ${override.enabled ? '🟢 Activado' : '🔴 Desactivado'}\n`;
-        message += `<b>Mensaje:</b> ${override.message || 'Ninguno'}\n\n`;
-        message += `Selecciona una acción:`;
+        
+        if (type === 'line') {
+            message += `<b>Estado del servicio:</b> ${override.estado || 'No definido'}\n`;
+            message += `<b>Mensaje:</b> ${override.mensaje || 'Ninguno'}\n`;
+            message += `<b>Mensaje App:</b> ${override.mensaje_app || 'Ninguno'}\n`;
+        } else {
+            message += `<b>Estado de la estación:</b> ${override.estado || 'No definido'}\n`;
+            message += `<b>Descripción:</b> ${override.descripcion || 'Ninguna'}\n`;
+            message += `<b>Descripción App:</b> ${override.descripcion_app || 'Ninguna'}\n`;
+        }
+        
+        message += `\nSelecciona una acción:`;
 
         const keyboard = [
             [
@@ -419,8 +423,11 @@ async function viewOverride(ctx, type, id) {
                 )
             ],
             [
-                Markup.button.callback('✏️ Editar mensaje', `override_edit:${type}:${id}:message`),
-                Markup.button.callback('⚙️ Configuración', `override_edit:${type}:${id}:config`)
+                Markup.button.callback('✏️ Editar estado', `override_edit:${type}:${id}:estado`),
+                Markup.button.callback('📝 Editar mensaje', `override_edit:${type}:${id}:${type === 'line' ? 'mensaje' : 'descripcion'}`)
+            ],
+            [
+                Markup.button.callback('📱 Editar mensaje app', `override_edit:${type}:${id}:${type === 'line' ? 'mensaje_app' : 'descripcion_app'}`)
             ],
             [
                 Markup.button.callback('🔙 Volver', type === 'line' ? 'override_list_lines' : 'override_list_stations'),
@@ -448,11 +455,21 @@ async function confirmAddOverride(ctx, type, id) {
             throw new Error(`${type === 'line' ? 'Línea' : 'Estación'} ya tiene override configurado`);
         }
 
-        // Initialize new override
+        // Initialize new override with default values
         target[id] = {
             enabled: true,
-            lastUpdated: new Date().toISOString()
+            estado: "1",
+            lastUpdated: new Date().toISOString(),
+            updatedBy: "admin"
         };
+
+        if (type === 'line') {
+            target[id].mensaje = "";
+            target[id].mensaje_app = "";
+        } else {
+            target[id].descripcion = "";
+            target[id].descripcion_app = "";
+        }
 
         await saveOverrides(overrides);
 
@@ -522,6 +539,7 @@ async function toggleOverride(ctx, type, id) {
         
         target[id].enabled = !target[id].enabled;
         target[id].lastUpdated = new Date().toISOString();
+        target[id].updatedBy = "admin";
         
         await saveOverrides(overrides);
         await viewOverride(ctx, type, id);
@@ -541,7 +559,15 @@ async function editOverrideField(ctx, type, id, field) {
             field
         };
 
-        const message = `<b>✏️ Editar ${field}</b>\n\nPor favor, envía el nuevo valor para ${field}:`;
+        const fieldNames = {
+            'estado': 'estado',
+            'mensaje': 'mensaje',
+            'mensaje_app': 'mensaje para la app',
+            'descripcion': 'descripción',
+            'descripcion_app': 'descripción para la app'
+        };
+
+        const message = `<b>✏️ Editar ${fieldNames[field] || field}</b>\n\nPor favor, envía el nuevo valor para ${fieldNames[field] || field}:`;
 
         const keyboard = [
             [Markup.button.callback('❌ Cancelar', `override_view:${type}:${id}`)]
@@ -574,6 +600,7 @@ async function handleEditInput(ctx, text) {
         
         target[id][field] = text;
         target[id].lastUpdated = new Date().toISOString();
+        target[id].updatedBy = "admin";
         
         await saveOverrides(overrides);
         clearSession(ctx.from.id);
@@ -591,8 +618,7 @@ async function showHelp(ctx) {
         + `<b>Funcionalidades:</b>\n`
         + `- Activar/desactivar líneas y estaciones\n`
         + `- Configurar mensajes personalizados\n`
-        + `- Añadir/eliminar overrides\n`
-        + `- Ver historial de cambios\n\n`
+        + `- Añadir/eliminar overrides\n\n`
         + `<b>Uso:</b>\n`
         + `Usa los botones para navegar por las opciones.`;
 
@@ -621,9 +647,10 @@ function registerActions(bot) {
     });
 
     // List stations
-    bot.action('override_list_stations', async (ctx) => {
+    bot.action(/override_list_stations(?::(\d+))?/, async (ctx) => {
         await ctx.answerCbQuery();
-        await listStations(ctx);
+        const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
+        await listStations(ctx, page);
     });
 
     // Add menu
@@ -664,9 +691,10 @@ function registerActions(bot) {
     });
 
     // Remove station list
-    bot.action('override_remove_station_list', async (ctx) => {
+    bot.action(/override_remove_station_list(?::(\d+))?/, async (ctx) => {
         await ctx.answerCbQuery();
-        await listStationsForRemoval(ctx);
+        const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
+        await listStationsForRemoval(ctx, page);
     });
 
     // Confirm remove
@@ -710,21 +738,6 @@ function registerActions(bot) {
         await ctx.answerCbQuery();
         await showHelp(ctx);
     });
-
-    // Update the action handler to support pagination
-bot.action(/override_list_stations(?::(\d+))?/, async (ctx) => {
-    await ctx.answerCbQuery();
-    const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
-    await listStations(ctx, page);
-});
-
-    // Update the action handler to support pagination
-bot.action(/override_remove_station_list(?::(\d+))?/, async (ctx) => {
-    await ctx.answerCbQuery();
-    const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
-    await listStationsForRemoval(ctx, page);
-});
-    
 }
 
 // Handle messages
@@ -737,6 +750,13 @@ async function handleMessage(ctx) {
 
         const text = ctx.message.text.trim();
         await handleEditInput(ctx, text);
+        
+        // Delete the user's message to keep chat clean
+        try {
+            await ctx.deleteMessage();
+        } catch (e) {
+            console.error('Could not delete message:', e);
+        }
     } catch (error) {
         handleError(ctx, error, 'procesar mensaje');
     }
