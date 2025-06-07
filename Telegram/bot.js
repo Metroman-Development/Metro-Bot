@@ -10,34 +10,27 @@ class TelegramBot {
     this._setupWelcomeHandler();
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
     this.topicId = 4; // Your specified topic ID
-    this.bot.use(
-  session({
-    defaultSession: () => ({})
-  })
-);
     
+    // Initialize session middleware
+    this.bot.use(session({
+        defaultSession: () => ({})
+    }));
     
     // Add message handler for all text messages
     this.bot.on('text', async (ctx) => {
-      const commandsPath = path.join(__dirname, 'commands');
-    const commandFiles = fs.readdirSync(commandsPath).filter(file => 
-      file.endsWith('.js') && !file.startsWith('.')
-    );
+        const commandsPath = path.join(__dirname, 'commands');
+        const commandFiles = fs.readdirSync(commandsPath).filter(file => 
+            file.endsWith('.js') && !file.startsWith('.')
+        );
 
-    for (const file of commandFiles) {// Forward text messages to command handlers if they're in edit mode
-         const command = require(path.join(commandsPath, file));
-         if (command.handleMessage && typeof command.handleMessage === 'function') {
-
-            await command.handleMessage(ctx);
- 
-         } 
-
-    }
+        for (const file of commandFiles) {
+            const command = require(path.join(commandsPath, file));
+            if (command.handleMessage && typeof command.handleMessage === 'function') {
+                await command.handleMessage(ctx);
+            } 
+        }
     });
-   
-    
-   
-  }
+}
 
   _setupWelcomeHandler() {
     this.bot.on('new_chat_members', (ctx) => {
