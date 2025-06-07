@@ -100,6 +100,12 @@ class TelegramBot {
       console.error('Telegram Bot Error:', err);
       ctx.reply('An error occurred. Please try again later.');
     });
+
+    bot.use(
+  session({
+    defaultSession: () => ({})
+  })
+);
   }
 
   launch() {
