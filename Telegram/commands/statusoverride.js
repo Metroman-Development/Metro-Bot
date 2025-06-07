@@ -649,6 +649,9 @@ async function showHelp(ctx) {
 async function handleMessage(ctx) {
     try {
         const session = getSession(ctx);
+
+        console.log(session) 
+        
         if (!session.editingContext || session.editingContext.action !== 'edit_override') {
             return; // Not in edit mode
         }
