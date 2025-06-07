@@ -101,7 +101,7 @@ class TelegramBot {
       ctx.reply('An error occurred. Please try again later.');
     });
 
-    bot.use(
+    this.bot.use(
   session({
     defaultSession: () => ({})
   })
