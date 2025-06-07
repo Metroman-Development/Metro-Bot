@@ -45,7 +45,11 @@ function formatDate(dateString) {
 function getStatusEmoji(status) {
     const statusMap = {
         '1': '🟢',
+        'operativa': '🟢',
+        'abierto': '🟢',
         '2': '🔴',
+        'cerrado': '🔴',
+        'fuera de servicio': '🔴',
         
         '3': '🟡',
         '4': '🟡',
