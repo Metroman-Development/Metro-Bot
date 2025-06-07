@@ -1,5 +1,6 @@
 // commands/redes.js
 module.exports = {
+  description: 'Revisa las otras plataformas de la Comunidad Metro de Santiago ', 
   execute: (ctx) => {
     const message = `📢 <b>Redes Sociales de la Comunidad</b> 📢\n\n` +
       `💬 <b>Discord:</b> https://discord.gg/z7AfQZZaGD\n` +
