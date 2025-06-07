@@ -643,14 +643,25 @@ async function showHelp(ctx) {
 }
 
 // Handle messages
+Ñ
+
+// Handle messages - Updated version
 async function handleMessage(ctx) {
     try {
         const session = getSession(ctx);
         if (!session.editingContext || session.editingContext.action !== 'edit_override') {
-            return;
+            return; // Not in edit mode
         }
 
         const text = ctx.message.text.trim();
+        
+        // Input validation
+        if (text.length > 500) {
+            await ctx.reply('El mensaje es demasiado largo (máximo 500 caracteres)');
+            return;
+        }
+
+        console.log(`Processing edit input for ${session.editingContext.field}: ${text}`);
         await handleEditInput(ctx, text);
         
         // Delete the user's message to keep chat clean
@@ -659,6 +670,9 @@ async function handleMessage(ctx) {
         } catch (e) {
             console.error('Could not delete message:', e);
         }
+        
+        // Answer the message to prevent "bot is typing" indicator from staying
+        await ctx.answerCbQuery();
     } catch (error) {
         handleError(ctx, error, 'procesar mensaje');
     }
