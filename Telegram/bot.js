@@ -101,7 +101,9 @@ class TelegramBot {
       try {
         const command = require(path.join(commandsPath, file));
         const commandName = file.replace('.js', '').toLowerCase();
-        
+
+
+        console.log(command) 
         if (command.execute && typeof command.execute === 'function') {
           this.bot.command(commandName, command.execute);
           console.log(`Registered command: /${commandName}`);
