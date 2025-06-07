@@ -168,6 +168,8 @@ module.exports = {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             
+            console.log("Triggered") 
+
             const keyboard = Markup.inlineKeyboard([
                 [
                     Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
