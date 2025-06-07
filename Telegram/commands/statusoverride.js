@@ -21,6 +21,20 @@ const OVERRIDE_TYPES = {
     }
 };
 
+// Session management
+const userSessions = {};
+
+function getSession(userId) {
+    if (!userSessions[userId]) {
+        userSessions[userId] = {};
+    }
+    return userSessions[userId];
+}
+
+function clearSession(userId) {
+    delete userSessions[userId];
+}
+
 // Helper functions
 async function loadOverrides() {
     try {
@@ -173,23 +187,44 @@ async function listLines(ctx) {
 }
 
 // List stations
-async function listStations(ctx) {
+// List stations with pagination
+async function listStations(ctx, page = 0) {
     try {
         const metro = await MetroCore.getInstance();
         const overrides = await loadOverrides();
         
-        let message = `<b>🚉 Estaciones con Overrides</b>\n\n`;
+        const stations = Object.values(metro._staticData.stations)
+            .sort((a, b) => a.displayName.localeCompare(b.displayName));
         
-        const keyboard = Object.values(metro._staticData.stations)
-            .sort((a, b) => a.displayName.localeCompare(b.displayName))
-            .map(station => {
-                const override = overrides.stations[station.code] || {};
-                const status = override.enabled ? '🟢 Activado' : '🔴 Desactivado';
-                return [Markup.button.callback(
-                    `${station.displayName} - ${status}`,
-                    `override_view:station:${station.code}`
-                )];
-            });
+        const itemsPerPage = 10;
+        const totalPages = Math.ceil(stations.length / itemsPerPage);
+        const startIdx = page * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+        const paginatedStations = stations.slice(startIdx, endIdx);
+        
+        let message = `<b>🚉 Estaciones con Overrides</b>\n\n`;
+        message += `Página ${page + 1} de ${totalPages}\n\n`;
+        
+        const keyboard = paginatedStations.map(station => {
+            const override = overrides.stations[station.code] || {};
+            const status = override.enabled ? '🟢 Activado' : '🔴 Desactivado';
+            return [Markup.button.callback(
+                `${station.displayName} - ${status}`,
+                `override_view:station:${station.code}`
+            )];
+        });
+
+        // Add pagination controls if needed
+        if (totalPages > 1) {
+            const paginationRow = [];
+            if (page > 0) {
+                paginationRow.push(Markup.button.callback('⬅️ Anterior', `override_list_stations:${page - 1}`));
+            }
+            if (page < totalPages - 1) {
+                paginationRow.push(Markup.button.callback('➡️ Siguiente', `override_list_stations:${page + 1}`));
+            }
+            keyboard.push(paginationRow);
+        }
 
         keyboard.push([Markup.button.callback('🔙 Menú principal', 'override_main')]);
 
@@ -201,6 +236,8 @@ async function listStations(ctx) {
         handleError(ctx, error, 'listar estaciones');
     }
 }
+
+
 
 // List lines for removal
 async function listLinesForRemoval(ctx) {
@@ -231,22 +268,44 @@ async function listLinesForRemoval(ctx) {
 }
 
 // List stations for removal
-async function listStationsForRemoval(ctx) {
+// List stations for removal with pagination
+async function listStationsForRemoval(ctx, page = 0) {
     try {
         const metro = await MetroCore.getInstance();
         const overrides = await loadOverrides();
         
-        let message = `<b>🚉 Estaciones con Overrides</b>\n\nSelecciona una estación para eliminar su override:`;
-        
-        const keyboard = Object.values(metro._staticData.stations)
+        const stations = Object.values(metro._staticData.stations)
             .filter(station => overrides.stations[station.code])
-            .sort((a, b) => a.displayName.localeCompare(b.displayName))
-            .map(station => {
-                return [Markup.button.callback(
-                    `${station.displayName}`,
-                    `override_remove_confirm:station:${station.code}`
-                )];
-            });
+            .sort((a, b) => a.displayName.localeCompare(b.displayName));
+        
+        const itemsPerPage = 10;
+        const totalPages = Math.ceil(stations.length / itemsPerPage);
+        const startIdx = page * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+        const paginatedStations = stations.slice(startIdx, endIdx);
+        
+        let message = `<b>🚉 Estaciones con Overrides</b>\n\n`;
+        message += `Selecciona una estación para eliminar su override:\n`;
+        message += `Página ${page + 1} de ${totalPages}\n\n`;
+        
+        const keyboard = paginatedStations.map(station => {
+            return [Markup.button.callback(
+                `${station.displayName}`,
+                `override_remove_confirm:station:${station.code}`
+            )];
+        });
+
+        // Add pagination controls if needed
+        if (totalPages > 1) {
+            const paginationRow = [];
+            if (page > 0) {
+                paginationRow.push(Markup.button.callback('⬅️ Anterior', `override_remove_station_list:${page - 1}`));
+            }
+            if (page < totalPages - 1) {
+                paginationRow.push(Markup.button.callback('➡️ Siguiente', `override_remove_station_list:${page + 1}`));
+            }
+            keyboard.push(paginationRow);
+        }
 
         keyboard.push([Markup.button.callback('🔙 Atrás', 'override_remove_menu')]);
 
@@ -258,6 +317,8 @@ async function listStationsForRemoval(ctx) {
         handleError(ctx, error, 'listar estaciones para eliminación');
     }
 }
+
+
 
 // Add line override
 async function addLineOverride(ctx) {
@@ -472,7 +533,8 @@ async function toggleOverride(ctx, type, id) {
 // Edit override field
 async function editOverrideField(ctx, type, id, field) {
     try {
-        ctx.session.editingContext = {
+        const session = getSession(ctx.from.id);
+        session.editingContext = {
             action: 'edit_override',
             type,
             id,
@@ -497,7 +559,12 @@ async function editOverrideField(ctx, type, id, field) {
 // Handle edit input
 async function handleEditInput(ctx, text) {
     try {
-        const { type, id, field } = ctx.session.editingContext;
+        const session = getSession(ctx.from.id);
+        if (!session.editingContext || session.editingContext.action !== 'edit_override') {
+            return;
+        }
+
+        const { type, id, field } = session.editingContext;
         const overrides = await loadOverrides();
         const target = type === 'line' ? overrides.lines : overrides.stations;
         
@@ -509,7 +576,7 @@ async function handleEditInput(ctx, text) {
         target[id].lastUpdated = new Date().toISOString();
         
         await saveOverrides(overrides);
-        delete ctx.session.editingContext;
+        clearSession(ctx.from.id);
         
         await viewOverride(ctx, type, id);
     } catch (error) {
@@ -643,12 +710,28 @@ function registerActions(bot) {
         await ctx.answerCbQuery();
         await showHelp(ctx);
     });
+
+    // Update the action handler to support pagination
+bot.action(/override_list_stations(?::(\d+))?/, async (ctx) => {
+    await ctx.answerCbQuery();
+    const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
+    await listStations(ctx, page);
+});
+
+    // Update the action handler to support pagination
+bot.action(/override_remove_station_list(?::(\d+))?/, async (ctx) => {
+    await ctx.answerCbQuery();
+    const page = ctx.match[1] ? parseInt(ctx.match[1]) : 0;
+    await listStationsForRemoval(ctx, page);
+});
+    
 }
 
 // Handle messages
 async function handleMessage(ctx) {
     try {
-        if (!ctx.session.editingContext || ctx.session.editingContext.action !== 'edit_override') {
+        const session = getSession(ctx.from.id);
+        if (!session.editingContext || session.editingContext.action !== 'edit_override') {
             return;
         }
 
