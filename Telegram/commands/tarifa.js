@@ -3,7 +3,7 @@ const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
 
-async showSpecificFare(ctx, fareType) {
+async function showSpecificFare(ctx, fareType) {
         try {
             const fareConfig = {
                 'normal': { 
