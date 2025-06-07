@@ -246,12 +246,12 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
          //console.log(metroData) 
          staticStation = metro._staticData.stations[station.name];       
 
-            console.log(metroData.stations) 
+         //console.log(metroData.stations) 
          station = Object.values(metroData.stations).find(s => 
              s.name === station.name
         ); 
             
-            station = metroData.stations[station.name];       
+           // station = metroData.stations[station.name];       
          console.log(station) 
  
             
