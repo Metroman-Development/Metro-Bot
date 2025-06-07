@@ -261,7 +261,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         ); 
         
             station = Object.values(metroData.stations).find(s => 
-             s.name === station?.name || s.code === stationId || s.name === stationId
+             s.name === station?.name || s.code === stationId || s.displayName === stationId
         );  
 staticStation.status = station.status;     
       
