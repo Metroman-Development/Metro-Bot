@@ -39,7 +39,7 @@ module.exports = {
         }
     },
 
-    registerActions(bot) {
+    registerActions: (bot) => {
         // Explicitly register each action handler with proper error handling
         const actions = {
             'fare_normal': 'normal',
