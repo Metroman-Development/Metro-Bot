@@ -138,6 +138,7 @@ function processAccessibilityText(text) {
 }
 
 module.exports = {
+    description: 'Consulta información detallada de estaciones', 
     execute: async (ctx) => {
         try {
             
