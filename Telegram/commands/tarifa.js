@@ -2,6 +2,97 @@ const { Markup } = require('telegraf');
 const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
+
+async showSpecificFare(ctx, fareType) {
+        try {
+            const fareConfig = {
+                'normal': { 
+                    keys: ['t_metro_punta', 't_metro_valle', 't_metro_bajo'], 
+                    name: 'Normal (Metro)',
+                    emoji: '🚇',
+                    description: 'Tarifa estándar para usuarios con tarjeta BIP'
+                },
+                'estudiante': { 
+                    keys: ['t_estudiante_punta', 't_estudiante_valle', 't_estudiante_bajo'], 
+                    name: 'Estudiante (TNE)',
+                    emoji: '🎓',
+                    description: 'Tarifa especial para estudiantes con TNE'
+                },
+                'adulto_mayor': { 
+                    keys: ['t_adulto_punta', 't_adulto_valle', 't_adulto_bajo'], 
+                    name: 'Adulto Mayor',
+                    emoji: '👴',
+                    description: 'Tarifa para adultos mayores (60+ años)'
+                },
+                'bip_adulto_mayor': { 
+                    keys: ['t_adultobip_punta', 't_adultobip_valle', 't_adultobip_bajo'], 
+                    name: 'BIP Adulto Mayor',
+                    emoji: '👵',
+                    description: 'Tarifa con tarjeta BIP para adultos mayores'
+                },
+                'nos': { 
+                    keys: ['t_nos_punta', 't_nos_valle', 't_nos_bajo'], 
+                    name: 'NOS',
+                    emoji: '🟢',
+                    description: 'Tarifa para usuarios del sistema NOS'
+                },
+                'transantiago': { 
+                    keys: ['t_transantiago'], 
+                    name: 'Red',
+                    emoji: '🚌',
+                    description: 'Tarifa integrada con buses Red'
+                }
+            };
+
+            const config = fareConfig[fareType];
+            const currentPeriod = TimeHelpers.getCurrentPeriod();
+            const isFlatFare = fareType === 'transantiago';
+            
+            let message = `${config.emoji} *${config.name}*\n`;
+            message += `${config.description}\n\n`;
+            
+            if (isFlatFare) {
+                message += `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`;
+            } else {
+                message += `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n`;
+                message += `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n`;
+                message += `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`;
+            }
+
+            message += `\n*Período Actual:* ${currentPeriod.name}\n`;
+            message += `${TimeHelpers.formatTime(new Date())}`;
+
+            // Recreate the keyboard to maintain navigation
+            const keyboard = Markup.inlineKeyboard([
+                [
+                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
+                    Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
+                ],
+                [
+                    Markup.button.callback('👴 Adulto Mayor', 'fare_adulto_mayor'),
+                    Markup.button.callback('👵 BIP Adulto Mayor', 'fare_bip_adulto_mayor')
+                ],
+                [
+                    Markup.button.callback('🟢 NOS', 'fare_nos'),
+                    Markup.button.callback('🚌 Red', 'fare_transantiago')
+                ],
+                [
+                    Markup.button.callback('💰 Todas las Tarifas', 'fare_all')
+                ]
+            ]);
+
+            await ctx.editMessageText(message, { 
+                parse_mode: 'Markdown',
+                reply_markup: keyboard.reply_markup
+            });
+            await ctx.answerCbQuery();
+        } catch (error) {
+            console.error(`Error in showSpecificFare for ${fareType}:`, error);
+            await ctx.answerCbQuery('❌ Error al mostrar tarifa');
+            throw error; // Re-throw to be caught by the action handler
+        }
+    }
+
 module.exports = {
     description: 'Consulta las tarifas del Metro con opciones',
     
@@ -136,95 +227,7 @@ module.exports = {
             await ctx.answerCbQuery('❌ Error al mostrar tarifas');
             throw error; // Re-throw to be caught by the action handler
         }
-    },
-
-    async showSpecificFare(ctx, fareType) {
-        try {
-            const fareConfig = {
-                'normal': { 
-                    keys: ['t_metro_punta', 't_metro_valle', 't_metro_bajo'], 
-                    name: 'Normal (Metro)',
-                    emoji: '🚇',
-                    description: 'Tarifa estándar para usuarios con tarjeta BIP'
-                },
-                'estudiante': { 
-                    keys: ['t_estudiante_punta', 't_estudiante_valle', 't_estudiante_bajo'], 
-                    name: 'Estudiante (TNE)',
-                    emoji: '🎓',
-                    description: 'Tarifa especial para estudiantes con TNE'
-                },
-                'adulto_mayor': { 
-                    keys: ['t_adulto_punta', 't_adulto_valle', 't_adulto_bajo'], 
-                    name: 'Adulto Mayor',
-                    emoji: '👴',
-                    description: 'Tarifa para adultos mayores (60+ años)'
-                },
-                'bip_adulto_mayor': { 
-                    keys: ['t_adultobip_punta', 't_adultobip_valle', 't_adultobip_bajo'], 
-                    name: 'BIP Adulto Mayor',
-                    emoji: '👵',
-                    description: 'Tarifa con tarjeta BIP para adultos mayores'
-                },
-                'nos': { 
-                    keys: ['t_nos_punta', 't_nos_valle', 't_nos_bajo'], 
-                    name: 'NOS',
-                    emoji: '🟢',
-                    description: 'Tarifa para usuarios del sistema NOS'
-                },
-                'transantiago': { 
-                    keys: ['t_transantiago'], 
-                    name: 'Red',
-                    emoji: '🚌',
-                    description: 'Tarifa integrada con buses Red'
-                }
-            };
-
-            const config = fareConfig[fareType];
-            const currentPeriod = TimeHelpers.getCurrentPeriod();
-            const isFlatFare = fareType === 'transantiago';
-            
-            let message = `${config.emoji} *${config.name}*\n`;
-            message += `${config.description}\n\n`;
-            
-            if (isFlatFare) {
-                message += `*Tarifa Única:* $${metroConfig.tarifario[config.keys[0]]}\n`;
-            } else {
-                message += `*Hora Punta:* $${metroConfig.tarifario[config.keys[0]]}\n`;
-                message += `*Horario Normal:* $${metroConfig.tarifario[config.keys[1]]} ${currentPeriod.type === 'VALLE' ? '(ACTUAL)' : ''}\n`;
-                message += `*Horario Bajo:* $${metroConfig.tarifario[config.keys[2]]}\n`;
-            }
-
-            message += `\n*Período Actual:* ${currentPeriod.name}\n`;
-            message += `${TimeHelpers.formatTime(new Date())}`;
-
-            // Recreate the keyboard to maintain navigation
-            const keyboard = Markup.inlineKeyboard([
-                [
-                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
-                    Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
-                ],
-                [
-                    Markup.button.callback('👴 Adulto Mayor', 'fare_adulto_mayor'),
-                    Markup.button.callback('👵 BIP Adulto Mayor', 'fare_bip_adulto_mayor')
-                ],
-                [
-                    Markup.button.callback('🟢 NOS', 'fare_nos'),
-                    Markup.button.callback('🚌 Red', 'fare_transantiago')
-                ],
-                [
-                    Markup.button.callback('💰 Todas las Tarifas', 'fare_all')
-                ]
-            ]);
-
-            await ctx.editMessageText(message, { 
-                parse_mode: 'Markdown',
-                reply_markup: keyboard.reply_markup
-            });
-            await ctx.answerCbQuery();
-        } catch (error) {
-            console.error(`Error in showSpecificFare for ${fareType}:`, error);
-            await ctx.answerCbQuery('❌ Error al mostrar tarifa');
-            throw error; // Re-throw to be caught by the action handler
-        }
     }
+
+    
 };
