@@ -2,6 +2,74 @@ const { Markup } = require('telegraf');
 const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
+async function showAllFares(ctx) {
+        try {
+            const currentPeriod = TimeHelpers.getCurrentPeriod();
+            const nextTransition = TimeHelpers.getNextTransition();
+            let tarifaMetro = "No aplica por horario";
+            let tarifaEstudiante = "No aplica por horario";
+            let tarifaAdultoMayor = metroConfig.tarifario['t_adulto_valle'];
+            let tarifaBipAdultoMayor = metroConfig.tarifario['t_adultobip_valle'];
+            let tarifaNos = "No aplica por horario";
+            
+            if (metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`]) {
+                tarifaMetro = metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`];
+                tarifaEstudiante =  metroConfig.tarifario[`t_estudiante_${currentPeriod.type.toLowerCase()}`];
+                tarifaAdultoMayor = metroConfig.tarifario[`t_adulto_${currentPeriod.type.toLowerCase()}`];
+                tarifaBipAdultoMayor = metroConfig.tarifario[`t_adultobip_${currentPeriod.type.toLowerCase()}`]
+                tarifaNos = metroConfig.tarifario[`t_nos_${currentPeriod.type.toLowerCase()}`];
+                
+            } 
+            
+            const fares = {
+                'Normal (Metro)': tarifaMetro,
+                'Estudiante (TNE)': tarifaEstudiante,
+                'Adulto Mayor': tarifaAdultoMayor,
+                'BIP Adulto Mayor': tarifaBipAdultoMayor,
+                'NOS': tarifaNos,
+                'Red': metroConfig.tarifario['t_transantiago']
+            };
+
+            let message = `💰 *Todas las Tarifas*\n\n`;
+            message += `*Período Actual:* ${currentPeriod.name}\n`;
+            message += `*Próximo Cambio:* ${nextTransition.time}\n\n`;
+            
+            for (const [name, amount] of Object.entries(fares)) {
+                message += `*${name}:* $${amount}\n`;
+            }
+
+            // Recreate the keyboard to maintain navigation
+            const keyboard = Markup.inlineKeyboard([
+                [
+                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
+                    Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
+                ],
+                [
+                    Markup.button.callback('👴 Adulto Mayor', 'fare_adulto_mayor'),
+                    Markup.button.callback('👵 BIP Adulto Mayor', 'fare_bip_adulto_mayor')
+                ],
+                [
+                    Markup.button.callback('🟢 NOS', 'fare_nos'),
+                    Markup.button.callback('🚌 Red', 'fare_transantiago')
+                ],
+                [
+                    Markup.button.callback('💰 Todas las Tarifas', 'fare_all')
+                ]
+            ]);
+
+            await ctx.editMessageText(message, { 
+                parse_mode: 'Markdown',
+                reply_markup: keyboard.reply_markup
+            });
+            await ctx.answerCbQuery();
+        } catch (error) {
+            console.error('Error in showAllFares:', error);
+            await ctx.answerCbQuery('❌ Error al mostrar tarifas');
+            throw error; // Re-throw to be caught by the action handler
+        }
+    }
+
+    
 
 async function showSpecificFare(ctx, fareType) {
         try {
@@ -160,73 +228,6 @@ module.exports = {
                 }
             });
         });
-    },
-
-    async showAllFares(ctx) {
-        try {
-            const currentPeriod = TimeHelpers.getCurrentPeriod();
-            const nextTransition = TimeHelpers.getNextTransition();
-            let tarifaMetro = "No aplica por horario";
-            let tarifaEstudiante = "No aplica por horario";
-            let tarifaAdultoMayor = metroConfig.tarifario['t_adulto_valle'];
-            let tarifaBipAdultoMayor = metroConfig.tarifario['t_adultobip_valle'];
-            let tarifaNos = "No aplica por horario";
-            
-            if (metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`]) {
-                tarifaMetro = metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`];
-                tarifaEstudiante =  metroConfig.tarifario[`t_estudiante_${currentPeriod.type.toLowerCase()}`];
-                tarifaAdultoMayor = metroConfig.tarifario[`t_adulto_${currentPeriod.type.toLowerCase()}`];
-                tarifaBipAdultoMayor = metroConfig.tarifario[`t_adultobip_${currentPeriod.type.toLowerCase()}`]
-                tarifaNos = metroConfig.tarifario[`t_nos_${currentPeriod.type.toLowerCase()}`];
-                
-            } 
-            
-            const fares = {
-                'Normal (Metro)': tarifaMetro,
-                'Estudiante (TNE)': tarifaEstudiante,
-                'Adulto Mayor': tarifaAdultoMayor,
-                'BIP Adulto Mayor': tarifaBipAdultoMayor,
-                'NOS': tarifaNos,
-                'Red': metroConfig.tarifario['t_transantiago']
-            };
-
-            let message = `💰 *Todas las Tarifas*\n\n`;
-            message += `*Período Actual:* ${currentPeriod.name}\n`;
-            message += `*Próximo Cambio:* ${nextTransition.time}\n\n`;
-            
-            for (const [name, amount] of Object.entries(fares)) {
-                message += `*${name}:* $${amount}\n`;
-            }
-
-            // Recreate the keyboard to maintain navigation
-            const keyboard = Markup.inlineKeyboard([
-                [
-                    Markup.button.callback('🚇 Normal (Metro)', 'fare_normal'),
-                    Markup.button.callback('🎓 Estudiante (TNE)', 'fare_estudiante')
-                ],
-                [
-                    Markup.button.callback('👴 Adulto Mayor', 'fare_adulto_mayor'),
-                    Markup.button.callback('👵 BIP Adulto Mayor', 'fare_bip_adulto_mayor')
-                ],
-                [
-                    Markup.button.callback('🟢 NOS', 'fare_nos'),
-                    Markup.button.callback('🚌 Red', 'fare_transantiago')
-                ],
-                [
-                    Markup.button.callback('💰 Todas las Tarifas', 'fare_all')
-                ]
-            ]);
-
-            await ctx.editMessageText(message, { 
-                parse_mode: 'Markdown',
-                reply_markup: keyboard.reply_markup
-            });
-            await ctx.answerCbQuery();
-        } catch (error) {
-            console.error('Error in showAllFares:', error);
-            await ctx.answerCbQuery('❌ Error al mostrar tarifas');
-            throw error; // Re-throw to be caught by the action handler
-        }
     }
 
     
