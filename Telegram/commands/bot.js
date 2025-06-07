@@ -1,4 +1,4 @@
-const os = require('os')
+
 
 module.exports = {
   execute: (ctx) => {
@@ -34,7 +34,7 @@ module.exports = {
 📊 *Uso de memoria*: ${memoryUsage.toFixed(2)} MB
 🖥️ *Servidor*: ${os.type()} ${os.release()}
 💾 *RAM total*: ${totalMemory.toFixed(2)} GB
-📅 *Creado el*: ${botCreatedAt}
+📅 *Creado el*: 3/3/2025
     
 _Solicitado por ${ctx.from.first_name}_
     `;
