@@ -255,13 +255,14 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         staticStation.status = station.status;
        } else {
 
-                            
+         console.log(metro._staticData.stations) 
+            
          staticStation = Object.values(metro._staticData.stations).find(s => 
              s.code === stationId || s.displayName === stationId
         ); 
         
             station = Object.values(metroData.stations).find(s => 
-             s.name === station?.name || s.code === stationId || s.displayName === stationId
+             s.name === station?.name || s.code === stationId || s.name === stationId
         );  
 staticStation.status = station.status;     
       
