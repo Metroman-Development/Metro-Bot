@@ -643,7 +643,7 @@ async function showHelp(ctx) {
 }
 
 // Handle messages
-Ñ
+
 
 // Handle messages - Updated version
 async function handleMessage(ctx) {
