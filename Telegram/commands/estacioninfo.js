@@ -231,7 +231,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
         const metroData = metro.api.getProcessedData();
         const searcher = new SearchCore('station');
         searcher.setDataSource(metroData);
-        let station = await searcher.getById(stationId) 
+        let station = await searcher.getById(stationId.toUpperCase()) 
         
 
         
@@ -262,7 +262,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
          console.log(stationId) 
             
          staticStation = Object.values(metro._staticData.stations).find(s => 
-             s.code === stationId || s.displayName === stationId.toUpperCase() 
+             s.code === stationId || s.displayName.toUpperCase() === stationId.toUpperCase() 
         ); 
         
             station = Object.values(metroData.stations).find(s => 
