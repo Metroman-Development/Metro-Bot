@@ -266,12 +266,17 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
          console.log(stationId) 
             
          staticStation = Object.values(metro._staticData.stations).find(s => 
-             s.code === stationId.toUpperCase() || s.displayName.toUpperCase() === stationId.toUpperCase() 
+             s.code === stationId.trim().toUpperCase() || s.displayName.toUpperCase() === stationId.trim().toUpperCase() 
         ); 
+
+            console.log(staticStation) 
         
             station = Object.values(metroData.stations).find(s => 
-             s.name === station?.name || s.code === stationId.toUpperCase() || s.name === stationId
-        );  
+             s.name === station?.name || s.code === stationId.trim().toUpperCase() || s.name === stationId.trim()
+        );
+
+            console.log(station) 
+            
 staticStation.status = station.status;     
       
         } 
