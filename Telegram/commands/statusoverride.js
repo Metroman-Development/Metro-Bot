@@ -566,7 +566,8 @@ async function editOverrideField(ctx, type, id, field) {
             action: 'edit_override',
             type,
             id,
-            field
+            field,
+            lastActivity: Date.now()
         };
 
         const fieldNames = {
@@ -591,7 +592,6 @@ async function editOverrideField(ctx, type, id, field) {
         handleError(ctx, error, 'editar campo');
     }
 }
-
 // Handle edit input
 async function handleEditInput(ctx, text) {
     try {
