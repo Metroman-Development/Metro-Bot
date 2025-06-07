@@ -1,4 +1,4 @@
-const { Markup } = require('telegraf');
+const { Markup, session } = require('telegraf');
 const MetroCore = require('../../modules/metro/core/MetroCore');
 const path = require('path');
 const fs = require('fs').promises;
@@ -21,18 +21,27 @@ const OVERRIDE_TYPES = {
     }
 };
 
-// Session management
-const userSessions = {};
-
-function getSession(userId) {
-    if (!userSessions[userId]) {
-        userSessions[userId] = {};
-    }
-    return userSessions[userId];
+// Session management setup
+function setupSession(bot) {
+    bot.use(session({
+        defaultSession: () => ({
+            editingContext: null
+        })
+    }));
 }
 
-function clearSession(userId) {
-    delete userSessions[userId];
+function getSession(ctx) {
+    if (!ctx.session) {
+        ctx.session = {};
+    }
+    if (!ctx.session.editingContext) {
+        ctx.session.editingContext = null;
+    }
+    return ctx.session;
+}
+
+function clearSession(ctx) {
+    ctx.session.editingContext = null;
 }
 
 // Helper functions
@@ -551,7 +560,7 @@ async function toggleOverride(ctx, type, id) {
 // Edit override field
 async function editOverrideField(ctx, type, id, field) {
     try {
-        const session = getSession(ctx.from.id);
+        const session = getSession(ctx);
         session.editingContext = {
             action: 'edit_override',
             type,
@@ -585,7 +594,7 @@ async function editOverrideField(ctx, type, id, field) {
 // Handle edit input
 async function handleEditInput(ctx, text) {
     try {
-        const session = getSession(ctx.from.id);
+        const session = getSession(ctx);
         if (!session.editingContext || session.editingContext.action !== 'edit_override') {
             return;
         }
@@ -603,7 +612,7 @@ async function handleEditInput(ctx, text) {
         target[id].updatedBy = "admin";
         
         await saveOverrides(overrides);
-        clearSession(ctx.from.id);
+        clearSession(ctx);
         
         await viewOverride(ctx, type, id);
     } catch (error) {
@@ -632,8 +641,32 @@ async function showHelp(ctx) {
     });
 }
 
+// Handle messages
+async function handleMessage(ctx) {
+    try {
+        const session = getSession(ctx);
+        if (!session.editingContext || session.editingContext.action !== 'edit_override') {
+            return;
+        }
+
+        const text = ctx.message.text.trim();
+        await handleEditInput(ctx, text);
+        
+        // Delete the user's message to keep chat clean
+        try {
+            await ctx.deleteMessage();
+        } catch (e) {
+            console.error('Could not delete message:', e);
+        }
+    } catch (error) {
+        handleError(ctx, error, 'procesar mensaje');
+    }
+}
+
 // Register actions
 function registerActions(bot) {
+    setupSession(bot);
+
     // Main menu
     bot.action('override_main', async (ctx) => {
         await ctx.answerCbQuery();
@@ -738,28 +771,6 @@ function registerActions(bot) {
         await ctx.answerCbQuery();
         await showHelp(ctx);
     });
-}
-
-// Handle messages
-async function handleMessage(ctx) {
-    try {
-        const session = getSession(ctx.from.id);
-        if (!session.editingContext || session.editingContext.action !== 'edit_override') {
-            return;
-        }
-
-        const text = ctx.message.text.trim();
-        await handleEditInput(ctx, text);
-        
-        // Delete the user's message to keep chat clean
-        try {
-            await ctx.deleteMessage();
-        } catch (e) {
-            console.error('Could not delete message:', e);
-        }
-    } catch (error) {
-        handleError(ctx, error, 'procesar mensaje');
-    }
 }
 
 module.exports = {
