@@ -10,6 +10,11 @@ class TelegramBot {
     this._setupWelcomeHandler();
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
     this.topicId = 4; // Your specified topic ID
+    this.bot.use(
+  session({
+    defaultSession: () => ({})
+  })
+);
   }
 
   _setupWelcomeHandler() {
@@ -101,11 +106,7 @@ class TelegramBot {
       ctx.reply('An error occurred. Please try again later.');
     });
 
-    this.bot.use(
-  session({
-    defaultSession: () => ({})
-  })
-);
+    
   }
 
   launch() {
