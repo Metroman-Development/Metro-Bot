@@ -23,11 +23,12 @@ const OVERRIDE_TYPES = {
 
 // Session management setup
 function setupSession(bot) {
-    bot.use(session({
+   /* bot.use(session({
         defaultSession: () => ({
             editingContext: null
         })
-    }));
+    }));*/
+    return 
 }
 
 function getSession(ctx) {
