@@ -44,15 +44,14 @@ function formatDate(dateString) {
 
 function getStatusEmoji(status) {
     const statusMap = {
-        'operativa': '🟢',
-        'abierto': '🟢',
-        'fuera de servicio': '🔴',
-        'cerrado': '🔴',
-        'en mantención': '🟡',
-        'restringido': '🟡',
-        'normal': '🟢',
-        'alterado': '🟡',
-        'suspendido': '🔴'
+        '1': '🟢',
+        '2': '🔴',
+        
+        '3': '🟡',
+        '4': '🟡',
+        '5': '🔵',
+        '0': '🌙',
+        
     };
     return statusMap[status?.toLowerCase()] || '⚪';
 }
