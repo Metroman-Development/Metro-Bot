@@ -271,9 +271,7 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
 
             console.log(staticStation) 
         
-            station = Object.values(metroData.stations).find(s => 
-             s.name === station?.name || s.code === stationId.trim().toUpperCase() || s.name === stationId.trim()
-        );
+            station = metroData.stations[staticStation.code.toLowerCase()];
 
             console.log(station) 
             
