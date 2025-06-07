@@ -6,7 +6,7 @@ module.exports = {
     command: 'tarifa',
     description: 'Consulta las tarifas del Metro con opciones interactivas',
     
-    execute: async (ctx) {
+    execute: async (ctx) => {
         try {
             const currentPeriod = TimeHelpers.getCurrentPeriod();
             
