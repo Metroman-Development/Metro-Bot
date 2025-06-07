@@ -786,6 +786,38 @@ function registerActions(bot) {
         await ctx.answerCbQuery();
         await showHelp(ctx);
     });
+
+
+    
+
+    // Add text message handler for edit operations
+    bot.on('text', async (ctx) => {
+        await handleMessage(ctx);
+    });
+
+    // Add timeout cleanup middleware
+    bot.use(async (ctx, next) => {
+        if (ctx.session?.editingContext) {
+            const now = Date.now();
+            const lastActivity = ctx.session.editingContext.lastActivity || now;
+            
+            // Clear session if no activity for 5 minutes
+            if (now - lastActivity > 300000) {
+                clearSession(ctx);
+                if (ctx.chat?.type === 'private') {
+                    await ctx.reply('La operación de edición ha expirado por inactividad.');
+                }
+                return;
+            }
+            
+            // Update last activity time
+            ctx.session.editingContext.lastActivity = now;
+        }
+        await next();
+    });
+
+
+
 }
 
 module.exports = {
