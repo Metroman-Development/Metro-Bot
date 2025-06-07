@@ -19,15 +19,22 @@ class TelegramBot {
     
     // Add message handler for all text messages
     this.bot.on('text', async (ctx) => {
-      // Forward text messages to command handlers if they're in edit mode
-      const command = Object.values(require('./commands')).find(cmd => 
-        cmd.handleMessage && typeof cmd.handleMessage === 'function'
-      );
-      
-      if (command) {
-        await command.handleMessage(ctx);
-      }
+      const commandsPath = path.join(__dirname, 'commands');
+    const commandFiles = fs.readdirSync(commandsPath).filter(file => 
+      file.endsWith('.js') && !file.startsWith('.')
+    );
+
+    for (const file of commandFiles) {// Forward text messages to command handlers if they're in edit mode
+         const command = require(path.join(commandsPath, file));
+         if (command.handleMessage && typeof command.handleMessage === 'function') {
+
+            await command.handleMessage(ctx);
+ 
+         } 
+
+    }
     });
+   
     
    
   }
