@@ -3,7 +3,7 @@ const metroConfig = require('../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
 module.exports = {
-    description: 'Consulta las tarifas del Metro con opciones interactivas',
+    description: 'Consulta las tarifas del Metro con opciones',
     
     execute: async (ctx) => {
         try {
