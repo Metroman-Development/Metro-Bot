@@ -251,7 +251,8 @@ async function showStationInfo(ctx, stationId, tabId = 'main', page = 0) {
        } else {
 
                             
-         staticStation = metro._staticData.stations[stationId];         
+         staticStation = metro._staticData.stations[stationId];    
+staticStation.status = station.status;     
       
         } 
 
@@ -397,6 +398,8 @@ function generateMainTabMessage(station) {
     
     let message = `<b>${lineEmoji} ${station.displayName} ${statusEmoji}</b>\n`;
     message += `<b>Línea:</b> ${lineEmoji} Línea ${station.line.toUpperCase()}\n\n`;
+
+    console.log(station.status)
     
     message += `<b>📢 Estado:</b>\n`;
     message += `${station.status?.appMessage || 'Sin información'}\n\n`;
