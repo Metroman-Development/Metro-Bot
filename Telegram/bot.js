@@ -15,6 +15,21 @@ class TelegramBot {
     defaultSession: () => ({})
   })
 );
+    
+    
+    // Add message handler for all text messages
+    this.bot.on('text', async (ctx) => {
+      // Forward text messages to command handlers if they're in edit mode
+      const command = Object.values(require('./commands')).find(cmd => 
+        cmd.handleMessage && typeof cmd.handleMessage === 'function'
+      );
+      
+      if (command) {
+        await command.handleMessage(ctx);
+      }
+    });
+    
+   
   }
 
   _setupWelcomeHandler() {
