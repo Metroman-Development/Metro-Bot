@@ -241,7 +241,9 @@ class TimeHelpers {
 
     isWeekday() {
 
-        console.log(this._currentTime.day())  
+        console.log(this._currentTime.day() !== 0 && 
+               this._currentTime.day() !== 6 && 
+               !this.isFestiveDay();)  
         return this._currentTime.day() !== 0 && 
                this._currentTime.day() !== 6 && 
                !this.isFestiveDay();
