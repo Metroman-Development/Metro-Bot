@@ -138,17 +138,23 @@ class TimeAwaiter {
     }
 
     _getCurrentExpressState() {
-        return {
-            morning: this.timeHelpers.isTimeBetween(
+
+        const isMorning = this.timeHelpers.isTimeBetween(
                 this.timeHelpers.currentTime,
                 chronosConfig.expressHours.morning.start,
                 chronosConfig.expressHours.morning.end
-            ),
-            evening: this.timeHelpers.isTimeBetween(
+            ) && this.timeHelpers.isWeekday();
+  
+        const isEvening = this.timeHelpers.isTimeBetween(
                 this.timeHelpers.currentTime,
                 chronosConfig.expressHours.evening.start,
                 chronosConfig.expressHours.evening.end
-            )
+            )  && this.timeHelpers.isWeekday();
+
+
+        return {
+            morning: isMorning,
+            evening: isEvening, 
         };
     }
 
