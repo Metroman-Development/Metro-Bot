@@ -230,6 +230,8 @@ class TimeHelpers {
 
     // Metro specific functions
     isExpressActive() {
+
+        
         if (!this.isWeekday()) return false;
         
         const expressTime = this.config.expressHours 
@@ -238,6 +240,8 @@ class TimeHelpers {
     }
 
     isWeekday() {
+
+        console.log(this._currentTime) 
         return this._currentTime.day() !== 0 && 
                this._currentTime.day() !== 6 && 
                !this.isFestiveDay();
