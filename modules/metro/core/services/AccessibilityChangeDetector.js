@@ -4,7 +4,6 @@ const path = require('path');
 const { sendTelegramMessage } = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 
-
 const API_URL = process.env.ACCESSARIEL;
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
 const TELEGRAM_CHANNEL = '804';
@@ -12,7 +11,9 @@ const DISCORD_CHANNEL = '1381634611225821346';
 
 class AccessibilityChangeDetector {
     constructor() {
-        this.lastStates = this.loadLastStates();
+        const loadedStates = this.loadLastStates();
+        // Initialize with empty object if no previous state exists
+        this.lastStates = loadedStates || {};
     }
 
     loadLastStates() {
@@ -32,10 +33,10 @@ class AccessibilityChangeDetector {
                 }
                 return cleanData;
             }
-            return {};
+            return null; // Return null instead of empty object when no file exists
         } catch (error) {
             console.error('Error al cargar estados anteriores:', error);
-            return {};
+            return null; // Return null on error
         }
     }
 
@@ -93,7 +94,12 @@ class AccessibilityChangeDetector {
     detectChanges(currentStates) {
         const changes = [];
         
-        // Verificar equipos nuevos o modificados
+        // Skip detection if we have no previous state (first run)
+        if (Object.keys(this.lastStates).length === 0) {
+            return changes;
+        }
+        
+        // Check for new or modified equipment
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
             const lastData = this.lastStates[equipmentId];
             
@@ -113,7 +119,7 @@ class AccessibilityChangeDetector {
             }
         }
         
-        // Verificar equipos eliminados (opcional)
+        // Check for removed equipment (optional)
         for (const equipmentId of Object.keys(this.lastStates)) {
             if (!currentStates[equipmentId]) {
                 changes.push({
@@ -162,12 +168,10 @@ class AccessibilityChangeDetector {
                 await sendTelegramMessage(TELEGRAM_CHANNEL, message);
                
                 const client = getClient();
-
-                const statusChannel = client.channels.cache.get('1381634611225821346');
-
-                
-                
-                await statusChannel.send(message);
+                const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
+                if (statusChannel) {
+                    await statusChannel.send(message);
+                }
             }
         }
     }
