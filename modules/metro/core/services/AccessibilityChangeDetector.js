@@ -217,8 +217,13 @@ async checkAccessibility() {
             this.logger.info('Notifying about changes');
             await this.notifyChanges(changes);
             
-            // Update lastStates with current states (whether from API or cache)
-            this.saveLastStates(cleanCurrentStates);
+            // CRITICAL FIX: Only update lastStates when we have fresh API data
+            if (withinWindow) {
+                this.logger.info('Updating lastStates with fresh API data');
+                this.saveLastStates(cleanCurrentStates);
+            } else {
+                this.logger.info('Not updating lastStates (using cached data)');
+            }
         }
         
         return changes;
