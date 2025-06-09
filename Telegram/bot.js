@@ -73,7 +73,7 @@ class TelegramBot {
 
       // Modified to include topic ID
       await this.bot.telegram.sendMessage(
-        this.accessTopicId, 
+        this.channelId, 
         processedMessage, 
         { 
           parse_mode: 'HTML',
