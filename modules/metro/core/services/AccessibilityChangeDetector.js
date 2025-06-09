@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const TelegramBot = require('../../../../Telegram/bot');
+const {TelegramBot} = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 
 const API_URL = process.env.ACCESSARIEL;
