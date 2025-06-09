@@ -5,7 +5,7 @@ const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 const TimeHelpers = require('../../../chronos/timeHelpers');
 
-const API_URL = process.env.ACCESSARIEL;
+const API_URL = process.env.ACCESSARIEL; // Ensure this is set in your environment
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
 const CACHE_FILE = path.join(__dirname, 'accessibilityCache.json');
 const TELEGRAM_CHANNEL = '804';
@@ -15,7 +15,6 @@ const DISCORD_CHANNEL = '1381634611225821346';
 let metroCoreInstance = null;
 async function getMetroCore() {
     if (!metroCoreInstance) {
-        // Lazy load MetroCore to avoid circular dependencies
         const MetroCore = require('../MetroCore');
         metroCoreInstance = await MetroCore.getInstance();
     }
@@ -24,21 +23,16 @@ async function getMetroCore() {
 
 class AccessibilityChangeDetector {
     constructor() {
-        // Initialize logger first
         this.logger = {
             info: (message) => console.log(`[INFO] ${new Date().toISOString()} - ${message}`),
             warn: (message) => console.warn(`[WARN] ${new Date().toISOString()} - ${message}`),
             error: (message) => console.error(`[ERROR] ${new Date().toISOString()} - ${message}`)
         };
 
-        // Ensure files and directories exist
         this.initializeStorage();
-
-        // Load states - lastStates gets priority for existing data
         this.lastStates = this.loadDataFile(STATE_FILE, 'last state');
         this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
 
-        // If cache is empty but lastStates exists, use it as cache
         if (Object.keys(this.cachedStates).length === 0 && Object.keys(this.lastStates).length > 0) {
             this.logger.info('Initializing cache from last state data');
             this.cachedStates = JSON.parse(JSON.stringify(this.lastStates));
@@ -50,14 +44,12 @@ class AccessibilityChangeDetector {
 
     initializeStorage() {
         try {
-            // Ensure directory exists
             const dir = path.dirname(CACHE_FILE);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir, { recursive: true });
                 this.logger.info(`Created storage directory: ${dir}`);
             }
 
-            // Initialize files with empty objects if they don't exist
             [STATE_FILE, CACHE_FILE].forEach(file => {
                 if (!fs.existsSync(file)) {
                     fs.writeFileSync(file, JSON.stringify({}, null, 2));
@@ -66,7 +58,7 @@ class AccessibilityChangeDetector {
             });
         } catch (error) {
             this.logger.error(`Storage initialization failed: ${error.message}`);
-            throw error; // Fail fast if we can't initialize storage
+            throw error;
         }
     }
 
@@ -75,7 +67,6 @@ class AccessibilityChangeDetector {
             const rawData = fs.readFileSync(filePath, 'utf8');
             const data = JSON.parse(rawData);
             
-            // Validate basic structure
             if (typeof data !== 'object' || data === null) {
                 throw new Error(`Invalid ${type} file structure`);
             }
@@ -85,14 +76,12 @@ class AccessibilityChangeDetector {
         } catch (error) {
             this.logger.error(`Error loading ${type} data: ${error.message}`);
             
-            // If file exists but is corrupted, back it up
             if (fs.existsSync(filePath) && error instanceof SyntaxError) {
                 const backupPath = `${filePath}.bak`;
                 fs.copyFileSync(filePath, backupPath);
                 this.logger.warn(`Created backup of corrupted file at ${backupPath}`);
             }
 
-            // Return empty object as fallback
             return {};
         }
     }
@@ -100,7 +89,6 @@ class AccessibilityChangeDetector {
     cleanData(data) {
         const cleanData = {};
         for (const [id, equipment] of Object.entries(data)) {
-            // Skip invalid entries
             if (!equipment || typeof equipment !== 'object') continue;
             
             cleanData[id] = {
@@ -143,14 +131,12 @@ class AccessibilityChangeDetector {
         const currentHour = currentTime.hour();
         const currentMinute = currentTime.minute();
         
-        // Check if within 12:18-12:30 window
         const isFirstWindow = (
             currentHour === 12 && 
             currentMinute >= 18 && 
             currentMinute <= 30
         );
         
-        // Check if within 20:18-20:30 window
         const isSecondWindow = (
             currentHour === 20 && 
             currentMinute >= 18 && 
@@ -160,90 +146,70 @@ class AccessibilityChangeDetector {
         return isFirstWindow || isSecondWindow;
     }
 
-async checkAccessibility() {
-    try {
-        const withinWindow = this.isWithinUpdateWindow();
-        this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
+    async checkAccessibility() {
+        try {
+            const withinWindow = this.isWithinUpdateWindow();
+            this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
 
-        let currentStates;
-        let dataSource;
-        let comparisonBaseline;
-        
-        if (withinWindow) {
-            // During update window - fetch fresh data from API
-            this.logger.info('Fetching fresh data from API');
-            const response = await axios.get(API_URL);
-            currentStates = response.data;
-            dataSource = 'API';
+            let currentStates;
+            let dataSource;
+            let comparisonBaseline;
             
-            // Compare fresh API data against the last saved states
-            comparisonBaseline = this.lastStates;
-            
-            // Save the fresh data to cache for use outside windows
-            this.saveCache(currentStates);
-            
-        } else {
-            // Outside update window - compare cache against last states
-            if (Object.keys(this.cachedStates).length > 0) {
-                currentStates = this.cachedStates;  // Use cache as "current"
-                comparisonBaseline = this.lastStates;  // Compare against last states
-                dataSource = 'cache';
-                this.logger.info('Comparing cached data against last saved states');
+            if (withinWindow) {
+                // During window: fetch live API data
+                this.logger.info('Fetching fresh data from API');
+                const response = await axios.get(API_URL);
+                currentStates = response.data;
+                dataSource = 'API';
+                comparisonBaseline = this.lastStates;
+                this.saveCache(currentStates);
             } else {
-                this.logger.error('No cached data available for comparison');
+                // Outside window: use cached data
+                if (Object.keys(this.cachedStates).length > 0) {
+                    currentStates = this.cachedStates;
+                    comparisonBaseline = this.lastStates;
+                    dataSource = 'cache';
+                    this.logger.info('Using cached data for comparison');
+                } else {
+                    this.logger.error('No cached data available');
+                    return [];
+                }
+            }
+
+            const cleanCurrentStates = this.cleanData(currentStates);
+            const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
+
+            if (Object.keys(cleanComparisonBaseline).length === 0) {
+                this.logger.info('First run detected, saving initial state');
+                this.saveLastStates(cleanCurrentStates);
                 return [];
             }
-        }
+            
+            const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
+            this.logger.info(`Detected ${changes.length} changes`);
 
-        // Clean current states data
-        const cleanCurrentStates = this.cleanData(currentStates);
-        const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
-        
-        this.logger.info(`Using data from ${dataSource} with ${Object.keys(cleanCurrentStates).length} items`);
-        this.logger.info(`Comparing against baseline with ${Object.keys(cleanComparisonBaseline).length} items`);
-
-        // If this is the first run (empty lastStates), save the initial state
-        if (Object.keys(cleanComparisonBaseline).length === 0) {
-            this.logger.info('First run detected, saving initial state');
-            this.saveLastStates(cleanCurrentStates);
+            if (changes.length > 0) {
+                await this.notifyChanges(changes);
+                
+                // Only update lastStates with fresh API data (never with cache)
+                if (withinWindow) {
+                    this.logger.info('Updating lastStates with fresh API data');
+                    this.saveLastStates(cleanCurrentStates);
+                }
+            }
+            
+            return changes;
+        } catch (error) {
+            this.logger.error(`Error in accessibility check: ${error.message}`);
             return [];
         }
-        
-        // Detect changes: current vs baseline
-        const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
-        this.logger.info(`Detected ${changes.length} changes`);
-        
-        if (changes.length > 0) {
-            this.logger.info('Notifying about changes');
-            await this.notifyChanges(changes);
-            
-            // CRITICAL FIX: Only update lastStates when we have fresh API data
-            if (withinWindow) {
-                this.logger.info('Updating lastStates with fresh API data');
-                this.saveLastStates(cleanCurrentStates);
-            } else {
-                this.logger.info('Not updating lastStates (using cached data)');
-            }
-        }
-        
-        return changes;
-    } catch (error) {
-        this.logger.error(`Error in accessibility check: ${error.message}`);
-        return [];
     }
-}
 
-    detectChanges(currentStates, comparisonBaseline = this.lastStates) {
+    detectChanges(currentStates, comparisonBaseline) {
         const changes = [];
         
-        // Check for new or modified equipment
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
             const lastData = comparisonBaseline[equipmentId];
-
-            if (equipmentId === 'ECO-0f404f') {
-                console.log("Current state:", currentData.estado);
-                console.log("Previous state:", lastData ? lastData.estado : 'N/A');
-            }
             
             if (!lastData) {
                 changes.push({
@@ -263,7 +229,6 @@ async checkAccessibility() {
             }
         }
         
-        // Check for removed equipment
         for (const equipmentId of Object.keys(comparisonBaseline)) {
             if (!currentStates[equipmentId]) {
                 changes.push({
@@ -282,8 +247,6 @@ async checkAccessibility() {
         if (!changes || changes.length === 0) return null;
 
         const metro = await getMetroCore();
-        
-        // Group changes by line and station
         const groupedChanges = changes.reduce((acc, change) => {
             const stationCode = change.equipmentId.split('-')[0];
             const station = Object.values(metro._staticData.stations).find(s => 
@@ -300,7 +263,6 @@ async checkAccessibility() {
             return acc;
         }, {});
 
-        // Build the message
         let message = `🚨 *Actualización de Accesibilidad* 🚨\n\n`;
 
         for (const [line, stations] of Object.entries(groupedChanges)) {
@@ -309,7 +271,6 @@ async checkAccessibility() {
             for (const [stationName, stationChanges] of Object.entries(stations)) {
                 message += `*${stationName}*\n`;
                 
-                // Group by equipment type
                 const typeGroups = stationChanges.reduce((acc, change) => {
                     const type = change.current?.tipo || change.previous?.tipo || 'Equipo';
                     if (!acc[type]) acc[type] = [];
@@ -339,7 +300,6 @@ async checkAccessibility() {
         }
 
         message += `_Actualizado: ${new Date().toLocaleString('es-CL')}_`;
-
         return message;
     }
 
@@ -350,17 +310,14 @@ async checkAccessibility() {
 
             this.logger.info('Sending accessibility notification');
             
-            // Send to Telegram
             await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
             
-            // Send to Discord
             const client = getClient();
             const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
             if (statusChannel) {
-                // Convert Markdown to Discord formatting
                 const discordMessage = message
-                    .replace(/\*(.*?)\*/g, '**$1**')  // Bold
-                    .replace(/_(.*?)_/g, '*$1*');     // Italic
+                    .replace(/\*(.*?)\*/g, '**$1**')
+                    .replace(/_(.*?)_/g, '*$1*');
                 await statusChannel.send(discordMessage);
             }
         } catch (error) {
