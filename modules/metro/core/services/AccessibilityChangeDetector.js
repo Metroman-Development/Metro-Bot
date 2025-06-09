@@ -194,8 +194,11 @@ class AccessibilityChangeDetector {
                 // Only update lastStates with fresh API data (never with cache)
                 if (withinWindow) {
                     this.logger.info('Updating lastStates with fresh API data');
-                    this.saveLastStates(cleanCurrentStates);
+                     
                 }
+                
+                this.saveLastStates(cleanCurrentStates);
+               
             }
             
             return changes;
