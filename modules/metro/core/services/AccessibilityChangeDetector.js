@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const { sendTelegramMessage } = require('../../../../Telegram/bot');
+const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 
 const API_URL = process.env.ACCESSARIEL;
@@ -165,7 +165,7 @@ class AccessibilityChangeDetector {
             }
             
             if (message) {
-                await sendTelegramMessage(TELEGRAM_CHANNEL, message);
+                await TelegramBot.sendTelegramMessage(TELEGRAM_CHANNEL, message);
                
                 const client = getClient();
                 const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
