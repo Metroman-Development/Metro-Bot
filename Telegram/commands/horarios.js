@@ -62,6 +62,8 @@ module.exports = {
                 case 'regular':
                 case 'horario':
                     return showRegularSchedule(ctx);
+                case 'periodos':
+                    return showPeriodosInfo(ctx);
                 default:
                     return showMainMenu(ctx);
             }
@@ -89,6 +91,12 @@ module.exports = {
             await ctx.answerCbQuery();
             await showRegularSchedule(ctx);
         });
+
+        // Periodos info action
+        bot.action('periodos_info', async (ctx) => {
+            await ctx.answerCbQuery();
+            await showPeriodosInfo(ctx);
+        });
     }
 };
 
@@ -108,7 +116,8 @@ async function showMainMenu(ctx) {
     
     const keyboard = [
         [Markup.button.callback('⏰ Período Operacional Completo', 'horarios_periodo')],
-        [Markup.button.callback('📅 Horarios Regulares', 'horarios_regular')]
+        [Markup.button.callback('📅 Horarios Regulares', 'horarios_regular')],
+        [Markup.button.callback('💰 Periodos Tarifarios', 'periodos_info')]
     ];
 
     if (ctx.callbackQuery) {
@@ -157,6 +166,7 @@ async function showPeriodInfo(ctx) {
 
         const keyboard = [
             [Markup.button.callback('📅 Ver Horarios Regulares', 'horarios_regular')],
+            [Markup.button.callback('💰 Ver Periodos Tarifarios', 'periodos_info')],
             [Markup.button.callback('🔙 Menú Principal', 'horarios_main')]
         ];
 
@@ -207,6 +217,7 @@ async function showRegularSchedule(ctx) {
 
         const keyboard = [
             [Markup.button.callback('⏰ Ver Período Actual', 'horarios_periodo')],
+            [Markup.button.callback('💰 Ver Periodos Tarifarios', 'periodos_info')],
             [Markup.button.callback('🔙 Menú Principal', 'horarios_main')]
         ];
 
@@ -222,6 +233,73 @@ async function showRegularSchedule(ctx) {
         }
     } catch (error) {
         handleError(ctx, error, 'mostrar horarios regulares');
+    }
+}
+
+// Show fare periods information
+async function showPeriodosInfo(ctx) {
+    try {
+        const currentPeriod = TimeHelpers.getCurrentPeriod();
+        const periodos = metroConfig.horarioPeriodos;
+        
+        // Format time ranges for each period
+        const formatTimeRanges = (ranges) => {
+            return ranges.map(range => 
+                `${range.inicio.split(':')[0]}:${range.inicio.split(':')[1]} - ${range.fin.split(':')[0]}:${range.fin.split(':')[1]}`
+            ).join('\n');
+        };
+
+        let message = `⏰ <b>Periodos Tarifarios del Metro</b>\n\n`;
+        
+        // Current period highlight
+        message += `🔄 <b>Periodo Actual:</b> ${currentPeriod.name}\n`;
+        message += `🕒 ${TimeHelpers.formatTime(new Date())}\n\n`;
+        
+        // Punta (Peak) period
+        message += `🚨 <b>Hora Punta</b>\n`;
+        message += `${formatTimeRanges(periodos.PUNTA)}\n\n`;
+        
+        // Valle (Off-peak) period
+        message += `🟢 <b>Horario Normal</b>\n`;
+        message += `${formatTimeRanges(periodos.VALLE)}\n\n`;
+        
+        // Bajo (Low) period
+        message += `🔵 <b>Horario Bajo</b>\n`;
+        message += `${formatTimeRanges(periodos.BAJO)}\n\n`;
+        
+        // Service hours footer
+        message += `📅 <b>Horarios de Servicio:</b>\n`;
+        message += `L-V: ${metroConfig.horario.Semana[0]} - ${metroConfig.horario.Semana[1]}\n`;
+        message += `Sáb: ${metroConfig.horario.Sábado[0]} - ${metroConfig.horario.Sábado[1]}\n`;
+        message += `Dom: ${metroConfig.horario.Domingo[0]} - ${metroConfig.horario.Domingo[1]}\n\n`;
+        
+        // Express service info if applicable
+        if (TimeHelpers.isWeekday()) {
+            message += `🚄 <b>Rutas Expresas (L-V):</b>\n`;
+            message += `Mañana: ${metroConfig.horarioExpreso.morning[0]} - ${metroConfig.horarioExpreso.morning[1]}\n`;
+            message += `Tarde: ${metroConfig.horarioExpreso.evening[0]} - ${metroConfig.horarioExpreso.evening[1]}\n`;
+            message += `Líneas: ${metroConfig.expressLines.map(l => lineEmojis[l]).join(' ')}\n\n`;
+        }
+
+        message += `ℹ️ Los periodos determinan la tarifa aplicable pero no se muestran precios aquí.`;
+
+        const keyboard = [
+            [Markup.button.callback('🔄 Actualizar', 'periodos_info')],
+            [Markup.button.callback('🔙 Menú Principal', 'horarios_main')]
+        ];
+
+        if (ctx.callbackQuery) {
+            await ctx.editMessageText(message, {
+                parse_mode: 'HTML',
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        } else {
+            await ctx.replyWithHTML(message, {
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        }
+    } catch (error) {
+        handleError(ctx, error, 'mostrar información de periodos');
     }
 }
 
