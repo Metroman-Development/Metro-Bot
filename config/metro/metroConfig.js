@@ -148,10 +148,11 @@ api: {
         ],
         VALLE: [
             { inicio: "09:00:00", fin: "18:00:00" }, // Midday
-            { inicio: "20:00:00", fin: "23:00:00" }, // Late evening
+            { inicio: "20:00:00", fin: "20:45:00" }, // Late evening
         ],
         BAJO: [
             { inicio: "06:00:00", fin: "07:00:00" }, // Early morning
+             { inicio: "20:45:00", fin: "23:00:00" }, // Late night
 
         ],
         SERVICEHOURS: [
