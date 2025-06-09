@@ -40,8 +40,16 @@ class AccessibilityChangeDetector {
         }
     }
 
-    saveLastStates() {
+    saveLastStates(olderData=null) {
+    
+        
         try {
+
+            if (olderData){
+
+                this.lastStates = olderData;
+
+           }  
             // Ensure we only save current state without historical data
             const cleanData = {};
             for (const [id, equipment] of Object.entries(this.lastStates)) {
@@ -53,6 +61,9 @@ class AccessibilityChangeDetector {
                     texto: equipment.texto
                 };
             }
+
+            
+            
             fs.writeFileSync(STATE_FILE, JSON.stringify(cleanData, null, 2));
         } catch (error) {
             console.error('Error al guardar estados:', error);
@@ -63,7 +74,8 @@ class AccessibilityChangeDetector {
         try {
             const response = await axios.get(API_URL);
             const currentStates = response.data;
-            
+
+            if(!this.lastStates) saveLastStates(currentStates) ;
             // Clean historical data from current states
             const cleanCurrentStates = {};
             for (const [id, equipment] of Object.entries(currentStates)) {
