@@ -459,11 +459,11 @@ async activateEventOverrides(eventDetails) {
         const startTime = performance.now();
 
 
-        if (checkCount/15===1||checkCount===0){
+        if (this.checkCount/15===1||this.checkCount===0){
          await checkAccessibility() 
             
         }
-        checkCount++
+        this.checkCount++
 
         try {
             // PHASE 2a: Fetch raw data
