@@ -16,7 +16,7 @@ let metroCoreInstance = null;
 async function getMetroCore() {
     if (!metroCoreInstance) {
         // Lazy load MetroCore to avoid circular dependencies
-        const MetroCore = require('../../modules/metro/core/MetroCore');
+        const MetroCore = require('../MetroCore');
         metroCoreInstance = await MetroCore.getInstance();
     }
     return metroCoreInstance;
