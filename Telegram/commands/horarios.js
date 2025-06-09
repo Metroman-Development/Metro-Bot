@@ -45,10 +45,52 @@ const periodConfig = {
     }
 };
 
+// Utility function to get random emoji
+function getRandomEmoji() {
+    const emojis = ['✨', '⚡', '🌀', '🌙', '🌟'];
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+// Safe message editing with error handling
+async function safeEditMessage(ctx, message, keyboard) {
+    try {
+        // Add subtle variation to prevent "message not modified" errors
+        const variedMessage = `${message}\n<small>${getRandomEmoji()}</small>`;
+        
+        await ctx.editMessageText(variedMessage, {
+            parse_mode: 'HTML',
+            reply_markup: { inline_keyboard: keyboard }
+        });
+        return true;
+    } catch (error) {
+        if (error.description && error.description.includes('message is not modified')) {
+            await ctx.answerCbQuery('✅ La información ya está actualizada');
+            return false;
+        }
+        
+        if (error.description && error.description.includes('message to edit not found')) {
+            await ctx.replyWithHTML(message, {
+                reply_markup: { inline_keyboard: keyboard }
+            });
+            return false;
+        }
+        
+        console.error('Error editing message:', error);
+        await ctx.answerCbQuery('⚠️ Error al actualizar, intenta nuevamente');
+        return false;
+    }
+}
+
 module.exports = {
     execute: async (ctx) => {
         try {
-            const args = ctx.message.text.split(' ').slice(1);
+            // Rate limiting for quick repeated commands
+            if (ctx.callbackQuery && Date.now() - ctx.callbackQuery.message.date * 1000 < 500) {
+                await ctx.answerCbQuery();
+                return;
+            }
+
+            const args = ctx.message?.text?.split(' ').slice(1) || [];
             const [action] = args;
 
             if (!action) {
@@ -76,59 +118,80 @@ module.exports = {
     registerActions: (bot) => {
         // Main menu actions
         bot.action('horarios_main', async (ctx) => {
-            await ctx.answerCbQuery();
-            await showMainMenu(ctx);
+            try {
+                await ctx.answerCbQuery();
+                await showMainMenu(ctx);
+            } catch (error) {
+                console.error('Error in horarios_main action:', error);
+                await ctx.answerCbQuery('⚠️ Error, intenta nuevamente');
+            }
         });
 
         // Period info action
         bot.action('horarios_periodo', async (ctx) => {
-            await ctx.answerCbQuery();
-            await showPeriodInfo(ctx);
+            try {
+                await ctx.answerCbQuery();
+                await showPeriodInfo(ctx);
+            } catch (error) {
+                console.error('Error in horarios_periodo action:', error);
+                await ctx.answerCbQuery('⚠️ Error al mostrar período');
+            }
         });
 
         // Regular schedule action
         bot.action('horarios_regular', async (ctx) => {
-            await ctx.answerCbQuery();
-            await showRegularSchedule(ctx);
+            try {
+                await ctx.answerCbQuery();
+                await showRegularSchedule(ctx);
+            } catch (error) {
+                console.error('Error in horarios_regular action:', error);
+                await ctx.answerCbQuery('⚠️ Error al mostrar horarios');
+            }
         });
 
         // Periodos info action
         bot.action('periodos_info', async (ctx) => {
-            await ctx.answerCbQuery();
-            await showPeriodosInfo(ctx);
+            try {
+                await ctx.answerCbQuery();
+                await showPeriodosInfo(ctx);
+            } catch (error) {
+                console.error('Error in periodos_info action:', error);
+                await ctx.answerCbQuery('⚠️ Error al mostrar periodos');
+            }
         });
     }
 };
 
 // Main menu with summary
 async function showMainMenu(ctx) {
-    // Get current info for summary
-    const period = TimeHelpers.getCurrentPeriod();
-    const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
-    const hours = TimeHelpers.getOperatingHours();
-    
-    let message = `🚇 <b>Menú de Horarios del Metro</b>\n\n`;
-    message += `<b>Resumen Actual:</b>\n`;
-    message += `• ${currentPeriod.icon} ${currentPeriod.name}\n`;
-    message += `• 🕒 ${hours.opening} - ${hours.closing}\n`;
-    message += `• 📅 ${spanishDays[TimeHelpers.getDayType()] || 'Día hábil'}\n\n`;
-    message += `Selecciona la información que deseas ver:`;
-    
-    const keyboard = [
-        [Markup.button.callback('⏰ Período Operacional Completo', 'horarios_periodo')],
-        [Markup.button.callback('📅 Horarios Regulares', 'horarios_regular')],
-        [Markup.button.callback('💰 Periodos Tarifarios', 'periodos_info')]
-    ];
+    try {
+        // Get current info for summary
+        const period = TimeHelpers.getCurrentPeriod();
+        const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
+        const hours = TimeHelpers.getOperatingHours();
+        
+        let message = `🚇 <b>Menú de Horarios del Metro</b> ${getRandomEmoji()}\n\n`;
+        message += `<b>Resumen Actual:</b>\n`;
+        message += `• ${currentPeriod.icon} ${currentPeriod.name}\n`;
+        message += `• 🕒 ${hours.opening} - ${hours.closing}\n`;
+        message += `• 📅 ${spanishDays[TimeHelpers.getDayType()] || 'Día hábil'}\n\n`;
+        message += `Selecciona la información que deseas ver:`;
+        
+        const keyboard = [
+            [Markup.button.callback('⏰ Período Operacional Completo', 'horarios_periodo')],
+            [Markup.button.callback('📅 Horarios Regulares', 'horarios_regular')],
+            [Markup.button.callback('💰 Periodos Tarifarios', 'periodos_info')]
+        ];
 
-    if (ctx.callbackQuery) {
-        await ctx.editMessageText(message, {
-            parse_mode: 'HTML',
-            reply_markup: { inline_keyboard: keyboard }
-        });
-    } else {
-        await ctx.replyWithHTML(message, {
-            reply_markup: { inline_keyboard: keyboard }
-        });
+        if (ctx.callbackQuery) {
+            await safeEditMessage(ctx, message, keyboard);
+        } else {
+            await ctx.replyWithHTML(message, {
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        }
+    } catch (error) {
+        handleError(ctx, error, 'mostrar menú principal');
     }
 }
 
@@ -142,10 +205,7 @@ async function showPeriodInfo(ctx) {
         
         // Get current fare based on period
         const fareKey = `t_metro_${period.type.toLowerCase()}`;
-        const currentFare = metroConfig.tarifario[fareKey] || '790'; // Default to VALLE
-       
-        // Add a timestamp or random emoji to ensure the message is always different
-        const timestamp = new Date().toLocaleTimeString();
+        const currentFare = metroConfig.tarifario[fareKey] || '790';
         
         const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
         
@@ -161,13 +221,10 @@ async function showPeriodInfo(ctx) {
         
         message += `⏳ <b>Próximo cambio:</b> ${TimeHelpers.getNextTransition().message} a las ${TimeHelpers.getNextTransition().time}\n`;
         
-        // Add extended hours notice if applicable
         if (hours.isExtended) {
             message += `\n⚠️ <b>Horario extendido:</b> Servicio hasta ${hours.extension[1]}\n`;
             message += `${metroConfig.stationIcons[5].emoji} ${metroConfig.stationIcons[5].message}`;
         }
-            // Add a small non-visible difference
-        message += `\n<small>${timestamp}</small>`;
 
         const keyboard = [
             [Markup.button.callback('📅 Ver Horarios Regulares', 'horarios_regular')],
@@ -176,10 +233,7 @@ async function showPeriodInfo(ctx) {
         ];
 
         if (ctx.callbackQuery) {
-            await ctx.editMessageText(message, {
-                parse_mode: 'HTML',
-                reply_markup: { inline_keyboard: keyboard }
-            });
+            await safeEditMessage(ctx, message, keyboard);
         } else {
             await ctx.replyWithHTML(message, {
                 reply_markup: { inline_keyboard: keyboard }
@@ -197,12 +251,11 @@ async function showRegularSchedule(ctx) {
         const serviceHours = metroConfig.horario;
         const currentHours = TimeHelpers.getOperatingHours();
         
-        let message = `<b>⏰ Horarios Regulares del Metro</b>\n\n`;
+        let message = `<b>⏰ Horarios Regulares del Metro</b> ${getRandomEmoji()}\n\n`;
         message += `🚆 <b>Días Hábiles (L-V):</b> ${serviceHours.Semana[0]} - ${serviceHours.Semana[1]}\n`;
         message += `🟢 <b>Sábados:</b> ${serviceHours.Sábado[0]} - ${serviceHours.Sábado[1]}\n`;
         message += `🔵 <b>Domingos/Feriados:</b> ${serviceHours.Domingo[0]} - ${serviceHours.Domingo[1]}\n\n`;
 
-        // Check for extended hours
         if (currentHours.isExtended) {
             const event = TimeHelpers.getEventDetails();
             message += `⚠️ <b>Horario Extendido Hoy</b>\n`;
@@ -210,7 +263,6 @@ async function showRegularSchedule(ctx) {
             message += `*${event?.name || 'Evento especial'}*\n\n`;
         }
 
-        // Add express hours information if weekday
         if (TimeHelpers.isWeekday()) {
             message += `🚄 <b>Horario Expreso (L-V)</b>\n`;
             message += `Mañana: ${metroConfig.horarioExpreso.morning[0]} - ${metroConfig.horarioExpreso.morning[1]}\n`;
@@ -227,10 +279,7 @@ async function showRegularSchedule(ctx) {
         ];
 
         if (ctx.callbackQuery) {
-            await ctx.editMessageText(message, {
-                parse_mode: 'HTML',
-                reply_markup: { inline_keyboard: keyboard }
-            });
+            await safeEditMessage(ctx, message, keyboard);
         } else {
             await ctx.replyWithHTML(message, {
                 reply_markup: { inline_keyboard: keyboard }
@@ -247,38 +296,31 @@ async function showPeriodosInfo(ctx) {
         const currentPeriod = TimeHelpers.getCurrentPeriod();
         const periodos = metroConfig.horarioPeriodos;
         
-        // Format time ranges for each period
         const formatTimeRanges = (ranges) => {
             return ranges.map(range => 
                 `${range.inicio.split(':')[0]}:${range.inicio.split(':')[1]} - ${range.fin.split(':')[0]}:${range.fin.split(':')[1]}`
             ).join('\n');
         };
 
-        let message = `⏰ <b>Periodos Tarifarios del Metro</b>\n\n`;
+        let message = `⏰ <b>Periodos Tarifarios del Metro</b> ${getRandomEmoji()}\n\n`;
         
-        // Current period highlight
         message += `🔄 <b>Periodo Actual:</b> ${currentPeriod.name}\n`;
         message += `🕒 ${TimeHelpers.formatTime(new Date())}\n\n`;
         
-        // Punta (Peak) period
         message += `🚨 <b>Hora Punta</b>\n`;
         message += `${formatTimeRanges(periodos.PUNTA)}\n\n`;
         
-        // Valle (Off-peak) period
         message += `🟢 <b>Horario Normal</b>\n`;
         message += `${formatTimeRanges(periodos.VALLE)}\n\n`;
         
-        // Bajo (Low) period
         message += `🔵 <b>Horario Bajo</b>\n`;
         message += `${formatTimeRanges(periodos.BAJO)}\n\n`;
         
-        // Service hours footer
         message += `📅 <b>Horarios de Servicio:</b>\n`;
         message += `L-V: ${metroConfig.horario.Semana[0]} - ${metroConfig.horario.Semana[1]}\n`;
         message += `Sáb: ${metroConfig.horario.Sábado[0]} - ${metroConfig.horario.Sábado[1]}\n`;
         message += `Dom: ${metroConfig.horario.Domingo[0]} - ${metroConfig.horario.Domingo[1]}\n\n`;
         
-        // Express service info if applicable
         if (TimeHelpers.isWeekday()) {
             message += `🚄 <b>Rutas Expresas (L-V):</b>\n`;
             message += `Mañana: ${metroConfig.horarioExpreso.morning[0]} - ${metroConfig.horarioExpreso.morning[1]}\n`;
@@ -294,10 +336,7 @@ async function showPeriodosInfo(ctx) {
         ];
 
         if (ctx.callbackQuery) {
-            await ctx.editMessageText(message, {
-                parse_mode: 'HTML',
-                reply_markup: { inline_keyboard: keyboard }
-            });
+            await safeEditMessage(ctx, message, keyboard);
         } else {
             await ctx.replyWithHTML(message, {
                 reply_markup: { inline_keyboard: keyboard }
@@ -318,14 +357,19 @@ async function handleError(ctx, error, action = 'procesar el comando') {
         [Markup.button.callback('🔙 Volver', 'horarios_main')]
     ];
 
-    if (ctx.callbackQuery) {
-        await ctx.editMessageText(`❌ ${errorMessage}`, {
-            parse_mode: 'HTML',
-            reply_markup: { inline_keyboard: keyboard }
-        });
-    } else {
-        await ctx.replyWithHTML(`❌ ${errorMessage}`, {
-            reply_markup: { inline_keyboard: keyboard }
-        });
+    try {
+        if (ctx.callbackQuery) {
+            await ctx.editMessageText(`❌ ${errorMessage}`, {
+                parse_mode: 'HTML',
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        } else {
+            await ctx.replyWithHTML(`❌ ${errorMessage}`, {
+                reply_markup: { inline_keyboard: keyboard }
+            });
+        }
+    } catch (e) {
+        console.error('Error in error handler:', e);
+        await ctx.replyWithHTML(`❌ Ocurrió un error inesperado. Por favor intenta nuevamente.`);
     }
 }
