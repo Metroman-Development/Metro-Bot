@@ -70,7 +70,7 @@ function getLineColor(line) {
 
 function getLineEmoji(line) {
     const emojis = {
-        'l1': '🔴', 'l2': '🟠', 'l3': '🟡',
+        'l1': '🔴', 'l2': '🟡', 'l3': '🟤',
         'l4': '🔵', 'l4a': '🔷', 'l5': '🟢', 'l6': '🟣'
     };
     return emojis[line.toLowerCase()] || '🚇';
@@ -79,7 +79,7 @@ function getLineEmoji(line) {
 function processServicesText(text) {
     if (!text) return 'No disponible';
     return text
-        .replace(/redbanc/gi, '🏧 Redbanc')
+        .replace(/redbanc/gi, '🏧 Cajeros Automáticos')
         .replace(/tel[ée]fonos/gi, '📞 Teléfonos')
         .replace(/Máquinas de carga autoservicio/gi, '🎫 Máquinas de carga')
         .replace(/Boletería/gi, '🎫 Boletería')
