@@ -28,7 +28,11 @@ module.exports = {
     
     // Create message text
     const messageText = `
-🤖 *Información Técnica del Bot*
+🤖 *Información del Bot*
+
+- Bot Creado por MetroMan
+- Es de código abierto, puedes contribuir [aquí](https://github.com/MetroManSR/MetroBot.git) 
+- Este bot fue diseñado con la finalidad de entregar información y alertas al momento acerca de la Red de Metro de Santiago. 
 
 ⏱️ *Uptime*: ${uptime}
 📊 *Uso de memoria*: ${memoryUsage.toFixed(2)} MB
@@ -46,7 +50,7 @@ _Solicitado por ${ctx.from.first_name}_
         inline_keyboard: [
           [
             {
-              text: 'Únete al Discord de Metro de Santiago',
+              text: 'Únete al Discord de la Comunidad',
               url: 'https://discord.gg/2zfHGbvc8p'
             }
           ]
