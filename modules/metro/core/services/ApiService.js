@@ -15,6 +15,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const NewsService = require('./NewsService');
 const StatusOverrideService = require('./StatusOverrideService');
+const { checkAccessibility} = require('./AccessibilityChangeDetector') 
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
@@ -25,6 +26,7 @@ class ApiService extends EventEmitter {
         this.debug = options.debug || false;
         this.chaosFactor = options.chaosFactor || 2000;
         this._cycleCount = 0;
+        this.checkCount = 0;
 
         // Status configuration
         this._statusOptions = {
@@ -455,6 +457,13 @@ async activateEventOverrides(eventDetails) {
         this._activeRequests.add(requestId);
         this.metrics.totalRequests++;
         const startTime = performance.now();
+
+
+        if (checkCount/15===1||checkCount===0){
+         await checkAccessibility() 
+            
+        }
+        checkCount++
 
         try {
             // PHASE 2a: Fetch raw data
