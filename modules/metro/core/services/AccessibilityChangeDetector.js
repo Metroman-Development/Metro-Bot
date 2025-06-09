@@ -178,8 +178,4 @@ class AccessibilityChangeDetector {
     }
 }
 
-const detector = new AccessibilityChangeDetector();
-
-module.exports = {
-    checkAccessibility: async () => await detector.checkAccessibility()
-};
+module.exports = new AccessibilityChangeDetector();
