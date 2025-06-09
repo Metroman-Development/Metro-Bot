@@ -46,8 +46,8 @@ module.exports = {
     async execute(ctx) {
         try {
             // Initialize MetroCore directly
-            const metro = await MetroCore.getInstance();
-            
+            const metroCore = MetroCore;
+            const metro = await metroCore.getInstance() 
             // Get and validate raw data
             const allData = metro.api.getProcessedData();
             
