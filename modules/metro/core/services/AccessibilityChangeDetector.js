@@ -67,6 +67,9 @@ class AccessibilityChangeDetector {
             // Clean historical data from current states
             const cleanCurrentStates = {};
             for (const [id, equipment] of Object.entries(currentStates)) {
+                
+                console.log(equipment) 
+                
                 cleanCurrentStates[id] = {
                     time: equipment.time,
                     estado: equipment.estado,
