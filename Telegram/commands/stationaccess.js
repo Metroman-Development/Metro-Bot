@@ -131,7 +131,7 @@ async function getAccessConfig(stationKey, lineKey) {
             ...escalator
         })) || [];
 
-        config.changelistory = config.changelistory || [];
+        config.changeHistory = config.changeHistory || [];
         
         return config;
     } catch (error) {
@@ -140,7 +140,7 @@ async function getAccessConfig(stationKey, lineKey) {
                 elevators: [],
                 escalators: [],
                 accesses: [],
-                changelistory: []
+                changeHistory: []
             };
         }
         throw error;
@@ -867,7 +867,7 @@ async function showGlobalHistory(ctx) {
         for (const station of stations) {
             const accessDetails = await getAccessConfig(station.displayName,station.line);
             if (accessDetails.changeHistory?.length) {
-                allChanges.push(...accessDetails.changelistory.map(change => ({
+                allChanges.push(...accessDetails.changeHistory.map(change => ({
                     ...change,
                     stationName: station.displayName
                 })));
