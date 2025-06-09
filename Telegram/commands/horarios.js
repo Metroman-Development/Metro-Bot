@@ -143,6 +143,9 @@ async function showPeriodInfo(ctx) {
         // Get current fare based on period
         const fareKey = `t_metro_${period.type.toLowerCase()}`;
         const currentFare = metroConfig.tarifario[fareKey] || '790'; // Default to VALLE
+       
+        // Add a timestamp or random emoji to ensure the message is always different
+        const timestamp = new Date().toLocaleTimeString();
         
         const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
         
@@ -163,6 +166,8 @@ async function showPeriodInfo(ctx) {
             message += `\n⚠️ <b>Horario extendido:</b> Servicio hasta ${hours.extension[1]}\n`;
             message += `${metroConfig.stationIcons[5].emoji} ${metroConfig.stationIcons[5].message}`;
         }
+            // Add a small non-visible difference
+        message += `\n<small>${timestamp}</small>`;
 
         const keyboard = [
             [Markup.button.callback('📅 Ver Horarios Regulares', 'horarios_regular')],
