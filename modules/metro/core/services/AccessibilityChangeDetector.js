@@ -48,7 +48,7 @@ class AccessibilityChangeDetector {
             this.logger.warn(`Cache file ${CACHE_FILE} not found, starting fresh`);
             return null;
         } catch (error) {
-            this.logger.error(`Error loading cache: ${error.message}`);
+            if (this.logger) this.logger.error(`Error loading cache: ${error.message}`);
             return null;
         }
     }
