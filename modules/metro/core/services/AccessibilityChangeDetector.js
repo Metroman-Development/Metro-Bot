@@ -11,6 +11,17 @@ const CACHE_FILE = path.join(__dirname, 'accessibilityCache.json');
 const TELEGRAM_CHANNEL = '804';
 const DISCORD_CHANNEL = '1381634611225821346';
 
+// MetroCore instance management (singleton pattern)
+let metroCoreInstance = null;
+async function getMetroCore() {
+    if (!metroCoreInstance) {
+        // Lazy load MetroCore to avoid circular dependencies
+        const MetroCore = require('../../modules/metro/core/MetroCore');
+        metroCoreInstance = await MetroCore.getInstance();
+    }
+    return metroCoreInstance;
+}
+
 class AccessibilityChangeDetector {
     constructor() {
         // Initialize logger first
@@ -265,51 +276,93 @@ class AccessibilityChangeDetector {
         return changes;
     }
 
-    async notifyChanges(changes) {
-        for (const change of changes) {
-            try {
-                let message = '';
+    async formatAccessibilityNotification(changes) {
+        if (!changes || changes.length === 0) return null;
+
+        const metro = await getMetroCore();
+        
+        // Group changes by line and station
+        const groupedChanges = changes.reduce((acc, change) => {
+            const stationCode = change.equipmentId.split('-')[0];
+            const station = Object.values(metro._staticData.stations).find(s => 
+                s.code === stationCode
+            );
+            
+            const line = station?.line ? `Línea ${station.line}` : 'Desconocida';
+            const stationName = station?.displayName || stationCode;
+            
+            if (!acc[line]) acc[line] = {};
+            if (!acc[line][stationName]) acc[line][stationName] = [];
+            
+            acc[line][stationName].push(change);
+            return acc;
+        }, {});
+
+        // Build the message
+        let message = `🚨 *Actualización de Accesibilidad* 🚨\n\n`;
+
+        for (const [line, stations] of Object.entries(groupedChanges)) {
+            message += `*${line}*\n`;
+            
+            for (const [stationName, stationChanges] of Object.entries(stations)) {
+                message += `*${stationName}*\n`;
                 
-                switch (change.type) {
-                    case 'new':
-                        message = `🚨 Nuevo equipo de accesibilidad detectado: ${change.equipmentId}\n` +
-                                  `Tipo: ${change.current.tipo}\n` +
-                                  `Estación: ${change.current.estacion}\n` +
-                                  `Descripción: ${change.current.texto}\n` +
-                                  `Estado inicial: ${change.current.estado === 1 ? 'Operativo ✅' : 'Fuera de servicio ❌'}`;
-                        break;
-                        
-                    case 'state_change':
-                        message = `⚠️ Cambio de estado en equipo de accesibilidad: ${change.equipmentId}\n` +
-                                 `Tipo: ${change.current.tipo}\n` +
-                                 `Estación: ${change.current.estacion}\n` +
-                                 `Descripción: ${change.current.texto}\n` +
-                                 `Cambió de: ${change.previous.estado === 1 ? 'Operativo ✅' : 'Fuera de servicio ❌'}\n` +
-                                 `A: ${change.current.estado === 1 ? 'Operativo ✅' : 'Fuera de servicio ❌'}\n` +
-                                 `Hora: ${change.current.time}`;
-                        break;
-                        
-                    case 'removed':
-                        message = `🚨 Equipo de accesibilidad eliminado: ${change.equipmentId}\n` +
-                                 `Último tipo conocido: ${change.previous.tipo}\n` +
-                                 `Estación: ${change.previous.estacion}\n` +
-                                 `Último estado: ${change.previous.estado === 1 ? 'Operativo ✅' : 'Fuera de servicio ❌'}`;
-                        break;
-                }
-                
-                if (message) {
-                    this.logger.info(`Sending notification for ${change.type} change: ${change.equipmentId}`);
-                    await TelegramBot.sendTelegramMessage(message);
-                   
-                    const client = getClient();
-                    const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
-                    if (statusChannel) {
-                        await statusChannel.send(message);
+                // Group by equipment type
+                const typeGroups = stationChanges.reduce((acc, change) => {
+                    const type = change.current?.tipo || change.previous?.tipo || 'Equipo';
+                    if (!acc[type]) acc[type] = [];
+                    acc[type].push(change);
+                    return acc;
+                }, {});
+
+                for (const [type, typeChanges] of Object.entries(typeGroups)) {
+                    message += `_${type}_\n`;
+                    
+                    for (const change of typeChanges) {
+                        if (change.type === 'new') {
+                            message += `➕ Nuevo: ${change.equipmentId} - `;
+                            message += `Estado: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
+                        } else if (change.type === 'state_change') {
+                            message += `🔄 Cambio: ${change.equipmentId} - `;
+                            message += `De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'} `;
+                            message += `A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
+                        } else if (change.type === 'removed') {
+                            message += `➖ Eliminado: ${change.equipmentId}\n`;
+                        }
                     }
                 }
-            } catch (error) {
-                this.logger.error(`Error notifying change for ${change.equipmentId}: ${error.message}`);
+                message += '\n';
             }
+            message += '\n';
+        }
+
+        message += `_Actualizado: ${new Date().toLocaleString('es-CL')}_`;
+
+        return message;
+    }
+
+    async notifyChanges(changes) {
+        try {
+            const message = await this.formatAccessibilityNotification(changes);
+            if (!message) return;
+
+            this.logger.info('Sending accessibility notification');
+            
+            // Send to Telegram
+            await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
+            
+            // Send to Discord
+            const client = getClient();
+            const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
+            if (statusChannel) {
+                // Convert Markdown to Discord formatting
+                const discordMessage = message
+                    .replace(/\*(.*?)\*/g, '**$1**')  // Bold
+                    .replace(/_(.*?)_/g, '*$1*');     // Italic
+                await statusChannel.send(discordMessage);
+            }
+        } catch (error) {
+            this.logger.error(`Error notifying changes: ${error.message}`);
         }
     }
 }
