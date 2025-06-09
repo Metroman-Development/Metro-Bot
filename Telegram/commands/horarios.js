@@ -54,8 +54,12 @@ function getRandomEmoji() {
 // Safe message editing with error handling
 async function safeEditMessage(ctx, message, keyboard) {
     try {
+        // Add a timestamp or random emoji to ensure the message is always different
+        const timestamp = new Date().toLocaleTimeString();
+            // Add a small non-visible difference
+        message += `\n${timestamp}`;
         // Add subtle variation to prevent "message not modified" errors
-        const variedMessage = `${message}\n<small>${getRandomEmoji()}</small>`;
+        const variedMessage = `${message}`;
         
         await ctx.editMessageText(variedMessage, {
             parse_mode: 'HTML',
