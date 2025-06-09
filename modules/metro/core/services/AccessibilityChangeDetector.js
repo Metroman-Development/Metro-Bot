@@ -156,6 +156,7 @@ class AccessibilityChangeDetector {
 
             let currentStates;
             let dataSource;
+            let comparisonBaseline;
             
             if (withinWindow) {
                 // During update window - fetch fresh data from API
@@ -164,9 +165,11 @@ class AccessibilityChangeDetector {
                 currentStates = response.data;
                 dataSource = 'API';
                 
-                // Save the fresh data to both cache and last states
+                // Save the fresh data to cache
                 this.saveCache(currentStates);
-                this.saveLastStates(currentStates);
+                
+                // For comparison, we want to use the cached state (before update)
+                comparisonBaseline = this.cachedStates;
             } else {
                 // Outside update window - use cached data if available
                 if (Object.keys(this.cachedStates).length > 0) {
@@ -181,6 +184,9 @@ class AccessibilityChangeDetector {
                     this.logger.error('No data available for comparison');
                     return [];
                 }
+                
+                // For comparison, we want to use the last states
+                comparisonBaseline = this.lastStates;
             }
 
             // Clean current states data
@@ -194,13 +200,15 @@ class AccessibilityChangeDetector {
                 return [];
             }
             
-            // Detect changes
-            const changes = this.detectChanges(cleanCurrentStates);
+            // Detect changes against our comparison baseline
+            const changes = this.detectChanges(cleanCurrentStates, comparisonBaseline);
             this.logger.info(`Detected ${changes.length} changes`);
             
             if (changes.length > 0) {
                 this.logger.info('Notifying about changes');
                 await this.notifyChanges(changes);
+                
+                // Update lastStates with current states
                 this.lastStates = cleanCurrentStates;
                 this.saveLastStates();
             }
@@ -212,20 +220,17 @@ class AccessibilityChangeDetector {
         }
     }
 
-    detectChanges(currentStates) {
+    detectChanges(currentStates, comparisonBaseline = this.lastStates) {
         const changes = [];
         
         // Check for new or modified equipment
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
-            const lastData = this.lastStates[equipmentId];
+            const lastData = comparisonBaseline[equipmentId];
 
-            if (equipmentId ===  'ECO-0f404f') {
-
-
-              console.log("a actual:", currentData.estado)
-                console.log("Anterior", lastData.estado)
-
-            } 
+            if (equipmentId === 'ECO-0f404f') {
+                console.log("Current state:", currentData.estado);
+                console.log("Previous state:", lastData ? lastData.estado : 'N/A');
+            }
             
             if (!lastData) {
                 changes.push({
@@ -246,12 +251,12 @@ class AccessibilityChangeDetector {
         }
         
         // Check for removed equipment
-        for (const equipmentId of Object.keys(this.lastStates)) {
+        for (const equipmentId of Object.keys(comparisonBaseline)) {
             if (!currentStates[equipmentId]) {
                 changes.push({
                     equipmentId,
                     type: 'removed',
-                    previous: this.lastStates[equipmentId],
+                    previous: comparisonBaseline[equipmentId],
                 });
                 this.logger.info(`Equipment removed: ${equipmentId}`);
             }
