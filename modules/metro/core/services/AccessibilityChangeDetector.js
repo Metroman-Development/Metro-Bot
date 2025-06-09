@@ -4,6 +4,8 @@ const path = require('path');
 const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 const TimeHelpers = require('../../../chronos/timeHelpers');
+const { EmbedBuilder } = require('discord.js');
+const metroConfig = require('./metroConfig');
 
 const API_URL = process.env.ACCESSARIEL; // Ensure this is set in your environment
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
@@ -194,16 +196,11 @@ class AccessibilityChangeDetector {
                 // Only update lastStates with fresh API data (never with cache)
                 if (withinWindow) {
                     this.logger.info('Updating lastStates with fresh API data');
-                     
+                    this.saveLastStates(cleanCurrentStates);
                 }
-                
-                this.saveLastStates(cleanCurrentStates);
-               
             }
 
-
             this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
-
             
             return changes;
         } catch (error) {
@@ -223,7 +220,6 @@ class AccessibilityChangeDetector {
                     equipmentId,
                     type: 'new',
                     current: currentData,
-                 
                 });
                 this.logger.info(`New equipment detected: ${equipmentId}`);
             } else if (lastData.estado !== currentData.estado) {
@@ -298,7 +294,7 @@ class AccessibilityChangeDetector {
                             message += `- De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
                             message += `- A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
                         } else if (change.type === 'removed') {
-                            message += `➖ Eliminado: ${change.current.texto}\n`;
+                            message += `➖ Eliminado: ${change.current?.texto || 'Equipo desconocido'}\n`;
                         }
                     }
                 }
@@ -318,17 +314,94 @@ class AccessibilityChangeDetector {
 
             this.logger.info('Sending accessibility notification');
             
-            //await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
+            // Telegram message (unchanged)
+            await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
             
+            // Enhanced Discord message
             const client = getClient();
             const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
             if (statusChannel) {
-                const discordMessage = message
-                    .replace(/\*(.*?)\*/g, '**$1**')
-                    .replace(/_(.*?)_/g, '*$1*');
-
+                const metro = await getMetroCore();
                 
-                await statusChannel.send(discordMessage);
+                // Create embed
+                const embed = new EmbedBuilder()
+                    .setColor(0x0052A5) // Metro blue color
+                    .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad ${metroConfig.accessibility.logo}`)
+                    .setTimestamp()
+                    .setFooter({ text: `Actualizado: ${new Date().toLocaleString('es-CL')}` });
+
+                // Process changes for Discord
+                const groupedChanges = changes.reduce((acc, change) => {
+                    const stationCode = change.equipmentId.split('-')[0];
+                    const station = Object.values(metro._staticData.stations).find(s => 
+                        s.code === stationCode
+                    );
+                    
+                    const lineKey = station?.line ? `l${station.line}` : 'unknown';
+                    const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
+                    const lineDisplay = lineEmoji ? `${lineEmoji} Línea ${station.line}` : `Línea ${station.line}`;
+                    
+                    const stationName = station?.displayName || stationCode;
+                    
+                    if (!acc[lineDisplay]) acc[lineDisplay] = {};
+                    if (!acc[lineDisplay][stationName]) acc[lineDisplay][stationName] = [];
+                    
+                    acc[lineDisplay][stationName].push(change);
+                    return acc;
+                }, {});
+
+                // Add fields to embed
+                for (const [line, stations] of Object.entries(groupedChanges)) {
+                    let stationMessages = [];
+                    
+                    for (const [stationName, stationChanges] of Object.entries(stations)) {
+                        let changeMessages = [];
+                        
+                        const typeGroups = stationChanges.reduce((acc, change) => {
+                            const type = change.current?.tipo || change.previous?.tipo || 'Equipo';
+                            if (!acc[type]) acc[type] = [];
+                            acc[type].push(change);
+                            return acc;
+                        }, {});
+
+                        for (const [type, typeChanges] of Object.entries(typeGroups)) {
+                            let typeMessage = `**${type}**\n`;
+                            
+                            for (const change of typeChanges) {
+                                if (change.type === 'new') {
+                                    const statusEmoji = change.current.estado === 1 ? 
+                                        metroConfig.accessibility.estado.ope : 
+                                        metroConfig.accessibility.estado.fes;
+                                    typeMessage += `➕ Nuevo: ${change.current.texto} - `;
+                                    typeMessage += `Estado: ${statusEmoji} ${change.current.estado === 1 ? 'Operativo' : 'Fuera de servicio'}\n`;
+                                } else if (change.type === 'state_change') {
+                                    const prevStatus = change.previous.estado === 1 ? 
+                                        metroConfig.accessibility.estado.ope : 
+                                        metroConfig.accessibility.estado.fes;
+                                    const currStatus = change.current.estado === 1 ? 
+                                        metroConfig.accessibility.estado.ope : 
+                                        metroConfig.accessibility.estado.fes;
+                                    typeMessage += `🔄 Cambio: ${change.current.texto}\n`;
+                                    typeMessage += `- De: ${prevStatus} ${change.previous.estado === 1 ? 'Operativo' : 'Fuera de servicio'}\n`;
+                                    typeMessage += `- A: ${currStatus} ${change.current.estado === 1 ? 'Operativo' : 'Fuera de servicio'}\n`;
+                                } else if (change.type === 'removed') {
+                                    typeMessage += `➖ Eliminado: ${change.current?.texto || 'Equipo desconocido'}\n`;
+                                }
+                            }
+                            changeMessages.push(typeMessage);
+                        }
+                        
+                        stationMessages.push(`**${stationName}**\n${changeMessages.join('\n')}`);
+                    }
+                    
+                    embed.addFields({
+                        name: line,
+                        value: stationMessages.join('\n\n'),
+                        inline: false
+                    });
+                }
+
+                await statusChannel.send({ embeds: [embed] });
             }
         } catch (error) {
             this.logger.error(`Error notifying changes: ${error.message}`);
