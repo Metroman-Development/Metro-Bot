@@ -26,7 +26,7 @@ class ApiService extends EventEmitter {
         this.debug = options.debug || false;
         this.chaosFactor = options.chaosFactor || 2000;
         this._cycleCount = 0;
-        this.checkCount = 0;
+        this.checkCount = 1;
 
         // Status configuration
         this._statusOptions = {
@@ -459,7 +459,7 @@ async activateEventOverrides(eventDetails) {
         const startTime = performance.now();
 
 
-        if (this.checkCount/15===1||this.checkCount===0){
+        if ((this.checkCount-1)/15===1||this.checkCount-1===0){
          await checkAccessibility() 
             
         }
