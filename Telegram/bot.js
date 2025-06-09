@@ -9,22 +9,10 @@ class TelegramBot {
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
     this.accessTopicId = 804
     this.topicId = 4; // Your specified topic ID
+    this.bot = null;
 
     
-    // Add message handler for all text messages
-    this.bot.on('text', async (ctx) => {
-        const commandsPath = path.join(__dirname, 'commands');
-        const commandFiles = fs.readdirSync(commandsPath).filter(file => 
-            file.endsWith('.js') && !file.startsWith('.')
-        );
 
-        for (const file of commandFiles) {
-            const command = require(path.join(commandsPath, file));
-            if (command.handleMessage && typeof command.handleMessage === 'function') {
-                await command.handleMessage(ctx);
-            } 
-        }
-    });
 }
 
   _setupWelcomeHandler() {
@@ -155,14 +143,32 @@ class TelegramBot {
 
   launch() {
     this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+
+    this.bot.launch();
+    
     this._loadCommands();
     this._setupWelcomeHandler();
-        
+
+    
     // Initialize session middleware
     this.bot.use(session({
         defaultSession: () => ({})
     }));
-    this.bot.launch();
+        // Add message handler for all text messages
+    this.bot.on('text', async (ctx) => {
+        const commandsPath = path.join(__dirname, 'commands');
+        const commandFiles = fs.readdirSync(commandsPath).filter(file => 
+            file.endsWith('.js') && !file.startsWith('.')
+        );
+
+        for (const file of commandFiles) {
+            const command = require(path.join(commandsPath, file));
+            if (command.handleMessage && typeof command.handleMessage === 'function') {
+                await command.handleMessage(ctx);
+            } 
+        }
+    });
+    return;
   }
 
   stop(reason) {
