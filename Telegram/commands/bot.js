@@ -31,7 +31,7 @@ module.exports = {
 🤖 *Información del Bot*
 
 - Bot Creado por MetroMan
-- Es de código abierto, puedes contribuir [aquí](https://github.com/MetroManSR/MetroBot.git) 
+- Es de código abierto, puedes contribuir [aquí](https://github.com/MetroManSR/MetroBot) 
 - Este bot fue diseñado con la finalidad de entregar información y alertas al momento acerca de la Red de Metro de Santiago. 
 
 ⏱️ *Uptime*: ${uptime}
