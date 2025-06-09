@@ -223,6 +223,7 @@ class AccessibilityChangeDetector {
                     equipmentId,
                     type: 'new',
                     current: currentData,
+                 
                 });
                 this.logger.info(`New equipment detected: ${equipmentId}`);
             } else if (lastData.estado !== currentData.estado) {
@@ -270,7 +271,7 @@ class AccessibilityChangeDetector {
             return acc;
         }, {});
 
-        let message = `🚨 *Actualización de Accesibilidad* 🚨\n\n`;
+        let message = `♿ *Actualización de Accesibilidad* ♿\n\n`;
 
         for (const [line, stations] of Object.entries(groupedChanges)) {
             message += `*${line}*\n`;
@@ -290,14 +291,14 @@ class AccessibilityChangeDetector {
                     
                     for (const change of typeChanges) {
                         if (change.type === 'new') {
-                            message += `➕ Nuevo: ${change.equipmentId} - `;
+                            message += `➕ Nuevo: ${change.current.texto} - `;
                             message += `Estado: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
                         } else if (change.type === 'state_change') {
-                            message += `🔄 Cambio: ${change.equipmentId} - `;
-                            message += `De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'} `;
-                            message += `A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
+                            message += `🔄 Cambio: ${change.current.texto}\n`;
+                            message += `- De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
+                            message += `- A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
                         } else if (change.type === 'removed') {
-                            message += `➖ Eliminado: ${change.equipmentId}\n`;
+                            message += `➖ Eliminado: ${change.current.texto}\n`;
                         }
                     }
                 }
@@ -325,6 +326,8 @@ class AccessibilityChangeDetector {
                 const discordMessage = message
                     .replace(/\*(.*?)\*/g, '**$1**')
                     .replace(/_(.*?)_/g, '*$1*');
+
+                
                 await statusChannel.send(discordMessage);
             }
         } catch (error) {
