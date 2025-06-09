@@ -11,9 +11,7 @@ const DISCORD_CHANNEL = '1381634611225821346';
 
 class AccessibilityChangeDetector {
     constructor() {
-        const loadedStates = this.loadLastStates();
-        // Initialize with empty object if no previous state exists
-        this.lastStates = loadedStates || {};
+        this.lastStates = this.loadLastStates() || {};
     }
 
     loadLastStates() {
@@ -33,23 +31,20 @@ class AccessibilityChangeDetector {
                 }
                 return cleanData;
             }
-            return null; // Return null instead of empty object when no file exists
+            return null;
         } catch (error) {
             console.error('Error al cargar estados anteriores:', error);
-            return null; // Return null on error
+            return null;
         }
     }
 
-    saveLastStates(olderData=null) {
-    
-        
+    saveLastStates(newData = null) {
         try {
+            // If newData is provided, use it as the new state
+            if (newData) {
+                this.lastStates = newData;
+            }
 
-            if (olderData){
-
-                this.lastStates = olderData;
-
-           }  
             // Ensure we only save current state without historical data
             const cleanData = {};
             for (const [id, equipment] of Object.entries(this.lastStates)) {
@@ -62,8 +57,6 @@ class AccessibilityChangeDetector {
                 };
             }
 
-            
-            
             fs.writeFileSync(STATE_FILE, JSON.stringify(cleanData, null, 2));
         } catch (error) {
             console.error('Error al guardar estados:', error);
@@ -75,13 +68,9 @@ class AccessibilityChangeDetector {
             const response = await axios.get(API_URL);
             const currentStates = response.data;
 
-            if(!this.lastStates) this.saveLastStates(currentStates) ;
-            // Clean historical data from current states
+            // Clean current states data
             const cleanCurrentStates = {};
             for (const [id, equipment] of Object.entries(currentStates)) {
-                
-                console.log(equipment) 
-                
                 cleanCurrentStates[id] = {
                     time: equipment.time,
                     estado: equipment.estado,
@@ -89,6 +78,12 @@ class AccessibilityChangeDetector {
                     estacion: equipment.estacion,
                     texto: equipment.texto
                 };
+            }
+
+            // If this is the first run (empty lastStates), save the initial state
+            if (Object.keys(this.lastStates).length === 0) {
+                this.saveLastStates(cleanCurrentStates);
+                return [];
             }
             
             const changes = this.detectChanges(cleanCurrentStates);
@@ -108,11 +103,6 @@ class AccessibilityChangeDetector {
 
     detectChanges(currentStates) {
         const changes = [];
-        
-        // Skip detection if we have no previous state (first run)
-        if (Object.keys(this.lastStates).length === 0) {
-            return changes;
-        }
         
         // Check for new or modified equipment
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
@@ -134,7 +124,7 @@ class AccessibilityChangeDetector {
             }
         }
         
-        // Check for removed equipment (optional)
+        // Check for removed equipment
         for (const equipmentId of Object.keys(this.lastStates)) {
             if (!currentStates[equipmentId]) {
                 changes.push({
@@ -180,8 +170,6 @@ class AccessibilityChangeDetector {
             }
             
             if (message) {
-                
-                    
                 await TelegramBot.sendTelegramMessage(message);
                
                 const client = getClient();
