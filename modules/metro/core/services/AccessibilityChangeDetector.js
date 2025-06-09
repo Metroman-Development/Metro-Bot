@@ -200,6 +200,10 @@ class AccessibilityChangeDetector {
                 this.saveLastStates(cleanCurrentStates);
                
             }
+
+
+            this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
+
             
             return changes;
         } catch (error) {
