@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const {TelegramBot} = require('../../../../Telegram/bot');
+const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 
 const API_URL = process.env.ACCESSARIEL;
@@ -75,7 +75,7 @@ class AccessibilityChangeDetector {
             const response = await axios.get(API_URL);
             const currentStates = response.data;
 
-            if(!this.lastStates) saveLastStates(currentStates) ;
+            if(!this.lastStates) this.saveLastStates(currentStates) ;
             // Clean historical data from current states
             const cleanCurrentStates = {};
             for (const [id, equipment] of Object.entries(currentStates)) {
