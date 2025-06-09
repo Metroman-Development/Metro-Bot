@@ -7,3 +7,9 @@ Este archivo registrará todos los cambios hechos a MetroBot.
 ### Arreglos
 
 - Falta de Revisión en TimeAwaiter si es día de la semana para el boolean de is Evening Express y is Morning Express.
+
+- Emojis de Línea para Telegram.
+
+### Nuevas características
+
+- Nota: Este registro empezó el 5 de Junio de 2025
