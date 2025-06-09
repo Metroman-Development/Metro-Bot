@@ -58,6 +58,8 @@ class TelegramBot {
           return `Línea ${line.toUpperCase()}`;
         });
 
+      if (!this.bot) return;
+
       // Modified to include topic ID
       await this.bot.telegram.sendMessage(
         this.channelId, 
