@@ -218,6 +218,14 @@ class AccessibilityChangeDetector {
         // Check for new or modified equipment
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
             const lastData = this.lastStates[equipmentId];
+
+            if (equipmentId ===  'ECO-0f404f') {
+
+
+              console.log("a actual:", currentData.estado)
+                console.log("Anterior", lastData.estado)
+
+            } 
             
             if (!lastData) {
                 changes.push({
