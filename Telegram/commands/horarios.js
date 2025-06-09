@@ -12,13 +12,13 @@ const spanishDays = {
 
 // Telegram-friendly line emojis
 const lineEmojis = {
-    'L1': '🔴', // Red
-    'L2': '🟡', // Yellow
-    'L5': '🟢', // Dark Green
-    'L4': '🔵', // Blue
-    'L4A': '🔷', // Purple
-    'L3': '🟤', // Orange
-    'L6': '🟣'  // White
+    'l1': '🔴', // Red
+    'l2': '🟡', // Yellow
+    'l5': '🟢', // Dark Green
+    'l4': '🔵', // Blue
+    'l4A': '🔷', // Purple
+    'l3': '🟤', // Orange
+    'l6': '🟣'  // White
 };
 
 // Period configuration
@@ -141,7 +141,7 @@ async function showPeriodInfo(ctx) {
         message += `📅 <b>Tipo de día:</b> ${dayType}\n`;
         message += `🕒 <b>Horario:</b> ${hours.opening} - ${hours.closing}\n`;
         message += `💰 <b>Tarifa actual:</b> $${currentFare} CLP\n`;
-        message += `-# Sin contar las tarifas diferenciadas, revisa /tarifas\n\n`;
+        message += `<i>Sin contar las tarifas diferenciadas, revisa /tarifas</i>\n\n`;
         
         if (TimeHelpers.isExpressActive()) {
             message += `🚄 <b>Líneas con Ruta Expresa:</b> ${metroConfig.expressLines.map(l => lineEmojis[l]).join(' ')} ACTIVAS\n\n`;
