@@ -160,76 +160,73 @@ class AccessibilityChangeDetector {
         return isFirstWindow || isSecondWindow;
     }
 
-    async checkAccessibility() {
-        try {
-            const withinWindow = this.isWithinUpdateWindow();
-            this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
+async checkAccessibility() {
+    try {
+        const withinWindow = this.isWithinUpdateWindow();
+        this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
 
-            let currentStates;
-            let dataSource;
-            let comparisonBaseline;
+        let currentStates;
+        let dataSource;
+        let comparisonBaseline;
+        
+        if (withinWindow) {
+            // During update window - fetch fresh data from API
+            this.logger.info('Fetching fresh data from API');
+            const response = await axios.get(API_URL);
+            currentStates = response.data;
+            dataSource = 'API';
             
-            if (withinWindow) {
-                // During update window - fetch fresh data from API
-                this.logger.info('Fetching fresh data from API');
-                const response = await axios.get(API_URL);
-                currentStates = response.data;
-                dataSource = 'API';
-                
-                // Save the fresh data to cache
-                this.saveCache(currentStates);
-                
-                // For comparison, we want to use the cached state (before update)
-                comparisonBaseline = this.cachedStates;
+            // Compare fresh API data against the last saved states
+            comparisonBaseline = this.lastStates;
+            
+            // Save the fresh data to cache for use outside windows
+            this.saveCache(currentStates);
+            
+        } else {
+            // Outside update window - compare cache against last states
+            if (Object.keys(this.cachedStates).length > 0) {
+                currentStates = this.cachedStates;  // Use cache as "current"
+                comparisonBaseline = this.lastStates;  // Compare against last states
+                dataSource = 'cache';
+                this.logger.info('Comparing cached data against last saved states');
             } else {
-                // Outside update window - use cached data if available
-                if (Object.keys(this.cachedStates).length > 0) {
-                    currentStates = this.cachedStates;
-                    dataSource = 'cache';
-                    this.logger.info('Using cached data for comparison');
-                } else if (Object.keys(this.lastStates).length > 0) {
-                    currentStates = this.lastStates;
-                    dataSource = 'last state';
-                    this.logger.warn('Using last state data as fallback');
-                } else {
-                    this.logger.error('No data available for comparison');
-                    return [];
-                }
-                
-                // For comparison, we want to use the last states
-                comparisonBaseline = this.lastStates;
-            }
-
-            // Clean current states data
-            const cleanCurrentStates = this.cleanData(currentStates);
-            this.logger.info(`Using data from ${dataSource} with ${Object.keys(cleanCurrentStates).length} items`);
-
-            // If this is the first run (empty lastStates), save the initial state
-            if (Object.keys(this.lastStates).length === 0) {
-                this.logger.info('First run detected, saving initial state');
-                this.saveLastStates(cleanCurrentStates);
+                this.logger.error('No cached data available for comparison');
                 return [];
             }
-            
-            // Detect changes against our comparison baseline
-            const changes = this.detectChanges(cleanCurrentStates, comparisonBaseline);
-            this.logger.info(`Detected ${changes.length} changes`);
-            
-            if (changes.length > 0) {
-                this.logger.info('Notifying about changes');
-                await this.notifyChanges(changes);
-                
-                // Update lastStates with current states
-                this.lastStates = cleanCurrentStates;
-                this.saveLastStates();
-            }
-            
-            return changes;
-        } catch (error) {
-            this.logger.error(`Error in accessibility check: ${error.message}`);
+        }
+
+        // Clean current states data
+        const cleanCurrentStates = this.cleanData(currentStates);
+        const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
+        
+        this.logger.info(`Using data from ${dataSource} with ${Object.keys(cleanCurrentStates).length} items`);
+        this.logger.info(`Comparing against baseline with ${Object.keys(cleanComparisonBaseline).length} items`);
+
+        // If this is the first run (empty lastStates), save the initial state
+        if (Object.keys(cleanComparisonBaseline).length === 0) {
+            this.logger.info('First run detected, saving initial state');
+            this.saveLastStates(cleanCurrentStates);
             return [];
         }
+        
+        // Detect changes: current vs baseline
+        const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
+        this.logger.info(`Detected ${changes.length} changes`);
+        
+        if (changes.length > 0) {
+            this.logger.info('Notifying about changes');
+            await this.notifyChanges(changes);
+            
+            // Update lastStates with current states (whether from API or cache)
+            this.saveLastStates(cleanCurrentStates);
+        }
+        
+        return changes;
+    } catch (error) {
+        this.logger.error(`Error in accessibility check: ${error.message}`);
+        return [];
     }
+}
 
     detectChanges(currentStates, comparisonBaseline = this.lastStates) {
         const changes = [];
