@@ -10,29 +10,36 @@ const spanishDays = {
     'festive': 'Feriado'
 };
 
+// Telegram-friendly line emojis
+const lineEmojis = {
+    'L1': '🔴', // Red
+    'L2': '🟡', // Yellow
+    'L5': '🟢', // Dark Green
+    'L4': '🔵', // Blue
+    'L4A': '🔷', // Purple
+    'L3': '🟤', // Orange
+    'L6': '🟣'  // White
+};
+
 // Period configuration
 const periodConfig = {
     'PUNTA': { 
         emoji: '🚨', 
-        color: 0xFFFF00, // Yellow
         name: 'Hora Punta',
         icon: '⏰' 
     },
     'VALLE': { 
         emoji: '🟢', 
-        color: 0x00FF00, // Green
         name: 'Horario Normal',
         icon: '🟢' 
     },
     'BAJO': { 
         emoji: '🔵', 
-        color: 0x0000FF, // Blue
         name: 'Horario Bajo',
         icon: '🔷' 
     },
     'NOCHE': { 
         emoji: '🌙', 
-        color: 0x000080, // Dark Blue
         name: 'Fuera de Servicio',
         icon: '🌃' 
     }
@@ -85,12 +92,22 @@ module.exports = {
     }
 };
 
-// Main menu
+// Main menu with summary
 async function showMainMenu(ctx) {
-    const message = `🚇 <b>Menú de Horarios del Metro</b>\n\nSelecciona la información que deseas ver:`;
+    // Get current info for summary
+    const period = TimeHelpers.getCurrentPeriod();
+    const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
+    const hours = TimeHelpers.getOperatingHours();
+    
+    let message = `🚇 <b>Menú de Horarios del Metro</b>\n\n`;
+    message += `<b>Resumen Actual:</b>\n`;
+    message += `• ${currentPeriod.icon} ${currentPeriod.name}\n`;
+    message += `• 🕒 ${hours.opening} - ${hours.closing}\n`;
+    message += `• 📅 ${spanishDays[TimeHelpers.getDayType()] || 'Día hábil'}\n\n`;
+    message += `Selecciona la información que deseas ver:`;
     
     const keyboard = [
-        [Markup.button.callback('⏰ Período Operacional Actual', 'horarios_periodo')],
+        [Markup.button.callback('⏰ Período Operacional Completo', 'horarios_periodo')],
         [Markup.button.callback('📅 Horarios Regulares', 'horarios_regular')]
     ];
 
@@ -124,10 +141,10 @@ async function showPeriodInfo(ctx) {
         message += `📅 <b>Tipo de día:</b> ${dayType}\n`;
         message += `🕒 <b>Horario:</b> ${hours.opening} - ${hours.closing}\n`;
         message += `💰 <b>Tarifa actual:</b> $${currentFare} CLP\n`;
-        message += `-# Sin contar las tarifas diferenciadas\n\n`;
+        message += `-# Sin contar las tarifas diferenciadas, revisa /tarifas\n\n`;
         
         if (TimeHelpers.isExpressActive()) {
-            message += `🚄 <b>Líneas con Ruta Expresa:</b> ${metroConfig.expressLines.map(l => metroConfig.linesEmojis[l]).join(' ')} ACTIVAS\n\n`;
+            message += `🚄 <b>Líneas con Ruta Expresa:</b> ${metroConfig.expressLines.map(l => lineEmojis[l]).join(' ')} ACTIVAS\n\n`;
         }
         
         message += `⏳ <b>Próximo cambio:</b> ${TimeHelpers.getNextTransition().message} a las ${TimeHelpers.getNextTransition().time}\n`;
@@ -183,7 +200,7 @@ async function showRegularSchedule(ctx) {
             message += `🚄 <b>Horario Expreso (L-V)</b>\n`;
             message += `Mañana: ${metroConfig.horarioExpreso.morning[0]} - ${metroConfig.horarioExpreso.morning[1]}\n`;
             message += `Tarde: ${metroConfig.horarioExpreso.evening[0]} - ${metroConfig.horarioExpreso.evening[1]}\n`;
-            message += `Líneas: ${metroConfig.expressLines.map(l => metroConfig.linesEmojis[l]).join(' ')}\n\n`;
+            message += `Líneas: ${metroConfig.expressLines.map(l => lineEmojis[l]).join(' ')}\n\n`;
         }
 
         message += `Horarios sujetos a cambios por eventos especiales`;
