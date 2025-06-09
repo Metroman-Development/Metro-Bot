@@ -1,8 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const { sendTelegramMessage } = require('./telegramBot');
-const { sendDiscordMessage } = require('./discordBot');
+const { sendTelegramMessage } = require('../../Telegram/bot');
+const { getClient } = require('../../utils/clientManager');
+
 
 const API_URL = process.env.ACCESSARIEL;
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
@@ -159,7 +160,14 @@ class AccessibilityChangeDetector {
             
             if (message) {
                 await sendTelegramMessage(TELEGRAM_CHANNEL, message);
-                await sendDiscordMessage(DISCORD_CHANNEL, message);
+               
+                const client = getClient();
+
+                const statusChannel = client.channels.cache.get('1381634611225821346');
+
+                
+                
+                await statusChannel.send(message);
             }
         }
     }
