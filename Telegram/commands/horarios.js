@@ -174,7 +174,7 @@ async function showMainMenu(ctx) {
         const currentPeriod = periodConfig[period.type] || periodConfig.VALLE;
         const hours = TimeHelpers.getOperatingHours();
         
-        let message = `🚇 <b>Menú de Horarios del Metro</b> ${getRandomEmoji()}\n\n`;
+        let message = `🚇 <b>Menú de Horarios del Metro</b>\n\n`;
         message += `<b>Resumen Actual:</b>\n`;
         message += `• ${currentPeriod.icon} ${currentPeriod.name}\n`;
         message += `• 🕒 ${hours.opening} - ${hours.closing}\n`;
@@ -255,7 +255,7 @@ async function showRegularSchedule(ctx) {
         const serviceHours = metroConfig.horario;
         const currentHours = TimeHelpers.getOperatingHours();
         
-        let message = `<b>⏰ Horarios Regulares del Metro</b> ${getRandomEmoji()}\n\n`;
+        let message = `<b>⏰ Horarios Regulares del Metro</b>\n\n`;
         message += `🚆 <b>Días Hábiles (L-V):</b> ${serviceHours.Semana[0]} - ${serviceHours.Semana[1]}\n`;
         message += `🟢 <b>Sábados:</b> ${serviceHours.Sábado[0]} - ${serviceHours.Sábado[1]}\n`;
         message += `🔵 <b>Domingos/Feriados:</b> ${serviceHours.Domingo[0]} - ${serviceHours.Domingo[1]}\n\n`;
@@ -306,7 +306,7 @@ async function showPeriodosInfo(ctx) {
             ).join('\n');
         };
 
-        let message = `⏰ <b>Periodos Tarifarios del Metro</b> ${getRandomEmoji()}\n\n`;
+        let message = `⏰ <b>Periodos Tarifarios del Metro</b>\n\n`;
         
         message += `🔄 <b>Periodo Actual:</b> ${currentPeriod.name}\n`;
         message += `🕒 ${TimeHelpers.formatTime(new Date())}\n\n`;
