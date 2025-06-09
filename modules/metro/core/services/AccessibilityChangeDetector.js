@@ -33,7 +33,7 @@ class AccessibilityChangeDetector {
             this.logger.warn(`State file ${STATE_FILE} not found, starting fresh`);
             return null;
         } catch (error) {
-            this.logger.error(`Error loading last states: ${error.message}`);
+            this.logger.error(`Error loading last states: ${error}`);
             return null;
         }
     }
