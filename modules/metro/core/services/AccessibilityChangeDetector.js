@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../chronos/timeHelpers');
 
 const API_URL = process.env.ACCESSARIEL;
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
