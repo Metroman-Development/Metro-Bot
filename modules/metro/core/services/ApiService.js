@@ -15,7 +15,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const NewsService = require('./NewsService');
 const StatusOverrideService = require('./StatusOverrideService');
-const { checkAccessibility} = require('./AccessibilityChangeDetector') 
+const AccessibilityChangeDetector = require('./AccessibilityChangeDetector') 
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
@@ -458,9 +458,11 @@ async activateEventOverrides(eventDetails) {
         this.metrics.totalRequests++;
         const startTime = performance.now();
 
+        const accchdetector =  AccessibilityChangeDetector;
+
 
         if ((this.checkCount-1)/15===1||this.checkCount-1===0){
-         await checkAccessibility() 
+         await accchdetector.checkAccessibility() 
             
         }
         this.checkCount++
