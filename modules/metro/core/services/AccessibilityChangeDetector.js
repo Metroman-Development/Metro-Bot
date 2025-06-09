@@ -165,7 +165,8 @@ class AccessibilityChangeDetector {
             }
             
             if (message) {
-                await TelegramBot.sendTelegramMessage(TELEGRAM_CHANNEL, message);
+                const telegramBot = TelegramBot;
+                await telegramBot.sendTelegramMessage(message);
                
                 const client = getClient();
                 const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
