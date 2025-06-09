@@ -5,7 +5,7 @@ const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
 const TimeHelpers = require('../../../chronos/timeHelpers');
 const { EmbedBuilder } = require('discord.js');
-const metroConfig = require('../../../config/metro/metroConfig');
+const metroConfig = require('../../../../config/metro/metroConfig');
 
 const API_URL = process.env.ACCESSARIEL; // Ensure this is set in your environment
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
