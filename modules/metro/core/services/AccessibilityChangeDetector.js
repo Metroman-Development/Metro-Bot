@@ -310,7 +310,7 @@ class AccessibilityChangeDetector {
 
             this.logger.info('Sending accessibility notification');
             
-            await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
+            //await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
             
             const client = getClient();
             const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
