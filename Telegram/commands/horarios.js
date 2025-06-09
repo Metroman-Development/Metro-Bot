@@ -320,11 +320,6 @@ async function showPeriodosInfo(ctx) {
         message += `🔵 <b>Horario Bajo</b>\n`;
         message += `${formatTimeRanges(periodos.BAJO)}\n\n`;
         
-        message += `📅 <b>Horarios de Servicio:</b>\n`;
-        message += `L-V: ${metroConfig.horario.Semana[0]} - ${metroConfig.horario.Semana[1]}\n`;
-        message += `Sáb: ${metroConfig.horario.Sábado[0]} - ${metroConfig.horario.Sábado[1]}\n`;
-        message += `Dom: ${metroConfig.horario.Domingo[0]} - ${metroConfig.horario.Domingo[1]}\n\n`;
-        
         if (TimeHelpers.isWeekday()) {
             message += `🚄 <b>Rutas Expresas (L-V):</b>\n`;
             message += `Mañana: ${metroConfig.horarioExpreso.morning[0]} - ${metroConfig.horarioExpreso.morning[1]}\n`;
