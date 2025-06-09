@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const TelegramBot = require('../../../../Telegram/bot');
 const { getClient } = require('../../../../utils/clientManager');
-const TimeHelpers = require('../../../chronos/timeHelpers');
+const TimeHelpers = require('../../chronos/timeHelpers');
 
 const API_URL = process.env.ACCESSARIEL;
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
@@ -13,55 +13,91 @@ const DISCORD_CHANNEL = '1381634611225821346';
 
 class AccessibilityChangeDetector {
     constructor() {
-        this.lastStates = this.loadLastStates() || {};
-        this.cachedStates = this.loadCache() || {};
-        this.timeHelpers = TimeHelpers;
+        // Initialize logger first
         this.logger = {
             info: (message) => console.log(`[INFO] ${new Date().toISOString()} - ${message}`),
             warn: (message) => console.warn(`[WARN] ${new Date().toISOString()} - ${message}`),
             error: (message) => console.error(`[ERROR] ${new Date().toISOString()} - ${message}`)
         };
+
+        // Ensure files and directories exist
+        this.initializeStorage();
+
+        // Load states - lastStates gets priority for existing data
+        this.lastStates = this.loadDataFile(STATE_FILE, 'last state');
+        this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
+
+        // If cache is empty but lastStates exists, use it as cache
+        if (Object.keys(this.cachedStates).length === 0 && Object.keys(this.lastStates).length > 0) {
+            this.logger.info('Initializing cache from last state data');
+            this.cachedStates = JSON.parse(JSON.stringify(this.lastStates));
+            this.saveCache(this.cachedStates);
+        }
+
+        this.timeHelpers = TimeHelpers;
     }
 
-    loadLastStates() {
+    initializeStorage() {
         try {
-            if (fs.existsSync(STATE_FILE)) {
-                const data = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
-                this.logger.info(`Loaded last states from ${STATE_FILE}`);
-                return this.cleanData(data);
+            // Ensure directory exists
+            const dir = path.dirname(CACHE_FILE);
+            if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir, { recursive: true });
+                this.logger.info(`Created storage directory: ${dir}`);
             }
-            this.logger.warn(`State file ${STATE_FILE} not found, starting fresh`);
-            return null;
+
+            // Initialize files with empty objects if they don't exist
+            [STATE_FILE, CACHE_FILE].forEach(file => {
+                if (!fs.existsSync(file)) {
+                    fs.writeFileSync(file, JSON.stringify({}, null, 2));
+                    this.logger.info(`Initialized empty file: ${file}`);
+                }
+            });
         } catch (error) {
-            if (this.logger) this.logger.error(`Error loading last states: ${error}`);
-            return null;
+            this.logger.error(`Storage initialization failed: ${error.message}`);
+            throw error; // Fail fast if we can't initialize storage
         }
     }
 
-    loadCache() {
+    loadDataFile(filePath, type) {
         try {
-            if (fs.existsSync(CACHE_FILE)) {
-                const data = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
-                this.logger.info(`Loaded cached states from ${CACHE_FILE}`);
-                return this.cleanData(data);
+            const rawData = fs.readFileSync(filePath, 'utf8');
+            const data = JSON.parse(rawData);
+            
+            // Validate basic structure
+            if (typeof data !== 'object' || data === null) {
+                throw new Error(`Invalid ${type} file structure`);
             }
-            this.logger.warn(`Cache file ${CACHE_FILE} not found, starting fresh`);
-            return null;
+
+            this.logger.info(`Loaded ${type} data from ${filePath}`);
+            return this.cleanData(data);
         } catch (error) {
-            if (this.logger) this.logger.error(`Error loading cache: ${error.message}`);
-            return null;
+            this.logger.error(`Error loading ${type} data: ${error.message}`);
+            
+            // If file exists but is corrupted, back it up
+            if (fs.existsSync(filePath) && error instanceof SyntaxError) {
+                const backupPath = `${filePath}.bak`;
+                fs.copyFileSync(filePath, backupPath);
+                this.logger.warn(`Created backup of corrupted file at ${backupPath}`);
+            }
+
+            // Return empty object as fallback
+            return {};
         }
     }
 
     cleanData(data) {
         const cleanData = {};
         for (const [id, equipment] of Object.entries(data)) {
+            // Skip invalid entries
+            if (!equipment || typeof equipment !== 'object') continue;
+            
             cleanData[id] = {
-                time: equipment.time,
-                estado: equipment.estado,
-                tipo: equipment.tipo,
-                estacion: equipment.estacion,
-                texto: equipment.texto
+                time: equipment.time || new Date().toISOString(),
+                estado: equipment.estado !== undefined ? equipment.estado : -1,
+                tipo: equipment.tipo || 'unknown',
+                estacion: equipment.estacion || 'unknown',
+                texto: equipment.texto || 'No description'
             };
         }
         return cleanData;
@@ -84,7 +120,8 @@ class AccessibilityChangeDetector {
         try {
             const cleanData = this.cleanData(data);
             fs.writeFileSync(CACHE_FILE, JSON.stringify(cleanData, null, 2));
-            this.logger.info(`Saved data to cache ${CACHE_FILE}`);
+            this.cachedStates = cleanData;
+            this.logger.info(`Updated cache at ${CACHE_FILE}`);
         } catch (error) {
             this.logger.error(`Error saving cache: ${error.message}`);
         }
@@ -118,30 +155,37 @@ class AccessibilityChangeDetector {
             this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
 
             let currentStates;
+            let dataSource;
             
             if (withinWindow) {
                 // During update window - fetch fresh data from API
                 this.logger.info('Fetching fresh data from API');
                 const response = await axios.get(API_URL);
                 currentStates = response.data;
+                dataSource = 'API';
                 
-                // Save the fresh data to cache
+                // Save the fresh data to both cache and last states
                 this.saveCache(currentStates);
-                this.logger.info('Updated cache with fresh API data');
+                this.saveLastStates(currentStates);
             } else {
-                // Outside update window - use cached data
-                this.logger.info('Outside update window, using cached data');
-                
-                if (Object.keys(this.cachedStates).length === 0) {
-                    this.logger.warn('No cached data available, skipping check');
+                // Outside update window - use cached data if available
+                if (Object.keys(this.cachedStates).length > 0) {
+                    currentStates = this.cachedStates;
+                    dataSource = 'cache';
+                    this.logger.info('Using cached data for comparison');
+                } else if (Object.keys(this.lastStates).length > 0) {
+                    currentStates = this.lastStates;
+                    dataSource = 'last state';
+                    this.logger.warn('Using last state data as fallback');
+                } else {
+                    this.logger.error('No data available for comparison');
                     return [];
                 }
-                
-                currentStates = this.cachedStates;
             }
 
             // Clean current states data
             const cleanCurrentStates = this.cleanData(currentStates);
+            this.logger.info(`Using data from ${dataSource} with ${Object.keys(cleanCurrentStates).length} items`);
 
             // If this is the first run (empty lastStates), save the initial state
             if (Object.keys(this.lastStates).length === 0) {
