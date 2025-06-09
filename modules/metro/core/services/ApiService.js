@@ -465,8 +465,11 @@ async activateEventOverrides(eventDetails) {
          await accchdetector.checkAccessibility() 
             
         }
+
+       if(this.metrics.totalRequests>1){
         this.checkCount++
 
+       }
         try {
             // PHASE 2a: Fetch raw data
             let rawData = this.timeHelpers.isWithinOperatingHours()
