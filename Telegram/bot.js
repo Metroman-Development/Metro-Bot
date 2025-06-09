@@ -5,17 +5,11 @@ const config = require('./config');
 
 class TelegramBot {
   constructor() {
-    this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
-    this._loadCommands();
-    this._setupWelcomeHandler();
+
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
     this.accessTopicId = 804
     this.topicId = 4; // Your specified topic ID
-    
-    // Initialize session middleware
-    this.bot.use(session({
-        defaultSession: () => ({})
-    }));
+
     
     // Add message handler for all text messages
     this.bot.on('text', async (ctx) => {
@@ -160,7 +154,15 @@ class TelegramBot {
   }
 
   launch() {
-    return this.bot.launch();
+    this.bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+    this._loadCommands();
+    this._setupWelcomeHandler();
+        
+    // Initialize session middleware
+    this.bot.use(session({
+        defaultSession: () => ({})
+    }));
+    this.bot.launch();
   }
 
   stop(reason) {
