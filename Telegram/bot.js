@@ -9,6 +9,7 @@ class TelegramBot {
     this._loadCommands();
     this._setupWelcomeHandler();
     this.channelId = process.env.TELEGRAM_CHANNEL_ID;
+    this.accessTopicId = 804
     this.topicId = 4; // Your specified topic ID
     
     // Initialize session middleware
@@ -45,7 +46,8 @@ class TelegramBot {
     });
   }
 
-  async sendToChannel(message, options = {}) {
+ 
+  async sendTelegramMessage(message, options = {}) {
     try {
       const processedMessage = message
         .replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match) => {
@@ -59,6 +61,35 @@ class TelegramBot {
       // Modified to include topic ID
       await this.bot.telegram.sendMessage(
         this.channelId, 
+        processedMessage, 
+        { 
+          parse_mode: 'markdown',
+          message_thread_id: this.accessTopicId, // Add topic ID here
+         // ...options 
+        }
+      );
+    } catch (error) {
+      console.error('Failed to send to Telegram channel:', error);
+      if (error.response) {
+        console.error('Telegram API Error:', error.response.description);
+      }
+    }
+  }
+
+  async sendToChannel(message, options = {}) {
+    try {
+      const processedMessage = message
+        .replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match) => {
+          const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
+          return `:${emojiName.toUpperCase()}:`;
+        })
+        .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
+          return `Línea ${line.toUpperCase()}`;
+        });
+
+      // Modified to include topic ID
+      await this.bot.telegram.sendMessage(
+        this.accessTopicId, 
         processedMessage, 
         { 
           parse_mode: 'HTML',
