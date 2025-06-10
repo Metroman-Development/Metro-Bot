@@ -134,15 +134,15 @@ class AccessibilityChangeDetector {
         const currentMinute = currentTime.minute();
         
         const isFirstWindow = (
-            currentHour === 4 && 
-            currentMinute >= 18 && 
-            currentMinute <= 30
+            currentHour === 12 && 
+            currentMinute >= 20 && 
+            currentMinute <= 24
         );
         
         const isSecondWindow = (
             currentHour === 20 && 
-            currentMinute >= 18 && 
-            currentMinute <= 30
+            currentMinute >= 20 && 
+            currentMinute <= 24
         );
         
         return isFirstWindow || isSecondWindow;
