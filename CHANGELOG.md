@@ -14,5 +14,7 @@ Este archivo registrará todos los cambios hechos a MetroBot.
 ### Nuevas características
 
 - Nuevo Comando Horarios (09/06/2025)
-
+- Nuevo Sistema de Detección de Cambios en Accesibilidad (09/06/2025)
+- Nuevo Sistema de Extracción de Accesibilidad (09/06/2025)
+  
 - Nota: Este registro empezó el 5 de Junio de 2025
