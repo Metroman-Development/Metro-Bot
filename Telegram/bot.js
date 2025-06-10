@@ -91,6 +91,7 @@ async sendToChannel(message, options = {}) {
         this.channelId,
         messages.join('\n\n'),
         {
+          parse_mode: 'HTML',
           message_thread_id: this.topicId // Add topic ID here
         }
       );
