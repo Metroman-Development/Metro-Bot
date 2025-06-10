@@ -304,7 +304,7 @@ class AccessibilityChangeDetector {
         return message;
     }
 
-    async notifyChanges(changes) {
+async notifyChanges(changes) {
     try {
         const message = await this.formatAccessibilityNotification(changes);
         if (!message) return;
@@ -320,43 +320,43 @@ class AccessibilityChangeDetector {
         if (statusChannel) {
             const metro = await getMetroCore();
             
-            // First group by line, then by station
+            // First group by line
             const lineGroups = changes.reduce((acc, change) => {
                 const stationCode = change.equipmentId.split('-')[0];
                 const station = Object.values(metro._staticData.stations).find(s => 
                     s.code === stationCode
                 );
                 
+                const lineNumber = station?.line || 'Desconocida';
                 const lineKey = station?.line ? `l${station.line}` : 'unknown';
                 const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
-                const lineDisplay = lineEmoji ? `${lineEmoji} Línea ${station.line}` : `Línea ${station?.line || 'Desconocida'}`;
+                const lineDisplay = lineEmoji ? `${lineEmoji} Línea ${lineNumber}` : `Línea ${lineNumber}`;
                 
                 const stationName = station?.displayName || stationCode;
                 
-                if (!acc[lineDisplay]) {
-                    acc[lineDisplay] = {
-                        line: station?.line,
+                if (!acc[lineNumber]) {
+                    acc[lineNumber] = {
+                        lineDisplay,
                         stations: {}
                     };
                 }
                 
-                if (!acc[lineDisplay].stations[stationName]) {
-                    acc[lineDisplay].stations[stationName] = {
+                if (!acc[lineNumber].stations[stationName]) {
+                    acc[lineNumber].stations[stationName] = {
                         station,
                         changes: []
                     };
                 }
                 
-                acc[lineDisplay].stations[stationName].changes.push(change);
+                acc[lineNumber].stations[stationName].changes.push(change);
                 return acc;
             }, {});
 
-            // Sort lines numerically
-            const sortedLines = Object.entries(lineGroups).sort(([lineA, dataA], [lineB, dataB]) => {
-                // Put unknown lines at the end
-                if (dataA.line === undefined) return 1;
-                if (dataB.line === undefined) return -1;
-                return dataA.line - dataB.line;
+            // Sort lines numerically (unknown at the end)
+            const sortedLines = Object.entries(lineGroups).sort(([lineA], [lineB]) => {
+                if (lineA === 'Desconocida') return 1;
+                if (lineB === 'Desconocida') return -1;
+                return parseInt(lineA) - parseInt(lineB);
             });
 
             // Create embeds
@@ -369,21 +369,28 @@ class AccessibilityChangeDetector {
             
             let currentEmbedLength = currentEmbed.toJSON().title.length;
 
-            for (const [lineDisplay, lineData] of sortedLines) {
+            for (const [lineNumber, lineData] of sortedLines) {
+                const { lineDisplay, stations } = lineData;
+                
+                // Add line header
+                const lineHeader = `\n\n**${lineDisplay}**\n`;
+                const lineHeaderLength = lineHeader.length;
+                
                 // Sort stations alphabetically
-                const sortedStations = Object.entries(lineData.stations).sort(([nameA], [nameB]) => 
+                const sortedStations = Object.entries(stations).sort(([nameA], [nameB]) => 
                     nameA.localeCompare(nameB)
                 );
+
+                let lineContent = lineHeader;
+                let lineContentLength = lineHeaderLength;
 
                 for (const [stationName, stationData] of sortedStations) {
                     const stationChanges = stationData.changes;
                     
-                    // Format station header
-                    const stationHeader = `**${stationName}** (${lineDisplay})`;
-                    const stationHeaderLength = stationHeader.length;
+                    // Format station section
+                    let stationSection = `\n__${stationName}__\n`;
                     
                     // Process changes for this station
-                    let stationMessage = '';
                     const typeGroups = stationChanges.reduce((acc, change) => {
                         const type = change.current?.tipo || change.previous?.tipo || 'Equipo';
                         if (!acc[type]) acc[type] = [];
@@ -397,7 +404,7 @@ class AccessibilityChangeDetector {
                     );
 
                     for (const [type, typeChanges] of sortedTypes) {
-                        let typeMessage = `\n**${type}**\n`;
+                        let typeMessage = `**${type}**\n`;
                         
                         for (const change of typeChanges) {
                             if (change.type === 'new') {
@@ -421,33 +428,49 @@ class AccessibilityChangeDetector {
                             }
                         }
                         
-                        // Check if we need to start a new embed
-                        if (currentEmbedLength + stationHeaderLength + typeMessage.length > 2000) {
-                            // Finalize current embed
-                            embeds.push(currentEmbed);
-                            
-                            // Start new embed
-                            currentEmbed = new EmbedBuilder()
-                                .setColor(0x0052A5)
-                                .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad ${metroConfig.accessibility.logo}`)
-                                .setTimestamp()
-                                .setFooter({ text: `Actualizado: ${this.timeHelpers.formatDateTime()}` });
-                            
-                            currentEmbedLength = currentEmbed.toJSON().title.length;
-                            stationMessage = stationHeader + typeMessage;
-                        } else {
-                            stationMessage += typeMessage;
-                        }
-                        
-                        currentEmbedLength += typeMessage.length;
+                        stationSection += typeMessage + '\n';
                     }
                     
-                    // Add station field to current embed
+                    // Check if we need to start a new embed
+                    if (currentEmbedLength + lineContentLength + stationSection.length > 2000) {
+                        // Add current line content to embed
+                        if (lineContent.trim().length > 0) {
+                            currentEmbed.addFields({
+                                name: '\u200b', // Zero-width space
+                                value: lineContent,
+                                inline: false
+                            });
+                        }
+                        
+                        // Finalize current embed
+                        embeds.push(currentEmbed);
+                        
+                        // Start new embed
+                        currentEmbed = new EmbedBuilder()
+                            .setColor(0x0052A5)
+                            .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad ${metroConfig.accessibility.logo}`)
+                            .setTimestamp()
+                            .setFooter({ text: `Actualizado: ${this.timeHelpers.formatDateTime()}` });
+                        
+                        currentEmbedLength = currentEmbed.toJSON().title.length;
+                        
+                        // Start new line content with the station that didn't fit
+                        lineContent = lineHeader + stationSection;
+                        lineContentLength = lineHeaderLength + stationSection.length;
+                    } else {
+                        lineContent += stationSection;
+                        lineContentLength += stationSection.length;
+                    }
+                }
+                
+                // Add remaining line content to embed
+                if (lineContent.trim().length > 0) {
                     currentEmbed.addFields({
-                        name: stationName,
-                        value: stationMessage,
+                        name: '\u200b', // Zero-width space
+                        value: lineContent,
                         inline: false
                     });
+                    currentEmbedLength += lineContentLength;
                 }
             }
             
@@ -464,7 +487,10 @@ class AccessibilityChangeDetector {
     } catch (error) {
         this.logger.error(`Error notifying changes: ${error.message}`);
     }
-}
+} 
+  
+
+
     
 }
 
