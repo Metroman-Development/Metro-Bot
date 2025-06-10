@@ -28,66 +28,59 @@ class TelegramBot {
     });
   }
 
- 
-  async sendTelegramMessage(message, options = {}) {
-    try {
-      const processedMessage = message
-        .replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match) => {
-          const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
-          return `:${emojiName.toUpperCase()}:`;
-        })
-        .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
-          return `Línea ${line.toUpperCase()}`;
-        });
+ async sendTelegramMessage(message, options = {}) {
+  try {
+    const processedMessage = message
+      // Remove Discord emoji format completely
+      .replace(/<:[a-zA-Z0-9_]+:\d+>/g, '')
+      // Convert LINEA tags to text
+      .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
+        return `Línea ${line.toUpperCase()}`;
+      });
 
-      if (!this) return;
+    if (!this) return;
 
-      // Modified to include topic ID
-      await this.bot.telegram.sendMessage(
-        this.channelId, 
-        processedMessage, 
-        { 
-          parse_mode: 'markdown',
-          message_thread_id: this.accessTopicId, // Add topic ID here
-         // ...options 
-        }
-      );
-    } catch (error) {
-      console.error('Failed to send to Telegram channel:', error);
-      if (error.response) {
-        console.error('Telegram API Error:', error.response.description);
+    await this.bot.telegram.sendMessage(
+      this.channelId, 
+      processedMessage, 
+      { 
+        parse_mode: 'markdown',
+        message_thread_id: this.accessTopicId,
       }
+    );
+  } catch (error) {
+    console.error('Failed to send to Telegram channel:', error);
+    if (error.response) {
+      console.error('Telegram API Error:', error.response.description);
     }
   }
+}
 
-  async sendToChannel(message, options = {}) {
-    try {
-      const processedMessage = message
-        .replace(/<:[a-zA-Z0-9_]+:(\d+)>/g, (match) => {
-          const emojiName = match.match(/<:([a-zA-Z0-9_]+):/)[1];
-          return `:${emojiName.toUpperCase()}:`;
-        })
-        .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
-          return `Línea ${line.toUpperCase()}`;
-        });
+async sendToChannel(message, options = {}) {
+  try {
+    const processedMessage = message
+      // Remove Discord emoji format completely
+      .replace(/<:[a-zA-Z0-9_]+:\d+>/g, '')
+      // Convert LINEA tags to text
+      .replace(/:LINEA([A1-6]|4A):/gi, (match, line) => {
+        return `Línea ${line.toUpperCase()}`;
+      });
 
-      // Modified to include topic ID
-      await this.bot.telegram.sendMessage(
-        this.channelId, 
-        processedMessage, 
-        { 
-          parse_mode: 'HTML',
-          message_thread_id: this.topicId, // Add topic ID here
-         // ...options 
-        }
-      );
-    } catch (error) {
-      console.error('Failed to send to Telegram channel:', error);
-      if (error.response) {
-        console.error('Telegram API Error:', error.response.description);
+    await this.bot.telegram.sendMessage(
+      this.channelId, 
+      processedMessage, 
+      { 
+        parse_mode: 'HTML',
+        message_thread_id: this.topicId,
       }
+    );
+  } catch (error) {
+    console.error('Failed to send to Telegram channel:', error);
+    if (error.response) {
+      console.error('Telegram API Error:', error.response.description);
     }
   }
+}
   
   async sendCompactAnnouncement(messages) {
     try {
