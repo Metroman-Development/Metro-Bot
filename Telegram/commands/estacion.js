@@ -33,7 +33,8 @@ function normalizeStationName(name) {
 function formatDate(dateString) {
     if (!dateString) return 'Fecha desconocida';
     const date = new Date(dateString);
-    return date.toLocaleDateString('es-CL', {
+    return date.toLocaleString('es-CL', {
+        timeZone: 'UTC', // Prevents local timezone conversion
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
