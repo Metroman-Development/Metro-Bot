@@ -149,65 +149,63 @@ class AccessibilityChangeDetector {
     }
 
     async checkAccessibility() {
-        try {
-            const withinWindow = this.isWithinUpdateWindow();
-            this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
+    try {
+        const withinWindow = this.isWithinUpdateWindow();
+        this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
 
-            let currentStates;
-            let dataSource;
-            let comparisonBaseline;
-            
-            if (withinWindow) {
-                // During window: fetch live API data
-                this.logger.info('Fetching fresh data from API');
-                const response = await axios.get(API_URL);
-                currentStates = response.data;
-                dataSource = 'API';
+        let currentStates;
+        let dataSource;
+        let comparisonBaseline;
+        
+        if (withinWindow) {
+            // During window: fetch live API data
+            this.logger.info('Fetching fresh data from API');
+            const response = await axios.get(API_URL);
+            currentStates = response.data;
+            dataSource = 'API';
+            comparisonBaseline = this.lastStates;
+            this.saveCache(currentStates);
+        } else {
+            // Outside window: use cached data
+            if (Object.keys(this.cachedStates).length > 0) {
+                currentStates = this.cachedStates;
                 comparisonBaseline = this.lastStates;
-                this.saveCache(currentStates);
+                dataSource = 'cache';
+                this.logger.info('Using cached data for comparison');
             } else {
-                // Outside window: use cached data
-                if (Object.keys(this.cachedStates).length > 0) {
-                    currentStates = this.cachedStates;
-                    comparisonBaseline = this.lastStates;
-                    dataSource = 'cache';
-                    this.logger.info('Using cached data for comparison');
-                } else {
-                    this.logger.error('No cached data available');
-                    return [];
-                }
-            }
-
-            const cleanCurrentStates = this.cleanData(currentStates);
-            const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
-
-            if (Object.keys(cleanComparisonBaseline).length === 0) {
-                this.logger.info('First run detected, saving initial state');
-                this.saveLastStates(cleanCurrentStates);
+                this.logger.error('No cached data available');
                 return [];
             }
-            
-            const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
-            this.logger.info(`Detected ${changes.length} changes`);
+        }
 
-            if (changes.length > 0) {
-                await this.notifyChanges(changes);
-                
-                // Only update lastStates with fresh API data (never with cache)
-                if (withinWindow) {
-                    this.logger.info('Updating lastStates with fresh API data');
-                    this.saveLastStates(cleanCurrentStates);
-                }
-            }
+        const cleanCurrentStates = this.cleanData(currentStates);
+        const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
 
-            this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
-            
-            return changes;
-        } catch (error) {
-            this.logger.error(`Error in accessibility check: ${error.message}`);
+        if (Object.keys(cleanComparisonBaseline).length === 0) {
+            this.logger.info('First run detected, saving initial state');
+            this.saveLastStates(cleanCurrentStates);
             return [];
         }
+        
+        const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
+        this.logger.info(`Detected ${changes.length} changes`);
+
+        if (changes.length > 0) {
+            await this.notifyChanges(changes);
+            
+            // Always update lastStates when changes are detected
+            this.logger.info('Updating lastStates with current data');
+            this.saveLastStates(cleanCurrentStates);
+        }
+
+        this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
+        
+        return changes;
+    } catch (error) {
+        this.logger.error(`Error in accessibility check: ${error.message}`);
+        return [];
     }
+}
 
     detectChanges(currentStates, comparisonBaseline) {
         const changes = [];
