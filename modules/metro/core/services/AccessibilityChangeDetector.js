@@ -31,7 +31,7 @@ class AccessibilityChangeDetector {
             error: (message) => console.error(`[ERROR] ${new Date().toISOString()} - ${message}`)
         };
 
-        this.timeHelpers = new TimeHelpers(); // Initialize TimeHelpers instance
+        this.timeHelpers = TimeHelpers;  // Initialize TimeHelpers instance
         this.initializeStorage();
         this.lastStates = this.loadDataFile(STATE_FILE, 'last state');
         this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
