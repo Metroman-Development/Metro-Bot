@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const DatabaseManager = require('../core/database/DatabaseManager');
+const DatabaseManager = require('../database/DatabaseManager');
 const logger = require('../events/logger');
 const crypto = require('crypto');
 
