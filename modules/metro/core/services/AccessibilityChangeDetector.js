@@ -31,6 +31,7 @@ class AccessibilityChangeDetector {
             error: (message) => console.error(`[ERROR] ${new Date().toISOString()} - ${message}`)
         };
 
+        this.timeHelpers = new TimeHelpers(); // Initialize TimeHelpers instance
         this.initializeStorage();
         this.lastStates = this.loadDataFile(STATE_FILE, 'last state');
         this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
@@ -40,8 +41,6 @@ class AccessibilityChangeDetector {
             this.cachedStates = JSON.parse(JSON.stringify(this.lastStates));
             this.saveCache(this.cachedStates);
         }
-
-        this.timeHelpers = TimeHelpers;
     }
 
     initializeStorage() {
@@ -94,7 +93,7 @@ class AccessibilityChangeDetector {
             if (!equipment || typeof equipment !== 'object') continue;
             
             cleanData[id] = {
-                time: equipment.time || new Date().toISOString(),
+                time: equipment.time || this.timeHelpers.currentTime.toISOString(),
                 estado: equipment.estado !== undefined ? equipment.estado : -1,
                 tipo: equipment.tipo || 'unknown',
                 estacion: equipment.estacion || 'unknown',
@@ -135,77 +134,77 @@ class AccessibilityChangeDetector {
         
         const isFirstWindow = (
             currentHour === 12 && 
-            currentMinute >= 20 && 
-            currentMinute <= 24
+            currentMinute >= 18 && 
+            currentMinute <= 30
         );
         
         const isSecondWindow = (
             currentHour === 20 && 
-            currentMinute >= 20 && 
-            currentMinute <= 24
+            currentMinute >= 18 && 
+            currentMinute <= 30
         );
         
         return isFirstWindow || isSecondWindow;
     }
 
     async checkAccessibility() {
-    try {
-        const withinWindow = this.isWithinUpdateWindow();
-        this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
+        try {
+            const withinWindow = this.isWithinUpdateWindow();
+            this.logger.info(`Starting accessibility check. Within update window: ${withinWindow}`);
 
-        let currentStates;
-        let dataSource;
-        let comparisonBaseline;
-        
-        if (withinWindow) {
-            // During window: fetch live API data
-            this.logger.info('Fetching fresh data from API');
-            const response = await axios.get(API_URL);
-            currentStates = response.data;
-            dataSource = 'API';
-            comparisonBaseline = this.lastStates;
-            this.saveCache(currentStates);
-        } else {
-            // Outside window: use cached data
-            if (Object.keys(this.cachedStates).length > 0) {
-                currentStates = this.cachedStates;
+            let currentStates;
+            let dataSource;
+            let comparisonBaseline;
+            
+            if (withinWindow) {
+                // During window: fetch live API data
+                this.logger.info('Fetching fresh data from API');
+                const response = await axios.get(API_URL);
+                currentStates = response.data;
+                dataSource = 'API';
                 comparisonBaseline = this.lastStates;
-                dataSource = 'cache';
-                this.logger.info('Using cached data for comparison');
+                this.saveCache(currentStates);
             } else {
-                this.logger.error('No cached data available');
+                // Outside window: use cached data
+                if (Object.keys(this.cachedStates).length > 0) {
+                    currentStates = this.cachedStates;
+                    comparisonBaseline = this.lastStates;
+                    dataSource = 'cache';
+                    this.logger.info('Using cached data for comparison');
+                } else {
+                    this.logger.error('No cached data available');
+                    return [];
+                }
+            }
+
+            const cleanCurrentStates = this.cleanData(currentStates);
+            const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
+
+            if (Object.keys(cleanComparisonBaseline).length === 0) {
+                this.logger.info('First run detected, saving initial state');
+                this.saveLastStates(cleanCurrentStates);
                 return [];
             }
-        }
+            
+            const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
+            this.logger.info(`Detected ${changes.length} changes`);
 
-        const cleanCurrentStates = this.cleanData(currentStates);
-        const cleanComparisonBaseline = this.cleanData(comparisonBaseline);
+            if (changes.length > 0) {
+                await this.notifyChanges(changes);
+                
+                // Always update lastStates when changes are detected
+                this.logger.info('Updating lastStates with current data');
+                this.saveLastStates(cleanCurrentStates);
+            }
 
-        if (Object.keys(cleanComparisonBaseline).length === 0) {
-            this.logger.info('First run detected, saving initial state');
-            this.saveLastStates(cleanCurrentStates);
+            this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
+            
+            return changes;
+        } catch (error) {
+            this.logger.error(`Error in accessibility check: ${error.message}`);
             return [];
         }
-        
-        const changes = this.detectChanges(cleanCurrentStates, cleanComparisonBaseline);
-        this.logger.info(`Detected ${changes.length} changes`);
-
-        if (changes.length > 0) {
-            await this.notifyChanges(changes);
-            
-            // Always update lastStates when changes are detected
-            this.logger.info('Updating lastStates with current data');
-            this.saveLastStates(cleanCurrentStates);
-        }
-
-        this.cachedStates = this.loadDataFile(CACHE_FILE, 'cache');
-        
-        return changes;
-    } catch (error) {
-        this.logger.error(`Error in accessibility check: ${error.message}`);
-        return [];
     }
-}
 
     detectChanges(currentStates, comparisonBaseline) {
         const changes = [];
@@ -301,7 +300,7 @@ class AccessibilityChangeDetector {
             message += '\n';
         }
 
-        message += `_Actualizado: ${new Date().toLocaleString('es-CL')}_`;
+        message += `_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
         return message;
     }
 
@@ -312,7 +311,7 @@ class AccessibilityChangeDetector {
 
             this.logger.info('Sending accessibility notification');
             
-            // Telegram message (unchanged)
+            // Telegram message
             await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
             
             // Enhanced Discord message
@@ -326,7 +325,7 @@ class AccessibilityChangeDetector {
                     .setColor(0x0052A5) // Metro blue color
                     .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad ${metroConfig.accessibility.logo}`)
                     .setTimestamp()
-                    .setFooter({ text: `Actualizado: ${new Date().toLocaleString('es-CL')}` });
+                    .setFooter({ text: `Actualizado: ${this.timeHelpers.formatDateTime()}` });
 
                 // Process changes for Discord
                 const groupedChanges = changes.reduce((acc, change) => {
