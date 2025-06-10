@@ -313,7 +313,7 @@ class AccessibilityChangeDetector {
             this.logger.info('Sending accessibility notification');
             
             // Telegram message (unchanged)
-            //await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
+            await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
             
             // Enhanced Discord message
             const client = getClient();
