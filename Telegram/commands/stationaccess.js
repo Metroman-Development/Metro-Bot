@@ -256,8 +256,10 @@ module.exports = {
         // Element type selection actions
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType] = ctx.match.slice(1);
+            let [stationId, elementType] = ctx.match.slice(1);
 
+            if (elementType.includes("access")) elementType = "accesses";
+            console.log(elementType);
             //console.log("match", ctx.match) 
            //console.log("id", stationId)
 
@@ -276,7 +278,10 @@ module.exports = {
         // Bulk status update actions
         bot.action(/ac_st_set:(.+):(.+):(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType, scope, newStatus] = ctx.match.slice(1);
+            let [stationId, elementType, scope, newStatus] = ctx.match.slice(1);
+            if (elementType.includes("access")) elementType = "accesses";
+            console.log(elementType);
+            
             await updateElementStatus(ctx, stationId, elementType, scope, newStatus);
         });
 
@@ -290,7 +295,10 @@ module.exports = {
         // Add element actions
         bot.action(/access_config_add:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType] = ctx.match.slice(1);
+            let [stationId, elementType] = ctx.match.slice(1);
+            if (elementType.includes("access")) elementType = "accesses";
+            console.log(elementType);
+            
             await startAddElementFlow(ctx, stationId, elementType);
         });
 
@@ -358,7 +366,10 @@ module.exports = {
         // Remove element confirmation
         bot.action(/access_remove_confirm:(.+):(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType, elementId] = ctx.match.slice(1);
+            let [stationId, elementType, elementId] = ctx.match.slice(1);
+            
+            if (elementType.includes("access")) elementType = "accesses";
+            console.log(elementType);
             await removeElement(ctx, stationId, elementType, elementId);
         });
 
