@@ -649,7 +649,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
-        const elements = station.accessDetails[`${elementType}s`] || [];
+        const elements = station.accessDetails[`${elementType.replace("accesses","accesse")}s`] || [];
         const config = STATUS_CONFIG[elementType];
         
         let message = `<b>${config.emoji} Actualizar estado - ${station.displayName}</b>\n\n`;
