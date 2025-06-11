@@ -70,7 +70,7 @@ async function ensureAccessDetailsDir() {
     } catch (error) {
         if (error.code === 'ENOENT') {
             await fs.mkdir(ACCESS_DETAILS_DIR, { recursive: true });
-            console.log('Created accessDetails directory');
+            //console.log('Created accessDetails directory');
         } else {
             throw error;
         }
@@ -87,7 +87,7 @@ function normalizeKey(str) {
 
 function getConfigPath(stationKey, linekey) {
     const normalized = normalizeKey(stationKey);
-    console.log(normalized) 
+    //console.log(normalized) 
 
     const regex = /.*(l[1-6]|4la)$/;
     if (regex.test(normalized)) { ; // true  
@@ -95,7 +95,7 @@ function getConfigPath(stationKey, linekey) {
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
                                  
                                 } else {
-    console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`));
+    //console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`));
     return path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`);
 
     }
@@ -108,7 +108,7 @@ async function getAccessConfig(stationKey, lineKey) {
         const config = JSON.parse(data);
 
 
-        console.log(config);
+        //console.log(config);
         // Ensure all required fields exist
         config.accesses = config.accesses?.map(access => ({
             status: 'abierto',
@@ -258,8 +258,8 @@ module.exports = {
             await ctx.answerCbQuery();
             const [stationId, elementType] = ctx.match.slice(1);
 
-            console.log("match", ctx.match) 
-           console.log("id", stationId)
+            //console.log("match", ctx.match) 
+           //console.log("id", stationId)
 
  await showStatusUpdateMenu(ctx, stationId, elementType);
         });
@@ -269,6 +269,7 @@ module.exports = {
             await ctx.answerCbQuery();
             let [stationId, elementType, elementId] = ctx.match.slice(1);
             if (elementType.includes("access")) elementType = "accesses";
+            console.log(elementType);
             await showElementStatusOptions(ctx, stationId, elementType, elementId);
         });
 
@@ -541,14 +542,14 @@ async function handleList(ctx, page = 0) {
 async function showStationAccessInfo(ctx, stationId) {
     try {
         
-        console.log(stationId) 
+        //console.log(stationId) 
         
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
 
-        console.log(station) 
+        //console.log(station) 
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -623,7 +624,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
 
-        console.log(metro._staticData.stations) 
+        //console.log(metro._staticData.stations) 
         const station = Object.values(metro._staticData.stations).find(s => 
             s.displayName === stationId || s.code === stationId.trim() 
         );
@@ -643,7 +644,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         let message = `<b>${config.emoji} Actualizar estado - ${station.displayName}</b>\n\n`;
         message += `Selecciona el ${config.name.toLowerCase()} a actualizar:\n\n`;
 
-        console.log(elementType)
+        //console.log(elementType)
 
         
         const keyboard = elements.map(element => [
@@ -694,7 +695,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
 
         const elements = station.accessDetails[`${elementType}s`] || [];
         const element = elements.find(e => e.id === elementId);
-        console.log(elementType)
+        //console.log(elementType)
         const config = STATUS_CONFIG[elementType];
 
         if (!element) {
@@ -707,7 +708,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         message += `<b>Estado actual:</b> ${getStatusEmoji(element.status)} ${element.status}\n\n`;
         message += `Selecciona el nuevo estado:`;
 
-        console.log(config) 
+        //console.log(config) 
 
         const keyboard = Object.entries(config.statuses).map(([status, label]) => 
             Markup.button.callback(label, `ac_st_set:${station.code} :${elementType}:${elementId}:${status}`)
@@ -723,7 +724,7 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
         
-        console.log(statusRows) 
+        //console.log(statusRows) 
 
         await ctx.editMessageText(message, {
             parse_mode: 'HTML',
