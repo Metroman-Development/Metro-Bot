@@ -3,6 +3,7 @@ const MetroCore = require('../../modules/metro/core/MetroCore');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs').promises;
+const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
 // MetroCore instance (singleton pattern)
 let metroCoreInstance = null;
@@ -20,13 +21,7 @@ async function getMetroCore() {
 function formatDate(dateString) {
     if (!dateString) return 'Fecha desconocida';
     const date = new Date(dateString);
-    return date.toLocaleDateString('es-CL', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
+    return TimeHelpers.formatDateTime(date, 'DD/MM/YYYY HH:mm');
 }
 
 // Status mapping configuration
@@ -70,7 +65,6 @@ async function ensureAccessDetailsDir() {
     } catch (error) {
         if (error.code === 'ENOENT') {
             await fs.mkdir(ACCESS_DETAILS_DIR, { recursive: true });
-            //console.log('Created accessDetails directory');
         } else {
             throw error;
         }
@@ -87,46 +81,38 @@ function normalizeKey(str) {
 
 function getConfigPath(stationKey, linekey) {
     const normalized = normalizeKey(stationKey);
-    //console.log(normalized) 
-
-    const regex = /.*(l[1-6]|4la)$/;
-    if (regex.test(normalized)) { ; // true  
-
-    return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);
-                                 
-                                } else {
-    //console.log(path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`));
-    return path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`);
-
+    const regex = /.*(l[1-6]|4a)$/;
+    if (regex.test(normalized)) {
+        return path.join(ACCESS_DETAILS_DIR, `access_${normalized}.json`);                          
+    } else {
+        return path.join(ACCESS_DETAILS_DIR, `access_${normalized}-${linekey}.json`);
     }
 } 
 
 async function getAccessConfig(stationKey, lineKey) {
-    const configPath = getConfigPath(stationKey,  lineKey);
+    const configPath = getConfigPath(stationKey, lineKey);
     try {
         const data = await fs.readFile(configPath, 'utf8');
         const config = JSON.parse(data);
 
-
-        //console.log(config);
         // Ensure all required fields exist
         config.accesses = config.accesses?.map(access => ({
             status: 'abierto',
-            lastUpdated: new Date().toISOString(),
+            lastUpdated: TimeHelpers.currentTime.toISOString(),
             notes: '',
             ...access
         })) || [];
         
         config.elevators = config.elevators?.map(elevator => ({
             status: 'operativa',
-            lastUpdated: new Date().toISOString(),
+            lastUpdated: TimeHelpers.currentTime.toISOString(),
             notes: '',
             ...elevator
         })) || [];
         
         config.escalators = config.escalators?.map(escalator => ({
             status: 'operativa',
-            lastUpdated: new Date().toISOString(),
+            lastUpdated: TimeHelpers.currentTime.toISOString(),
             notes: '',
             ...escalator
         })) || [];
@@ -174,7 +160,7 @@ async function updateMainAccessibilityStatus(stationName, accessConfig) {
             ).join('\\n');
         }
 
-        statusText += `\\n-# Última Actualización ${new Date().toLocaleString('es-CL')}`;
+        statusText += `\\n-# Última Actualización ${TimeHelpers.formatDateTime(TimeHelpers.currentTime, 'DD/MM/YYYY HH:mm')}`;
 
         // Update in MetroCore's data
         station.accessStatus = statusText;
@@ -246,6 +232,21 @@ module.exports = {
             await handleList(ctx);
         });
 
+        // Line selection action
+        bot.action(/access_list_line:(.+)/, async (ctx) => {
+            await ctx.answerCbQuery();
+            const line = ctx.match[1];
+            await handleList(ctx, 0, line);
+        });
+
+        // Paginated station list action
+        bot.action(/access_list_page:(\d+):(.+)/, async (ctx) => {
+            await ctx.answerCbQuery();
+            const page = parseInt(ctx.match[1]);
+            const line = ctx.match[2];
+            await handleList(ctx, page, line);
+        });
+
         // Station selection actions
         bot.action(/access_view:(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
@@ -257,13 +258,8 @@ module.exports = {
         bot.action(/access_status:(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
             let [stationId, elementType] = ctx.match.slice(1);
-
             if (elementType.includes("access")) elementType = "accesses";
-            console.log(elementType);
-            //console.log("match", ctx.match) 
-           //console.log("id", stationId)
-
- await showStatusUpdateMenu(ctx, stationId, elementType);
+            await showStatusUpdateMenu(ctx, stationId, elementType);
         });
 
         // Individual element update actions
@@ -271,7 +267,6 @@ module.exports = {
             await ctx.answerCbQuery();
             let [stationId, elementType, elementId] = ctx.match.slice(1);
             if (elementType.includes("access")) elementType = "accesses";
-            console.log(elementType);
             await showElementStatusOptions(ctx, stationId, elementType, elementId);
         });
 
@@ -280,8 +275,6 @@ module.exports = {
             await ctx.answerCbQuery();
             let [stationId, elementType, scope, newStatus] = ctx.match.slice(1);
             if (elementType.includes("access")) elementType = "accesses";
-            console.log(elementType);
-            
             await updateElementStatus(ctx, stationId, elementType, scope, newStatus);
         });
 
@@ -297,8 +290,6 @@ module.exports = {
             await ctx.answerCbQuery();
             let [stationId, elementType] = ctx.match.slice(1);
             if (elementType.includes("access")) elementType = "accesses";
-            console.log(elementType);
-            
             await startAddElementFlow(ctx, stationId, elementType);
         });
 
@@ -367,9 +358,7 @@ module.exports = {
         bot.action(/access_remove_confirm:(.+):(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
             let [stationId, elementType, elementId] = ctx.match.slice(1);
-            
             if (elementType.includes("access")) elementType = "accesses";
-            console.log(elementType);
             await removeElement(ctx, stationId, elementType, elementId);
         });
 
@@ -380,12 +369,6 @@ module.exports = {
                 delete ctx.session.editingContext;
             }
             await showMainMenu(ctx);
-        });
-
-        bot.action(/access_list_page:(\d+)/, async (ctx) => {
-            await ctx.answerCbQuery();
-            const page = parseInt(ctx.match[1]);
-            await handleList(ctx, page);
         });
     },
 
@@ -493,16 +476,58 @@ async function showMainMenu(ctx) {
     }
 }
 
-// List stations
-async function handleList(ctx, page = 0) {
+// List stations with line grouping
+async function handleList(ctx, page = 0, line = null) {
     try {
         const metro = await getMetroCore();
+        
+        if (!line) {
+            // Show line selection first
+            const lines = {};
+            Object.values(metro._staticData.stations)
+                .filter(s => s.accessDetails)
+                .forEach(station => {
+                    if (!lines[station.line]) {
+                        lines[station.line] = {
+                            name: station.line,
+                            count: 0
+                        };
+                    }
+                    lines[station.line].count++;
+                });
+
+            let message = `<b>📋 Líneas con estaciones configuradas</b>\n\n`;
+            message += `Selecciona una línea para ver sus estaciones:`;
+
+            const keyboard = Object.values(lines).map(lineInfo => [
+                Markup.button.callback(
+                    `🚇 Línea ${lineInfo.name} (${lineInfo.count} estaciones)`,
+                    `access_list_line:${lineInfo.name}`
+                )
+            ]);
+
+            keyboard.push([Markup.button.callback('🔙 Menú principal', 'access_main')]);
+
+            if (ctx.callbackQuery) {
+                await ctx.editMessageText(message, {
+                    parse_mode: 'HTML',
+                    reply_markup: { inline_keyboard: keyboard }
+                });
+            } else {
+                await ctx.replyWithHTML(message, {
+                    reply_markup: { inline_keyboard: keyboard }
+                });
+            }
+            return;
+        }
+
+        // Show stations for selected line
         const allStations = Object.values(metro._staticData.stations)
-            .filter(s => s.accessDetails)
+            .filter(s => s.accessDetails && s.line === line)
             .sort((a, b) => a.displayName.localeCompare(b.displayName));
 
         if (allStations.length === 0) {
-            return ctx.reply('No hay estaciones con configuración de accesibilidad.');
+            return ctx.reply(`No hay estaciones con configuración de accesibilidad en la Línea ${line}.`);
         }
 
         const STATIONS_PER_PAGE = 5;
@@ -510,7 +535,7 @@ async function handleList(ctx, page = 0) {
         const startIdx = page * STATIONS_PER_PAGE;
         const stations = allStations.slice(startIdx, startIdx + STATIONS_PER_PAGE);
 
-        let message = `<b>📋 Estaciones con configuración de accesibilidad</b>\n\n`;
+        let message = `<b>📋 Estaciones de Línea ${line}</b>\n\n`;
         message += `Página ${page + 1} de ${totalPages}\n\n`;
         
         const keyboard = stations.map(station => [
@@ -522,17 +547,20 @@ async function handleList(ctx, page = 0) {
 
         const paginationRow = [];
         if (page > 0) {
-            paginationRow.push(Markup.button.callback('⬅️ Anterior', `access_list_page:${page - 1}`));
+            paginationRow.push(Markup.button.callback('⬅️ Anterior', `access_list_page:${page - 1}:${line}`));
         }
         if (page < totalPages - 1) {
-            paginationRow.push(Markup.button.callback('Siguiente ➡️', `access_list_page:${page + 1}`));
+            paginationRow.push(Markup.button.callback('Siguiente ➡️', `access_list_page:${page + 1}:${line}`));
         }
         
         if (paginationRow.length > 0) {
             keyboard.push(paginationRow);
         }
 
-        keyboard.push([Markup.button.callback('🔙 Menú principal', 'access_main')]);
+        keyboard.push([
+            Markup.button.callback('↩️ Volver a líneas', 'access_list'),
+            Markup.button.callback('🔙 Menú principal', 'access_main')
+        ]);
 
         if (ctx.callbackQuery) {
             await ctx.editMessageText(message, {
@@ -552,15 +580,10 @@ async function handleList(ctx, page = 0) {
 // Station access info
 async function showStationAccessInfo(ctx, stationId) {
     try {
-        
-        //console.log(stationId) 
-        
         const metro = await getMetroCore();
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
-
-        //console.log(station) 
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -608,15 +631,15 @@ async function showStationAccessInfo(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🛗 Ascensores', `access_status:${station.code} :elevator`),
-                Markup.button.callback('🪜 Escaleras', `access_status:${station.code} :escalator`)
+                Markup.button.callback('🛗 Ascensores', `access_status:${station.code}:elevator`),
+                Markup.button.callback('🪜 Escaleras', `access_status:${station.code}:escalator`)
             ],
             [
-                Markup.button.callback('🚪 Accesos', `access_status:${station.code} :access`),
-                Markup.button.callback('📋 Historial', `access_history:${station.code} `)
+                Markup.button.callback('🚪 Accesos', `access_status:${station.code}:access`),
+                Markup.button.callback('📋 Historial', `access_history:${station.code}`)
             ],
             [
-                Markup.button.callback('⚙️ Configurar', `access_config:${station.code} `),
+                Markup.button.callback('⚙️ Configurar', `access_config:${station.code}`),
                 Markup.button.callback('🔙 Menú principal', 'access_main')
             ]
         ];
@@ -634,40 +657,34 @@ async function showStationAccessInfo(ctx, stationId) {
 async function showStatusUpdateMenu(ctx, stationId, elementType) {
     try {
         const metro = await getMetroCore();
-
-        //console.log(metro._staticData.stations) 
         const station = Object.values(metro._staticData.stations).find(s => 
             s.displayName === stationId || s.code === stationId.trim() 
         );
 
-        
         if (!station) {
             throw new Error('Estación no encontrada');
         }
 
-        // Load from JSON8 file
+        // Load from JSON file
         const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
-        const elements = station.accessDetails[`${elementType.replace("accesses","accesse")}s`] || [];
+        const elements = station.accessDetails[`${elementType}s`] || [];
         const config = STATUS_CONFIG[elementType];
         
         let message = `<b>${config.emoji} Actualizar estado - ${station.displayName}</b>\n\n`;
         message += `Selecciona el ${config.name.toLowerCase()} a actualizar:\n\n`;
-
-        //console.log(elementType)
-
         
         const keyboard = elements.map(element => [
             Markup.button.callback(
                 `${getStatusEmoji(element.status)} ${element.id || element.name} (${element.status})`,
-                `access_status_update:${station.code} :${elementType}:${element.id}`
+                `access_status_update:${station.code}:${elementType}:${element.id}`
             )
         ]);
 
         if (elements.length > 0) {
             const statusButtons = Object.entries(config.statuses).map(([status, label]) => 
-                Markup.button.callback(label, `ac_st_set:${station.code} :${elementType}:all:${status}`)
+                Markup.button.callback(label, `ac_st_set:${station.code}:${elementType}:all:${status}`)
             );
             
             for (let i = 0; i < statusButtons.length; i += 2) {
@@ -678,7 +695,7 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         }
 
         keyboard.push([
-            Markup.button.callback('🔙 Atrás', `access_view:${station.code} `),
+            Markup.button.callback('🔙 Atrás', `access_view:${station.code}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
 
@@ -698,15 +715,13 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim()
         );
-
         
         // Load from JSON file
-        const accessDetails = await getAccessConfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`] || [];
         const element = elements.find(e => e.id === elementId);
-        //console.log(elementType)
         const config = STATUS_CONFIG[elementType];
 
         if (!element) {
@@ -719,10 +734,8 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         message += `<b>Estado actual:</b> ${getStatusEmoji(element.status)} ${element.status}\n\n`;
         message += `Selecciona el nuevo estado:`;
 
-        //console.log(config) 
-
         const keyboard = Object.entries(config.statuses).map(([status, label]) => 
-            Markup.button.callback(label, `ac_st_set:${station.code} :${elementType}:${elementId}:${status}`)
+            Markup.button.callback(label, `ac_st_set:${station.code}:${elementType}:${elementId}:${status}`)
         );
 
         const statusRows = [];
@@ -731,11 +744,9 @@ async function showElementStatusOptions(ctx, stationId, elementType, elementId) 
         }
 
         statusRows.push([
-            Markup.button.callback('🔙 Atrás', `access_status:${station.code} :${elementType}`),
+            Markup.button.callback('🔙 Atrás', `access_status:${station.code}:${elementType}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
-        
-        //console.log(statusRows) 
 
         await ctx.editMessageText(message, {
             parse_mode: 'HTML',
@@ -761,19 +772,17 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const elements = station.accessDetails[`${elementType}s`];
         let updatedElements = [];
         let actionDescription = '';
 
-        
-
         if (scope === 'all') {
             for (const element of elements) {
                 element.status = newStatus;
-                element.lastUpdated = new Date().toISOString();
+                element.lastUpdated = TimeHelpers.currentTime.toISOString();
                 updatedElements.push(element.id || element.name);
             }
             actionDescription = `Actualizados todos los ${config.name.toLowerCase()}s a ${newStatus}`;
@@ -781,7 +790,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
             const element = elements.find(e => e.id === scope);
             if (element) {
                 element.status = newStatus;
-                element.lastUpdated = new Date().toISOString();
+                element.lastUpdated = TimeHelpers.currentTime.toISOString();
                 updatedElements.push(element.id || element.name);
                 actionDescription = `Actualizado ${config.name.toLowerCase()} ${scope} a ${newStatus}`;
             } else {
@@ -791,14 +800,14 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
 
         // Add to changelog
         station.accessDetails.changeHistory.push({
-            timestamp: new Date().toISOString(),
+            timestamp: TimeHelpers.currentTime.toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: actionDescription,
             details: `Updated: ${updatedElements.join(', ')}`,
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.displayName, station.accessDetails, station.line);
+        await saveAccessConfig(station.displayName, station.accessDetails);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
 
         let message = `<b>✅ Estado actualizado</b>\n\n`;
@@ -808,7 +817,7 @@ async function updateElementStatus(ctx, stationId, elementType, scope, newStatus
 
         const keyboard = [
             [
-                Markup.button.callback('🔄 Actualizar otro', `access_status:${station.code} :${elementType}`),
+                Markup.button.callback('🔄 Actualizar otro', `access_status:${station.code}:${elementType}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -829,14 +838,13 @@ async function showStationHistory(ctx, stationId) {
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
-
         
         if (!station) {
             throw new Error('Estación no encontrada');
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         if (!station.accessDetails.changeHistory?.length) {
@@ -857,7 +865,7 @@ async function showStationHistory(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🔙 Volver', `access_view:${station.code} `),
+                Markup.button.callback('🔙 Volver', `access_view:${station.code}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -881,7 +889,7 @@ async function showGlobalHistory(ctx) {
         
         // Load history from all station JSON files
         for (const station of stations) {
-            const accessDetails = await getAccessConfig(station.displayName,station.line);
+            const accessDetails = await getAccessConfig(station.displayName, station.line);
             if (accessDetails.changeHistory?.length) {
                 allChanges.push(...accessDetails.changeHistory.map(change => ({
                     ...change,
@@ -979,14 +987,13 @@ async function showStationConfigMenu(ctx, stationId) {
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
-
         
         if (!station) {
             throw new Error('Estación no encontrada');
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         let message = `<b>⚙️ Configuración - ${station.displayName}</b>\n\n`;
@@ -994,19 +1001,19 @@ async function showStationConfigMenu(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('➕ Añadir ascensor', `access_config_add:${station.code} :elevator`),
+                Markup.button.callback('➕ Añadir ascensor', `access_config_add:${station.code}:elevator`),
                 Markup.button.callback('➕ Añadir escalera', `access_config_add:${station.code}:escalator`)
             ],
             [
-                Markup.button.callback('➕ Añadir acceso', `access_config_add:${station.code} :access`),
-                Markup.button.callback('➖ Eliminar elemento', `access_config_remove:${station.code} `)
+                Markup.button.callback('➕ Añadir acceso', `access_config_add:${station.code}:access`),
+                Markup.button.callback('➖ Eliminar elemento', `access_config_remove:${station.code}`)
             ],
             [
-                Markup.button.callback('📝 Editar notas', `access_config_edit:${station.code} :notes`),
-                Markup.button.callback('🔄 Restablecer', `access_config_reset:${station.code} `)
+                Markup.button.callback('📝 Editar notas', `access_config_edit:${station.code}:notes`),
+                Markup.button.callback('🔄 Restablecer', `access_config_reset:${station.code}`)
             ],
             [
-                Markup.button.callback('🔙 Volver', `access_view:${station.code} `),
+                Markup.button.callback('🔙 Volver', `access_view:${station.code}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -1023,6 +1030,11 @@ async function showStationConfigMenu(ctx, stationId) {
 // Add element flow
 async function startAddElementFlow(ctx, stationId, elementType) {
     try {
+        const metro = await getMetroCore();
+        const station = Object.values(metro._staticData.stations).find(s => 
+            s.name === stationId || s.code === stationId.trim() 
+        );
+
         const config = STATUS_CONFIG[elementType];
         if (!config) {
             throw new Error('Tipo de elemento no válido');
@@ -1032,17 +1044,17 @@ async function startAddElementFlow(ctx, stationId, elementType) {
             action: 'add_element',
             stationId,
             elementType,
-            timestamp: Date.now()
+            timestamp: TimeHelpers.currentTime.getTime()
         };
 
-        let message = `<b>➕ Añadir ${config.name.toLowerCase()} - Estación ID: ${station.code} </b>\n\n`;
+        let message = `<b>➕ Añadir ${config.name.toLowerCase()} - ${station.displayName}</b>\n\n`;
         message += `Por favor, envía los detalles del nuevo ${config.name.toLowerCase()} en el siguiente formato:\n\n`;
         message += `<code>Identificador, Ubicación, Estado</code>\n\n`;
         message += `Ejemplo: <code>A1, Andén norte, operativa</code>\n\n`;
         message += `Estados disponibles: ${Object.keys(config.statuses).join(', ')}`;
 
         const keyboard = [
-            [Markup.button.callback('❌ Cancelar', `access_config:${station.code} `)]
+            [Markup.button.callback('❌ Cancelar', `access_config:${station.code}`)]
         ];
 
         await ctx.editMessageText(message, {
@@ -1068,7 +1080,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
         }
 
         // Load from JSON file
-        const accessDetails = await getAccessConfig(station.displayName,station.line);
+        const accessDetails = await getAccessConfig(station.displayName, station.line);
         station.accessDetails = accessDetails;
 
         const [id, location, status, ...rest] = inputText.split(',').map(s => s.trim());
@@ -1085,7 +1097,7 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
             id,
             name: location,
             status,
-            lastUpdated: new Date().toISOString(),
+            lastUpdated: TimeHelpers.currentTime.toISOString(),
             notes: rest.join(', ') || ''
         };
 
@@ -1093,14 +1105,13 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
 
         // Add to changelog
         station.accessDetails.changeHistory.push({
-            timestamp: new Date().toISOString(),
+            timestamp: TimeHelpers.currentTime.toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Añadido ${config.name.toLowerCase()} ${id} (${status})`
         });
 
         // Save changes to JSON file
-        await saveAccessConfig(station.displayName, station.accessDetails); 
-                            
+        await saveAccessConfig(station.displayName, station.accessDetails);
         await updateMainAccessibilityStatus(station.displayName, station.accessDetails);
         delete ctx.session.editingContext;
 
@@ -1112,8 +1123,8 @@ async function handleAddElementInput(ctx, stationId, elementType, inputText) {
 
         const keyboard = [
             [
-                Markup.button.callback('➕ Añadir otro', `access_config_add:${station.code} :${elementType}`),
-                Markup.button.callback('⚙️ Configuración', `access_config:${station.code} `)
+                Markup.button.callback('➕ Añadir otro', `access_config_add:${station.code}:${elementType}`),
+                Markup.button.callback('⚙️ Configuración', `access_config:${station.code}`)
             ],
             [
                 Markup.button.callback('🏠 Menú principal', 'access_main')
@@ -1135,7 +1146,6 @@ async function showRemoveElementMenu(ctx, stationId) {
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code.toUpperCase() === stationId.toUpperCase() 
         );
-
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1151,36 +1161,36 @@ async function showRemoveElementMenu(ctx, stationId) {
         const keyboard = [];
 
         if (station.accessDetails.elevators?.length > 0) {
-            keyboard.push([Markup.button.callback('🛗 Ascensores', `access_status:${station.code} :elevator`)]);
+            keyboard.push([Markup.button.callback('🛗 Ascensores', `access_status:${station.code}:elevator`)]);
             station.accessDetails.elevators.forEach(elevator => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${elevator.id} (${elevator.status})`,
-                        `access_remove_confirm:${station.code} :elevator:${elevator.id}`
+                        `access_remove_confirm:${station.code}:elevator:${elevator.id}`
                     )
                 ]);
             });
         }
 
         if (station.accessDetails.escalators?.length > 0) {
-            keyboard.push([Markup.button.callback('🪜 Escaleras', `access_status:${station.code} :escalator`)]);
+            keyboard.push([Markup.button.callback('🪜 Escaleras', `access_status:${station.code}:escalator`)]);
             station.accessDetails.escalators.forEach(escalator => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${escalator.id} (${escalator.status})`,
-                        `access_remove_confirm:${station.code} :escalator:${escalator.id}`
+                        `access_remove_confirm:${station.code}:escalator:${escalator.id}`
                     )
                 ]);
             });
         }
 
         if (station.accessDetails.accesses?.length > 0) {
-            keyboard.push([Markup.button.callback('🚪 Accesos', `access_status:${station.code} :access`)]);
+            keyboard.push([Markup.button.callback('🚪 Accesos', `access_status:${station.code}:access`)]);
             station.accessDetails.accesses.forEach(access => {
                 keyboard.push([
                     Markup.button.callback(
                         `❌ ${access.id} (${access.status})`,
-                        `access_remove_confirm:${station.code} :access:${access.id}`
+                        `access_remove_confirm:${station.code}:access:${access.id}`
                     )
                 ]);
             });
@@ -1191,7 +1201,7 @@ async function showRemoveElementMenu(ctx, stationId) {
         }
 
         keyboard.push([
-            Markup.button.callback('🔙 Volver', `access_config:${station.code} `),
+            Markup.button.callback('🔙 Volver', `access_config:${station.code}`),
             Markup.button.callback('🏠 Menú principal', 'access_main')
         ]);
 
@@ -1233,7 +1243,7 @@ async function removeElement(ctx, stationId, elementType, elementId) {
 
         // Add to changelog
         station.accessDetails.changeHistory.push({
-            timestamp: new Date().toISOString(),
+            timestamp: TimeHelpers.currentTime.toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Eliminado ${config.name.toLowerCase()} ${elementId}`
         });
@@ -1251,8 +1261,8 @@ async function removeElement(ctx, stationId, elementType, elementId) {
 
         const keyboard = [
             [
-                Markup.button.callback('➖ Eliminar otro', `access_config_remove:${station.code} `),
-                Markup.button.callback('⚙️ Configuración', `access_config:${station.code} `)
+                Markup.button.callback('➖ Eliminar otro', `access_config_remove:${station.code}`),
+                Markup.button.callback('⚙️ Configuración', `access_config:${station.code}`)
             ],
             [
                 Markup.button.callback('🏠 Menú principal', 'access_main')
@@ -1309,7 +1319,6 @@ async function showAdvancedEditStationOptions(ctx, stationId) {
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
-
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1320,12 +1329,12 @@ async function showAdvancedEditStationOptions(ctx, stationId) {
 
         const keyboard = [
             [
-                Markup.button.callback('🛗 Ascensores', `access_aedit_field:${station.code} :elevators`),
-                Markup.button.callback('🪜 Escaleras', `access_aedit_field:${station.code} :escalators`)
+                Markup.button.callback('🛗 Ascensores', `access_aedit_field:${station.code}:elevators`),
+                Markup.button.callback('🪜 Escaleras', `access_aedit_field:${station.code}:escalators`)
             ],
             [
-                Markup.button.callback('🚪 Accesos', `access_aedit_field:${station.code} :accesses`),
-                Markup.button.callback('📝 Notas', `access_aedit_field:${station.code} :notes`)
+                Markup.button.callback('🚪 Accesos', `access_aedit_field:${station.code}:accesses`),
+                Markup.button.callback('📝 Notas', `access_aedit_field:${station.code}:notes`)
             ],
             [
                 Markup.button.callback('🔙 Atrás', 'access_aedit_start'),
@@ -1359,7 +1368,7 @@ async function showAdvancedEditFieldOptions(ctx, stationId, field) {
             action: 'aedit',
             stationId,
             field,
-            timestamp: Date.now()
+            timestamp: TimeHelpers.currentTime.getTime()
         };
 
         let message = `<b>⚙️ Edición Avanzada</b>\n\n`;
@@ -1374,7 +1383,7 @@ async function showAdvancedEditFieldOptions(ctx, stationId, field) {
 
         const keyboard = [
             [
-                Markup.button.callback('❌ Cancelar', `access_aedit_station:${station.code} `),
+                Markup.button.callback('❌ Cancelar', `access_aedit_station:${station.code}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -1394,7 +1403,6 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
         const station = Object.values(metro._staticData.stations).find(s => 
             s.name === stationId || s.code === stationId.trim() 
         );
-
         
         if (!station) {
             throw new Error('Estación no encontrada');
@@ -1430,7 +1438,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
 
         // Add to changelog
         station.accessDetails.changeHistory.push({
-            timestamp: new Date().toISOString(),
+            timestamp: TimeHelpers.currentTime.toISOString(),
             user: `${ctx.from.first_name} (${ctx.from.id})`,
             action: `Edición avanzada de ${field}`
         });
@@ -1445,7 +1453,7 @@ async function handleAdvancedEditInput(ctx, stationId, field, inputText) {
 
         const keyboard = [
             [
-                Markup.button.callback('⚙️ Editar otro campo', `access_aedit_station:${station.code} `),
+                Markup.button.callback('⚙️ Editar otro campo', `access_aedit_station:${station.code}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];
@@ -1463,7 +1471,7 @@ async function showReplaceMenu(ctx) {
     try {
         ctx.session.editingContext = {
             action: 'replace',
-            timestamp: Date.now()
+            timestamp: TimeHelpers.currentTime.getTime()
         };
 
         let message = `<b>🔄 Reemplazo Masivo</b>\n\n`;
@@ -1534,7 +1542,7 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
                 for (const element of accessDetails[scope]) {
                     if (element.status === searchValue) {
                         element.status = replaceValue;
-                        element.lastUpdated = new Date().toISOString();
+                        element.lastUpdated = TimeHelpers.currentTime.toISOString();
                         affectedElements++;
                         stationChanged = true;
                     }
@@ -1545,13 +1553,12 @@ async function executeReplace(ctx, searchValue, replaceValue, scope = 'all') {
                 affectedStations++;
                 
                 accessDetails.changeHistory.push({
-                    timestamp: new Date().toISOString(),
+                    timestamp: TimeHelpers.currentTime.toISOString(),
                     user: `${ctx.from.first_name} (${ctx.from.id})`,
                     action: `Reemplazo masivo: "${searchValue}" → "${replaceValue}"`
                 });
 
-                await saveAccessConfig(station.displayName, accessDetails); 
-                                
+                await saveAccessConfig(station.displayName, accessDetails);
                 await updateMainAccessibilityStatus(station.displayName, accessDetails);
             }
         }
@@ -1696,7 +1703,7 @@ async function handleAdvancedEdit(ctx, args) {
                 action: 'aedit',
                 stationId: station.id,
                 field,
-                timestamp: Date.now()
+                timestamp: TimeHelpers.currentTime.getTime()
             };
 
             return showAdvancedEditFieldOptions(ctx, station.id, field);
@@ -1723,4 +1730,3 @@ async function handleReplace(ctx, args) {
         handleError(ctx, error, 'iniciar reemplazo');
     }
 }
-
