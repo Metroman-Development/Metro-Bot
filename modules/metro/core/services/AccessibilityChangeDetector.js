@@ -138,30 +138,30 @@ class AccessibilityChangeDetector {
         );
         
         const isSecondWindow = (
-            currentHour === 12 && 
-            currentMinute >= 5 && 
-            currentMinute <= 10
+            currentHour === 9 && 
+            currentMinute >= 20 && 
+            currentMinute <= 24
         );
-
+        
         const isThirdWindow = (
-            currentHour === 15 && 
-            currentMinute >= 25 && 
-            currentMinute <= 30
+            currentHour === 12 && 
+            currentMinute >= 48 && 
+            currentMinute <= 51
         );
 
         const isFourthWindow = (
             currentHour === 16 && 
-            currentMinute >= 25 && 
-            currentMinute <= 30
+            currentMinute >= 10 && 
+            currentMinute <= 15
         );
 
         const isFifthWindow = (
-            currentHour === 21 && 
-            currentMinute >= 25 && 
-            currentMinute <= 40
+            currentHour === 20 && 
+            currentMinute >= 40 && 
+            currentMinute <= 45
         );
         
-        return isFirstWindow || isSecondWindow ||isThirdWindow||isFourthWindow||isFifthWindow;
+        return isFirstWindow || isSecondWindow ||isThirdWindow||isFourthWindow||isFifthWindow ;
     }
 
     async checkAccessibility() {
