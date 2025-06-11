@@ -51,7 +51,7 @@ const STATUS_CONFIG = {
             'restringido': '🟡 Restringida'
         }
     },
-    access: {
+    accesses: {
         emoji: '🚪',
         name: 'Acceso',
         statuses: {
