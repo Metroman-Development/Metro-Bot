@@ -267,7 +267,8 @@ module.exports = {
         // Individual element update actions
         bot.action(/access_status_update:(.+):(.+):(.+)/, async (ctx) => {
             await ctx.answerCbQuery();
-            const [stationId, elementType, elementId] = ctx.match.slice(1);
+            let [stationId, elementType, elementId] = ctx.match.slice(1);
+            if (elementType.includes("access")) elementType = "accesses";
             await showElementStatusOptions(ctx, stationId, elementType, elementId);
         });
 
