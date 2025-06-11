@@ -156,7 +156,7 @@ class AccessibilityChangeDetector {
         );
 
         const isFifthWindow = (
-            currentHour === 9 && 
+            currentHour === 21 && 
             currentMinute >= 25 && 
             currentMinute <= 40
         );
