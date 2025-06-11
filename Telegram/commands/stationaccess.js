@@ -642,6 +642,9 @@ async function showStatusUpdateMenu(ctx, stationId, elementType) {
         let message = `<b>${config.emoji} Actualizar estado - ${station.displayName}</b>\n\n`;
         message += `Selecciona el ${config.name.toLowerCase()} a actualizar:\n\n`;
 
+        console.log(elementType)
+
+        
         const keyboard = elements.map(element => [
             Markup.button.callback(
                 `${getStatusEmoji(element.status)} ${element.id || element.name} (${element.status})`,
