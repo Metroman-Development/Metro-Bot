@@ -126,25 +126,42 @@ class AccessibilityChangeDetector {
             this.logger.error(`Error saving cache: ${error.message}`);
         }
     }
-
     isWithinUpdateWindow() {
         const currentTime = this.timeHelpers.currentTime;
         const currentHour = currentTime.hour();
         const currentMinute = currentTime.minute();
         
         const isFirstWindow = (
-            currentHour === 12 && 
-            currentMinute >= 18 && 
-            currentMinute <= 30
+            currentHour === 6 && 
+            currentMinute >= 20 && 
+            currentMinute <= 25
         );
         
         const isSecondWindow = (
-            currentHour === 20 && 
-            currentMinute >= 18 && 
+            currentHour === 12 && 
+            currentMinute >= 5 && 
+            currentMinute <= 10
+        );
+
+        const isThirdWindow = (
+            currentHour === 15 && 
+            currentMinute >= 25 && 
             currentMinute <= 30
         );
+
+        const isFourthWindow = (
+            currentHour === 16 && 
+            currentMinute >= 25 && 
+            currentMinute <= 30
+        );
+
+        const isFifthWindow = (
+            currentHour === 9 && 
+            currentMinute >= 25 && 
+            currentMinute <= 40
+        );
         
-        return isFirstWindow || isSecondWindow;
+        return isFirstWindow || isSecondWindow ||isThirdWindow||isFourthWindow||isFifthWindow;
     }
 
     async checkAccessibility() {
