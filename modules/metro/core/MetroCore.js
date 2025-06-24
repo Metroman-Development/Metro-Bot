@@ -32,7 +32,7 @@ class MetroCore extends EventEmitter {
         super();
         MetroCore.#instance = this;
 
-        if (!options.client) throw new Error("Client instance is required");
+        if (!options.client) console.warn("Client instance is required");
         
         // 3. Initialize properties exactly as before
         this._debug = options.debug || false;
