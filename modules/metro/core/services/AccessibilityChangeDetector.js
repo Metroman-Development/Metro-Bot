@@ -312,122 +312,142 @@ class AccessibilityChangeDetector {
     }
 
     formatSummaryEmbeds(changes, metro) {
-        const elevators = [];
-        const escalators = [];
+    const elevators = [];
+    const escalators = [];
+    
+    // Separate changes by equipment type
+    changes.forEach(change => {
+        const equipment = change.current || change.previous;
+        if (!equipment) return;
         
-        // Separate changes by equipment type
-        changes.forEach(change => {
-            const equipment = change.current || change.previous;
-            if (!equipment) return;
+        const isElevator = equipment.tipo.toLowerCase().includes('ascensor');
+        const isEscalator = equipment.tipo.toLowerCase().includes('escalera');
+        
+        if (isElevator) {
+            elevators.push(change);
+        } else if (isEscalator) {
+            escalators.push(change);
+        }
+    });
+    
+    const embeds = [];
+    
+    // Elevator Embed
+    if (elevators.length > 0) {
+        const elevatorEmbed = new EmbedBuilder()
+            .setColor(0x0052A5) // Metro blue color
+            .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores)')
+            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
+            .setTimestamp();
+        
+        // Group by line
+        const linesMap = {};
+        
+        elevators.forEach(change => {
+            const stationCode = change.equipmentId.split('-')[0];
+            const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
+            const lineNumber = station?.line || '?';
+            const lineKey = station?.line ? `l${station.line}` : 'unknown';
+            const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
+            const stationName = station?.displayName || stationCode;
+            const equipmentText = change.current?.texto || change.previous?.texto;
             
-            const isElevator = equipment.tipo.toLowerCase().includes('ascensor');
-            const isEscalator = equipment.tipo.toLowerCase().includes('escalera');
+            if (!linesMap[lineKey]) {
+                linesMap[lineKey] = {
+                    emoji: lineEmoji,
+                    number: lineNumber,
+                    stations: []
+                };
+            }
             
-            if (isElevator) {
-                elevators.push(change);
-            } else if (isEscalator) {
-                escalators.push(change);
+            if (change.type === 'state_change' || change.type === 'new') {
+                const status = change.current?.estado === 1 ? '✅' : '❌';
+                const changeType = change.type === 'new' ? ' (Nuevo)' : '';
+                linesMap[lineKey].stations.push({
+                    name: stationName,
+                    text: `${status} ${equipmentText}${changeType}`
+                });
             }
         });
         
-        const embeds = [];
+        // Convert to array and sort by line number
+        const lines = Object.values(linesMap).sort((a, b) => a.number.localeCompare(b.number));
         
-        // Elevator Embed
-        if (elevators.length > 0) {
-            const elevatorEmbed = new EmbedBuilder()
-                .setColor(0x0052A5) // Metro blue color
-                .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores)')
-                .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
-                .setTimestamp();
-            
-            const nowOperational = [];
-            const nowNonOperational = [];
-            
-            elevators.forEach(change => {
-                const stationCode = change.equipmentId.split('-')[0];
-                const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
-                const lineNumber = station?.line || '?';
-                const stationName = station?.displayName || stationCode;
+        for (const line of lines) {
+            if (line.stations.length > 0) {
+                const lineTitle = `${line.emoji} Línea ${line.number}`;
+                const stationList = line.stations.map(s => `• ${s.name}: ${s.text}`).join('\n');
                 
-                const equipmentText = change.current?.texto || change.previous?.texto;
-                
-                if (change.type === 'state_change' || change.type === 'new') {
-                    if (change.current?.estado === 1) {
-                        nowOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
-                    } else if (change.current?.estado === 0) {
-                        nowNonOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
-                                   }
-                }
-            });
-            
-            if (nowOperational.length > 0) {
                 elevatorEmbed.addFields({
-                    name: '✅ Ascensores ahora operativos',
-                    value: nowOperational.join('\n'),
+                    name: lineTitle,
+                    value: stationList,
                     inline: false
                 });
             }
-            
-            if (nowNonOperational.length > 0) {
-                elevatorEmbed.addFields({
-                    name: '❌ Ascensores ahora fuera de servicio',
-                    value: nowNonOperational.join('\n'),
-                    inline: false
-                });
-            }
-            
-            embeds.push(elevatorEmbed);
         }
         
-        // Escalator Embed
-        if (escalators.length > 0) {
-            const escalatorEmbed = new EmbedBuilder()
-                .setColor(0x0052A5) // Metro blue color
-                .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
-                .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
-                .setTimestamp();
-            
-            const nowOperational = [];
-            const nowNonOperational = [];
-            
-            escalators.forEach(change => {
-                const stationCode = change.equipmentId.split('-')[0];
-                const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
-                const lineNumber = station?.line || '?';
-                const stationName = station?.displayName || stationCode;
-                
-                const equipmentText = change.current?.texto || change.previous?.texto;
-                
-                if (change.type === 'state_change' || change.type === 'new') {
-                    if (change.current?.estado === 1) {
-                        nowOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
-                    } else if (change.current?.estado === 0) {
-                        nowNonOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
-                    }
-                }
-            });
-            
-            if (nowOperational.length > 0) {
-                escalatorEmbed.addFields({
-                    name: '✅ Escaleras ahora operativas',
-                    value: nowOperational.join('\n'),
-                    inline: false
-                });
-            }
-            
-            if (nowNonOperational.length > 0) {
-                escalatorEmbed.addFields({
-                    name: '❌ Escaleras ahora fuera de servicio',
-                    value: nowNonOperational.join('\n'),
-                    inline: false
-                });
-            }
-            
-            embeds.push(escalatorEmbed);
-        }
-        
-        return embeds;
+        embeds.push(elevatorEmbed);
     }
+    
+    // Escalator Embed
+    if (escalators.length > 0) {
+        const escalatorEmbed = new EmbedBuilder()
+            .setColor(0x0052A5) // Metro blue color
+            .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
+            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
+            .setTimestamp();
+        
+        // Group by line
+        const linesMap = {};
+        
+        escalators.forEach(change => {
+            const stationCode = change.equipmentId.split('-')[0];
+            const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
+            const lineNumber = station?.line || '?';
+            const lineKey = station?.line ? `l${station.line}` : 'unknown';
+            const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
+            const stationName = station?.displayName || stationCode;
+            const equipmentText = change.current?.texto || change.previous?.texto;
+            
+            if (!linesMap[lineKey]) {
+                linesMap[lineKey] = {
+                    emoji: lineEmoji,
+                    number: lineNumber,
+                    stations: []
+                };
+            }
+            
+            if (change.type === 'state_change' || change.type === 'new') {
+                const status = change.current?.estado === 1 ? '✅' : '❌';
+                const changeType = change.type === 'new' ? ' (Nuevo)' : '';
+                linesMap[lineKey].stations.push({
+                    name: stationName,
+                    text: `${status} ${equipmentText}${changeType}`
+                });
+            }
+        });
+        
+        // Convert to array and sort by line number
+        const lines = Object.values(linesMap).sort((a, b) => a.number.localeCompare(b.number));
+        
+        for (const line of lines) {
+            if (line.stations.length > 0) {
+                const lineTitle = `${line.emoji} Línea ${line.number}`;
+                const stationList = line.stations.map(s => `• ${s.name}: ${s.text}`).join('\n');
+                
+                escalatorEmbed.addFields({
+                    name: lineTitle,
+                    value: stationList,
+                    inline: false
+                });
+            }
+        }
+        
+        embeds.push(escalatorEmbed);
+    }
+    
+    return embeds;
+}
 
     async formatTelegramMessages(changes) {
         if (!changes || changes.length === 0) return [];
