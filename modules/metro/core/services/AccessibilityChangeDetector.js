@@ -336,7 +336,7 @@ class AccessibilityChangeDetector {
         if (elevators.length > 0) {
             const elevatorEmbed = new EmbedBuilder()
                 .setColor(0x0052A5) // Metro blue color
-                .setTitle('# Resumen de Actualización de Accesibilidad (Ascensores)')
+                .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores)')
                 .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
                 .setTimestamp();
             
@@ -353,9 +353,9 @@ class AccessibilityChangeDetector {
                 
                 if (change.type === 'state_change' || change.type === 'new') {
                     if (change.current?.estado === 1) {
-                        nowOperational.push(`### ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                        nowOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
                     } else if (change.current?.estado === 0) {
-                        nowNonOperational.push(`### ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                        nowNonOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
                                    }
                 }
             });
@@ -383,7 +383,7 @@ class AccessibilityChangeDetector {
         if (escalators.length > 0) {
             const escalatorEmbed = new EmbedBuilder()
                 .setColor(0x0052A5) // Metro blue color
-                .setTitle('Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
+                .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
                 .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
                 .setTimestamp();
             
@@ -400,9 +400,9 @@ class AccessibilityChangeDetector {
                 
                 if (change.type === 'state_change' || change.type === 'new') {
                     if (change.current?.estado === 1) {
-                        nowOperational.push(`- L${lineNumber} ${stationName}:\n  - ${equipmentText}`);
+                        nowOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
                     } else if (change.current?.estado === 0) {
-                        nowNonOperational.push(`- L${lineNumber} ${stationName}:\n  - ${equipmentText}`);
+                        nowNonOperational.push(`➡️ ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
                     }
                 }
             });
