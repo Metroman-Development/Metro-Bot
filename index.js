@@ -305,31 +305,84 @@ const TelegramBot = require('./Telegram/bot');
 const telegramBot = TelegramBot;
 
 // Launch Both Bots
+
+
+// Modified Launch Sequence
 console.log('[BOOT] Starting bot launch sequence...');
 (async () => {
   try {
-    // Start Discord
-    console.log('[DISCORD] Logging in...');
-    await discordClient.login(process.env.DISCORD_TOKEN);
-    console.log('✅ Discord bot ready');
+    // Start Discord with better error handling
+    console.log('[DISCORD] Attempting login...');
+    
+    if (!process.env.DISCORD_TOKEN) {
+      throw new Error('DISCORD_TOKEN is not defined in environment variables');
+    }
+
+    // Add connection state logging
+    discordClient.on('ready', () => {
+      console.log(`✅ Discord bot ready as ${discordClient.user.tag}`);
+    });
+
+    discordClient.on('disconnect', () => {
+      console.warn('[DISCORD] Client disconnected');
+    });
+
+    discordClient.on('reconnecting', () => {
+      console.log('[DISCORD] Client reconnecting...');
+    });
+
+    discordClient.on('warn', info => {
+      console.warn(`[DISCORD WARNING] ${info}`);
+    });
+
+    discordClient.on('error', error => {
+      console.error(`[DISCORD ERROR] ${error}`);
+    });
+
+    // Add login timeout
+    const loginTimeout = setTimeout(() => {
+      console.error('[DISCORD] Login timed out (30 seconds)');
+      process.exit(1);
+    }, 30000);
+
+    await discordClient.login(process.env.DISCORD_TOKEN)
+      .then(() => {
+        clearTimeout(loginTimeout);
+        console.log('[DISCORD] Login successful');
+      })
+      .catch(error => {
+        clearTimeout(loginTimeout);
+        console.error('[DISCORD] Login failed:', error);
+        process.exit(1);
+      });
 
     // Start Telegram
     console.log('[TELEGRAM] Launching...');
-    await telegramBot.launch();
-    console.log('✅ Telegram bot ready');
+    await telegramBot.launch()
+      .then(() => console.log('✅ Telegram bot ready'))
+      .catch(error => {
+        console.error('[TELEGRAM] Launch failed:', error);
+        process.exit(1);
+      });
 
     // Graceful shutdown
     console.log('[BOOT] Setting up shutdown handlers...');
-    process.once('SIGINT', () => {
-      console.log('[SHUTDOWN] Received SIGINT, shutting down...');
-      discordClient.destroy();
-      telegramBot.stop('SIGINT');
-    });
-    process.once('SIGTERM', () => {
-      console.log('[SHUTDOWN] Received SIGTERM, shutting down...');
-      discordClient.destroy();
-      telegramBot.stop('SIGTERM');
-    });
+    const shutdown = async (signal) => {
+      console.log(`[SHUTDOWN] Received ${signal}, shutting down...`);
+      try {
+        await discordClient.destroy();
+        console.log('[DISCORD] Client destroyed');
+        await telegramBot.stop(signal);
+        console.log('[TELEGRAM] Bot stopped');
+        process.exit(0);
+      } catch (err) {
+        console.error('[SHUTDOWN] Error during shutdown:', err);
+        process.exit(1);
+      }
+    };
+
+    process.once('SIGINT', () => shutdown('SIGINT'));
+    process.once('SIGTERM', () => shutdown('SIGTERM'));
 
     console.log('[BOOT] All systems operational');
   } catch (error) {
