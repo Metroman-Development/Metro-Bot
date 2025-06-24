@@ -307,11 +307,7 @@ const telegramBot = TelegramBot;
 console.log('[BOOT] Starting bot launch sequence...');
 (async () => {
   try {
-    // Start Discord with persistent connection
-    const discordSuccess = await initializeDiscordConnection();
-    if (!discordSuccess) {
-      scheduleReconnection();
-    }
+
 
     // Start Telegram
     console.log('[TELEGRAM] Launching...');
@@ -320,6 +316,12 @@ console.log('[BOOT] Starting bot launch sequence...');
       .catch(error => {
         console.error('[TELEGRAM] Launch failed (will keep trying):', error);
       });
+
+        // Start Discord with persistent connection
+    const discordSuccess = await initializeDiscordConnection();
+    if (!discordSuccess) {
+      scheduleReconnection();
+    }
 
     // Graceful shutdown
     console.log('[BOOT] Setting up shutdown handlers...');
