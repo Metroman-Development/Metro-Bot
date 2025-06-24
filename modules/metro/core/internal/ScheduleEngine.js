@@ -12,7 +12,7 @@ module.exports = class ScheduleEngine {
     }
 
     initialize() {
-        if (!this.metro.client) throw new Error("Client not available");
+        if (!this.metro.client) console.warn("Client not available");
         
     this.metro._scheduler = null
 
