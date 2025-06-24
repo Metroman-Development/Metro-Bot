@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 // ======================
 // DISCORD BOT (Original Code - Preserved)
 // ======================
