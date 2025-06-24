@@ -284,8 +284,7 @@ const telegramBot = TelegramBot;
 console.log('[BOOT] Starting bot launch sequence...');
 (async () => {
   try {
-    // Start Discord connection
-    await connectToDiscord();
+    
 
     // Start Telegram
     console.log('[TELEGRAM] Launching...');
@@ -317,6 +316,10 @@ console.log('[BOOT] Starting bot launch sequence...');
     process.once('SIGINT', () => shutdown('SIGINT'));
     process.once('SIGTERM', () => shutdown('SIGTERM'));
 
+
+    // Start Discord connection
+    await connectToDiscord();
+    
     console.log('[BOOT] All systems operational');
   } catch (error) {
     console.error('[BOOT] Initialization failed:', error);
