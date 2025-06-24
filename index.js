@@ -313,7 +313,7 @@ console.log('[BOOT] Starting bot launch sequence...');
     console.log('[TELEGRAM] Launching...');
     await telegramBot.launch()
   
-    console.log('✅ Telegram bot ready'))
+    console.log('✅ Telegram bot ready')
     
 
         // Start Discord with persistent connection
