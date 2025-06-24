@@ -312,10 +312,9 @@ console.log('[BOOT] Starting bot launch sequence...');
     // Start Telegram
     console.log('[TELEGRAM] Launching...');
     await telegramBot.launch()
-      .then(() => console.log('✅ Telegram bot ready'))
-      .catch(error => {
-        console.error('[TELEGRAM] Launch failed (will keep trying):', error);
-      });
+  
+    console.log('✅ Telegram bot ready'))
+    
 
         // Start Discord with persistent connection
     const discordSuccess = await initializeDiscordConnection();
