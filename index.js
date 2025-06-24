@@ -66,7 +66,18 @@ async function connectToDiscord() {
       console.warn('[DISCORD] Warning:', warning);
     });
 
-    await discordClient.login(process.env.DISCORD_TOKEN);
+    // Add login timeout
+    const loginTimeout = 30000; // 30 seconds
+    const loginPromise = discordClient.login(process.env.DISCORD_TOKEN);
+    
+    // Race between login and timeout
+    await Promise.race([
+      loginPromise,
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Login timeout')), loginTimeout)
+      )
+    ]);
+    
     console.log('[DISCORD] Login successful');
   } catch (error) {
     console.error('[DISCORD] Connection failed:', error.message);
