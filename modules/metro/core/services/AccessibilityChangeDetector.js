@@ -334,121 +334,174 @@ class AccessibilityChangeDetector {
     
     // Elevator Embed
     if (elevators.length > 0) {
-        const elevatorEmbed = new EmbedBuilder()
-            .setColor(0x0052A5) // Metro blue color
-            .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores)')
-            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
-            .setTimestamp();
-        
-        // Group by line
-        const linesMap = {};
+        const nowOperational = [];
+        const nowNonOperational = [];
         
         elevators.forEach(change => {
             const stationCode = change.equipmentId.split('-')[0];
             const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
             const lineNumber = station?.line || '?';
-            const lineKey = station?.line ? `l${station.line}` : 'unknown';
-            const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
             const stationName = station?.displayName || stationCode;
+            
             const equipmentText = change.current?.texto || change.previous?.texto;
             
-            if (!linesMap[lineKey]) {
-                linesMap[lineKey] = {
-                    emoji: lineEmoji,
-                    number: lineNumber,
-                    stations: []
-                };
-            }
-            
             if (change.type === 'state_change' || change.type === 'new') {
-                const status = change.current?.estado === 1 ? '✅' : '❌';
-                const changeType = change.type === 'new' ? ' (Nuevo)' : '';
-                linesMap[lineKey].stations.push({
-                    name: stationName,
-                    text: `${status} ${equipmentText}${changeType}`
-                });
+                if (change.current?.estado === 1) {
+                    nowOperational.push(`- ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                } else if (change.current?.estado === 0) {
+                    nowNonOperational.push(`- ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                }
             }
         });
         
-        // Convert to array and sort by line number
-        const lines = Object.values(linesMap).sort((a, b) => a.number.localeCompare(b.number));
+        // Split into multiple embeds if needed
+        const maxFieldLength = 1000; // Discord field limit
+        const maxEmbedLength = 6000; // Discord embed limit
         
-        for (const line of lines) {
-            if (line.stations.length > 0) {
-                const lineTitle = `${line.emoji} Línea ${line.number}`;
-                const stationList = line.stations.map(s => `• ${s.name}: ${s.text}`).join('\n');
-                
+        // Create elevator embeds with proper chunking
+        let elevatorEmbed = new EmbedBuilder()
+            .setColor(0x0052A5)
+            .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores)')
+            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
+            .setTimestamp();
+        
+        // Add operational changes in chunks
+        if (nowOperational.length > 0) {
+            let operationalChunks = this.chunkArray(nowOperational.join('\n'), maxFieldLength);
+            operationalChunks.forEach((chunk, index) => {
+                if (index > 0 || elevatorEmbed.toJSON().fields?.length > 0) {
+                    // If we already have fields or this is a subsequent chunk, create new embed
+                    embeds.push(elevatorEmbed);
+                    elevatorEmbed = new EmbedBuilder()
+                        .setColor(0x0052A5)
+                        .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores) - Continuación')
+                        .setTimestamp();
+                }
                 elevatorEmbed.addFields({
-                    name: lineTitle,
-                    value: stationList,
+                    name: '- ✅ Ascensores ahora operativos',
+                    value: chunk,
                     inline: false
                 });
-            }
+            });
         }
         
-        embeds.push(elevatorEmbed);
+        // Add non-operational changes in chunks
+        if (nowNonOperational.length > 0) {
+            let nonOperationalChunks = this.chunkArray(nowNonOperational.join('\n'), maxFieldLength);
+            nonOperationalChunks.forEach((chunk, index) => {
+                if (elevatorEmbed.toJSON().fields?.length >= 5 || 
+                    JSON.stringify(elevatorEmbed.toJSON()).length > maxEmbedLength - 2000) {
+                    embeds.push(elevatorEmbed);
+                    elevatorEmbed = new EmbedBuilder()
+                        .setColor(0x0052A5)
+                        .setTitle('♿ Resumen de Actualización de Accesibilidad (Ascensores) - Continuación')
+                        .setTimestamp();
+                }
+                elevatorEmbed.addFields({
+                    name: '- ❌ Ascensores ahora fuera de servicio',
+                    value: chunk,
+                    inline: false
+                });
+            });
+        }
+        
+        // Add the last elevator embed if it has content
+        if (elevatorEmbed.toJSON().fields?.length > 0) {
+            embeds.push(elevatorEmbed);
+        }
     }
     
     // Escalator Embed
     if (escalators.length > 0) {
-        const escalatorEmbed = new EmbedBuilder()
-            .setColor(0x0052A5) // Metro blue color
-            .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
-            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
-            .setTimestamp();
-        
-        // Group by line
-        const linesMap = {};
+        const nowOperational = [];
+        const nowNonOperational = [];
         
         escalators.forEach(change => {
             const stationCode = change.equipmentId.split('-')[0];
             const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
             const lineNumber = station?.line || '?';
-            const lineKey = station?.line ? `l${station.line}` : 'unknown';
-            const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
             const stationName = station?.displayName || stationCode;
+            
             const equipmentText = change.current?.texto || change.previous?.texto;
             
-            if (!linesMap[lineKey]) {
-                linesMap[lineKey] = {
-                    emoji: lineEmoji,
-                    number: lineNumber,
-                    stations: []
-                };
-            }
-            
             if (change.type === 'state_change' || change.type === 'new') {
-                const status = change.current?.estado === 1 ? '✅' : '❌';
-                const changeType = change.type === 'new' ? ' (Nuevo)' : '';
-                linesMap[lineKey].stations.push({
-                    name: stationName,
-                    text: `${status} ${equipmentText}${changeType}`
-                });
+                if (change.current?.estado === 1) {
+                    nowOperational.push(`- ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                } else if (change.current?.estado === 0) {
+                    nowNonOperational.push(`- ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                }
             }
         });
         
-        // Convert to array and sort by line number
-        const lines = Object.values(linesMap).sort((a, b) => a.number.localeCompare(b.number));
+        // Split into multiple embeds if needed
+        const maxFieldLength = 1000; // Discord field limit
+        const maxEmbedLength = 6000; // Discord embed limit
         
-        for (const line of lines) {
-            if (line.stations.length > 0) {
-                const lineTitle = `${line.emoji} Línea ${line.number}`;
-                const stationList = line.stations.map(s => `• ${s.name}: ${s.text}`).join('\n');
-                
+        // Create escalator embeds with proper chunking
+        let escalatorEmbed = new EmbedBuilder()
+            .setColor(0x0052A5)
+            .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
+            .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
+            .setTimestamp();
+        
+        // Add operational changes in chunks
+        if (nowOperational.length > 0) {
+            let operationalChunks = this.chunkArray(nowOperational.join('\n'), maxFieldLength);
+            operationalChunks.forEach((chunk, index) => {
+                if (index > 0 || escalatorEmbed.toJSON().fields?.length > 0) {
+                    // If we already have fields or this is a subsequent chunk, create new embed
+                    embeds.push(escalatorEmbed);
+                    escalatorEmbed = new EmbedBuilder()
+                        .setColor(0x0052A5)
+                        .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas) - Continuación')
+                        .setTimestamp();
+                }
                 escalatorEmbed.addFields({
-                    name: lineTitle,
-                    value: stationList,
+                    name: '- ✅ Escaleras ahora operativas',
+                    value: chunk,
                     inline: false
                 });
-            }
+            });
         }
         
-        embeds.push(escalatorEmbed);
+        // Add non-operational changes in chunks
+        if (nowNonOperational.length > 0) {
+            let nonOperationalChunks = this.chunkArray(nowNonOperational.join('\n'), maxFieldLength);
+            nonOperationalChunks.forEach((chunk, index) => {
+                if (escalatorEmbed.toJSON().fields?.length >= 5 || 
+                    JSON.stringify(escalatorEmbed.toJSON()).length > maxEmbedLength - 2000) {
+                    embeds.push(escalatorEmbed);
+                    escalatorEmbed = new EmbedBuilder()
+                        .setColor(0x0052A5)
+                        .setTitle('♿ Resumen de Actualización de Accesibilidad (Escaleras Mecánicas) - Continuación')
+                        .setTimestamp();
+                }
+                escalatorEmbed.addFields({
+                    name: '- ❌ Escaleras ahora fuera de servicio',
+                    value: chunk,
+                    inline: false
+                });
+            });
+        }
+        
+        // Add the last escalator embed if it has content
+        if (escalatorEmbed.toJSON().fields?.length > 0) {
+            embeds.push(escalatorEmbed);
+        }
     }
     
     return embeds;
 }
 
+// Helper method to split long strings into chunks
+chunkArray(str, size) {
+    const chunks = [];
+    for (let i = 0; i < str.length; i += size) {
+        chunks.push(str.substring(i, i + size));
+    }
+    return chunks;
+}
+    
     async formatTelegramMessages(changes) {
         if (!changes || changes.length === 0) return [];
 
