@@ -353,16 +353,16 @@ class AccessibilityChangeDetector {
                 
                 if (change.type === 'state_change' || change.type === 'new') {
                     if (change.current?.estado === 1) {
-                        nowOperational.push(`- L${lineNumber} ${stationName}:\n  - ${equipmentText}`);
+                        nowOperational.push(`### ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
                     } else if (change.current?.estado === 0) {
-                        nowNonOperational.push(`- L${lineNumber} ${stationName}:\n  - ${equipmentText}`);
-                    }
+                        nowNonOperational.push(`### ${metroConfig.linesEmojis[lineNumber]} ${stationName}:\n  - ${equipmentText}`);
+                                   }
                 }
             });
             
             if (nowOperational.length > 0) {
                 elevatorEmbed.addFields({
-                    name: '- [ ] Ascensores ahora operativos',
+                    name: '✅ Ascensores ahora operativos',
                     value: nowOperational.join('\n'),
                     inline: false
                 });
@@ -370,7 +370,7 @@ class AccessibilityChangeDetector {
             
             if (nowNonOperational.length > 0) {
                 elevatorEmbed.addFields({
-                    name: '- [x] Ascensores ahora fuera de servicio',
+                    name: '❌ Ascensores ahora fuera de servicio',
                     value: nowNonOperational.join('\n'),
                     inline: false
                 });
@@ -383,7 +383,7 @@ class AccessibilityChangeDetector {
         if (escalators.length > 0) {
             const escalatorEmbed = new EmbedBuilder()
                 .setColor(0x0052A5) // Metro blue color
-                .setTitle('# Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
+                .setTitle('Resumen de Actualización de Accesibilidad (Escaleras Mecánicas)')
                 .setDescription(`Actualizado: ${this.timeHelpers.formatDateTime('DD/MM/YYYY HH:mm')}\n\n`)
                 .setTimestamp();
             
@@ -409,7 +409,7 @@ class AccessibilityChangeDetector {
             
             if (nowOperational.length > 0) {
                 escalatorEmbed.addFields({
-                    name: '- [ ] Escaleras ahora operativas',
+                    name: '✅ Escaleras ahora operativas',
                     value: nowOperational.join('\n'),
                     inline: false
                 });
@@ -417,7 +417,7 @@ class AccessibilityChangeDetector {
             
             if (nowNonOperational.length > 0) {
                 escalatorEmbed.addFields({
-                    name: '- [x] Escaleras ahora fuera de servicio',
+                    name: '❌ Escaleras ahora fuera de servicio',
                     value: nowNonOperational.join('\n'),
                     inline: false
                 });
