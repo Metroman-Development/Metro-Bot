@@ -29,87 +29,64 @@ const discordClient = new Client({
 });
 
 // ======================
-// PERSISTENT CONNECTION SYSTEM
+// IMPROVED RECONNECTION SYSTEM
 // ======================
-const MAX_LOGIN_ATTEMPTS = 10;
-let loginAttempts = 0;
-let reconnectTimeout = null;
+const MAX_RETRIES = Infinity; // Keep retrying forever
+const RETRY_DELAY = 60000; // 1 minute
+let isShuttingDown = false;
 
-async function initializeDiscordConnection() {
-  console.log(`[DISCORD] Login attempt ${loginAttempts + 1}/${MAX_LOGIN_ATTEMPTS}...`);
-  
-  if (!process.env.DISCORD_TOKEN) {
-    console.error('[DISCORD] ERROR: Missing DISCORD_TOKEN in environment');
-    return false;
-  }
+async function connectToDiscord() {
+  if (isShuttingDown) return;
 
   try {
-    // Clear any existing listeners to prevent duplicates
+    console.log('[DISCORD] Attempting to connect...');
+    
+    if (!process.env.DISCORD_TOKEN) {
+      throw new Error('DISCORD_TOKEN is not defined in environment variables');
+    }
+
+    // Setup event listeners
     discordClient.removeAllListeners();
     
-    // Setup event handlers
     discordClient.on('ready', () => {
-      loginAttempts = 0;
-      if (reconnectTimeout) {
-        clearTimeout(reconnectTimeout);
-        reconnectTimeout = null;
-      }
       console.log(`✅ Discord bot ready as ${discordClient.user.tag}`);
-      loadEvents(discordClient); // Reload events on reconnection
+      loadEvents(discordClient);
     });
 
     discordClient.on('disconnect', () => {
-      console.warn('[DISCORD] Connection lost. Attempting to reconnect...');
-      scheduleReconnection();
-    });
-
-    discordClient.on('reconnecting', () => {
-      console.log('[DISCORD] Attempting to reconnect...');
-    });
-
-    discordClient.on('warn', info => {
-      console.warn(`[DISCORD WARNING] ${info}`);
+      console.warn('[DISCORD] Disconnected from Discord');
+      scheduleReconnect();
     });
 
     discordClient.on('error', error => {
-      console.error(`[DISCORD ERROR] ${error}`);
+      console.error('[DISCORD] Error:', error);
+    });
+
+    discordClient.on('warn', warning => {
+      console.warn('[DISCORD] Warning:', warning);
     });
 
     await discordClient.login(process.env.DISCORD_TOKEN);
     console.log('[DISCORD] Login successful');
-    return true;
   } catch (error) {
-    console.error('[DISCORD] Login failed:', error.message);
-    return false;
+    console.error('[DISCORD] Connection failed:', error.message);
+    scheduleReconnect();
   }
 }
 
-function scheduleReconnection() {
-  if (loginAttempts >= MAX_LOGIN_ATTEMPTS) {
-    console.error(`[DISCORD] Maximum login attempts (${MAX_LOGIN_ATTEMPTS}) reached. Giving up.`);
-    return;
-  }
+function scheduleReconnect() {
+  if (isShuttingDown) return;
 
-  loginAttempts++;
-  const delay = 60000; // 1 minute
-  console.log(`[DISCORD] Next connection attempt in ${delay/1000} seconds...`);
-
-  if (reconnectTimeout) {
-    clearTimeout(reconnectTimeout);
-  }
-
-  reconnectTimeout = setTimeout(async () => {
-    if (!discordClient.isReady()) {
-      const success = await initializeDiscordConnection();
-      if (!success) {
-        scheduleReconnection();
-      }
+  console.log(`[DISCORD] Will attempt to reconnect in ${RETRY_DELAY/1000} seconds...`);
+  setTimeout(() => {
+    if (!discordClient.isReady() && !isShuttingDown) {
+      connectToDiscord();
     }
-  }, delay);
+  }, RETRY_DELAY);
 }
 
 // ======================
-// BOT SETUP (UNCHANGED)
+// BOT SETUP (UNCHANGED FUNCTIONALITY)
 // ======================
 discordClient.commands = new Collection();
 discordClient.prefixCommands = new Collection();
@@ -307,32 +284,26 @@ const telegramBot = TelegramBot;
 console.log('[BOOT] Starting bot launch sequence...');
 (async () => {
   try {
-
+    // Start Discord connection
+    await connectToDiscord();
 
     // Start Telegram
     console.log('[TELEGRAM] Launching...');
     await telegramBot.launch()
-  
-    console.log('✅ Telegram bot ready')
-    
-
-        // Start Discord with persistent connection
-    const discordSuccess = await initializeDiscordConnection();
-    if (!discordSuccess) {
-      scheduleReconnection();
-    }
+      .then(() => console.log('✅ Telegram bot ready'))
+      .catch(error => {
+        console.error('[TELEGRAM] Launch failed:', error);
+      });
 
     // Graceful shutdown
     console.log('[BOOT] Setting up shutdown handlers...');
     const shutdown = async (signal) => {
+      isShuttingDown = true;
       console.log(`[SHUTDOWN] Received ${signal}, shutting down...`);
       try {
         if (discordClient.isReady()) {
           await discordClient.destroy();
           console.log('[DISCORD] Client destroyed');
-        }
-        if (reconnectTimeout) {
-          clearTimeout(reconnectTimeout);
         }
         await telegramBot.stop(signal);
         console.log('[TELEGRAM] Bot stopped');
@@ -349,6 +320,5 @@ console.log('[BOOT] Starting bot launch sequence...');
     console.log('[BOOT] All systems operational');
   } catch (error) {
     console.error('[BOOT] Initialization failed:', error);
-    scheduleReconnection();
   }
 })();
