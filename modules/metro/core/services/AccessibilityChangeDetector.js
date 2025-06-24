@@ -126,6 +126,7 @@ class AccessibilityChangeDetector {
             this.logger.error(`Error saving cache: ${error.message}`);
         }
     }
+
     isWithinUpdateWindow() {
         const currentTime = this.timeHelpers.currentTime;
         const currentHour = currentTime.hour();
@@ -161,7 +162,7 @@ class AccessibilityChangeDetector {
             currentMinute <= 45
         );
         
-        return isFirstWindow || isSecondWindow ||isThirdWindow||isFourthWindow||isFifthWindow ;
+        return isFirstWindow || isSecondWindow || isThirdWindow || isFourthWindow || isFifthWindow;
     }
 
     async checkAccessibility() {
@@ -226,6 +227,7 @@ class AccessibilityChangeDetector {
     detectChanges(currentStates, comparisonBaseline) {
         const changes = [];
         
+        // Detect new equipment and state changes
         for (const [equipmentId, currentData] of Object.entries(currentStates)) {
             const lastData = comparisonBaseline[equipmentId];
             
@@ -247,6 +249,7 @@ class AccessibilityChangeDetector {
             }
         }
         
+        // Detect removed equipment
         for (const equipmentId of Object.keys(comparisonBaseline)) {
             if (!currentStates[equipmentId]) {
                 changes.push({
@@ -261,268 +264,207 @@ class AccessibilityChangeDetector {
         return changes;
     }
 
-    async formatAccessibilityNotification(changes) {
-        if (!changes || changes.length === 0) return null;
+    async notifyChanges(changes) {
+        try {
+            // Telegram message (split into multiple messages if too long)
+            const telegramMessages = await this.formatTelegramMessages(changes);
+            if (telegramMessages.length > 0) {
+                this.logger.info(`Sending ${telegramMessages.length} Telegram message(s)`);
+                for (const message of telegramMessages) {
+                    await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Rate limiting
+                }
+            }
 
-        const metro = await getMetroCore();
-        const groupedChanges = changes.reduce((acc, change) => {
-            const stationCode = change.equipmentId.split('-')[0];
-            const station = Object.values(metro._staticData.stations).find(s => 
-                s.code === stationCode
-            );
-            
-            const line = station?.line ? `Línea ${station.line}` : 'Desconocida';
-            const stationName = station?.displayName || stationCode;
-            
-            if (!acc[line]) acc[line] = {};
-            if (!acc[line][stationName]) acc[line][stationName] = [];
-            
-            acc[line][stationName].push(change);
-            return acc;
-        }, {});
-
-        let message = `♿ *Actualización de Accesibilidad* ♿\n\n`;
-
-        for (const [line, stations] of Object.entries(groupedChanges)) {
-            message += `*${line}*\n`;
-            
-            for (const [stationName, stationChanges] of Object.entries(stations)) {
-                message += `*${stationName}*\n`;
-                
-                const typeGroups = stationChanges.reduce((acc, change) => {
-                    const type = change.current?.tipo || change.previous?.tipo || 'Equipo';
-                    if (!acc[type]) acc[type] = [];
-                    acc[type].push(change);
-                    return acc;
-                }, {});
-
-                for (const [type, typeChanges] of Object.entries(typeGroups)) {
-                    message += `_${type}_\n`;
-                    
-                    for (const change of typeChanges) {
-                        if (change.type === 'new') {
-                            message += `➕ Nuevo: ${change.current.texto} - `;
-                            message += `Estado: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
-                        } else if (change.type === 'state_change') {
-                            message += `🔄 Cambio: ${change.current.texto}\n`;
-                            message += `- De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
-                            message += `- A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
-                        } else if (change.type === 'removed') {
-                            message += `➖ Eliminado: ${change.current?.texto || 'Equipo desconocido'}\n`;
+            // Discord embeds
+            const client = getClient();
+            const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
+            if (statusChannel) {
+                const discordEmbeds = await this.formatDiscordEmbeds(changes);
+                if (discordEmbeds.length > 0) {
+                    this.logger.info(`Sending ${discordEmbeds.length} Discord embed(s)`);
+                    for (let i = 0; i < discordEmbeds.length; i += 5) {
+                        const batch = discordEmbeds.slice(i, i + 5);
+                        await statusChannel.send({ embeds: batch });
+                        if (i + 5 < discordEmbeds.length) {
+                            await new Promise(resolve => setTimeout(resolve, 1000));
                         }
                     }
                 }
-                message += '\n';
             }
-            message += '\n';
+        } catch (error) {
+            this.logger.error(`Error notifying changes: ${error.message}`);
         }
-
-        message += `_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
-        return message;
     }
- 
-  
-    async notifyChanges(changes) {
-    try {
-        // Telegram message (split into multiple messages if too long)
-        const telegramMessages = await this.formatTelegramMessages(changes);
-        if (telegramMessages.length > 0) {
-            this.logger.info(`Sending ${telegramMessages.length} Telegram message(s)`);
-            for (const message of telegramMessages) {
-                await TelegramBot.sendTelegramMessage(message, { parse_mode: 'Markdown' });
-                await new Promise(resolve => setTimeout(resolve, 500)); // Rate limiting
-            }
-        }
 
-        // Discord embeds
-        const client = getClient();
-        const statusChannel = client.channels.cache.get(DISCORD_CHANNEL);
-        if (statusChannel) {
-            const discordEmbeds = await this.formatDiscordEmbeds(changes);
-            if (discordEmbeds.length > 0) {
-                this.logger.info(`Sending ${discordEmbeds.length} Discord embed(s)`);
-                for (let i = 0; i < discordEmbeds.length; i += 5) {
-                    const batch = discordEmbeds.slice(i, i + 5);
-                    await statusChannel.send({ embeds: batch });
-                    if (i + 5 < discordEmbeds.length) {
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                    }
-                }
-            }
-        }
-    } catch (error) {
-        this.logger.error(`Error notifying changes: ${error.message}`);
-    }
-}
+    async formatTelegramMessages(changes) {
+        if (!changes || changes.length === 0) return [];
 
-async formatTelegramMessages(changes) {
-    if (!changes || changes.length === 0) return [];
-
-    const metro = await getMetroCore();
-    const messages = [];
-    let currentMessage = '♿ *Actualización de Accesibilidad* ♿\n\n';
-    
-    // Group by line → station → equipment type
-    const groupedChanges = this.groupChanges(changes, metro);
-
-    for (const [lineDisplay, stations] of Object.entries(groupedChanges)) {
-        let lineSection = `*${lineDisplay}*\n`;
+        const metro = await getMetroCore();
+        const messages = [];
+        let currentMessage = '♿ *Actualización de Accesibilidad* ♿\n\n';
         
-        for (const [stationName, equipmentTypes] of Object.entries(stations)) {
-            let stationSection = `*${stationName}*\n`;
+        // Group changes by line → station → equipment type
+        const groupedChanges = this.groupChanges(changes, metro);
+
+        for (const [lineDisplay, stations] of Object.entries(groupedChanges)) {
+            let lineSection = `*${lineDisplay}*\n`;
             
-            for (const [equipType, equipChanges] of Object.entries(equipmentTypes)) {
-                let typeSection = `_${equipType}_\n`;
+            for (const [stationName, equipmentTypes] of Object.entries(stations)) {
+                let stationSection = `*${stationName}* (${Object.values(equipmentTypes).flat().length} cambios)\n`;
                 
-                for (const change of equipChanges) {
-                    const changeText = this.formatChangeText(change);
+                for (const [equipType, equipChanges] of Object.entries(equipmentTypes)) {
+                    let typeSection = `_${equipType}_\n`;
                     
-                    // Check if adding this would exceed Telegram's 4096 character limit
-                    if (currentMessage.length + lineSection.length + stationSection.length + 
-                        typeSection.length + changeText.length > 4000) {
-                        // Finalize current message
-                        currentMessage += `\n_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
-                        messages.push(currentMessage);
+                    for (const change of equipChanges) {
+                        const changeText = this.formatChangeText(change);
                         
-                        // Start new message
-                        currentMessage = '♿ *Actualización de Accesibilidad* ♿ (cont.)\n\n';
-                        lineSection = `*${lineDisplay}*\n`;
-                        stationSection = `*${stationName}*\n`;
-                        typeSection = `_${equipType}_\n`;
+                        // Check if adding this would exceed Telegram's 4096 character limit
+                        if (currentMessage.length + lineSection.length + stationSection.length + 
+                            typeSection.length + changeText.length > 4000) {
+                            // Finalize current message
+                            currentMessage += `\n_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
+                            messages.push(currentMessage);
+                            
+                            // Start new message
+                            currentMessage = '♿ *Actualización de Accesibilidad* ♿ (cont.)\n\n';
+                            lineSection = `*${lineDisplay}*\n`;
+                            stationSection = `*${stationName}* (${Object.values(equipmentTypes).flat().length} cambios)\n`;
+                            typeSection = `_${equipType}_\n`;
+                        }
+                        
+                        typeSection += changeText;
                     }
                     
-                    typeSection += changeText;
+                    stationSection += typeSection + '\n';
                 }
                 
-                stationSection += typeSection + '\n';
+                lineSection += stationSection + '\n';
             }
             
-            lineSection += stationSection + '\n';
+            currentMessage += lineSection;
         }
         
-        currentMessage += lineSection;
-    }
-    
-    // Add final message if it has content
-    if (currentMessage.length > 50) { // More than just the header
-        currentMessage += `\n_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
-        messages.push(currentMessage);
-    }
-    
-    return messages;
-}
-
-async formatDiscordEmbeds(changes) {
-    if (!changes || changes.length === 0) return [];
-
-    const metro = await getMetroCore();
-    const embeds = [];
-    
-    // Group by line → station → equipment type
-    const groupedChanges = this.groupChanges(changes, metro);
-
-    let currentEmbed = new EmbedBuilder()
-        .setColor(0x0052A5)
-        .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad`)
-        .setTimestamp();
-    
-    for (const [lineDisplay, stations] of Object.entries(groupedChanges)) {
-        let lineField = {
-            name: lineDisplay,
-            value: '',
-            inline: false
-        };
+        // Add final message if it has content
+        if (currentMessage.length > 50) { // More than just the header
+            currentMessage += `\n_Actualizado: ${this.timeHelpers.formatDateTime()}_`;
+            messages.push(currentMessage);
+        }
         
-        for (const [stationName, equipmentTypes] of Object.entries(stations)) {
-            let stationSection = `**${stationName}**\n`;
+        return messages;
+    }
+
+    async formatDiscordEmbeds(changes) {
+        if (!changes || changes.length === 0) return [];
+
+        const metro = await getMetroCore();
+        const embeds = [];
+        
+        // Group changes by line → station → equipment type
+        const groupedChanges = this.groupChanges(changes, metro);
+
+        let currentEmbed = new EmbedBuilder()
+            .setColor(0x0052A5)
+            .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad`)
+            .setTimestamp();
+        
+        for (const [lineDisplay, stations] of Object.entries(groupedChanges)) {
+            let lineField = {
+                name: lineDisplay,
+                value: '',
+                inline: false
+            };
             
-            for (const [equipType, equipChanges] of Object.entries(equipmentTypes)) {
-                let typeSection = `*${equipType}*\n`;
+            for (const [stationName, equipmentTypes] of Object.entries(stations)) {
+                let stationSection = `**${stationName}** (${Object.values(equipmentTypes).flat().length} cambios)\n`;
                 
-                for (const change of equipChanges) {
-                    typeSection += this.formatChangeText(change);
+                for (const [equipType, equipChanges] of Object.entries(equipmentTypes)) {
+                    let typeSection = `*${equipType}*\n`;
+                    
+                    for (const change of equipChanges) {
+                        typeSection += this.formatChangeText(change);
+                    }
+                    
+                    stationSection += typeSection + '\n';
                 }
                 
-                stationSection += typeSection + '\n';
+                // Check if adding this station would exceed field limit (1024 chars)
+                if (lineField.value.length + stationSection.length > 1000) {
+                    // Add current line field to embed
+                    if (lineField.value) {
+                        currentEmbed.addFields(lineField);
+                    }
+                    
+                    // Check if embed is getting too big (fields + title = ~6000 chars)
+                    if (currentEmbed.toJSON().fields?.length >= 5 || 
+                        JSON.stringify(currentEmbed.toJSON()).length > 5500) {
+                        embeds.push(currentEmbed);
+                        currentEmbed = new EmbedBuilder()
+                            .setColor(0x0052A5)
+                            .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad`)
+                            .setTimestamp();
+                    }
+                    
+                    // Start new line field
+                    lineField = {
+                        name: lineDisplay,
+                        value: stationSection,
+                        inline: false
+                    };
+                } else {
+                    lineField.value += stationSection;
+                }
             }
             
-            // Check if adding this station would exceed field limit (1024 chars)
-            if (lineField.value.length + stationSection.length > 1000) {
-                // Add current line field to embed
-                if (lineField.value) {
-                    currentEmbed.addFields(lineField);
-                }
-                
-                // Check if embed is getting too big (fields + title = ~6000 chars)
-                if (currentEmbed.toJSON().fields?.length >= 5 || 
-                    JSON.stringify(currentEmbed.toJSON()).length > 5500) {
-                    embeds.push(currentEmbed);
-                    currentEmbed = new EmbedBuilder()
-                        .setColor(0x0052A5)
-                        .setTitle(`${metroConfig.accessibility.logo} Actualización de Accesibilidad`)
-                        .setTimestamp();
-                }
-                
-                // Start new line field
-                lineField = {
-                    name: lineDisplay,
-                    value: stationSection,
-                    inline: false
-                };
-            } else {
-                lineField.value += stationSection;
+            // Add remaining line field
+            if (lineField.value) {
+                currentEmbed.addFields(lineField);
             }
         }
         
-        // Add remaining line field
-        if (lineField.value) {
-            currentEmbed.addFields(lineField);
+        // Add final embed if it has content
+        if (currentEmbed.toJSON().fields?.length > 0) {
+            embeds.push(currentEmbed);
         }
-    }
-    
-    // Add final embed if it has content
-    if (currentEmbed.toJSON().fields?.length > 0) {
-        embeds.push(currentEmbed);
-    }
-    
-    return embeds;
-}
-
-groupChanges(changes, metro) {
-    return changes.reduce((acc, change) => {
-        const stationCode = change.equipmentId.split('-')[0];
-        const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
         
-        const lineNumber = station?.line || 'Desconocida';
-        const lineKey = station?.line ? `l${station.line}` : 'unknown';
-        const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
-        const lineDisplay = lineEmoji ? `${lineEmoji} Línea ${lineNumber}` : `Línea ${lineNumber}`;
-        const stationName = station?.displayName || stationCode;
-        const equipType = change.current?.tipo || change.previous?.tipo || 'Equipo';
-        
-        if (!acc[lineDisplay]) acc[lineDisplay] = {};
-        if (!acc[lineDisplay][stationName]) acc[lineDisplay][stationName] = {};
-        if (!acc[lineDisplay][stationName][equipType]) acc[lineDisplay][stationName][equipType] = [];
-        
-        acc[lineDisplay][stationName][equipType].push(change);
-        return acc;
-    }, {});
-}
-
-formatChangeText(change) {
-    if (change.type === 'new') {
-        return `➕ Nuevo: ${change.current.texto} - Estado: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
-    } else if (change.type === 'state_change') {
-        return `🔄 Cambio: ${change.current.texto}\n` +
-               `- De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n` +
-               `- A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
-    } else if (change.type === 'removed') {
-        return `➖ Eliminado: ${change.current?.texto || 'Equipo desconocido'}\n`;
+        return embeds;
     }
-    return '';
-}
 
-    
+    groupChanges(changes, metro) {
+        return changes.reduce((acc, change) => {
+            const stationCode = change.equipmentId.split('-')[0];
+            const station = Object.values(metro._staticData.stations).find(s => s.code === stationCode);
+            
+            const lineNumber = station?.line || 'Desconocida';
+            const lineKey = station?.line ? `l${station.line}` : 'unknown';
+            const lineEmoji = metroConfig.linesEmojis[lineKey] || '';
+            const lineDisplay = lineEmoji ? `${lineEmoji} Línea ${lineNumber}` : `Línea ${lineNumber}`;
+            const stationName = station?.displayName || stationCode;
+            const equipType = change.current?.tipo || change.previous?.tipo || 'Equipo';
+            
+            if (!acc[lineDisplay]) acc[lineDisplay] = {};
+            if (!acc[lineDisplay][stationName]) acc[lineDisplay][stationName] = {};
+            if (!acc[lineDisplay][stationName][equipType]) acc[lineDisplay][stationName][equipType] = [];
+            
+            acc[lineDisplay][stationName][equipType].push(change);
+            return acc;
+        }, {});
+    }
+
+    formatChangeText(change) {
+        let text = '';
+        if (change.type === 'new') {
+            text = `➕ Nuevo: ${change.current.texto} - `;
+            text += `Estado: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}`;
+        } else if (change.type === 'state_change') {
+            text = `🔄 Cambio: ${change.current.texto}\n`;
+            text += `- De: ${change.previous.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}\n`;
+            text += `- A: ${change.current.estado === 1 ? '✅ Operativo' : '❌ Fuera de servicio'}`;
+        } else if (change.type === 'removed') {
+            text = `➖ Eliminado: ${change.previous.texto || 'Equipo desconocido'}`;
+        }
+        return text + '\n'; // Ensure each change ends with a newline
+    }
 }
 
 module.exports = new AccessibilityChangeDetector();
