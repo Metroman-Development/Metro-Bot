@@ -1,6 +1,6 @@
 // templates/tabs/IntermodalTabs.js
 const { TabsTemplate } = require('./tabs');
-const StatusEmbed = require('../embeds/StatusEmbed');
+const { EmbedBuilder } = require('discord.js');
 
 class IntermodalTabs extends TabsTemplate {
     static create() {
@@ -21,10 +21,12 @@ class IntermodalTabs extends TabsTemplate {
                 };
             },
             buildEmbed: (tabData) => {
-                const embed = new StatusEmbed();
-                return tabData.tabId === 'info' 
-                    ? embed._createMainEmbed(tabData.stationData)
-                    : embed._createRoutesEmbed(tabData.stationData, tabData.page);
+                // This component appears to be unused or broken.
+                // Decoupling from the old StatusEmbed system.
+                return new EmbedBuilder()
+                    .setTitle('Componente no disponible')
+                    .setDescription('Este componente está actualmente en mantenimiento.')
+                    .setColor(0xff0000);
             },
             buildComponents: (tabData, interaction) => {
                 const rows = [];

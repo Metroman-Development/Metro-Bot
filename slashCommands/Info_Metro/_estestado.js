@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const StatusEmbed = require('../../templates/embeds/StatusEmbed');
+const StatusEmbeds = require('../../utils/embeds/statusEmbeds');
 const SearchCore = require('../../modules/metro/search/SearchCore');
 
 module.exports = {
@@ -51,31 +51,15 @@ module.exports = {
   async execute(interaction, metro) {
     try {
         await interaction.deferReply();
-
+        const statusEmbeds = new StatusEmbeds(metro);
         const elementValue = interaction.options.getString('elemento');
-        
-        console.log(metro.api) 
-        
         const metroData = metro.api.getProcessedData();
-        const networkStatus = metroData.network;
-        const lastUpdated = new Date(networkStatus.lastUpdated).toLocaleString('es-CL');
 
         if (!elementValue) {
             // Handle network status case
-            const lineStatuses = metroData.lines.getAll().map(line => ({
-                number: line.id,
-                code: line.status.code,
-                message: this._getStatusText(line.status.code)
-            }));
-
-            const response = StatusEmbed.createNetworkStatus({
-                code: networkStatus.status.code,
-                timestamp: networkStatus.lastUpdated,
-                schedule: 'Horario normal',
-                issues: networkStatus.message
-            }, lineStatuses);
-
-            return await interaction.editReply(response);
+            const networkStatus = metroData.network;
+            const embed = statusEmbeds.buildOverviewEmbed(networkStatus);
+            return await interaction.editReply({ embeds: [embed] });
         }
 
         // Handle station status case
@@ -104,25 +88,14 @@ module.exports = {
             );
 
             if (!station) { 
-                
                 return await interaction.editReply({ 
                     content: '❌ Datos de estación no disponibles', 
                     ephemeral: true 
                 });
-           }
+            }
             
-            
-            console.log(station);
-                
-
-            const response = StatusEmbed.createStationStatus(
-                metro, 
-                
-                station
-                ) 
-            
-
-            await interaction.editReply({ embeds: [response.embed] });
+            const embed = statusEmbeds.buildStationEmbed(station);
+            await interaction.editReply({ embeds: [embed] });
         }
     } catch (error) {
         console.error('Estado command failed:', error);
@@ -131,25 +104,5 @@ module.exports = {
             ephemeral: true
         });
     }
-}, 
-    
-    _getStatusText(statusCode) {
-        const statusMap = {
-            '1': 'Operativa',
-            '2': 'Parcial',
-            '3': 'Cerrada',
-            'default': 'Desconocido'
-        };
-        return statusMap[statusCode] || statusMap.default;
-    },
-
-    _getStatusEmoji(statusCode) {
-        const emojiMap = {
-            '1': '🟢',
-            '2': '🟡',
-            '3': '🔴',
-            'default': '⚪'
-        };
-        return emojiMap[statusCode] || emojiMap.default;
-    }
+}
 };

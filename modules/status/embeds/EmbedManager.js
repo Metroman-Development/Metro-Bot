@@ -1,6 +1,6 @@
 // modules/status/EmbedManager.js
 const logger = require('../../../events/logger');
-const StatusEmbedBuilder = require('./StatusEmbedBuilder');
+const StatusEmbeds = require('../../../utils/embeds/statusEmbeds');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
@@ -8,6 +8,7 @@ const { setTimeout } = require('timers/promises');
 class EmbedManager {
     constructor(statusUpdater) {
         this.parent = statusUpdater;
+        this.statusEmbeds = new StatusEmbeds(statusUpdater.metroCore);
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;
@@ -152,11 +153,9 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
             
             const networkStatus = this.parent.metroCore.api.getProcessedData();
-            const embed = StatusEmbedBuilder.buildOverviewEmbed(
+            const embed = this.statusEmbeds.buildOverviewEmbed(
                 networkStatus.network, 
-                changes, 
-                this.parent.metroCore,
-                this.parent.UI_STRINGS
+                changes
             );
 
             const message = this.embedMessages.get('overview');
@@ -220,11 +219,8 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             const lineKey = lineData.id.toLowerCase();
 
 
-            const embed = StatusEmbedBuilder.buildLineEmbed(
-                lineData, 
-                lineData._allStations, 
-                this.parent.metroCore,
-                this.parent.UI_STRINGS
+            const embed = this.statusEmbeds.buildLineEmbed(
+                lineData
             );
             
             const message = this.embedMessages.get(lineKey);

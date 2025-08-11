@@ -1,11 +1,10 @@
 // templates/embeds/MetroInfoEmbed.js
 const BaseEmbed = require('./baseEmbed');
-const StatusEmbed = require('./StatusEmbed'); // Reuse status functionality
 
-class MetroInfoEmbed extends StatusEmbed {
+class MetroInfoEmbed extends BaseEmbed {
     create() {
-        const networkStatus = metro.core.getNetworkStatus();
-        const technicalData = metro.queries.getTechnicalData();
+        const networkStatus = this.metro.core.getNetworkStatus();
+        const technicalData = this.metro.queries.getTechnicalData();
         
         return this.createEmbed({
             title: '🚇 Información General del Metro',

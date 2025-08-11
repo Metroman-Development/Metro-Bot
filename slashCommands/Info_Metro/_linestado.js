@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const StatusEmbed = require('../../templates/embeds/StatusEmbed');
+const StatusEmbeds = require('../../utils/embeds/statusEmbeds');
 const SearchCore = require('../../modules/metro/search/SearchCore');
 
 module.exports = {
@@ -27,32 +27,20 @@ module.exports = {
   async execute(interaction, metro) {
     try {
         await interaction.deferReply();
-
+        const statusEmbeds = new StatusEmbeds(metro);
         const elementValue = interaction.options.getString('linea');
-        
-        //console.log(metro.api) 
-        
         const metroData = metro.api.getProcessedData();
-        const networkStatus = metroData.network;
-        const lastUpdated = new Date(networkStatus.lastUpdated).toLocaleString('es-CL');
+        const line = metroData.lines[elementValue];
 
+        if (!line) {
+            return await interaction.editReply({
+                content: '❌ Línea no encontrada.',
+                ephemeral: true
+            });
+        }
         
-
-        // Handle station status case
-        
-
-            const line = metroData.lines[elementValue]
-            console.log(line);
-                
-
-            const response = StatusEmbed.createLineStatus(
-                metro, 
-                
-                line
-                )
-            
-
-            await interaction.editReply({ embeds: [response.embed] });
+        const embed = statusEmbeds.buildLineEmbed(line);
+        await interaction.editReply({ embeds: [embed] });
         
     } catch (error) {
         console.error('Estado command failed:', error);
@@ -61,25 +49,5 @@ module.exports = {
             ephemeral: true
         });
     }
-}, 
-    
-    _getStatusText(statusCode) {
-        const statusMap = {
-            '1': 'Operativa',
-            '2': 'Parcial',
-            '3': 'Cerrada',
-            'default': 'Desconocido'
-        };
-        return statusMap[statusCode] || statusMap.default;
-    },
-
-    _getStatusEmoji(statusCode) {
-        const emojiMap = {
-            '1': '🟢',
-            '2': '🟡',
-            '3': '🔴',
-            'default': '⚪'
-        };
-        return emojiMap[statusCode] || emojiMap.default;
-    }
+}
 };
