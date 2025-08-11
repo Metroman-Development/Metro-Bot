@@ -1,10 +1,10 @@
 // templates/embeds/LineInfoEmbed.js
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const BaseEmbed = require('./baseEmbed');
-const StatusEmbed = require('./StatusEmbed');
 
-class LineInfoEmbed extends StatusEmbed {
+class LineInfoEmbed extends BaseEmbed {
     create(lineKey, userId, interactionId) {
-        const line = metro.lines.getLineInfo(lineKey);
+        const line = this.metro.lines.getLineInfo(lineKey);
         const status = this.statusCodes[line.status];
         
         return {

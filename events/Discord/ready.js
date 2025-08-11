@@ -1,6 +1,6 @@
 // events/Discord/ready.js
 const MetroCore = require('../../modules/metro/core/MetroCore');
-const StatusEmbedBuilder = require('../../modules/status/embeds/StatusEmbedBuilder');
+const StatusEmbeds = require('../../utils/embeds/statusEmbeds');
 const logger = require('../logger');
 const { getClient } = require('../../utils/clientManager');
 const { REST, Routes } = require('discord.js');
@@ -31,6 +31,7 @@ module.exports = {
             // 2. MetroCore Initialization
             logger.info('2️⃣ Initializing MetroCore subsystem...');
             const metro = await client.metroCore.getInstance({ client });
+            const statusEmbeds = new StatusEmbeds(metro);
             logger.info(`✅ MetroCore initialized (Version: ${metro.version || 'unknown'})`);
 
             // 3. Presence System Setup
@@ -50,7 +51,7 @@ module.exports = {
             const networkStatus = metro._subsystems.statusService.getNetworkStatus();
             logger.debug('📊 Network status data retrieved', networkStatus);
             
-            const statusEmbed = StatusEmbedBuilder.buildOverviewEmbed(networkStatus);
+            const statusEmbed = statusEmbeds.buildOverviewEmbed(networkStatus);
             await statusChannel.send({ embeds: [statusEmbed] });
             logger.info('📨 Status embed successfully dispatched');
 
@@ -71,12 +72,10 @@ module.exports = {
             console.error('Initialization failed:', error);
             
             try {
-                await statusChannel.send({
-                    embeds: [StatusEmbedBuilder.buildErrorEmbed(
-                        'System Initialization Failed',
-                        `${error.message}\n\nCheck logs for full details`
-                    )]
-                });
+                // Note: metro object might not be available here, so we can't instantiate StatusEmbeds
+                // We will have to call the error embed method statically if we make it so
+                // For now, let's assume we can't create a fancy embed if MetroCore fails.
+                await statusChannel.send(`:x: **Critical initialization failure:** ${error.message}`);
                 logger.error('📨 Sent failure notification to status channel');
             } catch (channelError) {
                 logger.error('❌ Failed to send failure notification:', channelError);
