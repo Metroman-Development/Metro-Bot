@@ -3,7 +3,7 @@ const lineLoader = require('../data/loaders/lineLoader');
 const stationLoader = require('../data/loaders/stationLoader');
 const metroLoader = require('../data/loaders/metroLoader');
 const intermodalLoader = require('../data/loaders/intermodalLoader');
-const trainLoader = require('../data/loaders/trainLoader');
+// const trainLoader = require('../data/loaders/trainLoader');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const EventTracer = require('../../../core/EventTracer');
@@ -30,12 +30,12 @@ class DataLoader {
   
         console.log("[DataLoader] Loading Data") 
         
-        const [system, lines, stations, intermodal, trains] = await Promise.all([
+        const [system, lines, stations, intermodal] = await Promise.all([
         await this._loadWithTracking(metroLoader, 'metro'),
         this._loadWithTracking(lineLoader, 'lines'),
         this._loadWithTracking(stationLoader, 'stations'),
         this._loadWithTracking(intermodalLoader, 'intermodal'),
-        this._loadWithTracking(trainLoader, 'trains')
+        // this._loadWithTracking(trainLoader, 'trains')
       ]);
 
      console.log("Successfully Loaded Data") 
@@ -47,14 +47,14 @@ class DataLoader {
         lines,
         stations,
         intermodal,
-        trains,
+        trains: {},
         metadata: {
           version: Date.now(),
           loadDuration: this._lastLoadDuration,
           sources: {
             stations: stationLoader.source,
             lines: lineLoader.source,
-            trains: trainLoader.source,
+            trains: 'disabled',
             intermodal: intermodalLoader.source
           }
         }
@@ -68,7 +68,7 @@ class DataLoader {
         {
           lineCount: Object.keys(lines).length,
           stationCount: Object.keys(stations).length,
-          trainCount: Object.keys(trains).length,
+          trainCount: 0,
           durationMs: this._lastLoadDuration
         },
         { source: 'DataLoader.load' }

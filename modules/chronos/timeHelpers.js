@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
-const config = require('../../../config/chronosConfig');
-const logger = require('../../../events/logger');
+const config = require('../../config/chronosConfig');
+const logger = require('../../events/logger');
 
 class TimeHelpers {
     static #DEFAULT_SCHEDULE = {
@@ -34,24 +34,15 @@ class TimeHelpers {
                 return this.#DEFAULT_SCHEDULE;
             }
 
-            return {
-                weekday: {
-                    service: config.serviceHours.weekday || this.#DEFAULT_SCHEDULE.weekday.service,
-                    peak: config.farePeriods.PUNTA || this.#DEFAULT_SCHEDULE.weekday.peak
-                },
-                saturday: {
-                    service: config.serviceHours.saturday || this.#DEFAULT_SCHEDULE.saturday.service,
-                    peak: []
-                },
-                sunday: {
-                    service: config.serviceHours.sunday || this.#DEFAULT_SCHEDULE.sunday.service,
-                    peak: []
-                },
-                festive: {
-                    service: config.serviceHours.sunday || this.#DEFAULT_SCHEDULE.sunday.service,
-                    peak: []
-                }
-            };
+            const schedule = {};
+            for (const dayType of ['weekday', 'saturday', 'sunday', 'festive']) {
+                schedule[dayType] = {
+                    service: config.serviceHours[dayType] || this.#DEFAULT_SCHEDULE[dayType].service,
+                    peak: (dayType === 'weekday' ? config.farePeriods.PUNTA : []) || this.#DEFAULT_SCHEDULE[dayType].peak
+                };
+            }
+            return schedule;
+
         } catch (error) {
             logger.error('Failed to get schedule config:', error);
             return this.#DEFAULT_SCHEDULE;
@@ -98,6 +89,11 @@ class TimeHelpers {
         }
     }
 
+    static isWeekday(date = new Date()) {
+        const day = moment(date).tz(config.timezone).day();
+        return day >= 1 && day <= 5;
+    }
+
     static getCurrentPeriod(date = new Date()) {
         try {
             const time = moment(date).tz(config.timezone);
@@ -137,6 +133,17 @@ class TimeHelpers {
             });
         } catch (error) {
             logger.error('Failed to check special event:', error);
+            return false;
+        }
+    }
+
+    static isWithinOperatingHours(date = new Date()) {
+        try {
+            const now = moment(date).tz(config.timezone);
+            const operatingHours = this.getOperatingHours(this.getDayType(date));
+            return this.isTimeBetween(now, operatingHours.opening, operatingHours.closing);
+        } catch (error) {
+            logger.error('Failed to check if within operating hours:', error);
             return false;
         }
     }
