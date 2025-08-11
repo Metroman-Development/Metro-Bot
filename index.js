@@ -2,6 +2,7 @@ console.log('[BOOT] Starting bot initialization process...');
 require('dotenv').config();
 console.log('[CONFIG] Environment variables loaded');
 
+
 // ======================
 // DISCORD BOT INITIALIZATION
 // ======================
