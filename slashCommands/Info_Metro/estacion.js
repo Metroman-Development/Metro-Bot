@@ -1,75 +1,69 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../modules/metro/core/MetroCore'); // Import MetroCore
+const MetroCore = require('../../modules/metro/core/MetroCore');
 const estado = require('./_estestado');
-
 const info = require('./_estinfo');
-// Import other subcommands as needed
-// const horarios = require('./horarios');
-// const incidentes = require('./incidentes');
 
+/**
+ * @file Command for retrieving information about a specific metro station.
+ * @description This command provides access to various subcommands related to a metro station, such as its status and general information.
+ */
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('estacion')
-        .setDescription('Información de una estación')
+        .setDescription('Proporciona información sobre una estación de metro específica.')
         .addSubcommand(subcommand => estado.data(subcommand))
-      .addSubcommand(subcommand => info.data(subcommand)),
-
-    
-    
-    
-    
-        // Add other subcommands as needed:
-        // .addSubcommand(subcommand => horarios.data(subcommand))
-        // .addSubcommand(subcommand => incidentes.data(subcommand))
+        .addSubcommand(subcommand => info.data(subcommand)),
 
     category: "Metro Info",
     
     /**
-     * Gets the MetroCore instance and makes it available tosubcommands
+     * Retrieves or initializes the MetroCore instance.
+     * @param {import('discord.js').Interaction} interaction The interaction object.
+     * @returns {Promise<MetroCore>} The MetroCore instance.
+     * @throws {Error} If the MetroCore instance cannot be initialized.
      */
     async getMetroCore(interaction) {
         try {
-            if (!interaction.client.metroCore ||!interaction.client.metroCore.api) {
+            // Check if the instance already exists and is initialized.
+            if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
                 interaction.client.metroCore = await MetroCore.getInstance({ 
                     client: interaction.client 
                 });
             }
             return interaction.client.metroCore;
         } catch (error) {
-            console.error('Failed to get MetroCore instance:', error);
-            throw new Error('El sistema Metro no está disponible');
+            console.error('Failed to initialize or retrieve MetroCore instance:', error);
+            throw new Error('No se pudo conectar con el sistema de Metro. Por favor, inténtalo de nuevo más tarde.');
         }
     },
 
+    /**
+     * Executes the 'estacion' command.
+     * @param {import('discord.js').Interaction} interaction The interaction object.
+     */
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         
         try {
-            // Make MetroCore available to all subcommands
+            // Ensure MetroCore is available before executing any subcommand.
             const metro = await this.getMetroCore(interaction);
             
-            // Route to the appropriate subcommand
+            // Route to the appropriate subcommand handler.
             switch(subcommand) {
                 case 'estado':
                     return estado.execute(interaction, metro); 
-               case 'info':
+                case 'info':
                     return info.execute(interaction, metro);
-                    
-                    // Pass metro instance
-                // case 'horarios':
-                //     return horarios.execute(interaction, metro);
-                // case 'incidentes':
-                //     return incidentes.execute(interaction, metro);
                 default:
                     return interaction.reply({ 
-                        content: '⚠️ Subcomando no reconocido', 
+                        content: '⚠️ Subcomando no reconocido. Por favor, elige una de las opciones disponibles.',
                         ephemeral: true 
                     });
             }
         } catch (error) {
-            console.error(`Error in /metro ${subcommand}:`, error);
+            console.error(`An error occurred in the /estacion ${subcommand} command:`, error);
             return interaction.reply({
-                content: '❌ Error al conectar con el sistema Metro',
+                content: `❌ ${error.message || 'Ocurrió un error al procesar tu solicitud.'}`,
                 ephemeral: true
             });
         }
