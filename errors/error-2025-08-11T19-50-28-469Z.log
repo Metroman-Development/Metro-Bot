@@ -1,0 +1,16 @@
+[2025-08-11T19-50-28-469Z] ERROR:
+Name: Error
+Message: Failed to check if within operating hours:
+Stack:
+Error: Failed to check if within operating hours:
+    at Object.error (/app/events/logger.js:154:27)
+    at TimeHelpers.isWithinOperatingHours (/app/modules/chronos/timeHelpers.js:150:20)
+    at TimeAwaiter._getCurrentState (/app/modules/chronos/TimeAwaiter.js:120:48)
+    at new TimeAwaiter (/app/modules/chronos/TimeAwaiter.js:18:32)
+    at new ApiService (/app/modules/metro/core/services/ApiService.js:72:28)
+    at MetroCore.initialize (/app/modules/metro/core/MetroCore.js:162:36)
+    at /app/modules/metro/core/MetroCore.js:146:28
+    at MetroCore.getInstance (/app/modules/metro/core/MetroCore.js:148:11)
+    at /app/index.js:125:53
+    at Object.<anonymous> (/app/index.js:130:3)
+Metadata: {}

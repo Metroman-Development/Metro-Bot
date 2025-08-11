@@ -120,6 +120,15 @@ const { translateToTelegramEmoji, processForTelegram, translateUrgencyEmoji, get
 
 setClient(discordClient);
 
+(async () => {
+    try {
+        const metro = await discordClient.metroCore.getInstance({ client: discordClient });
+        console.log('MetroCore initialized for data export.');
+    } catch (error) {
+        console.error('Failed to initialize MetroCore for data export:', error);
+    }
+})();
+
 // Message handling (unchanged)
 
 // ======================
