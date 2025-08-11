@@ -2,107 +2,78 @@ const { SlashCommandBuilder } = require('discord.js');
 const StatusEmbeds = require('../../utils/embeds/statusEmbeds');
 const SearchCore = require('../../modules/metro/search/SearchCore');
 
+/**
+ * @file Subcommand for the 'estacion' command, providing the operational status of a station.
+ * @description This subcommand allows users to check the current operational status of a specific metro station.
+ */
 module.exports = {
-    
     parentCommand: 'estacion',
     data: (subcommand) => subcommand
         .setName('estado')
-        .setDescription('Muestra el estado operacional de estaciones')
+        .setDescription('Muestra el estado operacional de una estación de metro.')
         .addStringOption(option =>
-            option.setName('elemento')
-                .setDescription('Estación Específica')
-                             
-                .setAutocomplete(true)),
+            option.setName('estacion')
+                .setDescription('El nombre de la estación que deseas consultar.')
+                .setAutocomplete(true)
+                .setRequired(true)),
 
+    /**
+     * Handles autocomplete for the 'estacion' option.
+     * @param {import('discord.js').Interaction} interaction The interaction object.
+     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
+     */
     async autocomplete(interaction, metro) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         
         try {
-            // Initialize search cores
-            
             const stationSearcher = new SearchCore('station');
-           // lineSearcher.setDataSource(metro.getCurrentData());
             stationSearcher.setDataSource(metro.api.getProcessedData());
 
-            // Search both lines and stations
-            const stationResults = await Promise.all([
-               // lineSearcher.search(focusedValue, { maxResults: 5 }),
-                stationSearcher.search(focusedValue, { maxResults: 5 })
-            ]);
-
-            const allResults = [ ...stationResults]
-                .sort((a, b) => b.score - a.score)
-                .slice(0, 25);
+            const stationResults = await stationSearcher.search(focusedValue, { maxResults: 25 });
 
             await interaction.respond(
-                allResults.map(result => ({
-                 //   name: result.type === 'line' 
-                //        ? `Línea ${result.id.toUpperCase()} (${result.displayName})`
-                       name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
-                    value: `${result.type}:${result.id}`
+                stationResults.map(result => ({
+                    name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
+                    value: result.id
                 }))
             );
         } catch (error) {
-            console.error('Autocomplete error:', error);
+            console.error('Error handling autocomplete for "estacion estado":', error);
             await interaction.respond([]);
         }
     },
 
-  async execute(interaction, metro) {
-    try {
-        await interaction.deferReply();
-        const statusEmbeds = new StatusEmbeds(metro);
-        const elementValue = interaction.options.getString('elemento');
-        const metroData = metro.api.getProcessedData();
+    /**
+     * Executes the 'estado' subcommand.
+     * @param {import('discord.js').Interaction} interaction The interaction object.
+     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
+     */
+    async execute(interaction, metro) {
+        try {
+            await interaction.deferReply();
 
-        if (!elementValue) {
-            // Handle network status case
-            const networkStatus = metroData.network;
-            const embed = statusEmbeds.buildOverviewEmbed(networkStatus);
-            return await interaction.editReply({ embeds: [embed] });
-        }
-
-        // Handle station status case
-        const [elementType, elementId] = elementValue.includes(':') ? 
-            elementValue.split(':') : 
-            ['station', elementValue];
-
-        if (elementType === 'station') {
-            const searcher = new SearchCore('station');
-            searcher.setDataSource(metroData);
+            const stationId = interaction.options.getString('estacion');
+            const metroData = metro.api.getProcessedData();
             
-            const results = await searcher.search(elementId, {
-                maxResults: 1,
-                needsOneMatch: true
-            });
+            const station = Object.values(metroData.stations).find(s => s.id === stationId);
 
-            if (!results?.length) {
+            if (!station) {
                 return await interaction.editReply({ 
-                    content: '❌ No se encontró la estación especificada', 
-                    ephemeral: true 
-                });
-            }
-
-            const station = Object.values(metroData.stations).find(
-                s => s.id === results[0].id
-            );
-
-            if (!station) { 
-                return await interaction.editReply({ 
-                    content: '❌ Datos de estación no disponibles', 
+                    content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.',
                     ephemeral: true 
                 });
             }
             
+            const statusEmbeds = new StatusEmbeds(metro);
             const embed = statusEmbeds.buildStationEmbed(station);
             await interaction.editReply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Error executing "estacion estado" command:', error);
+            await interaction.editReply({
+                content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
+                ephemeral: true
+            });
         }
-    } catch (error) {
-        console.error('Estado command failed:', error);
-        await interaction.editReply({
-            content: '❌ Error al procesar la solicitud',
-            ephemeral: true
-        });
     }
-}
 };
