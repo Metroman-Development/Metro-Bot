@@ -467,7 +467,7 @@ class BipCoinSystem {
             // If we only have one user, just add the other platform info
             const platformToUpdate = primaryUser === user1 ? platform2 : platform1;
             const userIdToUpdate = primaryUser === user1 ? userId2 : userId1;
-            const usernameToUpdate = primaryUser === user1 ? username2 : username1;
+            const usernameToUpdate = primaryUser === user1 ? username2 : (user1.discord_username || user1.telegram_username);
 
             await this.updateUser(primaryUser.id, {
                 [`${platformToUpdate}_id`]: userIdToUpdate,

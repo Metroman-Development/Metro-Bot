@@ -1,6 +1,7 @@
 const logger = require('../../events/logger');
 const StatusUpdater = require('./embeds/StatusUpdater');
 const StatusEmbedBuilder = require('./embeds/StatusEmbedBuilder');
+const { sleep } = require('../../utils/helpers');
 
 module.exports = async function createStatusSystem(metro, options = {}) {
     const config = {

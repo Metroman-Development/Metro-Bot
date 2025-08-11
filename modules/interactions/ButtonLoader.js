@@ -8,7 +8,7 @@ module.exports = {
         let loadedCount = 0;
 
         readdirSync(buttonsPath).forEach(file => {
-            if (!file.endsWith('.js') return;
+            if (!file.endsWith('.js')) return;
             
             try {
                 const ButtonClass = require(join(buttonsPath, file));

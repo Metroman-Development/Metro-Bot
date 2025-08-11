@@ -1,5 +1,7 @@
 // modules/metro/queries/lines.js
 const linesData = require('../../../data/linesData.json');
+const metroConfig = require('../../../config/metro/metroConfig');
+const EXPRESS_LINES = new Set(metroConfig.expressLines);
 
 module.exports = (core) => ({
     getLineInfo: (lineId) => {

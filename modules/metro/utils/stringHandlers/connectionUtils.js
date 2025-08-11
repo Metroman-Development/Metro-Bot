@@ -1,4 +1,6 @@
 const stationConnections = require('../../../../data/stationConnections.json');
+const { normalizeKey } = require('./lineProcessing');
+const metroConfig = require('../../../../config/metro/metroConfig');
 
 module.exports = {
   getConnections: function(lineKey, stationName) {

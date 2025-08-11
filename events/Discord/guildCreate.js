@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
 const logger = require('../logger');
+const { setGuildDefaults } = require('../../core/loaders/RoleSettingsManager');
 
 module.exports = {
     name: Events.GuildCreate,
@@ -12,7 +13,11 @@ module.exports = {
             });
             
             // Initialize guild in database
-            await initializeGuildSystems(guild);
+            await setGuildDefaults(guild.id, {
+                cooldowns: {
+                    default: 3
+                }
+            });
             
         } catch (error) {
             logger.error('GUILD_INIT_FAILED', {

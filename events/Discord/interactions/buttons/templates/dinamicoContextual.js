@@ -1,4 +1,4 @@
-const { ButtonBuilder, ActionRowBuilder } = require('discord.js');
+const { ButtonBuilder, ActionRowBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
     customId: 'ctx_', // Prefijo contextual
@@ -12,7 +12,7 @@ module.exports = {
         const [_, action, commandId, userId] = interaction.customId.split('_');
         
         // 1. Obtener configuración basada en el comando original
-        const config = getCommandConfig(commandId); // Tu función personalizada
+        const config = client.commandLoader.getCommandConfig(commandId); // Tu función personalizada
         
         // 2. Generar respuesta dinámica
         const response = this.generateResponse(

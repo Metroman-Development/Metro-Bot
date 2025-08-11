@@ -44,11 +44,19 @@ class TimeManager {
 
     timeUntilNextAction(targetTime) {
         const [targetHour, targetMinute] = targetTime.split(':').map(Number);
-        const nextDate = moment().tz(this.timezone)
-            .set({ hour: targetHour, minute: targetMinute, second: 0 })
-            .add(targetHour <= moment().hour() ? 1 : 0, 'days');
-            
-        return moment.duration(nextDate.diff(moment().tz(this.timezone)));
+        const now = moment().tz(this.timezone);
+        let nextActionTime = now.clone().set({
+            hour: targetHour,
+            minute: targetMinute,
+            second: 0,
+            millisecond: 0,
+        });
+
+        if (nextActionTime.isBefore(now)) {
+            nextActionTime.add(1, 'day');
+        }
+
+        return moment.duration(nextActionTime.diff(now));
     }
 }
 

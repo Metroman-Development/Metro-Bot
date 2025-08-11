@@ -65,7 +65,7 @@ module.exports = ToggleTemplate.create({
     },
 
     // Additional method to create the initial toggle buttons
-    static async createInitialButtons(interaction) {
+    async createInitialButtons(interaction) {
         const baseCommand = new BaseCommand();
         const userId = interaction.user.id;
         const embedId = interaction.id;
