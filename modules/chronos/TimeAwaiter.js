@@ -35,19 +35,13 @@ class TimeAwaiter {
             const eventDetails = this.timeHelpers.getEventDetails();
             let apiService = service ? service : this.metroCore.api;
 
-            console.log(`[TimeAwaiter] Checking time at ${this.timeHelpers.formatForEmbed()}`);
-            console.log(`[TimeAwaiter] Current state:`, current);
-            console.log(`[TimeAwaiter] Last state:`, this._lastState);
-
             // 1. EVENT DAY MANAGEMENT
             const isEventActive = this.timeHelpers.isEventActive();
             if (eventDetails) {
                 if (isEventActive && !this._lastEventDay) {
-                    console.log('[TimeAwaiter] Event period started - preparing overrides');
                     await apiService.prepareEventOverrides(eventDetails);
                 } 
                 else if (!isEventActive && this._lastEventDay) {
-                    console.log('[TimeAwaiter] Event period ended - cleaning up');
                     await apiService.cleanupEventOverridesIfNeeded(eventDetails);
                 }
                 this._lastEventDay = isEventActive;
@@ -56,19 +50,16 @@ class TimeAwaiter {
             // 2. EXTENDED HOURS HANDLING
             const isExtendedHours = current.farePeriod === 'EXTENDED';
             if (isExtendedHours && !this._lastExtendedHours) {
-                console.log('[TimeAwaiter] Extended hours started - activating overrides');
                 await apiService.activateEventOverrides(eventDetails);
                 this._handleExtendedHoursTransition(true);
             } 
             else if (!isExtendedHours && this._lastExtendedHours) {
-                console.log('[TimeAwaiter] Extended hours ended');
                 this._handleExtendedHoursTransition(false);
             }
             this._lastExtendedHours = isExtendedHours;
 
             // 3. SERVICE HOURS TRANSITION
             if (current.isServiceRunning !== this._lastState.isServiceRunning) {
-                console.log(`[TimeAwaiter] Service running state changed from ${this._lastState.isServiceRunning} to ${current.isServiceRunning}`);
                 this._handleServiceTransition(current.isServiceRunning, operatingHours);
             }
 
@@ -84,23 +75,19 @@ class TimeAwaiter {
                     crossesMidnight: this.timeHelpers.willBeExtended()
                 } : this.timeHelpers.getCurrentPeriod();
                 
-                console.log(`[TimeAwaiter] Fare period changed from ${this._lastState.farePeriod} to ${current.farePeriod}`);
                 this._handleFarePeriodChange(current.farePeriod, periodInfo);
             }
 
             // 5. EXPRESS SERVICE TRANSITION
             const currentExpress = this._getCurrentExpressState();
-            console.log(`[TimeAwaiter] Current express state:`, currentExpress);
 
             if (currentExpress.morning !== this._lastExpressState.morning) {
                 const transitionType = currentExpress.morning ? 'start' : 'end';
-                console.log(`[TimeAwaiter] Handling morning express ${transitionType}`);
                 this._handleExpressTransition(transitionType, 'morning');
             }
 
             if (currentExpress.evening !== this._lastExpressState.evening) {
                 const transitionType = currentExpress.evening ? 'start' : 'end';
-                console.log(`[TimeAwaiter] Handling evening express ${transitionType}`);
                 this._handleExpressTransition(transitionType, 'evening');
             }
 
@@ -111,7 +98,6 @@ class TimeAwaiter {
             // 6. SAFETY CLEANUP
             if (!eventDetails && (Object.keys(this._lastOverrides?.lines || {}).length > 0 || 
                                 Object.keys(this._lastOverrides?.stations || {}).length > 0)) {
-                console.log('[TimeAwaiter] Safety cleanup - removing stale overrides');
                 await apiService.cleanupEventOverridesIfNeeded();
             }
 

@@ -12,6 +12,7 @@ class SchedulerCore {
         try {
             const rule = new schedule.RecurrenceRule();
             Object.assign(rule, config);
+            rule.tz = this.timezone; // Ensure jobs run in the correct timezone
             
             const job = schedule.scheduleJob(rule, async () => {
                 try {

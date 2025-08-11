@@ -71,8 +71,6 @@ module.exports = {
                     
                     const operatingHours = dayHelper.getOperatingHours();
                     
-                    console.log(event) 
-                    
                     let eventText = `**${eventDate.format('DD [de] MMMM')}**\n`;
                     eventText += `» ${event.name}\n`;
                     eventText += `${translations.closingTime}: ${event.extendedHours.closing}`;

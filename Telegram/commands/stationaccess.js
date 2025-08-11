@@ -1383,7 +1383,7 @@ async function showAdvancedEditFieldOptions(ctx, stationId, field) {
 
         const keyboard = [
             [
-                Markup.button.callback('❌ Cancelar', `access_aedit_station:${station.code}`),
+                Markup.button.callback('❌ Cancelar', `access_aedit_station:${stationId}`),
                 Markup.button.callback('🏠 Menú principal', 'access_main')
             ]
         ];

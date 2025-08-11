@@ -1,4 +1,8 @@
 // Versión nueva (/buttons/commands/commandInfo.js)
+// TODO: This file is causing a "CommandModel is not defined" error.
+// This feature seems to be unfinished. Commenting out for now.
+/*
+const { EmbedBuilder } = require('discord.js');
 const { NavigationTemplate } = require('../../templates/navigation');
 
 module.exports = NavigationTemplate.create({
@@ -18,3 +22,5 @@ module.exports = NavigationTemplate.create({
             );
     }
 });
+*/
+module.exports = {};

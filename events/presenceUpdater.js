@@ -5,6 +5,8 @@ const { randomInt } = require('crypto');
 const MetroCore = require('../modules/metro/core/MetroCore');
 const TimeHelpers = require('../modules/chronos/timeHelpers');
 const config = require('../config/metro/metroConfig');
+const chronosConfig = require('../config/chronosConfig');
+const moment = require('moment-timezone');
 
 // Configuration - Now with dynamic weighting system
 const PRESENCE_CONFIG = {
@@ -19,167 +21,164 @@ const PRESENCE_CONFIG = {
                     return `🌙 Cierre por horario | Reapertura: ${next.time}`;
                 },
                 weight: 0.5,
-                condition: (metroCore) => !TimeHelpers.isWithinOperatingHours(),
+                condition: (metroCore, data) => !TimeHelpers.isWithinOperatingHours(),
                 boost: 2.0 // Gets double weight when active
             },
             { 
                 text: () => '🚇 Hora Punta | Espere mayor Afluencia',
                 weight: 0.4,
-                condition: (metroCore) => {
+                condition: (metroCore, data) => {
                     const status = TimeHelpers.getServiceStatus();
-                    return status.period.type === 'PUNTA' && 
-                           TimeHelpers.isWithinOperatingHours() &&
-                           TimeHelpers.isTimeBetween(
-                               TimeHelpers.currentTime,
-                               TimeHelpers.getCurrentPeriod().start,
-                               TimeHelpers.getCurrentPeriod().end
-                           );
+                    if (status.period.type !== 'PUNTA' || !TimeHelpers.isWithinOperatingHours()) {
+                        return false;
+                    }
+                    const now = moment().tz(chronosConfig.timezone);
+                    const period = chronosConfig.farePeriods.PUNTA.find(p => TimeHelpers.isTimeBetween(now, p.start, p.end));
+                    return !!period;
                 },
                 boost: 1.8
             },
             {
                 text: () => '🚄 Servicio Expreso activo',
                 weight: 0.4,
-                condition: (metroCore) => {
-                    return TimeHelpers.isExpressActive() && 
-                           TimeHelpers.isWithinOperatingHours() &&
-                           TimeHelpers.isTimeBetween(
-                               TimeHelpers.currentTime,
-                               TimeHelpers.getCurrentPeriod().start,
-                               TimeHelpers.getCurrentPeriod().end
-                           );
+                condition: (metroCore, data) => {
+                    if (!TimeHelpers.isExpressActive() || !TimeHelpers.isWithinOperatingHours()) {
+                        return false;
+                    }
+                    const now = moment().tz(chronosConfig.timezone);
+                    const morning = chronosConfig.expressHours.morning;
+                    const evening = chronosConfig.expressHours.evening;
+                    return TimeHelpers.isTimeBetween(now, morning.start, morning.end) || TimeHelpers.isTimeBetween(now, evening.start, evening.end);
                 },
                 boost: 1.8
             },
             {
                 text: () => '🐢 Horario Bajo | Tarifa reducida',
                 weight: 0.3,
-                condition: (metroCore) => {
+                condition: (metroCore, data) => {
                     const status = TimeHelpers.getServiceStatus();
-                    return status.period.type === 'BAJO' && 
-                           TimeHelpers.isWithinOperatingHours() &&
-                           TimeHelpers.isTimeBetween(
-                               TimeHelpers.currentTime,
-                               TimeHelpers.getCurrentPeriod().start,
-                               TimeHelpers.getCurrentPeriod().end
-                           );
+                    if (status.period.type !== 'BAJO' || !TimeHelpers.isWithinOperatingHours()) {
+                        return false;
+                    }
+                    const now = moment().tz(chronosConfig.timezone);
+                    const period = chronosConfig.farePeriods.BAJO.find(p => TimeHelpers.isTimeBetween(now, p.start, p.end));
+                    return !!period;
                 },
                 boost: 1.5
             },
             
             // Regular status messages
             { 
-                text: (metroCore) => {
+                text: (metroCore, data) => {
                     const status = TimeHelpers.getServiceStatus();
                     return `🕒 ${status.time} | ${status.currentDay}`;
                 },
                 weight: 0.3,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: '👀 Usa /metro info',
                 weight: 0.1,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: '⚠️ Precaución: Se Inicia el Cierre de Puertas',
                 weight: 0.1,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
-                text: (metroCore) => {
+                text: (metroCore, data) => {
                     const station = getRandomStation(metroCore);
                     return station ? `🚉 Próxima Estación: ${station}` : 'Red Metro de Santiago';
                 },
                 weight: 0.2,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             
             // Command prompts
             {
                 text: '🔍 Usa /metro planificar para ver rutas',
                 weight: 0.1,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: 'ℹ️ Usa /estacion info para detalles de estación',
                 weight: 0.1,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: '🚆 Usa /metro tren para ver detalles de los trenes',
                 weight: 0.1,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             
             // Random phrases (lower base weight)
             {
                 text: "🚇 ¡Viaja seguro!",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: () => `⏱️ Horario Metro: ${TimeHelpers.getOperatingHours().opening} a ${TimeHelpers.getOperatingHours().closing}`,
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "💳 Mantén cargada tu Bip!",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "✨ Respeta el cierre de puertas",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🎧 Escucha los anuncios",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🛄 Asegura tus pertenencias",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             }, 
             {
                 text: "🛗 Respeta la preferencia de los Ascensores", 
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🏃 Respeta el Cierre de Puertas",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "😵 NO PUEDO SALIR DE BAQUEDANO",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🚇 Deja bajar antes de subir",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🎒 Sácate la mochila antes de subir al tren",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             },
             {
                 text: "🧘 No te sientes en el piso del tren",
                 weight: 0.05,
-                condition: (metroCore) => TimeHelpers.isWithinOperatingHours()
+                condition: (metroCore, data) => TimeHelpers.isWithinOperatingHours()
             }
         ],
         
         // System messages (high priority but not exclusive)
         systemMessages: [
             {
-                text: (metroCore) => {
-                    const data = metroCore.api.getProcessedData();
+                text: (metroCore, data) => {
                     if (!data) return "🔥 Calentando motores";
                     
                     // Find first line with issues
@@ -189,8 +188,7 @@ const PRESENCE_CONFIG = {
                     return `⚠️ Línea ${problemLine.id.replace('l', '')} con problemas`;
                 },
                 weight: 0.8,
-                condition: (metroCore) => {
-                    const data = metroCore.api.getProcessedData();
+                condition: (metroCore, data) => {
                     if (!data) return false;
                     
                     // Check if any line has issues
@@ -199,8 +197,7 @@ const PRESENCE_CONFIG = {
                 boost: 3.0
             },
             {
-                text: (metroCore) => {
-                    const data = metroCore.api.getProcessedData();
+                text: (metroCore, data) => {
                     if (!data) return 'Me perdí';
                     
                     // Find first station with issues
@@ -214,8 +211,7 @@ const PRESENCE_CONFIG = {
                     return `⚠️ ${problemStation.displayName}${lineId ? ` (L${lineId.replace('l', '')})` : ''} afectada`;
                 },
                 weight: 0.8,
-                condition: (metroCore) => {
-                    const data = metroCore.api.getProcessedData();
+                condition: (metroCore, data) => {
                     if (!data) return false;
                     
                     // Check if any station has issues
@@ -226,8 +222,7 @@ const PRESENCE_CONFIG = {
             {
                 text: '⚠️ Interrupción en la red',
                 weight: 0.8,
-                condition: (metroCore) => {
-                    const data = metroCore.api.getProcessedData();
+                condition: (metroCore, data) => {
                     return data && (
                         Object.values(data.lines).some(l => l.status?.code !== "1") ||
                         Object.values(data.stations).some(s => s.status?.code !== "1")
@@ -252,7 +247,7 @@ function getRandomStation(metroCore) {
     try {
         const data = metroCore.api.getProcessedData();
         if (!data) {
-            console.log("Sin datos de estaciones disponibles");
+            logger.debug("Sin datos de estaciones disponibles");
             return null;
         } 
         const stations = Object.values(data.stations)
@@ -261,7 +256,7 @@ function getRandomStation(metroCore) {
             ? stations[randomInt(0, stations.length)].displayName
             : null;
     } catch (error) {
-        console.error(`Error getting random station: ${error}`);
+        logger.error(`Error getting random station: ${error}`);
         return null;
     }
 }
@@ -274,6 +269,7 @@ function getRandomActivity() {
 
 function buildStatusMessage(metroCore) {
     try {
+        const data = metroCore.api.getProcessedData();
         // Combine all possible messages
         const allMessages = [
             ...PRESENCE_CONFIG.messages.systemMessages,
@@ -282,7 +278,7 @@ function buildStatusMessage(metroCore) {
 
         // Calculate dynamic weights based on conditions and boosts
         const weightedMessages = allMessages.map(msg => {
-            const isActive = !msg.condition || msg.condition(metroCore);
+            const isActive = !msg.condition || msg.condition(metroCore, data);
             const effectiveWeight = isActive ? 
                 (msg.weight * (msg.boost || 1.0)) : 
                 (msg.weight * 0.1); // Reduce weight significantly for inactive messages
@@ -314,7 +310,7 @@ function buildStatusMessage(metroCore) {
         // Fallback
         return 'Red Metro de Santiago';
     } catch (error) {
-        console.error(`Error building status message: ${error}`);
+        logger.error(`Error building status message: ${error}`);
         return 'Red Metro de Santiago';
     }
 }
@@ -340,7 +336,7 @@ function getNetworkStatus(metroCore) {
         }
         return 'online'; // Green status
     } catch (error) {
-        console.error(`Error checking network status: ${error}`);
+        logger.error(`Error checking network status: ${error}`);
         return 'online';
     }
 }

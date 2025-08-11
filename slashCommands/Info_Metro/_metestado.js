@@ -16,8 +16,6 @@ module.exports = {
             // Get and validate raw data
             const allData = metro.api.getProcessedData();
             
-            console.log(metro._combinedData.trains);
-            
             if (!allData || !allData.network) {
                 throw new Error('No se pudo obtener datos del Metro');
             }

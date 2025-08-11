@@ -173,8 +173,6 @@ module.exports = {
                 Object.assign(dayHelper, TimeHelpers);
                 dayHelper.currentTime = eventDate.clone();
                 
-                console.log(nextEvent) 
-                
                 const operatingHours = dayHelper.getOperatingHours();
 
                 // Set main event info

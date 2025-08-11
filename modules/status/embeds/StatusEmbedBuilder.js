@@ -95,12 +95,6 @@ class StatusEmbedBuilder {
                     return metroConfig.linesEmojis[lineKey] || match;
                 }) || line.status?.appMessage || '';
        
-         console.log(TimeHelpers.isExpressActive()) 
-                console.log(metroConfig.expressLines) 
-
-                console.log(line.id)
-               
-                
          const expressIndicator =  TimeHelpers.isExpressActive() && metroConfig.expressLines.includes(line.id.toLowerCase()) ? '🚄 ' : '';
 
       

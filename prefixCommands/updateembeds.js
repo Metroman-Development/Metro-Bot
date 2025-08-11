@@ -24,7 +24,7 @@ module.exports = {
 
                     client: client 
 
-                }); ;
+                });
             
             // console.log(metroCore)
             

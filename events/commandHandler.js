@@ -155,4 +155,4 @@ module.exports = {*/
         const isAdmin = message.member.permissions.has('ADMINISTRATOR');
         return isOwner || isAdmin;
     }
-};/*
+};*/

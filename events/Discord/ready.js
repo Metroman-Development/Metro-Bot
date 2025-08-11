@@ -5,15 +5,22 @@ const logger = require('../logger');
 const { getClient } = require('../../utils/clientManager');
 const { REST, Routes } = require('discord.js');
 const initializePresenceUpdates = require('../presenceUpdater');
+const config = require('../../config/config.json');
 
 module.exports = {
     name: 'ready',
     once : true, 
+    /**
+     * Handles the 'ready' event for the Discord client.
+     * This function initializes the bot's subsystems, deploys slash commands,
+     * and sends a status message to a designated channel.
+     * @param {import('discord.js').Client} client The Discord client instance.
+     */
     async execute(client) {
         client = client || getClient();
         
         logger.info('🚀 Starting bot initialization sequence...');
-        const statusChannel = client.channels.cache.get('1350243847271092295');
+        const statusChannel = client.channels.cache.get(config.statusChannelID);
 
         try {
             // 1. Command Deployment Phase
@@ -78,6 +85,12 @@ module.exports = {
     }
 };
 
+/**
+ * Deploys slash commands to Discord.
+ * It reads the commands from the client's command collection,
+ * formats them for the Discord API, and then sends them.
+ * @param {import('discord.js').Client} client The Discord client instance.
+ */
 async function deploySlashCommands(client) {
     try {
         logger.debug('Compiling slash commands...');
