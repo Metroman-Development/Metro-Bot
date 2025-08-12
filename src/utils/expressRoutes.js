@@ -2,6 +2,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 const metroConfig = require('../config/metroConfig');
 const styles = require('../config/styles.json');
 const { decorateStation, normalize } = require('./stringUtils');
+const expressRoutePaginator = require('../events/interactions/buttons/expressRoutePaginator');
 
 // Utility functions
 function normalizeRoute(route) {
@@ -52,8 +53,35 @@ function getStationsByRoute(lineKey, route) {
         .map(([name]) => name);
 }
 
+function getExpressRoutePage(lineKey, route, page = 0, userId) {
+    const stationsList = getStationsByRoute(lineKey, route);
+    const totalPages = Math.ceil(stationsList.length / 10);
+    const pageStations = stationsList.slice(page * 10, (page + 1) * 10);
+
+    const embed = new EmbedBuilder()
+        .setColor(metroConfig.lineColors[lineKey] || '#5865F2')
+        .setTitle(`Línea ${lineKey.toUpperCase()} - Ruta ${route.toUpperCase()}`)
+        .setDescription(`**Estaciones activas (${stationsList.length}):**\n${pageStations.join(', ')}`)
+        .setFooter({ text: `Página ${page + 1} de ${totalPages}` });
+
+    const buttons = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`${expressRoutePaginator.customIdPrefix}:${JSON.stringify({ action: 'prev', line: lineKey, route, page, userId })}`)
+            .setLabel('Anterior')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(page === 0),
+        new ButtonBuilder()
+            .setCustomId(`${expressRoutePaginator.customIdPrefix}:${JSON.stringify({ action: 'next', line: lineKey, route, page, userId })}`)
+            .setLabel('Siguiente')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(page >= totalPages - 1)
+    );
+
+    return { embed, components: [buttons] };
+}
+
 // Route handling function
-async function handleExpressRoute(interaction, lineKey, route, userId, embedId) {
+async function handleExpressRoute(interaction, lineKey, route, userId) {
     try {
         const stationsList = getStationsByRoute(lineKey, route);
 
@@ -69,11 +97,9 @@ async function handleExpressRoute(interaction, lineKey, route, userId, embedId) 
             });
         }
 
-        const { createRouteEmbed, createRouteButtons } = require('./expressRouteInfo');
-        const { embed } = createRouteEmbed(lineKey, route, stationsList);
-        const buttons = createRouteButtons(lineKey, route, 0, Math.ceil(stationsList.length / 10), userId, embedId);
+        const { embed, components } = getExpressRoutePage(lineKey, route, 0, userId);
 
-        await interaction.editReply({ embeds: [embed], components: buttons });
+        await interaction.editReply({ embeds: [embed], components });
 
     } catch (error) {
         console.error('Error in handleExpressRoute:', error);
@@ -89,5 +115,6 @@ module.exports = {
     normalizeRoute,
     resolveRouteCombination,
     getStationsByRoute,
-    handleExpressRoute
+    handleExpressRoute,
+    getExpressRoutePage,
 };

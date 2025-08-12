@@ -24,9 +24,9 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 
 console.log('[DISCORD] Loading internal modules...');
-const logger = require('./events/logger');
-const loadEvents = require('./events');
-const NewsWatcher = require('./events/NewsWatcher');
+const logger = require('./src/events/logger');
+const loadEvents = require('./src/events');
+const NewsWatcher = require('./src/events/NewsWatcher');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const { setClient } = require('./utils/clientManager');
 const metroConfig = require('./config/metro/metroConfig');
@@ -40,6 +40,10 @@ const discordClient = new Client({
   ]
 });
 console.log('[DISCORD] Discord client instance created.');
+
+// Load interaction handlers
+console.log('[DISCORD] Loading interaction handlers...');
+require('./src/events/interactions/interactionLoader')(discordClient);
 
 
 // =================================================================

@@ -1,7 +1,7 @@
 const path = require('path'); // Import the path module
 const fs = require('fs'); // Import the file system module
-const { createEmbed } = require('../utils/embeds');
-const { getClient } = require('../utils/clientManager'); // Import clientManager to get the client
+const { createEmbed } = require('../../utils/embeds');
+const { getClient } = require('../../utils/clientManager'); // Import clientManager to get the client
 
 const ERROR_CHANNEL_ID = '1350243847271092295'; // Channel ID for error summaries
 const ERROR_LOG_DIR = './errors'; // Directory for error logs
