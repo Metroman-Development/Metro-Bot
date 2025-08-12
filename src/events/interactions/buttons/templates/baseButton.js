@@ -1,5 +1,5 @@
 const { ButtonBuilder, ActionRowBuilder } = require('discord.js');
-const interactionStore = require('../../utils/interactionStore');
+const cacheManager = require('../../../utils/cacheManager');
 
 class BaseButton {
     constructor(config = {}) {
@@ -84,10 +84,10 @@ class BaseButton {
             // Handle cooldowns if configured
             if (this.cooldown > 0) {
                 const cooldownKey = `cooldown_${interaction.user.id}_${this.customIdPrefix}`;
-                if (interactionStore.has(cooldownKey)) {
+                if (cacheManager.has(cooldownKey)) {
                     return this.handleCooldown(interaction);
                 }
-                interactionStore.set(cooldownKey, true, this.cooldown);
+                cacheManager.set(cooldownKey, true, this.cooldown);
             }
 
             // Process the interaction

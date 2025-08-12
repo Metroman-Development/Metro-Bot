@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs').promises;
+const loadJsonFile = require('../../../../src/utils/jsonLoader');
 const styles = require('../../../../config/metro/styles.json');
 const estadoRedTemplate = require('../../../../templates/estadoRed.json');
 
@@ -7,13 +7,12 @@ module.exports = {
   source: 'linesData.json + estadoRedDetalle.php',
   async load() {
     const trainData = await require('./trainLoader').load();
-    const rawLinesData = await this._loadFile('linesData.json');
+    const rawLinesData = this._loadFile('linesData.json');
     return this._transform(rawLinesData, trainData);
   },
 
-  async _loadFile(filename) {
-    const data = await fs.readFile(path.join(__dirname, '../json', filename), 'utf8');
-    return JSON.parse(data);
+  _loadFile(filename) {
+    return loadJsonFile(path.join(__dirname, '../json', filename));
   },
 
   _transform(rawLines, trainData) {

@@ -1,0 +1,201 @@
+Here's comprehensive documentation for your Discord bot's event system architecture:
+
+---
+
+# Discord Event System Documentation
+
+## Directory Structure
+```
+bot/
+├── events/
+│   ├── Discord/            # Discord-specific event handlers
+│   │   ├── ready.js        # Bot initialization handler
+│   │   ├── error.js        # Client error handler
+│   │   └── interaction.js  # Command interaction handler
+│   ├── logger.js           # Logging utility
+│   └── index.js            # Event loader
+└── index.js                # Main application entry
+```
+
+## Core Components
+
+### 1. Event Handler Structure
+Each event file follows this standardized format:
+
+```javascript
+module.exports = {
+    name: '<discord_event_name>', // The Discord.js event name to listen for
+    once: <boolean>,              // Whether to run only once (true) or on every event (false)
+    async execute(...args) {      // Main handler function
+        // Event handling logic
+    }
+}
+```
+
+### 2. Event Loader (`events/index.js`)
+**Responsibilities:**
+- Dynamically loads all event handlers from `events/Discord/`
+- Registers them with the Discord client
+- Provides debug logging for loaded events
+
+**Key Features:**
+```javascript
+// Example registration flow
+client.on(event.name, (...args) => {
+    try {
+        return event.execute(...args);
+    } catch (error) {
+        logger.error(`EVENT_ERROR_${event.name}`, error);
+    }
+});
+```
+
+### 3. Key Event Handlers
+
+#### A. Ready Event (`ready.js`)
+**Initialization Sequence:**
+1. MetroCore (3 retry attempts)
+2. StatusSystem (3 retry attempts)
+3. Background updates
+
+**Error Handling:**
+- Fatal errors exit process
+- Retries log warnings
+- Comprehensive error context
+
+#### B. Error Event (`error.js`)
+**Handles:**
+- Network errors
+- API failures
+- Rate limits
+
+**Logging Includes:**
+- Error stack traces
+- Timestamps
+- Contextual metadata
+
+#### C. Interaction Event (`interaction.js`)
+**Features:**
+- Slash command filtering
+- Command execution
+- Error recovery
+- User feedback
+
+### 4. Lifecycle Management
+
+**Startup Flow:**
+```mermaid
+sequenceDiagram
+    Main->>Client: login()
+    Client->>EventLoader: register all handlers
+    Client->>Ready: on ready
+    Ready->>MetroCore: initialize()
+    MetroCore->>StatusSystem: initialize()
+    StatusSystem->>Client: start updates
+```
+
+**Shutdown Flow:**
+```mermaid
+sequenceDiagram
+    SIGINT->>StatusSystem: shutdown()
+    StatusSystem->>Client: stop updates
+    Client->>Discord: destroy()
+```
+
+## Best Practices
+
+### 1. Adding New Events
+1. Create new file in `events/Discord/`
+2. Export handler configuration:
+   ```javascript
+   module.exports = {
+       name: 'messageCreate',
+       once: false,
+       async execute(message) {
+           // Handler logic
+       }
+   };
+   ```
+3. The loader will automatically register it
+
+### 2. Error Handling Guidelines
+- **Operational Errors**: Use retry logic (network issues)
+- **Programmer Errors**: Crash immediately (invalid config)
+- **Always Include:**
+  ```javascript
+  logger.error('CONTEXT', {
+      error: error.message,
+      stack: error.stack,
+      state: relevantSystemState
+  });
+  ```
+
+### 3. Performance Considerations
+- **Heavy Operations**: Queue in background tasks
+- **Rate Limits**: Implement request queuing
+- **Memory**: Clear caches on shutdown
+
+## Example Usage
+
+### Creating a New Event Handler
+```javascript
+// events/Discord/guildCreate.js
+const logger = require('../../events/logger');
+
+module.exports = {
+    name: 'guildCreate',
+    once: false,
+    async execute(guild) {
+        try {
+            logger.info('GUILD_JOINED', {
+                id: guild.id,
+                name: guild.name,
+                memberCount: guild.memberCount
+            });
+
+            // Initialize guild-specific systems
+            await initializeGuildSystems(guild);
+
+        } catch (error) {
+            logger.error('GUILD_INIT_FAILED', {
+                guild: guild.id,
+                error: error.message
+            });
+        }
+    }
+};
+```
+
+## Troubleshooting
+
+### Common Issues
+| Symptom | Possible Cause | Solution |
+|---------|---------------|----------|
+| Events not triggering | Missing intent | Verify client intents |
+| Handler not running | File naming mismatch | Ensure exact Discord.js event names |
+| Memory leaks | Missing cleanup | Implement shutdown handlers |
+
+### Monitoring
+Recommended logging events:
+1. `EVENT_REGISTERED` - Successful handler binding
+2. `EVENT_PROCESSING` - Start of event handling
+3. `EVENT_COMPLETED` - Successful completion
+4. `EVENT_FAILED` - Error details
+
+---
+
+This documentation covers:
+- Architecture decisions
+- Implementation details
+- Maintenance guidelines
+- Troubleshooting
+- Extension patterns
+
+The system provides:
+✅ Modular event handling
+✅ Resilient initialization
+✅ Comprehensive observability
+✅ Clean resource management
+✅ Straightforward extension
+
+Would you like me to elaborate on any specific aspect or provide implementation examples for particular event types?

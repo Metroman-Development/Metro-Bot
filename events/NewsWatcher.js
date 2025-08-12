@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { EmbedBuilder } = require('discord.js');
 const TimeHelpers = require('../modules/chronos/timeHelpers');
+const loadJsonFile = require('../src/utils/jsonLoader');
 
 module.exports = class NewsWatcher {
     constructor(client, channelId, filePath = './config/news.json') {
@@ -22,8 +23,7 @@ module.exports = class NewsWatcher {
 
     async _checkForUpdates() {
         try {
-            const rawData = await fs.promises.readFile(this.filePath);
-            const newsData = JSON.parse(rawData);
+            const newsData = loadJsonFile(this.filePath);
             
             if (newsData.lastUpdated && newsData.lastUpdated !== this.lastUpdate) {
                 this.lastUpdate = newsData.lastUpdated;

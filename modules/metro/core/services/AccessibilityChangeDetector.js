@@ -1,4 +1,3 @@
-
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +6,7 @@ const { getClient } = require('../../../../utils/clientManager');
 const TimeHelpers = require('../../../chronos/timeHelpers');
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../config/metro/metroConfig');
+const loadJsonFile = require('../../../../src/utils/jsonLoader');
 
 const API_URL = process.env.ACCESSARIEL; // Ensure this is set in your environment
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');
@@ -67,8 +67,7 @@ class AccessibilityChangeDetector {
 
     loadDataFile(filePath, type) {
         try {
-            const rawData = fs.readFileSync(filePath, 'utf8');
-            const data = JSON.parse(rawData);
+            const data = loadJsonFile(filePath);
             
             if (typeof data !== 'object' || data === null) {
                 throw new Error(`Invalid ${type} file structure`);

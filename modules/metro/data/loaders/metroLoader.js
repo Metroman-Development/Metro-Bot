@@ -1,6 +1,6 @@
 // metroLoader.js
 const path = require('path');
-const fs = require('fs').promises;
+const loadJsonFile = require('../../../../src/utils/jsonLoader');
 const styles = require('../../../../config/metro/styles.json');
 
 module.exports = {
@@ -9,13 +9,12 @@ module.exports = {
       
     console.log("Loading Stations Data")
       
-    const rawData = await this._loadFile('metroGeneral.json');
+    const rawData = this._loadFile('metroGeneral.json');
     return this._transform(rawData);
   },
 
-  async _loadFile(filename) {
-    const data = await fs.readFile(path.join(__dirname, '../json', filename), 'utf8');
-    return JSON.parse(data);
+  _loadFile(filename) {
+    return loadJsonFile(path.join(__dirname, '../json', filename));
   },
 
   _transform(data){

@@ -1,7 +1,6 @@
 // trainLoader.js
-// trainLoader.js - Full Unabridged Version
 const path = require('path');
-const fs = require('fs').promises;
+const loadJsonFile = require('../../../../src/utils/jsonLoader');
 
 module.exports = {
   source: 'trainInfo.json + trainImages.json',
@@ -13,9 +12,8 @@ module.exports = {
     return this._transform(info, images);
   },
 
-  async _loadFile(filename) {
-    const data = await fs.readFile(path.join(__dirname, '../json', filename), 'utf8');
-    return JSON.parse(data);
+  _loadFile(filename) {
+    return loadJsonFile(path.join(__dirname, '../json', filename));
   },
 
   _transform(info, images) {

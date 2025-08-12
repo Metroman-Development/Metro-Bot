@@ -1,7 +1,7 @@
 // stationLoader.js
-// stationLoader.js
 const path = require('path');
 const fs = require('fs').promises;
+const loadJsonFile = require('../../../../src/utils/jsonLoader');
 const config = require('../../../../config/metro/metroConfig');
 const styles = require('../../../../config/metro/styles.json');
 const estadoRedTemplate = require('../../../../templates/estadoRed.json');
@@ -94,51 +94,43 @@ module.exports = {
   },
 
   async _loadAccessDetails() {
-  const accessDir = path.join(__dirname, '../json/accessDetails');
-  try {
-    const files = await fs.readdir(accessDir);
-    const accessFiles = files.filter(file => file.startsWith('access_') && file.endsWith('.json'));
-    
-    // Initialize caches if they don't exist
-    this._accessDetailsCache = this._accessDetailsCache || {};
-    this._lineSpecificAccessCache = this._lineSpecificAccessCache || {};
-    
-    await Promise.all(accessFiles.map(async file => {
+      const accessDir = path.join(__dirname, '../json/accessDetails');
       try {
-        const content = await fs.readFile(path.join(accessDir, file), 'utf8');
-        const data = JSON.parse(content);
-        
-        if (!data.station) {
-          console.error(`Access file ${file} is missing station property`);
-          return;
-        }
-        
-        const lineFromFilename = this._extractLineFromFilename(file);
-        if (!lineFromFilename) {
-          console.error(`Could not extract line from filename: ${file}`);
-          return;
-        }
-          
-   //       console.log(file, lineFromFilename) 
-        
-        // Store with line-specific key (from filename)
-        const lineSpecificKey = this._normalizeName(`${data.station}_${lineFromFilename}`);
-          
-          //console.log(lineSpecificKey) 
-        this._lineSpecificAccessCache[lineSpecificKey] = data;
-        
-        // Also store under base name for backward compatibility
-        const baseKey = this._normalizeName(data.station);
-        this._accessDetailsCache[baseKey] = data;
+          const files = await fs.readdir(accessDir);
+          const accessFiles = files.filter(file => file.startsWith('access_') && file.endsWith('.json'));
+
+          this._accessDetailsCache = this._accessDetailsCache || {};
+          this._lineSpecificAccessCache = this._lineSpecificAccessCache || {};
+
+          await Promise.all(accessFiles.map(async file => {
+              try {
+                  const data = loadJsonFile(path.join(accessDir, file));
+
+                  if (!data.station) {
+                      console.error(`Access file ${file} is missing station property`);
+                      return;
+                  }
+
+                  const lineFromFilename = this._extractLineFromFilename(file);
+                  if (!lineFromFilename) {
+                      console.error(`Could not extract line from filename: ${file}`);
+                      return;
+                  }
+
+                  const lineSpecificKey = this._normalizeName(`${data.station}_${lineFromFilename}`);
+                  this._lineSpecificAccessCache[lineSpecificKey] = data;
+
+                  const baseKey = this._normalizeName(data.station);
+                  this._accessDetailsCache[baseKey] = data;
+              } catch (error) {
+                  console.error(`Error loading access file ${file}:`, error);
+              }
+          }));
       } catch (error) {
-        console.error(`Error loading access file ${file}:`, error);
+          console.error('Error accessing accessDetails directory:', error);
+          throw error;
       }
-    }));
-  } catch (error) {
-    console.error('Error accessing accessDetails directory:', error);
-    throw error;
-  }
-},
+  },
 
 
     _extractLineFromFilename(filename) {
@@ -389,13 +381,7 @@ module.exports = {
     } : { transports: [], bikes: [] };
   },
 
-  async _loadFile(filename) {
-    try {
-      const data = await fs.readFile(path.join(__dirname, '../json', filename), 'utf8');
-      return JSON.parse(data);
-    } catch (error) {
-      console.error(`Error loading file ${filename}:`, error);
-      throw error;
-    }
+  _loadFile(filename) {
+    return loadJsonFile(path.join(__dirname, '../json', filename));
   }
 };

@@ -1,5 +1,4 @@
 const { Events } = require('discord.js');
-const interactionHandler = require('../../modules/interactions/interactionHandler');
 const logger = require('../logger');
 
 /**
@@ -24,9 +23,22 @@ module.exports = {
                     return;
                 }
                 await command.execute(interaction);
-            } else if (interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit() || interaction.isContextMenuCommand()) {
-                // For other interactions, delegate to the interactionHandler module.
-                return interactionHandler.execute(interaction);
+            } else if (interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit()) {
+                // New interaction handling system based on customId prefixes
+                const { customId } = interaction;
+                if (!customId) {
+                    logger.warn('Interaction has no customId:', interaction);
+                    return;
+                }
+
+                // Find the handler whose prefix matches the start of the customId
+                for (const [prefix, handler] of client.interactionHandlers.entries()) {
+                    if (customId.startsWith(prefix)) {
+                        return handler.execute(interaction);
+                    }
+                }
+
+                logger.warn(`No interaction handler found for customId: ${customId}`);
             }
         } catch (error) {
             logger.error('Error executing interaction:', {
