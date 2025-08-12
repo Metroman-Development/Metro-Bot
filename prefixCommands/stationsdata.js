@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs').promises;
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
 const stationLoader = require('../modules/metro/data/loaders/stationLoader');
+const loadJsonFile = require('../src/utils/jsonLoader');
 
 module.exports = {
     name: 'stationsdata',
@@ -29,7 +30,7 @@ module.exports = {
             if (!action) return this.showHelp(message);
 
             // Cargar datos actuales
-            const rawData = JSON.parse(await fs.readFile(path.join(__dirname, '../modules/metro/data/json/stationsData.json'), 'utf8'));
+            const rawData = loadJsonFile(path.join(__dirname, '../modules/metro/data/json/stationsData.json'));
             
             switch (action.toLowerCase()) {
                 case 'listar':

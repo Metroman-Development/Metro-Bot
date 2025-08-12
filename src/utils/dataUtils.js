@@ -1,0 +1,185 @@
+/**
+ * @module dataUtils
+ * @description Provides utilities for loading, caching, and accessing unified station data.
+ */
+
+const path = require('path');
+const fs = require('fs');
+const { normalize } = require('./stringUtils');
+const { getCachedMetroData } = require('../events/metroDataHandler');
+const { getClient } = require('./clientManager');
+const logger = require('../events/logger');
+const loadJsonFile = require('./jsonLoader');
+
+/**
+ * @property {object|null} cachedStationData - In-memory cache for station data.
+ * @private
+ */
+let cachedStationData = null;
+
+/**
+ * Loads and processes station data from multiple JSON sources, unifying them into a single structure.
+ * This function should be called at startup to initialize the station data cache.
+ * @returns {boolean} True if data was loaded successfully, false otherwise.
+ */
+function loadStationData() {
+    const client = getClient(); // Get the client object
+
+    try {
+        const stationsPath = path.join(__dirname, '../data/stations.json');
+        const detailsPath = path.join(__dirname, '../data/stationsData.json');
+
+        // Read and parse JSON files
+        const rawStations = loadJsonFile(stationsPath);
+        const rawDetails = loadJsonFile(detailsPath);
+        const metroData = getCachedMetroData();
+
+        // Check if metroData is valid
+        if (!metroData || typeof metroData !== 'object') {
+            throw new Error('Metro data is invalid or not loaded.');
+        }
+
+        // Initialize cachedStationData
+        cachedStationData = {
+            stations: {},
+            normalizedMap: new Map(),
+            codeMap: new Map(),
+            routeMap: new Map(),
+        };
+
+        // Process all lines and stations from metroData
+        Object.entries(metroData).forEach(([lineKey, lineData]) => {
+            const lineNumber = lineKey.match(/l(\d+[a-z]*)/i)?.[1]?.toLowerCase();
+            if (!lineNumber) return;
+
+            // Check if lineData.estaciones exists and is an array
+            if (!Array.isArray(lineData.estaciones)) {
+                logger.warn(client, `Line ${lineKey} has no stations or estaciones is not an array.`);
+                return;
+            }
+
+            lineData.estaciones.forEach(metroStation => {
+                const stationName = metroStation.nombre; // Use exact name from metroData
+
+                console.log(stationName);
+                const normalizedName = normalize(stationName);
+
+                // Get static data from stations.json
+                const staticData = rawStations[lineKey]?.[stationName] || {};
+                const route = staticData.ruta || 'Estándar'; // Fallback to 'Estándar' if no route is specified
+
+                // Get details from stationsData.json
+                const detailsEntry = rawDetails.stationsData?.[normalizedName.toLowerCase()] || [];
+                const schematics = rawDetails.stationsSchematics?.[normalizedName.toLowerCase()] || [];
+
+                // Build unified station object
+                const station = {
+                    original: stationName,
+                    normalized: normalizedName,
+                    line: lineNumber,
+                    code: metroStation.codigo,
+
+                   transfer: metroStation.combinacion?.match(/l(\d+[a-z]*)/i)?.[1] || null,
+                    route: route,
+                    details: {
+                        schematics: schematics,
+                        services: detailsEntry[1]?.split(', ') || [],
+                        accessibility: detailsEntry[2] || 'Sin información',
+                        amenities: detailsEntry[4]?.split(', ') || [],
+                        municipality: detailsEntry[6] || 'Desconocido',
+                    },
+                    status: {
+                        code: metroStation.estado || '0',
+                        description: metroStation.descripcion_app || 'Estado desconocido',
+                        message: metroStation.mensaje || '',
+                    },
+                };
+
+                // Add to data structures
+                cachedStationData.stations[stationName] = station;
+                cachedStationData.normalizedMap.set(normalizedName, stationName);
+
+                // Map station code if available
+                if (metroStation.codigo) {
+                    cachedStationData.codeMap.set(metroStation.codigo.toLowerCase(), stationName);
+                }
+
+                // Add to route map
+                if (!cachedStationData.routeMap.has(route)) {
+                    cachedStationData.routeMap.set(route, new Set());
+                }
+                cachedStationData.routeMap.get(route).add(stationName);
+            });
+        });
+
+        logger.info(client, `Loaded ${Object.keys(cachedStationData.stations).length} stations with unified data`);
+        return true;
+    } catch (error) {
+        logger.error(client, `Data unification failed: ${error.message}`);
+        return false;
+    }
+}
+
+/**
+ * Retrieves a station's data by its identifier (name, code, or normalized name).
+ * @param {string} identifier - The station's name, code, or normalized name.
+ * @returns {object|null} The station object, or null if not found.
+ */
+function getStation(identifier) {
+    const client = getClient();
+    if (!cachedStationData) {
+        logger.warn(client, 'Station data is not loaded. Call loadStationData() first.');
+        return null;
+    }
+
+
+    logger.info(identifier) ;
+
+    // Try direct match first
+    if (cachedStationData.stations[identifier]) return cachedStationData.stations[identifier];
+
+    console.log("Búsqueda Extensiva");
+
+    // Try station code lookup
+    const byCode = cachedStationData.codeMap.get(identifier.toLowerCase());
+    if (byCode) return cachedStationData.stations[byCode];
+
+    // Try normalized name lookup
+    const normalized = normalize(identifier);
+    const byNormalized = cachedStationData.normalizedMap.get(normalized);
+    return cachedStationData.stations[byNormalized];
+}
+
+/**
+ * Retrieves all stations belonging to a specific route.
+ * @param {string} route - The route identifier (e.g., 'Roja', 'Verde').
+ * @returns {Array<object>} An array of station objects on the specified route.
+ */
+function getStationsByRoute(route) {
+    if (!cachedStationData) {
+        logger.warn(getClient(), 'Station data is not loaded. Call loadStationData() first.');
+        return [];
+    }
+    return Array.from(cachedStationData.routeMap.get(route) || []).map(name =>
+        cachedStationData.stations[name]
+    );
+}
+
+/**
+ * Retrieves all loaded station data.
+ * @returns {object} An object containing all station data, keyed by station name.
+ */
+function getAllStations() {
+    if (!cachedStationData) {
+        logger.warn(getClient(), 'Station data is not loaded. Call loadStationData() first.');
+        return {};
+    }
+    return cachedStationData.stations;
+}
+
+module.exports = {
+    loadStationData,
+    getStation,
+    getStationsByRoute,
+    getAllStations,
+};

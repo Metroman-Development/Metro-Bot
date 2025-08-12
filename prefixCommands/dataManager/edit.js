@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { createEmbed } = require('../../utils/embeds');
 const { baseDir } = require('../../config/config.json');
-const { safeReadFile } = require('../../utils/fileUtils');
+const { safeReadFile } = require('../../src/utils/fileUtils');
 const { confirmAction } = require('../../utils/utils');
 
 async function handleEdit(message, methods) {

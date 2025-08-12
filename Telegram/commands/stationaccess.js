@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs').promises;
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const loadJsonFile = require('../../src/utils/jsonLoader');
 
 // MetroCore instance (singleton pattern)
 let metroCoreInstance = null;
@@ -92,8 +93,7 @@ function getConfigPath(stationKey, linekey) {
 async function getAccessConfig(stationKey, lineKey) {
     const configPath = getConfigPath(stationKey, lineKey);
     try {
-        const data = await fs.readFile(configPath, 'utf8');
-        const config = JSON.parse(data);
+        const config = loadJsonFile(configPath);
 
         // Ensure all required fields exist
         config.accesses = config.accesses?.map(access => ({
@@ -121,7 +121,7 @@ async function getAccessConfig(stationKey, lineKey) {
         
         return config;
     } catch (error) {
-        if (error.code === 'ENOENT') {
+        if (error.message.includes('File not found')) {
             return {
                 elevators: [],
                 escalators: [],

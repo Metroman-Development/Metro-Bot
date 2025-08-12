@@ -2,6 +2,7 @@ const { Markup, session } = require('telegraf');
 const MetroCore = require('../../modules/metro/core/MetroCore');
 const path = require('path');
 const fs = require('fs').promises;
+const loadJsonFile = require('../../src/utils/jsonLoader');
 
 // Configuration
 const ADMIN_USER_ID = 6566554074; // Your admin user ID
@@ -48,10 +49,10 @@ function clearSession(ctx) {
 // Helper functions
 async function loadOverrides() {
     try {
-        const data = await fs.readFile(OVERRIDES_FILE, 'utf8');
-        return JSON.parse(data);
+        const data = loadJsonFile(OVERRIDES_FILE);
+        return data;
     } catch (error) {
-        if (error.code === 'ENOENT') {
+        if (error.message.includes('File not found')) {
             return { lines: {}, stations: {} };
         }
         throw error;

@@ -78,7 +78,7 @@ class ImageProcessor {
     static async _getLineFallbackImage(stationName, options) {
         try {
             const line = this._extractLineCode(stationName);
-            const lineImageUrl = `https://www.metro.cl/images/lines/line-${line}.png`;
+    const lineImageUrl = `https://es.m.wikipedia.org/wiki/Archivo:Linea_5_Metro_de_Santiago_mapa.png`;
             
             const response = await axios.get(lineImageUrl, {
                 responseType: 'arraybuffer',
@@ -102,25 +102,48 @@ class ImageProcessor {
     }
 
     static async _getImageBuffer(source, options) {
-        try {
-            if (Buffer.isBuffer(source)) {
-                return options.isPdf 
-                    ? await this._pdfToBuffer(source, options.pageNumber) 
-                    : source;
-            }
-            if (typeof source === 'string' && source.startsWith('http')) {
-                const response = await axios.get(source, {
-                    responseType: 'arraybuffer',
-                    timeout: 5000
-                });
-                return Buffer.from(response.data);
-            }
-            return null;
-        } catch (error) {
-            console.error('Buffer fetch failed:', error.message);
-            return null;
+    try {
+        if (Buffer.isBuffer(source)) {
+            return options.isPdf
+                ? await this._pdfToBuffer(source, options.pageNumber)
+                : source;
         }
+
+        if (typeof source === 'string' && source.startsWith('http')) {
+            // Clean URL and detect SVG
+            const cleanUrl = source.split('?')[0];
+            const isSvg = cleanUrl.toLowerCase().endsWith('.svg');
+
+            // Fetch with appropriate headers
+            const response = await axios.get(cleanUrl, {
+                responseType: 'arraybuffer',
+                timeout: 5000,
+                validateStatus: (status) => status === 200,
+                headers: isSvg ? { 'Accept': 'image/svg+xml' } : {}
+            });
+
+            let buffer = Buffer.from(response.data);
+
+            // Convert SVG to PNG if needed
+            if (isSvg) {
+                buffer = await sharp(buffer)
+                    .flatten({ background: '#ffffff' })
+                    .resize(options.resize?.width || 800, options.resize?.height || 600, {
+                        fit: 'contain',
+                        background: '#ffffff'
+                    })
+                    .png()
+                    .toBuffer();
+            }
+
+            return buffer;
+        }
+        return null;
+    } catch (error) {
+        console.error('Buffer fetch failed:', error.message);
+        return null;
     }
+}
 
     static _extractLineCode(stationName) {
         const match = stationName.match(/(L\d+[a-z]?)$/i);
