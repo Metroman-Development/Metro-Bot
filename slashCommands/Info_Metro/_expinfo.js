@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const ExpresoButton = require('../../modules/interactions/buttons/ExpresoButton');
-
-const expresoButton = new ExpresoButton();
+const expressButtonsHandler = require('../../../src/events/interactions/buttons/expressButtons');
 
 module.exports = {
     parentCommand: 'expreso',
@@ -22,9 +20,8 @@ module.exports = {
     async execute(interaction, metro) {
         try {
             await interaction.deferReply();
-            const lineValue = interaction.options.getString('linea');
-            const message = await expresoButton.build(lineValue, metro);
-            await interaction.editReply(message);
+            const messagePayload = await expressButtonsHandler.build(interaction, metro);
+            await interaction.editReply(messagePayload);
         } catch (error) {
             console.error('Expreso info command failed:', error);
             await interaction.editReply({
