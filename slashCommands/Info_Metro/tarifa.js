@@ -4,6 +4,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const tarifaActual = require('./_mtactual');
 const tarifaHorarios = require('./_mthorarios');
 const tarifaDiferenciada = require('./_mtdiferenciada');
+const tarifaVer = require('./_mtver');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +12,8 @@ module.exports = {
         .setDescription('Información sobre tarifas del Metro')
         .addSubcommand(subcommand => tarifaActual.data(subcommand))
         .addSubcommand(subcommand => tarifaHorarios.data(subcommand))
-        .addSubcommand(subcommand => tarifaDiferenciada.data(subcommand)),
+        .addSubcommand(subcommand => tarifaDiferenciada.data(subcommand))
+        .addSubcommand(subcommand => tarifaVer.data(subcommand)),
 
     category: "Metro Info",
 
@@ -26,6 +28,8 @@ module.exports = {
                     return tarifaHorarios.execute(interaction);
                 case 'diferenciada':
                     return tarifaDiferenciada.execute(interaction);
+                case 'ver':
+                    return tarifaVer.execute(interaction);
                 default:
                     return interaction.reply({
                         content: '⚠️ Subcomando no reconocido',

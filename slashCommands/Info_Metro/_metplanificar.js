@@ -1,15 +1,9 @@
-// File: metro.js
-// File: _metplanificar.js
-// File: metro.js
-// File: _metplanificar.js
-// File: metro.js
-// File: _metplanificar.js
-// File: _metplanificar.js
-const { SlashCommandBuilder, EmbedBuilder, Collection } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const SearchCore = require('../../modules/metro/search/SearchCore');
 const RoutePlanner = require('../../modules/metro/RoutePlanner');
-const RouteButton = require('../../modules/interactions/buttons/RouteButton');
+const routeButtonsHandler = require('../../../src/events/interactions/buttons/routeButtons');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const { Collection } = require('discord.js');
 
 const cooldowns = new Collection();
 
@@ -62,7 +56,6 @@ module.exports = {
 
     async execute(interaction, metro) {
         try {
-            // Cooldown check
             const userId = interaction.user.id;
             const cooldownAmount = 10_000;
 
@@ -71,7 +64,7 @@ module.exports = {
                 if (Date.now() < expirationTime) {
                     const timeLeft = (expirationTime - Date.now()) / 1000;
                     return interaction.reply({
-                        content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos antes de usar este comando nuevamente.`,
+                        content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos.`,
                         ephemeral: true
                     });
                 }
@@ -80,29 +73,8 @@ module.exports = {
             cooldowns.set(userId, Date.now());
             setTimeout(() => cooldowns.delete(userId), cooldownAmount);
 
-            const discreteMode = interaction.options.getBoolean('discreto') || false;
-
-            // Send initial loading message for all users
-            const loadingMessage = await interaction.reply({
-                content: '🔄 Calculando ruta...',
-                ephemeral: discreteMode,
-                fetchReply: true
-            });
-
-            // Wait a moment before processing (for better UX)
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
-            // Delete the loading message only in discrete mode
-         /*   if (discreteMode) {
-                await interaction.deleteReply().catch(console.error);*/
+            await interaction.deferReply({ ephemeral: interaction.options.getBoolean('discreto') || false });
             
-
-            // Now defer the real reply (ephemeral only in discrete mode)
-            
-                await interaction.editReply({ content: '🔄 Procesando ruta...' });
-            
-            
-            // Process the route request
             const originId = interaction.options.getString('origen');
             const destinationId = interaction.options.getString('destino');
             const farePeriod = interaction.options.getString('periodo');
@@ -117,24 +89,13 @@ module.exports = {
             
             const routes = await RoutePlanner.getRoutes(origin.id, destination.id, farePeriod);
             if (!routes || routes.length === 0) {
-                return interaction.editReply({
-                    content: '❌ No se encontraron rutas disponibles para este viaje.',
-                    ephemeral: true
-                });
+                return interaction.editReply({ content: '❌ No se encontraron rutas.', ephemeral: true });
             }
             
             const routeData = {
                 id: `${origin.id}-${destination.id}-${Date.now()}`,
-                origin: {
-                    id: origin.id,
-                    name: origin.displayName,
-                    line: origin.line
-                },
-                destination: {
-                    id: destination.id,
-                    name: destination.displayName,
-                    line: destination.line
-                },
+                origin: { id: origin.id, name: origin.displayName, line: origin.line },
+                destination: { id: destination.id, name: destination.displayName, line: destination.line },
                 farePeriod,
                 options: {
                     fastest: routes[0],
@@ -147,31 +108,25 @@ module.exports = {
                 routeData.options.balanced = routes[Math.floor(routes.length / 2)];
             }
             
-            const routeButton = new RouteButton();
-            const message = await routeButton.build(routeData, metro);
+            const context = {
+                route: routeData,
+                metroData: metro.api.getProcessedData(),
+                staticData: metro._staticData
+            };
+
+            const message = await routeButtonsHandler.build(interaction, context);
             
             await interaction.editReply(message);
             
         } catch (error) {
             console.error('Error en comando planificar:', error);
-            await interaction.editReply({
-                content: '❌ Ocurrió un error al planificar el viaje. Por favor intenta nuevamente.',
-                ephemeral: true
-            });
+            await interaction.editReply({ content: '❌ Error al planificar el viaje.', ephemeral: true });
         }
     },
     
     async _validateStation(stationId, searcher, type) {
-        const results = await searcher.search(stationId, {
-            maxResults: 1,
-            needsOneMatch: true
-        });
-        
-        if (!results?.length) {
-            throw new Error(`No se encontró la estación de ${type}`);
-        }
-        
+        const results = await searcher.search(stationId, { maxResults: 1, needsOneMatch: true });
+        if (!results?.length) throw new Error(`Estación de ${type} no encontrada.`);
         return results[0];
     }
 };
-

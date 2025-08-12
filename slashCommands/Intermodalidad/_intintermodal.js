@@ -1,8 +1,5 @@
-// _intintermodal.js
-// _intintermodal.js
-// _intintermodal.js
 const { SlashCommandBuilder } = require('discord.js');
-const IntermodalButton = require('../../modules/interactions/buttons/IntermodalButton');
+const intermodalButtonsHandler = require('../../../src/events/interactions/buttons/intermodalButtons');
 
 module.exports = {
     parentCommand: 'intermodalidad',
@@ -40,8 +37,11 @@ module.exports = {
                 });
             }
 
-            const buttonHandler = new IntermodalButton();
-            const response = await buttonHandler.buildInitialView(stationInfo, stationName);
+            // Add the station name to the info object for the embed builder
+            stationInfo.name = stationName;
+            stationInfo.id = normalizedId;
+
+            const response = await intermodalButtonsHandler.build(interaction, stationInfo);
             await interaction.editReply(response);
         } catch (error) {
             console.error('Error en /intermodal:', error);
