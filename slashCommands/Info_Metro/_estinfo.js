@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const SearchCore = require('../../modules/metro/search/SearchCore');
-const StationInfoButton = require('../../modules/interactions/buttons/StationInfoButton');
+const { buildStationInfoReply } = require('../../src/events/interactions/buttons/stationInfoButton');
 
 /**
  * @file Subcommand for the 'estacion' command, providing general information about a station.
@@ -64,8 +64,7 @@ module.exports = {
             }
 
             // Create and send the station information message.
-            const stationButton = new StationInfoButton();
-            const message = await stationButton.build(station, metro);
+            const message = buildStationInfoReply(station, metro, interaction.user.id);
             
             await interaction.editReply(message);
 
