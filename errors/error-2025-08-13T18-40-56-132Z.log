@@ -1,0 +1,9 @@
+[2025-08-13T18-40-56-132Z] ERROR:
+Name: Error
+Message: DatabaseCache initialization failed: Database connection timeout
+Stack:
+Error: DatabaseCache initialization failed: Database connection timeout
+    at Object.error (/app/src/events/logger.js:154:27)
+    at DatabaseCache.initialize (/app/src/core/cache/adapters/DatabaseCache.js:22:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
