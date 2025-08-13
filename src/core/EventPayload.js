@@ -1,6 +1,7 @@
 // core/EventPayload.js
 
 const EventValidator = require('./EventValidator');
+const TimeHelpers = require('./chronos/timeHelpers');
 
 class EventPayload {
     /**
@@ -11,7 +12,7 @@ class EventPayload {
      */
     constructor(eventType, data = {}, metadata = {}) {
         this.type = eventType;
-        this.timestamp = new Date().toISOString();
+        this.timestamp = TimeHelpers.currentTime.toISOString();
         this.data = data;
         this.metadata = {
             source: 'unknown',

@@ -75,9 +75,9 @@ class TimeHelpers {
         }
     }
 
-    static getDayType(date = new Date()) {
+    static getDayType(date) {
         try {
-            const time = moment(date).tz(config.timezone);
+            const time = date ? moment(date).tz(config.timezone) : this.currentTime;
             const dateStr = time.format('YYYY-MM-DD');
 
             if (config.festiveDays && config.festiveDays.includes(dateStr)) {
@@ -93,19 +93,20 @@ class TimeHelpers {
         }
     }
 
-    static isWeekday(date = new Date()) {
-        const day = moment(date).tz(config.timezone).day();
+    static isWeekday(date) {
+        const time = date ? moment(date).tz(config.timezone) : this.currentTime;
+        const day = time.day();
         return day >= 1 && day <= 5;
     }
 
-    static getCurrentPeriod(date = new Date()) {
+    static getCurrentPeriod(date) {
         try {
-            const time = moment(date).tz(config.timezone);
+            const time = date ? moment(date).tz(config.timezone) : this.currentTime;
             const timeStr = time.format('HH:mm');
-            const dayType = this.getDayType(date);
+            const dayType = this.getDayType(time.toDate());
             const schedule = this.getScheduleConfig()[dayType];
 
-            if (this.isSpecialEventActive(date)) {
+            if (this.isSpecialEventActive(time.toDate())) {
                 return { type: 'EVENT', name: 'Evento Especial' };
             }
 
@@ -122,11 +123,11 @@ class TimeHelpers {
         }
     }
 
-    static isSpecialEventActive(date = new Date()) {
+    static isSpecialEventActive(date) {
         try {
             if (!config.events || !Array.isArray(config.events)) return false;
 
-            const now = moment(date).tz(config.timezone);
+            const now = date ? moment(date).tz(config.timezone) : this.currentTime;
             return config.events.some(event => {
                 if (!event.date || !event.startTime || !event.endTime) return false;
 
@@ -141,10 +142,10 @@ class TimeHelpers {
         }
     }
 
-    static isWithinOperatingHours(date = new Date()) {
+    static isWithinOperatingHours(date) {
         try {
-            const now = moment(date).tz(config.timezone);
-            const operatingHours = this.getOperatingHours(this.getDayType(date));
+            const now = date ? moment(date).tz(config.timezone) : this.currentTime;
+            const operatingHours = this.getOperatingHours(this.getDayType(now.toDate()));
             return this.isTimeBetween(now, operatingHours.opening, operatingHours.closing);
         } catch (error) {
             logger.error('Failed to check if within operating hours:', error);

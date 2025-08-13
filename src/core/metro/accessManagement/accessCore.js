@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
+const TimeHelpers = require('../../chronos/timeHelpers');
 
 class AccessCore {
     constructor() {
@@ -128,7 +129,7 @@ class AccessCore {
             // Ensure all accesses have required fields
             config.accesses = config.accesses?.map(access => ({
                 status: 'abierto',
-                lastUpdated: new Date().toISOString(),
+                lastUpdated: TimeHelpers.currentTime.toISOString(),
                 notes: '',
                 ...access
             })) || [];
@@ -136,7 +137,7 @@ class AccessCore {
             // Ensure all elevators have required fields
             config.elevators = config.elevators?.map(elevator => ({
                 status: 'operativa',
-                lastUpdated: new Date().toISOString(),
+                lastUpdated: TimeHelpers.currentTime.toISOString(),
                 notes: '',
                 ...elevator
             })) || [];
@@ -144,7 +145,7 @@ class AccessCore {
             // Ensure all escalators have required fields
             config.escalators = config.escalators?.map(escalator => ({
                 status: 'operativa',
-                lastUpdated: new Date().toISOString(),
+                lastUpdated: TimeHelpers.currentTime.toISOString(),
                 notes: '',
                 ...escalator
             })) || [];
@@ -254,7 +255,7 @@ class AccessCore {
                 ).join('\\n');
             }
 
-            statusText += `\\n-# Última Actualización ${new Date().toLocaleString('es-CL')}`;
+            statusText += `\\n-# Última Actualización ${TimeHelpers.currentTime.format('DD-MM-YYYY HH:mm:ss')}`;
 
             data.stationsData[stationKey][2] = statusText;
             await fs.writeFile(mainDataPath, JSON.stringify(data, null, 2), 'utf8');
