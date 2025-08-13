@@ -34,14 +34,15 @@ class StationManager {
     }
 
     _normalizeStation(station, id) {
+        const safeStation = station || {};
         return {
             id: id,
-            name: station.name.toUpperCase() || 'Unknown Station',
-            line: station.line || 'UNK',
-            status: station.status || { code: '0', message: 'Status unknown' },
-            coordinates: station.coordinates || { lat: 0, lng: 0 },
-            facilities: station.facilities || [],
-            metadata: station.metadata || {}
+            name: (safeStation.name || 'Unknown Station').toUpperCase(),
+            line: safeStation.line || 'UNK',
+            status: safeStation.status || { code: '0', message: 'Status unknown' },
+            coordinates: safeStation.coordinates || { lat: 0, lng: 0 },
+            facilities: safeStation.facilities || [],
+            metadata: safeStation.metadata || {}
         };
     }
 
