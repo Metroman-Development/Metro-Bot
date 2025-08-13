@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const logger = require('../../../../events/logger');
 const moment = require('moment-timezone');
+const TimeHelpers = require('../../../../core/chronos/timeHelpers');
 const util = require('util');
 const { inspect } = require('util');
 
@@ -427,7 +428,7 @@ module.exports = {
                 status: 'Unknown',
                 lines: { total: 0, operational: 0 },
                 stations: { total: 0, operational: 0 },
-                lastUpdated: new Date()
+                lastUpdated: TimeHelpers.currentTime.toDate()
             };
         }
     },
@@ -471,7 +472,7 @@ module.exports = {
             await message.channel.sendTyping();
             
             embed.setFooter({ 
-                text: `Metro System • ${new Date().toLocaleTimeString()}`,
+                text: `Metro System • ${TimeHelpers.currentTime.format('HH:mm:ss')}`,
                 iconURL: 'https://cdn.discordapp.com/attachments/1326594661003034635/135259880988161842/logo_metro_versiones-04.jpg'
             });
             

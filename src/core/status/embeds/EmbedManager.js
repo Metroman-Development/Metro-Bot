@@ -1,6 +1,7 @@
 // modules/status/EmbedManager.js
 const logger = require('../../../events/logger');
 const StatusEmbeds = require('../../../config/statusEmbeds');
+const TimeHelpers = require('../../chronos/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
@@ -189,7 +190,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
             const embed = StatusEmbeds.overviewEmbed(
                 rawLines,
-                new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })
+                TimeHelpers.currentTime.format('HH:mm')
             );
 
             const message = this.embedMessages.get('overview');
@@ -252,7 +253,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             const embed = StatusEmbeds.lineEmbed(
                 lineKey,
                 rawLineData,
-                new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })
+                TimeHelpers.currentTime.format('HH:mm')
             );
             
             const message = this.embedMessages.get(lineKey);
@@ -308,7 +309,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             network: data.network || {},
             lines: data.lines || {},
             stations: data.stations || {},
-            lastUpdated: data.lastUpdated || new Date().toISOString()
+            lastUpdated: data.lastUpdated || TimeHelpers.currentTime.toISOString()
         };
     }
 

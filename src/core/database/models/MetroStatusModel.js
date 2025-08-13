@@ -1,3 +1,5 @@
+const TimeHelpers = require('../../chronos/timeHelpers');
+
 class MetroStatusModel {
     constructor(db) {
         this.db = db;
@@ -35,7 +37,7 @@ class MetroStatusModel {
                     statusData.status,
                     JSON.stringify(statusData.lines),
                     JSON.stringify(statusData.stations),
-                    new Date()
+                    TimeHelpers.currentTime.toDate()
                 ]
             );
 

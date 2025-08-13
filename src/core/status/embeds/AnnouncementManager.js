@@ -117,7 +117,7 @@ class AnnouncementManager {
                     }
                 )
                 .setFooter({ 
-                    text: `Inicializado: ${TimeHelpers.formatDateTime(new Date())}` 
+                    text: `Inicializado: ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
                 });
 
             return await this._sendSafeEmbed(embed, 'initial');
@@ -152,7 +152,7 @@ class AnnouncementManager {
                     }
                 )
                 .setFooter({ 
-                    text: `Actualizado: ${TimeHelpers.formatDateTime(new Date())}` 
+                    text: `Actualizado: ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
                 });
 
             return await this._sendSafeEmbed(embed, 'express');
@@ -182,7 +182,7 @@ class AnnouncementManager {
                     }
                 )
                 .setFooter({ 
-                    text: `Actualizado: ${TimeHelpers.formatDateTime(new Date())}` 
+                    text: `Actualizado: ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
                 });
 
             return await this._sendSafeEmbed(embed, 'service');
@@ -216,7 +216,7 @@ class AnnouncementManager {
                     }
                 )
                 .setFooter({ 
-                    text: `Evento ${isStarting ? 'iniciado' : 'finalizado'} el ${TimeHelpers.formatDateTime(new Date())}` 
+                    text: `Evento ${isStarting ? 'iniciado' : 'finalizado'} el ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
                 });
 
             return await this._sendSafeEmbed(embed, 'event');
@@ -245,7 +245,7 @@ class AnnouncementManager {
             
           this.lastAnnouncement = { 
                 type, 
-                time: new Date(), 
+                time: TimeHelpers.currentTime.toDate(),
                 message,
                 severity 
             };} 
@@ -279,7 +279,7 @@ class AnnouncementManager {
             .setColor(this._statusColors.critical)
             .setDescription(msg.message || 'Ocurrió un error no especificado')
             .setFooter({ 
-                text: `Error ocurrido: ${TimeHelpers.formatDateTime(new Date())}` 
+                text: `Error ocurrido: ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
             });
         
         await this._sendSafeEmbed(embed, 'error', 'critical');
@@ -292,7 +292,7 @@ class AnnouncementManager {
             .setDescription(this._getStatusDescription(msg))
             .addFields(this._getStatusFields(msg))
             .setFooter({ 
-                text: `Actualizado: ${TimeHelpers.formatDateTime(new Date())}` 
+                text: `Actualizado: ${TimeHelpers.formatDateTime(TimeHelpers.currentTime.toDate())}`
             });
         
         await this._sendSafeEmbed(embed, msg.type, severity);
