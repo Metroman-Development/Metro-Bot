@@ -1,0 +1,50 @@
+{
+    "defaultTheme": {
+        "primaryColor": "#FC393B",
+        "secondaryColor": "#2ecc71",
+        "warningColor": "#e74c3c",
+        "successColor": "#57F287",
+        "errorColor": "#ED4245",
+        "infoColor": "#3498db"
+    },
+    "lineColors": {
+        "l1": "#EA2A0A",
+        "l2": "#FFA500",
+        "l3": "#672612",
+        "l4": "#1F1F83",
+        "l4a": "#0079C1",
+        "l5": "#00AB5C",
+        "l6": "#953D96", 
+        "l7": "808080",
+        "l8": "ff640c", 
+        "l9": "ff81ae" 
+         
+    },
+    "routeColors": {
+        "roja": "#E74C3C",
+        "verde": "#2ECC71",
+        "comun": "#3498DB",
+        "todas": "#5865F2",
+        "express": "#9B59B6"
+    },
+    "logColors": {
+        "update": "#57F287",
+        "change": "#2ecc71",
+        "error": "#ED4245",
+        "warning": "#e74c3c",
+        "maintenance": "#0079C1",
+        "info": "#3498db",
+        "fix": "#00FF00"
+    },
+    "periodColors": {
+        "punta": "#FFFF00",
+        "bajo": "#0000FF",
+        "valle": "#00FF00"
+    },
+    "statusColors": {
+        "operational": "#57F287",
+        "closed": "#ED4245",
+        "partial": "#FEE75C",
+        "delayed": "#EB459E"
+    }
+}
