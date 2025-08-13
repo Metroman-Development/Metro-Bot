@@ -119,73 +119,129 @@ class StatusProcessor {
     }
 
     try {
-      // Update lines
-      for (const line of Object.values(data.lines)) {
-        await db.query(
-          `INSERT INTO metro_lines (line_id, line_name, line_color, status_code, status_message, app_message)
-           VALUES (?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE
-             line_name = VALUES(line_name),
-             line_color = VALUES(line_color),
-             status_code = VALUES(status_code),
-             status_message = VALUES(status_message),
-             app_message = VALUES(app_message),
-             updated_at = NOW()`,
-          [line.id, line.name, line.color, line.status.code, line.status.message, line.status.appMessage]
-        );
+      await db.transaction(async (connection) => {
+        const lineQueries = [];
+        const lineStatusQueries = [];
+        const stationQueries = [];
+        const stationStatusQueries = [];
+        const stationHistoryQueries = [];
+        const statusChangeLogQueries = [];
 
-        const statusTypeId = await this._getStatusTypeId(db, line.status.code);
-        if (statusTypeId) {
-          await db.query(
-            `INSERT INTO line_status (line_id, status_type_id, status_description, status_message, last_updated, updated_by)
-             VALUES (?, ?, ?, ?, NOW(), 'system')
-             ON DUPLICATE KEY UPDATE
-               status_type_id = VALUES(status_type_id),
-               status_description = VALUES(status_description),
-               status_message = VALUES(status_message),
-               last_updated = NOW()`,
-            [line.id, statusTypeId, line.status.normalized, line.status.message]
-          );
+        // Prepare line queries
+        for (const line of Object.values(data.lines)) {
+          lineQueries.push({
+            sql: `INSERT INTO metro_lines (line_id, line_name, line_color, status_code, status_message, app_message)
+                  VALUES (?, ?, ?, ?, ?, ?)
+                  ON DUPLICATE KEY UPDATE
+                    line_name = VALUES(line_name),
+                    line_color = VALUES(line_color),
+                    status_code = VALUES(status_code),
+                    status_message = VALUES(status_message),
+                    app_message = VALUES(app_message),
+                    updated_at = NOW()`,
+            params: [line.id, line.name, line.color, line.status.code, line.status.message, line.status.appMessage]
+          });
+
+          const statusTypeId = await this._getStatusTypeId(connection, line.status.code);
+          if (statusTypeId) {
+            lineStatusQueries.push({
+              sql: `INSERT INTO line_status (line_id, status_type_id, status_description, status_message, last_updated, updated_by)
+                    VALUES (?, ?, ?, ?, NOW(), 'system')
+                    ON DUPLICATE KEY UPDATE
+                      status_type_id = VALUES(status_type_id),
+                      status_description = VALUES(status_description),
+                      status_message = VALUES(status_message),
+                      last_updated = NOW()`,
+              params: [line.id, statusTypeId, line.status.normalized, line.status.message]
+            });
+          }
         }
-      }
 
-      // Update stations
-      for (const station of Object.values(data.stations)) {
+        // Prepare station queries
+        for (const station of Object.values(data.stations)) {
+          const fullStationData = this.metro.getStationManager().get(station.id);
 
-        let [stationRow] = await db.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
-        let station_id;
+          let [stationRow] = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
+          let station_id;
 
-        if (stationRow) {
+          if (stationRow) {
             station_id = stationRow.station_id;
-            await db.query('UPDATE metro_stations SET station_name = ?, display_name = ?, updated_at = NOW() WHERE station_id = ?', [station.name, station.displayName, station_id]);
-        } else {
-            const [result] = await db.query(
-              'INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location) VALUES (?, ?, ?, ?, POINT(0,0))',
-              [station.line, station.id, station.name, station.displayName]
+            stationQueries.push({
+              sql: `UPDATE metro_stations SET
+                      station_name = ?, display_name = ?, transports = ?, services = ?,
+                      accessibility = ?, commerce = ?, amenities = ?, image_url = ?,
+                      access_details = ?, updated_at = NOW()
+                    WHERE station_id = ?`,
+              params: [
+                station.name,
+                station.displayName,
+                fullStationData?.transports,
+                fullStationData?.services,
+                fullStationData?.accessibility,
+                fullStationData?.commerce,
+                fullStationData?.amenities,
+                fullStationData?.image,
+                JSON.stringify(fullStationData?.accessDetails),
+                station_id
+              ]
+            });
+          } else {
+            const [result] = await connection.query(
+              `INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,
+                                        transports, services, accessibility, commerce, amenities, image_url, access_details)
+               VALUES (?, ?, ?, ?, POINT(0,0), ?, ?, ?, ?, ?, ?, ?)`,
+              [
+                station.line,
+                station.id,
+                station.name,
+                station.displayName,
+                fullStationData?.transports,
+                fullStationData?.services,
+                fullStationData?.accessibility,
+                fullStationData?.commerce,
+                fullStationData?.amenities,
+                fullStationData?.image,
+                JSON.stringify(fullStationData?.accessDetails)
+              ]
             );
             station_id = result.insertId;
-        }
+          }
 
-        const statusTypeId = await this._getStatusTypeId(db, station.status.code);
-        if (statusTypeId) {
-            const [currentStatus] = await db.query('SELECT status_type_id FROM station_status WHERE station_id = ?', [station_id]);
+          const statusTypeId = await this._getStatusTypeId(connection, station.status.code);
+          if (statusTypeId) {
+            const [currentStatus] = await connection.query('SELECT status_type_id FROM station_status WHERE station_id = ?', [station_id]);
 
-            if (currentStatus && currentStatus.status_type_id !== statusTypeId) {
-                await db.query(
-                    'INSERT INTO station_status_history (status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by) SELECT status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by FROM station_status WHERE station_id = ?',
-                 [station_id]);
-
-                await db.query(
-                    "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, 'system')",
-                 [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`]);
+            if (!currentStatus || currentStatus.status_type_id !== statusTypeId) {
+              if (currentStatus) {
+                stationHistoryQueries.push({
+                  sql: 'INSERT INTO station_status_history (status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by) SELECT status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by FROM station_status WHERE station_id = ?',
+                  params: [station_id]
+                });
+                statusChangeLogQueries.push({
+                  sql: "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, 'system')",
+                  params: [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`]
+                });
+              }
+              stationStatusQueries.push({
+                sql: 'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), "system") ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
+                params: [station_id, statusTypeId, station.status.normalized, station.status.message]
+              });
             }
-
-          await db.query(
-            'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), "system") ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
-            [station_id, statusTypeId, station.status.normalized, station.status.message]
-          );
+          }
         }
-      }
+
+        // Execute all queries
+        for (const query of [
+          ...lineQueries,
+          ...lineStatusQueries,
+          ...stationQueries,
+          ...stationHistoryQueries,
+          ...statusChangeLogQueries,
+          ...stationStatusQueries,
+        ]) {
+          await connection.query(query.sql, query.params);
+        }
+      });
       logger.info('[StatusProcessor] Database updated successfully.');
     } catch (error) {
       logger.error('[StatusProcessor] Database update failed', {
