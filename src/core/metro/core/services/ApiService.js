@@ -717,7 +717,7 @@ async activateEventOverrides(eventDetails) {
 
     async _updateCache(data) {
         try {
-            await fs.mkdir(this.cacheDir, { recursive: true });
+            await fs.mkdir(path.dirname(this.cacheFile), { recursive: true });
             await fs.writeFile(this.cacheFile, JSON.stringify(data, null, 2));
             logger.debug('[ApiService] Cache updated successfully');
         } catch (error) {
