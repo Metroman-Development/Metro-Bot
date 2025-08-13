@@ -24,9 +24,9 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 
 console.log('[DISCORD] Loading internal modules...');
-const logger = require('./src/events/logger');
-const loadEvents = require('./src/events');
-const NewsWatcher = require('./src/events/NewsWatcher');
+const logger = require('./events/logger');
+const loadEvents = require('./events');
+const NewsWatcher = require('./events/NewsWatcher');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const { setClient } = require('./utils/clientManager');
 const metroConfig = require('./config/metro/metroConfig');
@@ -43,7 +43,7 @@ console.log('[DISCORD] Discord client instance created.');
 
 // Load interaction handlers
 console.log('[DISCORD] Loading interaction handlers...');
-require('./src/events/interactions/interactionLoader')(discordClient);
+require('./events/interactions/interactionLoader')(discordClient);
 
 
 // =================================================================
@@ -119,11 +119,11 @@ function scheduleReconnect() {
 // =================================================================
 discordClient.commands = new Collection();
 discordClient.prefixCommands = new Collection();
-discordClient.metroCore = require('./modules/metro/core/MetroCore');
+discordClient.metroCore = require('./core/metro/MetroCore');
 discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
 
 // Load prefix commands
-const prefixCommandsPath = join(__dirname, 'prefixCommands');
+const prefixCommandsPath = join(__dirname, 'bot/discord/commands/prefix');
 try {
   readdirSync(prefixCommandsPath)
     .filter(file => file.endsWith('.js'))
@@ -156,10 +156,10 @@ setClient(discordClient);
 // =================================================================
 //                   TELEGRAM BOT INITIALIZATION
 // =================================================================
-console.log('\n[TELEGRAM] Initializing Telegram Bot...');
-const TelegramBot = require('./Telegram/bot');
-const telegramBot = TelegramBot;
-console.log('[TELEGRAM] Telegram bot module loaded.');
+// console.log('\n[TELEGRAM] Initializing Telegram Bot...');
+// const TelegramBot = require('./bot/telegram/bot');
+// const telegramBot = TelegramBot;
+// console.log('[TELEGRAM] Telegram bot module loaded.');
 
 
 // =================================================================
@@ -169,9 +169,9 @@ console.log('\n[BOOT] Starting bot launch sequence...');
 (async () => {
   try {
     // Start Telegram
-    console.log('[TELEGRAM] Launching Telegram bot...');
-    await telegramBot.launch();
-    console.log('[TELEGRAM] ✅ Telegram bot is now running.');
+    // console.log('[TELEGRAM] Launching Telegram bot...');
+    // await telegramBot.launch();
+    // console.log('[TELEGRAM] ✅ Telegram bot is now running.');
       
     // Graceful shutdown
     const shutdown = async (signal) => {
@@ -182,8 +182,8 @@ console.log('\n[BOOT] Starting bot launch sequence...');
           await discordClient.destroy();
           console.log('[DISCORD] Client destroyed.');
         }
-        await telegramBot.stop(signal);
-        console.log('[TELEGRAM] Bot stopped.');
+        // await telegramBot.stop(signal);
+        // console.log('[TELEGRAM] Bot stopped.');
         console.log('[SHUTDOWN] ✅ Shutdown complete.');
         process.exit(0);
       } catch (err) {

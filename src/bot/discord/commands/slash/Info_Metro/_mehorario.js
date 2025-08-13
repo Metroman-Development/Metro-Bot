@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
-const metroConfig = require('../../config/metro/metroConfig');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
     parentCommand: 'calendario-metro',

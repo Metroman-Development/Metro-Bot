@@ -1,7 +1,7 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
-const metroConfig = require('../../../../config/metro/metroConfig');
-const MetroCore = require('../../../../modules/metro/core/MetroCore');
+const metroConfig = require('../../../config/metro/metroConfig');
+const MetroCore = require('../../../core/metro/core/MetroCore');
 
 const CUSTOM_ID_PREFIX = 'expreso';
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes

@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
-const config = require('../../../../config/metro/metroConfig');
+const config = require('../../../config/metro/metroConfig');
 
 const CUSTOM_ID_PREFIX = 'amnResults';
 const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes

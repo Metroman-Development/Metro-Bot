@@ -1,9 +1,9 @@
 
 const { EmbedBuilder } = require('discord.js');
-const DatabaseManager = require('../core/database/DatabaseManager');
-const DBEmbed = require('../templates/embeds/DBEmbed');
-const CacheModel = require('../core/database/models/CacheModel');
-const logger = require('../events/logger');
+const DatabaseManager = require('../../../../core/database/DatabaseManager');
+const DBEmbed = require('../../../../templates/embeds/DBEmbed');
+const CacheModel = require('../../../../core/database/models/CacheModel');
+const logger = require('../../../../events/logger');
 
 module.exports = {
     name: 'db',

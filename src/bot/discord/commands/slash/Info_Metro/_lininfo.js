@@ -1,8 +1,8 @@
 // _lininfo (3).js
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-const ImageProcessor = require('../../utils/imageProcessor');
-const horMap = require('../../config/metro/lineHorMap');
-const metroConfig = require('../../config/metro/metroConfig');
+const ImageProcessor = require('../../../../../utils/imageProcessor');
+const horMap = require('../../../../../config/metro/lineHorMap');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
     parentCommand: 'linea',

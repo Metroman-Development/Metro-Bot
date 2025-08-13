@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs').promises;
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
-const stationLoader = require('../modules/metro/data/loaders/stationLoader');
-const loadJsonFile = require('../src/utils/jsonLoader');
+const stationLoader = require('../../../../core/metro/data/loaders/stationLoader');
+const loadJsonFile = require('../../../../utils/jsonLoader');
 
 module.exports = {
     name: 'stationsdata',

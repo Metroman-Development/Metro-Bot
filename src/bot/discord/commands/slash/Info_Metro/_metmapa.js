@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const metroConfig = require('../../config/metro/metroConfig');
-const styles = require('../../config/metro/styles');
+const metroConfig = require('../../../../../config/metro/metroConfig');
+const styles = require('../../../../../config/metro/styles');
 
 module.exports = {
     parentCommand: 'metro',

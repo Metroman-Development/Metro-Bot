@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const pool = require('../utils/database');
-const bipcoinUtils = require('../utils/bipcoinUtils');
+const pool = require('../../../../utils/database');
+const bipcoinUtils = require('../../../../utils/bipcoinUtils');
 
 module.exports = {
     data: new SlashCommandBuilder()

@@ -2,12 +2,12 @@ const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 const path = require('path');
 
 // Import the handlers properly
-const AccessCore = require('../modules/metro/accessManagement/accessCore');
-const ConfigureHandler = require('../modules/metro/accessManagement/configure');
-const StatusHandler = require('../modules/metro/accessManagement/status' );
-const ViewHandler = require('../modules/metro/accessManagement/view');
-const ListHandler = require('../modules/metro/accessManagement/list');
-const HistoryHandler = require('../modules/metro/accessManagement/history');
+const AccessCore = require('../../../../core/metro/accessManagement/accessCore');
+const ConfigureHandler = require('../../../../core/metro/accessManagement/configure');
+const StatusHandler = require('../../../../core/metro/accessManagement/status' );
+const ViewHandler = require('../../../../core/metro/accessManagement/view');
+const ListHandler = require('../../../../core/metro/accessManagement/list');
+const HistoryHandler = require('../../../../core/metro/accessManagement/history');
 
 // Initialize handlers with proper error handling
 const handlers = {

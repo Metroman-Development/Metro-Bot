@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const SearchCore = require('../../modules/metro/search/SearchCore');
-const RoutePlanner = require('../../modules/metro/RoutePlanner');
-const routeButtonsHandler = require('../../../src/events/interactions/buttons/routeButtons');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const RoutePlanner = require('../../../../../core/metro/RoutePlanner');
+const routeButtonsHandler = require('../../../../../events/interactions/buttons/routeButtons');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 const { Collection } = require('discord.js');
 

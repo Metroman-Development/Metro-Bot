@@ -1,9 +1,8 @@
-/*
 const metroConfig = require('../config/metroConfig');
-const styles = require('../config/styles');
+const styles = require('../config/metro/styles.json');
 const stations = require('../data/stations.json');
 const stationConnections = require('../data/stationConnections.json');
-const { getCachedMetroData } = require('../events/metroDataHandler');
+// const { getCachedMetroData } = require('../events/metroDataHandler');
 
 
 // ===== CORE UTILITY FUNCTIONS ===== //
@@ -186,53 +185,7 @@ function getRouteEmoji(lineKey, stationName) {
 
 async function getTransferLines(stationName, lineKey) {
   if (!stationName || !lineKey) return '';
-
-  try {
-    // Get cached metro data
-    const metroData = await getCachedMetroData();
-    if (!metroData) {
-      console.error('Failed to get cached metro data');
-      return '';
-    }
-
-    // Normalize line key (handle both 'l1' and '1' formats)
-    const currentLine = lineKey.toLowerCase().replace('l', '');
-
-    // Get station data from cached metro data
-    const lineData = metroData[`l${currentLine}`];
-    if (!lineData || !lineData.estaciones) return '';
-
-    // Find the station in the line data
-    const station = lineData.estaciones.find(s => s.nombre === stationName);
-    if (!station?.combinacion) return '';
-
-    const transferD = station.combinacion;
-
-    // Process transfer lines to include emojis
-    if (transferD) {
-      // Split multiple transfers (if comma-separated)
-      const transfers = transferD.split(',').map(t => t.trim());
-
-      // Map each transfer to its emoji version
-      const transfersWithEmojis = transfers.map(transfer => {
-        // Extract line number (handles formats like "L1", "Linea 1", "1", etc.)
-        const lineNumber = transfer;
-        const emojiKey = lineNumber ? lineNumber.toLowerCase() : '';
-          console.log(emojiKey);
-        const emoji = getLineEmoji(emojiKey);
-
-        return emoji ? `${emoji}` : transfer;
-      });
-
-      return `↔️ ${transfersWithEmojis.join(', ')}`;
-    }
-
-    return '';
-
-  } catch (error) {
-    console.error('Error in getTransferLines:', error);
-    return '';
-  }
+  return ''; // aida: getCachedMetroData is not available
 }
 
 

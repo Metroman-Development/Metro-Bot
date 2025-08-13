@@ -1,4 +1,4 @@
-const MetroSystem = require('../modules/metro/MetroSystem');
+const MetroSystem = require('../../../../core/metro/MetroSystem');
 
 /**
  * @file Prefix command for interacting with the Metro system.

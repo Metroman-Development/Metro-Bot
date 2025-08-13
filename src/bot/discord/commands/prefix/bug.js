@@ -1,7 +1,7 @@
 
-const { createEmbed } = require('../utils/embeds');
+const { createEmbed } = require('../../../../utils/embeds');
 
-const { getUnresolvedBugs, getAllBugs, getBugById, resolveBug } = require('../utils/bugTracker');
+const { getUnresolvedBugs, getAllBugs, getBugById, resolveBug } = require('../../../../utils/bugTracker');
 
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 

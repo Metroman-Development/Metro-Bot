@@ -6,9 +6,9 @@ const { handleClear } = require('./dataManager/clear');
 const { handleUndo } = require('./dataManager/undo');
 const { handleRedo } = require('./dataManager/redo');
 const { handleReplace } = require('./dataManager/replace');
-const { getCache, setCache } = require('../utils/cache');
-const { createEmbed } = require('../utils/embeds');
-const config = require('../config/config.json');
+const { getCache, setCache } = require('../../../../utils/cache');
+const { createEmbed } = require('../../../../utils/embeds');
+const config = require('../../../../config/config.json');
 
 module.exports = {
 

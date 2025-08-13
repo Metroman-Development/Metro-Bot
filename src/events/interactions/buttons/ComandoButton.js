@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
-const styles = require('../../../../config/metro/styles.json');
+const styles = require('../../../config/metro/styles.json');
 
 const CUSTOM_ID_PREFIX = 'cmd';
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache for command structure

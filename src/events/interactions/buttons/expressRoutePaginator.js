@@ -1,4 +1,4 @@
-const { getExpressRoutePage } = require('../../../utils/expressRoutes');
+const { getExpressRoutePage } = require('../utils/expressRoutes');
 
 module.exports = {
     customIdPrefix: 'express_route_page',

@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const fs = require('fs').promises;
 const path = require('path');
-const metroConfig = require('../config/metro/metroConfig');
+const metroConfig = require('../../../../config/metro/metroConfig');
 
 module.exports = {
     name: 'news',

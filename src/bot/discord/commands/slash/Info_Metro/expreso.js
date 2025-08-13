@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../modules/metro/core/MetroCore');
+const MetroCore = require('../../../../../core/metro/core/MetroCore');
 const info = require('./_expinfo'); 
 const ayuda = require('./_expayuda'); 
 // Subcommand file

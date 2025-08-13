@@ -1,10 +1,10 @@
-const { createEmbed } = require('../utils/embeds');
+const { createEmbed } = require('../../../../utils/embeds');
 
-const { confirmAction } = require('../utils/utils'); // Import the confirmAction utility
+const { confirmAction } = require('../../../../utils/utils'); // Import the confirmAction utility
 
-const { getCache, setCache, deleteCache, getAllCache } = require('../utils/cache');// Import the cache functions and the cache Map
+const { getCache, setCache, deleteCache, getAllCache } = require('../../../../utils/cache');// Import the cache functions and the cache Map
 
-const config = require('../config/config.json'); // Import the config file
+const config = require('../../../../config/config.json'); // Import the config file
 
 module.exports = {
 

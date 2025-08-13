@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const StatusEmbeds = require('../../utils/embeds/statusEmbeds');
-const SearchCore = require('../../modules/metro/search/SearchCore');
+const StatusEmbeds = require('../../../../../utils/embeds/statusEmbeds');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
 
 /**
  * @file Subcommand for the 'estacion' command, providing the operational status of a station.
