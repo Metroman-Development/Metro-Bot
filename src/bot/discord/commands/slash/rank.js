@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const pool = require('../../../../utils/database');
+const DatabaseManager = require('../../../../core/database/DatabaseManager');
 const bipcoinUtils = require('../../../../utils/bipcoinUtils');
 
 module.exports = {
@@ -17,10 +17,11 @@ module.exports = {
         const userId = targetUser.id;
 
         try {
-            const [user] = await pool.query('SELECT bip_coins, role, activity_streak FROM users WHERE id = ?', [userId]);
-            const [ranking] = await pool.query('SELECT username, bip_coins FROM users ORDER BY bip_coins DESC LIMIT 10');
+            const dbManager = await DatabaseManager.getInstance();
+            const user = await dbManager.query('SELECT bip_coins, role, activity_streak FROM users WHERE id = ?', [userId]);
+            const ranking = await dbManager.query('SELECT username, bip_coins FROM users ORDER BY bip_coins DESC LIMIT 10');
 
-            if (!user[0]) {
+            if (user.length === 0) {
                 return interaction.followUp('❌ Este usuario no tiene Bip!Coins aún.');
             }
 

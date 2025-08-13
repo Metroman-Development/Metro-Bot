@@ -1,18 +1,17 @@
-
 require('dotenv').config();
-const mysql = require('mysql2');
+const mariadb = require('mariadb');
 const { EventEmitter } = require('events');
 
 class DatabaseManager extends EventEmitter {
-    constructor() {
+    constructor(config) {
         super();
         console.log('[DB] Initializing new DatabaseManager instance');
+        this.config = config;
         this.connectionState = 'disconnected';
         this.connectionAttempts = 0;
         this.maxRetries = 5;
         this.retryDelay = 3000;
         this.pool = null;
-        this.promisePool = null;
         this.healthCheckInterval = 60000;
         this.initialize();
     }
@@ -30,33 +29,17 @@ class DatabaseManager extends EventEmitter {
     }
 
     async createConnectionPool() {
-        console.log('[DB] Creating new connection pool with config:', {
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            database: process.env.DB_NAME,
-            port: process.env.DB_PORT || 3306
-        });
+        console.log('[DB] Creating new connection pool with config:', this.config);
 
-        this.pool = mysql.createPool({
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_NAME,
+        this.pool = mariadb.createPool({
+            host: this.config.host,
+            user: this.config.user,
+            password: this.config.password,
+            database: this.config.database,
             port: process.env.DB_PORT || 3306,
-            waitForConnections: true,
-            connectionLimit: 10,
-            queueLimit: 0,
+            connectionLimit: 50,
             timezone: 'Z',
-            decimalNumbers: true,
-            charset: 'utf8mb4_unicode_ci',
-            enableKeepAlive: true,
-            keepAliveInitialDelay: 10000,
-            connectTimeout: 10000,
-            acquireTimeout: 10000
         });
-
-        // Create promise-compatible pool
-        this.promisePool = this.pool.promise();
 
         console.log('[DB] Connection pool created, testing connection...');
         await this.testConnection();
@@ -70,7 +53,7 @@ class DatabaseManager extends EventEmitter {
         let connection;
         try {
             console.log('[DB] Acquiring connection for health check...');
-            connection = await this.promisePool.getConnection();
+            connection = await this.pool.getConnection();
             console.log('[DB] Executing ping test...');
             await connection.ping();
             console.log('[DB] Connection test successful');
@@ -126,7 +109,7 @@ class DatabaseManager extends EventEmitter {
         }, delay);
     }
 
-    async query(sql, params = [], options = {}) {
+    async query(sql, params = []) {
         if (this.connectionState !== 'connected') {
             console.error('[DB] Query attempted while disconnected');
             throw new Error('Database connection not available');
@@ -138,14 +121,13 @@ class DatabaseManager extends EventEmitter {
         const truncatedSql = sql.length > 100 ? sql.substring(0, 100) + '...' : sql;
 
         console.log(`[DB] [QID:${queryId}] Preparing query: ${truncatedSql}`);
-      //  console.log(`[DB] [QID:${queryId}] Parameters:`, params.slice(0, 3));
 
         try {
             console.log(`[DB] [QID:${queryId}] Acquiring connection from pool`);
-            connection = await this.promisePool.getConnection();
+            connection = await this.pool.getConnection();
             
             console.log(`[DB] [QID:${queryId}] Executing query`);
-            const [rows] = await connection.query(sql, params);
+            const rows = await connection.query(sql, params);
             const duration = Date.now() - startTime;
 
             console.log(`[DB] [QID:${queryId}] Query completed in ${duration}ms, returned ${rows.length} rows`);
@@ -213,22 +195,13 @@ class DatabaseManager extends EventEmitter {
 
         try {
             console.log(`[DB] [TXID:${txId}] Acquiring connection for transaction`);
-            connection = await this.promisePool.getConnection();
+            connection = await this.pool.getConnection();
             
             console.log(`[DB] [TXID:${txId}] Beginning transaction`);
             await connection.beginTransaction();
 
             console.log(`[DB] [TXID:${txId}] Executing transaction callback`);
-            const result = await callback({
-                query: (sql, params) => {
-                    console.log(`[DB] [TXID:${txId}] Executing transaction query:`, sql.substring(0, 100));
-                    return connection.query(sql, params);
-                },
-                execute: (sql, params) => {
-                    console.log(`[DB] [TXID:${txId}] Executing transaction statement:`, sql.substring(0, 100));
-                    return connection.execute(sql, params);
-                }
-            });
+            const result = await callback(connection);
 
             console.log(`[DB] [TXID:${txId}] Committing transaction`);
             await connection.commit();
@@ -269,7 +242,6 @@ class DatabaseManager extends EventEmitter {
             console.log('[DB] Closing connection pool');
             await this.pool.end();
             this.pool = null;
-            this.promisePool = null;
             this.connectionState = 'disconnected';
             console.log('[DB] Connection pool closed successfully');
         }
@@ -278,7 +250,7 @@ class DatabaseManager extends EventEmitter {
     static #instance = null;
     static #initializationPromise = null;
 
-    static async getInstance() {
+    static async getInstance(config) {
         if (this.#instance) {
             console.log('[DB] Returning existing DatabaseManager instance');
             return this.#instance;
@@ -289,10 +261,14 @@ class DatabaseManager extends EventEmitter {
             return this.#initializationPromise;
         }
 
+        if (!config) {
+            throw new Error('DatabaseManager requires a configuration object for the first initialization.');
+        }
+
         console.log('[DB] Creating new DatabaseManager instance');
         this.#initializationPromise = (async () => {
             try {
-                const instance = new DatabaseManager();
+                const instance = new DatabaseManager(config);
                 
                 await new Promise((resolve, reject) => {
                     if (instance.connectionState === 'connected') {
@@ -313,7 +289,7 @@ class DatabaseManager extends EventEmitter {
                     });
 
                     instance.once('connection_failed', (err) => {
-                        console.error('[DB] Instance connection failed');
+                        console.error('[DB] Instance connection failed', err);
                         clearTimeout(timeout);
                         reject(err);
                     });

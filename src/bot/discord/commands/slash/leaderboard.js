@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const pool = require('../../../../utils/database');
+const DatabaseManager = require('../../../../core/database/DatabaseManager');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +8,8 @@ module.exports = {
     category: "Bip!Coin",
     async execute(interaction) {
         try {
-            const [ranking] = await pool.query(`
+            const dbManager = await DatabaseManager.getInstance();
+            const ranking = await dbManager.query(`
                 SELECT 
                     username,
                     bip_coins 
