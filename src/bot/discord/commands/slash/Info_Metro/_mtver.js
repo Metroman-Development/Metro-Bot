@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const fareButtonsHandler = require('../../src/events/interactions/buttons/fareButtons');
 const FareEmbed = require('../../../templates/embeds/FareEmbed');
 const timeUtils = require('../../../utils/timeUtils');
-const metroConfig = require('../../../config/metro/metroConfig');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
     parentCommand: 'tarifa',

@@ -1,7 +1,7 @@
 const { ButtonStyle, ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
-const metroConfig = require('../../../../config/metro/metroConfig');
-const StationEmbedHub = require('../../../../templates/embeds/StationEmbedHub');
+const metroConfig = require('../../../config/metro/metroConfig');
+const StationEmbedHub = require('../../../templates/embeds/StationEmbedHub');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
 const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes

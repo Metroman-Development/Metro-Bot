@@ -16,7 +16,7 @@ class AdvancedCommandLoader {
     }
 
     async loadCommands() {
-        const basePath = join(__dirname, '../../slashCommands');
+        const basePath = join(__dirname, '../../bot/discord/commands/slash');
         let loadedCount = 0;
         let errorCount = 0;
 

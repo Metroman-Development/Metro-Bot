@@ -1,9 +1,9 @@
-const { createEmbed } = require('../utils/embeds');
-const { reportBug, resolveBug, getBugById } = require('../utils/bugTracker');
-const DatabaseManager = require('../core/database/DatabaseManager');
-const TimeHelpers = require('../modules/chronos/timeHelpers');
-const config = require('../config/config.json');
-const cache = require('../core/cache/CacheManager');
+const { createEmbed } = require('../../../../utils/embeds');
+const { reportBug, resolveBug, getBugById } = require('../../../../utils/bugTracker');
+const DatabaseManager = require('../../../../core/database/DatabaseManager');
+const TimeHelpers = require('../../../../core/chronos/timeHelpers');
+const config = require('../../../../config/config.json');
+const cache = require('../../../../core/cache/CacheManager');
 
 // Cache configuration
 const LOG_CACHE_NAMESPACE = 'bot:logs';

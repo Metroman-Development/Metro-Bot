@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const expressButtonsHandler = require('../../../src/events/interactions/buttons/expressButtons');
+const expressButtonsHandler = require('../../../../../events/interactions/buttons/expressButtons');
 
 module.exports = {
     parentCommand: 'expreso',

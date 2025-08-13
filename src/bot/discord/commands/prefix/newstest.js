@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
-const AnnouncementManager = require('../modules/status/embeds/AnnouncementManager');
-const TimeHelpers = require('../modules/chronos/timeHelpers');
+const AnnouncementManager = require('../../../../core/status/embeds/AnnouncementManager');
+const TimeHelpers = require('../../../../core/chronos/timeHelpers');
 
 module.exports = {
     name: 'newstest',

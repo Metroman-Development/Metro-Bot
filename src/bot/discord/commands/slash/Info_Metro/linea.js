@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../modules/metro/core/MetroCore'); // Import MetroCore
+const MetroCore = require('../../../../../core/metro/core/MetroCore'); // Import MetroCore
 const estado = require('./_linestado');
 
 const info = require('./_lininfo');

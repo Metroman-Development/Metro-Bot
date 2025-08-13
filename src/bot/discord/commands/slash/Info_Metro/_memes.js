@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const moment = require('moment-timezone');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
-const config = require('../../config/metro/metroConfig');
+const config = require('../../../../../config/metro/metroConfig');
 
 // Spanish translations
 const translations = {

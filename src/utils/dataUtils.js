@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { normalize } = require('./stringUtils');
-const { getCachedMetroData } = require('../events/metroDataHandler');
+// const { getCachedMetroData } = require('../events/metroDataHandler');
 const { getClient } = require('./clientManager');
 const logger = require('../events/logger');
 
@@ -21,7 +21,7 @@ function loadStationData() {
         // Read and parse JSON files
         const rawStations = JSON.parse(fs.readFileSync(stationsPath, 'utf-8'));
         const rawDetails = JSON.parse(fs.readFileSync(detailsPath, 'utf-8'));
-        const metroData = getCachedMetroData();
+        const metroData = null; // aida: getCachedMetroData is not available
 
         // Check if metroData is valid
         if (!metroData || typeof metroData !== 'object') {

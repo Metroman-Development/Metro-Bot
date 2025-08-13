@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const config = require('../../config/metro/metroConfig');
+const config = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
     parentCommand: 'expreso',

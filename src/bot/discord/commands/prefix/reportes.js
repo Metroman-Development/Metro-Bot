@@ -1,7 +1,7 @@
 
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const DatabaseManager = require('../core/database/DatabaseManager');
-const logger = require('../events/logger');
+const DatabaseManager = require('../../../../core/database/DatabaseManager');
+const logger = require('../../../../events/logger');
 
 module.exports = {
     name: 'reportes',

@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-const projectLines = require('../../modules/metro/data/json/lineasproyectoMetro.json');
-const ImageProcessor = require('../../utils/imageProcessor');
-const metroConfig = require('../../config/metro/metroConfig');
+const projectLines = require('../../../../../core/metro/data/json/lineasproyectoMetro.json');
+const ImageProcessor = require('../../../../../utils/imageProcessor');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
     parentCommand: 'linea',

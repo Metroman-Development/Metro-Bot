@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const chronosConfig = require('../../config/chronosConfig');
-const metroConfig = require('../../config/metro/metroConfig');
+const chronosConfig = require('../../../../../config/chronosConfig');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 const TimeHelpers = require('../../modules/chronos/timeHelpers');
 
 module.exports = {

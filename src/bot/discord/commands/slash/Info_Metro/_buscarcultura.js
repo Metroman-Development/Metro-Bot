@@ -1,9 +1,9 @@
 // _buscaramenities.js
 // _buscaramenities.js
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const AmenitiesResultsManager = require('../../modules/interactions/buttons/AmenitiesResultsManager');
-const config = require('../../config/metro/metroConfig');
-const styles = require('../../config/metro/styles.json');
+const AmenitiesResultsManager = require('../../../../../events/interactions/buttons/AmenitiesResultsManager');
+const config = require('../../../../../config/metro/metroConfig');
+const styles = require('../../../../../config/metro/styles.json');
 
 module.exports = {
     parentCommand: 'buscar',

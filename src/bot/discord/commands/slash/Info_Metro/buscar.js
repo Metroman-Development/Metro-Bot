@@ -1,6 +1,6 @@
 // buscar.js
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../modules/metro/core/MetroCore');
+const MetroCore = require('../../../../../core/metro/core/MetroCore');
 const comercio = require('./_buscarcomercio');
 const bici = require('./_buscarcicletero');
 const cultura = require('./_buscarcultura');

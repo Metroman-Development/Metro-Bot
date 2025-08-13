@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { createEmbed } = require('../utils/embeds');
+const { createEmbed } = require('../../../../utils/embeds');
 const { DatabaseManager } = require('../core/database/DatabaseManager');
 const { CacheManager } = require('../core/cache/CacheManager');
 

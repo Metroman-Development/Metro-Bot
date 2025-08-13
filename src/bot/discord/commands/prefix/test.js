@@ -1,7 +1,7 @@
 const { Client, MessageEmbed } = require('discord.js');
-const config = require('../config/config.json');
-const metroConfig = require('../config/metro/metroConfig'); // Import metroConfig
-const styles = require('../config/metro/styles.json'); // Import styles.json
+const config = require('../../../../config/config.json');
+const metroConfig = require('../../../../config/metro/metroConfig'); // Import metroConfig
+const styles = require('../../../../config/metro/styles.json'); // Import styles.json
 
 module.exports = {
     name: 'test',

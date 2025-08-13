@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const SearchCore = require('../../modules/metro/search/SearchCore');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
 const { buildStationInfoReply } = require('../../src/events/interactions/buttons/stationInfoButton');
 
 /**

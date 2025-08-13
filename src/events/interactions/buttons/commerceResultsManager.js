@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const PaginationTemplate = require('../templates/pagination');
-const metroConfig = require('../../../../config/metro/metroConfig');
+const metroConfig = require('../../../config/metro/metroConfig');
 
 const RESULTS_PER_PAGE = 5;
 
