@@ -5,10 +5,29 @@ const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
 
+function _transformToRawStation(station) {
+    return {
+        codigo: station.id,
+        nombre: station.name,
+        estado: station.status,
+        descripcion: station.description,
+        descripcion_app: station.description_app,
+        combinacion: station.transfer || '',
+    };
+}
+
+function _transformToRawLine(line) {
+    return {
+        estado: line.status,
+        mensaje: line.message,
+        mensaje_app: line.message_app,
+        estaciones: line.stations?.map(_transformToRawStation) || [],
+    };
+}
+
 class EmbedManager {
     constructor(statusUpdater) {
         this.parent = statusUpdater;
-        this.statusEmbeds = new StatusEmbeds(statusUpdater.metroCore);
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;
@@ -159,9 +178,18 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
             
             const networkStatus = this.parent.metroCore.api.getProcessedData();
-            const embed = this.statusEmbeds.buildOverviewEmbed(
-                networkStatus.network, 
-                changes
+
+            // Transform processed data to raw API structure for the embed function
+            const rawLines = {};
+            if (networkStatus && networkStatus.lines) {
+                for (const lineKey in networkStatus.lines) {
+                    rawLines[lineKey] = _transformToRawLine(networkStatus.lines[lineKey]);
+                }
+            }
+
+            const embed = StatusEmbeds.overviewEmbed(
+                rawLines,
+                new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })
             );
 
             const message = this.embedMessages.get('overview');
@@ -216,17 +244,15 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
     async updateLineEmbed(lineData) {
         try {
-            
-          //  console.log("🙄😉🙄😉🙄😉 ", this.parent.metroCore.api.getProcessedData().lines) 
-                        
-            
-            
-            
             const lineKey = lineData.id.toLowerCase();
 
+            // Transform processed line data to raw API structure
+            const rawLineData = _transformToRawLine(lineData);
 
-            const embed = this.statusEmbeds.buildLineEmbed(
-                lineData
+            const embed = StatusEmbeds.lineEmbed(
+                lineKey,
+                rawLineData,
+                new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })
             );
             
             const message = this.embedMessages.get(lineKey);
