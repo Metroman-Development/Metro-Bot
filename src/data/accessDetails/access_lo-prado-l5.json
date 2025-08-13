@@ -1,0 +1,411 @@
+{
+  "station": "lo prado",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:22:15.185Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. San Pablo"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "1a96f4",
+      "from": "Ascensor de acceso ubicado en Av. San Pablo (vereda norte)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. San Pablo (vereda norte)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "966992",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "18ffed",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "ab2cf4",
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T13:21:04.239Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.687Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-01T13:21:04.239Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-01T13:21:04.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PR-ab2cf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PR-ab2cf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.400Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PR-beccf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PR-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.499Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PR-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.185Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.751Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.751Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.751Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.750Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.750Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.750Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.750Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-1a96f4 - Ascensor de acceso ubicado en Av. San Pablo (vereda norte) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PR-ab2cf4 - Escalera mecánica desde Boletería hacia Acceso A Av. San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    }
+  ]
+}

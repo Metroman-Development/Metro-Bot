@@ -1,0 +1,550 @@
+{
+  "station": "los leones",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-06-07T20:14:46.651Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Nueva Providencia Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-06-07T20:14:46.651Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Nueva Providencia Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-06-07T20:14:46.651Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Nueva Providencia"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-06-07T20:14:46.651Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Suecia"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-06-07T20:14:46.651Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "General Adolfo Holley"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-14T13:42:11.372Z",
+      "notes": "",
+      "id": "SR6NCM1EXD",
+      "from": "Servicios Línea 6 Norte",
+      "to": "Exterior Acceso D",
+      "fullPath": "Servicios Línea 6 Norte→Nivel Locales Comerciales -1→Exterior Acceso D",
+      "segments": [
+        "Servicios Línea 6 Norte",
+        "Nivel Locales Comerciales -1",
+        "Exterior Acceso D"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-14T13:42:11.372Z",
+      "notes": "",
+      "id": "CERCA6N3SR6N",
+      "from": "Andén Cerrillos",
+      "to": "Servicios Línea 6 Norte",
+      "fullPath": "Andén Cerrillos→Cambio de Andén Línea 6→Nivel Intermedio -3→Servicios Línea 6 Norte",
+      "segments": [
+        "Andén Cerrillos",
+        "Cambio de Andén Línea 6",
+        "Nivel Intermedio -3",
+        "Servicios Línea 6 Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-19T08:12:57.784Z",
+      "notes": "",
+      "id": "EXESR6S",
+      "from": "Exterior Acceso E",
+      "to": "Servicios Línea 6 Sur",
+      "fullPath": "Exterior Acceso E→Servicios Línea 6 Sur",
+      "segments": [
+        "Exterior Acceso E",
+        "Servicios Línea 6 Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-14T13:42:11.372Z",
+      "notes": "",
+      "id": "LENCA6",
+      "from": "Andén Los Leones",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": "Andén Los Leones→Cambio de Andén Línea 6",
+      "segments": [
+        "Andén Los Leones",
+        "Cambio de Andén Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-18T10:05:50.795Z",
+      "notes": "",
+      "id": "1CO6N3LDSR6S",
+      "from": "Combinación Línea 6 a Línea 1",
+      "to": "Servicios Línea 6 Sur",
+      "fullPath": "Combinación Línea 6 a Línea 1→Nivel Intermedio -3→Andén Los Dominicos→Servicios Línea 6 Sur",
+      "segments": [
+        "Combinación Línea 6 a Línea 1",
+        "Nivel Intermedio -3",
+        "Andén Los Dominicos",
+        "Servicios Línea 6 Sur"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-25T16:57:59.006Z",
+      "notes": "",
+      "id": "N3SP",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén San Pablo",
+      "fullPath": "Nivel Intermedio -3→Andén San Pablo",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén San Pablo"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "EXC16SRS",
+      "from": "Exterior Acceso C",
+      "to": "Servicios Línea 6 Sur",
+      "fullPath": "Exterior Acceso C→Servicios Línea 6 Sur",
+      "segments": [
+        "Exterior Acceso C",
+        "Servicios Línea 6 Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "EXC17SRS",
+      "from": "Exterior Acceso C",
+      "to": "Servicios Línea 6 Sur",
+      "fullPath": "Exterior Acceso C→Servicios Línea 6 Sur",
+      "segments": [
+        "Exterior Acceso C",
+        "Servicios Línea 6 Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "EXECM1",
+      "from": "Exterior Acceso E",
+      "to": "Nivel Locales Comerciales -1",
+      "fullPath": "Exterior Acceso E→Nivel Locales Comerciales -1",
+      "segments": [
+        "Exterior Acceso E",
+        "Nivel Locales Comerciales -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "CM1EXEC",
+      "from": "Nivel Locales Comerciales -1",
+      "to": "Exterior Acceso E",
+      "fullPath": "Nivel Locales Comerciales -1→Exterior Acceso E",
+      "segments": [
+        "Nivel Locales Comerciales -1",
+        "Exterior Acceso E"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SR6SLD",
+      "from": "Servicios Línea 6 Sur",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Servicios Línea 6 Sur→Andén Los Dominicos",
+      "segments": [
+        "Servicios Línea 6 Sur",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "LDSR6S",
+      "from": "Andén Los Dominicos",
+      "to": "Servicios Línea 6 Sur",
+      "fullPath": "Andén Los Dominicos→Servicios Línea 6 Sur",
+      "segments": [
+        "Andén Los Dominicos",
+        "Servicios Línea 6 Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SP15N3O",
+      "from": "Andén San Pablo (Oeste)",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén San Pablo (Oeste)→Nivel Intermedio -3",
+      "segments": [
+        "Andén San Pablo (Oeste)",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:01:27.114Z",
+      "notes": "",
+      "id": "N316SPO",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén San Pablo (Oeste)",
+      "fullPath": "Nivel Intermedio -3→Andén San Pablo (Oeste)",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén San Pablo (Oeste)"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SP17N3E",
+      "from": "Andén San Pablo (Este)",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén San Pablo (Este)→Nivel Intermedio -3",
+      "segments": [
+        "Andén San Pablo (Este)",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "N318SPE",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén San Pablo (Este)",
+      "fullPath": "Nivel Intermedio -3→Andén San Pablo (Este)",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén San Pablo (Este)"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "LD05N3",
+      "from": "Andén Los Dominicos",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén Los Dominicos→Nivel Intermedio -3",
+      "segments": [
+        "Andén Los Dominicos",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "LD06N3",
+      "from": "Andén Los Dominicos",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén Los Dominicos→Nivel Intermedio -3",
+      "segments": [
+        "Andén Los Dominicos",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "N307LD",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Nivel Intermedio -3→Andén Los Dominicos",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "N308LD",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Nivel Intermedio -3→Andén Los Dominicos",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SP09N3O",
+      "from": "Andén San Pablo (Oeste)",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén San Pablo (Oeste)→Nivel Intermedio -3",
+      "segments": [
+        "Andén San Pablo (Oeste)",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "N310SPO",
+      "from": "Nivel Intermedio -3",
+      "to": "Andén San Pablo (Oeste)",
+      "fullPath": "Nivel Intermedio -3→Andén San Pablo (Oeste)",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Andén San Pablo (Oeste)"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SR6N12CM2",
+      "from": "Servicios Línea 6 Norte",
+      "to": "Nivel Locales Comerciales -2",
+      "fullPath": "Servicios Línea 6 Norte→Nivel Locales Comerciales -2",
+      "segments": [
+        "Servicios Línea 6 Norte",
+        "Nivel Locales Comerciales -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SR6N13CM2",
+      "from": "Servicios Línea 6 Norte",
+      "to": "Nivel Locales Comerciales -2",
+      "fullPath": "Servicios Línea 6 Norte→Nivel Locales Comerciales -2",
+      "segments": [
+        "Servicios Línea 6 Norte",
+        "Nivel Locales Comerciales -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "CM214SR6N",
+      "from": "Nivel Locales Comerciales -2",
+      "to": "Servicios Línea 6 Norte",
+      "fullPath": "Nivel Locales Comerciales -2→Servicios Línea 6 Norte",
+      "segments": [
+        "Nivel Locales Comerciales -2",
+        "Servicios Línea 6 Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "CM217SR6N",
+      "from": "Nivel Locales Comerciales -2",
+      "to": "Servicios Línea 6 Norte",
+      "fullPath": "Nivel Locales Comerciales -2→Servicios Línea 6 Norte",
+      "segments": [
+        "Nivel Locales Comerciales -2",
+        "Servicios Línea 6 Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "SR6N18CM1",
+      "from": "Servicios Línea 6 Norte",
+      "to": "Nivel Locales Comerciales -1",
+      "fullPath": "Servicios Línea 6 Norte→Nivel Locales Comerciales -1",
+      "segments": [
+        "Servicios Línea 6 Norte",
+        "Nivel Locales Comerciales -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "CA619CM3",
+      "from": "Cambio de Andén Línea 6",
+      "to": "Nivel Locales Comerciales -3",
+      "fullPath": "Cambio de Andén Línea 6→Nivel Locales Comerciales -3",
+      "segments": [
+        "Cambio de Andén Línea 6",
+        "Nivel Locales Comerciales -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-17T13:29:50.551Z",
+      "notes": "",
+      "id": "CM320CA6",
+      "from": "Nivel Locales Comerciales -3",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": "Nivel Locales Comerciales -3→Cambio de Andén Línea 6",
+      "segments": [
+        "Nivel Locales Comerciales -3",
+        "Cambio de Andén Línea 6"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-06-07T20:14:46.651Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-06-07T20:14:51.433Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-06-07T20:16:12.358Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP15N3O a fuera de servicio",
+      "details": "Updated: SP15N3O"
+    },
+    {
+      "timestamp": "2025-06-07T20:16:18.553Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera N316SPO a fuera de servicio",
+      "details": "Updated: N316SPO"
+    },
+    {
+      "timestamp": "2025-06-09T17:27:01.916Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera CA619CM3 a fuera de servicio",
+      "details": "Updated: CA619CM3"
+    },
+    {
+      "timestamp": "2025-06-13T08:56:28.676Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO6N3LDSR6S a fuera de servicio",
+      "details": "Updated: 1CO6N3LDSR6S"
+    },
+    {
+      "timestamp": "2025-06-14T13:33:29.965Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO6N3LDSR6S a operativa",
+      "details": "Updated: 1CO6N3LDSR6S"
+    },
+    {
+      "timestamp": "2025-06-14T13:42:08.494Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a fuera de servicio",
+      "details": "Updated: SR6NCM1EXD, CERCA6N3SR6N, EXESR6S, LENCA6, 1CO6N3LDSR6S, N3SP"
+    },
+    {
+      "timestamp": "2025-06-14T13:42:11.372Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a operativa",
+      "details": "Updated: SR6NCM1EXD, CERCA6N3SR6N, EXESR6S, LENCA6, 1CO6N3LDSR6S, N3SP"
+    },
+    {
+      "timestamp": "2025-06-16T17:06:54.621Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP17N3E a fuera de servicio",
+      "details": "Updated: SP17N3E"
+    },
+    {
+      "timestamp": "2025-06-17T08:44:08.703Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO6N3LDSR6S a fuera de servicio",
+      "details": "Updated: 1CO6N3LDSR6S"
+    },
+    {
+      "timestamp": "2025-06-17T08:44:43.210Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP17N3E a operativa",
+      "details": "Updated: SP17N3E"
+    },
+    {
+      "timestamp": "2025-06-17T08:44:47.408Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera CA619CM3 a operativa",
+      "details": "Updated: CA619CM3"
+    },
+    {
+      "timestamp": "2025-06-17T13:29:50.551Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: EXC16SRS, EXC17SRS, EXECM1, CM1EXEC, SR6SLD, LDSR6S, SP15N3O, N316SPO, SP17N3E, N318SPE, LD05N3, LD06N3, N307LD, N308LD, SP09N3O, N310SPO, SR6N12CM2, SR6N13CM2, CM214SR6N, CM217SR6N, SR6N18CM1, CA619CM3, CM320CA6"
+    },
+    {
+      "timestamp": "2025-06-18T10:05:50.795Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO6N3LDSR6S a operativa",
+      "details": "Updated: 1CO6N3LDSR6S"
+    },
+    {
+      "timestamp": "2025-06-18T10:06:02.643Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXESR6S a fuera de servicio",
+      "details": "Updated: EXESR6S"
+    },
+    {
+      "timestamp": "2025-06-19T08:12:57.784Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXESR6S a operativa",
+      "details": "Updated: EXESR6S"
+    },
+    {
+      "timestamp": "2025-06-25T16:57:59.006Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor N3SP a fuera de servicio",
+      "details": "Updated: N3SP"
+    },
+    {
+      "timestamp": "2025-06-27T10:30:41.899Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera N316SPO a fuera de servicio",
+      "details": "Updated: N316SPO"
+    },
+    {
+      "timestamp": "2025-06-28T12:01:27.114Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera N316SPO a operativa",
+      "details": "Updated: N316SPO"
+    }
+  ],
+  "changelistory": []
+}

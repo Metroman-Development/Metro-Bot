@@ -1,0 +1,390 @@
+{
+  "station": "la moneda",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Hermanos Amunátegui"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Almirante Lorenzo Gotuzzo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Teatinos"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Nataniel Cox"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Lord Cochrane"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "1dbe2b",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T00:40:37.716Z",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur)  Nataniel Cox (detrás del acceso)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur)  Nataniel Cox (detrás del acceso)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.941Z",
+      "notes": "",
+      "id": "b2b59b",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.941Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-11T00:40:37.716Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.716Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LM-1dbe2b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LM-1dbe2b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.156Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LM-1dbe2b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.357Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.357Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.357Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.103Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.103Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.103Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.876Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.876Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.876Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.582Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.582Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.582Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.596Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.596Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.596Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.580Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.580Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.580Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-1dbe2b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Nataniel Cox (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:21.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:21.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    }
+  ]
+}

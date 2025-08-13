@@ -1,0 +1,66 @@
+{
+  "station": "Ñuble",
+  "line": "l5",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Vicuña Mackenna / Carlos Dittborn",
+      "status": "abierto",
+      "notes": "",
+      "lastUpdated": "2025-05-29T10:19:22.792Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "VV",
+      "from": " Andén Vicente Valdés",
+      "to": "Servicios",
+      "fullPath": " Andén Vicente Valdés→Servicios",
+      "segments": [
+        " Andén Vicente Valdés",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-29T10:19:22.792Z"
+    },
+    {
+      "id": "PM",
+      "from": " Andén Plaza de Maipú",
+      "to": "Servicios",
+      "fullPath": " Andén Plaza de Maipú→Servicios",
+      "segments": [
+        " Andén Plaza de Maipú",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-29T10:19:22.792Z"
+    },
+    {
+      "id": "LENCA6SR",
+      "from": "Andén Los Leones",
+      "to": "Servicios",
+      "fullPath": "Andén Los Leones→Cambio de Andén Línea 6→Servicios",
+      "segments": [
+        "Andén Los Leones",
+        "Cambio de Andén Línea 6",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-29T10:19:22.792Z"
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-05-29T10:19:22.792Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-29T10:19:28.633Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    }
+  ]
+}

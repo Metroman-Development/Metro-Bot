@@ -1,0 +1,411 @@
+{
+  "station": "Cerrillos",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T22:22:45.993Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Departamental"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "208dc5",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "83cfbb",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Los Leones",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Los Leones",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Los Leones"
+      ]
+    },
+    {
+      "id": "cd50d0",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:04.960Z",
+      "from": "Ascensor de acceso ubicado en Av. Departamental (vereda norte)  Buzeta (al costado izquierdo del acceso)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Departamental (vereda norte)  Buzeta (al costado izquierdo del acceso)",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "a3650a",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Departamental hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Departamental hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "aa9528",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.426Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-05T13:21:04.960Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-05T13:21:04.960Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CER-cd50d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.506Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CER-cd50d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.906Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CER-cd50d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CER-cd50d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.303Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CER-cd50d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.172Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CER-cd50d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.579Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CER-0fd2d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.790Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CER-0fd2d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.833Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-cd50d0 - Ascensor de acceso ubicado en Av. Departamental (vereda norte) con Buzeta (al costado izquierdo del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-a3650a - Escalera mecánica desde Acceso A Av. Departamental hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CER-208dc5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CER-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    }
+  ]
+}

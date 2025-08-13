@@ -1,0 +1,173 @@
+{
+  "station": "Franklin",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T10:16:58.228Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Calle Placer"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T10:16:58.228Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Nataniel Cox"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "CERAVSR6",
+      "from": " Andén Cerrillos",
+      "to": "Servicios Línea 6",
+      "fullPath": " Andén Cerrillos→Andén Vespucio Norte→Servicios Línea 6",
+      "segments": [
+        " Andén Cerrillos",
+        "Andén Vespucio Norte",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "LENAVSR6",
+      "from": " Andén Los Leones",
+      "to": "Servicios Línea 6",
+      "fullPath": " Andén Los Leones→Andén Vespucio Norte→Servicios Línea 6",
+      "segments": [
+        " Andén Los Leones",
+        "Andén Vespucio Norte",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "EXB",
+      "from": "Servicios Línea 6",
+      "to": "Exterior Acceso B",
+      "fullPath": "Servicios Línea 6→Exterior Acceso B",
+      "segments": [
+        "Servicios Línea 6",
+        "Exterior Acceso B"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "SR6EXB",
+      "from": "Servicios Línea 6",
+      "to": "Exterior Acceso B",
+      "fullPath": "Servicios Línea 6→Exterior Acceso B",
+      "segments": [
+        "Servicios Línea 6",
+        "Exterior Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "LEN10N3",
+      "from": "Andén Los Leones",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén Los Leones→Nivel Intermedio -3",
+      "segments": [
+        "Andén Los Leones",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "CERAV",
+      "from": "Andén Cerrillos",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Andén Cerrillos→Andén Vespucio Norte",
+      "segments": [
+        "Andén Cerrillos",
+        "Andén Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "LEN12N3",
+      "from": "Andén Los Leones",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Andén Los Leones→Nivel Intermedio -3",
+      "segments": [
+        "Andén Los Leones",
+        "Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-21T12:22:28.904Z",
+      "notes": "",
+      "id": "EXBSR6",
+      "from": "Exterior Acceso B",
+      "to": "Servicios Línea 6",
+      "fullPath": "Exterior Acceso B→Servicios Línea 6",
+      "segments": [
+        "Exterior Acceso B",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "N3SR6",
+      "from": "Nivel Intermedio -3",
+      "to": "Servicios Línea 6",
+      "fullPath": "Nivel Intermedio -3→Servicios Línea 6",
+      "segments": [
+        "Nivel Intermedio -3",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T10:16:58.229Z",
+      "notes": "",
+      "id": "SR6N3",
+      "from": "Servicios Línea 6",
+      "to": "Nivel Intermedio -3",
+      "fullPath": "Servicios Línea 6→Nivel Intermedio -3",
+      "segments": [
+        "Servicios Línea 6",
+        "Nivel Intermedio -3"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-30T10:16:58.227Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-30T10:17:02.364Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-06-21T12:22:28.905Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXBSR6 a fuera de servicio",
+      "details": "Updated: EXBSR6"
+    }
+  ]
+}

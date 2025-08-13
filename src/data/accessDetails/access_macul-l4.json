@@ -1,0 +1,432 @@
+{
+  "station": "Macul",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:45:48.973Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Macul / Av. La Florida"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:45:48.973Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Departamental"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "2e1631",
+      "from": "Ascensor Boletería Sur",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería Sur hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería Sur",
+        "én dirección"
+      ]
+    },
+    {
+      "id": "654c73",
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T13:20:35.511Z",
+      "from": "Ascensor Boletería Norte",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería Norte hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería Norte",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "66c5c9",
+      "from": "Ascensor Boletería Sur",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería Sur",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "e25f10",
+      "from": "Ascensor Boletería Norte",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería Norte",
+        "én dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "65289d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "7b5156",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba",
+      "fullPath": "Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "9b0ee0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "fullPath": "Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.070Z",
+      "notes": "",
+      "id": "a14e1c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-03T13:20:35.511Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-03T13:20:35.511Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: MAC-654c73 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: MAC-654c73 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.070Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAC-2e1631 - Ascensor Boletería Sur hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.265Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MAC-65289d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-2e1631 - Ascensor Boletería Sur hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.239Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-2e1631 - Ascensor Boletería Sur hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-2e1631 - Ascensor Boletería Sur hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.024Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-2e1631 - Ascensor Boletería Sur hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-e25f10 - Ascensor Boletería Norte hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-a14e1c - Escalera mecánica 02 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-9b0ee0 - Escalera mecánica 03 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-7b5156 - Escalera mecánica 04 desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-66c5c9 - Ascensor Boletería Sur hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAC-654c73 - Ascensor Boletería Norte hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAC-65289d - Escalera mecánica 01 desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    }
+  ]
+}

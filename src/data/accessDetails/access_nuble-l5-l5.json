@@ -1,0 +1,664 @@
+{
+  "station": "ñuble l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.524Z",
+      "notes": "",
+      "id": "16a24c",
+      "from": "Ascensor Cambio de andén Línea 6",
+      "to": "én Línea 6 dirección Cerrillos",
+      "fullPath": "Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Cambio de andén Línea 6",
+        "én Línea 6 dirección Cerrillos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.524Z",
+      "notes": "",
+      "id": "3a5ba6",
+      "from": "Ascensor de combinación Línea 5 Línea 6",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor de combinación Línea 5 Línea 6",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "560f61",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.879Z",
+      "from": "Ascensor Servicios",
+      "to": "combinación Línea 5 Línea 6",
+      "fullPath": "Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios",
+        "combinación Línea 5 Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.524Z",
+      "notes": "",
+      "id": "5a46c7",
+      "from": "Ascensor de combinación Línea 5 Línea 6",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor de combinación Línea 5 Línea 6",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NU-560f61 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NU-560f61 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.475Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:41.879Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NU-560f61 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NU-560f61 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.475Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.530Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NU-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ]
+}

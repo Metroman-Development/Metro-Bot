@@ -1,0 +1,398 @@
+{
+  "station": "Monseñor Eyzaguirre",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:51:39.484Z",
+      "notes": "",
+      "id": "ExteriorA",
+      "name": "Exterior Acceso A",
+      "description": "Av. Irarrázaval"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.542Z",
+      "notes": "",
+      "id": "78e48b",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.542Z",
+      "notes": "",
+      "id": "e1d48a",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza Quilicura",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.542Z",
+      "notes": "",
+      "id": "f89937",
+      "from": "Ascensor de acceso ubicado en Av. Irarrázaval  Monseñor Eyzaguirre",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Irarrázaval  Monseñor Eyzaguirre",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.542Z",
+      "notes": "",
+      "id": "832279",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.542Z",
+      "notes": "",
+      "id": "943151",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia nivel Intermedio"
+      ]
+    },
+    {
+      "id": "c9011b",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.799Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-06T00:40:09.799Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T00:40:09.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MEY-c9011b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.972Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MEY-c9011b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.542Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.781Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.302Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-f89937 - Ascensor de acceso ubicado en Av. Irarrázaval con Monseñor Eyzaguirre hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MEY-832279 - Escalera mecánica desde Servicios hacia Acceso A Av. Irarrázaval"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.578Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MEY-78e48b - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Fernando Castillo Velasco"
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "station": "Gruta de Lourdes",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:00:23.944Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. San Pablo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:00:23.944Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "San Gumercindo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:00:23.944Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Patria Nueva"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "966992",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.582Z",
+      "notes": "",
+      "id": "1af78b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.666Z",
+      "notes": "",
+      "id": "2737f3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "3ed2c4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "8ef6a3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "b6b440",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "c8c561",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3"
+      ]
+    },
+    {
+      "id": "d3d728",
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T13:20:35.492Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Nivel Intermedio -1",
+      "fullPath": "Escalera mecánica desde Boletería hacia Nivel Intermedio -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Nivel Intermedio -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.667Z",
+      "notes": "",
+      "id": "f773b3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-03T13:20:35.492Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-03T13:20:35.492Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-d3d728 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.582Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-1af78b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-f773b3 - Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-d3d728 - Escalera mecánica desde Boletería hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-c8c561 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-b6b440 - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: GL-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-8ef6a3 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: GL-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: GL-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-3ed2c4 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.666Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: GL-1af78b - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.621Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-3ed2c4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.341Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-3ed2c4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-d3d728 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.314Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-3ed2c4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.735Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-3ed2c4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.735Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-1af78b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.458Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-3ed2c4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.458Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: GL-1af78b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-3ed2c4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: GL-1af78b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-f773b3 - Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-d3d728 - Escalera mecánica desde Boletería hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-c8c561 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-b6b440 - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-8ef6a3 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.177Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.177Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-3ed2c4 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.177Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.177Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-1af78b - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-f773b3 - Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-d3d728 - Escalera mecánica desde Boletería hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-c8c561 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-b6b440 - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-8ef6a3 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-3ed2c4 - Escalera mecánica desde Nivel Intermedio -3 hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.968Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-1af78b - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-f773b3 - Escalera mecánica desde Nivel Intermedio -5 cambio de andén hacia Nivel Intermedio -4"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-d3d728 - Escalera mecánica desde Boletería hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-c8c561 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: GL-b6b440 - Escalera mecánica desde Nivel Intermedio -4 hacia Nivel Intermedio -5 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: GL-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    }
+  ]
+}

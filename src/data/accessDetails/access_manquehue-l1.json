@@ -1,0 +1,882 @@
+{
+  "station": "Manquehue",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Rosario Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Manquehue Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Manquehue Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Av. Apoquindo Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.789Z",
+      "notes": "",
+      "id": "F",
+      "name": "Acceso F",
+      "description": "Rosario Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "b2b59b",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.470Z",
+      "notes": "",
+      "id": "beaa69",
+      "from": "Ascensor de acceso ubicado en Av. Apoquindo (vereda sur)  Mar de los Sargazos",
+      "to": "Boletería APUMANQUE",
+      "fullPath": "Ascensor de acceso ubicado en Av. Apoquindo (vereda sur) con Mar de los Sargazos hacia Boletería APUMANQUE",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Apoquindo (vereda sur)  Mar de los Sargazos",
+        "Boletería APUMANQUE"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.601Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.601Z",
+      "notes": "",
+      "id": "f8cb1c",
+      "from": "Ascensor de acceso ubicado en Av. Apoquindo (vereda norte)  O'Connell (detrás del acceso)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Apoquindo (vereda norte) con O'Connell (detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Apoquindo (vereda norte)  O'Connell (detrás del acceso)",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "18ffed",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.805Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "20607e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 03 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "2afef6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 07 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "35ff76",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso F Rosario Sur",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso F Rosario Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso F Rosario Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.135Z",
+      "notes": "",
+      "id": "428e47",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Apoquindo Sur",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Apoquindo Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Apoquindo Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "4d1a27",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 11 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.600Z",
+      "notes": "",
+      "id": "7b85e7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 05 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.470Z",
+      "notes": "",
+      "id": "8fb4fb",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte"
+      ]
+    },
+    {
+      "id": "98d365",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-10T00:40:19.805Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell",
+      "fullPath": "Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-06T13:20:15.970Z",
+      "notes": "",
+      "id": "b2dbbb",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica 10 desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Cambio de andén hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.601Z",
+      "notes": "",
+      "id": "ca3ddc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell",
+      "fullPath": "Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.601Z",
+      "notes": "",
+      "id": "d43efd",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.601Z",
+      "notes": "",
+      "id": "f45806",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur",
+      "fullPath": "Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T00:40:19.805Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-98d365 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: MQ-beaa69 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-8fb4fb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: MQ-beaa69 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-8fb4fb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.632Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-428e47 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.402Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.402Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-428e47 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.158Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.908Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-f8cb1c - Ascensor de acceso ubicado en Av. Apoquindo (vereda norte) con O'Connell (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-f45806 - Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-d43efd - Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-ca3ddc - Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-beaa69 - Ascensor de acceso ubicado en Av. Apoquindo (vereda sur) con Mar de los Sargazos hacia Boletería APUMANQUE"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-b2dbbb - Escalera mecánica 10 desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-98d365 - Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-8fb4fb - Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-7b85e7 - Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-4d1a27 - Escalera mecánica 11 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-428e47 - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Apoquindo Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-35ff76 - Escalera mecánica desde Cambio de andén hacia Acceso F Rosario Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-2afef6 - Escalera mecánica 07 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-20607e - Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.495Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.141Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: MQ-f8cb1c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.141Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-35ff76 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: MQ-f8cb1c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-35ff76 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-f8cb1c - Ascensor de acceso ubicado en Av. Apoquindo (vereda norte) con O'Connell (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-f45806 - Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-d43efd - Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-ca3ddc - Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-beaa69 - Ascensor de acceso ubicado en Av. Apoquindo (vereda sur) con Mar de los Sargazos hacia Boletería APUMANQUE"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-b2dbbb - Escalera mecánica 10 desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-98d365 - Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-8fb4fb - Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-98d365 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: MQ-beaa69 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-8fb4fb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: MQ-beaa69 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-8fb4fb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.632Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-428e47 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.402Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.402Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-428e47 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.158Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.908Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-f8cb1c - Ascensor de acceso ubicado en Av. Apoquindo (vereda norte) con O'Connell (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-f45806 - Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-d43efd - Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-ca3ddc - Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-beaa69 - Ascensor de acceso ubicado en Av. Apoquindo (vereda sur) con Mar de los Sargazos hacia Boletería APUMANQUE"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-b2dbbb - Escalera mecánica 10 desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MQ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-98d365 - Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-8fb4fb - Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-7b85e7 - Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-4d1a27 - Escalera mecánica 11 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-428e47 - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Apoquindo Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-35ff76 - Escalera mecánica desde Cambio de andén hacia Acceso F Rosario Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-2afef6 - Escalera mecánica 07 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-20607e - Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MQ-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.495Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-b2dbbb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.141Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: MQ-f8cb1c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.141Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-35ff76 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: MQ-f8cb1c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MQ-35ff76 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MQ-b2dbbb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-f8cb1c - Ascensor de acceso ubicado en Av. Apoquindo (vereda norte) con O'Connell (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-f45806 - Escalera mecánica 02 desde Cambio de andén hacia Acceso D Av. Manquehue Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-d43efd - Escalera mecánica desde Acceso B Av. Apoquindo Norte / O'Conell hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-ca3ddc - Escalera mecánica 13 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-beaa69 - Ascensor de acceso ubicado en Av. Apoquindo (vereda sur) con Mar de los Sargazos hacia Boletería APUMANQUE"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-b2dbbb - Escalera mecánica 10 desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MQ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-98d365 - Escalera mecánica 12 desde Cambio de andén hacia Acceso B Av. Apoquindo Norte / O'Conell"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MQ-8fb4fb - Escalera mecánica desde Cambio de andén hacia Acceso A Rosario Norte"
+    }
+  ]
+}

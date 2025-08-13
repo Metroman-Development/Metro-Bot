@@ -1,0 +1,703 @@
+{
+  "station": "Estación Central",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.780Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Matucana"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.780Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Barrio Meiggs"
+    },
+    {
+      "status": "cerrado",
+      "lastUpdated": "2025-06-10T11:40:23.780Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "San Francisco de Borja"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.062Z",
+      "notes": "",
+      "id": "b2b59b",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.062Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.062Z",
+      "notes": "",
+      "id": "fc76dc",
+      "from": "Varios puntos",
+      "to": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "f47b4a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:42.035Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.062Z",
+      "notes": "",
+      "id": "f715a0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección San Pablo",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:42.035Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:42.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EL-f47b4a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EL-f47b4a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EL-fc76dc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EL-fc76dc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EL-fc76dc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.585Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EL-fc76dc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.246Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.766Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T00:40:42.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EL-f47b4a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.476Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EL-f47b4a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EL-fc76dc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EL-fc76dc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EL-fc76dc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.585Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EL-fc76dc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.246Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.766Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.109Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-fc76dc - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) en acceso Estación Alameda (EFE)"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f715a0 - Escalera mecánica desde Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EL-f47b4a - Escalera mecánica desde Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EL-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    }
+  ]
+}

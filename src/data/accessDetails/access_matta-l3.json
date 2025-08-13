@@ -1,0 +1,411 @@
+{
+  "station": "Matta",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:31:18.682Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Manuel Antonio Matta"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.598Z",
+      "notes": "",
+      "id": "0eb044",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.598Z",
+      "notes": "",
+      "id": "173a49",
+      "from": "Ascensor de acceso ubicado en Av. Manuel An",
+      "to": "nio Matta  Av. Santa Rosa",
+      "fullPath": "Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Manuel An",
+        "nio Matta  Av. Santa Rosa"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.598Z",
+      "notes": "",
+      "id": "374766",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.325Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T00:40:53.524Z",
+      "notes": "",
+      "id": "4cba08",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+      ]
+    },
+    {
+      "id": "c9011b",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.372Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.598Z",
+      "notes": "",
+      "id": "eaead3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-07T13:20:36.372Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MAT-c9011b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MAT-c9011b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MAT-0fd2d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MAT-0fd2d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: MAT-4cba08 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.317Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: MAT-4cba08 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.799Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.379Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-4cba08 - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-173a49 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta con Av. Santa Rosa hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.004Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: MAT-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-eaead3 - Escalera mecánica desde Servicios hacia Acceso A Av. Manuel Antonio Matta"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: MAT-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

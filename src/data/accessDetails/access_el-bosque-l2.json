@@ -1,0 +1,385 @@
+{
+  "station": "el bosque",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T19:03:28.178Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Ernesto Riquelme"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.065Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "728374",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.676Z",
+      "from": "Ascensor de acceso ubicado en Ernes",
+      "to": "Riquelme",
+      "fullPath": "Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Ernes",
+        "Riquelme"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.065Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.065Z",
+      "notes": "",
+      "id": "84dce9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.066Z",
+      "notes": "",
+      "id": "c15417",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-09T13:20:13.676Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.676Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EB-728374 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EB-728374 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EB-c15417 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.944Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EB-c15417 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.485Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EB-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.983Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EB-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.557Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-c15417 - Escalera mecánica desde Servicios hacia Acceso A Ernesto Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EB-84dce9 - Escalera mecánica desde Acceso A Ernesto Riquelme hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EB-728374 - Ascensor de acceso ubicado en Ernesto Riquelme hacia Boletería"
+    }
+  ]
+}

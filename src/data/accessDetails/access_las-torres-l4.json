@@ -1,0 +1,681 @@
+{
+  "station": "Las torres",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:35:31.355Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Doctor Amador Neghme Rodríguez"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:35:31.355Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Las Torres"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.097Z",
+      "notes": "",
+      "id": "0cb9ac",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente)  Av. Dr. Amador Neghme Rodríguez",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente)  Av. Dr. Amador Neghme Rodríguez",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.097Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.097Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "ca63c9",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T00:40:53.518Z",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Av. Las",
+      "to": "rres",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Av. Las",
+        "rres"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-05T00:40:53.518Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-05T00:40:53.518Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LTO-ca63c9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.439Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LTO-ca63c9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-05T00:40:53.518Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LTO-ca63c9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.439Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LTO-ca63c9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.841Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-ca63c9 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Las Torres hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LTO-0cb9ac - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Av. Dr. Amador Neghme Rodríguez hacia Boletería"
+    }
+  ]
+}

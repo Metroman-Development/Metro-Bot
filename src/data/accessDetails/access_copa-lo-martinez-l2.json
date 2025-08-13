@@ -1,0 +1,713 @@
+{
+  "station": "copa lo Martinez",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T19:14:31.121Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Lo Martínez"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.966Z",
+      "notes": "",
+      "id": "2c9f37",
+      "from": "Ascensor de acceso ubicado en Av. Lo Martínez",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Lo Martínez",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.674Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "9ff167",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.709Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.965Z",
+      "notes": "",
+      "id": "0cad94",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.966Z",
+      "notes": "",
+      "id": "c01778",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Servicios hacia Nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Nivel Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.966Z",
+      "notes": "",
+      "id": "c1bfd4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.966Z",
+      "notes": "",
+      "id": "e96cbc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio hacia Servicios",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.709Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.709Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-9ff167 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-9ff167 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.965Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.942Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.418Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.709Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-9ff167 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-9ff167 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.965Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.942Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CM-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.418Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CM-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.006Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.522Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c01778 - Escalera mecánica desde Servicios hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CM-2c9f37 - Ascensor de acceso ubicado en Av. Lo Martínez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-0cad94 - Escalera mecánica desde Nivel Intermedio hacia Acceso A Avenida Lo Martínez"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-e96cbc - Escalera mecánica desde Nivel Intermedio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CM-c1bfd4 - Escalera mecánica desde Acceso A Avenida Lo Martínez hacia Nivel Intermedio"
+    }
+  ]
+}

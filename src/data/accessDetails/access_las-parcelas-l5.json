@@ -1,0 +1,417 @@
+{
+  "station": "las parcelas",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:29:56.986Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Pajaritos"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "18ff21",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.744Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "966992",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.744Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "0861b8",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.743Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "0c66e4",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.743Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+      ]
+    },
+    {
+      "id": "163839",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.743Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Boletería",
+      "fullPath": "Escalera mecánica desde Servicios hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Boletería"
+      ]
+    },
+    {
+      "id": "7ae092",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.744Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "819532",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.744Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Boletería hacia Nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Nivel Intermedio"
+      ]
+    },
+    {
+      "id": "e67a34",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.744Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.744Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LP-18ff21 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.743Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-163839 - Escalera mecánica desde Servicios hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.743Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-0c66e4 - Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.743Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LP-0861b8 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.391Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LP-966992 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.391Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LP-7ae092 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.218Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LP-966992 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.179Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LP-7ae092 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.307Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LP-7ae092 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LP-7ae092 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-18ff21 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-163839 - Escalera mecánica desde Servicios hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0c66e4 - Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0861b8 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-18ff21 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-163839 - Escalera mecánica desde Servicios hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0c66e4 - Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0861b8 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-18ff21 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-163839 - Escalera mecánica desde Servicios hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0c66e4 - Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0861b8 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-18ff21 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-163839 - Escalera mecánica desde Servicios hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0c66e4 - Escalera mecánica desde Puente de conexión Andén dirección Plaza de Maipú hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-0861b8 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.612Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-e67a34 - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.612Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LP-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.612Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-819532 - Escalera mecánica desde Boletería hacia Nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.612Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LP-7ae092 - Escalera mecánica desde Servicios hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

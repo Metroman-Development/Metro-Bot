@@ -1,0 +1,364 @@
+{
+  "station": "departamental",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:41:19.497Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:41:19.497Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Gran Avenida José Miguel Carrera Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "426b57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.143Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "8be8ef",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.143Z",
+      "from": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Calle 1",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Calle 1",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "9ff167",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.143Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:44.143Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.928Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.928Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.928Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.613Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.613Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.613Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.231Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.231Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.231Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.399Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.601Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.240Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.240Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.240Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DE-8be8ef - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Calle 1 hacia Boletería"
+    }
+  ]
+}

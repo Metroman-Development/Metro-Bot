@@ -1,0 +1,364 @@
+{
+  "station": "Carlos valdovinos",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:40:46.755Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Vicuña Mackenna Poniente / Oriente"
+    },
+    {
+      "status": "cerrado",
+      "lastUpdated": "2025-05-29T11:40:46.755Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Vicuña Mackenna Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "2dd283",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.521Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "539aaa",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.521Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "888730",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.521Z",
+      "from": "Ascensor de acceso ubicado  Av. Vicuña Mackenna Oriente y Poniente (en acceso principal)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado  Av. Vicuña Mackenna Oriente y Poniente (en acceso principal)",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:42.521Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.952Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.952Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.952Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.514Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.514Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.514Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.475Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.475Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.475Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.253Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.253Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.253Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.656Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.656Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.656Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.527Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.527Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.527Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.969Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.969Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.969Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:18.989Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-888730 - Ascensor de acceso ubicado entre Av. Vicuña Mackenna Oriente y Poniente (en acceso principal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:18.989Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CV-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

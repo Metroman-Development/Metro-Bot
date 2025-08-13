@@ -1,0 +1,160 @@
+{
+  "station": "Los Héroes",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Almirante Barroso"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Manuel Rodríguez Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Bandejón Central Av. Alameda Libertador Bernardo O'Higgins"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Manuel Rodríguez Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Av. Ejército Libertador"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:26:11.976Z",
+      "notes": "",
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería"
+    },
+    {
+      "status": "operativo",
+      "lastUpdated": "2025-04-26T09:28:52.746Z",
+      "notes": "",
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería"
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T09:26:11.976Z",
+      "notes": "",
+      "id": "EXD",
+      "from": "Boletería",
+      "to": "Exterior Acceso D"
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-05-28T11:38:06.286Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T09:26:28.447Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T09:27:58.932Z",
+      "user": "metromanrrss",
+      "action": "Editado E",
+      "details": "name cambiado de \"Acceso E:\" a \"Acceso E\""
+    },
+    {
+      "timestamp": "2025-04-26T09:28:52.746Z",
+      "user": "metromanrrss",
+      "action": "Editado SP",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.314Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.314Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.314Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.314Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.315Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "E: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.786Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.786Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.786Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.786Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.786Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "E: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-05-28T11:38:06.288Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated SP"
+    }
+  ]
+}

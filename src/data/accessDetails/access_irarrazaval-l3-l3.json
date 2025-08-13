@@ -1,0 +1,782 @@
+{
+  "station": "irarrázaval l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "19819d",
+      "from": "Ascensor cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor cambio de Andén",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "1ffee5",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Plaza Quilicura",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "3b98ca",
+      "from": "Ascensor cambio de Andén",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor cambio de Andén",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "509819",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.954Z",
+      "notes": "",
+      "id": "779bd1",
+      "from": "Ascensor de acceso ubicado en Matta Oriente  Av. San Eugenio",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Matta Oriente  Av. San Eugenio",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "919f31",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "97cdfa",
+      "from": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+      "to": "én Vicente Valdés",
+      "fullPath": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés",
+      "segments": [
+        "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+        "én Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.076Z",
+      "notes": "",
+      "id": "a50300",
+      "from": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+      "to": "én Plaza de Maipú",
+      "fullPath": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú",
+      "segments": [
+        "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+        "én Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "062aea",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "21c4c6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5",
+      "fullPath": "Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "92dd56",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5",
+      "fullPath": "Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+      ]
+    },
+    {
+      "id": "943151",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.545Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia nivel Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.567Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.545Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: IRA-943151 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.782Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: IRA-943151 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.955Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-779bd1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-779bd1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.076Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-a50300 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.573Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-a50300 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-509819 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-3b98ca de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.634Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.545Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.545Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: IRA-943151 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.782Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: IRA-943151 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.955Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-779bd1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-779bd1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.076Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-a50300 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.573Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-a50300 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-509819 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IRA-3b98ca de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IRA-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-92dd56 - Escalera mecánica 03 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-779bd1 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-509819 - Ascensor Servicios Línea 3 hacia Andén Línea 5 dirección Plaza de Maipú y hacia Cambio de andén Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-21c4c6 - Escalera mecánica 04 desde nivel Intermedio hacia nivel Servicios y combinación Línea 3 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IRA-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-062aea - Escalera mecánica desde Servicios hacia Acceso D Av. Matta Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.634Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: IRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

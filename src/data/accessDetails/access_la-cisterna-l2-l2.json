@@ -1,0 +1,756 @@
+{
+  "station": "la cisterna l2",
+  "line": "l2",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "3149bd",
+      "from": "Ascensor Boletería Línea 2",
+      "to": "én Línea 2 dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería Línea 2",
+        "én Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "34cc3f",
+      "from": "Ascensor Boletería Línea 2",
+      "to": "én Línea 2 dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería Línea 2",
+        "én Línea 2 dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "6f9921",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Gran Avenida (vereda oriente, detrás del acceso)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda oriente, detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Gran Avenida (vereda oriente, detrás del acceso)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "75d1a2",
+      "from": "Ascensor de acceso ubicado en Carlos Biaut  Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A",
+      "to": "Boletería Línea 4A",
+      "fullPath": "Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A",
+      "segments": [
+        "Ascensor de acceso ubicado en Carlos Biaut  Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A",
+        "Boletería Línea 4A"
+      ]
+    },
+    {
+      "id": "9fa0af",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-10T13:20:28.995Z",
+      "from": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Av. Ossa por Intermodal / Intermedio",
+      "to": "combinación Línea 2 - Línea 4A",
+      "fullPath": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2",
+      "segments": [
+        "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Av. Ossa por Intermodal / Intermedio",
+        "combinación Línea 2 - Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:05.062Z",
+      "notes": "",
+      "id": "adf56a",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Gran Avenida (vereda poniente, detrás del acceso)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Gran Avenida (vereda poniente, detrás del acceso)",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "3a805d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "4e1ee9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T13:20:35.625Z",
+      "notes": "",
+      "id": "980edc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.041Z",
+      "notes": "",
+      "id": "e07cd0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A",
+      "fullPath": "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.122Z",
+      "notes": "",
+      "id": "fdd299",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:28.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-9fa0af de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.689Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.152Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.041Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-e07cd0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.344Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-e07cd0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.343Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-6f9921 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda oriente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-4e1ee9 - Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-3a805d - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-34cc3f - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-3149bd - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.519Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.320Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-9fa0af de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-9fa0af de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-3149bd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-3149bd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-75d1a2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-6f9921 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda oriente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-4e1ee9 - Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-3a805d - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-34cc3f - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-3149bd - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    }
+  ],
+  "lastUpdated": "2025-08-10T13:20:28.995Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-10T13:20:28.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-9fa0af de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.689Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.152Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.041Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-e07cd0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.344Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-e07cd0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.343Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-6f9921 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda oriente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-4e1ee9 - Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LC-3a805d - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-34cc3f - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LC-3149bd - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.519Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.320Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LC-980edc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-9fa0af de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LC-980edc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-9fa0af de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-3149bd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-3149bd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.135Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-75d1a2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LC-adf56a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LC-adf56a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-6f9921 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda oriente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-4e1ee9 - Escalera mecánica desde Nivel Intermedio hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-3a805d - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-34cc3f - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-3149bd - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-fdd299 - Escalera mecánica desde Boletería hacia Acceso Intermodal La Cisterna / Centro Comercial y Acceso D Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-e07cd0 - Escalera mecánica desde Acceso D Gran Avenida José Miguel Carrera Oriente hacia Combinación Intermodal y Línea 4A"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-adf56a - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Gran Avenida (vereda poniente, detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-9fa0af - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. Ossa por Intermodal / Intermedio hacia combinación Línea 2 - Línea 4A y hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LC-980edc - Escalera mecánica desde Cambio de andén hacia Acceso E Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.597Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LC-75d1a2 - Ascensor de acceso ubicado en Carlos Biaut con Gran Avenida José Miguel Carrera (vereda poniente) por Línea 4A hacia Boletería Línea 4A"
+    }
+  ]
+}

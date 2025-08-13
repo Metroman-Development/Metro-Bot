@@ -1,0 +1,381 @@
+{
+  "station": "Cementerios",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:07:11.381Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Recoleta"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "426b57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.440Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "884ae3",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.440Z",
+      "from": "Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "9ff167",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.440Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "441fda",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.440Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+      ]
+    },
+    {
+      "id": "5e111b",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.440Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:44.441Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.086Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CE-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.139Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CE-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.704Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.728Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.728Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-441fda - Escalera mecánica 01 desde Boletería hacia Acceso A Av. Recoleta"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.460Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.460Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CE-884ae3 - Ascensor de acceso ubicado en Av. Recoleta (vereda poniente) detrás de acceso a estación hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.460Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CE-5e111b - Escalera mecánica 02 desde Boletería hacia Acceso A Av. Recoleta"
+    }
+  ]
+}

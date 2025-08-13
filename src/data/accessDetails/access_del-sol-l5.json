@@ -1,0 +1,734 @@
+{
+  "station": "Del Sol",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:09:11.649Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Isabel Riquelme"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:09:11.649Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Intermodal del Sol"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "2c9d94",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T13:20:16.436Z",
+      "from": "Ascensor de acceso ubicado en Intermodal",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Intermodal hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Intermodal",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "539aaa",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "a54d5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Váldes",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Váldes",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Váldes"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "e37d06",
+      "from": "Ascensor de acceso ubicado en Isabel Riquelme  Juan José Rivera (acceso pea",
+      "to": "nal)",
+      "fullPath": "Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Isabel Riquelme  Juan José Rivera (acceso pea",
+        "nal)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:04.962Z",
+      "notes": "",
+      "id": "381a0f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "b4384e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "dd12a7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.773Z",
+      "notes": "",
+      "id": "feb0ab",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia combinación Intermodal del Sol",
+      "fullPath": "Escalera mecánica desde Boletería hacia combinación Intermodal del Sol",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.436Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: DS-2c9d94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.458Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-feb0ab de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-feb0ab de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: DS-2c9d94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.962Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.458Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DS-feb0ab de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: DS-feb0ab de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-2c9d94 - Ascensor de acceso ubicado en Intermodal hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-feb0ab - Escalera mecánica desde Boletería hacia combinación Intermodal del Sol"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-e37d06 - Ascensor de acceso ubicado en Isabel Riquelme con Juan José Rivera (acceso peatonal) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DS-b4384e - Escalera mecánica desde Boletería hacia Acceso A Isabel Riquelme"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-a54d5f - Ascensor Boletería hacia Andén dirección Vicente Váldes"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DS-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

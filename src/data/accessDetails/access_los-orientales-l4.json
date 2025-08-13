@@ -1,0 +1,406 @@
+{
+  "station": "los orientales",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:42:33.803Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:42:33.803Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Américo Vespucio Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.189Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.190Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.190Z",
+      "notes": "",
+      "id": "7fd594",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Av. Oriental",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Av. Oriental",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "14629c",
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T00:40:41.288Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco",
+      "fullPath": "Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.190Z",
+      "notes": "",
+      "id": "5961f9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.190Z",
+      "notes": "",
+      "id": "c1c44a",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-31T00:40:41.288Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-31T00:40:41.288Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LOR-14629c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.678Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LOR-5961f9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.678Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LOR-14629c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LOR-c1c44a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LOR-5961f9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LOR-c1c44a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.943Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LOR-7fd594 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-7fd594 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Av. Oriental hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-5961f9 - Escalera mecánica 01 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-14629c - Escalera mecánica desde Boletería hacia Intermedio y Acceso A Av. Alcalde Eduardo Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LOR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LOR-c1c44a - Escalera mecánica 02 desde Boletería hacia Intermedio y Acceso B Av. Américo Vespucio Oriente"
+    }
+  ]
+}

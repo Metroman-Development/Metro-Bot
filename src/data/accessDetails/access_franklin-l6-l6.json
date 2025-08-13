@@ -1,0 +1,795 @@
+{
+  "station": "franklin l6",
+  "line": "l6",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "44557d",
+      "from": "Ascensor de acceso ubicado en Placer  Nataniel Cox por Intermodal y Línea 2",
+      "to": "Servicios Línea 2",
+      "fullPath": "Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2",
+      "segments": [
+        "Ascensor de acceso ubicado en Placer  Nataniel Cox por Intermodal y Línea 2",
+        "Servicios Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "6f2eff",
+      "from": "Ascensor Servicios Línea 2",
+      "to": "combinación Línea 2 Línea 6",
+      "fullPath": "Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Servicios Línea 2",
+        "combinación Línea 2 Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "8d728d",
+      "from": "Ascensor de acceso ubicado en Centenario  San Diego (detrás del acceso) por Línea 6",
+      "to": "Servicios Línea 6",
+      "fullPath": "Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6",
+      "segments": [
+        "Ascensor de acceso ubicado en Centenario  San Diego (detrás del acceso) por Línea 6",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "9f9b55",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "combinación Línea 2 - Línea 6,",
+      "fullPath": "Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "combinación Línea 2 - Línea 6,"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "cb378b",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "combinación Línea 2 - Línea 6,",
+      "fullPath": "Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "combinación Línea 2 - Línea 6,"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "020136",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T13:21:04.226Z",
+      "notes": "",
+      "id": "027adb",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "064ffd",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "28e30a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.568Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox",
+      "fullPath": "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "6f36c3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "810ce6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.414Z",
+      "notes": "",
+      "id": "ef0df7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-03T00:40:24.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-28e30a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-28e30a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.226Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-027adb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-064ffd - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-027adb - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-020136 - Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.267Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FRA-cb378b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FRA-cb378b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FRA-44557d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-6f36c3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FRA-44557d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.370Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-6f36c3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-6f36c3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.820Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-064ffd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.119Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-064ffd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-064ffd - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-027adb - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-020136 - Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    }
+  ],
+  "lastUpdated": "2025-08-03T00:40:24.568Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-03T00:40:24.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-28e30a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-28e30a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.226Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-027adb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-064ffd - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-027adb - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FRA-020136 - Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.267Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FRA-cb378b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FRA-cb378b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FRA-44557d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-6f36c3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FRA-44557d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.370Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-6f36c3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-6f36c3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.820Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FRA-064ffd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.119Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FRA-064ffd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-064ffd - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-027adb - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Franklin"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-020136 - Escalera mecánica 12 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-ef0df7 - Escalera mecánica desde Servicios hacia Acceso B Nataniel Cox"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-810ce6 - Escalera mecánica 10 desde Andén dirección Los Leones hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-6f36c3 - Escalera mecánica desde Acceso B Nataniel Cox hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FRA-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FRA-28e30a - Escalera mecánica desde andén Línea 3 dirección Cerrillos hacia combinación Línea 2 dirección Vespucio Norte y Acceso B Nataniel Cox"
+    }
+  ]
+}

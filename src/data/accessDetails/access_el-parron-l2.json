@@ -1,0 +1,406 @@
+{
+  "station": "el parrón",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:51:53.811Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:51:53.811Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Gran Avenida José Miguel Carrera Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.105Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.105Z",
+      "notes": "",
+      "id": "65cfaa",
+      "from": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Av. El Parrón",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente)  Av. El Parrón",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.105Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "575264",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T00:40:37.713Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.105Z",
+      "notes": "",
+      "id": "76f84b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente",
+      "fullPath": "Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.105Z",
+      "notes": "",
+      "id": "7ab96b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.713Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EP-575264 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.789Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EP-575264 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.678Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EP-575264 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EP-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.012Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.012Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.011Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.224Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-575264 - Escalera mecánica desde Boletería hacia Servicios Descanso Acceso B Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.762Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.762Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-7ab96b - Escalera mecánica desde Boletería hacia Descanso Acceso B Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.762Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EP-76f84b - Escalera mecánica desde Descanso hacia Acceso A Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.762Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EP-65cfaa - Ascensor de acceso ubicado en Gran Avenida José Miguel Carrera (vereda oriente) con Av. El Parrón hacia Boletería"
+    }
+  ]
+}

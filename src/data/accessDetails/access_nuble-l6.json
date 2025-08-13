@@ -1,0 +1,236 @@
+{
+  "station": "Ñuble",
+  "line": "l6",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Vicuña Mackenna / Av. Carlos Dittborn",
+      "status": "abierto",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "LENCASR",
+      "from": " Andén Los Leones",
+      "to": "Servicios",
+      "fullPath": " Andén Los Leones→Cambio de Andén→Servicios",
+      "segments": [
+        " Andén Los Leones",
+        "Cambio de Andén",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "CERCA",
+      "from": " Andén Cerrillos",
+      "to": "Cambio de Andén",
+      "fullPath": " Andén Cerrillos→Cambio de Andén",
+      "segments": [
+        " Andén Cerrillos",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    }
+  ],
+  "escalators": [
+    {
+      "id": "SRN1A",
+      "from": "Servicios",
+      "to": "Nivel Intermedio -1",
+      "fullPath": "Servicios→Nivel Intermedio -1",
+      "segments": [
+        "Servicios",
+        "Nivel Intermedio -1"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "SRN1B",
+      "from": "Servicios",
+      "to": "Nivel Intermedio -1",
+      "fullPath": "Servicios→Nivel Intermedio -1",
+      "segments": [
+        "Servicios",
+        "Nivel Intermedio -1"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N1SRA",
+      "from": "Nivel Intermedio -1",
+      "to": "Servicios",
+      "fullPath": "Nivel Intermedio -1→Servicios",
+      "segments": [
+        "Nivel Intermedio -1",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N1SRB",
+      "from": "Nivel Intermedio -1",
+      "to": "Servicios",
+      "fullPath": "Nivel Intermedio -1→Servicios",
+      "segments": [
+        "Nivel Intermedio -1",
+        "Servicios"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N1N2A",
+      "from": "Nivel Intermedio -1",
+      "to": "Nivel Intermedio -2",
+      "fullPath": "Nivel Intermedio -1→Nivel Intermedio -2",
+      "segments": [
+        "Nivel Intermedio -1",
+        "Nivel Intermedio -2"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N1N2B",
+      "from": "Nivel Intermedio -1",
+      "to": "Nivel Intermedio -2",
+      "fullPath": "Nivel Intermedio -1→Nivel Intermedio -2",
+      "segments": [
+        "Nivel Intermedio -1",
+        "Nivel Intermedio -2"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N2N1A",
+      "from": "Nivel Intermedio -2",
+      "to": "Nivel Intermedio -1",
+      "fullPath": "Nivel Intermedio -2→Nivel Intermedio -1",
+      "segments": [
+        "Nivel Intermedio -2",
+        "Nivel Intermedio -1"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N2N1B",
+      "from": "Nivel Intermedio -2",
+      "to": "Nivel Intermedio -1",
+      "fullPath": "Nivel Intermedio -2→Nivel Intermedio -1",
+      "segments": [
+        "Nivel Intermedio -2",
+        "Nivel Intermedio -1"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.250Z"
+    },
+    {
+      "id": "N2CAA",
+      "from": "Nivel Intermedio -2",
+      "to": "Cambio de Andén",
+      "fullPath": "Nivel Intermedio -2→Cambio de Andén",
+      "segments": [
+        "Nivel Intermedio -2",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    },
+    {
+      "id": "N2CAB",
+      "from": "Nivel Intermedio -2",
+      "to": "Cambio de Andén",
+      "fullPath": "Nivel Intermedio -2→Cambio de Andén",
+      "segments": [
+        "Nivel Intermedio -2",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    },
+    {
+      "id": "CAN2A",
+      "from": " Cambio de Andén",
+      "to": "Nivel Intermedio -2",
+      "fullPath": " Cambio de Andén→Nivel Intermedio -2",
+      "segments": [
+        " Cambio de Andén",
+        "Nivel Intermedio -2"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    },
+    {
+      "id": "CAN2B",
+      "from": "Cambio de Andén",
+      "to": "Nivel Intermedio -2",
+      "fullPath": "Cambio de Andén→Nivel Intermedio -2",
+      "segments": [
+        "Cambio de Andén",
+        "Nivel Intermedio -2"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    },
+    {
+      "id": "LENCAA",
+      "from": "Andén Los Leones",
+      "to": "Cambio de Andén",
+      "fullPath": "Andén Los Leones→Cambio de Andén",
+      "segments": [
+        "Andén Los Leones",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    },
+    {
+      "id": "LENCAB",
+      "from": "Andén Los Leones",
+      "to": "Cambio de Andén",
+      "fullPath": "Andén Los Leones→Cambio de Andén",
+      "segments": [
+        "Andén Los Leones",
+        "Cambio de Andén"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-30T10:52:29.251Z"
+    }
+  ],
+  "lastUpdated": "2025-05-30T10:52:29.250Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-30T10:52:49.221Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    }
+  ]
+}

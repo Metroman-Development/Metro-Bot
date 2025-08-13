@@ -1,0 +1,346 @@
+{
+  "station": "La Cisterna",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Gran Avenida José Miguel Carrera Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Américo Vespucio Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Gran Avenida José Miguel Carrera Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Intermodal La Cisterna"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "F",
+      "name": "Acceso F",
+      "description": "Fernando Rojas Wolff"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "G",
+      "name": "Acceso G",
+      "description": "Av. Américo Vespucio Norte"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "BL2CO4AEXE",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso E",
+      "fullPath": "Boletería Línea 2→Combinación a Línea 4A→Exterior Acceso E",
+      "segments": [
+        "Boletería Línea 2",
+        "Combinación a Línea 4A",
+        "Exterior Acceso E"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "EXA",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería Línea 2→Exterior Acceso A",
+      "segments": [
+        "Boletería Línea 2",
+        "Exterior Acceso A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "EXC",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso C",
+      "fullPath": "Boletería Línea 2→Exterior Acceso C",
+      "segments": [
+        "Boletería Línea 2",
+        "Exterior Acceso C"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "EXG",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso G",
+      "fullPath": "Boletería Línea 2→Exterior Acceso G",
+      "segments": [
+        "Boletería Línea 2",
+        "Exterior Acceso G"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T18:48:27.882Z",
+      "notes": "",
+      "id": "PI",
+      "to": "Boletería Línea 2",
+      "from": "Andén Hospital El Pino",
+      "fullPath": "Andén Hospital El Pino→Boletería Línea 2 ",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Boletería Línea 2"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-28T11:58:19.763Z",
+      "notes": "",
+      "id": "AV",
+      "to": "Boletería Línea 2",
+      "from": "Andén Vespucio Norte",
+      "fullPath": "Andén Vespucio Norte→Boletería Línea 2",
+      "segments": [
+        "Vespucio Norte",
+        "Boletería Línea 2"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-15T20:09:47.145Z",
+      "notes": "",
+      "id": "AVBL4A",
+      "from": "Andén Vespucio Norte",
+      "to": "Boletería Línea 4A La Cisterna",
+      "fullPath": "Andén Vespucio Norte→Boletería Línea 4A La Cisterna",
+      "segments": [
+        "Andén Vespucio Norte",
+        "Boletería Línea 4A La Cisterna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "BL4AAV",
+      "from": "Boletería Línea 4A",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Boletería Línea 4A→Andén Vespucio Norte",
+      "segments": [
+        "Boletería Línea 4A",
+        "Andén Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "PIBL4A",
+      "from": "Hospital El Pino",
+      "to": "Boletería Línea 4A",
+      "fullPath": "Hospital El Pino→Boletería Línea 4A",
+      "segments": [
+        "Hospital El Pino",
+        "Boletería Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "BL4API",
+      "from": "Boletería Línea 4A",
+      "to": "Andén Hospital El Pino",
+      "fullPath": "Boletería Línea 4A→Andén Hospital El Pino",
+      "segments": [
+        "Boletería Línea 4A",
+        "Andén Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "BL2CO4A",
+      "from": "Boletería Línea 2",
+      "to": "Combinación Línea 4A",
+      "fullPath": "Boletería Línea 2→Combinación Línea 4A",
+      "segments": [
+        "Boletería Línea 2",
+        "Combinación Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "EXECO4A",
+      "from": "Exterior Acceso E",
+      "to": "Combinación a Intermodal/Línea 4A",
+      "fullPath": "Exterior Acceso E→Combinación a Intermodal/Línea 4A",
+      "segments": [
+        "Exterior Acceso E",
+        "Combinación a Intermodal/Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "CO4ABL2",
+      "from": "Combinación a Línea 4A",
+      "to": "Boletería Línea 2",
+      "fullPath": "Combinación a Línea 4A→Boletería Línea 2",
+      "segments": [
+        "Combinación a Línea 4A",
+        "Boletería Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "BL2CO4A",
+      "from": "Boletería Línea 2",
+      "to": "Combinación a Intermodal/Línea 4A",
+      "fullPath": "Boletería Línea 2→Combinación a Intermodal/Línea 4A",
+      "segments": [
+        "Boletería Línea 2",
+        "Combinación a Intermodal/Línea 4A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "CO4AEXE",
+      "from": "Combinación a Intermodal/Línea 4A",
+      "to": "Exterior Acceso E",
+      "fullPath": "Combinación a Intermodal/Línea 4A→Exterior Acceso E",
+      "segments": [
+        "Combinación a Intermodal/Línea 4A",
+        "Exterior Acceso E"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "EXDDSD",
+      "from": "Exterior Acceso D",
+      "to": "Descanso Acceso D",
+      "fullPath": "Exterior Acceso D→Descanso Acceso D",
+      "segments": [
+        "Exterior Acceso D",
+        "Descanso Acceso D"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-07T13:34:13.794Z",
+      "notes": "",
+      "id": "DSDBL2",
+      "from": "Descanso Acceso D",
+      "to": "Boletería Línea 2",
+      "fullPath": "Descanso Acceso D→Boletería Línea 2",
+      "segments": [
+        "Descanso Acceso D",
+        "Boletería Línea 2"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-28T00:27:52.690Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T18:49:08.944Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T18:50:29.353Z",
+      "user": "metromanrrss",
+      "action": "Editado EXA",
+      "details": "fullPath cambiado de \"Boletería Línea 4A→Exterior Acceso A\" a \"Boletería Línea 2→Exterior Acceso A\""
+    },
+    {
+      "timestamp": "2025-05-28T00:27:52.691Z",
+      "user": "metromanrrss",
+      "action": "escalator_updated",
+      "details": "Updated PIBL4A"
+    },
+    {
+      "timestamp": "2025-06-07T13:34:13.794Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: AVBL4A, BL4AAV, PIBL4A, BL4API, BL2CO4A, EXECO4A, CO4ABL2, BL2CO4A, CO4AEXE, EXDDSD, DSDBL2"
+    },
+    {
+      "timestamp": "2025-06-13T15:07:41.999Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor AV a fuera de servicio",
+      "details": "Updated: AV"
+    },
+    {
+      "timestamp": "2025-06-14T13:35:25.359Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor AV a operativa",
+      "details": "Updated: AV"
+    },
+    {
+      "timestamp": "2025-06-15T20:09:40.264Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera AVBL4A a operativa",
+      "details": "Updated: AVBL4A"
+    },
+    {
+      "timestamp": "2025-06-15T20:09:47.145Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera AVBL4A a fuera de servicio",
+      "details": "Updated: AVBL4A"
+    },
+    {
+      "timestamp": "2025-06-28T11:58:19.763Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor AV a fuera de servicio",
+      "details": "Updated: AV"
+    }
+  ],
+  "changelistory": []
+}

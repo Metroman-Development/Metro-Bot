@@ -1,0 +1,664 @@
+{
+  "station": "baquedano l1",
+  "line": "l1",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.795Z",
+      "notes": "",
+      "id": "36f159",
+      "from": "Ascensor de combinación Línea 5",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor de combinación Línea 5",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.795Z",
+      "notes": "",
+      "id": "631d39",
+      "from": "Combinación Línea 1 Línea 5",
+      "to": "Andén San Pablo",
+      "fullPath": "Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Combinación Línea 1 Línea 5",
+        "Andén San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.795Z",
+      "notes": "",
+      "id": "92aa45",
+      "from": "Ascensor de combinación Línea 1 - Línea 5",
+      "to": "én Línea 1 dirección Los Dominicos,",
+      "fullPath": "Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor de combinación Línea 1 - Línea 5",
+        "én Línea 1 dirección Los Dominicos,"
+      ]
+    },
+    {
+      "id": "c8cf87",
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T13:20:49.925Z",
+      "from": "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante)",
+      "to": "combinación Línea 1 Línea 5",
+      "fullPath": "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante)",
+        "combinación Línea 1 Línea 5"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-31T13:20:49.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BA-c8cf87 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.539Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BA-c8cf87 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BA-631d39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.196Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BA-631d39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.589Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.589Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    }
+  ],
+  "lastUpdated": "2025-07-31T13:20:49.925Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-31T13:20:49.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BA-c8cf87 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.796Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.539Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BA-c8cf87 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BA-631d39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.196Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BA-631d39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.412Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.589Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.589Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BA-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    }
+  ]
+}

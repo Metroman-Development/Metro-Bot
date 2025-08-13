@@ -1,0 +1,398 @@
+{
+  "station": "Cardenal caro",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T14:26:06.742Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Independencia"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.814Z",
+      "notes": "",
+      "id": "0eb044",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.814Z",
+      "notes": "",
+      "id": "374766",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.815Z",
+      "notes": "",
+      "id": "54da48",
+      "from": "Ascensor de acceso ubicado en Av. Independencia  Av. Cardenal José María Caro",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Independencia  Av. Cardenal José María Caro",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "047349",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T13:20:16.846Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.814Z",
+      "notes": "",
+      "id": "1ecb53",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.815Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.846Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.846Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CAR-047349 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.704Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CAR-047349 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.649Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CAR-047349 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.808Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CAR-047349 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CAR-047349 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.670Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CAR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.670Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-54da48 - Ascensor de acceso ubicado en Av. Independencia con Av. Cardenal José María Caro hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.670Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CAR-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    }
+  ]
+}

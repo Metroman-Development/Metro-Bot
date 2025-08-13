@@ -1,0 +1,369 @@
+{
+  "station": "Dorsal",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T14:54:25.796Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Dorsal"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "41b32a",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.461Z",
+      "from": "Ascensor de acceso ubicado en Av. Dorsal  Av. Recoleta",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Dorsal  Av. Recoleta",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "426b57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.461Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "9ff167",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.461Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "14968c",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.461Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:44.461Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: DO-14968c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.179Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.179Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.179Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.179Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.888Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.887Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.468Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.468Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.468Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.691Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.691Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.691Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.691Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-41b32a - Ascensor de acceso ubicado en Av. Dorsal con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: DO-14968c - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Dorsal"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: DO-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    }
+  ]
+}

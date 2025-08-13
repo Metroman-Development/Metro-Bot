@@ -1,0 +1,381 @@
+{
+  "station": "Hernando de Magallanes",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.782Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Apoquindo"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "b2b59b",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.532Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "id": "d083c9",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.532Z",
+      "from": "Varios puntos",
+      "to": "Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes",
+      "fullPath": "Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+      ]
+    },
+    {
+      "id": "ffacee",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.532Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección  Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección  Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección  Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "18ffed",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.532Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "b4f935",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.532Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:44.532Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.232Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.996Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-ffacee - Ascensor Boletería hacia Andén dirección  Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-d083c9 - Ascensor de acceso ubicado en Av. Apoquindo con Hernando de Magallanes"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-b4f935 - Escalera mecánica desde Cambio de andén hacia Acceso A Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HM-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    }
+  ]
+}

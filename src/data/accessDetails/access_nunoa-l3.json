@@ -1,0 +1,118 @@
+{
+  "station": "Ñuñoa",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Pedro de Valdivia"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:48:44.398Z",
+      "notes": "",
+      "id": "EXA",
+      "from": "Exterior Acceso A",
+      "to": "Servicios Línea 6",
+      "fullPath": "Exterior Acceso A→Servicios Línea 6",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": "",
+      "id": "PQUCA3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-14T13:27:13.606Z",
+      "notes": "",
+      "id": "FCVCA3CA6SR6",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios Línea 6",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3→Cambio de Andén Línea 6→Servicios Línea 6",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6",
+        "Servicios Línea 6"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": "",
+      "id": "CA3CA6",
+      "from": "Cambio de Andén Línea 3",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": "Cambio de Andén Línea 3→Cambio de Andén Línea 6",
+      "segments": [
+        "Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:56:27.439Z",
+      "notes": "",
+      "id": "CA6CA3",
+      "from": "Cambio de Andén Línea 6",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Cambio de Andén Línea 6→Cambio de Andén Línea 3",
+      "segments": [
+        "Cambio de Andén Línea 6",
+        "Cambio de Andén Línea 3"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-28T12:56:27.439Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T12:56:42.580Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-06-11T14:02:53.202Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXA a fuera de servicio",
+      "details": "Updated: EXA"
+    },
+    {
+      "timestamp": "2025-06-13T09:02:11.920Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3CA6SR6 a fuera de servicio",
+      "details": "Updated: FCVCA3CA6SR6"
+    },
+    {
+      "timestamp": "2025-06-14T13:27:13.606Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3CA6SR6 a operativa",
+      "details": "Updated: FCVCA3CA6SR6"
+    },
+    {
+      "timestamp": "2025-06-21T12:48:44.398Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXA a operativa",
+      "details": "Updated: EXA"
+    }
+  ]
+}

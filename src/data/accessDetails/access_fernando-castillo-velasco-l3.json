@@ -1,0 +1,385 @@
+{
+  "station": "fernando castillo velasco",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T13:51:59.670Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Alcalde Fernando Castillo Velasco"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.403Z",
+      "notes": "",
+      "id": "4dcd5a",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "id": "d89228",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.898Z",
+      "from": "Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco  Av.",
+      "to": "balaba",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco  Av.",
+        "balaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.404Z",
+      "notes": "",
+      "id": "e1d48a",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza Quilicura",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza Quilicura"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.403Z",
+      "notes": "",
+      "id": "85c71c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.403Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:41.898Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FCV-d89228 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.361Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FCV-d89228 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.619Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.619Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.619Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.619Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.618Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.959Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.330Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.330Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.330Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.330Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.330Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-85c71c - Escalera mecánica desde Servicios hacia Acceso A Av. Alcalde Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-4dcd5a - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-e1d48a - Ascensor Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FCV-d89228 - Ascensor de acceso ubicado en Av. Alcalde Fernando Castillo Velasco con Av. Tobalaba hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FCV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

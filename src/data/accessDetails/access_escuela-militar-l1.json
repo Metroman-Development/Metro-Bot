@@ -1,0 +1,396 @@
+{
+  "station": "Escuela Militar",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.779Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Los Militares / Galería Comercial"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.779Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Apoquindo Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.779Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.779Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Cruz del Sur / Galería Comercial"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.577Z",
+      "notes": "",
+      "id": "b2b59b",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.577Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.577Z",
+      "notes": "",
+      "id": "17bab9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+      ]
+    },
+    {
+      "id": "528faf",
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.709Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-03T00:40:24.709Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-03T00:40:24.709Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EM-528faf de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.196Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EM-528faf de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EM-17bab9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EM-17bab9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.858Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EM-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.210Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.210Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.210Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.210Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.814Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.428Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.428Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.428Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.428Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.012Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.791Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.791Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.791Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-528faf - Escalera mecánica desde Boletería hacia Acceso C Av. Apoquindo Sur / Félix de Amesti"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.791Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EM-17bab9 - Escalera mecánica desde Boletería hacia Acceso A Los Militares / Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.516Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EM-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    }
+  ]
+}

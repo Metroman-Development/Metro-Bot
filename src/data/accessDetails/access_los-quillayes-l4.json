@@ -1,0 +1,660 @@
+{
+  "station": "los quillayes",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:15:17.782Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "María Elena"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.932Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.356Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "99648a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.441Z",
+      "from": "Ascensor de acceso ubicado en María Elena  Av. Vicuña Mackenna",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en María Elena  Av. Vicuña Mackenna",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-11T13:20:16.441Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-99648a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.356Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-99648a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.356Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.911Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.060Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.463Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.463Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.767Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-99648a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.356Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-99648a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.356Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.911Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.060Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.463Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.463Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.767Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LQU-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LQU-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.322Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.140Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-99648a - Ascensor de acceso ubicado en María Elena con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LQU-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    }
+  ]
+}

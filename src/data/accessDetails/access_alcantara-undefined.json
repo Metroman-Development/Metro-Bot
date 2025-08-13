@@ -1,0 +1,128 @@
+{
+  "station": "Alcántara",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.771Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Apoquindo Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.771Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Apoquindo Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-06T14:33:24.777Z",
+      "notes": "",
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T13:21:09.947Z",
+      "notes": "",
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T13:20:43.964Z",
+      "notes": "",
+      "id": "EXA",
+      "from": "Boletería",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería→Exterior Acceso B",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso B"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-05-28T11:41:14.428Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T13:20:09.997Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T13:20:43.964Z",
+      "user": "metromanrrss",
+      "action": "Editado EXA",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-26T13:21:09.947Z",
+      "user": "metromanrrss",
+      "action": "Editado SP",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.295Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.295Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"abierto\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.771Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.771Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-05-28T11:40:44.477Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated SP"
+    },
+    {
+      "timestamp": "2025-05-28T11:41:14.429Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated EXA"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-06-06T14:33:24.777Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor LD a fuera de servicio"
+    }
+  ]
+}

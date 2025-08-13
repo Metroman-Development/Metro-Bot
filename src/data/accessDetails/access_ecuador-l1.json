@@ -1,0 +1,374 @@
+{
+  "station": "\"Ecuador\"",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.776Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Alameda Libertador Bernardo O'Higgins Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.776Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Purísima Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.777Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Purísima Sur / Instituto Teletón Santiago"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.186Z",
+      "notes": "",
+      "id": "562df9",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Institu",
+      "to": "Teletón Santiago",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Institu",
+        "Teletón Santiago"
+      ]
+    },
+    {
+      "id": "b2b59b",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.849Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.186Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-10T00:40:19.849Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.849Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EC-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.714Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EC-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.038Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EC-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.126Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EC-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:42.056Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EC-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.511Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EC-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EC-d27a5f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.172Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EC-d27a5f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.431Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.431Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.431Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.266Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.266Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.266Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.175Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.175Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.175Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.911Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.911Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.911Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:20.037Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:20.037Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:20.037Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EC-562df9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) frente a Instituto Teletón Santiago hacia Boletería"
+    }
+  ]
+}

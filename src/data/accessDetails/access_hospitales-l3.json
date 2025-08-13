@@ -1,0 +1,411 @@
+{
+  "station": "hospitales",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T15:14:34.621Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Profesor Alberto Zañartu"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "0eb044",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "374766",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "80f1b3",
+      "from": "Ascensor de acceso ubicado en Profesor Alber",
+      "to": "Zañartu  Av. Independencia",
+      "fullPath": "Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Profesor Alber",
+        "Zañartu  Av. Independencia"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "bfda4d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.877Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.746Z",
+      "notes": "",
+      "id": "fa222d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales",
+      "fullPath": "Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-06T00:40:09.877Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T00:40:09.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HOS-bfda4d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.089Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HOS-bfda4d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.746Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HOS-bfda4d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.415Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HOS-bfda4d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HOS-bfda4d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HOS-bfda4d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.886Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.886Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.469Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-bfda4d - Escalera mecánica desde Servicios hacia Acceso A Profesor Alberto Zañartu"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-80f1b3 - Ascensor de acceso ubicado en Profesor Alberto Zañartu con Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.095Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HOS-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-fa222d - Escalera mecánica desde Servicios hacia nivel Intermedio Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HOS-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

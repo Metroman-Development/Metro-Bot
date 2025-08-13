@@ -1,0 +1,717 @@
+{
+  "station": "baquedano l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.566Z",
+      "notes": "",
+      "id": "36f159",
+      "from": "Ascensor de combinación Línea 5",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor de combinación Línea 5",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.566Z",
+      "notes": "",
+      "id": "631d39",
+      "from": "Ascensor de combinación Línea 1 Línea 5",
+      "to": "én Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Ascensor de combinación Línea 1 Línea 5",
+        "én Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.566Z",
+      "notes": "",
+      "id": "92aa45",
+      "from": "Ascensor de combinación Línea 1 - Línea 5",
+      "to": "én Línea 1 dirección Los Dominicos,",
+      "fullPath": "Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor de combinación Línea 1 - Línea 5",
+        "én Línea 1 dirección Los Dominicos,"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T13:20:49.827Z",
+      "notes": "",
+      "id": "c8cf87",
+      "from": "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante)",
+      "to": "combinación Línea 1 Línea 5",
+      "fullPath": "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante)",
+        "combinación Línea 1 Línea 5"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.273Z",
+      "notes": "",
+      "id": "18f643",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1",
+      "fullPath": "Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.566Z",
+      "notes": "",
+      "id": "a78e87",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1",
+      "fullPath": "Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.566Z",
+      "notes": "",
+      "id": "ac4cdf",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1",
+      "fullPath": "Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+      ]
+    },
+    {
+      "id": "e49396",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.566Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés",
+      "fullPath": "Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BQ-e49396 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BQ-18f643 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BQ-18f643 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BQ-e49396 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.827Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BQ-c8cf87 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BQ-c8cf87 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.447Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BQ-631d39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.584Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    }
+  ],
+  "lastUpdated": "2025-08-09T13:20:13.566Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BQ-e49396 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BQ-18f643 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BQ-18f643 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BQ-e49396 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.827Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BQ-c8cf87 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BQ-c8cf87 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.447Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BQ-631d39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.068Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.931Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-a78e87 - Escalera mecánica desde Nivel -3 cambio de andén Línea 5 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-92aa45 - Ascensor de combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos, hacia combinación Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-631d39 - Ascensor de combinación Línea 1 Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-36f159 - Ascensor de combinación Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.584Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-18f643 - Escalera mecánica 02 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-e49396 - Escalera mecánica desde Combinación Línea 1 dirección Los Dominicos hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BQ-c8cf87 - Ascensor de acceso ubicado en Av. General Bustamante y Ramón Carnicer (frente a Parque Bustamante) hacia combinación Línea 1 Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BQ-ac4cdf - Escalera mecánica 01 desde Nivel -3 cambio de andén Línea 5 hacia Nivel -1 Combinación Línea 1"
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "station": "Bio Bio",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T10:23:31.242Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Santa Rosa"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "0c58e8",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.394Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Cerrillos",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Cerrillos"
+      ]
+    },
+    {
+      "id": "3a82a5",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.394Z",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "id": "7d843e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.394Z",
+      "from": "Ascensor de acceso ubicado en Centenario  Av. Santa Rosa (al costado derecho del acceso)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Centenario  Av. Santa Rosa (al costado derecho del acceso)",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "21fe42",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.394Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+      ]
+    },
+    {
+      "id": "c9011b",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.394Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.394Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.584Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BIO-7d843e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BIO-7d843e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.812Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BIO-21fe42 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BIO-21fe42 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.761Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.761Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.761Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.761Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.761Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-7d843e - Ascensor de acceso ubicado en Centenario con Av. Santa Rosa (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-21fe42 - Escalera mecánica desde Servicios hacia Acceso A Av. Santa Rosa"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BIO-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BIO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

@@ -1,0 +1,681 @@
+{
+  "station": "la granja",
+  "line": "l4a",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:03:24.109Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Américo Vespucio Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:03:24.109Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Américo Vespucio Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.865Z",
+      "notes": "",
+      "id": "1a2ac2",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte)  Coronel",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte)  Coronel",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "6de219",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.329Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección La Cisterna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección La Cisterna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.865Z",
+      "notes": "",
+      "id": "7c2f19",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur)  Coronel",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur)  Coronel",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.865Z",
+      "notes": "",
+      "id": "de34c2",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicuña Mackenna"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-08T13:20:52.329Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LGR-6de219 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LGR-1a2ac2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.435Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LGR-1a2ac2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LGR-6de219 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.865Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.815Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LGR-1a2ac2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.435Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LGR-1a2ac2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.241Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.719Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-1a2ac2 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-7c2f19 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Coronel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LGR-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    }
+  ]
+}

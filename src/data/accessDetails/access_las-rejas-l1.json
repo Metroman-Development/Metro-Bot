@@ -1,0 +1,392 @@
+{
+  "station": "las rejas",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "AccesoA",
+      "name": "Acceso A",
+      "description": "Descripción:Av. Alameda Libertador Bernardo O'Higgins Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "AccesoB",
+      "name": "Acceso B",
+      "description": "Descripción:Av. María Rozas Velásquez"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "AccesoC",
+      "name": "Acceso C",
+      "description": "Descripción: Av. Las Rejas Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.784Z",
+      "notes": "",
+      "id": "AccesoD",
+      "name": "Acceso D",
+      "description": "Descripción:Av. Alameda Libertador Bernardo O'Higgins Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "0501e9",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.213Z",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte)  Av. María Rozas Velásquez",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte)  Av. María Rozas Velásquez",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "818d94",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.213Z",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur  ambos accesos)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur  ambos accesos)",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "b2b59b",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.213Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "id": "d27a5f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.213Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:45.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LR-818d94 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.205Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LR-818d94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.314Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LR-818d94 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.287Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LR-818d94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.409Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.178Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.913Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.913Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.913Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.913Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-818d94 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.984Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-0501e9 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Av. María Rozas Velásquez hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LR-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:45.213Z"
+}

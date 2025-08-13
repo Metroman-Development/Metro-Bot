@@ -1,0 +1,411 @@
+{
+  "station": "Lo Valledor",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T22:19:41.354Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Carlos Valdovinos"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.437Z",
+      "notes": "",
+      "id": "83a33b",
+      "from": "Ascensor cambio de andén",
+      "to": "én dirección Los Leones",
+      "fullPath": "Ascensor cambio de andén hacia andén dirección Los Leones",
+      "segments": [
+        "Ascensor cambio de andén",
+        "én dirección Los Leones"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.437Z",
+      "notes": "",
+      "id": "9fb06d",
+      "from": "Ascensor de acceso ubicado en Av. Carlos Valdovinos  Av. Maipú (frente a Tren Central EFE)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Carlos Valdovinos  Av. Maipú (frente a Tren Central EFE)",
+        "Servicios"
+      ]
+    },
+    {
+      "id": "d0e0ae",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.785Z",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.428Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.436Z",
+      "notes": "",
+      "id": "389f0c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.436Z",
+      "notes": "",
+      "id": "41e520",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.437Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-06T00:40:09.785Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T00:40:09.785Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LVA-d0e0ae de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.958Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LVA-d0e0ae de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LVA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LVA-41e520 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.624Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LVA-c9011b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:47.998Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LVA-c9011b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LVA-83a33b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.518Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LVA-83a33b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LVA-41e520 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.732Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LVA-41e520 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.835Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.835Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.835Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.449Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-9fb06d - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Av. Maipú (frente a Tren Central EFE) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LVA-83a33b - Ascensor cambio de andén hacia andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-41e520 - Escalera mecánica desde Acceso A Av. Carlos Valdovinos - EFE hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LVA-389f0c - Escalera mecánica desde Servicios hacia Acceso A Av. Carlos Valdovinos - EFE"
+    }
+  ]
+}

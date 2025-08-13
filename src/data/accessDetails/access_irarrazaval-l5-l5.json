@@ -1,0 +1,677 @@
+{
+  "station": "irarrázaval l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.540Z",
+      "notes": "",
+      "id": "19819d",
+      "from": "Ascensor cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor cambio de Andén",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.540Z",
+      "notes": "",
+      "id": "3b98ca",
+      "from": "Ascensor cambio de Andén",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor cambio de Andén",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "4907e0",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.875Z",
+      "from": "Ascensor de acceso ubicado en Matta Oriente  Av. San Eugenio por Línea 3",
+      "to": "Servicios Línea 3",
+      "fullPath": "Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3",
+      "segments": [
+        "Ascensor de acceso ubicado en Matta Oriente  Av. San Eugenio por Línea 3",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.540Z",
+      "notes": "",
+      "id": "97cdfa",
+      "from": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+      "to": "én Vicente Valdés",
+      "fullPath": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés",
+      "segments": [
+        "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+        "én Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.000Z",
+      "notes": "",
+      "id": "a50300",
+      "from": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+      "to": "én Plaza de Maipú",
+      "fullPath": "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú",
+      "segments": [
+        "Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña",
+        "én Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-4907e0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.267Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-4907e0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-a50300 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-a50300 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.615Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-3b98ca de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.413Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.905Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.905Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:41.875Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-4907e0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.267Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-4907e0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-a50300 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-a50300 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.540Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.615Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: IR-3b98ca de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.413Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: IR-3b98ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.905Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.905Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.904Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.555Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.479Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-3b98ca - Ascensor cambio de Andén hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-19819d - Ascensor cambio de Andén hacia Servicios Línea 3 y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-a50300 - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-97cdfa - Ascensor de acceso ubicado en Parque Bustamante frente a acceso Pedro de Oña hacia andén Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: IR-4907e0 - Ascensor de acceso ubicado en Matta Oriente con Av. San Eugenio por Línea 3 hacia Servicios Línea 3"
+    }
+  ]
+}

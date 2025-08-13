@@ -1,0 +1,169 @@
+{
+  "station": "ñuñoa",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "EXTERIOR_A",
+      "name": "Exterior Acceso A",
+      "description": "Av. Pedro de Valdivia con Av. Irarrázaval"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:56:12.353Z",
+      "notes": "",
+      "id": "EXA",
+      "from": " Servicios Línea 6",
+      "to": "Exterior Acceso A",
+      "fullPath": " Servicios Línea 6→Exterior Acceso A",
+      "segments": [
+        " Servicios Línea 6",
+        "Exterior Acceso A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "LENCA6",
+      "from": " Andén Los Leones",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": " Andén Los Leones→Cambio de Andén Línea 6",
+      "segments": [
+        " Andén Los Leones",
+        "Cambio de Andén Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "CERCA6",
+      "from": " Andén Cerrillos",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": " Andén Cerrillos→Cambio de Andén Línea 6",
+      "segments": [
+        " Andén Cerrillos",
+        "Cambio de Andén Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-14T13:31:03.040Z",
+      "notes": "",
+      "id": "FCVCA3CA6SR6",
+      "from": " Andén Fernando Castillo Velasco",
+      "to": "Servicios Línea 6",
+      "fullPath": " Andén Fernando Castillo Velasco→Cambio de Andén Línea 3→Cambio de Andén Línea 6→Servicios Línea 6",
+      "segments": [
+        " Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6",
+        "Servicios Línea 6"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "CA3CA6",
+      "from": " Cambio de Andén Línea 3",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": " Cambio de Andén Línea 3→Cambio de Andén Línea 6",
+      "segments": [
+        " Cambio de Andén Línea 3",
+        "Cambio de Andén Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "CA6CA3",
+      "from": " Cambio de Andén Línea 6",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": " Cambio de Andén Línea 6→Cambio de Andén Línea 3",
+      "segments": [
+        " Cambio de Andén Línea 6",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-13T08:57:49.075Z",
+      "notes": "",
+      "id": "CA6SR",
+      "from": "Cambio de Andén Línea 6",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén Línea 6→Servicios",
+      "segments": [
+        "Cambio de Andén Línea 6",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-30T11:10:01.356Z",
+      "notes": "",
+      "id": "SRCA6",
+      "from": "Servicios",
+      "to": "Cambio de Andén Línea 6",
+      "fullPath": "Servicios→Cambio de Andén Línea 6",
+      "segments": [
+        "Servicios",
+        "Cambio de Andén Línea 6"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-30T11:10:01.356Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-30T11:10:07.263Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-06-11T14:03:13.376Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXA a fuera de servicio",
+      "details": "Updated: EXA"
+    },
+    {
+      "timestamp": "2025-06-12T14:06:41.647Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera CA6SR a fuera de servicio",
+      "details": "Updated: CA6SR"
+    },
+    {
+      "timestamp": "2025-06-13T08:57:29.997Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3CA6SR6 a fuera de servicio",
+      "details": "Updated: FCVCA3CA6SR6"
+    },
+    {
+      "timestamp": "2025-06-13T08:57:49.075Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera CA6SR a operativa",
+      "details": "Updated: CA6SR"
+    },
+    {
+      "timestamp": "2025-06-14T13:31:03.040Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3CA6SR6 a operativa",
+      "details": "Updated: FCVCA3CA6SR6"
+    },
+    {
+      "timestamp": "2025-06-21T12:56:12.353Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXA a operativa",
+      "details": "Updated: EXA"
+    }
+  ]
+}

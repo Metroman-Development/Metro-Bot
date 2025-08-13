@@ -1,0 +1,820 @@
+{
+  "station": "ñuble l6",
+  "line": "l6",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "16a24c",
+      "from": "Ascensor Cambio de andén Línea 6",
+      "to": "én Línea 6 dirección Cerrillos",
+      "fullPath": "Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Cambio de andén Línea 6",
+        "én Línea 6 dirección Cerrillos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "3a5ba6",
+      "from": "Ascensor de combinación Línea 5 Línea 6",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor de combinación Línea 5 Línea 6",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.871Z",
+      "notes": "",
+      "id": "560f61",
+      "from": "Ascensor Servicios",
+      "to": "combinación Línea 5 Línea 6",
+      "fullPath": "Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios",
+        "combinación Línea 5 Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "5a46c7",
+      "from": "Ascensor de combinación Línea 5 Línea 6",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor de combinación Línea 5 Línea 6",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "2bcec1",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T00:40:37.576Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos",
+      "fullPath": "Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "456341",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios",
+      "fullPath": "Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "573ac2",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6",
+      "fullPath": "Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6"
+      ]
+    },
+    {
+      "id": "690207",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.576Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones",
+      "fullPath": "Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T00:40:41.266Z",
+      "notes": "",
+      "id": "86d36c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 14 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "9ab831",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 15 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "acee99",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Intermedio Línea 6",
+      "fullPath": "Escalera mecánica desde Servicios hacia Intermedio Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Intermedio Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "c94087",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6",
+      "fullPath": "Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "f389aa",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "f76af6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés",
+      "fullPath": "Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.404Z",
+      "notes": "",
+      "id": "fe1dc2",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios",
+      "fullPath": "Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUB-560f61 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.262Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUB-560f61 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-2bcec1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.266Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-86d36c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-fe1dc2 - Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-f76af6 - Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-f389aa - Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-c94087 - Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-acee99 - Escalera mecánica desde Servicios hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-9ab831 - Escalera mecánica 15 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-86d36c - Escalera mecánica 14 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-690207 - Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-573ac2 - Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-456341 - Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-2bcec1 - Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-2bcec1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.354Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:36.963Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-86d36c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.431Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-86d36c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.125Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-f389aa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.125Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-f389aa de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-fe1dc2 - Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-f76af6 - Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-f389aa - Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-c94087 - Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-acee99 - Escalera mecánica desde Servicios hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-9ab831 - Escalera mecánica 15 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-86d36c - Escalera mecánica 14 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-690207 - Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-573ac2 - Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-456341 - Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-2bcec1 - Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos"
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.576Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.871Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUB-560f61 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.262Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUB-560f61 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.566Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-2bcec1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.016Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.266Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-86d36c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-fe1dc2 - Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-f76af6 - Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-f389aa - Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-c94087 - Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-acee99 - Escalera mecánica desde Servicios hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-9ab831 - Escalera mecánica 15 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-86d36c - Escalera mecánica 14 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-690207 - Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-573ac2 - Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-456341 - Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUB-2bcec1 - Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUB-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-2bcec1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-2bcec1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.354Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-690207 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:36.963Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-86d36c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.431Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-86d36c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.125Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUB-f389aa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.125Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-690207 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUB-f389aa de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-fe1dc2 - Escalera mecánica desde andén Línea 5 dirección Plaza de Maipú hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-f76af6 - Escalera mecánica 11 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-f389aa - Escalera mecánica 10 desde nivel Puente Línea 6 hacia salida y combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-c94087 - Escalera mecánica 03 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-acee99 - Escalera mecánica desde Servicios hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-9ab831 - Escalera mecánica 15 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-86d36c - Escalera mecánica 14 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-690207 - Escalera mecánica desde nivel Intermedio Línea 6 hacia andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-5a46c7 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-573ac2 - Escalera mecánica 04 desde Servicios Línea 6 hacia Intermedio Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-560f61 - Ascensor Servicios hacia combinación Línea 5 Línea 6 hacia Cambio de andén Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-456341 - Escalera mecánica desde andén Línea 5 dirección Vicente Valdés hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.880Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUB-3a5ba6 - Ascensor de combinación Línea 5 Línea 6 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUB-2bcec1 - Escalera mecánica desde Intermedio -1 Línea 6 hacia Intermedio -2 Línea 6 dirección Cerrillos"
+    }
+  ]
+}

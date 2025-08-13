@@ -1,0 +1,157 @@
+{
+  "station": "franklin",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Calle Placer"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Nataniel Cox"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "SR2IM",
+      "from": "Servicios Línea 2",
+      "to": "Intermodal",
+      "fullPath": "Servicios Línea 2→Intermodal",
+      "segments": [
+        "Servicios Línea 2",
+        "Intermodal"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "PISR2",
+      "from": "Andén Hospital El Pino",
+      "to": "Servicios Línea 2 / Combinación a Línea 6",
+      "fullPath": "Andén Hospital El Pino→Servicios Línea 2 / Combinación a Línea 6",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Servicios Línea 2 / Combinación a Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "CERAVSR6",
+      "from": "Andén Cerrillos",
+      "to": "Servicios Línea 6 / Combinación a Línea 2",
+      "fullPath": "Andén Cerrillos→Andén Vespucio Norte→Servicios Línea 6 / Combinación a Línea 2",
+      "segments": [
+        "Andén Cerrillos",
+        "Andén Vespucio Norte",
+        "Servicios Línea 6 / Combinación a Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T17:19:23.447Z",
+      "notes": "",
+      "id": "LENAVSR6",
+      "from": "Andén Los Leones",
+      "to": "Servicios Línea 6 / Combinación a Línea 2",
+      "fullPath": "Andén Los Leones→Andén Vespucio Norte→Servicios Línea 6 / Combinación a Línea 2",
+      "segments": [
+        "Andén Los Leones",
+        "Andén Vespucio Norte",
+        "Servicios Línea 6 / Combinación a Línea 2"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-13T23:31:41.754Z",
+      "notes": "",
+      "id": "EXADSA",
+      "from": "Exterior Acceso A",
+      "to": "Descanso",
+      "fullPath": "Exterior Acceso A→Descanso",
+      "segments": [
+        "Exterior Acceso A",
+        "Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-13T23:31:33.867Z",
+      "notes": "",
+      "id": "DSAEXA",
+      "from": "Descanso",
+      "to": "Exterior Acceso A Placer",
+      "fullPath": "Descanso→Exterior Acceso A Placer",
+      "segments": [
+        "Descanso",
+        "Exterior Acceso A Placer"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-26T17:19:23.446Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T17:19:41.049Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-06-17T09:03:17.538Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXADSA a fuera de servicio",
+      "details": "Updated: EXADSA"
+    },
+    {
+      "timestamp": "2025-06-17T09:03:21.414Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera DSAEXA a fuera de servicio",
+      "details": "Updated: DSAEXA"
+    },
+    {
+      "timestamp": "2025-06-17T13:43:26.731Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: EXADSA, DSAEXA"
+    },
+    {
+      "timestamp": "2025-06-18T10:16:44.473Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera DSAEXA a fuera de servicio",
+      "details": "Updated: DSAEXA"
+    },
+    {
+      "timestamp": "2025-07-13T23:31:30.762Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera DSAEXA a fuera de servicio",
+      "details": "Updated: DSAEXA"
+    },
+    {
+      "timestamp": "2025-07-13T23:31:33.867Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: EXADSA, DSAEXA"
+    },
+    {
+      "timestamp": "2025-07-13T23:31:41.754Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXADSA a fuera de servicio",
+      "details": "Updated: EXADSA"
+    }
+  ]
+}

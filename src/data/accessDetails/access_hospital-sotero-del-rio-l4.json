@@ -1,0 +1,432 @@
+{
+  "station": "hospital Sótero del Río",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:26:29.235Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Concha y Toro Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:26:29.235Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Concha y Toro Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "3a0123",
+      "from": "Ascensor de acceso ubicado en Av. Concha y",
+      "to": "ro (vereda poniente detrás del acceso)",
+      "fullPath": "Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Concha y",
+        "ro (vereda poniente detrás del acceso)"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "ef648d",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-10T13:20:28.944Z",
+      "from": "Ascensor de acceso ubicado en Av. Concha y",
+      "to": "ro (vereda oriente detrás del de acceso)",
+      "fullPath": "Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Concha y",
+        "ro (vereda oriente detrás del de acceso)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "3c6f8e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "901c78",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.342Z",
+      "notes": "",
+      "id": "c45972",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería",
+      "fullPath": "Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.929Z",
+      "notes": "",
+      "id": "ee3566",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T13:20:28.944Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:28.944Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: HSR-ef648d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.342Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HSR-c45972 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HSR-c45972 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HSR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.366Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.366Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.366Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.366Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.215Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-ef648d - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente detrás del de acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-ee3566 - Escalera mecánica desde Acceso A Av. Concha y Toro Poniente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-c45972 - Escalera mecánica desde Acceso B Av. Concha y Toro Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-901c78 - Escalera mecánica 02 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HSR-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HSR-3a0123 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda poniente detrás del acceso) hacia Boletería"
+    }
+  ]
+}

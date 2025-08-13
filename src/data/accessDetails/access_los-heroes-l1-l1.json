@@ -1,0 +1,674 @@
+{
+  "station": "los héroes l1",
+  "line": "l1",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "349493",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.978Z",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur)  Av. Ejérci",
+      "to": "Libertador",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur)  Av. Ejérci",
+        "Libertador"
+      ]
+    },
+    {
+      "id": "60d634",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.978Z",
+      "from": "Ascensor Boletería Línea 1",
+      "to": "én Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería Línea 1",
+        "én Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "id": "eba3d6",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.978Z",
+      "from": "Ascensor Boletería Línea 1",
+      "to": "én Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería Línea 1",
+        "én Línea 1 dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "093ca8",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.978Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+      ]
+    },
+    {
+      "id": "2936d8",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.978Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección San Pablo hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección San Pablo hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LH-349493 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LH-349493 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LH-093ca8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.229Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LH-093ca8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:44.978Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LH-349493 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LH-349493 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LH-093ca8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.229Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LH-093ca8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.339Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-349493 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Av. Ejército Libertador hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-2936d8 - Escalera mecánica desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LH-093ca8 - Escalera mecánica desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    }
+  ]
+}

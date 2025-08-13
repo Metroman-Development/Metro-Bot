@@ -1,0 +1,678 @@
+{
+  "station": "ñuñoa l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.665Z",
+      "notes": "",
+      "id": "05243d",
+      "from": "Ascensor de acceso ubicado en Av. Pedro de Valdivia  Av. Irarrázaval (costado izquierdo del acceso)",
+      "to": "Servicios Línea 6",
+      "fullPath": "Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Pedro de Valdivia  Av. Irarrázaval (costado izquierdo del acceso)",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.497Z",
+      "notes": "",
+      "id": "1ffee5",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Plaza Quilicura",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "id": "577f8a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.377Z",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "Cambio de én Línea 6",
+      "fullPath": "Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "Cambio de én Línea 6"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.497Z",
+      "notes": "",
+      "id": "18ffed",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.497Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-577f8a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-577f8a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.499Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.677Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUN-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUN-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUN-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ],
+  "lastUpdated": "2025-08-08T13:20:52.377Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-577f8a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-577f8a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.499Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.497Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.677Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUN-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NUN-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NUN-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUN-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUN-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.387Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.631Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.587Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUN-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUN-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

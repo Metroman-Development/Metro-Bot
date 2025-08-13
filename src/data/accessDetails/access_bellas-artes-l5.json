@@ -1,0 +1,674 @@
+{
+  "station": "Bellas Artes",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T09:16:21.885Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Monjitas / Mosqueto"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.589Z",
+      "notes": "",
+      "id": "2dd283",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.590Z",
+      "notes": "",
+      "id": "539aaa",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "b03e2a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T00:40:57.694Z",
+      "from": "Ascensor de acceso ubicado en Monjitas  Mosque",
+      "to": "",
+      "fullPath": "Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Monjitas  Mosque",
+        ""
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.590Z",
+      "notes": "",
+      "id": "fcc63f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-09T00:40:57.694Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T00:40:57.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-b03e2a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BE-b03e2a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.950Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-539aaa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-b03e2a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.217Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BE-b03e2a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-09T00:40:57.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-b03e2a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BE-b03e2a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.590Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.950Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-539aaa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: BE-b03e2a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.217Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: BE-b03e2a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.049Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.554Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-b03e2a - Ascensor de acceso ubicado en Monjitas con Mosqueto hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BE-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.600Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BE-fcc63f - Escalera mecánica desde Boletería hacia Acceso A Monjitas / Mosqueto"
+    }
+  ]
+}

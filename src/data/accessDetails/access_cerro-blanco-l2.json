@@ -1,0 +1,393 @@
+{
+  "station": "Cerro Blanco",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Santos Dumont"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:11:26.754Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Doctor Raimundo Charlin"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.097Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.097Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    },
+    {
+      "id": "e2ad00",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T13:20:29.001Z",
+      "from": "Ascensor de acceso ubicado en Av. Recoleta  Dr. Raimundo Charlin y San",
+      "to": "s Dumont",
+      "fullPath": "Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Recoleta  Dr. Raimundo Charlin y San",
+        "s Dumont"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.369Z",
+      "notes": "",
+      "id": "3f3e2b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.369Z",
+      "notes": "",
+      "id": "a9966f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T13:20:29.001Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:29.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-e2ad00 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.793Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-e2ad00 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-e2ad00 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-e2ad00 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-e2ad00 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-e2ad00 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.926Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-e2ad00 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.887Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-e2ad00 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-9ff167 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CB-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-9ff167 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CB-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-3f3e2b - Escalera mecánica desde Boletería hacia Descanso Acceso B Doctor Raimundo Charlin"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-e2ad00 - Ascensor de acceso ubicado en Av. Recoleta entre Dr. Raimundo Charlin y Santos Dumont hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CB-a9966f - Escalera mecánica desde Boletería hacia Descanso Acceso A Santos Dumont"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.882Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    }
+  ]
+}

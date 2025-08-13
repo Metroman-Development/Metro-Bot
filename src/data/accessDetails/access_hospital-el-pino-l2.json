@@ -1,0 +1,812 @@
+{
+  "station": "hospital el pino",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T19:24:10.479Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Lo Blanco"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T19:24:10.479Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Padre Hurtado"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "4968e3",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T13:20:17.157Z",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "8d8fe0",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-11T00:40:37.711Z",
+      "notes": "",
+      "id": "920ace",
+      "from": "Ascensor de acceso ubicado en Av. Padre Hurtado",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Padre Hurtado",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "c8c77c",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vespucio Norte"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "0b46bc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios",
+      "fullPath": "Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "13433f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "fullPath": "Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "22f999",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales",
+      "fullPath": "Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "373528",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales",
+      "fullPath": "Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "5b7a1e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios",
+      "fullPath": "Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "bb4faf",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios",
+      "fullPath": "Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "c57559",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "fullPath": "Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "d2fd8e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios",
+      "fullPath": "Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.009Z",
+      "notes": "",
+      "id": "e47205",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "fullPath": "Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.084Z",
+      "notes": "",
+      "id": "edae62",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "fullPath": "Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:17.157Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:17.157Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-4968e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-920ace de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PI-4968e3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-4968e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PI-edae62 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.150Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PI-edae62 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PI-920ace de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T13:20:17.157Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-4968e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-920ace de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.711Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PI-4968e3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PI-4968e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PI-edae62 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.150Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PI-edae62 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.698Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PI-920ace de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.999Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-e47205 - Escalera mecánica 08 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-d2fd8e - Escalera mecánica 05 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-c8c77c - Ascensor Cambio de andén hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-c57559 - Escalera mecánica 09 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-bb4faf - Escalera mecánica 06 desde Nivel -2 Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-920ace - Ascensor de acceso ubicado en Av. Padre Hurtado hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-8d8fe0 - Ascensor Cambio de andén hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-5b7a1e - Escalera mecánica 10 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PI-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-373528 - Escalera mecánica 07 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-22f999 - Escalera mecánica 04 desde Servicios hacia nivel -2 Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-13433f - Escalera mecánica 02 desde Servicios hacia Acceso A Av. Lo Blanco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-0b46bc - Escalera mecánica 03 desde Acceso A Av. Lo Blanco hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PI-edae62 - Escalera mecánica 01 desde Servicios hacia Acceso A Av. Lo Blanco"
+    }
+  ]
+}

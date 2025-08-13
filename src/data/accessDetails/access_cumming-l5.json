@@ -1,0 +1,381 @@
+{
+  "station": "Cumming",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:41:32.295Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Catedral"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "02b222",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.655Z",
+      "from": "Ascensor de acceso ubicado en Catedral  Ricardo Cumming (vereda poniente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Catedral  Ricardo Cumming (vereda poniente)",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "2dd283",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.655Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "539aaa",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.655Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "18ffed",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.655Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "8e7a59",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.655Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso A Catedral",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso A Catedral",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.655Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.655Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.617Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: RC-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: RC-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RC-02b222 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RC-02b222 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.216Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: RC-18ffed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.666Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: RC-18ffed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.153Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.153Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.153Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.153Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.951Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.951Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.951Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.951Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.951Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.665Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.664Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.664Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.498Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-02b222 - Ascensor de acceso ubicado en Catedral con Ricardo Cumming (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-8e7a59 - Escalera mecánica desde Cambio de andén hacia Acceso A Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RC-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RC-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    }
+  ]
+}

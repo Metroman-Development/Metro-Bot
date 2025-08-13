@@ -1,0 +1,683 @@
+{
+  "station": "Bellavista de la Florida",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:54:54.830Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Paseo el Cabildo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:54:54.830Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Vicuña Mackenna Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:54:54.830Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Serafín Zamora Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:54:54.830Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Serafín Zamora Poniente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "49b4dd",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.489Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente  Serafín Zamora",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente  Serafín Zamora",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "bf3e3e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.489Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente  Serafín Zamora",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente  Serafín Zamora",
+        "én dirección Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "cf5d60",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.489Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.489Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LF-cf5d60 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.146Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.859Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LF-49b4dd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LF-49b4dd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.859Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.443Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.442Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.442Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.507Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.507Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LF-cf5d60 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.146Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.859Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LF-49b4dd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LF-49b4dd de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.859Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LF-49b4dd de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.900Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.457Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.105Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.443Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.442Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.442Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-49b4dd - Ascensor de acceso ubicado en Av. Vicuña Mackenna Poniente con Serafín Zamora hacia andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.507Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LF-cf5d60 - Escalera mecánica desde Boletería hacia Acceso D Serafin Zamora poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.507Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LF-bf3e3e - Ascensor de acceso ubicado en Av. Vicuña Mackenna Oriente con Serafín Zamora hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

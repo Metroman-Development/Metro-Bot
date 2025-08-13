@@ -1,0 +1,717 @@
+{
+  "station": "ñuñoa l6",
+  "line": "l6",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "05243d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.563Z",
+      "from": "Ascensor de acceso ubicado en Av. Pedro de Valdivia  Av. Irarrázaval (costado izquierdo del acceso)",
+      "to": "Servicios Línea 6",
+      "fullPath": "Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Pedro de Valdivia  Av. Irarrázaval (costado izquierdo del acceso)",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "16a24c",
+      "from": "Ascensor Cambio de andén Línea 6",
+      "to": "én Línea 6 dirección Cerrillos",
+      "fullPath": "Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Cambio de andén Línea 6",
+        "én Línea 6 dirección Cerrillos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "577f8a",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "Cambio de én Línea 6",
+      "fullPath": "Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "Cambio de én Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "c7b6cb",
+      "from": "Ascensor Cambio de andén Línea 6",
+      "to": "én Línea 6 dirección Los Leones",
+      "fullPath": "Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Cambio de andén Línea 6",
+        "én Línea 6 dirección Los Leones"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "cc90ef",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.365Z",
+      "notes": "",
+      "id": "e09847",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-03T00:40:24.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUO-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUO-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUO-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.138Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUO-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.777Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.777Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.269Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ],
+  "lastUpdated": "2025-08-03T00:40:24.563Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-03T00:40:24.563Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUO-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUO-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.297Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NUO-05243d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.138Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: NUO-05243d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.777Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.777Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.776Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.745Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.569Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.383Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-05243d - Ascensor de acceso ubicado en Av. Pedro de Valdivia con Av. Irarrázaval (costado izquierdo del acceso) hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-e09847 - Escalera mecánica desde Acceso A Av. Pedro de Valdivia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-cc90ef - Escalera mecánica desde Servicios hacia Acceso A Av. Pedro de Valdivia"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NUO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-c7b6cb - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.270Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-577f8a - Ascensor Servicios Línea 6 hacia Cambio de andén Línea 6 hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.269Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NUO-16a24c - Ascensor Cambio de andén Línea 6 hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ]
+}

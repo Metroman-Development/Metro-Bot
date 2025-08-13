@@ -1,0 +1,212 @@
+{
+  "station": "los héroes",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Almirante Barroso"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Manuel Rodríguez Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "Acceso solo para Salida, no entrada",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Bandejón Central Av. Alameda Libertador Bernardo O'Higgins"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Manuel Rodríguez Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Av. Ejército Libertador"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-26T08:42:17.358Z",
+      "notes": "",
+      "id": "SPPI",
+      "from": "Hall Línea 1 San Pablo",
+      "to": "Andén Hospital El Pino",
+      "fullPath": "Hall Línea 1 San Pablo→Andén Hospital El Pino",
+      "segments": [
+        "Hall Línea 1 San Pablo",
+        "Andén Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-26T08:42:17.358Z",
+      "notes": "",
+      "id": "LDPI",
+      "from": "Hall Línea 1 Los Dominicos",
+      "to": "Andén Hospital El Pino",
+      "fullPath": "Hall Línea 1 Los Dominicos→Andén Hospital El Pino",
+      "segments": [
+        "Hall Línea 1 Los Dominicos",
+        "Andén Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-26T08:42:17.358Z",
+      "notes": "",
+      "id": "SPAV",
+      "from": "Hall Línea 1 San Pablo",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Hall Línea 1 San Pablo→Andén Vespucio Norte",
+      "segments": [
+        "Hall Línea 1 San Pablo",
+        "Andén Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-26T08:42:17.358Z",
+      "notes": "",
+      "id": "LDAV",
+      "from": "Hall Línea 1 Los Dominicos",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Hall Línea 1 Los Dominicos→Andén Vespucio Norte",
+      "segments": [
+        "Hall Línea 1 Los Dominicos",
+        "Andén Vespucio Norte"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "SPPI",
+      "from": "Hall Combinación Línea 1 San Pablo",
+      "to": "Línea 2 Hospital El Pino",
+      "fullPath": "Hall Combinación Línea 1 San Pablo→Línea 2 Hospital El Pino",
+      "segments": [
+        "Hall Combinación Línea 1 San Pablo",
+        "Línea 2 Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T16:36:10.174Z",
+      "notes": "",
+      "id": "LDPI",
+      "from": "Hall Combinación Línea 1 Los Dominicos",
+      "to": "Línea 2 Hospital El Pino",
+      "fullPath": "Hall Combinación Línea 1 Los Dominicos→Línea 2 Hospital El Pino",
+      "segments": [
+        "Hall Combinación Línea 1 Los Dominicos",
+        "Línea 2 Hospital El Pino"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-26T13:46:02.489Z",
+      "notes": "",
+      "id": "SPAV",
+      "from": "Hall Combinación Línea 1 San Pablo",
+      "to": "Línea 2 Vespucio Norte",
+      "fullPath": "Hall Combinación Línea 1 San Pablo→Línea 2 Vespucio Norte",
+      "segments": [
+        "Hall Combinación Línea 1 San Pablo",
+        "Línea 2 Vespucio Norte"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-09T12:14:20.307Z",
+      "notes": "",
+      "id": "AVLD",
+      "from": "Andén Línea 2 Vespucio Norte",
+      "to": "Combinación Línea 1 Los Dominicos",
+      "fullPath": "Andén Línea 2 Vespucio Norte→Combinación Línea 1 Los Dominicos",
+      "segments": [
+        "Andén Línea 2 Vespucio Norte",
+        "Combinación Línea 1 Los Dominicos"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-26T16:38:20.677Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T16:36:30.157Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T16:38:20.677Z",
+      "user": "metromanrrss",
+      "action": "Editado C",
+      "details": "notes cambiado de \"\" a \"Acceso solo para Salida, no entrada\""
+    },
+    {
+      "timestamp": "2025-06-09T12:14:20.307Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera AVLD a fuera de servicio",
+      "details": "Updated: AVLD"
+    },
+    {
+      "timestamp": "2025-06-11T13:53:50.159Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor LDAV a fuera de servicio",
+      "details": "Updated: LDAV"
+    },
+    {
+      "timestamp": "2025-06-12T17:17:50.470Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor LDPI a fuera de servicio",
+      "details": "Updated: LDPI"
+    },
+    {
+      "timestamp": "2025-06-14T13:34:17.373Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor LDPI a operativa",
+      "details": "Updated: LDPI"
+    },
+    {
+      "timestamp": "2025-06-24T20:38:46.680Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SPPI a fuera de servicio",
+      "details": "Updated: SPPI"
+    },
+    {
+      "timestamp": "2025-06-26T08:42:17.359Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a operativa",
+      "details": "Updated: SPPI, LDPI, SPAV, LDAV"
+    },
+    {
+      "timestamp": "2025-06-26T13:46:02.489Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SPAV a fuera de servicio",
+      "details": "Updated: SPAV"
+    }
+  ],
+  "changelistory": []
+}

@@ -1,0 +1,356 @@
+{
+  "station": "camino agrícola",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:42:51.120Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "El Pinar / Av. Escuela Agricola"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "092fca",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.515Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "50ce59",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.515Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "d88d57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.515Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna  El Pinar / Av. Escuela Agrícola",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna  El Pinar / Av. Escuela Agrícola",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:42.515Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.949Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.949Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.949Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.513Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.513Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.658Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.658Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.658Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.982Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.472Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.472Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.472Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.599Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.599Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.599Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.615Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.615Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.615Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-092fca - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:18.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-d88d57 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con El Pinar / Av. Escuela Agrícola hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:18.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AG-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

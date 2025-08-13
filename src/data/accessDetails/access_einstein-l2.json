@@ -1,0 +1,372 @@
+{
+  "station": "Einstein",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:02:15.241Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Einstein"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "40fe97",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T13:20:29.002Z",
+      "from": "Ascensor de acceso ubicado en Av. Einstein  Av. Recoleta",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Einstein  Av. Recoleta",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.455Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.455Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.455Z",
+      "notes": "",
+      "id": "9d4f04",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T13:20:29.002Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:29.002Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-40fe97 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.797Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-40fe97 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.541Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-40fe97 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-40fe97 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.455Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.455Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.455Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.455Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-40fe97 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-40fe97 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-40fe97 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-40fe97 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.092Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: EI-9d4f04 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.092Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: EI-9d4f04 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.448Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: EI-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.733Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: EI-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.705Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.705Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.705Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.705Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.731Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.286Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.286Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.286Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: EI-9d4f04 - Escalera mecánica desde Boletería hacia Descanso Acceso A Av. Einstein"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: EI-40fe97 - Ascensor de acceso ubicado en Av. Einstein con Av. Recoleta hacia Boletería"
+    }
+  ]
+}

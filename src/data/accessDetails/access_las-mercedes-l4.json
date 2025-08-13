@@ -1,0 +1,406 @@
+{
+  "station": "las mercedes",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:32:30.800Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Concha y Toro Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:32:30.800Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Concha y Toro Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.922Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.922Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.922Z",
+      "notes": "",
+      "id": "981867",
+      "from": "Ascensor de acceso ubicado en Av. Concha y",
+      "to": "ro (vereda oriente)",
+      "fullPath": "Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Concha y",
+        "ro (vereda oriente)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.923Z",
+      "notes": "",
+      "id": "abbffa",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+      ]
+    },
+    {
+      "id": "f16b4d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.351Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente",
+      "fullPath": "Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.923Z",
+      "notes": "",
+      "id": "f533cd",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-07T13:20:36.351Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.351Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LME-f16b4d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.630Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LME-f16b4d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LME-f16b4d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.325Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.726Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.725Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.725Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.725Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f533cd - Escalera mecánica desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-f16b4d - Escalera mecánica desde Descanso hacia Acceso B Av. Concha y Toro Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LME-abbffa - Escalera mecánica desde Boletería hacia Descanso y Acceso A Av. Concha y Toro Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-981867 - Ascensor de acceso ubicado en Av. Concha y Toro (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LME-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    }
+  ]
+}

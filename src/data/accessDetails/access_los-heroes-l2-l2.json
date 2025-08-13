@@ -1,0 +1,717 @@
+{
+  "station": "los héroes l2",
+  "line": "l2",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.276Z",
+      "notes": "",
+      "id": "0f6a35",
+      "from": "Ascensor Hall Línea 1 dirección San Pablo",
+      "to": "én Línea 2 dirección Hospital El Pino",
+      "fullPath": "Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Hall Línea 1 dirección San Pablo",
+        "én Línea 2 dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.276Z",
+      "notes": "",
+      "id": "ad0600",
+      "from": "Ascensor Hall Línea 1 dirección Los Dominicos",
+      "to": "én Línea 2 dirección Vespucio Norte",
+      "fullPath": "Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Hall Línea 1 dirección Los Dominicos",
+        "én Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "d50594",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-07T13:20:36.445Z",
+      "from": "Ascensor Hall Línea 1 dirección Los Dominicos",
+      "to": "én Línea 2 dirección Hospital El Pino",
+      "fullPath": "Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Hall Línea 1 dirección Los Dominicos",
+        "én Línea 2 dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:05.063Z",
+      "notes": "",
+      "id": "dacf2b",
+      "from": "Ascensor Hall Línea 1 dirección San Pablo",
+      "to": "én Línea 2 dirección Vespucio Norte",
+      "fullPath": "Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Hall Línea 1 dirección San Pablo",
+        "én Línea 2 dirección Vespucio Norte"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.276Z",
+      "notes": "",
+      "id": "1c46b8",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino",
+      "fullPath": "Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.276Z",
+      "notes": "",
+      "id": "9ef071",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.276Z",
+      "notes": "",
+      "id": "9f5b58",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.108Z",
+      "notes": "",
+      "id": "b73c94",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino",
+      "fullPath": "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.445Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: HE-d50594 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: HE-dacf2b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: HE-dacf2b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.108Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-b73c94 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.626Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-b73c94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.519Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-9ef071 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-9ef071 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.072Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-9ef071 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-9ef071 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.319Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    }
+  ],
+  "lastUpdated": "2025-08-07T13:20:36.445Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.445Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: HE-d50594 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: HE-dacf2b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: HE-dacf2b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.108Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-b73c94 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.626Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-b73c94 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.276Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.519Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-9ef071 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.258Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-9ef071 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.072Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: HE-9ef071 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: HE-9ef071 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.652Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-d50594 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-b73c94 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.673Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-ad0600 - Ascensor Hall Línea 1 dirección Los Dominicos hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9f5b58 - Escalera mecánica desde andén Línea 2 dirección Vespucio Norte hacia Combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-9ef071 - Escalera mecánica desde Hall Combinación Línea 1 dirección San Pablo hacia Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: HE-1c46b8 - Escalera mecánica desde Hall Combinación Línea 1 dirección Los Dominicos hacia Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.672Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-0f6a35 - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.319Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: HE-dacf2b - Ascensor Hall Línea 1 dirección San Pablo hacia Andén Línea 2 dirección Vespucio Norte"
+    }
+  ]
+}

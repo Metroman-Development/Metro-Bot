@@ -1,0 +1,713 @@
+{
+  "station": "Barrancas",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:42:02.940Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. General Óscar Bonilla"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "966992",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "fbc5de",
+      "from": "Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur)  Teniente Cruz",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur)  Teniente Cruz",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "3c4b59",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel 2 hacia Boletería",
+      "fullPath": "Escalera mecánica desde Nivel 2 hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel 2 hacia Boletería"
+      ]
+    },
+    {
+      "id": "a794bb",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:41.885Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.721Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:41.885Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-a794bb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.274Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-a794bb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-c9011b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-c9011b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.032Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-a794bb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-a794bb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T00:40:41.885Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-a794bb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.274Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-a794bb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.744Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-c9011b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-c9011b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.032Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: BR-a794bb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: BR-a794bb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.035Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.772Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-a794bb - Escalera mecánica desde Boletería hacia Acceso A Av. General Óscar Bonilla"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-3c4b59 - Escalera mecánica desde Nivel 2 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: BR-fbc5de - Ascensor de acceso ubicado en Av. General óscar Bonilla (vereda sur) con Teniente Cruz hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.810Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: BR-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

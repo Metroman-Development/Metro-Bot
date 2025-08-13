@@ -1,0 +1,376 @@
+{
+  "station": "Los Presidentes",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:31:12.960Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Américo Vespucio Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:31:12.960Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Américo Vespucio Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "0f404f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.126Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "id": "3e91eb",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.127Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "787e9e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.127Z",
+      "from": "Ascensor de acceso ubicado en Av. Los Presidentes  Av. Américo Vespucio",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Los Presidentes  Av. Américo Vespucio",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "b789cb",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.127Z",
+      "from": "Ascensor de acceso ubicado en Hermano Martín Panero  Av. Américo Vespucio",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Hermano Martín Panero  Av. Américo Vespucio",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:43.127Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:43.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.432Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LPR-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LPR-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LPR-b789cb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LPR-787e9e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.067Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.066Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.873Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.873Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.873Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.873Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.132Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.132Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.132Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.132Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.370Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.370Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.964Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.963Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.963Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.963Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-b789cb - Ascensor de acceso ubicado en Hermano Martín Panero con Av. Américo Vespucio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.912Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LPR-787e9e - Ascensor de acceso ubicado en Av. Los Presidentes con Av. Américo Vespucio hacia Boletería"
+    }
+  ]
+}

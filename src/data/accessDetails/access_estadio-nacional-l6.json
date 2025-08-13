@@ -1,0 +1,432 @@
+{
+  "station": "Estadio Nacional",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T11:05:11.108Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Grecia"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T11:05:11.108Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Pedro de Valdivia"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.381Z",
+      "notes": "",
+      "id": "7e5620",
+      "from": "Ascensor 2 Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor 2 Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.381Z",
+      "notes": "",
+      "id": "83cfbb",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Los Leones",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Los Leones",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Los Leones"
+      ]
+    },
+    {
+      "id": "d3433d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.571Z",
+      "from": "Ascensor de acceso ubicado en Av. Grecia  Av. Pedro de Valdivia (detrás del acceso principal)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Grecia  Av. Pedro de Valdivia (detrás del acceso principal)",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.382Z",
+      "notes": "",
+      "id": "fd0b5d",
+      "from": "Ascensor 1 Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor 1 Servicios",
+        "Cambio de én"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.381Z",
+      "notes": "",
+      "id": "1e2697",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Grecia hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Grecia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.381Z",
+      "notes": "",
+      "id": "34928f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 04 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.877Z",
+      "notes": "",
+      "id": "a5f1f1",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 03 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.382Z",
+      "notes": "",
+      "id": "f56f38",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Grecia",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Grecia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.571Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.571Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ESN-d3433d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ESN-d3433d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: ESN-a5f1f1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.956Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: ESN-a5f1f1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ESN-fd0b5d - Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.382Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ESN-f56f38 - Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ESN-d3433d - Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ESN-a5f1f1 - Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ESN-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ESN-7e5620 - Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ESN-34928f - Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.381Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ESN-1e2697 - Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.661Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ESN-7e5620 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ESN-7e5620 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ESN-fd0b5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.345Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ESN-fd0b5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ESN-fd0b5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.725Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ESN-fd0b5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-fd0b5d - Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-f56f38 - Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-d3433d - Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-a5f1f1 - Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-7e5620 - Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-34928f - Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.861Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-1e2697 - Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-fd0b5d - Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-f56f38 - Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-d3433d - Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-a5f1f1 - Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-7e5620 - Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-34928f - Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.754Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-1e2697 - Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-fd0b5d - Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-f56f38 - Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-d3433d - Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-a5f1f1 - Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-7e5620 - Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-34928f - Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-1e2697 - Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-fd0b5d - Ascensor 1 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-f56f38 - Escalera mecánica desde Servicios hacia Acceso A Av. Grecia"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-d3433d - Ascensor de acceso ubicado en Av. Grecia con Av. Pedro de Valdivia (detrás del acceso principal) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-a5f1f1 - Escalera mecánica 03 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ESN-7e5620 - Ascensor 2 Servicios hacia Cambio de andén y hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-34928f - Escalera mecánica 04 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ESN-1e2697 - Escalera mecánica desde Acceso A Av. Grecia hacia Servicios"
+    }
+  ]
+}

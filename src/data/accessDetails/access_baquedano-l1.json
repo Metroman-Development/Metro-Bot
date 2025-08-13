@@ -1,0 +1,254 @@
+{
+  "station": "Baquedano",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. General Bustamante"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Ramón Carnicer"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Vicuña Mackenna"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.772Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Providencia"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-15T20:18:13.602Z",
+      "notes": "",
+      "id": "LD",
+      "from": "Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": "Andén Los Dominicos→Boletería",
+      "segments": [
+        "Andén Los Dominicos",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-15T20:18:13.602Z",
+      "notes": "",
+      "id": "SP",
+      "from": "Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": "Andén San Pablo→Boletería",
+      "segments": [
+        "Andén San Pablo",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-15T20:18:13.602Z",
+      "notes": "",
+      "id": "VVBL",
+      "from": "Andén Vicente Valdés",
+      "to": "Boletería Línea 5 y Combinación a Línea 1",
+      "fullPath": "Andén Vicente Valdés→Intermedio -3→Boletería Línea 5 y Combinación a Línea 1",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Intermedio -3",
+        "Boletería Línea 5 y Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-18T10:17:31.937Z",
+      "notes": "",
+      "id": "PMBLEXA",
+      "from": "Andén Plaza de Maipú",
+      "to": "Exterior Acceso A",
+      "fullPath": "Andén Plaza de Maipú→Intermedio -3→Boletería Línea 5 y Combinación a Línea 1→Exterior Acceso A",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Intermedio -3",
+        "Boletería Línea 5 y Combinación a Línea 1",
+        "Exterior Acceso A"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": "",
+      "id": "01CA5CO1",
+      "from": "Cambio de Andén Línea 5",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Cambio de Andén Línea 5→Combinación a Línea 1",
+      "segments": [
+        "Cambio de Andén Línea 5",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": "",
+      "id": "02CA5CO1",
+      "from": "Cambio de Andén Línea 5",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Cambio de Andén Línea 5→Combinación a Línea 1",
+      "segments": [
+        "Cambio de Andén Línea 5",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-26T11:04:58.069Z",
+      "notes": "",
+      "id": "VVCOLD",
+      "from": "Andén Vicente Valdés",
+      "to": "Combinación a Línea 1 Andén Los Dominicos",
+      "fullPath": "Andén Vicente Valdés→Combinación a Línea 1 Andén Los Dominicos",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Combinación a Línea 1 Andén Los Dominicos"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-29T09:22:12.779Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-26T11:05:05.234Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-26T11:06:05.796Z",
+      "user": "metromanrrss",
+      "action": "Editado PMBLEXA",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:35:48.297Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"undefined\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "A: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "B: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "C: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-04-28T19:38:15.772Z",
+      "user": "metromanrrss (Batch)",
+      "action": "Edición avanzada",
+      "details": "D: status cambiado de \"operativa\" a \"abierto\""
+    },
+    {
+      "timestamp": "2025-05-28T11:39:37.203Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated PMBLEXA"
+    },
+    {
+      "timestamp": "2025-05-29T09:22:12.779Z",
+      "user": "metromanrrss",
+      "action": "escalator_updated",
+      "details": "Updated 01CA5CO1"
+    },
+    {
+      "timestamp": "2025-06-09T11:21:56.455Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor PMBLEXA a fuera de servicio",
+      "details": "Updated: PMBLEXA"
+    },
+    {
+      "timestamp": "2025-06-11T13:30:52.423Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor PMBLEXA a operativa",
+      "details": "Updated: PMBLEXA"
+    },
+    {
+      "timestamp": "2025-06-13T13:38:12.160Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SP a fuera de servicio",
+      "details": "Updated: SP"
+    },
+    {
+      "timestamp": "2025-06-14T13:33:04.053Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor PMBLEXA a fuera de servicio",
+      "details": "Updated: PMBLEXA"
+    },
+    {
+      "timestamp": "2025-06-15T20:18:13.602Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a operativa",
+      "details": "Updated: LD, SP, VVBL, PMBLEXA"
+    },
+    {
+      "timestamp": "2025-06-16T17:17:47.064Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor PMBLEXA a fuera de servicio",
+      "details": "Updated: PMBLEXA"
+    },
+    {
+      "timestamp": "2025-06-18T10:17:31.937Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor PMBLEXA a operativa",
+      "details": "Updated: PMBLEXA"
+    }
+  ],
+  "changelistory": []
+}

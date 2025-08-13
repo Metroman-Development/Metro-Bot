@@ -1,0 +1,398 @@
+{
+  "station": "Inés de Suárez",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T11:16:25.787Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Francisco Bilbao"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.349Z",
+      "notes": "",
+      "id": "0c58e8",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Cerrillos",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Cerrillos"
+      ]
+    },
+    {
+      "id": "2676f3",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.433Z",
+      "from": "Ascensor de acceso ubicado en Av. Francisco Bilbao  Plaza Pedro de Valdivia (detrás del acceso)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Francisco Bilbao  Plaza Pedro de Valdivia (detrás del acceso)",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.349Z",
+      "notes": "",
+      "id": "3a82a5",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.349Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.349Z",
+      "notes": "",
+      "id": "539e1d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.262Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.433Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ISU-2676f3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.568Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ISU-2676f3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.262Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: ISU-beccf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.950Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: ISU-beccf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-12T10:20:24.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: ISU-0c58e8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-12T01:02:17.511Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: ISU-0c58e8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.650Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.346Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:31.748Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-3a82a5 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-2676f3 - Ascensor de acceso ubicado en Av. Francisco Bilbao con Plaza Pedro de Valdivia (detrás del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: ISU-0c58e8 - Ascensor Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:30.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:30.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: ISU-539e1d - Escalera mecánica desde Servicios hacia Acceso A Av. Francisco Bilbao"
+    }
+  ]
+}

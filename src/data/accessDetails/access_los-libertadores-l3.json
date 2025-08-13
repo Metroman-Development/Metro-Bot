@@ -1,0 +1,830 @@
+{
+  "station": "los libertadores",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T14:20:08.529Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "General San Martín"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "345989",
+      "from": "Ascensor Servicios",
+      "to": "én dirección Plaza Quilicura",
+      "fullPath": "Ascensor Servicios hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "én dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "3a4837",
+      "from": "Ascensor de acceso ubicado en General San Martín  Av. Américo Vespucio",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en General San Martín con Av. Américo Vespucio hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en General San Martín  Av. Américo Vespucio",
+        "Servicios"
+      ]
+    },
+    {
+      "id": "5a3858",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.787Z",
+      "from": "Ascensor ubicado en Intermodal Los Libertadores",
+      "to": "Servicios",
+      "fullPath": "Ascensor ubicado en Intermodal Los Libertadores hacia Servicios",
+      "segments": [
+        "Ascensor ubicado en Intermodal Los Libertadores",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "672ab2",
+      "from": "Ascensor Servicios",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "203027",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "4dc622",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "7180ac",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín",
+      "fullPath": "Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "7b6663",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 07 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "83355e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "84b927",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 06 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "86a115",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A General San Martín",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A General San Martín",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "93b70b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín",
+      "fullPath": "Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "9679f7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 05 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "c43f93",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A General San Martín hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A General San Martín hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "e08e06",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 08 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.870Z",
+      "notes": "",
+      "id": "e6ae45",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T00:40:19.787Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.787Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LIB-5a3858 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.657Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LIB-5a3858 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-4dc622 - Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-3a4837 - Ascensor de acceso ubicado en General San Martín con Av. Américo Vespucio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-345989 - Ascensor Servicios hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-203027 - Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LIB-672ab2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.106Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LIB-93b70b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LIB-93b70b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LIB-672ab2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-4dc622 - Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-3a4837 - Ascensor de acceso ubicado en General San Martín con Av. Américo Vespucio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-345989 - Ascensor Servicios hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-203027 - Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.787Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LIB-5a3858 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.657Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LIB-5a3858 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-4dc622 - Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-3a4837 - Ascensor de acceso ubicado en General San Martín con Av. Américo Vespucio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LIB-345989 - Ascensor Servicios hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LIB-203027 - Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LIB-672ab2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.106Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LIB-93b70b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LIB-93b70b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LIB-672ab2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-4dc622 - Escalera mecánica desde Andén dirección Plaza Quilicura hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-3a4837 - Ascensor de acceso ubicado en General San Martín con Av. Américo Vespucio hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-345989 - Ascensor Servicios hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.896Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-203027 - Escalera mecánica desde Andén dirección Fernando Castillo Velasco hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e6ae45 - Escalera mecánica 10 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-e08e06 - Escalera mecánica 08 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-c43f93 - Escalera mecánica desde Acceso A General San Martín hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-9679f7 - Escalera mecánica 05 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-93b70b - Escalera mecánica 01 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-86a115 - Escalera mecánica desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-84b927 - Escalera mecánica 06 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-83355e - Escalera mecánica 12 desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7b6663 - Escalera mecánica 07 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LIB-7180ac - Escalera mecánica 03 desde Servicios hacia Acceso A General San Martín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-672ab2 - Ascensor Servicios hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.490Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LIB-5a3858 - Ascensor ubicado en Intermodal Los Libertadores hacia Servicios"
+    }
+  ]
+}

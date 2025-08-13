@@ -1,0 +1,704 @@
+{
+  "station": "franklin l2",
+  "line": "l2",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.192Z",
+      "notes": "",
+      "id": "44557d",
+      "from": "Ascensor de acceso ubicado en Placer  Nataniel Cox por Intermodal y Línea 2",
+      "to": "Servicios Línea 2",
+      "fullPath": "Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2",
+      "segments": [
+        "Ascensor de acceso ubicado en Placer  Nataniel Cox por Intermodal y Línea 2",
+        "Servicios Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.220Z",
+      "notes": "",
+      "id": "6f2eff",
+      "from": "Ascensor Servicios Línea 2",
+      "to": "combinación Línea 2 Línea 6",
+      "fullPath": "Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Servicios Línea 2",
+        "combinación Línea 2 Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.220Z",
+      "notes": "",
+      "id": "8d728d",
+      "from": "Ascensor de acceso ubicado en Centenario  San Diego (detrás del acceso) por Línea 6",
+      "to": "Servicios Línea 6",
+      "fullPath": "Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6",
+      "segments": [
+        "Ascensor de acceso ubicado en Centenario  San Diego (detrás del acceso) por Línea 6",
+        "Servicios Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.220Z",
+      "notes": "",
+      "id": "9f9b55",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "combinación Línea 2 - Línea 6,",
+      "fullPath": "Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "combinación Línea 2 - Línea 6,"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.220Z",
+      "notes": "",
+      "id": "cb378b",
+      "from": "Ascensor Servicios Línea 6",
+      "to": "combinación Línea 2 - Línea 6,",
+      "fullPath": "Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios Línea 6",
+        "combinación Línea 2 - Línea 6,"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "3a5f03",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.883Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Calle Placer hacia Descanso",
+      "fullPath": "Escalera mecánica desde Acceso A Calle Placer hacia Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.052Z",
+      "notes": "",
+      "id": "90d7c8",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Descanso hacia Acceso A Calle Placer",
+      "fullPath": "Escalera mecánica desde Descanso hacia Acceso A Calle Placer",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T00:40:09.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.101Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-90d7c8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.358Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-90d7c8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.358Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.430Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FR-cb378b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.430Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FR-cb378b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FR-44557d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.580Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FR-44557d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.286Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-90d7c8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-90d7c8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ],
+  "lastUpdated": "2025-08-06T00:40:09.883Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-06T00:40:09.883Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.101Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-90d7c8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.358Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-90d7c8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.358Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.220Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.192Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.430Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FR-cb378b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.430Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-3a5f03 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FR-cb378b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-3a5f03 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: FR-44557d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.580Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: FR-44557d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.286Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: FR-90d7c8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: FR-90d7c8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.610Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.939Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-9f9b55 - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-90d7c8 - Escalera mecánica desde Descanso hacia Acceso A Calle Placer"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-8d728d - Ascensor de acceso ubicado en Centenario con San Diego (detrás del acceso) por Línea 6 hacia Servicios Línea 6"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-6f2eff - Ascensor Servicios Línea 2 hacia combinación Línea 2 Línea 6 y hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-44557d - Ascensor de acceso ubicado en Placer con Nataniel Cox por Intermodal y Línea 2 hacia Servicios Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.635Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: FR-3a5f03 - Escalera mecánica desde Acceso A Calle Placer hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: FR-cb378b - Ascensor Servicios Línea 6 hacia combinación Línea 2 - Línea 6, hacia Andén Línea 2 dirección Vespucio Norte y hacia Andén Línea 6 dirección Cerrillos"
+    }
+  ]
+}

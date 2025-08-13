@@ -1,0 +1,724 @@
+{
+  "station": "Grecia",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:57:54.033Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Grecia Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:57:54.034Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Egaña"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:57:54.034Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Grecia Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-30T17:57:54.034Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Rodrigo de Araya"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.173Z",
+      "notes": "",
+      "id": "0dcbd5",
+      "from": "Ascensor nivel Ro",
+      "to": "nda",
+      "fullPath": "Ascensor nivel Rotonda hacia Boletería",
+      "segments": [
+        "Ascensor nivel Ro",
+        "nda"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.173Z",
+      "notes": "",
+      "id": "0e746e",
+      "from": "Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso)",
+      "to": "Ro",
+      "fullPath": "Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso)",
+        "Ro"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.173Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.173Z",
+      "notes": "",
+      "id": "1ad971",
+      "from": "Ascensor de acceso ubicado en Av. Egaña  Av. Grecia Oriente (detrás del acceso)",
+      "to": "Ro",
+      "fullPath": "Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Egaña  Av. Grecia Oriente (detrás del acceso)",
+        "Ro"
+      ]
+    },
+    {
+      "id": "3e91eb",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.916Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.173Z",
+      "notes": "",
+      "id": "b76593",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería",
+      "fullPath": "Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-06T13:20:15.916Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T13:20:15.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0e746e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0e746e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0dcbd5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.398Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0dcbd5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0dcbd5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0e746e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.886Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0e746e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-06T13:20:15.916Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.970Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0e746e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0e746e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0dcbd5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.398Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0dcbd5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0dcbd5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RGR-0e746e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.886Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RGR-0e746e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.638Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.520Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.099Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0dcbd5 - Ascensor nivel Rotonda hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: RGR-b76593 - Escalera mecánica desde Acceso C Grecia Oriente hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-1ad971 - Ascensor de acceso ubicado en Av. Egaña con Av. Grecia Oriente (detrás del acceso) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RGR-0e746e - Ascensor de acceso ubicado en Av. Grecia Oriente (vereda sur detrás del acceso) hacia Rotonda"
+    }
+  ]
+}

@@ -1,0 +1,1081 @@
+{
+  "station": "los leones l6",
+  "line": "l6",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T13:20:48.410Z",
+      "notes": "",
+      "id": "07c8b5",
+      "from": "Ascensor Servicios Sur",
+      "to": "én Línea 1 dirección Los Dominicos e Intermedio",
+      "fullPath": "Ascensor Servicios Sur hacia Andén Línea 1 dirección Los Dominicos e Intermedio y hacia combinación Línea 1 - Línea 6",
+      "segments": [
+        "Ascensor Servicios Sur",
+        "én Línea 1 dirección Los Dominicos e Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "42ce4a",
+      "from": "Ascensor de acceso ubicado en Av. Nueva Providencia  Av. Suecia",
+      "to": "Servicios Sur",
+      "fullPath": "Ascensor de acceso ubicado en Av. Nueva Providencia con Av. Suecia hacia Servicios Sur",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Nueva Providencia  Av. Suecia",
+        "Servicios Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "80583b",
+      "from": "Ascensor Cambio de andén Línea 6",
+      "to": "combinación Línea 1 - Línea 6",
+      "fullPath": "Ascensor Cambio de andén Línea 6 hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Los Leones",
+      "segments": [
+        "Ascensor Cambio de andén Línea 6",
+        "combinación Línea 1 - Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "f41831",
+      "from": "Ascensor Servicios Norte e Intermedio Comercial",
+      "to": "Cambio de én Línea 6,",
+      "fullPath": "Ascensor Servicios Norte e Intermedio Comercial hacia Cambio de andén Línea 6, hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios Norte e Intermedio Comercial",
+        "Cambio de én Línea 6,"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "f42b09",
+      "from": "Varios puntos",
+      "to": "Ascensor Andén Línea 1 dirección San Pablo e Intermedio",
+      "fullPath": "Ascensor Andén Línea 1 dirección San Pablo e Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Ascensor Andén Línea 1 dirección San Pablo e Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:37.994Z",
+      "notes": "",
+      "id": "f798cc",
+      "from": "Ascensor de acceso ubicado en Av. Suecia  General Holley (vereda oriente)",
+      "to": "Intermedio Comercial",
+      "fullPath": "Ascensor de acceso ubicado en Av. Suecia con General Holley (vereda oriente) hacia Intermedio Comercial y hacia Servicios Norte",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Suecia  General Holley (vereda oriente)",
+        "Intermedio Comercial"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.560Z",
+      "notes": "",
+      "id": "05eb02",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6",
+      "fullPath": "Escalera mecánica 10-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.289Z",
+      "notes": "",
+      "id": "095811",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 19-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica 19-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 19-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.289Z",
+      "notes": "",
+      "id": "0c1e39",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Locales Comerciales hacia Acceso C Av. Providencia",
+      "fullPath": "Escalera mecánica desde Locales Comerciales hacia Acceso C Av. Providencia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Locales Comerciales hacia Acceso C Av. Providencia"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.289Z",
+      "notes": "",
+      "id": "3725a5",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 06-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.289Z",
+      "notes": "",
+      "id": "385c18",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso E General Adolfo Holley hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica desde Acceso E General Adolfo Holley hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso E General Adolfo Holley hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "3f9ba7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14-N desde Locales Comerciales hacia Servicios",
+      "fullPath": "Escalera mecánica 14-N desde Locales Comerciales hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14-N desde Locales Comerciales hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "4142b6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 14-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "46ad1f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Locales Comerciales hacia Acceso E General Adolfo Holley",
+      "fullPath": "Escalera mecánica desde Locales Comerciales hacia Acceso E General Adolfo Holley",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Locales Comerciales hacia Acceso E General Adolfo Holley"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "4b7530",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 18-S desde Acceso C Av. Nueva Providencia hacia Servicios",
+      "fullPath": "Escalera mecánica 18-S desde Acceso C Av. Nueva Providencia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 18-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "5affff",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 15-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "6a13ff",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 17-S desde Acceso C Av. Nueva Providencia hacia Servicios",
+      "fullPath": "Escalera mecánica 17-S desde Acceso C Av. Nueva Providencia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 17-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "6e7192",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 23-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6",
+      "fullPath": "Escalera mecánica 23-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 23-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "719dc5",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 18-N desde Servicios hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica 18-N desde Servicios hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 18-N desde Servicios hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "73092a",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 23-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica 23-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 23-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "758c41",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica desde Servicios hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "84c734",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6",
+      "fullPath": "Escalera mecánica 09-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "856a0d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 13-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "86745c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11-S desde Cambio de andén hacia Servicioss",
+      "fullPath": "Escalera mecánica 11-S desde Cambio de andén hacia Servicioss",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11-S desde Cambio de andén hacia Servicioss"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "8c4d86",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios Sur hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica desde Servicios Sur hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios Sur hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "92efc4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 16-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 16-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 16-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "b91476",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Locales Comerciales hacia Servicios",
+      "fullPath": "Escalera mecánica desde Locales Comerciales hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Locales Comerciales hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "bc4732",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12-N desde Servicios hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica 12-N desde Servicios hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12-N desde Servicios hacia Locales Comerciales"
+      ]
+    },
+    {
+      "id": "bdb7c0",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.565Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 20-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6",
+      "fullPath": "Escalera mecánica 20-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 20-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "c2f78d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 17-N desde Locales Comerciales hacia Servicios",
+      "fullPath": "Escalera mecánica 17-N desde Locales Comerciales hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 17-N desde Locales Comerciales hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "cc9941",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 05-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "cca543",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación Línea 1 dirección San Pablo hacia combinación Línea 6",
+      "fullPath": "Escalera mecánica desde combinación Línea 1 dirección San Pablo hacia combinación Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación Línea 1 dirección San Pablo hacia combinación Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T13:21:04.209Z",
+      "notes": "",
+      "id": "cdcc99",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia Servicios Sur",
+      "fullPath": "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia Servicios Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia Servicios Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "e1a6dc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13-N desde Servicios hacia Locales Comerciales",
+      "fullPath": "Escalera mecánica 13-N desde Servicios hacia Locales Comerciales",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13-N desde Servicios hacia Locales Comerciales"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "e5e5ef",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia combinación Línea 6",
+      "fullPath": "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia combinación Línea 6",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia combinación Línea 6"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.290Z",
+      "notes": "",
+      "id": "f9e248",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12-S desde Cambio de andén hacia Servicioss",
+      "fullPath": "Escalera mecánica 12-S desde Cambio de andén hacia Servicioss",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12-S desde Cambio de andén hacia Servicioss"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-bdb7c0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.938Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-bdb7c0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.410Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LEN-07c8b5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:37.994Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LEN-f798cc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.560Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-05eb02 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LEN-f798cc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-05eb02 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-cdcc99 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LEN-07c8b5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-cdcc99 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-f9e248 - Escalera mecánica 12-S desde Cambio de andén hacia Servicioss"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f798cc - Ascensor de acceso ubicado en Av. Suecia con General Holley (vereda oriente) hacia Intermedio Comercial y hacia Servicios Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f42b09 - Ascensor Andén Línea 1 dirección San Pablo e Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f41831 - Ascensor Servicios Norte e Intermedio Comercial hacia Cambio de andén Línea 6, hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-e5e5ef - Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-e1a6dc - Escalera mecánica 13-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cdcc99 - Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia Servicios Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cca543 - Escalera mecánica desde combinación Línea 1 dirección San Pablo hacia combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cc9941 - Escalera mecánica 05-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-c2f78d - Escalera mecánica 17-N desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-bdb7c0 - Escalera mecánica 20-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-bc4732 - Escalera mecánica 12-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-b91476 - Escalera mecánica desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-92efc4 - Escalera mecánica 16-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-8c4d86 - Escalera mecánica desde Servicios Sur hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-86745c - Escalera mecánica 11-S desde Cambio de andén hacia Servicioss"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-856a0d - Escalera mecánica 13-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-84c734 - Escalera mecánica 09-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-80583b - Ascensor Cambio de andén Línea 6 hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-758c41 - Escalera mecánica desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-73092a - Escalera mecánica 23-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-719dc5 - Escalera mecánica 18-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-6e7192 - Escalera mecánica 23-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-6a13ff - Escalera mecánica 17-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-5affff - Escalera mecánica 15-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-4b7530 - Escalera mecánica 18-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-46ad1f - Escalera mecánica desde Locales Comerciales hacia Acceso E General Adolfo Holley"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-42ce4a - Ascensor de acceso ubicado en Av. Nueva Providencia con Av. Suecia hacia Servicios Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-4142b6 - Escalera mecánica 14-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-3f9ba7 - Escalera mecánica 14-N desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-385c18 - Escalera mecánica desde Acceso E General Adolfo Holley hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-3725a5 - Escalera mecánica 06-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-0c1e39 - Escalera mecánica desde Locales Comerciales hacia Acceso C Av. Providencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-095811 - Escalera mecánica 19-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-07c8b5 - Ascensor Servicios Sur hacia Andén Línea 1 dirección Los Dominicos e Intermedio y hacia combinación Línea 1 - Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-05eb02 - Escalera mecánica 10-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.086Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-e5e5ef de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-e5e5ef de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-6a13ff de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-bc4732 de fuera de servicio a operativo"
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.565Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-bdb7c0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.938Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-bdb7c0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.410Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LEN-07c8b5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:37.994Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LEN-f798cc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.560Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-05eb02 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LEN-f798cc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.000Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-05eb02 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-cdcc99 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.209Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LEN-07c8b5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.062Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-cdcc99 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-f9e248 - Escalera mecánica 12-S desde Cambio de andén hacia Servicioss"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f798cc - Ascensor de acceso ubicado en Av. Suecia con General Holley (vereda oriente) hacia Intermedio Comercial y hacia Servicios Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f42b09 - Ascensor Andén Línea 1 dirección San Pablo e Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-f41831 - Ascensor Servicios Norte e Intermedio Comercial hacia Cambio de andén Línea 6, hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-e5e5ef - Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-e1a6dc - Escalera mecánica 13-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cdcc99 - Escalera mecánica desde combinación Línea 1 dirección Los Dominicos hacia Servicios Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cca543 - Escalera mecánica desde combinación Línea 1 dirección San Pablo hacia combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-cc9941 - Escalera mecánica 05-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-c2f78d - Escalera mecánica 17-N desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-bdb7c0 - Escalera mecánica 20-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-bc4732 - Escalera mecánica 12-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-b91476 - Escalera mecánica desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-92efc4 - Escalera mecánica 16-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-8c4d86 - Escalera mecánica desde Servicios Sur hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-86745c - Escalera mecánica 11-S desde Cambio de andén hacia Servicioss"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-856a0d - Escalera mecánica 13-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-84c734 - Escalera mecánica 09-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-80583b - Ascensor Cambio de andén Línea 6 hacia combinación Línea 1 - Línea 6 y hacia Andén Línea 6 dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-758c41 - Escalera mecánica desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-73092a - Escalera mecánica 23-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-719dc5 - Escalera mecánica 18-N desde Servicios hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-6e7192 - Escalera mecánica 23-N desde Locales Comerciales hacia Puente de combinación Norte Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-6a13ff - Escalera mecánica 17-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-5affff - Escalera mecánica 15-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-4b7530 - Escalera mecánica 18-S desde Acceso C Av. Nueva Providencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-46ad1f - Escalera mecánica desde Locales Comerciales hacia Acceso E General Adolfo Holley"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-42ce4a - Ascensor de acceso ubicado en Av. Nueva Providencia con Av. Suecia hacia Servicios Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-4142b6 - Escalera mecánica 14-S desde Línea 6 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.290Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-3f9ba7 - Escalera mecánica 14-N desde Locales Comerciales hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-385c18 - Escalera mecánica desde Acceso E General Adolfo Holley hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-3725a5 - Escalera mecánica 06-S desde combinación Línea 1 dirección San Pablo hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-0c1e39 - Escalera mecánica desde Locales Comerciales hacia Acceso C Av. Providencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-095811 - Escalera mecánica 19-N desde Puente de combinación Norte Línea 6 hacia Locales Comerciales"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LEN-07c8b5 - Ascensor Servicios Sur hacia Andén Línea 1 dirección Los Dominicos e Intermedio y hacia combinación Línea 1 - Línea 6"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LEN-05eb02 - Escalera mecánica 10-S desde combinación Línea 1 dirección San Pablo hacia puente de combinación Línea 6"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.086Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-e5e5ef de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LEN-e5e5ef de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-6a13ff de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LEN-bc4732 de fuera de servicio a operativo"
+    }
+  ]
+}

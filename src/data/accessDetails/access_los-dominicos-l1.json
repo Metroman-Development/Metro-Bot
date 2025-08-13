@@ -1,0 +1,742 @@
+{
+  "station": "Los Dominicos",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Camino El Alba"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Patagonia Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.786Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Patagonia Poniente / Av. Apoquindo"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.126Z",
+      "notes": "",
+      "id": "4110a5",
+      "from": "Ascensor de acceso ubicado en Av. Camino El Alba  Av. Apoquindo (detrás del acceso)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Camino El Alba  Av. Apoquindo (detrás del acceso)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.523Z",
+      "notes": "",
+      "id": "b2b59b",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.889Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.523Z",
+      "notes": "",
+      "id": "18ffed",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.523Z",
+      "notes": "",
+      "id": "3ca490",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo",
+      "fullPath": "Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+      ]
+    },
+    {
+      "id": "770227",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.464Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo",
+      "fullPath": "Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.523Z",
+      "notes": "",
+      "id": "a5276f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.523Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-07T13:20:36.464Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LD-770227 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.424Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LD-770227 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LD-d27a5f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.626Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LD-d27a5f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.126Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LD-4110a5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LD-4110a5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: LD-770227 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.424Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: LD-770227 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LD-d27a5f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.626Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LD-d27a5f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.126Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: LD-4110a5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: LD-4110a5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.523Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.203Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.713Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-770227 - Escalera mecánica 05 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-4110a5 - Ascensor de acceso ubicado en Av. Camino El Alba con Av. Apoquindo (detrás del acceso) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-3ca490 - Escalera mecánica 02 desde Cambio de andén hacia Acceso C Av. Patagonia Poniente / Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-18ffed - Escalera mecánica desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: LD-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.421Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: LD-a5276f - Escalera mecánica desde Acceso A Av. Camino El Alba hacia Cambio de andén"
+    }
+  ]
+}
