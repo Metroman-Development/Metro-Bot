@@ -613,6 +613,7 @@ async activateEventOverrides(eventDetails) {
                         }
                     ])
             ),
+            stations: {},
             version: this._dataVersion,
             lastUpdated: new Date().toISOString(),
             _metadata: {
