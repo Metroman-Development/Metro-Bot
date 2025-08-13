@@ -1,0 +1,691 @@
+{
+  "station": "plaza egaña l4",
+  "line": "l4",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.208Z",
+      "notes": "",
+      "id": "0c222b",
+      "from": "Ascensor de acceso ubicado en el centro de la Plaza Egaña",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en el centro de la Plaza Egaña",
+        "Servicios"
+      ]
+    },
+    {
+      "id": "26d719",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.593Z",
+      "from": "Ascensor Boletería Línea 4",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería Línea 4",
+        "én Línea 4 dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T00:40:41.291Z",
+      "notes": "",
+      "id": "97ca8b",
+      "from": "Ascensor Boletería Línea 4",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería Línea 4",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.208Z",
+      "notes": "",
+      "id": "609660",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso Mall",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso Mall",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso Mall"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.208Z",
+      "notes": "",
+      "id": "e0d152",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín",
+      "fullPath": "Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.208Z",
+      "notes": "",
+      "id": "e3ee01",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio",
+      "fullPath": "Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.593Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-26d719 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PEG-26d719 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.291Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-97ca8b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PEG-97ca8b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.955Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-26d719 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.593Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.593Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-26d719 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:41.894Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PEG-26d719 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.291Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-97ca8b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.208Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PEG-97ca8b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.955Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PEG-26d719 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.526Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-609660 - Escalera mecánica desde Boletería hacia Acceso Mall"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-26d719 - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e3ee01 - Escalera mecánica 04 desde Boletería hacia Acceso B Av. Américo Vespucio"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PEG-e0d152 - Escalera mecánica 05 desde Boletería hacia Acceso B Av. Larraín"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PEG-97ca8b - Ascensor Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "station": "plaza Egaña",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T13:20:27.167Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Plaza Egaña"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T13:20:27.167Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Larraín"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T13:20:27.167Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Irarrázaval"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-11T14:04:01.696Z",
+      "notes": "",
+      "id": "EXA",
+      "to": "Exterior Acceso A",
+      "from": "Servicios",
+      "fullPath": "Servicios Línea 3→Exterior Acceso A",
+      "segments": [
+        "Servicios",
+        "Exterior Acceso A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "PQUCA3PPABL4SR3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3→Boletería Línea 4→Servicios Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3",
+        "Boletería Línea 4",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T11:56:34.944Z",
+      "notes": "",
+      "id": "FCVCA3",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "EXASR3",
+      "from": "Exterior Acceso A",
+      "to": "Servicios",
+      "fullPath": "Exterior Acceso A→Servicios",
+      "segments": [
+        "Exterior Acceso A",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "SR11CA3",
+      "from": "Servicios",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Servicios→Cambio de Andén Línea 3",
+      "segments": [
+        "Servicios",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "SR12CA3",
+      "from": "Servicios",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Servicios→Cambio de Andén Línea 3",
+      "segments": [
+        "Servicios",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "CA313SR3",
+      "from": "Cambio de Andén Línea 3",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén Línea 3→Servicios",
+      "segments": [
+        "Cambio de Andén Línea 3",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "CA314SR3",
+      "from": "Cambio de Andén Línea 3",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén Línea 3→Servicios",
+      "segments": [
+        "Cambio de Andén Línea 3",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.168Z",
+      "notes": "",
+      "id": "CA315SR3",
+      "from": "Cambio de Andén Línea 3",
+      "to": "Servicios",
+      "fullPath": "Cambio de Andén Línea 3→Servicios",
+      "segments": [
+        "Cambio de Andén Línea 3",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "BL4EXA",
+      "from": "Boletería Línea 4",
+      "to": "Exterior Acceso A",
+      "fullPath": "Boletería Línea 4→Exterior Acceso A",
+      "segments": [
+        "Boletería Línea 4",
+        "Exterior Acceso A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "TOBEXA",
+      "from": "Combinación Línea 4 dirección Tobalaba",
+      "to": "Exterior Acceso A",
+      "fullPath": "Combinación Línea 4 dirección Tobalaba→Exterior Acceso A",
+      "segments": [
+        "Combinación Línea 4 dirección Tobalaba",
+        "Exterior Acceso A"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "TOB06PPA",
+      "from": "Combinación Línea 4 dirección Tobalaba",
+      "to": "Combinación Línea 4 dirección Plaza de Puente Alto",
+      "fullPath": "Combinación Línea 4 dirección Tobalaba→Combinación Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Combinación Línea 4 dirección Tobalaba",
+        "Combinación Línea 4 dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "TOB07PPA",
+      "from": "Combinación Línea 4 dirección Tobalaba",
+      "to": "Combinación Línea 4 dirección Plaza de Puente Alto",
+      "fullPath": "Combinación Línea 4 dirección Tobalaba→Combinación Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Combinación Línea 4 dirección Tobalaba",
+        "Combinación Línea 4 dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "PPA08TOB",
+      "from": "Combinación Línea 4 dirección Plaza de Puente Alto",
+      "to": "Combinación Línea 4 dirección Tobalaba",
+      "fullPath": "Combinación Línea 4 dirección Plaza de Puente Alto→Combinación Línea 4 dirección Tobalaba",
+      "segments": [
+        "Combinación Línea 4 dirección Plaza de Puente Alto",
+        "Combinación Línea 4 dirección Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T13:20:27.169Z",
+      "notes": "",
+      "id": "PPA09TOB",
+      "from": "Combinación Línea 4 dirección Plaza de Puente Alto",
+      "to": "Combinación Línea 4 dirección Tobalaba",
+      "fullPath": "Combinación Línea 4 dirección Plaza de Puente Alto→Combinación Línea 4 dirección Tobalaba",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Combinación Línea 4 dirección Tobalaba"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-28T14:56:26.055Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T13:20:57.017Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T14:56:26.055Z",
+      "user": "metromanrrss",
+      "action": "Editado EXA",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-06-11T14:04:01.696Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor EXA a operativa",
+      "details": "Updated: EXA"
+    },
+    {
+      "timestamp": "2025-06-27T10:27:42.091Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3 a fuera de servicio",
+      "details": "Updated: FCVCA3"
+    },
+    {
+      "timestamp": "2025-06-28T11:56:34.945Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor FCVCA3 a operativa",
+      "details": "Updated: FCVCA3"
+    }
+  ]
+}

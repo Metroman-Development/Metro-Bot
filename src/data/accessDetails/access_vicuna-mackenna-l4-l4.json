@@ -1,0 +1,686 @@
+{
+  "station": "vicuña mackenna l4",
+  "line": "l4",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "5ebfa3",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4A dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4A dirección La Cisterna"
+      ]
+    },
+    {
+      "id": "658b39",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4A dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4A dirección Vicuña Mackenna"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "29ae2e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+      ]
+    },
+    {
+      "id": "88ea30",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna",
+      "fullPath": "Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+      ]
+    },
+    {
+      "id": "c9bb67",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna",
+      "fullPath": "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+      ]
+    },
+    {
+      "id": "e25932",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.055Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.126Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: VMA-88ea30 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: VMA-88ea30 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.850Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VMA-658b39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.386Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VMA-658b39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:43.055Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.055Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.126Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: VMA-88ea30 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: VMA-88ea30 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.850Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VMA-658b39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.386Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VMA-658b39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.446Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.236Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.836Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.084Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-29ae2e - Escalera mecánica desde Andén Línea 4A dirección Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-e25932 - Escalera mecánica desde Andén Línea 4A dirección La Cisterna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-c9bb67 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VMA-88ea30 - Escalera mecánica desde Andén Línea 4 dirección Plaza de Puente Alto hacia Combinación Línea 4A dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VMA-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    }
+  ]
+}

@@ -1,0 +1,649 @@
+{
+  "station": "vicente valdés l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "508d33",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.452Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente)  Don Pepe por Línea 4",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente)  Don Pepe por Línea 4",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "d6fbb3",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.452Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente)  Vicente Valdés",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente)  Vicente Valdés",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "f89d0f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.452Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4 dirección"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.344Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VV-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VV-d6fbb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VV-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.821Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.821Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.452Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.344Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VV-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VV-d6fbb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.272Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VV-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.898Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.821Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.821Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.470Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.057Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.392Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.461Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.078Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.440Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.588Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.605Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.503Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:18.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VV-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    }
+  ]
+}

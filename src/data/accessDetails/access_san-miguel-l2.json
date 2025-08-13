@@ -1,0 +1,380 @@
+{
+  "station": "san miguel",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:33:38.720Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Llano Subercaseaux Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:33:38.720Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Gran Avenida José Miguel Carrera Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:33:38.720Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Gran Avenida José Miguel Carrera Sur"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:33:38.720Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Llano Subercaseaux Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "426b57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.181Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "4f0d19",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.182Z",
+      "from": "Ascensor de acceso ubicado en Llano Subercaseaux  Arcángel (frente a los accesos)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Llano Subercaseaux  Arcángel (frente a los accesos)",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "9ff167",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.182Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:44.182Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.182Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.182Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.181Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.607Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.627Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.627Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.627Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.181Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.181Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.181Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.788Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.788Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.788Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:19.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.243Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.243Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.243Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.462Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.462Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:20.462Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.088Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SM-4f0d19 - Ascensor de acceso ubicado en Llano Subercaseaux con Arcángel (frente a los accesos) hacia Boletería"
+    }
+  ]
+}

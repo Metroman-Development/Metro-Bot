@@ -1,0 +1,421 @@
+{
+  "station": "Santa rosa",
+  "line": "l4a",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:07:32.287Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Santa Rosa Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:07:32.287Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Corredor Santa Rosa Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:07:32.287Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Corredor Santa Rosa Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:07:32.287Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Santa Rosa Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T13:21:04.279Z",
+      "notes": "",
+      "id": "0e34ce",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Santa Rosa (vereda oriente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Santa Rosa (vereda oriente)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.085Z",
+      "notes": "",
+      "id": "6de219",
+      "from": "Ascensor Boletería",
+      "to": "én dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección La Cisterna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección La Cisterna"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.854Z",
+      "notes": "",
+      "id": "974fc6",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Av. Santa Rosa (vereda oriente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Av. Santa Rosa (vereda oriente)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.854Z",
+      "notes": "",
+      "id": "aff3f6",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Av. Santa Rosa (vereda poniente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Av. Santa Rosa (vereda poniente)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.023Z",
+      "notes": "",
+      "id": "de34c2",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicuña Mackenna"
+      ]
+    },
+    {
+      "id": "e66367",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.316Z",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Santa Rosa (vereda poniente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio  Corredor Santa Rosa (vereda poniente)",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-07T00:40:23.316Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T00:40:23.316Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-e66367 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-de34c2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.054Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-de34c2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-0e34ce de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-6de219 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-0e34ce de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-6de219 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.430Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-aff3f6 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.773Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-aff3f6 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.823Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-e66367 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.345Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-0e34ce de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.827Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRO-e66367 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.464Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRO-0e34ce de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.879Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-aff3f6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-974fc6 - Ascensor de acceso ubicado en Av. Américo Vespucio con Av. Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.718Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-0e34ce - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda oriente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.902Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRO-e66367 - Ascensor de acceso ubicado en Av. Américo Vespucio con Corredor Santa Rosa (vereda poniente) hacia Boletería"
+    }
+  ]
+}

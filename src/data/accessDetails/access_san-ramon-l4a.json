@@ -1,0 +1,379 @@
+{
+  "station": "san Ramón",
+  "line": "l4a",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:04:18.595Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Américo Vespucio Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T12:04:18.595Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Américo Vespucio Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.839Z",
+      "notes": "",
+      "id": "6de219",
+      "from": "Ascensor Boletería",
+      "to": "én dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección La Cisterna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección La Cisterna"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.839Z",
+      "notes": "",
+      "id": "de34c2",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicuña Mackenna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.839Z",
+      "notes": "",
+      "id": "e97d84",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur)  Parque La Bandera",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur)  Parque La Bandera",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "f71344",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.439Z",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte)  Carlos Dávila",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte)  Carlos Dávila",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-11T13:20:16.439Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.439Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-f71344 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.581Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-f71344 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.567Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-f71344 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.281Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-f71344 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.080Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-f71344 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.849Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-f71344 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-e97d84 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-e97d84 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.546Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-f71344 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-f71344 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-e97d84 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.437Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-e97d84 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.957Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-e97d84 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:18.978Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-e97d84 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.317Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-de34c2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SRA-de34c2 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.463Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SRA-de34c2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.295Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.114Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.114Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.114Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.114Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.144Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.874Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.892Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.200Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.200Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-e97d84 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda sur) con Parque La Bandera hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.200Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.199Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.704Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SRA-f71344 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda norte) con Carlos Dávila hacia Boletería"
+    }
+  ]
+}

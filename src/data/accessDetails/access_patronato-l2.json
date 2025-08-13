@@ -1,0 +1,393 @@
+{
+  "station": "Patronato",
+  "line": "Accesos:",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:16:30.073Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "General De La Lastra"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T15:16:30.073Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Santa Filomena"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.422Z",
+      "notes": "",
+      "id": "0768ae",
+      "from": "Ascensor de acceso ubicado en General de la Lastra frente a Mall",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en General de la Lastra frente a Mall",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "426b57",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T13:20:28.997Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.423Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.423Z",
+      "notes": "",
+      "id": "43ff2d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.423Z",
+      "notes": "",
+      "id": "ba5d30",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena",
+      "fullPath": "Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T13:20:28.997Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:28.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PT-426b57 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T00:40:19.795Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PT-426b57 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.423Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.422Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.127Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.133Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.242Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.653Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.653Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.653Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.653Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.653Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-0768ae - Ascensor de acceso ubicado en General de la Lastra frente a Mall hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-ba5d30 - Escalera mecánica desde Boletería hacia Descanso Acceso B Santa Filomena"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PT-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PT-43ff2d - Escalera mecánica desde Boletería hacia Descanso Acceso A General De La Lastra"
+    }
+  ]
+}

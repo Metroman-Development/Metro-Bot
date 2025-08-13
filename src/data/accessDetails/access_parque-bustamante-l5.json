@@ -1,0 +1,366 @@
+{
+  "station": "Parque Bustamante",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T09:55:17.910Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Francisco Bilbao"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T09:55:17.910Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Ramón Carnicer"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.576Z",
+      "notes": "",
+      "id": "2dd283",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.576Z",
+      "notes": "",
+      "id": "539aaa",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "a92ca5",
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.009Z",
+      "from": "Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur)  Ramón Carnicer",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur)  Ramón Carnicer",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-04T00:40:38.009Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-04T00:40:38.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PB-a92ca5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PB-a92ca5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.576Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PB-a92ca5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.301Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PB-a92ca5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PB-a92ca5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PB-a92ca5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.991Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.991Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.991Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.915Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.927Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.927Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.927Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.565Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.729Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.486Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.552Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.552Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.552Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.354Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.354Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.354Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.571Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.571Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.571Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.722Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-a92ca5 - Ascensor de acceso ubicado en Av. Francisco Bilbao (vereda sur) con Ramón Carnicer hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.606Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PB-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "station": "protectora de la infancia",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:19:05.161Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Concha y Toro"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:19:05.161Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Ángel Pimentel Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "0f404f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.924Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "id": "3e91eb",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.924Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "9d3f96",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.924Z",
+      "from": "Ascensor de acceso ubicado en Av. Concha y",
+      "to": "ro  ángel Pimentel",
+      "fullPath": "Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Concha y",
+        "ro  ángel Pimentel"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:42.924Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.924Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.924Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.924Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.639Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PIN-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.413Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PIN-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.130Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PIN-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.845Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PIN-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.353Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.202Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.329Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.728Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.728Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.728Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.973Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.973Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.973Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.307Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.307Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.307Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.852Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.852Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.852Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.116Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.794Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.794Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.794Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.444Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.444Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.444Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.434Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PIN-9d3f96 - Ascensor de acceso ubicado en Av. Concha y Toro con ángel Pimentel hacia Boletería"
+    }
+  ]
+}

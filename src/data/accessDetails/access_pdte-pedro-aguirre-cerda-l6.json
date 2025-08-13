@@ -1,0 +1,398 @@
+{
+  "station": "Pdte. Pedro Aguirre Cerda",
+  "line": "l6",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-30T09:59:57.421Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Carlos Valdovinos"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "18d548",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.264Z",
+      "from": "Ascensor de acceso ubicado en Av. Carlos Valdovinos  Club Hípico (al costado derecho del acceso)",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Carlos Valdovinos  Club Hípico (al costado derecho del acceso)",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.416Z",
+      "notes": "",
+      "id": "83cfbb",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Los Leones",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Los Leones",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Los Leones"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.417Z",
+      "notes": "",
+      "id": "d0e0ae",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.416Z",
+      "notes": "",
+      "id": "943151",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Servicios hacia nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia nivel Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.416Z",
+      "notes": "",
+      "id": "aa9528",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.416Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-07T00:40:23.264Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T00:40:23.264Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PAC-18d548 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.889Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PAC-18d548 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.417Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.416Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.663Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAC-943151 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PAC-943151 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAC-943151 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.296Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PAC-943151 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.890Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.831Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.811Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.380Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-aa9528 - Escalera mecánica desde Servicios hacia Acceso A Av. Departamental"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-943151 - Escalera mecánica desde Servicios hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-83cfbb - Ascensor Cambio de andén hacia Andén dirección Los Leones"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:31.779Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-18d548 - Ascensor de acceso ubicado en Av. Carlos Valdovinos con Club Hípico (al costado derecho del acceso) hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.119Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAC-d0e0ae - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Cerrillos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.119Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAC-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

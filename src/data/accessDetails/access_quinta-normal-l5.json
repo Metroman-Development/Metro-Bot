@@ -1,0 +1,484 @@
+{
+  "station": "Quinta Normal",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:36:18.504Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Matucana Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:36:18.504Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Matucana Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "2dd283",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "500889",
+      "from": "Ascensor de acceso ubicado en Av. Matucana (vereda poniente)",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Matucana (vereda poniente) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Matucana (vereda poniente)",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "539aaa",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "2864ac",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "30a2fa",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería",
+      "fullPath": "Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "381a0f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "aa0b05",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería",
+      "fullPath": "Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "c731e4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "dd12a7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "e038d4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte",
+      "fullPath": "Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.640Z",
+      "notes": "",
+      "id": "e6a7ca",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "c1a5d9",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.778Z",
+      "from": "Varios puntos",
+      "to": "Escalera mec??nica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "fullPath": "Escalera mec??nica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mec??nica desde Andén dirección Plaza de Maipú hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T00:40:19.778Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.778Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-c1a5d9 - Escalera mec??nica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-e6a7ca - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-e038d4 - Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-c731e4 - Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-aa0b05 - Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: QN-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: QN-500889 - Ascensor de acceso ubicado en Av. Matucana (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-30a2fa - Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: QN-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: QN-2864ac - Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: QN-30a2fa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.388Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: QN-30a2fa de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.646Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: QN-500889 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e6a7ca - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e038d4 - Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-c731e4 - Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-aa0b05 - Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-500889 - Ascensor de acceso ubicado en Av. Matucana (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-30a2fa - Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.180Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-2864ac - Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e6a7ca - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e038d4 - Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-c731e4 - Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-aa0b05 - Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-500889 - Ascensor de acceso ubicado en Av. Matucana (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-30a2fa - Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-2864ac - Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e6a7ca - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e038d4 - Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-dd12a7 - Escalera mecánica desde Andén dirección Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-c731e4 - Escalera mecánica 02 desde Boletería hacia Acceso A Matucana Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-aa0b05 - Escalera mecánica 01 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-500889 - Ascensor de acceso ubicado en Av. Matucana (vereda poniente) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-30a2fa - Escalera mecánica 03 desde Acceso B Matucana Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: QN-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.017Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-2864ac - Escalera mecánica desde Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.670Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e6a7ca - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.670Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: QN-e038d4 - Escalera mecánica 04 desde Boletería hacia Acceso A Matucana Norte"
+    }
+  ]
+}

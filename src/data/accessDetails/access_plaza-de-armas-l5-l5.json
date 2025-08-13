@@ -1,0 +1,717 @@
+{
+  "station": "plaza de armas l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.615Z",
+      "notes": "",
+      "id": "07a96f",
+      "from": "Ascensor Boletería Línea 5",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería Línea 5",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "166f01",
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T13:20:20.041Z",
+      "from": "Ascensor Boletería Línea 5",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería Línea 5",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "81f4a2",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "Cambio de én Línea 3,",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "Cambio de én Línea 3,"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "d4b8ac",
+      "from": "Ascensor de acceso ubicado en Paseo 21 de Mayo  Monjitas",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Paseo 21 de Mayo  Monjitas",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "2afb26",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Paseo Puente",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Paseo Puente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "84244c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "88c017",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.616Z",
+      "notes": "",
+      "id": "f6f931",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-02T13:20:20.041Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-166f01 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.280Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.280Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZ-2afb26 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZ-d4b8ac de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    }
+  ],
+  "lastUpdated": "2025-08-02T13:20:20.041Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-02T13:20:20.041Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-166f01 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.280Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.280Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZ-2afb26 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZ-d4b8ac de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.929Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZ-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.921Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.933Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-2afb26 - Escalera mecánica desde Boletería hacia Acceso A Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-166f01 - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.651Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-07a96f - Ascensor Boletería Línea 5 hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-f6f931 - Escalera mecánica desde Boletería hacia Acceso B Paseo 21 de mayo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZ-84244c - Escalera mecánica desde Boletería hacia Acceso D Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.493Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZ-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    }
+  ]
+}

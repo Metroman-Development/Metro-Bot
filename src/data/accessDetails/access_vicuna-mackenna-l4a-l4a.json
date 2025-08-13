@@ -1,0 +1,637 @@
+{
+  "station": "vicuña mackenna l4a",
+  "line": "l4a",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "5ebfa3",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.902Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4A dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4A dirección La Cisterna"
+      ]
+    },
+    {
+      "id": "658b39",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.902Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4A dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4A dirección Vicuña Mackenna"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.902Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.902Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.830Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VIM-658b39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.350Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VIM-658b39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.163Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.163Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.961Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.961Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.802Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.802Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.071Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.071Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.780Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.780Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:11.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:11.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:57.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:57.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:57.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:57.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:57.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:57.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:57.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:57.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:57.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:57.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:57.407Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:57.406Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:56.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:56.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:42.902Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.902Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.902Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.830Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VIM-658b39 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.350Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VIM-658b39 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.163Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.163Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.321Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.724Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.961Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.961Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.802Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.802Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.071Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.071Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.780Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.780Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.433Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:11.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:11.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:57.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:57.932Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:57.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:57.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:57.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:57.390Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:57.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:57.359Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:57.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:57.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:57.407Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:57.406Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:56.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-658b39 - Ascensor Boletería hacia Andén Línea 4A dirección Vicuña Mackenna hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:56.822Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIM-5ebfa3 - Ascensor Boletería hacia Andén Línea 4A dirección La Cisterna y hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ]
+}

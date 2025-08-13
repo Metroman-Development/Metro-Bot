@@ -1,0 +1,366 @@
+{
+  "station": "\"san",
+  "line": "alberto",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-07-11T20:40:37.125Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Toro Mazote Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-07-11T20:40:37.125Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Toro Mazote Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T00:40:41.348Z",
+      "notes": "",
+      "id": "856852",
+      "from": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte)",
+      "to": "ro Mazote",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte)",
+        "ro Mazote"
+      ]
+    },
+    {
+      "id": "b2b59b",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.807Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.157Z",
+      "notes": "",
+      "id": "d27a5f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-10T00:40:19.807Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.037Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.348Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-856852 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.157Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.157Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.157Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.657Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-856852 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.758Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-d27a5f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:42.044Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-d27a5f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.414Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-856852 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.940Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.977Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.169Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.275Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.113Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-856852 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.941Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-856852 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.510Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AH-b2b59b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AH-b2b59b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.167Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.422Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.422Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.422Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.595Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.595Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.595Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.868Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.868Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.868Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.173Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.910Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.974Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.974Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.973Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AH-856852 - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda norte) con Toro Mazote hacia Boletería"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "station": "Vicente Valdés",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Vicuña Mackenna Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Vicuña Mackenna Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Vicente Valdés"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Don Pepe"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "VVPPABL",
+      "from": " Andén Vicente Valdés",
+      "to": "Boletería",
+      "fullPath": " Andén Vicente Valdés→Andén Plaza de Puente Alto→Boletería",
+      "segments": [
+        " Andén Vicente Valdés",
+        "Andén Plaza de Puente Alto",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "PMTOBBL",
+      "from": " Andén Plaza de Maipú",
+      "to": "Boletería",
+      "fullPath": " Andén Plaza de Maipú→Andén Tobalaba→Boletería",
+      "segments": [
+        " Andén Plaza de Maipú",
+        "Andén Tobalaba",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "EXB",
+      "from": " Boletería",
+      "to": "Exterior Acceso B",
+      "fullPath": " Boletería→Exterior Acceso B",
+      "segments": [
+        " Boletería",
+        "Exterior Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-02T11:07:57.003Z",
+      "notes": "",
+      "id": "EXD",
+      "from": " Boletería",
+      "to": "Exterior Acceso D",
+      "fullPath": " Boletería→Exterior Acceso D",
+      "segments": [
+        " Boletería",
+        "Exterior Acceso D"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-28T12:05:44.167Z",
+      "notes": "",
+      "id": "BLTOBS",
+      "from": "Boletería",
+      "to": "Andén Tobalaba Sur",
+      "fullPath": "Boletería→Andén Tobalaba Sur",
+      "segments": [
+        "Boletería",
+        "Andén Tobalaba Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "BLPPAS",
+      "from": "Boletería",
+      "to": "Andén Plaza de Puente Alto Sur",
+      "fullPath": "Boletería→Andén Plaza de Puente Alto Sur",
+      "segments": [
+        "Boletería",
+        "Andén Plaza de Puente Alto Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "TOBBLN",
+      "from": "Andén Tobalaba",
+      "to": "Andén Plaza de Puente Alto Norte",
+      "fullPath": "Andén Tobalaba→Andén Plaza de Puente Alto Norte",
+      "segments": [
+        "Andén Tobalaba",
+        "Andén Plaza de Puente Alto Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "PPABLN",
+      "from": "Andén Plaza de Puente Alto",
+      "to": "Boletería Norte",
+      "fullPath": "Andén Plaza de Puente Alto→Boletería Norte",
+      "segments": [
+        "Andén Plaza de Puente Alto",
+        "Boletería Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "TOBCA5",
+      "from": "Andén Tobalaba",
+      "to": "Cambio de Andén Línea 5",
+      "fullPath": "Andén Tobalaba→Cambio de Andén Línea 5",
+      "segments": [
+        "Andén Tobalaba",
+        "Cambio de Andén Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "CA5PM",
+      "from": "Cambio de Andén Línea 5",
+      "to": "Andén Plaza de Maipú",
+      "fullPath": "Cambio de Andén Línea 5→Andén Plaza de Maipú",
+      "segments": [
+        "Cambio de Andén Línea 5",
+        "Andén Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "VVCA5",
+      "from": "Andén Vicente Valdés",
+      "to": "Cambio de Andén Línea 5",
+      "fullPath": "Andén Vicente Valdés→Cambio de Andén Línea 5",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Cambio de Andén Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "CA5PPA",
+      "from": "Cambio de Andén Línea 5",
+      "to": "Andén Plaza de Puente Alto",
+      "fullPath": "Cambio de Andén Línea 5→Andén Plaza de Puente Alto",
+      "segments": [
+        "Cambio de Andén Línea 5",
+        "Andén Plaza de Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.465Z",
+      "notes": "",
+      "id": "PMDS",
+      "from": "Andén Plaza de Maipú",
+      "to": "Descanso",
+      "fullPath": "Andén Plaza de Maipú→Descanso",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.466Z",
+      "notes": "",
+      "id": "DSTOB",
+      "from": "Descanso",
+      "to": "Andén Tobalaba",
+      "fullPath": "Descanso→Andén Tobalaba",
+      "segments": [
+        "Descanso",
+        "Andén Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.466Z",
+      "notes": "",
+      "id": "VVDS",
+      "from": "Andén Vicente Valdés",
+      "to": "Descanso",
+      "fullPath": "Andén Vicente Valdés→Descanso",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-25T20:39:26.466Z",
+      "notes": "",
+      "id": "DSPPA",
+      "from": "Descanso",
+      "to": "Andén Plaza de Puente Alto",
+      "fullPath": "Descanso→Andén Plaza de Puente Alto",
+      "segments": [
+        "Descanso",
+        "Andén Plaza de Puente Alto"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-02T11:07:57.003Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-02T11:07:59.242Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-06-17T13:39:17.886Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera TOBCA5 a fuera de servicio",
+      "details": "Updated: TOBCA5"
+    },
+    {
+      "timestamp": "2025-06-25T20:39:26.466Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: BLTOBS, BLPPAS, TOBBLN, PPABLN, TOBCA5, CA5PM, VVCA5, CA5PPA, PMDS, DSTOB, VVDS, DSPPA"
+    },
+    {
+      "timestamp": "2025-06-28T12:05:44.167Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera BLTOBS a fuera de servicio",
+      "details": "Updated: BLTOBS"
+    }
+  ]
+}

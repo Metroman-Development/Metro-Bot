@@ -1,0 +1,392 @@
+{
+  "station": "Quilín",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:33:21.874Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Quilín Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T10:33:21.874Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Quilín Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.147Z",
+      "notes": "",
+      "id": "24c895",
+      "from": "Ascensor Boletería / Ro",
+      "to": "nda",
+      "fullPath": "Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería / Ro",
+        "nda"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.154Z",
+      "notes": "",
+      "id": "2e1143",
+      "from": "Ascensor Boletería / Ro",
+      "to": "nda",
+      "fullPath": "Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería / Ro",
+        "nda"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.154Z",
+      "notes": "",
+      "id": "d508b5",
+      "from": "Ascensor Ro",
+      "to": "nda",
+      "fullPath": "Ascensor Rotonda hacia Pasillo Poniente",
+      "segments": [
+        "Ascensor Ro",
+        "nda"
+      ]
+    },
+    {
+      "id": "ee8ba5",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T13:20:28.974Z",
+      "from": "Ascensor de acceso ubicado en Av. Quilín  Av. Américo Vespucio (vereda oriente)",
+      "to": "Ro",
+      "fullPath": "Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Quilín  Av. Américo Vespucio (vereda oriente)",
+        "Ro"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.154Z",
+      "notes": "",
+      "id": "effb6d",
+      "from": "Ascensor de acceso ubicado en Av. Quilín  Av. Américo Vespucio (vereda poniente)",
+      "to": "pasillo Poniente",
+      "fullPath": "Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Quilín  Av. Américo Vespucio (vereda poniente)",
+        "pasillo Poniente"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-10T13:20:28.974Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T13:20:28.974Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RQU-ee8ba5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.357Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RQU-ee8ba5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.147Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RQU-24c895 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.154Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.669Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RQU-24c895 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.560Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RQU-24c895 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.396Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RQU-24c895 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: RQU-d508b5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.830Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: RQU-d508b5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.637Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.637Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.637Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.637Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.637Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.298Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.085Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.165Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.378Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-d508b5 - Ascensor Rotonda hacia Pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-2e1143 - Ascensor Boletería / Rotonda hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-24c895 - Ascensor Boletería / Rotonda hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-effb6d - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda poniente) hacia pasillo Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RQU-ee8ba5 - Ascensor de acceso ubicado en Av. Quilín con Av. Américo Vespucio (vereda oriente) hacia Rotonda"
+    }
+  ]
+}

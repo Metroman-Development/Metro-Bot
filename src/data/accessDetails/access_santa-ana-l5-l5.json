@@ -1,0 +1,730 @@
+{
+  "station": "santa ana l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "35d00e",
+      "from": "Ascensor de acceso ubicado en San Martín  Catedral (Plaza Santa Teresa de Los Andes)",
+      "to": "Boletería Oriente",
+      "fullPath": "Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente",
+      "segments": [
+        "Ascensor de acceso ubicado en San Martín  Catedral (Plaza Santa Teresa de Los Andes)",
+        "Boletería Oriente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "d31ef4",
+      "from": "Ascensor Boletería Oriente",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería Oriente",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "d9cf44",
+      "from": "Ascensor Boletería Oriente",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería Oriente",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "083ec3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "0aa310",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "158521",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "203f0b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés",
+      "fullPath": "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.629Z",
+      "notes": "",
+      "id": "33ab48",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "381a0f",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.323Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.789Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.927Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-0aa310 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.384Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-0aa310 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-203f0b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.633Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-203f0b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.288Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NA-35d00e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.083Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    }
+  ],
+  "lastUpdated": "2025-08-08T13:20:52.323Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.323Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-381a0f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.789Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-381a0f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.629Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.927Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-0aa310 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.384Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-0aa310 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.213Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: NA-203f0b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.633Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: NA-203f0b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.288Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: NA-35d00e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.083Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.082Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-0aa310 - Escalera mecánica desde Combinación Línea 5 dirección Vicente Valdés hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-083ec3 - Escalera mecánica desde Boletería hacia Acceso B Catedral / SENADIS"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d9cf44 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-d31ef4 - Ascensor Boletería Oriente hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-381a0f - Escalera mecánica desde Andén dirección Plaza de Maipú hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: NA-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-33ab48 - Escalera mecánica desde Combinación Línea 5 dirección Plaza de Maipú hacia Combinación Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-203f0b - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.662Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: NA-158521 - Escalera mecánica desde Combinación Línea 2 dirección Hospital El Pino hacia Combinación Línea 5 dirección Plaza de Maipú"
+    }
+  ]
+}

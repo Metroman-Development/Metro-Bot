@@ -1,0 +1,463 @@
+{
+  "station": "santiago bueras",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T12:56:18.291Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Pajaritos"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.065Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.065Z",
+      "notes": "",
+      "id": "966992",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "04785a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.780Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Boletería hacia Nivel -1",
+      "fullPath": "Escalera mecánica 08 desde Boletería hacia Nivel -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Boletería hacia Nivel -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.783Z",
+      "notes": "",
+      "id": "052c0f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -1 hacia Nivel -2",
+      "fullPath": "Escalera mecánica desde Nivel -1 hacia Nivel -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -1 hacia Nivel -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "0ad40c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -3 hacia Nivel -2",
+      "fullPath": "Escalera mecánica desde Nivel -3 hacia Nivel -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -3 hacia Nivel -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "585629",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -2 hacia Nivel -1",
+      "fullPath": "Escalera mecánica desde Nivel -2 hacia Nivel -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -2 hacia Nivel -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "5f6f21",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Boletería hacia Nivel -1",
+      "fullPath": "Escalera mecánica 07 desde Boletería hacia Nivel -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Boletería hacia Nivel -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.327Z",
+      "notes": "",
+      "id": "84f5ad",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Nivel -3",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Nivel -3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Nivel -3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "d44b98",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -3 hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Nivel -3 hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -3 hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.784Z",
+      "notes": "",
+      "id": "edeea5",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel -2 hacia Nivel -3",
+      "fullPath": "Escalera mecánica desde Nivel -2 hacia Nivel -3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel -2 hacia Nivel -3"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T00:40:19.780Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.780Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: SB-04785a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.697Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: SB-04785a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: SB-84f5ad de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: SB-84f5ad de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SB-966992 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.065Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SB-4968e3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.837Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SB-966992 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-edeea5 - Escalera mecánica desde Nivel -2 hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-d44b98 - Escalera mecánica desde Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SB-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-84f5ad - Escalera mecánica desde Cambio de andén hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-5f6f21 - Escalera mecánica 07 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-585629 - Escalera mecánica desde Nivel -2 hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SB-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SB-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-0ad40c - Escalera mecánica desde Nivel -3 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.784Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-052c0f - Escalera mecánica desde Nivel -1 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.783Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SB-04785a - Escalera mecánica 08 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:06.965Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SB-4968e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.304Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: SB-0ad40c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.767Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: SB-0ad40c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-edeea5 - Escalera mecánica desde Nivel -2 hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-d44b98 - Escalera mecánica desde Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-84f5ad - Escalera mecánica desde Cambio de andén hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-5f6f21 - Escalera mecánica 07 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-585629 - Escalera mecánica desde Nivel -2 hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-0ad40c - Escalera mecánica desde Nivel -3 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-052c0f - Escalera mecánica desde Nivel -1 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.284Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-04785a - Escalera mecánica 08 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-edeea5 - Escalera mecánica desde Nivel -2 hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-d44b98 - Escalera mecánica desde Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-84f5ad - Escalera mecánica desde Cambio de andén hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-5f6f21 - Escalera mecánica 07 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-585629 - Escalera mecánica desde Nivel -2 hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-0ad40c - Escalera mecánica desde Nivel -3 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-052c0f - Escalera mecánica desde Nivel -1 hacia Nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.097Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-04785a - Escalera mecánica 08 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.138Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-edeea5 - Escalera mecánica desde Nivel -2 hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-d44b98 - Escalera mecánica desde Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-84f5ad - Escalera mecánica desde Cambio de andén hacia Nivel -3"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-5f6f21 - Escalera mecánica 07 desde Boletería hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SB-585629 - Escalera mecánica desde Nivel -2 hacia Nivel -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.137Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SB-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

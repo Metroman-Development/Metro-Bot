@@ -1,0 +1,448 @@
+{
+  "station": "plaza de puente alto",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:41:23.432Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Concha y Toro"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:41:23.432Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Balmaceda"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:41:23.432Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Manuel Rodríguez"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:41:23.432Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "José Luis Coo"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "9b33c0",
+      "from": "Ascensor de acceso ubicado en Manuel Rodríguez  Av. Concha y",
+      "to": "ro (en la Plaza)",
+      "fullPath": "Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Manuel Rodríguez  Av. Concha y",
+        "ro (en la Plaza)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "05d558",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso D José Luis Coo hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso D José Luis Coo hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "06fb06",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "31ea8e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso D José Luis Coo",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso D José Luis Coo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.914Z",
+      "notes": "",
+      "id": "7fcf58",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Galería Comercial",
+      "fullPath": "Escalera mecánica desde Boletería hacia Galería Comercial",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Galería Comercial"
+      ]
+    },
+    {
+      "id": "844133",
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Galería Comercial hacia Boletería",
+      "fullPath": "Escalera mecánica desde Galería Comercial hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Galería Comercial hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-04T00:40:38.027Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-04T00:40:38.027Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PPA-844133 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.056Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PPA-844133 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PPA-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PPA-06fb06 - Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.914Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PPA-05d558 - Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.369Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PPA-05d558 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.807Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PPA-844133 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.200Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PPA-844133 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.310Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.310Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-06fb06 - Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.309Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-05d558 - Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-06fb06 - Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.134Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-05d558 - Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-06fb06 - Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.278Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-05d558 - Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-06fb06 - Escalera mecánica desde Servicios hacia Acceso C Manuel Rodríguez"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.907Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-05d558 - Escalera mecánica desde Acceso D José Luis Coo hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-9b33c0 - Ascensor de acceso ubicado en Manuel Rodríguez con Av. Concha y Toro (en la Plaza) hacia Galería Comercial y Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-844133 - Escalera mecánica desde Galería Comercial hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-7fcf58 - Escalera mecánica desde Boletería hacia Galería Comercial"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PPA-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.723Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PPA-31ea8e - Escalera mecánica desde Boletería hacia Acceso D José Luis Coo"
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "station": "Simon Bolívar",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-29T18:43:51.391Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Ossa Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-29T18:43:51.391Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Ossa Poniente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.249Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.249Z",
+      "notes": "",
+      "id": "3b0311",
+      "from": "Ascensor de acceso ubicado en Av. Ossa (vereda oriente)  Av. Echeñique",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Ossa (vereda oriente)  Av. Echeñique",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.249Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.249Z",
+      "notes": "",
+      "id": "494a03",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente",
+      "fullPath": "Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+      ]
+    },
+    {
+      "id": "5ed5b0",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.570Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Descanso",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.250Z",
+      "notes": "",
+      "id": "97dcb0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Boletería hacia Descanso",
+      "fullPath": "Escalera mecánica 03 desde Boletería hacia Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Boletería hacia Descanso"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-09T13:20:13.570Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.570Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: SBO-5ed5b0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: SBO-5ed5b0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.250Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.249Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.249Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.249Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.249Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.249Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.683Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.682Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.682Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.682Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.531Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.121Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-97dcb0 - Escalera mecánica 03 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-5ed5b0 - Escalera mecánica 01 desde Boletería hacia Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SBO-494a03 - Escalera mecánica desde Descanso hacia Acceso B Av. Ossa Poniente"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-3b0311 - Ascensor de acceso ubicado en Av. Ossa (vereda oriente) con Av. Echeñique hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.404Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SBO-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "station": "pajaritos",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z",
+      "notes": "",
+      "id": "AccesoA",
+      "name": "Acceso A",
+      "description": "Av. General Óscar Bonilla Poniente y Pasarela"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z",
+      "notes": "",
+      "id": "AccesoB",
+      "name": "Acceso B",
+      "description": "Av. General Óscar Bonilla"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T19:38:15.792Z",
+      "notes": "",
+      "id": "AccesoC",
+      "name": "Acceso C",
+      "description": "Av. General Óscar Bonilla Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "b2b59b",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.349Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección San Pablo",
+      "fullPath": "Ascensor Boletería hacia Andén dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección San Pablo"
+      ]
+    },
+    {
+      "id": "d27a5f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:45.349Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:45.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:45.349Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.436Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.310Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:33.310Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.418Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:34.418Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.613Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.613Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.182Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:33.182Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.918Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.918Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.681Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.681Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:34.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:34.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.720Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:25.720Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.966Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:20.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:20.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:20.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:21.292Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:21.292Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.496Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:29:12.496Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:59.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:27:59.093Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:58.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:26:58.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:58.306Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:25:58.306Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:58.211Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:24:58.211Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:59.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:23:59.118Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:58.410Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:22:58.410Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:58.228Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:21:58.228Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:20:59.300Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-d27a5f - Ascensor Boletería hacia Andén dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:20:59.300Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PJ-b2b59b - Ascensor Boletería hacia Andén dirección San Pablo"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:45.349Z"
+}

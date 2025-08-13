@@ -1,0 +1,782 @@
+{
+  "station": "vicente valdés l4",
+  "line": "l4",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "508d33",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.025Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente)  Don Pepe por Línea 4",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente)  Don Pepe por Línea 4",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "d6fbb3",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente)  Vicente Valdés",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente)  Vicente Valdés",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "e7869d",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "f89d0f",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Ascensor Boletería",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én Línea 4 dirección"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "id": "34388a",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.025Z",
+      "from": "Escalera mecánica  Puente de combinación Línea 5 - Línea 4 dirección",
+      "to": "balaba",
+      "fullPath": "Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba",
+      "segments": [
+        "Escalera mecánica  Puente de combinación Línea 5 - Línea 4 dirección",
+        "balaba"
+      ]
+    },
+    {
+      "id": "3a5dcb",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.025Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "453679",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.025Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "fullPath": "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "id": "59e0df",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+      ]
+    },
+    {
+      "id": "64a429",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "6e9f35",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "7e2c9c",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "id": "8aa377",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "a6d908",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "fullPath": "Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+      ]
+    },
+    {
+      "id": "b3cf5e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.026Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Tobalaba",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VVA-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.853Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VVA-d6fbb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.384Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VVA-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:43.026Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.025Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VVA-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.853Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VVA-d6fbb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.384Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VVA-d6fbb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.393Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.234Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-8aa377 - Escalera mecánica desde Andén dirección Tobalaba hacia Combinación Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-7e2c9c - Escalera mecánica desde Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-6e9f35 - Escalera mecánica desde Andén dirección Tobalaba hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-64a429 - Escalera mecánica desde Andén Línea 4 dirección Tobalaba hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-59e0df - Escalera mecánica desde Cambio de andén hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-508d33 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda poniente) con Don Pepe por Línea 4 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-453679 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-3a5dcb - Escalera mecánica desde Andén dirección Plaza de Puente Alto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.233Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-34388a - Escalera mecánica desde Puente de combinación Línea 5 - Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-f89d0f - Ascensor Boletería hacia Andén Línea 4 dirección Tobalaba y hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-e7869d - Ascensor Boletería hacia Andén Línea 4 dirección Plaza de Puente Alto y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VVA-d6fbb3 - Ascensor de acceso ubicado en Av. Vicuña Mackenna (vereda oriente) con Vicente Valdés hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-b3cf5e - Escalera mecánica desde Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VVA-a6d908 - Escalera mecánica 04 desde Andén Línea 5 dirección Plaza de Maipú hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ]
+}

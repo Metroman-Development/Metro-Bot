@@ -1,0 +1,492 @@
+{
+  "station": "plaza de Maipú",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T12:50:14.243Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Pajaritos"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T12:50:14.243Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Plaza de Maipú"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T12:50:14.243Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. 5 de Abril"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "966992",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.909Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.067Z",
+      "notes": "",
+      "id": "ab096d",
+      "from": "Ascensor de acceso ubicado en Av. Pajari",
+      "to": "s (vereda oriente)  Av. 5 de abril (entre ambos accesos)",
+      "fullPath": "Ascensor de acceso ubicado en Av. Pajaritos (vereda oriente) con Av. 5 de abril (entre ambos accesos) hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Pajari",
+        "s (vereda oriente)  Av. 5 de abril (entre ambos accesos)"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "053089",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Av. Pajaritos",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Av. Pajaritos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Av. Pajaritos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "417d56",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde nivel Intermedio hacia Boletería Sur",
+      "fullPath": "Escalera mecánica desde nivel Intermedio hacia Boletería Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde nivel Intermedio hacia Boletería Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "42fd13",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Pajaritos hacia Boletería",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Pajaritos hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Pajaritos hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "7b81c8",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería Norte hacia nivel Intermedio",
+      "fullPath": "Escalera mecánica desde Boletería Norte hacia nivel Intermedio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería Norte hacia nivel Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.800Z",
+      "notes": "",
+      "id": "80f43a",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.801Z",
+      "notes": "",
+      "id": "9ea94e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.801Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.801Z",
+      "notes": "",
+      "id": "d816dc",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería",
+      "fullPath": "Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-06T13:20:15.909Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T13:20:15.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-966992 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.791Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-966992 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.067Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-ab096d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.839Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-ab096d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-d816dc - Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PM-ab096d - Ascensor de acceso ubicado en Av. Pajaritos (vereda oriente) con Av. 5 de abril (entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-9ea94e - Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PM-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-80f43a - Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-7b81c8 - Escalera mecánica desde Boletería Norte hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PM-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PM-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-42fd13 - Escalera mecánica desde Acceso A Av. Pajaritos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-417d56 - Escalera mecánica desde nivel Intermedio hacia Boletería Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.800Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PM-053089 - Escalera mecánica desde Boletería hacia Acceso A Av. Pajaritos"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-ab096d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.365Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-ab096d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PM-80f43a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.759Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PM-80f43a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.052Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-ab096d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-ab096d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.685Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-ab096d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-ab096d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:49.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PM-80f43a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PM-80f43a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-16T00:40:51.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PM-80f43a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.770Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PM-80f43a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.316Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PM-ab096d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.751Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PM-ab096d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.751Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PM-7b81c8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-d816dc - Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-ab096d - Ascensor de acceso ubicado en Av. Pajaritos (vereda oriente) con Av. 5 de abril (entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-9ea94e - Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-80f43a - Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.289Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-7b81c8 - Escalera mecánica desde Boletería Norte hacia nivel Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.288Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.288Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.287Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-42fd13 - Escalera mecánica desde Acceso A Av. Pajaritos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.287Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-417d56 - Escalera mecánica desde nivel Intermedio hacia Boletería Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.287Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-053089 - Escalera mecánica desde Boletería hacia Acceso A Av. Pajaritos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-d816dc - Escalera mecánica desde Acceso B Av. 5 de Abril hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-ab096d - Ascensor de acceso ubicado en Av. Pajaritos (vereda oriente) con Av. 5 de abril (entre ambos accesos) hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-9ea94e - Escalera mecánica desde Boletería hacia Acceso B Av. 5 de Abril"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PM-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-80f43a - Escalera mecánica desde hacia Nivel -3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.107Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PM-7b81c8 - Escalera mecánica desde Boletería Norte hacia nivel Intermedio"
+    }
+  ]
+}

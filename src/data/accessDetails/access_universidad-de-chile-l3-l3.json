@@ -1,0 +1,886 @@
+{
+  "station": "universidad de chile l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "1ffee5",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Plaza Quilicura",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T13:20:35.593Z",
+      "notes": "",
+      "id": "25c81a",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.389Z",
+      "notes": "",
+      "id": "919f31",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "efd8ce",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 1 dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.667Z",
+      "notes": "",
+      "id": "015c05",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "fullPath": "Escalera mecánica 11 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.667Z",
+      "notes": "",
+      "id": "07faa0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Servicios hacia Acceso B Paseo Ahumada",
+      "fullPath": "Escalera mecánica 02 desde Servicios hacia Acceso B Paseo Ahumada",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Servicios hacia Acceso B Paseo Ahumada"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.667Z",
+      "notes": "",
+      "id": "15c707",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde andén Linea 1 dirección Los Dominicos hacia Servicios Línea 1",
+      "fullPath": "Escalera mecánica desde andén Linea 1 dirección Los Dominicos hacia Servicios Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde andén Linea 1 dirección Los Dominicos hacia Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.667Z",
+      "notes": "",
+      "id": "1d15e5",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 14 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "id": "2cb6a8",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.692Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 1 - Línea 3 hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Combinación Línea 1 - Línea 3 hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 1 - Línea 3 hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "4f85d9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde combinación Línea 1 dirección Los Dominicos hacia Puente de combinación L3",
+      "fullPath": "Escalera mecánica 15 desde combinación Línea 1 dirección Los Dominicos hacia Puente de combinación L3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde combinación Línea 1 dirección Los Dominicos hacia Puente de combinación L3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "5379fe",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Servicios hacia Acceso B Paseo Ahumada",
+      "fullPath": "Escalera mecánica 01 desde Servicios hacia Acceso B Paseo Ahumada",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Servicios hacia Acceso B Paseo Ahumada"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "5bc7e3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 06 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T13:20:48.441Z",
+      "notes": "",
+      "id": "5c994d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Acceso B Paseo Ahumada hacia Servicios",
+      "fullPath": "Escalera mecánica 03 desde Acceso B Paseo Ahumada hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Acceso B Paseo Ahumada hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "88cbed",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "fullPath": "Escalera mecánica 09 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T13:20:20.074Z",
+      "notes": "",
+      "id": "9d7443",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Acceso B Paseo Ahumada hacia Servicios",
+      "fullPath": "Escalera mecánica 04 desde Acceso B Paseo Ahumada hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Acceso B Paseo Ahumada hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "9dcf40",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3",
+      "fullPath": "Escalera mecánica 08 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "9f0d1c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 13 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "cb5157",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3",
+      "fullPath": "Escalera mecánica 07 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.668Z",
+      "notes": "",
+      "id": "f53609",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 05 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T00:40:09.805Z",
+      "notes": "",
+      "id": "f776b1",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 16 desde combinación Linea 1 dirección Los Dominicos hacia Puente de combinación L3",
+      "fullPath": "Escalera mecánica 16 desde combinación Linea 1 dirección Los Dominicos hacia Puente de combinación L3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 16 desde combinación Linea 1 dirección Los Dominicos hacia Puente de combinación L3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.669Z",
+      "notes": "",
+      "id": "f8fff7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "fullPath": "Escalera mecánica 10 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.692Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-2cb6a8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.707Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-2cb6a8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.018Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.806Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f776b1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.998Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f776b1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-5c994d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.593Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-9d7443 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-25c81a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.974Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-9d7443 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-5c994d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.150Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-25c81a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.669Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f8fff7 - Escalera mecánica 10 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.669Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f776b1 - Escalera mecánica 16 desde combinación Linea 1 dirección Los Dominicos hacia Puente de combinación L3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f53609 - Escalera mecánica 05 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-efd8ce - Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-cb5157 - Escalera mecánica 07 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9f0d1c - Escalera mecánica 13 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9dcf40 - Escalera mecánica 08 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9d7443 - Escalera mecánica 04 desde Acceso B Paseo Ahumada hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-88cbed - Escalera mecánica 09 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5c994d - Escalera mecánica 03 desde Acceso B Paseo Ahumada hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5bc7e3 - Escalera mecánica 06 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5379fe - Escalera mecánica 01 desde Servicios hacia Acceso B Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-4f85d9 - Escalera mecánica 15 desde combinación Línea 1 dirección Los Dominicos hacia Puente de combinación L3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-2cb6a8 - Escalera mecánica desde Combinación Línea 1 - Línea 3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-25c81a - Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-1d15e5 - Escalera mecánica 14 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-15c707 - Escalera mecánica desde andén Linea 1 dirección Los Dominicos hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-07faa0 - Escalera mecánica 02 desde Servicios hacia Acceso B Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-015c05 - Escalera mecánica 11 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-9d7443 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.450Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-2cb6a8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f8fff7 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f776b1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-88cbed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-2cb6a8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f776b1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-4f85d9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-4f85d9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.317Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f8fff7 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.813Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-88cbed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.575Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-1d15e5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f53609 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-9f0d1c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.692Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.692Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-2cb6a8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.707Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-2cb6a8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-08T13:20:52.389Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.018Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.806Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f776b1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.998Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f776b1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.441Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-5c994d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.593Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-9d7443 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-25c81a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.974Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-9d7443 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-5c994d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.150Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: UCH-25c81a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.669Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f8fff7 - Escalera mecánica 10 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.669Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f776b1 - Escalera mecánica 16 desde combinación Linea 1 dirección Los Dominicos hacia Puente de combinación L3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-f53609 - Escalera mecánica 05 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-efd8ce - Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-cb5157 - Escalera mecánica 07 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9f0d1c - Escalera mecánica 13 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9dcf40 - Escalera mecánica 08 desde andén Línea 1 dirección San Pablo hacia Puente de combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-9d7443 - Escalera mecánica 04 desde Acceso B Paseo Ahumada hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-88cbed - Escalera mecánica 09 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5c994d - Escalera mecánica 03 desde Acceso B Paseo Ahumada hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5bc7e3 - Escalera mecánica 06 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-5379fe - Escalera mecánica 01 desde Servicios hacia Acceso B Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-4f85d9 - Escalera mecánica 15 desde combinación Línea 1 dirección Los Dominicos hacia Puente de combinación L3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-2cb6a8 - Escalera mecánica desde Combinación Línea 1 - Línea 3 hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-25c81a - Ascensor Cambio de andén Línea 3 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: UCH-1ffee5 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.668Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-1d15e5 - Escalera mecánica 14 desde Puente de combinación Línea 3 hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-15c707 - Escalera mecánica desde andén Linea 1 dirección Los Dominicos hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-07faa0 - Escalera mecánica 02 desde Servicios hacia Acceso B Paseo Ahumada"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.667Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: UCH-015c05 - Escalera mecánica 11 desde combinación Línea 1 dirección San Pablo hacia Servicios Línea 1"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-9d7443 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.450Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-2cb6a8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f8fff7 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f776b1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-88cbed de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.538Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-2cb6a8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T13:20:54.467Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f776b1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-4f85d9 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T13:20:41.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-4f85d9 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.317Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-f8fff7 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.813Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: UCH-88cbed de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.575Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-1d15e5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-f53609 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: UCH-9f0d1c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T00:41:07.021Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: UCH-25c81a de fuera de servicio a operativo"
+    }
+  ]
+}

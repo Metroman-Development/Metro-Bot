@@ -1,0 +1,364 @@
+{
+  "station": "santa Isabel",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T09:56:32.256Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Santa Isabel Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T09:56:32.256Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Santa Isabel Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "2dd283",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.553Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "539aaa",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.553Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "5b7d29",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.553Z",
+      "from": "Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente)  Santa Isabel",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente)  Santa Isabel",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:42.553Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.553Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.553Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.553Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.909Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.925Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.562Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.562Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.562Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.727Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.003Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.485Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.484Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.549Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.345Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.345Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.345Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.536Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.536Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.536Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.715Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.681Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.681Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.681Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.602Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.014Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-2dd283 - Ascensor Boletería hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-5b7d29 - Ascensor de acceso ubicado en Av. General Bustamante (vereda poniente) con Santa Isabel hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SI-539aaa - Ascensor Boletería hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

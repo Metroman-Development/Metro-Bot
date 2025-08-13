@@ -1,0 +1,206 @@
+{
+  "station": "santa ana",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Santo Domingo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Catedral/Senadis"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Compañía de Jesús"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Guardia Marina Riquelme"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PIVV",
+      "from": " Andén Hospital El Pino",
+      "to": "Andén Vicente Valdés",
+      "fullPath": " Andén Hospital El Pino→Andén Vicente Valdés",
+      "segments": [
+        " Andén Hospital El Pino",
+        "Andén Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PIPM",
+      "from": " Andén Hospital El Pino",
+      "to": "Andén Plaza de Maipú",
+      "fullPath": " Andén Hospital El Pino→Andén Plaza de Maipú",
+      "segments": [
+        " Andén Hospital El Pino",
+        "Andén Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PM",
+      "from": "Andén Plaza de Maipú",
+      "to": "Boletería Línea 5",
+      "fullPath": "Andén Plaza de Maipú→Boletería Línea 5",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Boletería Línea 5"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-27T10:25:30.059Z",
+      "notes": "",
+      "id": "VV",
+      "from": "Andén Vicente Valdés",
+      "to": "Boletería Línea 5",
+      "fullPath": "Andén Vicente Valdés→Boletería Línea 5",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Boletería Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "EXB",
+      "from": "Boletería Línea 5",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería Línea 5→Exterior Acceso B",
+      "segments": [
+        "Boletería Línea 5",
+        "Exterior Acceso B"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PMBL",
+      "from": "Andén Plaza de Maipú",
+      "to": "Boletería Línea 5",
+      "fullPath": "Andén Plaza de Maipú→Boletería Línea 5",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Boletería Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PIPM",
+      "from": "Andén Hospital El Pino",
+      "to": "Andén Plaza de Maipú",
+      "fullPath": "Andén Hospital El Pino→Andén Plaza de Maipú",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Andén Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "VVAV",
+      "from": "Andén Vicente Valdés",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Andén Vicente Valdés→Andén Vespucio Norte",
+      "segments": [
+        "Andén Vicente Valdés",
+        "Andén Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "BLEXB",
+      "from": "Boletería Línea 5",
+      "to": "Exterior Acceso B",
+      "fullPath": "Boletería Línea 5→Exterior Acceso B",
+      "segments": [
+        "Boletería Línea 5",
+        "Exterior Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PIVV",
+      "from": "Andén Hospital El Pino",
+      "to": "Andén Vicente Valdés",
+      "fullPath": "Andén Hospital El Pino→Andén Vicente Valdés",
+      "segments": [
+        "Andén Hospital El Pino",
+        "Andén Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-05-29T08:53:32.814Z",
+      "notes": "",
+      "id": "PMAV",
+      "from": "Andén Plaza de Maipú",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Andén Plaza de Maipú→Andén Vespucio Norte",
+      "segments": [
+        "Andén Plaza de Maipú",
+        "Andén Vespucio Norte"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-29T08:54:37.653Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-29T08:53:45.330Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-05-29T08:54:37.654Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated PIVV"
+    },
+    {
+      "timestamp": "2025-06-27T10:25:30.059Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor VV a fuera de servicio",
+      "details": "Updated: VV"
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "station": "vivaceta",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T14:45:39.943Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Independencia"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "0eb044",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:42.029Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.842Z",
+      "notes": "",
+      "id": "374766",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.842Z",
+      "notes": "",
+      "id": "f52e07",
+      "from": "Ascensor de acceso ubicado en Av. Independencia  Vecinal",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Independencia  Vecinal",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:43.842Z",
+      "notes": "",
+      "id": "047349",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.842Z",
+      "notes": "",
+      "id": "1ecb53",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia",
+      "fullPath": "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.842Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-08T00:40:42.029Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T00:40:42.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VIV-0eb044 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.377Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VIV-0eb044 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.401Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VIV-0eb044 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.924Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VIV-0eb044 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.842Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.483Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: VIV-0eb044 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T00:40:37.471Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: VIV-0eb044 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.895Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.741Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.491Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.115Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-374766 - Ascensor Servicios hacia Cambio de andén y hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-1ecb53 - Escalera mecánica desde Servicios hacia Acceso A Av. Independencia"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.923Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-047349 - Escalera mecánica desde Acceso A Av. Independencia hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.676Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: VIV-f52e07 - Ascensor de acceso ubicado en Av. Independencia con Vecinal hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.675Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: VIV-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    }
+  ]
+}

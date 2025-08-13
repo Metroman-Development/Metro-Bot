@@ -1,0 +1,697 @@
+{
+  "station": "santa ana l2",
+  "line": "l2",
+  "accesses": [],
+  "elevators": [
+    {
+      "id": "32230a",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Boletería Línea 2 Norte",
+      "to": "én Línea 2 dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería Línea 2 Norte",
+        "én Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "35d00e",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor de acceso ubicado en San Martín  Catedral (Plaza Santa Teresa de Los Andes)",
+      "to": "Boletería Oriente",
+      "fullPath": "Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente",
+      "segments": [
+        "Ascensor de acceso ubicado en San Martín  Catedral (Plaza Santa Teresa de Los Andes)",
+        "Boletería Oriente"
+      ]
+    },
+    {
+      "id": "76bcb3",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Andén Línea 2 dirección Hospital El Pino",
+      "to": "én Línea 5 dirección Vicente Valdés",
+      "fullPath": "Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Andén Línea 2 dirección Hospital El Pino",
+        "én Línea 5 dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "88b8b6",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Andén Línea 2 dirección Hospital El Pino",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Andén Línea 2 dirección Hospital El Pino",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "8ee341",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Boletería Línea 2 Sur",
+      "to": "én Línea 2 dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería Línea 2 Sur",
+        "én Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "id": "e4a16a",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Boletería Línea 2 Norte",
+      "to": "én Línea 2 dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería Línea 2 Norte",
+        "én Línea 2 dirección Hospital El Pino"
+      ]
+    },
+    {
+      "id": "f7de57",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.318Z",
+      "from": "Ascensor Boletería Línea 2 Sur",
+      "to": "én Línea 2 dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería Línea 2 Sur",
+        "én Línea 2 dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [],
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-8ee341 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.238Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-8ee341 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.039Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-8ee341 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-76bcb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.368Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-76bcb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.447Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-35d00e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-76bcb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    }
+  ],
+  "lastUpdated": "2025-07-30T10:20:44.318Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.318Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-22T00:40:48.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-8ee341 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T00:40:44.238Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-8ee341 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.039Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-8ee341 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:58.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-76bcb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-16T13:20:54.368Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AN-76bcb3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.447Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-35d00e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.854Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AN-76bcb3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.120Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.042Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.703Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-e4a16a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-8ee341 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-88b8b6 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-76bcb3 - Ascensor Andén Línea 2 dirección Hospital El Pino hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-35d00e - Ascensor de acceso ubicado en San Martín con Catedral (Plaza Santa Teresa de Los Andes) hacia Boletería Oriente"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-32230a - Ascensor Boletería Línea 2 Norte hacia Andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.237Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AN-f7de57 - Ascensor Boletería Línea 2 Sur hacia Andén Línea 2 dirección Hospital El Pino"
+    }
+  ]
+}

@@ -1,0 +1,691 @@
+{
+  "station": "puente cal y canto l2",
+  "line": "l2",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.337Z",
+      "notes": "",
+      "id": "043c83",
+      "from": "Ascensor Boletería Línea 2",
+      "to": "én Línea 2 dirección Plaza Quilicura / Intermedio",
+      "fullPath": "Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio",
+      "segments": [
+        "Ascensor Boletería Línea 2",
+        "én Línea 2 dirección Plaza Quilicura / Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.337Z",
+      "notes": "",
+      "id": "509a8a",
+      "from": "Ascensor de acceso ubicado en Av. General Mackenna  Paseo Puente (a un costado del acceso) por Línea 2",
+      "to": "Boletería Línea 2",
+      "fullPath": "Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General Mackenna  Paseo Puente (a un costado del acceso) por Línea 2",
+        "Boletería Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T13:20:48.537Z",
+      "notes": "",
+      "id": "919f31",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "id": "f742b4",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:05.073Z",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "én Línea 2 dirección Fernando Castillo Velasco / Intermedio",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "én Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.073Z",
+      "notes": "",
+      "id": "16f6e3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.073Z",
+      "notes": "",
+      "id": "f7a39c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente",
+      "fullPath": "Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-05T13:21:05.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.617Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.537Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.537Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.156Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.156Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-f7a39c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-16f6e3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.367Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-f7a39c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.367Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-16f6e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.529Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.716Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-f7a39c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-f7a39c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-043c83 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-043c83 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    }
+  ],
+  "lastUpdated": "2025-08-05T13:21:05.073Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-05T13:21:05.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.617Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.537Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.537Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.156Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.156Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-f7a39c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.073Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-16f6e3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.367Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-f7a39c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.367Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-16f6e3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.901Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.337Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.529Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-28T00:40:54.716Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CA-f7a39c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-27T00:40:36.452Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CA-f7a39c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.521Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CA-043c83 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.081Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CA-043c83 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.123Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.122Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.684Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.098Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-f7a39c - Escalera mecánica 02 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CA-16f6e3 - Escalera mecánica 01 desde Boletería hacia Acceso D Paseo Puente"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.717Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    }
+  ]
+}

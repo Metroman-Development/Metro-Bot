@@ -1,0 +1,808 @@
+{
+  "station": "plaza egaña l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "0c222b",
+      "from": "Ascensor de acceso ubicado en el centro de la Plaza Egaña",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en el centro de la Plaza Egaña",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "919f31",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "cc8d7c",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "Boletería Línea 4",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "Boletería Línea 4"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "0bfefb",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto",
+      "fullPath": "Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "2ac00b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 12 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "5cc3ef",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba",
+      "fullPath": "Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "5ef834",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 15 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "a131f1",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña",
+      "fullPath": "Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "a80a05",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto",
+      "fullPath": "Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "b72dd1",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba",
+      "fullPath": "Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "bdbd6d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 14 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "c511df",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 13 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.425Z",
+      "notes": "",
+      "id": "e47d10",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 11 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "id": "f4dc5d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.451Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.604Z",
+      "notes": "",
+      "id": "fc788b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.451Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-f4dc5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-fc788b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-f4dc5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.980Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-fc788b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.595Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-f4dc5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.704Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-f4dc5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-fc788b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-fc788b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-5ef834 - Escalera mecánica 15 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-5cc3ef - Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-2ac00b - Escalera mecánica 12 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-0bfefb - Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.778Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-a80a05 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.214Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZE-cc8d7c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZE-cc8d7c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-5ef834 - Escalera mecánica 15 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-5cc3ef - Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-2ac00b - Escalera mecánica 12 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-0bfefb - Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.451Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.451Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-f4dc5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-fc788b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-11T00:40:37.604Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-f4dc5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.980Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-fc788b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.595Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-f4dc5d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.704Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-f4dc5d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.069Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-fc788b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZE-fc788b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-5ef834 - Escalera mecánica 15 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-5cc3ef - Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-2ac00b - Escalera mecánica 12 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZE-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZE-0bfefb - Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.778Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZE-a80a05 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T13:20:23.214Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZE-cc8d7c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-18T00:40:19.001Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZE-cc8d7c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-5ef834 - Escalera mecánica 15 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-5cc3ef - Escalera mecánica 08 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-2ac00b - Escalera mecánica 12 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-0c222b - Ascensor de acceso ubicado en el centro de la Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-0bfefb - Escalera mecánica 07 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-fc788b - Escalera mecánica desde Boletería hacia Acceso A en Plaza Egaña"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-f4dc5d - Escalera mecánica desde Acceso A Plaza Egaña hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZE-cc8d7c - Ascensor Servicios Línea 3 hacia Boletería Línea 4 hacia Andén Línea 4 dirección Plaza de Puente Alto hacia Cambio de andén Línea 3 y hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-c511df - Escalera mecánica 13 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-bdbd6d - Escalera mecánica 14 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-b72dd1 - Escalera mecánica 09 desde combinación Línea 4 dirección Puente Alto hacia combinación Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a80a05 - Escalera mecánica 06 desde combinación Línea 4 dirección Tobalaba hacia combinación Línea 4 dirección Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.327Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZE-a131f1 - Escalera mecánica desde combinación Línea 4 dirección Tobalaba hacia acceso A Plaza Egaña"
+    }
+  ]
+}

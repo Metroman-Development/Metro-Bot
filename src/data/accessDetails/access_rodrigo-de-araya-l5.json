@@ -1,0 +1,356 @@
+{
+  "station": "rodrigo de araya",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-29T11:37:17.896Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Santa Elena / Juan Mitjans"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "23024a",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.532Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    },
+    {
+      "id": "50ce59",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.532Z",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "99a725",
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.532Z",
+      "from": "Ascensor de acceso ubicado en Av. Vicuña Mackenna  Santa Elena / Juan Mitjans",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Vicuña Mackenna  Santa Elena / Juan Mitjans",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-07-30T10:20:42.532Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-07-30T10:20:42.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:31.971Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.903Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.903Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:31.903Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:31.917Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.551Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.551Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.551Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.478Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.477Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.722Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.722Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.722Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:31.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.489Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:32.313Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.532Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.693Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.693Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:34:18.693Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:18.674Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.586Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.010Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.009Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-23024a - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-99a725 - Ascensor de acceso ubicado en Av. Vicuña Mackenna con Santa Elena / Juan Mitjans hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:30:19.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: RA-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    }
+  ]
+}

@@ -1,0 +1,704 @@
+{
+  "station": "tobalaba l1",
+  "line": "l1",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.700Z",
+      "notes": "",
+      "id": "01198b",
+      "from": "Varios puntos",
+      "to": "Ascensor de combinación Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor de combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.700Z",
+      "notes": "",
+      "id": "020c20",
+      "from": "Varios puntos",
+      "to": "Ascensor de combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor de combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.700Z",
+      "notes": "",
+      "id": "9b4328",
+      "from": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+        "én Línea 4 dirección"
+      ]
+    },
+    {
+      "id": "c240bc",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.771Z",
+      "from": "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.701Z",
+      "notes": "",
+      "id": "e61333",
+      "from": "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+        "én Línea 4 dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.701Z",
+      "notes": "",
+      "id": "e7a986",
+      "from": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.110Z",
+      "notes": "",
+      "id": "fd060c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.771Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.474Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TB-fd060c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TB-fd060c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.103Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.456Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TB-fd060c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    }
+  ],
+  "lastUpdated": "2025-08-09T13:20:13.771Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.771Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.474Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.110Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TB-fd060c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.426Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TB-fd060c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.701Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.700Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.103Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.456Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:22.149Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TB-fd060c de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.273Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.792Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.312Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.311Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.832Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.394Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TB-fd060c - Escalera mecánica desde Boletería hacia Acceso A Av. Luis Thayer Ojeda Norte"
+    }
+  ]
+}

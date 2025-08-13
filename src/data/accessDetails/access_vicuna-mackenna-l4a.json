@@ -1,0 +1,107 @@
+{
+  "station": "Vicuña Mackenna",
+  "line": "l4a",
+  "accesses": [
+    {
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Julio Vildósola",
+      "status": "abierto",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "TOBLCIBL",
+      "from": " Andén Tobalaba",
+      "to": "Boletería",
+      "fullPath": " Andén Tobalaba→Andén La Cisterna→Boletería",
+      "segments": [
+        " Andén Tobalaba",
+        "Andén La Cisterna",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    },
+    {
+      "id": "PPALCIBL",
+      "from": " Andén Plaza de Puente Alto",
+      "to": "Boletería",
+      "fullPath": " Andén Plaza de Puente Alto→Andén La Cisterna→Boletería",
+      "segments": [
+        " Andén Plaza de Puente Alto",
+        "Andén La Cisterna",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    }
+  ],
+  "escalators": [
+    {
+      "id": "TOBLCI",
+      "from": " Andén Tobalaba",
+      "to": "Andén La Cisterna",
+      "fullPath": " Andén Tobalaba→Andén La Cisterna",
+      "segments": [
+        " Andén Tobalaba",
+        "Andén La Cisterna"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    },
+    {
+      "id": "LCIPBL",
+      "from": " Andén La Cisterna",
+      "to": "Boletería",
+      "fullPath": " Andén La Cisterna→Boletería",
+      "segments": [
+        " Andén La Cisterna",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    },
+    {
+      "id": "PPALCI",
+      "from": " Andén Plaza de Puente Alto",
+      "to": "Andén La Cisterna",
+      "fullPath": " Andén Plaza de Puente Alto→Andén La Cisterna",
+      "segments": [
+        " Andén Plaza de Puente Alto",
+        "Andén La Cisterna"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    },
+    {
+      "id": "LCIOBL",
+      "from": " Andén La Cisterna",
+      "to": "Boletería",
+      "fullPath": " Andén La Cisterna→Boletería",
+      "segments": [
+        " Andén La Cisterna",
+        "Boletería"
+      ],
+      "status": "operativa",
+      "notes": "",
+      "lastUpdated": "2025-05-02T10:53:36.147Z"
+    }
+  ],
+  "lastUpdated": "2025-05-02T10:53:36.146Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-02T10:53:39.709Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    }
+  ]
+}

@@ -1,0 +1,860 @@
+{
+  "station": "plaza de armas l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "81f4a2",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "Cambio de én Línea 3,",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "Cambio de én Línea 3,"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "851b98",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "de combinación Línea 3 - Línea 5",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia de combinación Línea 3 - Línea 5 hacia Andén Línea 3 dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "de combinación Línea 3 - Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "907941",
+      "from": "Ascensor de combinación Línea 3 - Línea 5",
+      "to": "én Línea 5 dirección Vicente Valdés.",
+      "fullPath": "Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Vicente Valdés.",
+      "segments": [
+        "Ascensor de combinación Línea 3 - Línea 5",
+        "én Línea 5 dirección Vicente Valdés."
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:04.995Z",
+      "notes": "",
+      "id": "99b2ad",
+      "from": "Ascensor de combinación Línea 3 - Línea 5",
+      "to": "én Línea 5 dirección Plaza de Maipú.",
+      "fullPath": "Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú.",
+      "segments": [
+        "Ascensor de combinación Línea 3 - Línea 5",
+        "én Línea 5 dirección Plaza de Maipú."
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "d4b8ac",
+      "from": "Ascensor de acceso ubicado en Paseo 21 de Mayo  Monjitas",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Paseo 21 de Mayo  Monjitas",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "165667",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso E Bandera / Catedral hacia Servicios",
+      "fullPath": "Escalera mecánica desde Acceso E Bandera / Catedral hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso E Bandera / Catedral hacia Servicios"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-03T00:40:24.679Z",
+      "notes": "",
+      "id": "19d7b3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Servicios hacia Acceso E Bandera / Catedral",
+      "fullPath": "Escalera mecánica 01 desde Servicios hacia Acceso E Bandera / Catedral",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Servicios hacia Acceso E Bandera / Catedral"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.645Z",
+      "notes": "",
+      "id": "467d6f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "fullPath": "Escalera mecánica 13 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13 desde combinación Línea 3 - Línea 5 hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "6f2495",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 16 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 16 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 16 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "8132f3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde nivel -2 hacia nivel -1 y hacia acceso E Bandera / Catedral",
+      "fullPath": "Escalera mecánica desde nivel -2 hacia nivel -1 y hacia acceso E Bandera / Catedral",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde nivel -2 hacia nivel -1 y hacia acceso E Bandera / Catedral"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "9648ee",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 10 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-03T00:40:24.679Z",
+      "notes": "",
+      "id": "c4a797",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral",
+      "fullPath": "Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "c7e75b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 18 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 18 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 18 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "ce0083",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "fullPath": "Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios"
+      ]
+    },
+    {
+      "id": "e47d10",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T00:40:37.699Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 11 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "ea1b1c",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde nivel -1 hacia nivel -2",
+      "fullPath": "Escalera mecánica desde nivel -1 hacia nivel -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde nivel -1 hacia nivel -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "fa95d2",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica 09 desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "fd4693",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "fullPath": "Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.708Z",
+      "notes": "",
+      "id": "fd893e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 17 desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 17 desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 17 desde Servicios hacia Cambio de andén"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.699Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-e47d10 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-e47d10 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-467d6f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.027Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-467d6f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-99b2ad de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.679Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-c4a797 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.679Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-19d7b3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.079Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-c4a797 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.079Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-99b2ad de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fd893e - Escalera mecánica 17 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fd4693 - Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fa95d2 - Escalera mecánica 09 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-ea1b1c - Escalera mecánica desde nivel -1 hacia nivel -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-ce0083 - Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-c7e75b - Escalera mecánica 18 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-c4a797 - Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-99b2ad - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú."
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-9648ee - Escalera mecánica 10 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-907941 - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Vicente Valdés."
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-851b98 - Ascensor Cambio de andén Línea 3 hacia de combinación Línea 3 - Línea 5 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-8132f3 - Escalera mecánica desde nivel -2 hacia nivel -1 y hacia acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-6f2495 - Escalera mecánica 16 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-467d6f - Escalera mecánica 13 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-19d7b3 - Escalera mecánica 01 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-165667 - Escalera mecánica desde Acceso E Bandera / Catedral hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.720Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-99b2ad de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-ce0083 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-ce0083 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-467d6f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.835Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-467d6f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-6f2495 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.214Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-6f2495 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-907941 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-907941 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.838Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-d4b8ac de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fd893e - Escalera mecánica 17 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fd4693 - Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fa95d2 - Escalera mecánica 09 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-ea1b1c - Escalera mecánica desde nivel -1 hacia nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZA-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-ce0083 - Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-c7e75b - Escalera mecánica 18 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-c4a797 - Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZA-99b2ad - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú."
+    }
+  ],
+  "lastUpdated": "2025-08-11T00:40:37.699Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-11T00:40:37.699Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-e47d10 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.990Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-e47d10 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-467d6f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.027Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-467d6f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:04.995Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-99b2ad de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.679Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-c4a797 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T00:40:24.679Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-19d7b3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.079Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-c4a797 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.079Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-99b2ad de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fd893e - Escalera mecánica 17 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fd4693 - Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-fa95d2 - Escalera mecánica 09 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-ea1b1c - Escalera mecánica desde nivel -1 hacia nivel -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-ce0083 - Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-c7e75b - Escalera mecánica 18 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-c4a797 - Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-99b2ad - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú."
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-9648ee - Escalera mecánica 10 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-907941 - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Vicente Valdés."
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-851b98 - Ascensor Cambio de andén Línea 3 hacia de combinación Línea 3 - Línea 5 hacia Andén Línea 3 dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PZA-81f4a2 - Ascensor Servicios Línea 3 hacia Cambio de andén Línea 3, hacia combinación Línea 3 - Línea 5 y hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-8132f3 - Escalera mecánica desde nivel -2 hacia nivel -1 y hacia acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-6f2495 - Escalera mecánica 16 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-467d6f - Escalera mecánica 13 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-19d7b3 - Escalera mecánica 01 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PZA-165667 - Escalera mecánica desde Acceso E Bandera / Catedral hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.720Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-99b2ad de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.425Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-ce0083 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-ce0083 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.577Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-467d6f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.835Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-467d6f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.480Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PZA-6f2495 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.214Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PZA-6f2495 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.979Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-907941 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T00:41:50.063Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-907941 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.838Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PZA-d4b8ac de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PZA-d4b8ac de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fd893e - Escalera mecánica 17 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fd4693 - Escalera mecánica 14 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-fa95d2 - Escalera mecánica 09 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-ea1b1c - Escalera mecánica desde nivel -1 hacia nivel -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-e47d10 - Escalera mecánica 11 desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZA-d4b8ac - Ascensor de acceso ubicado en Paseo 21 de Mayo con Monjitas hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-ce0083 - Escalera mecánica 15 desde combinación Línea 3 - Línea 5 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-c7e75b - Escalera mecánica 18 desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PZA-c4a797 - Escalera mecánica 02 desde Servicios hacia Acceso E Bandera / Catedral"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.870Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PZA-99b2ad - Ascensor de combinación Línea 3 - Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú."
+    }
+  ]
+}

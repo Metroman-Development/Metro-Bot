@@ -1,0 +1,497 @@
+{
+  "station": "Vespucio Norte",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T14:35:36.715Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Américo Vespucio"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T14:35:36.715Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Principal Capitán Ignacio Carrera Pinto"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.957Z",
+      "notes": "",
+      "id": "3f68e8",
+      "from": "Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pin",
+      "to": "",
+      "fullPath": "Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería",
+      "segments": [
+        "Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pin",
+        ""
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "6bf9ec",
+      "from": "Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pin",
+      "to": "",
+      "fullPath": "Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería",
+      "segments": [
+        "Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pin",
+        ""
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "0a642b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "20607e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 03 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.487Z",
+      "notes": "",
+      "id": "3c6f8e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T00:40:42.034Z",
+      "notes": "",
+      "id": "4acdae",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T13:20:48.562Z",
+      "notes": "",
+      "id": "7b85e7",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mecánica 05 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.957Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.488Z",
+      "notes": "",
+      "id": "db93e4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.488Z",
+      "notes": "",
+      "id": "fd09b8",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino",
+      "fullPath": "Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino"
+      ]
+    },
+    {
+      "id": "c4b444",
+      "status": "operativa",
+      "lastUpdated": "2025-08-10T00:40:19.801Z",
+      "from": "Varios puntos",
+      "to": "Escalera mec??nica 05 desde Boletería hacia Cambio de andén",
+      "fullPath": "Escalera mec??nica 05 desde Boletería hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mec??nica 05 desde Boletería hacia Cambio de andén"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-10T00:40:19.801Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-10T00:40:19.801Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-c4b444 - Escalera mec??nica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-08-08T00:40:42.034Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: AV-4acdae de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.451Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: AV-4acdae de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.957Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: AV-beccf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.957Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: AV-3f68e8 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.074Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: AV-4acdae de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.562Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: AV-7b85e7 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.195Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: AV-3f68e8 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.117Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: AV-7b85e7 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-fd09b8 - Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-db93e4 - Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.488Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AV-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-7b85e7 - Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AV-6bf9ec - Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-4acdae - Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AV-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: AV-3f68e8 - Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-20607e - Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.487Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: AV-0a642b - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: AV-4acdae de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.304Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: AV-beccf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.583Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: AV-4acdae de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-fd09b8 - Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-db93e4 - Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-7b85e7 - Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-6bf9ec - Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-4acdae - Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-3f68e8 - Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.191Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-20607e - Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.190Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-0a642b - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-fd09b8 - Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-db93e4 - Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-7b85e7 - Escalera mecánica 05 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-6bf9ec - Ascensor 2 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-4acdae - Escalera mecánica desde Cambio de andén hacia Acceso B Av. Principal Capitán Ignacio Carrera Pinto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: AV-3f68e8 - Ascensor 1 de acceso ubicado en Av. Principal Capitán Ignacio Carrera Pinto hacia Intermodal y hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-3c6f8e - Escalera mecánica 01 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-20607e - Escalera mecánica 03 desde Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.708Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-0a642b - Escalera mecánica desde Cambio de andén hacia Acceso Intermodal Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-fd09b8 - Escalera mecánica desde Acceso Intermodal Vespucio Norte hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.222Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: AV-db93e4 - Escalera mecánica desde Acceso B Av. Principal Capitán Ignacio Carrera Pinto hacia Cambio de andén"
+    }
+  ]
+}

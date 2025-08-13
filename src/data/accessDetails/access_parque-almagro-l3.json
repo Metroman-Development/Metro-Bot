@@ -1,0 +1,385 @@
+{
+  "station": "parque Almagro",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:28:49.689Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "San Diego"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.625Z",
+      "notes": "",
+      "id": "0eb044",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "id": "5aebcf",
+      "status": "operativa",
+      "lastUpdated": "2025-08-11T13:20:16.551Z",
+      "from": "Ascensor Servicios",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Servicios",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-07T13:20:36.373Z",
+      "notes": "",
+      "id": "876c8c",
+      "from": "Ascensor de acceso ubicado en San Diego  Mencía de los Nidos",
+      "to": "Servicios",
+      "fullPath": "Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios",
+      "segments": [
+        "Ascensor de acceso ubicado en San Diego  Mencía de los Nidos",
+        "Servicios"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.331Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.625Z",
+      "notes": "",
+      "id": "f4663a",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A San Diego",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A San Diego",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A San Diego"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-11T13:20:16.552Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-11T13:20:16.551Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PAL-5aebcf de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-10T13:20:28.985Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PAL-5aebcf de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PAL-876c8c de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.331Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAL-beccf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.919Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PAL-beccf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-06T00:40:09.802Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAL-beccf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.958Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PAL-5aebcf de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.319Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PAL-5aebcf de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.625Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.706Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PAL-beccf4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-26T13:20:31.315Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAL-f4663a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.786Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PAL-f4663a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-12T13:20:21.972Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PAL-beccf4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.805Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.687Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.405Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.007Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-5aebcf - Ascensor Servicios hacia Cambio de andén hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.734Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-0eb044 - Ascensor Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-f4663a - Escalera mecánica desde Boletería hacia Acceso A San Diego"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PAL-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.598Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PAL-876c8c - Ascensor de acceso ubicado en San Diego con Mencía de los Nidos hacia Servicios"
+    }
+  ]
+}

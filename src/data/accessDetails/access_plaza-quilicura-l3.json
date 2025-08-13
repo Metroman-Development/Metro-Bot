@@ -1,0 +1,811 @@
+{
+  "station": "Plaza Quilicura",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T13:53:56.719Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Manuel Antonio Matta Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.935Z",
+      "notes": "",
+      "id": "85842e",
+      "from": "Ascensor de acceso ubicado en Av. Manuel An",
+      "to": "nio Matta Sur",
+      "fullPath": "Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Manuel An",
+        "nio Matta Sur"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.936Z",
+      "notes": "",
+      "id": "8721e1",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza Quilicura",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza Quilicura",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza Quilicura"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.936Z",
+      "notes": "",
+      "id": "8e52c9",
+      "from": "Ascensor de acceso ubicado en Av. Manuel An",
+      "to": "nio Matta Norte",
+      "fullPath": "Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Manuel An",
+        "nio Matta Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.937Z",
+      "notes": "",
+      "id": "ae9c67",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Fernando Castillo Velazco",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Fernando Castillo Velazco"
+      ]
+    },
+    {
+      "id": "2791eb",
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.090Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Fernando Castillo Velasco"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.935Z",
+      "notes": "",
+      "id": "15104f",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios",
+      "fullPath": "Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+      ]
+    },
+    {
+      "id": "42806a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.090Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios",
+      "fullPath": "Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.935Z",
+      "notes": "",
+      "id": "549462",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios",
+      "fullPath": "Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.935Z",
+      "notes": "",
+      "id": "86f381",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte",
+      "fullPath": "Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.937Z",
+      "notes": "",
+      "id": "d47abb",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios",
+      "fullPath": "Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.937Z",
+      "notes": "",
+      "id": "e11f91",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.937Z",
+      "notes": "",
+      "id": "e1cb2d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios",
+      "fullPath": "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.937Z",
+      "notes": "",
+      "id": "f0acac",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T00:40:55.155Z",
+      "notes": "",
+      "id": "ffbc66",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur",
+      "fullPath": "Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-04T00:40:38.090Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-04T00:40:38.090Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.090Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PQU-42806a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PQU-42806a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.155Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PQU-ffbc66 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.936Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQU-85842e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.516Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQU-85842e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-04T00:40:38.090Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.090Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PQU-42806a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:11.013Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PQU-42806a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.155Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PQU-ffbc66 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.937Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.936Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.935Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.279Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQU-85842e de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.516Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQU-85842e de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.988Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.987Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-f0acac - Escalera mecánica 05 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e1cb2d - Escalera mecánica desde Acceso A Av. Manuel Antonio Matta Norte hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-e11f91 - Escalera mecánica 06 desde Servicios hacia andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-d47abb - Escalera mecánica 09 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-ae9c67 - Ascensor Boletería hacia Andén dirección Fernando Castillo Velazco"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8e52c9 - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Norte hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-8721e1 - Ascensor Boletería hacia Andén dirección Plaza Quilicura"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-86f381 - Escalera mecánica desde Servicios hacia acceso A Av. Manuel Antonio Matta Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-85842e - Ascensor de acceso ubicado en Av. Manuel Antonio Matta Sur hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-549462 - Escalera mecánica 08 desde Acceso B Av. Manuel Antonio Matta Sur hacia nivel Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-42806a - Escalera mecánica 04 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.508Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-15104f - Escalera mecánica 03 desde andén dirección Plaza Quilicura hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQU-2791eb - Ascensor Boletería hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.818Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQU-ffbc66 - Escalera mecánica desde Servicios hacia acceso B Av. Manuel Antonio Matta Sur"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "station": "puente cal y canto",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Centro Cultural Estación Mapocho"
+    },
+    {
+      "status": "cerrado",
+      "lastUpdated": "2025-04-27T16:19:35.472Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. La Paz Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. La Paz Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Puente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "General Mackenna Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "F",
+      "name": "Acceso F",
+      "description": "General Mackenna Poniente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "2CO3PISR",
+      "from": "Conexión L2 L3",
+      "to": "Servicios Línea 2",
+      "fullPath": "Conexión L2 L3→Andén Hospital el Pino→Servicios Línea 2",
+      "segments": [
+        "Conexión L2 L3",
+        "Andén Hospital el Pino",
+        "Servicios Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "2CO3AVSR",
+      "from": "Conexión L2 L3",
+      "to": "Servicios Línea 2",
+      "fullPath": "Conexión L2 L3→Andén Vespucio Norte→Servicios Línea 2",
+      "segments": [
+        "Conexión L2 L3",
+        "Andén Vespucio Norte",
+        "Servicios Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "EXD",
+      "from": "Boletería Línea 2",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería Línea 2→Exterior Acceso D",
+      "segments": [
+        "Boletería Línea 2",
+        "Exterior Acceso D"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "FCVCA3",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "PQUCA32CO3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Conexión L2 L3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3→Conexión L2 L3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3",
+        "Conexión L2 L3"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "BL01EXD",
+      "from": "Boletería",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería→Exterior Acceso D",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso D"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "BL02EXD",
+      "from": "Boletería",
+      "to": "Exterior Acceso D",
+      "fullPath": "Boletería→Exterior Acceso D",
+      "segments": [
+        "Boletería",
+        "Exterior Acceso D"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "SR3CO2",
+      "from": "Servicios Línea 3",
+      "to": "Conexión Líneas 2 3",
+      "fullPath": "Servicios Línea 3→Conexión Líneas 2 3",
+      "segments": [
+        "Servicios Línea 3",
+        "Conexión Líneas 2 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "CO3AV10",
+      "from": "Combinación a Línea 3",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Combinación a Línea 3→Andén Vespucio Norte",
+      "segments": [
+        "Combinación a Línea 3",
+        "Andén Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "2CO311",
+      "from": "Combinación a Línea 2",
+      "to": "Combinación a Línea 3",
+      "fullPath": "Combinación a Línea 2→Combinación a Línea 3",
+      "segments": [
+        "Combinación a Línea 2",
+        "Combinación a Línea 3"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-23T12:40:07.020Z",
+      "notes": "",
+      "id": "2CO312",
+      "from": "Combinación a Línea 2",
+      "to": "Combinación a Línea 3",
+      "fullPath": "Combinación a Línea 2→Combinación a Línea 3",
+      "segments": [
+        "Combinación a Línea 2",
+        "Combinación a Línea 3"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-12T17:14:21.184Z",
+      "notes": "",
+      "id": "3CO215",
+      "from": "Combinación a Línea 3",
+      "to": "Combinación a Línea 2",
+      "fullPath": "Combinación a Línea 3→Combinación a Línea 2",
+      "segments": [
+        "Combinación a Línea 3",
+        "Combinación a Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:19:56.281Z",
+      "notes": "",
+      "id": "3CO216",
+      "from": "Combinación a Línea 3",
+      "to": "Combinación a Línea 2",
+      "fullPath": "Combinación a Línea 3→Combinación a Línea 2",
+      "segments": [
+        "Combinación a Línea 3",
+        "Combinación a Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "2CO3SR3",
+      "from": "Combinación Líneas 2 3",
+      "to": "Servicios",
+      "fullPath": "Combinación Líneas 2 3→Servicios",
+      "segments": [
+        "Combinación Líneas 2 3",
+        "Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "CAFCV",
+      "from": "Cambio de Andén",
+      "to": "Andén Fernando Castillo Velasco",
+      "fullPath": "Cambio de Andén→Andén Fernando Castillo Velasco",
+      "segments": [
+        "Cambio de Andén",
+        "Andén Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-27T16:06:49.305Z",
+      "notes": "",
+      "id": "CO3AV09",
+      "from": "Combinación Línea 3",
+      "to": "Andén Vespucio Norte",
+      "fullPath": "Combinación Línea 3→Andén Vespucio Norte",
+      "segments": [
+        "Combinación Línea 3",
+        "Andén Vespucio Norte"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-28T11:19:56.281Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-27T16:06:56.449Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-27T16:07:43.138Z",
+      "user": "metromanrrss",
+      "action": "Editado 3CO216",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-27T16:19:35.472Z",
+      "user": "metromanrrss",
+      "action": "Editado B",
+      "details": "status cambiado de \"abierto\" a \"cerrado\""
+    },
+    {
+      "timestamp": "2025-04-28T11:19:56.281Z",
+      "user": "metromanrrss",
+      "action": "Editado 3CO216",
+      "details": "status cambiado de \"fuera de servicio\" a \"operativa\""
+    },
+    {
+      "timestamp": "2025-06-12T17:14:21.184Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO215 a fuera de servicio",
+      "details": "Updated: 3CO215"
+    },
+    {
+      "timestamp": "2025-06-23T12:40:07.020Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 2CO312 a fuera de servicio",
+      "details": "Updated: 2CO312"
+    }
+  ]
+}

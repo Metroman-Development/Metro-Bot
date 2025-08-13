@@ -1,0 +1,112 @@
+{
+  "station": "San Pablo",
+  "line": "l1",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:00:24.132Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. San Pablo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:00:24.132Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Neptuno"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:00:24.132Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Av. Neptuno Oriente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T14:00:24.132Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Av. Neptuno Poniente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-11T13:45:48.917Z",
+      "notes": "",
+      "id": "LD",
+      "from": " Andén Los Dominicos",
+      "to": "Boletería",
+      "fullPath": " Andén Los Dominicos→Boletería",
+      "segments": [
+        " Andén Los Dominicos",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:46:23.336Z",
+      "notes": "",
+      "id": "SP",
+      "from": " Andén San Pablo",
+      "to": "Boletería",
+      "fullPath": " Andén San Pablo→Boletería",
+      "segments": [
+        " Andén San Pablo",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-05-29T13:46:46.895Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-05-28T14:00:27.653Z",
+      "user": "metromanrrss",
+      "action": "initial_config",
+      "details": "Configuración inicial"
+    },
+    {
+      "timestamp": "2025-05-29T13:46:46.895Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated LD"
+    },
+    {
+      "timestamp": "2025-06-11T13:45:48.917Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor LD a operativa",
+      "details": "Updated: LD"
+    },
+    {
+      "timestamp": "2025-06-13T09:06:10.348Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SP a fuera de servicio",
+      "details": "Updated: SP"
+    },
+    {
+      "timestamp": "2025-06-14T13:23:45.319Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SP a operativa",
+      "details": "Updated: SP"
+    },
+    {
+      "timestamp": "2025-06-17T09:08:46.389Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SP a fuera de servicio",
+      "details": "Updated: SP"
+    },
+    {
+      "timestamp": "2025-06-21T12:46:23.336Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor SP a operativa",
+      "details": "Updated: SP"
+    }
+  ]
+}

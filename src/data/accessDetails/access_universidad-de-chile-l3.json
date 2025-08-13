@@ -1,0 +1,513 @@
+{
+  "station": "Universidad de Chile",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Paseo Nueva York"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Paseo Ahumada"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Paseo Estado"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Serrano"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Arturo Prat"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "FCVCA3",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "PQUCA3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Cambio de Andén Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Cambio de Andén Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Cambio de Andén Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-27T10:43:22.726Z",
+      "notes": "",
+      "id": "1CO3SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:13:26.875Z",
+      "notes": "",
+      "id": "1CO3LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T12:00:03.688Z",
+      "notes": "",
+      "id": "SREXA",
+      "from": "Servicios Línea 3",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios Línea 3→Exterior Acceso A",
+      "segments": [
+        "Servicios Línea 3",
+        "Exterior Acceso A"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SR301EXB",
+      "from": "Servicios Línea 3",
+      "to": "Acceso B",
+      "fullPath": "Servicios Línea 3→Acceso B",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SR302EXB",
+      "from": "Servicios Línea 3",
+      "to": "Acceso B",
+      "fullPath": "Servicios Línea 3→Acceso B",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso B"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "EXB03SR3",
+      "from": "Acceso B",
+      "to": "Servicios Línea 3",
+      "fullPath": "Acceso B→Servicios Línea 3",
+      "segments": [
+        "Acceso B",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-06-28T12:06:54.606Z",
+      "notes": "",
+      "id": "EXB04SR3",
+      "from": "Acceso B",
+      "to": "Servicios Línea 3",
+      "fullPath": "Acceso B→Servicios Línea 3",
+      "segments": [
+        "Acceso B",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "3CO105SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "3CO106SP",
+      "from": "Combinación a Línea 1",
+      "to": "Andén San Pablo",
+      "fullPath": "Combinación a Línea 1→Andén San Pablo",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SP073CO1",
+      "from": "Andén San Pablo",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Andén San Pablo→Combinación a Línea 1",
+      "segments": [
+        "Andén San Pablo",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SP083CO1",
+      "from": "Andén San Pablo",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Andén San Pablo→Combinación a Línea 1",
+      "segments": [
+        "Andén San Pablo",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SP09SR1",
+      "from": "Andén San Pablo",
+      "to": "Servicios Línea 1",
+      "fullPath": "Andén San Pablo→Servicios Línea 1",
+      "segments": [
+        "Andén San Pablo",
+        "Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SP10SR1",
+      "from": "Andén San Pablo",
+      "to": "Servicios Línea 1",
+      "fullPath": "Andén San Pablo→Servicios Línea 1",
+      "segments": [
+        "Andén San Pablo",
+        "Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "SP11SR1",
+      "from": "Andén San Pablo",
+      "to": "Servicios Línea 1",
+      "fullPath": "Andén San Pablo→Servicios Línea 1",
+      "segments": [
+        "Andén San Pablo",
+        "Servicios Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "3CO112LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "3CO113LD",
+      "from": "Combinación a Línea 1",
+      "to": "Andén Los Dominicos",
+      "fullPath": "Combinación a Línea 1→Andén Los Dominicos",
+      "segments": [
+        "Combinación a Línea 1",
+        "Andén Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "LD143CO1",
+      "from": "Andén Los Dominicos",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Andén Los Dominicos→Combinación a Línea 1",
+      "segments": [
+        "Andén Los Dominicos",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.401Z",
+      "notes": "",
+      "id": "LD153CO1",
+      "from": "Andén Los Dominicos",
+      "to": "Combinación a Línea 1",
+      "fullPath": "Andén Los Dominicos→Combinación a Línea 1",
+      "segments": [
+        "Andén Los Dominicos",
+        "Combinación a Línea 1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-28T12:06:48.402Z",
+      "notes": "",
+      "id": "LDSR1",
+      "from": "Andén Los Dominicos",
+      "to": "Servicios Línea 1",
+      "fullPath": "Andén Los Dominicos→Servicios Línea 1",
+      "segments": [
+        "Andén Los Dominicos",
+        "Servicios Línea 1"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-04-28T12:11:04.707Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T12:00:39.026Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T12:11:04.707Z",
+      "user": "metromanrrss",
+      "action": "Editado EXB04SR3",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-06-09T10:39:26.205Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a operativa",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-12T17:14:00.883Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a fuera de servicio",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-13T09:02:45.472Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP09SR1 a fuera de servicio",
+      "details": "Updated: SP09SR1"
+    },
+    {
+      "timestamp": "2025-06-13T15:10:00.883Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP09SR1 a operativa",
+      "details": "Updated: SP09SR1"
+    },
+    {
+      "timestamp": "2025-06-14T13:36:24.545Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP083CO1 a fuera de servicio",
+      "details": "Updated: SP083CO1"
+    },
+    {
+      "timestamp": "2025-06-15T20:14:02.319Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP11SR1 a fuera de servicio",
+      "details": "Updated: SP11SR1"
+    },
+    {
+      "timestamp": "2025-06-15T20:14:12.078Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP083CO1 a operativa",
+      "details": "Updated: SP083CO1"
+    },
+    {
+      "timestamp": "2025-06-15T20:14:23.109Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a operativa",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-16T17:14:13.677Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a fuera de servicio",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-16T17:14:22.682Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP09SR1 a fuera de servicio",
+      "details": "Updated: SP09SR1"
+    },
+    {
+      "timestamp": "2025-06-17T13:41:39.450Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: SR301EXB, SR302EXB, EXB03SR3, EXB04SR3, 3CO105SP, 3CO106SP, SP073CO1, SP083CO1, SP09SR1, SP10SR1, SP11SR1, 3CO112LD, 3CO113LD, LD143CO1, LD153CO1, LDSR1"
+    },
+    {
+      "timestamp": "2025-06-17T13:56:35.225Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO112LD a fuera de servicio",
+      "details": "Updated: 3CO112LD"
+    },
+    {
+      "timestamp": "2025-06-17T13:56:43.311Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a fuera de servicio",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-17T13:56:48.502Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a fuera de servicio",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-19T08:16:57.985Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a operativa",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-19T08:17:04.461Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a operativa",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-21T12:31:06.035Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO112LD a operativa",
+      "details": "Updated: 3CO112LD"
+    },
+    {
+      "timestamp": "2025-06-21T12:38:02.152Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SR302EXB a fuera de servicio",
+      "details": "Updated: SR302EXB"
+    },
+    {
+      "timestamp": "2025-06-21T13:30:15.660Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO3SP a fuera de servicio",
+      "details": "Updated: 1CO3SP"
+    },
+    {
+      "timestamp": "2025-06-23T12:33:39.596Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a fuera de servicio",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-23T12:39:20.010Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SR302EXB a operativa",
+      "details": "Updated: SR302EXB"
+    },
+    {
+      "timestamp": "2025-06-23T12:39:34.360Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB03SR3 a fuera de servicio",
+      "details": "Updated: EXB03SR3"
+    },
+    {
+      "timestamp": "2025-06-23T12:39:43.250Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a operativa",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-26T08:39:54.010Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SP11SR1 a fuera de servicio",
+      "details": "Updated: SP11SR1"
+    },
+    {
+      "timestamp": "2025-06-27T10:43:22.726Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO3SP a operativa",
+      "details": "Updated: 1CO3SP"
+    },
+    {
+      "timestamp": "2025-06-27T10:43:27.311Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO3LD a fuera de servicio",
+      "details": "Updated: 1CO3LD"
+    },
+    {
+      "timestamp": "2025-06-28T12:06:48.402Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los escaleras a operativa",
+      "details": "Updated: SR301EXB, SR302EXB, EXB03SR3, EXB04SR3, 3CO105SP, 3CO106SP, SP073CO1, SP083CO1, SP09SR1, SP10SR1, SP11SR1, 3CO112LD, 3CO113LD, LD143CO1, LD153CO1, LDSR1"
+    },
+    {
+      "timestamp": "2025-06-28T12:06:54.606Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera EXB04SR3 a fuera de servicio",
+      "details": "Updated: EXB04SR3"
+    },
+    {
+      "timestamp": "2025-06-28T12:13:26.875Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado ascensor 1CO3LD a operativa",
+      "details": "Updated: 1CO3LD"
+    }
+  ],
+  "changelistory": []
+}

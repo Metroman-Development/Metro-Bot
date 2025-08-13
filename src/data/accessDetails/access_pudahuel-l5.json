@@ -1,0 +1,444 @@
+{
+  "station": "Pudahuel",
+  "line": "l5",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:54:32.376Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. San Pablo Norte"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-28T13:54:32.376Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. San Pablo Sur"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "4968e3",
+      "from": "Ascensor Boletería",
+      "to": "Cambio de én",
+      "fullPath": "Ascensor Boletería hacia Cambio de andén",
+      "segments": [
+        "Ascensor Boletería",
+        "Cambio de én"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "50ce59",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "966992",
+      "from": "Ascensor Cambio de andén",
+      "to": "én dirección Vicente Valdés",
+      "fullPath": "Ascensor Cambio de andén hacia Andén dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Cambio de andén",
+        "én dirección Vicente Valdés"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "0320b3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú",
+      "fullPath": "Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú"
+      ]
+    },
+    {
+      "id": "060bbe",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T00:40:53.515Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "2737f3",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+      ]
+    },
+    {
+      "id": "52c92a",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T00:40:53.515Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "6df91d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.710Z",
+      "notes": "",
+      "id": "c69091",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén",
+      "fullPath": "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-05T00:40:53.515Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-05T00:40:53.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PU-52c92a de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.515Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PU-060bbe de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PU-060bbe de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.920Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PU-52c92a de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-c69091 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PU-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-6df91d - Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-52c92a - Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PU-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PU-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-060bbe - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.710Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PU-0320b3 - Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.742Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PU-c69091 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-24T13:20:14.501Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PU-c69091 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T13:20:50.762Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PU-0320b3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.657Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PU-0320b3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-c69091 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-6df91d - Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-52c92a - Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-060bbe - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-0320b3 - Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-c69091 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-6df91d - Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-52c92a - Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-060bbe - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.029Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-0320b3 - Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-c69091 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-6df91d - Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-52c92a - Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-2737f3 - Escalera mecánica desde Nivel Intermedio -1 hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-060bbe - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -1"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.026Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-0320b3 - Escalera mecánica 01 desde Boletería hacia Cambio de andén Vicente Valdés y Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.756Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-c69091 - Escalera mecánica desde Nivel Intermedio -2 hacia Nivel Intermedio -3 cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-966992 - Ascensor Cambio de andén hacia Andén dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-6df91d - Escalera mecánica desde Nivel Intermedio -1 hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PU-52c92a - Escalera mecánica desde Nivel Intermedio -3 cambio de andén hacia Nivel Intermedio -2"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-50ce59 - Ascensor Cambio de andén hacia Andén dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.755Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PU-4968e3 - Ascensor Boletería hacia Cambio de andén"
+    }
+  ]
+}

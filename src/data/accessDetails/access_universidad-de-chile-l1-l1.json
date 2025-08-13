@@ -1,0 +1,756 @@
+{
+  "station": "universidad de chile l1",
+  "line": "l1",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.151Z",
+      "notes": "",
+      "id": "07a05b",
+      "from": "Varios puntos",
+      "to": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat",
+      "fullPath": "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "60d634",
+      "from": "Ascensor Boletería Línea 1",
+      "to": "én Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Ascensor Boletería Línea 1",
+        "én Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "eba3d6",
+      "from": "Ascensor Boletería Línea 1",
+      "to": "én Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Ascensor Boletería Línea 1",
+        "én Línea 1 dirección Los Dominicos"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "044938",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería",
+      "fullPath": "Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+      ]
+    },
+    {
+      "id": "14a045",
+      "status": "operativa",
+      "lastUpdated": "2025-08-06T13:20:15.975Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería",
+      "fullPath": "Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "3f9ffe",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "4c3e0d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería",
+      "fullPath": "Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "852d2b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería",
+      "fullPath": "Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "88c017",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "d36369",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.897Z",
+      "notes": "",
+      "id": "f249a9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Acceso E Arturo Prat",
+      "fullPath": "Escalera mecánica desde Boletería hacia Acceso E Arturo Prat",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-06T13:20:15.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CH-14a045 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CH-14a045 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.151Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-07a05b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-07a05b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CH-d36369 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-07a05b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-07a05b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-eba3d6 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-eba3d6 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    }
+  ],
+  "lastUpdated": "2025-08-06T13:20:15.975Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-06T13:20:15.975Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: CH-14a045 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.628Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CH-14a045 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.151Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-07a05b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.481Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-07a05b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.482Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: CH-d36369 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.235Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-07a05b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:34.143Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-07a05b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.738Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: CH-eba3d6 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-13T13:20:38.500Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: CH-eba3d6 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.335Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-14a045 - Escalera mecánica 02 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-07a05b - Ascensor de acceso ubicado en Av. Alameda Libertador Bernardo O´Higgins (vereda sur) con Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.848Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-044938 - Escalera mecánica 04 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-f249a9 - Escalera mecánica desde Boletería hacia Acceso E Arturo Prat"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-eba3d6 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-d36369 - Escalera mecánica desde Boletería hacia Acceso D Paseo Serrano"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-88c017 - Escalera mecánica desde Boletería hacia Acceso C Paseo Estado"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-852d2b - Escalera mecánica 01 desde Andén dirección Los Dominicos hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: CH-60d634 - Ascensor Boletería Línea 1 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-4c3e0d - Escalera mecánica 03 desde Andén dirección San Pablo hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:33.334Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: CH-3f9ffe - Escalera mecánica desde Boletería hacia Acceso A Paseo Nueva York"
+    }
+  ]
+}

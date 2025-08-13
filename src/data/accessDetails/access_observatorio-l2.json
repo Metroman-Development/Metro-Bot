@@ -1,0 +1,437 @@
+{
+  "station": "observatorio",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T19:08:45.698Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. Observatorio"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.030Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    },
+    {
+      "id": "f269fa",
+      "status": "operativa",
+      "lastUpdated": "2025-08-02T00:40:11.030Z",
+      "from": "Ascensor de acceso ubicado en Av. Observa",
+      "to": "rio",
+      "fullPath": "Ascensor de acceso ubicado en Av. Observatorio hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Observa",
+        "rio"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "528057",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde Servicios hacia segundo Descanso",
+      "fullPath": "Escalera mécanica desde Servicios hacia segundo Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde Servicios hacia segundo Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "54a916",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde segundo Descanso hacia primer Descanso",
+      "fullPath": "Escalera mécanica desde segundo Descanso hacia primer Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde segundo Descanso hacia primer Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "5f3d48",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde primer Descanso hacia segundo Descanso",
+      "fullPath": "Escalera mécanica desde primer Descanso hacia segundo Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde primer Descanso hacia segundo Descanso"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "8ea168",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde segundo Descanso hacia Servicios",
+      "fullPath": "Escalera mécanica desde segundo Descanso hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde segundo Descanso hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "a9a7ca",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio",
+      "fullPath": "Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.031Z",
+      "notes": "",
+      "id": "e2c5c3",
+      "from": "Varios puntos",
+      "to": "Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso",
+      "fullPath": "Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso",
+      "segments": [
+        "Varios puntos",
+        "Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-02T00:40:11.030Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-02T00:40:11.030Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: OB-f269fa de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.328Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: OB-f269fa de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: OB-f269fa - Ascensor de acceso ubicado en Av. Observatorio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-e2c5c3 - Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-a9a7ca - Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: OB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-8ea168 - Escalera mécanica desde segundo Descanso hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-5f3d48 - Escalera mécanica desde primer Descanso hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-54a916 - Escalera mécanica desde segundo Descanso hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: OB-528057 - Escalera mécanica desde Servicios hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.031Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: OB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.512Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: OB-e2c5c3 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-26T00:40:24.427Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: OB-e2c5c3 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: OB-a9a7ca de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-25T00:40:16.292Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: OB-a9a7ca de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-f269fa - Ascensor de acceso ubicado en Av. Observatorio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-e2c5c3 - Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-a9a7ca - Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-8ea168 - Escalera mécanica desde segundo Descanso hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-5f3d48 - Escalera mécanica desde primer Descanso hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-54a916 - Escalera mécanica desde segundo Descanso hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-528057 - Escalera mécanica desde Servicios hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.008Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.519Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-f269fa - Ascensor de acceso ubicado en Av. Observatorio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-e2c5c3 - Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-a9a7ca - Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-8ea168 - Escalera mécanica desde segundo Descanso hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-5f3d48 - Escalera mécanica desde primer Descanso hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-54a916 - Escalera mécanica desde segundo Descanso hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-528057 - Escalera mécanica desde Servicios hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.517Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-f269fa - Ascensor de acceso ubicado en Av. Observatorio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-e2c5c3 - Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-a9a7ca - Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-8ea168 - Escalera mécanica desde segundo Descanso hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-5f3d48 - Escalera mécanica desde primer Descanso hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-54a916 - Escalera mécanica desde segundo Descanso hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-528057 - Escalera mécanica desde Servicios hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-f269fa - Ascensor de acceso ubicado en Av. Observatorio hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-e2c5c3 - Escalera mécanica desde Acceso A Avenida Observatorio hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-a9a7ca - Escalera mécanica desde primer Descanso hacia Acceso A Avenida Observatorio"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: OB-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-8ea168 - Escalera mécanica desde segundo Descanso hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-5f3d48 - Escalera mécanica desde primer Descanso hacia segundo Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-54a916 - Escalera mécanica desde segundo Descanso hacia primer Descanso"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: OB-528057 - Escalera mécanica desde Servicios hacia segundo Descanso"
+    }
+  ]
+}

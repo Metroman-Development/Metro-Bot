@@ -1,0 +1,782 @@
+{
+  "station": "puente cal y canto l3",
+  "line": "l3",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "043c83",
+      "from": "Ascensor Boletería Línea 2",
+      "to": "én Línea 2 dirección Plaza Quilicura / Intermedio",
+      "fullPath": "Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio",
+      "segments": [
+        "Ascensor Boletería Línea 2",
+        "én Línea 2 dirección Plaza Quilicura / Intermedio"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "509a8a",
+      "from": "Ascensor de acceso ubicado en Av. General Mackenna  Paseo Puente (a un costado del acceso) por Línea 2",
+      "to": "Boletería Línea 2",
+      "fullPath": "Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. General Mackenna  Paseo Puente (a un costado del acceso) por Línea 2",
+        "Boletería Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T13:20:48.465Z",
+      "notes": "",
+      "id": "919f31",
+      "from": "Ascensor Cambio de andén Línea 3",
+      "to": "én Línea 3 dirección Fernando Castillo Velasco",
+      "fullPath": "Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco",
+      "segments": [
+        "Ascensor Cambio de andén Línea 3",
+        "én Línea 3 dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T13:21:05.056Z",
+      "notes": "",
+      "id": "f742b4",
+      "from": "Ascensor Servicios Línea 3",
+      "to": "én Línea 2 dirección Fernando Castillo Velasco / Intermedio",
+      "fullPath": "Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio",
+      "segments": [
+        "Ascensor Servicios Línea 3",
+        "én Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "548850",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2",
+      "fullPath": "Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T00:40:23.373Z",
+      "notes": "",
+      "id": "62569d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "6568f9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3",
+      "fullPath": "Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "8a65ab",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2",
+      "fullPath": "Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "a13f06",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3",
+      "fullPath": "Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "a4e195",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios",
+      "fullPath": "Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "bf0a37",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+      ]
+    },
+    {
+      "id": "e3fa8d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-07T13:20:36.375Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.730Z",
+      "notes": "",
+      "id": "f697e2",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3",
+      "fullPath": "Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-e3fa8d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.374Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-e3fa8d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-62569d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-62569d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.056Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.527Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.623Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-a4e195 - Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-a13f06 - Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-8a65ab - Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-6568f9 - Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-62569d - Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-548850 - Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.474Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.570Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.513Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-043c83 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-62569d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-62569d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.981Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-043c83 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-a4e195 - Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-a13f06 - Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-8a65ab - Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-6568f9 - Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-62569d - Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-548850 - Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    }
+  ],
+  "lastUpdated": "2025-08-07T13:20:36.375Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-07T13:20:36.375Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-e3fa8d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.374Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-e3fa8d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.373Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-62569d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-06T13:20:15.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-62569d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-05T13:21:05.056Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-05T00:40:53.527Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.465Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.623Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-02T13:20:20.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-919f31 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-02T00:40:10.993Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-919f31 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.884Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-a4e195 - Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-a13f06 - Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-8a65ab - Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-6568f9 - Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-62569d - Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PCA-548850 - Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.730Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PCA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.474Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-f742b4 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T00:40:58.570Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-f742b4 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-21T13:20:45.513Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PCA-043c83 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.186Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: PCA-62569d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:37.096Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: PCA-62569d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.981Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PCA-043c83 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-a4e195 - Escalera mecánica desde Combinación Línea 2 - Línea 3 hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-a13f06 - Escalera mecánica 11 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-919f31 - Ascensor Cambio de andén Línea 3 hacia Andén Línea 3 dirección Fernando Castillo Velasco"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-8a65ab - Escalera mecánica 16 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-6568f9 - Escalera mecánica 12 desde Combinación Línea 2 hacia Combinación Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-62569d - Escalera mecánica 09 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-548850 - Escalera mecánica 15 desde Combinación Línea 3 hacia Combinación Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-509a8a - Ascensor de acceso ubicado en Av. General Mackenna con Paseo Puente (a un costado del acceso) por Línea 2 hacia Boletería Línea 2"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.875Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-043c83 - Ascensor Boletería Línea 2 hacia Andén Línea 2 dirección Plaza Quilicura / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PCA-f742b4 - Ascensor Servicios Línea 3 hacia Andén Línea 2 dirección Fernando Castillo Velasco / Intermedio"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-f697e2 - Escalera mecánica desde Servicios hacia Combinación Línea 2 - Línea 3"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-e3fa8d - Escalera mecánica 10 desde Combinación Línea 3 hacia andén Línea 2 dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.453Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PCA-bf0a37 - Escalera mecánica desde Cambio de andén hacia Andén dirección Fernando Castillo Velasco"
+    }
+  ]
+}

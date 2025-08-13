@@ -1,0 +1,707 @@
+{
+  "station": "Santa Julia",
+  "line": "l4a",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:59:00.683Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Américo Vespucio Poniente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:59:00.683Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Américo Vespucio Oriente"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.881Z",
+      "notes": "",
+      "id": "6de219",
+      "from": "Ascensor Boletería",
+      "to": "én dirección La Cisterna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección La Cisterna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección La Cisterna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-01T13:21:04.300Z",
+      "notes": "",
+      "id": "839fa5",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente)  Santa Julia",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente)  Santa Julia",
+        "Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.881Z",
+      "notes": "",
+      "id": "c795f0",
+      "from": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Santa Julia",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente)  Santa Julia",
+        "Boletería"
+      ]
+    },
+    {
+      "id": "de34c2",
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-08-08T13:20:52.338Z",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vicuña Mackenna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.881Z",
+      "notes": "",
+      "id": "0eecb3",
+      "from": "Ascensor Boletería",
+      "to": "??n dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boletería hacia And??n dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boletería",
+        "??n dirección Vicuña Mackenna"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-23T00:40:58.223Z",
+      "notes": "",
+      "id": "560044",
+      "from": "Ascensor Boleter??a",
+      "to": "én dirección Vicuña Mackenna",
+      "fullPath": "Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna",
+      "segments": [
+        "Ascensor Boleter??a",
+        "én dirección Vicuña Mackenna"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-08T13:20:52.338Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-de34c2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.300Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJU-839fa5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-839fa5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJU-c795f0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.678Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-c795f0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.338Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-de34c2 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-01T13:21:04.300Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJU-839fa5 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-01T00:40:55.087Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-839fa5 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.881Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-23T00:40:58.223Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-14T13:20:44.829Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJU-c795f0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-14T00:40:44.678Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJU-c795f0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.305Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.131Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.245Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.244Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:32.897Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-c795f0 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda oriente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-839fa5 - Ascensor de acceso ubicado en Av. Américo Vespucio (vereda poniente) con Santa Julia hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:32.946Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-6de219 - Ascensor Boletería hacia Andén dirección La Cisterna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-560044 - Ascensor Boleter??a hacia Andén dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-0eecb3 - Ascensor Boletería hacia And??n dirección Vicuña Mackenna"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.225Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJU-de34c2 - Ascensor Boletería hacia Andén dirección Vicuña Mackenna"
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "station": "plaza de armas",
+  "line": "l3",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Paseo Puente"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "21 de Mayo"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "C",
+      "name": "Acceso C",
+      "description": "Paseo Estado"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "D",
+      "name": "Acceso D",
+      "description": "Paseo Ahumada"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "E",
+      "name": "Acceso E",
+      "description": "Bandera / Catedral"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:30:43.265Z",
+      "notes": "",
+      "id": "FCVSR3",
+      "from": "Andén Fernando Castillo Velasco",
+      "to": "Servicios Línea 3",
+      "fullPath": "Andén Fernando Castillo Velasco→Cambio de Andén Línea 3 / Combinación a Línea 5→Servicios Línea 3",
+      "segments": [
+        "Andén Fernando Castillo Velasco",
+        "Cambio de Andén Línea 3/ Combinación a Línea 5",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:30:43.265Z",
+      "notes": "",
+      "id": "PQUSR3",
+      "from": "Andén Plaza Quilicura",
+      "to": "Servicios Línea 3",
+      "fullPath": "Andén Plaza Quilicura→Servicios Línea 3",
+      "segments": [
+        "Andén Plaza Quilicura",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:30:43.265Z",
+      "notes": "",
+      "id": "3CO5PM",
+      "from": "Combinación a Línea 5",
+      "to": "Andén Plaza de Maipú",
+      "fullPath": "Combinación a Línea 5→Andén Plaza de Maipú",
+      "segments": [
+        "Combinación a Línea 5",
+        "Andén Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:30:43.265Z",
+      "notes": "",
+      "id": "3CO5VV",
+      "from": "Combinación a Línea 5",
+      "to": "Andén Vicente Valdés",
+      "fullPath": "Combinación a Línea 5→Andén Vicente Valdés",
+      "segments": [
+        "Combinación a Línea 5",
+        "Andén Vicente Valdés"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-21T12:30:43.265Z",
+      "notes": "",
+      "id": "SREXA",
+      "from": "Servicios Línea 3",
+      "to": "Exterior Acceso A",
+      "fullPath": "Servicios Línea 3→Exterior Acceso A",
+      "segments": [
+        "Servicios Línea 3",
+        "Exterior Acceso A"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "SR301EXE",
+      "from": "Servicios Línea 3",
+      "to": "Acceso E Bandera / Catedral",
+      "fullPath": "Servicios Línea 3→Acceso E Bandera / Catedral",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso E Bandera / Catedral"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "CA310SR3",
+      "from": "Cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Cambio de Andén→Servicios Línea 3",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "SR311CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén",
+      "fullPath": "Servicios Línea 3→Cambio de Andén",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-11T14:01:06.541Z",
+      "notes": "",
+      "id": "3CO513SR3",
+      "from": "Combinación a Línea 5",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 5→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 5",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-13T15:09:34.910Z",
+      "notes": "",
+      "id": "3CO514SR3",
+      "from": "Combinación a Línea 5",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 5→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 5",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "3CO515SR3",
+      "from": "Combinación a Línea 5",
+      "to": "Servicios Línea 3",
+      "fullPath": "Combinación a Línea 5→Servicios Línea 3",
+      "segments": [
+        "Combinación a Línea 5",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "SR316CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén",
+      "fullPath": "Servicios Línea 3→Cambio de Andén",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-06-09T17:48:25.956Z",
+      "notes": "",
+      "id": "SR317CA",
+      "from": "Servicios Línea 3",
+      "to": "Cambio de Andén",
+      "fullPath": "Servicios Línea 3→Cambio de Andén",
+      "segments": [
+        "Servicios Línea 3",
+        "Cambio de Andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "CA318SR3",
+      "from": "Cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Cambio de Andén→Servicios Línea 3",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "SR302EXE",
+      "from": "Servicios Línea 3",
+      "to": "Acceso E",
+      "fullPath": "Servicios Línea 3→Acceso E",
+      "segments": [
+        "Servicios Línea 3",
+        "Acceso E"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "EXE303SR3",
+      "from": "Acceso E",
+      "to": "Servicios Línea 3",
+      "fullPath": "Acceso E→Servicios Línea 3",
+      "segments": [
+        "Acceso E",
+        "Servicios Línea 3"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "N2N1EXE",
+      "from": "Nivel -2",
+      "to": "Acceso E Bandera / Catedral",
+      "fullPath": "Nivel -2→Nivel -1→Acceso E Bandera / Catedral",
+      "segments": [
+        "Nivel -2",
+        "Nivel -1",
+        "Acceso E Bandera / Catedral"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "N1N2SR3",
+      "from": "Nivel -1",
+      "to": "Nivel -2",
+      "fullPath": "Nivel -1→Nivel -2",
+      "segments": [
+        "Nivel -1",
+        "Nivel -2"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-04-28T11:38:12.267Z",
+      "notes": "",
+      "id": "CA309SR3",
+      "from": "Cambio de Andén",
+      "to": "Servicios Línea 3",
+      "fullPath": "Cambio de Andén→Servicios Línea 3",
+      "segments": [
+        "Cambio de Andén",
+        "Servicios Línea 3"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-28T11:47:41.213Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-04-28T11:39:09.794Z",
+      "user": "metromanrrss",
+      "action": "Configuración inicial",
+      "details": "Creación de archivo de accesibilidad"
+    },
+    {
+      "timestamp": "2025-04-28T11:47:42.893Z",
+      "user": "metromanrrss",
+      "action": "Editado 3CO5VV",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-04-28T11:48:55.719Z",
+      "user": "metromanrrss",
+      "action": "Editado 3CO514SR3",
+      "details": "status cambiado de \"operativa\" a \"fuera de servicio\""
+    },
+    {
+      "timestamp": "2025-05-28T11:46:04.178Z",
+      "user": "metromanrrss",
+      "action": "elevator_updated",
+      "details": "Updated 3CO5VV"
+    },
+    {
+      "timestamp": "2025-05-28T11:47:41.214Z",
+      "user": "metromanrrss",
+      "action": "escalator_updated",
+      "details": "Updated SR317CA"
+    },
+    {
+      "timestamp": "2025-06-09T17:47:56.577Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO513SR3 a fuera de servicio",
+      "details": "Updated: 3CO513SR3"
+    },
+    {
+      "timestamp": "2025-06-09T17:48:20.180Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO514SR3 a operativa",
+      "details": "Updated: 3CO514SR3"
+    },
+    {
+      "timestamp": "2025-06-09T17:48:25.956Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera SR317CA a operativa",
+      "details": "Updated: SR317CA"
+    },
+    {
+      "timestamp": "2025-06-11T14:01:06.541Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO513SR3 a operativa",
+      "details": "Updated: 3CO513SR3"
+    },
+    {
+      "timestamp": "2025-06-13T09:03:04.337Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO514SR3 a fuera de servicio",
+      "details": "Updated: 3CO514SR3"
+    },
+    {
+      "timestamp": "2025-06-13T15:09:34.910Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizado escalera 3CO514SR3 a operativa",
+      "details": "Updated: 3CO514SR3"
+    },
+    {
+      "timestamp": "2025-06-21T12:30:40.204Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a en mantención",
+      "details": "Updated: FCVSR3, PQUSR3, 3CO5PM, 3CO5VV, SREXA"
+    },
+    {
+      "timestamp": "2025-06-21T12:30:43.265Z",
+      "user": "MetroMan (6566554074)",
+      "action": "Actualizados todos los ascensors a operativa",
+      "details": "Updated: FCVSR3, PQUSR3, 3CO5PM, 3CO5VV, SREXA"
+    }
+  ],
+  "changelistory": []
+}

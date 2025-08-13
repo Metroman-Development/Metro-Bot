@@ -1,0 +1,358 @@
+{
+  "station": "san José de la estrella",
+  "line": "l4",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-05-02T11:13:51.712Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. San José de la Estrella"
+    }
+  ],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.934Z",
+      "notes": "",
+      "id": "0f404f",
+      "from": "Ascensor Boletería",
+      "to": "én dirección",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Tobalaba",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-31T13:20:49.877Z",
+      "notes": "",
+      "id": "3e91eb",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "id": "b0618b",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.343Z",
+      "from": "Ascensor de acceso ubicado en  Av. San José de la Estrella  Av. Vicuña Mackenna",
+      "to": "Boletería",
+      "fullPath": "Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en  Av. San José de la Estrella  Av. Vicuña Mackenna",
+        "Boletería"
+      ]
+    }
+  ],
+  "escalators": [],
+  "lastUpdated": "2025-08-08T13:20:52.343Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.343Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJE-b0618b de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.357Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJE-b0618b de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-31T13:20:49.877Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJE-3e91eb de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-31T00:40:41.283Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJE-3e91eb de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.934Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-20T13:20:37.138Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SJE-0f404f de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-20T00:40:36.994Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SJE-0f404f de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.385Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.226Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.226Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.226Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.361Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.361Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.361Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.813Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.813Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:32.813Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:33.005Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.326Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:31.857Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:31.878Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.142Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.142Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:36:33.142Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.887Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.887Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:35:24.886Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:33:19.023Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:32:18.922Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-0f404f - Ascensor Boletería hacia Andén dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.525Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-b0618b - Ascensor de acceso ubicado en  Av. San José de la Estrella con Av. Vicuña Mackenna hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:31:19.524Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SJE-3e91eb - Ascensor Boletería hacia Andén dirección Plaza de Puente Alto"
+    }
+  ]
+}

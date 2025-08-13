@@ -1,0 +1,989 @@
+{
+  "station": "tobalaba l4",
+  "line": "l4",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.371Z",
+      "notes": "",
+      "id": "01198b",
+      "from": "Varios puntos",
+      "to": "Ascensor de combinación Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor de combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.371Z",
+      "notes": "",
+      "id": "020c20",
+      "from": "Varios puntos",
+      "to": "Ascensor de combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor de combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Ascensor de combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "75dab6",
+      "from": "Ascensor de combinación Línea 1 y Línea 4",
+      "to": "Mercado Urbano  salida a Av. Encomenderos  Av. Apoquindo",
+      "fullPath": "Ascensor de combinación Línea 1 y Línea 4 hacia Mercado Urbano y salida a Av. Encomenderos y Av. Apoquindo",
+      "segments": [
+        "Ascensor de combinación Línea 1 y Línea 4",
+        "Mercado Urbano  salida a Av. Encomenderos  Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "9b4328",
+      "from": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+        "én Línea 4 dirección"
+      ]
+    },
+    {
+      "id": "c240bc",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.592Z",
+      "from": "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "e61333",
+      "from": "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+      "to": "én Línea 4 dirección",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección San Pablo",
+        "én Línea 4 dirección"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.376Z",
+      "notes": "",
+      "id": "e7a986",
+      "from": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+      "to": "én Línea 4 dirección Plaza de Puente Al",
+      "fullPath": "Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto",
+      "segments": [
+        "Ascensor Hall de combinación Línea 1 dirección Los Dominicos",
+        "én Línea 4 dirección Plaza de Puente Al"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.371Z",
+      "notes": "",
+      "id": "0f2ecf",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 22 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 22 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 22 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "14f276",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 14 desde Explanada hacia descanso Acceso F Av. Apoquindo",
+      "fullPath": "Escalera mecánica 14 desde Explanada hacia descanso Acceso F Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 14 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "183d47",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 19 desde Explanada hacia primer descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 19 desde Explanada hacia primer descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 19 desde Explanada hacia primer descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "1b5328",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 21 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 21 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 21 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "1e22d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 11 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 11 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 11 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "1f6005",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 12 desde andén dirección Tobalaba hacia Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 12 desde andén dirección Tobalaba hacia Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 12 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "1fa6b6",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 06 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "22c12d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación Los Dominicos hacia Boletería Línea 4",
+      "fullPath": "Escalera mecánica desde combinación Los Dominicos hacia Boletería Línea 4",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación Los Dominicos hacia Boletería Línea 4"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "3e1349",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso hacia Acceso B Av. Nueva Providencia",
+      "fullPath": "Escalera mecánica desde Acceso hacia Acceso B Av. Nueva Providencia",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso hacia Acceso B Av. Nueva Providencia"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "4447ff",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 23 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 23 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 23 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "524d25",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde combinación San Pablo hacia Boletería Línea 4",
+      "fullPath": "Escalera mecánica desde combinación San Pablo hacia Boletería Línea 4",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde combinación San Pablo hacia Boletería Línea 4"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "5af59e",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 13 desde andén dirección Tobalaba hacia Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 13 desde andén dirección Tobalaba hacia Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 13 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "626819",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 16 desde Descanso hacia salida F Av. Apoquindo",
+      "fullPath": "Escalera mecánica 16 desde Descanso hacia salida F Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 16 desde Descanso hacia salida F Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "62bb60",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 15 desde Explanada hacia descanso Acceso F Av. Apoquindo",
+      "fullPath": "Escalera mecánica 15 desde Explanada hacia descanso Acceso F Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 15 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "77a926",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 20 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 20 desde Explanada hacia segundo descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 20 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "7d1e50",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 17 desde Descanso hacia salida F Av. Apoquindo",
+      "fullPath": "Escalera mecánica 17 desde Descanso hacia salida F Av. Apoquindo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 17 desde Descanso hacia salida F Av. Apoquindo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "942f03",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Acceso hacia Acceso C Av. Tobalaba",
+      "fullPath": "Escalera mecánica desde Acceso hacia Acceso C Av. Tobalaba",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Acceso hacia Acceso C Av. Tobalaba"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "94b1d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo",
+      "fullPath": "Escalera mecánica 07 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.372Z",
+      "notes": "",
+      "id": "de33f4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos",
+      "fullPath": "Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.376Z",
+      "notes": "",
+      "id": "f0c727",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "id": "f4076d",
+      "status": "operativa",
+      "lastUpdated": "2025-08-09T13:20:13.592Z",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:43.376Z",
+      "notes": "",
+      "id": "f94aea",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-f4076d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TOB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-f4076d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.368Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TOB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f94aea - Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f4076d - Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f0c727 - Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-de33f4 - Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-94b1d0 - Escalera mecánica 07 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-942f03 - Escalera mecánica desde Acceso hacia Acceso C Av. Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-7d1e50 - Escalera mecánica 17 desde Descanso hacia salida F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-77a926 - Escalera mecánica 20 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-75dab6 - Ascensor de combinación Línea 1 y Línea 4 hacia Mercado Urbano y salida a Av. Encomenderos y Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-62bb60 - Escalera mecánica 15 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-626819 - Escalera mecánica 16 desde Descanso hacia salida F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-5af59e - Escalera mecánica 13 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-524d25 - Escalera mecánica desde combinación San Pablo hacia Boletería Línea 4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-4447ff - Escalera mecánica 23 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-3e1349 - Escalera mecánica desde Acceso hacia Acceso B Av. Nueva Providencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-22c12d - Escalera mecánica desde combinación Los Dominicos hacia Boletería Línea 4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1fa6b6 - Escalera mecánica 06 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1f6005 - Escalera mecánica 12 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1e22d0 - Escalera mecánica 11 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1b5328 - Escalera mecánica 21 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-183d47 - Escalera mecánica 19 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-14f276 - Escalera mecánica 14 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-0f2ecf - Escalera mecánica 22 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-0f2ecf de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.443Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-0f2ecf de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.769Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-77a926 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-94b1d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-77a926 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-94b1d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TOB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-1fa6b6 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-1fa6b6 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TOB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f94aea - Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f4076d - Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f0c727 - Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-de33f4 - Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ],
+  "lastUpdated": "2025-08-09T13:20:13.592Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-09T13:20:13.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-f4076d de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T13:20:13.592Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TOB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-09T00:40:57.702Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-f4076d de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-07T13:20:36.368Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TOB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f94aea - Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f4076d - Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-f0c727 - Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.376Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-de33f4 - Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-9b4328 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-94b1d0 - Escalera mecánica 07 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-942f03 - Escalera mecánica desde Acceso hacia Acceso C Av. Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-7d1e50 - Escalera mecánica 17 desde Descanso hacia salida F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-77a926 - Escalera mecánica 20 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-75dab6 - Ascensor de combinación Línea 1 y Línea 4 hacia Mercado Urbano y salida a Av. Encomenderos y Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-62bb60 - Escalera mecánica 15 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-626819 - Escalera mecánica 16 desde Descanso hacia salida F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-5af59e - Escalera mecánica 13 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-524d25 - Escalera mecánica desde combinación San Pablo hacia Boletería Línea 4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-4447ff - Escalera mecánica 23 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-3e1349 - Escalera mecánica desde Acceso hacia Acceso B Av. Nueva Providencia"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-22c12d - Escalera mecánica desde combinación Los Dominicos hacia Boletería Línea 4"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1fa6b6 - Escalera mecánica 06 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1f6005 - Escalera mecánica 12 desde andén dirección Tobalaba hacia Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1e22d0 - Escalera mecánica 11 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-1b5328 - Escalera mecánica 21 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-183d47 - Escalera mecánica 19 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-14f276 - Escalera mecánica 14 desde Explanada hacia descanso Acceso F Av. Apoquindo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.372Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: TOB-0f2ecf - Escalera mecánica 22 desde Explanada hacia segundo descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-020c20 - Ascensor de combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:43.371Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: TOB-01198b - Ascensor de combinación Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T00:40:12.680Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-0f2ecf de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-29T13:21:04.443Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-0f2ecf de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-25T13:20:23.769Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-77a926 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-94b1d0 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.403Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-77a926 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.825Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-94b1d0 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-19T13:20:33.824Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: TOB-c240bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T13:20:59.129Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a operativa",
+      "details": "Cambio de estado: TOB-1fa6b6 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-17T00:40:57.645Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado escalera a fuera de servicio",
+      "details": "Cambio de estado: TOB-1fa6b6 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-15T00:40:50.395Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: TOB-c240bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f94aea - Escalera mecánica 09 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f4076d - Escalera mecánica 10 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-f0c727 - Escalera mecánica 08 desde Andén dirección Tobalaba hacia combinación Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-e7a986 - Ascensor Hall de combinación Línea 1 dirección Los Dominicos hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-e61333 - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Tobalaba"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: TOB-de33f4 - Escalera mecánica 18 desde Explanada hacia primer descanso Acceso E Encomenderos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.721Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: TOB-c240bc - Ascensor Hall de combinación Línea 1 dirección San Pablo hacia Andén Línea 4 dirección Plaza de Puente Alto"
+    }
+  ]
+}

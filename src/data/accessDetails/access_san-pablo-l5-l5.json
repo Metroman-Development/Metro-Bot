@@ -1,0 +1,769 @@
+{
+  "station": "san pablo l5",
+  "line": "l5",
+  "accesses": [],
+  "elevators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.694Z",
+      "notes": "",
+      "id": "22545f",
+      "from": "Ascensor Cambio de andén Línea 5",
+      "to": "én Línea 1 dirección San Pablo",
+      "fullPath": "Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo",
+      "segments": [
+        "Ascensor Cambio de andén Línea 5",
+        "én Línea 1 dirección San Pablo"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.694Z",
+      "notes": "",
+      "id": "580123",
+      "from": "Ascensor Cambio de andén Línea 5",
+      "to": "én Línea 1 dirección Los Dominicos",
+      "fullPath": "Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Ascensor Cambio de andén Línea 5",
+        "én Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "id": "6084c1",
+      "status": "operativa",
+      "lastUpdated": "2025-08-08T13:20:52.324Z",
+      "from": "Ascensor Cambio de andén Línea 5",
+      "to": "én Línea 5 dirección Plaza de Maipú",
+      "fullPath": "Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú",
+      "segments": [
+        "Ascensor Cambio de andén Línea 5",
+        "én Línea 5 dirección Plaza de Maipú"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-08-04T00:40:38.015Z",
+      "notes": "",
+      "id": "c795bc",
+      "from": "Ascensor Boletería Línea 5",
+      "to": "Cambio de én Línea 5",
+      "fullPath": "Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés",
+      "segments": [
+        "Ascensor Boletería Línea 5",
+        "Cambio de én Línea 5"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.694Z",
+      "notes": "",
+      "id": "0fd2d0",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "fullPath": "Escalera mecánica desde Servicios hacia Cambio de andén",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Servicios hacia Cambio de andén"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.694Z",
+      "notes": "",
+      "id": "12d929",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.694Z",
+      "notes": "",
+      "id": "5a9a86",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5",
+      "fullPath": "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+      ]
+    },
+    {
+      "status": "fuera de servicio",
+      "lastUpdated": "2025-07-30T10:20:42.695Z",
+      "notes": "",
+      "id": "b19517",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5",
+      "fullPath": "Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.695Z",
+      "notes": "",
+      "id": "beccf4",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Boletería",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Boletería"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.695Z",
+      "notes": "",
+      "id": "c37a9d",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos",
+      "fullPath": "Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.695Z",
+      "notes": "",
+      "id": "c9011b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "fullPath": "Escalera mecánica desde Cambio de andén hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Cambio de andén hacia Servicios"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:42.695Z",
+      "notes": "",
+      "id": "ec0a3b",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Servicios",
+      "fullPath": "Escalera mecánica desde Boletería hacia Servicios",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Servicios"
+      ]
+    }
+  ],
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SO-6084c1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.292Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SO-6084c1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SO-c795bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.506Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SO-c795bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    }
+  ],
+  "lastUpdated": "2025-08-08T13:20:52.324Z",
+  "changelistory": [
+    {
+      "timestamp": "2025-08-08T13:20:52.324Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SO-6084c1 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-07T00:40:23.292Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SO-6084c1 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-08-04T00:40:38.015Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: SO-c795bc de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-03T13:20:35.506Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: SO-c795bc de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.695Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:42.694Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.189Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:32.188Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-12d929 - Escalera mecánica 08 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.033Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-0fd2d0 - Escalera mecánica desde Servicios hacia Cambio de andén"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-ec0a3b - Escalera mecánica desde Boletería hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c9011b - Escalera mecánica desde Cambio de andén hacia Servicios"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-c795bc - Ascensor Boletería Línea 5 hacia Cambio de andén Línea 5 y hacia Andén Línea 5 dirección Vicente Valdés"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-c37a9d - Escalera mecánica 07 desde Combinación Línea 1 - Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-beccf4 - Escalera mecánica desde Cambio de andén hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-b19517 - Escalera mecánica 05 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-6084c1 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 5 dirección Plaza de Maipú"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: SO-5a9a86 - Escalera mecánica 06 desde Andén Línea 5 dirección Plaza de Maipú hacia Combinación Línea 1 - Línea 5"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-580123 - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección Los Dominicos"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.028Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: SO-22545f - Ascensor Cambio de andén Línea 5 hacia Andén Línea 1 dirección San Pablo"
+    }
+  ]
+}

@@ -1,0 +1,695 @@
+{
+  "station": "parque O'Higgins",
+  "line": "l2",
+  "accesses": [
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:02:23.636Z",
+      "notes": "",
+      "id": "A",
+      "name": "Acceso A",
+      "description": "Av. El Parque"
+    },
+    {
+      "status": "abierto",
+      "lastUpdated": "2025-04-26T17:02:23.636Z",
+      "notes": "",
+      "id": "B",
+      "name": "Acceso B",
+      "description": "Av. Manuel Antonio Matta"
+    }
+  ],
+  "elevators": [
+    {
+      "id": "294c93",
+      "status": "operativa",
+      "lastUpdated": "2025-08-05T00:40:53.528Z",
+      "from": "Ascensor de acceso ubicado en Av. Viel  Av. El Parque / Av. Manuel An",
+      "to": "nio Matta",
+      "fullPath": "Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería",
+      "segments": [
+        "Ascensor de acceso ubicado en Av. Viel  Av. El Parque / Av. Manuel An",
+        "nio Matta"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.251Z",
+      "notes": "",
+      "id": "426b57",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Vespucio Norte",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Vespucio Norte"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.251Z",
+      "notes": "",
+      "id": "9ff167",
+      "from": "Ascensor Boletería",
+      "to": "én dirección Hospital El Pino",
+      "fullPath": "Ascensor Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Ascensor Boletería",
+        "én dirección Hospital El Pino"
+      ]
+    }
+  ],
+  "escalators": [
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.251Z",
+      "notes": "",
+      "id": "a696e9",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+      ]
+    },
+    {
+      "status": "operativa",
+      "lastUpdated": "2025-07-30T10:20:44.251Z",
+      "notes": "",
+      "id": "e5d3fa",
+      "from": "Varios puntos",
+      "to": "Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte",
+      "fullPath": "Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte",
+      "segments": [
+        "Varios puntos",
+        "Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-08-05T00:40:53.528Z",
+  "changeHistory": [
+    {
+      "timestamp": "2025-08-05T00:40:53.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQ-294c93 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.529Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQ-294c93 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.456Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQ-294c93 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQ-294c93 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    }
+  ],
+  "changelistory": [
+    {
+      "timestamp": "2025-08-05T00:40:53.528Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQ-294c93 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-08-04T13:20:48.529Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQ-294c93 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "escalera eliminado",
+      "details": "Eliminado: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-30T10:20:44.251Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "ascensor eliminado",
+      "details": "Eliminado: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-23T13:21:03.456Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a operativa",
+      "details": "Cambio de estado: PQ-294c93 de fuera de servicio a operativo"
+    },
+    {
+      "timestamp": "2025-07-22T13:20:54.869Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Actualizado ascensor a fuera de servicio",
+      "details": "Cambio de estado: PQ-294c93 de operativo a fuera de servicio"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:45:33.094Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:44:32.616Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:43:32.997Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:42:33.640Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:41:33.299Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:40:34.230Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:39:32.798Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-a696e9 - Escalera mecánica desde Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-9ff167 - Ascensor Boletería hacia Andén dirección Hospital El Pino"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-426b57 - Ascensor Boletería hacia Andén dirección Vespucio Norte"
+    },
+    {
+      "timestamp": "2025-07-11T21:38:32.429Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo ascensor agregado",
+      "details": "Nuevo equipo: PQ-294c93 - Ascensor de acceso ubicado en Av. Viel con Av. El Parque / Av. Manuel Antonio Matta hacia Boletería"
+    },
+    {
+      "timestamp": "2025-07-11T21:37:32.397Z",
+      "user": "AccessibilityChangeDetector",
+      "action": "Nuevo escalera agregado",
+      "details": "Nuevo equipo: PQ-e5d3fa - Escalera mecánica desde Boletería hacia Andén dirección Vespucio Norte"
+    }
+  ]
+}
