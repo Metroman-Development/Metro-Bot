@@ -12,7 +12,7 @@ const styles = require('../../../config/styles.json');
 const TimeHelpers = require('../../chronos/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
 const statusConfig = require('../../../config/metro/statusConfig');
-const DatabaseManager = require('../../../database/DatabaseManager');
+const DatabaseManager = require('../../database/DatabaseManager');
 
 class StatusProcessor {
   constructor(metroCore) {
@@ -200,7 +200,7 @@ class StatusProcessor {
         const [mapping] = await db.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
         return mapping ? mapping.status_type_id : null;
     } catch(error) {
-        logger.error(\`Error getting status type id for code \${statusCode}\`, error);
+        logger.error(`Error getting status type id for code ${statusCode}`, error);
         return null;
     }
   }

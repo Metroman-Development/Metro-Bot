@@ -1,6 +1,6 @@
 // modules/status/EmbedManager.js
 const logger = require('../../../events/logger');
-const StatusEmbeds = require('../../../utils/embeds/statusEmbeds');
+const StatusEmbeds = require('../../../config/statusEmbeds');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');

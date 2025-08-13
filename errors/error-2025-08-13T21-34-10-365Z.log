@@ -1,0 +1,16 @@
+[2025-08-13T21-34-10-365Z] ERROR:
+Name: Error
+Message: [StatusProcessor] Processing failed
+Stack:
+Error: [StatusProcessor] Processing failed
+    at Object.error (/app/src/events/logger.js:154:27)
+    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:106:14)
+    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:579:36)
+    at ApiService._fallbackToCachedData (/app/src/core/metro/core/services/ApiService.js:1022:40)
+    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:221:13)
+    at async /app/src/core/metro/core/MetroCore.js:165:13
+    at async /app/src/index.js:181:23
+Metadata: {
+  "error": "Cannot read properties of undefined (reading 'year')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'year')\n    at StatusProcessor._generateVersion (/app/src/core/status/utils/StatusProcessor.js:667:11)\n    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:70:28)\n    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:579:36)\n    at ApiService._fallbackToCachedData (/app/src/core/metro/core/services/ApiService.js:1022:40)\n    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:221:13)\n    at async /app/src/core/metro/core/MetroCore.js:165:13\n    at async /app/src/index.js:181:23"
+}

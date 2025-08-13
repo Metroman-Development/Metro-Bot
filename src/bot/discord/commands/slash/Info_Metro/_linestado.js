@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const StatusEmbeds = require('../../../../../utils/embeds/statusEmbeds');
+const StatusEmbeds = require('../../../../../config/statusEmbeds');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
 
 module.exports = {
