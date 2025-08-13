@@ -1,11 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
-const StatusEmbeds = require('../../../../../utils/embeds/statusEmbeds');
+const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
+const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
 
-/**
- * @file Subcommand for the 'estacion' command, providing the operational status of a station.
- * @description This subcommand allows users to check the current operational status of a specific metro station.
- */
 module.exports = {
     parentCommand: 'estacion',
     data: (subcommand) => subcommand
@@ -17,11 +14,6 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    /**
-     * Handles autocomplete for the 'estacion' option.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
-     */
     async autocomplete(interaction, metro) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         
@@ -43,19 +35,13 @@ module.exports = {
         }
     },
 
-    /**
-     * Executes the 'estado' subcommand.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
-     */
     async execute(interaction, metro) {
         try {
             await interaction.deferReply();
 
             const stationId = interaction.options.getString('estacion');
-            const metroData = metro.api.getProcessedData();
-            
-            const station = Object.values(metroData.stations).find(s => s.id === stationId);
+            const infoProvider = new MetroInfoProvider(metro);
+            const station = infoProvider.getStationById(stationId);
 
             if (!station) {
                 return await interaction.editReply({ 
@@ -64,9 +50,9 @@ module.exports = {
                 });
             }
             
-            const statusEmbeds = new StatusEmbeds(metro);
-            const embed = statusEmbeds.buildStationEmbed(station);
-            await interaction.editReply({ embeds: [embed] });
+            const formatter = new DiscordMessageFormatter();
+            const message = formatter.formatStationStatus(station);
+            await interaction.editReply(message);
 
         } catch (error) {
             console.error('Error executing "estacion estado" command:', error);
