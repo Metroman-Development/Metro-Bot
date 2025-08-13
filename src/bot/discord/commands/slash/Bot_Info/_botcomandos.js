@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const ComandoButton = require('../../modules/interactions/buttons/ComandoButton');
+const ComandoButton = require('../../../../../events/interactions/buttons/ComandoButton');
 
 /**
  * @file Subcommand for the 'bot' command, providing a list of available commands.

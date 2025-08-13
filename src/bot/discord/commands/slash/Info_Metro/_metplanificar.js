@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
 const RoutePlanner = require('../../../../../core/metro/RoutePlanner');
 const routeButtonsHandler = require('../../../../../events/interactions/buttons/routeButtons');
-const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
 const { Collection } = require('discord.js');
 
 const cooldowns = new Collection();

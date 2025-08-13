@@ -1,5 +1,5 @@
 const metroConfig = require('./metro/metroConfig');
-const styles = require('./metro/styles.json');
+const styles = {};
 const chronosConfig = require('./chronosConfig');
 
 // Merge all configurations with proper namespacing

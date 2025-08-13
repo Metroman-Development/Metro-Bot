@@ -1,4 +1,4 @@
-const { createEmbed } = require('../../utils/embeds');
+const { createEmbed } = require('../updateembeds.js');
 
 async function handleRedo(message, userData) {
     if (!userData.redoCommand) {

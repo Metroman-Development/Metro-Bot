@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
-const styles = require('../../../../../config/metro/styles');
+const styles = { defaultTheme: { primaryColor: '#000000' } };
 
 module.exports = {
     parentCommand: 'metro',

@@ -1,4 +1,4 @@
-const { normalize } = require('../../modules/metro/utils/stringHandlers/normalization');
+const { normalize } = require('../utils/stringHandlers/normalization.js');
 
 module.exports = (stationsData) => {
   const indexes = {

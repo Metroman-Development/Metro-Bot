@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
-const { buildStationInfoReply } = require('../../src/events/interactions/buttons/stationInfoButton');
+const { buildStationInfoReply } = require('../../../../../events/interactions/buttons/stationInfoButton');
 
 /**
  * @file Subcommand for the 'estacion' command, providing general information about a station.

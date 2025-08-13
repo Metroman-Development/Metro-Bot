@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
-const styles = require('../../../../../config/metro/styles');
-const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const styles = { defaultTheme: { primaryColor: '#000000' } };
+const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
 
 module.exports = {
     parentCommand: 'metro',

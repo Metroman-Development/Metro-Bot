@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const metroConfig = require('../config/metroConfig');
-const styles = require('../config/styles.json');
+const metroConfig = require('../config/metro/metroConfig.js');
+const styles = {};
 const { decorateStation, normalize } = require('./stringUtils');
 
 // Utility functions
@@ -34,7 +34,7 @@ function resolveRouteCombination(selectedRoute, currentRoute) {
 }
 
 function getStationsByRoute(lineKey, route) {
-    const lineStations = require('../data/stations.json')[lineKey] || {};
+    const lineStations = {};
 
     if (route === 'todas') return Object.keys(lineStations);
 

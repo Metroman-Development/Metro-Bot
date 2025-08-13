@@ -1,5 +1,5 @@
 const { ButtonBuilder, ActionRowBuilder } = require('discord.js');
-const cacheManager = require('../../../utils/cacheManager');
+const cacheManager = require('../../../../utils/cacheManager.js');
 
 class BaseButton {
     constructor(config = {}) {

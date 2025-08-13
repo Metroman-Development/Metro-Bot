@@ -1,12 +1,12 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const TelegramBot = require('../../../../Telegram/bot');
+const TelegramBot = require('../../../../bot/discord/commands/slash/Bot_Info/bot.js');
 const { getClient } = require('../../../../utils/clientManager');
 const TimeHelpers = require('../../../chronos/timeHelpers');
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../config/metro/metroConfig');
-const loadJsonFile = require('../../../../src/utils/jsonLoader');
+const loadJsonFile = require('../../../../utils/jsonLoader.js');
 
 const API_URL = process.env.ACCESSARIEL; // Ensure this is set in your environment
 const STATE_FILE = path.join(__dirname, 'lastAccessState.json');

@@ -1,6 +1,6 @@
 const SearchHelper = require('./SearchHelper');
-const { DisambiguationHandler } = require('../../events/Discord/interactions/disambiguation/DisambiguationHandler');
-const logger = require('../../events/logger');
+const { DisambiguationHandler } = require('disambiguate/DisambiguationHandler.js');
+const logger = require('../../../events/logger.js');
 const { EmbedBuilder } = require('discord.js');
 const { 
   normalize: normalizeText,

@@ -1,5 +1,5 @@
 // Versión nueva (/buttons/transport/disambiguation.js)
-const { SelectionTemplate } = require('../../templates/selection');
+const { SelectionTemplate } = require('../../templates/buttons/selection.js');
 
 module.exports = SelectionTemplate.create({
     idPrefix: 'station_amb',

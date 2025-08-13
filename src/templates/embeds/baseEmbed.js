@@ -1,12 +1,12 @@
 // templates/embeds/baseEmbed.js
 // templates/embeds/baseEmbed.js
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { STATUS_CODES } = require('../../modules/status/config/statusConfig');
-const { lineProcessing, stationFormatting } = require('../../modules/metro/utils/stringHandlers');
+const { STATUS_CODES } = require('../../core/status/config/statusConfig');
+const { lineProcessing, stationFormatting } = require('../../core/metro/utils/stringHandlers');
 
 class BaseEmbed {
     constructor(metroCore = null) {
-        this.styles = require('../../config/metro/styles.json');
+        this.styles = { defaultTheme: { primaryColor: '#000000' } };
         this.metro = metroCore;
         this.statusConfig = STATUS_CODES;
         this.utils = {

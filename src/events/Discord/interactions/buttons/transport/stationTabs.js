@@ -1,5 +1,5 @@
 // buttons/transport/stationTabs.js
-const { TabsTemplate } = require('../../templates/tabs');
+const { TabsTemplate } = require('../../templates/buttons/tabs.js');
 const { createGeneralStationInfo, createStationSurroundings } = require('../../../config/defaultEmbeds/stationInfoEmbed');
 
 module.exports = TabsTemplate.create({

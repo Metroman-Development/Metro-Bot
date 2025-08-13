@@ -1,5 +1,5 @@
 // templates/embeds/MetroInfoEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class MetroInfoEmbed extends BaseEmbed {
     create() {

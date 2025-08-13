@@ -1,5 +1,5 @@
 // templates/embeds/RouteEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 const { decorateStation } = require('../../stringUtils');
 
 class RouteEmbed extends BaseEmbed {

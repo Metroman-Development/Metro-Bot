@@ -1,5 +1,5 @@
 // templates/embeds/ScheduleEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class ScheduleEmbed extends BaseEmbed {
     create(activeSchedule, horario) {

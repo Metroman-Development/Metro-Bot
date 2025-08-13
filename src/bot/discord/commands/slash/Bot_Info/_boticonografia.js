@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const metroConfig = require('../../config/metro/metroConfig');
+const metroConfig = require('../../../../../config/metro/metroConfig');
 
 /**
  * @file Subcommand for the 'bot' command, displaying system iconography.

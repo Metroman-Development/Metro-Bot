@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
-const baseline = require('../../../../data/cache/network-status.json')
+const baseline = {}
 
 class ChangeDetector {
     constructor() {

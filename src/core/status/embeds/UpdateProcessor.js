@@ -3,7 +3,7 @@ const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { performance } = require('perf_hooks');
 const timeUtils = require('../../chronos/timeHelpers');
-const TelegramBot = require('../../../Telegram/bot');
+const TelegramBot = require('../../../bot/discord/commands/slash/Bot_Info/bot.js');
 const ChangeAnnouncer = require('../ChangeAnnouncer');
 
 class UpdateProcessor {

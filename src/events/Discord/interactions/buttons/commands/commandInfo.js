@@ -3,7 +3,7 @@
 // This feature seems to be unfinished. Commenting out for now.
 /*
 const { EmbedBuilder } = require('discord.js');
-const { NavigationTemplate } = require('../../templates/navigation');
+const { NavigationTemplate } = require('../templates/navigation.js');
 
 module.exports = NavigationTemplate.create({
     idPrefix: 'cmd_info',

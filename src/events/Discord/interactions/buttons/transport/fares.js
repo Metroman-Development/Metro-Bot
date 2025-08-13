@@ -1,9 +1,9 @@
 // Versión nueva (/buttons/transport/fares.js)
 // handlers/buttons/fares.js
-const { ToggleTemplate } = require('../../templates/toggle');
-const FareEmbed = require('../../templates/embeds/FareEmbed');
-const BaseCommand = require('../../templates/baseCommand');
-const { getCache } = require('../../utils/cache');
+const { ToggleTemplate } = require('../../../../interactions/templates/toggle.js');
+const FareEmbed = require('../../../../../templates/embeds/FareEmbed.js');
+const BaseCommand = require('../../../../../templates/baseCommand.js');
+const { getCache } = require('../../../../../bot/discord/commands/prefix/cache.js');
 
 module.exports = ToggleTemplate.create({
     idPrefix: 'fare_type',

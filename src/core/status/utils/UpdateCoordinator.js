@@ -1,5 +1,5 @@
 const EventEmitter = require('events');
-const logger = require('../../events/logger');
+const logger = require('../../../events/logger.js');
 
 class UpdateCoordinator extends EventEmitter {
     constructor(changeDetector, statusUpdater) {

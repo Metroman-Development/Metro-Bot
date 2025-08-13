@@ -1,6 +1,6 @@
 // buttons/transport/routePlanner.js
-const { TabsTemplate } = require('../../templates/tabs');
-const { createRouteEmbed, createSummaryEmbed } = require('../../../config/defaultEmbeds/planificarEmbed');
+const { TabsTemplate } = require('../../templates/buttons/tabs.js');
+const { createRouteEmbed, createSummaryEmbed } = require('../../../../../templates/embeds/planificarEmbed.js');
 
 module.exports = TabsTemplate.create({
     idPrefix: 'route',

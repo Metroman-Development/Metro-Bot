@@ -1,5 +1,5 @@
 // Versión nueva (/selectMenus/helpCategories.js)
-const { FlexibleSelector } = require('../templates/selection');
+const { FlexibleSelector } = require('../templates/buttons/selection.js');
 
 module.exports = FlexibleSelector.create({
     idPrefix: 'help_cat',

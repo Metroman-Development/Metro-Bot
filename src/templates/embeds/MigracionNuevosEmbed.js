@@ -137,7 +137,7 @@ Para crear un embed desde cero:
 ## **📌 3. Integración con Comandos**
 ### **A. Uso Básico**
 ```javascript
-const HelpEmbed = require('../templates/embeds/HelpEmbed');
+const HelpEmbed = require('HelpEmbed.js');
 const helpEmbed = new HelpEmbed();
 
 // En un comando:
@@ -148,7 +148,7 @@ await interaction.reply(
 
 ### **B. Para Handlers de Botones**
 ```javascript
-const RouteEmbed = require('../templates/embeds/RouteEmbed');
+const RouteEmbed = require('RouteEmbed.js');
 const routeEmbed = new RouteEmbed();
 
 // En un interactionCreate:

@@ -1,9 +1,9 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { createEmbed } = require('../../utils/embeds');
-const { baseDir } = require('../../config/config.json');
-const { safeReadFile } = require('../../src/utils/fileUtils');
-const { confirmAction } = require('../../utils/utils');
+const { createEmbed } = require('../updateembeds.js');
+const { baseDir } = {};
+const { safeReadFile } = require('../../../../../utils/fileUtils.js');
+const { confirmAction } = require('../../../../../core/metro/core/utils.js');
 
 async function handleEdit(message, methods) {
     const [type, ...args] = methods;

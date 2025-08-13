@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const fareButtonsHandler = require('../../src/events/interactions/buttons/fareButtons');
-const FareEmbed = require('../../../templates/embeds/FareEmbed');
-const timeUtils = require('../../../utils/timeUtils');
+const fareButtonsHandler = require('../../../../../events/interactions/buttons/fareButtons.js');
+const FareEmbed = require('../../../../../templates/embeds/FareEmbed.js');
+const timeUtils = require('../../../../../utils/timeUtils.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {

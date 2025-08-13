@@ -1,6 +1,6 @@
 // intermodalLoader.js
 const path = require('path');
-const loadJsonFile = require('../../../../src/utils/jsonLoader');
+const loadJsonFile = require('../../../../utils/jsonLoader.js');
 
 module.exports = {
   source: 'intermodalInfo.json + intermodalBuses.json',

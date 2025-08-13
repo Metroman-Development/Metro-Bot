@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const DatabaseManager = require('../database/DatabaseManager');
-const logger = require('../events/logger');
+const logger = require('../../events/logger.js');
 const crypto = require('crypto');
 
 class BipCoinSystem {

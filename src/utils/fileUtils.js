@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { baseDir } = require('../config/config.json');
+const { baseDir } = { baseDir: '' };
 
 async function safeReadFile(filePath) {
     try {

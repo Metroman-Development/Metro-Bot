@@ -1,5 +1,5 @@
 // Versión nueva (/buttons/transport/intermodal.js)
-const { TabsTemplate } = require('../../templates/tabs');
+const { TabsTemplate } = require('../../templates/buttons/tabs.js');
 
 module.exports = TabsTemplate.create({
     idPrefix: 'intermodal',

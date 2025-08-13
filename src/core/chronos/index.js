@@ -1,5 +1,5 @@
 // modules/chronos/index.js
-const ScheduleManager = require('./ScheduleManager');
+const ScheduleManager = require('managers/ScheduleManager.js');
 
 // Initialize and export a configured instance
 const chronos = {

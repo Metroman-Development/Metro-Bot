@@ -3,7 +3,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const AmenitiesResultsManager = require('../../../../../events/interactions/buttons/AmenitiesResultsManager');
 const config = require('../../../../../config/metro/metroConfig');
-const styles = require('../../../../../config/metro/styles.json');
+const styles = { lineColors: {} };
 
 module.exports = {
     parentCommand: 'buscar',

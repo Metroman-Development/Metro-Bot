@@ -1,5 +1,5 @@
 // templates/tabs/IntermodalTabs.js
-const { TabsTemplate } = require('./tabs');
+const { TabsTemplate } = require('../../../events/Discord/interactions/templates/buttons/tabs.js');
 const { EmbedBuilder } = require('discord.js');
 
 class IntermodalTabs extends TabsTemplate {

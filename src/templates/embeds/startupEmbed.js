@@ -1,4 +1,4 @@
-const { STATUS_CODES } = require('../../modules/status/config/statusConfig');
+const { STATUS_CODES } = require('../../core/status/config/statusConfig');
 const moment = require('moment-timezone');
 
 module.exports = {

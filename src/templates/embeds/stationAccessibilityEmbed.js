@@ -1,7 +1,7 @@
 // templates/embeds/stationAccessibilityEmbed.js
 const { EmbedBuilder } = require('discord.js');
 const BaseEmbed = require('./baseEmbed');
-const styles = require('../../config/metro/styles.json' )
+const styles = { lineColors: {} };
 const config = require('../../config/metro/metroConfig' ) 
 
 class StationAccessibilityEmbed extends BaseEmbed {

@@ -1,5 +1,5 @@
 // modules/metro/queries/stations.js
-const { normalize } = require('../../utils/stringHandlers/normalization');
+const { normalize } = require('../utils/stringHandlers/normalization.js');
 
 module.exports = ({ stationsCore, linesCore, amenitiesService }) => {
   const { getStation, indexes } = stationsCore;

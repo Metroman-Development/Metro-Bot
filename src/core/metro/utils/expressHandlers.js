@@ -1,6 +1,6 @@
 // modules/metro/utils/expressHandlers.js
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const metroConfig = require('../../../config/metroConfig');
+const metroConfig = require('../../../config/metro/metroConfig.js');
 
 module.exports = {
     createRouteEmbed: (lineId, route, stations) => {

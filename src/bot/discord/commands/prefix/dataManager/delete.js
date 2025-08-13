@@ -2,11 +2,11 @@ const fs = require('fs').promises;
 
 const path = require('path');
 
-const { createEmbed } = require('../../utils/embeds');
+const { createEmbed } = require('../updateembeds.js');
 
-const { baseDir } = require('../../config/config.json');
+const { baseDir } = {};
 
-const { confirmAction } = require('../../utils/utils');
+const { confirmAction } = require('../../../../../core/metro/core/utils.js');
 
 async function handleDelete(message, methods) {
 

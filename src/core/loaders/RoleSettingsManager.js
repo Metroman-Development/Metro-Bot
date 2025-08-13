@@ -5,7 +5,7 @@ class RoleSettingsManager {
     constructor() {
         this.cache = CacheManager
             ;
-        this.config = require('../../config/slashConfig.json').roleSettings;
+        this.config = {};
     }
 
     async getRoleSettings(member) {
@@ -86,7 +86,7 @@ class RoleSettingsManager {
     }
 
     getCommandConfig(commandName, subcommand = null) {
-        const config = require('../../config/slashConfig.json');
+        const config = { commands: {} };
         return {
             ...config.commands[commandName],
             subcommands: subcommand ? {

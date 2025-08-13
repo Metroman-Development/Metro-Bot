@@ -1,6 +1,6 @@
 // trainLoader.js
 const path = require('path');
-const loadJsonFile = require('../../../../src/utils/jsonLoader');
+const loadJsonFile = require('../../../../utils/jsonLoader.js');
 
 module.exports = {
   source: 'trainInfo.json + trainImages.json',

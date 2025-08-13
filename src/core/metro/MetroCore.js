@@ -1,9 +1,9 @@
 /*// modules/metro/MetroCore.js
 // core/MetroCore.js
 
-const StationsCore = require('./tentacles/stationsCore');
+const StationsCore = require('core/stationsCore.js');
 
-const LinesCore = require('./tentacles/linesCore');
+const LinesCore = require('core/linesCore.js');
 
 const ConnectionsCore = require('./tentacles/connectionsCore');
 

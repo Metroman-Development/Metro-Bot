@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Load all data sources
-const stationsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'stationsData.json'), 'utf-8'));
+const stationsData = { stationsData: {}, stationsSchematics: {} };
 const lineData = {
-    l1: require('./lineData/l1.json'), // Example line data
+    l1: { estaciones: [] }, // Example line data
     // Add other lines similarly
 };
 
