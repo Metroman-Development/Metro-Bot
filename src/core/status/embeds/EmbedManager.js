@@ -55,6 +55,12 @@ class EmbedManager {
             this._emitEvent(EventRegistry.EMBEDS_READY);
             await this.parent.processor.processPendingUpdates();
             
+            if (!this.parent.metroCore.api) {
+                logger.warn('[EmbedManager] MetroCore API not ready, waiting for SYSTEM_READY event.');
+                await new Promise(resolve => this.parent.metroCore.once(EventRegistry.SYSTEM_READY, resolve));
+                logger.info('[EmbedManager] SYSTEM_READY event received, proceeding with embed update.');
+            }
+
            await this.updateAllEmbeds(this.parent.metroCore.api.getProcessedData()) 
             
         } catch (error) {

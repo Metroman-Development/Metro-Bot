@@ -221,16 +221,16 @@ class MetroCore extends EventEmitter {
             await this._subsystems.api.fetchNetworkStatus();
             this._subsystems.api.startPolling();
             
-            // Phase 9: Initialize the status updater
-            this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
-            await this._subsystems.statusUpdater.initialize();
-
             logger.debug('[MetroCore] Initialization complete.');
             
             this._safeEmit(EventRegistry.SYSTEM_READY, { 
                 version: '1.0.0',
                 startupTime: Date.now()
             }, { source: 'MetroCore' });
+
+            // Phase 9: Initialize the status updater
+            this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
+            await this._subsystems.statusUpdater.initialize();
 
         } catch (error) {
             console.error('[MetroCore] A critical error occurred during initialization:', error);
