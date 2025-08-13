@@ -58,13 +58,13 @@ module.exports = class DataEngine {
     _updateManagers(data) {
         if (this.metro._subsystems.managers.stations) {
             this.metro._subsystems.managers.stations.updateData(
-                this.createStationInterface(data.stations || {})
+                data.stations || {}
             );
         }
         
         if (this.metro._subsystems.managers.lines) {
             this.metro._subsystems.managers.lines.updateData(
-                this.createLineInterface(data.lines || {})
+                data.lines || {}
             );
         }
     }
