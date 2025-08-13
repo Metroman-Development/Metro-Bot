@@ -208,10 +208,10 @@ class MetroCore extends EventEmitter {
             
             // Phase 6: Initialize data managers
             await this._subsystems.managers.stations.updateData(
-                this._createStationInterface(this._staticData.stations || {})
+                this._staticData.stations || {}
             );
             await this._subsystems.managers.lines.updateData(
-                this._createLineInterface(this._staticData.lines || {})
+                this._staticData.lines || {}
             );
             
             // Phase 7: Set up the scheduling system
