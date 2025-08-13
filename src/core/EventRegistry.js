@@ -1,8 +1,8 @@
+// core/EventRegistry.js
+// core/EventRegistry.js
 /**
- * @module EventRegistry
- * @description Provides a centralized registry of all event names used in the system.
- * This ensures consistency and avoids magic strings when emitting and listening for events.
- * The events are organized by functional categories.
+ * Centralized event registry for all system events
+ * Organized by functional categories with clear documentation
  */
 
 module.exports = {
@@ -95,13 +95,20 @@ module.exports = {
     EMBED_PARTIAL_UPDATE: 'embed:partial_update', // Subset of embeds updated
     EMBED_RENDER_DELAYED: 'embed:render_delayed', // Backpressure affecting render
     EMBED_STALE_CONTENT: 'embed:stale_content', // Showing outdated data
-    EMBED_REFRESH_TRIGGERED: 'embed:refresh_triggered',      // When refresh is initiated
-    EMBED_REFRESH_FAILED: 'embed:refresh_failed',            // When refresh fails
-    EMBED_FORCE_REFRESH: 'embed:force_refresh',              // When forced refresh requested
-    EMBED_QUEUE_CLEARED: 'embed:queue_cleared',              // When pending updates are purged
-    EMBED_BATCH_STARTED: 'embed:batch_started',              // When batch processing begins
-    EMBED_BATCH_COMPLETED: 'embed:batch_completed',          // When batch processing finishes
-    EMBED_UPDATE_SKIPPED: 'embed:update_skipped',            // When non-critical update is deferred
+    // In EventRegistry.js - Add these to the EMBED EVENTS section:
+
+// ======================
+// EMBED EVENTS (Additions)
+// ======================
+EMBED_REFRESH_TRIGGERED: 'embed:refresh_triggered',      // When refresh is initiated
+EMBED_REFRESH_STARTED: 'embed:refresh_started',          // When refresh begins processing
+EMBED_REFRESH_COMPLETED: 'embed:refresh_completed',      // When all embeds finished updating
+EMBED_REFRESH_FAILED: 'embed:refresh_failed',            // When refresh fails
+EMBED_FORCE_REFRESH: 'embed:force_refresh',              // When forced refresh requested
+EMBED_QUEUE_CLEARED: 'embed:queue_cleared',              // When pending updates are purged
+EMBED_BATCH_STARTED: 'embed:batch_started',              // When batch processing begins
+EMBED_BATCH_COMPLETED: 'embed:batch_completed',          // When batch processing finishes
+EMBED_UPDATE_SKIPPED: 'embed:update_skipped',            // When non-critical update is deferred
 
 
     // ======================

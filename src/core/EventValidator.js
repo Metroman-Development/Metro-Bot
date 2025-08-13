@@ -1,21 +1,9 @@
-/**
- * @module EventValidator
- * @description Provides a class for validating event payloads against a predefined schema.
- */
-
+// core/EventValidator.js
 const EventRegistry = require('./EventRegistry');
 const { performance } = require('perf_hooks');
 
-/**
- * @class EventValidator
- * @description Validates event payloads against a schema defined in the constructor.
- */
 class EventValidator {
     constructor() {
-        /**
-         * @property {object} schemas - A map of event types to their validation schemas.
-         * @private
-         */
         this.schemas = {
 
             // ... existing schemas ...
@@ -199,10 +187,7 @@ class EventValidator {
             }
         };
 
-        /**
-         * @property {object} validators - A map of custom validator functions.
-         * @private
-         */
+        // Custom validator functions
         this.validators = {
             duration: (value) => {
                 const now = performance.now();
@@ -219,9 +204,9 @@ class EventValidator {
     }
 
     /**
-     * Validate an event payload against its schema.
-     * @param {EventPayload} payload - The event payload to validate.
-     * @returns {Array<string>} A list of validation errors. An empty array indicates a valid payload.
+     * Validate an event payload against its schema
+     * @param {EventPayload} payload
+     * @returns {Array} List of validation errors
      */
     validate(payload) {
         const errors = [];
@@ -299,9 +284,9 @@ class EventValidator {
     }
 
     /**
-     * Validates if an event type exists in the EventRegistry.
-     * @param {string} eventType - The event type string to validate.
-     * @returns {string|null} The validated event type, or null if it's invalid.
+     * Validate and sanitize an event type
+     * @param {string} eventType
+     * @returns {string|null}
      */
     validateEventType(eventType) {
         if (!Object.values(EventRegistry).includes(eventType)) {
