@@ -4,7 +4,8 @@ require('dotenv').config()
 const EventEmitter = require('events');
 const { fetch } = require('undici');
 const crypto = require('crypto');
-const fs = require('fs').promises;
+const fs = require('fs');
+const fsp = require('fs').promises;
 const path = require('path');
 const { performance } = require('perf_hooks');
 const TimeHelpers = require('../../../chronos/timeHelpers');
@@ -20,6 +21,7 @@ const AccessibilityChangeDetector = require('./AccessibilityChangeDetector')
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
         super();
+        this.estadoRedUrl = this._getEstadoRedUrl();
         
         // Core dependencies
         this.metro = metro;
@@ -675,7 +677,7 @@ async activateEventOverrides(eventDetails) {
 
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = await fetch(process.env.ESTADO_RED, {
+                const response = await fetch(this.estadoRedUrl, {
                     headers: config.api.headers,
                     signal: AbortSignal.timeout(timeout)
                 });
@@ -1062,6 +1064,43 @@ async activateEventOverrides(eventDetails) {
         }, this.lastProcessedData);
         
         return simulatedChange;
+    }
+
+    _getEstadoRedUrl() {
+        // First, try to get from process.env, which might be correctly set in some environments
+        if (process.env.ESTADO_RED && process.env.ESTADO_RED.startsWith('http')) {
+            return process.env.ESTADO_RED;
+        }
+
+        // If not, read the .env file manually
+        try {
+            const envPath = path.join(__dirname, '../../../../../.env');
+            if (fs.existsSync(envPath)) {
+                const envFileContent = fs.readFileSync(envPath, 'utf-8');
+                const lines = envFileContent.split('\n');
+                for (const line of lines) {
+                    if (line.startsWith('ESTADO_RED')) {
+                        const separatorIndex = line.search(/[:=]/);
+                        if (separatorIndex !== -1) {
+                            const url = line.substring(separatorIndex + 1).trim();
+                            if (url.startsWith('http')) {
+                                return url;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            // Use the existing logger if available, otherwise console.error
+            if (typeof logger !== 'undefined') {
+                logger.error('[ApiService] Error reading .env file for custom parsing', e);
+            } else {
+                console.error('[ApiService] Error reading .env file for custom parsing', e);
+            }
+        }
+
+        // Fallback or default URL if not found
+        return 'https://www.metro.cl/api/estadoRedDetalle.php';
     }
 }
 
