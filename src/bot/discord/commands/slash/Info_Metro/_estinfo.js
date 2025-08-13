@@ -1,11 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
-const { buildStationInfoReply } = require('../../../../../events/interactions/buttons/stationInfoButton');
+const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
+const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 
-/**
- * @file Subcommand for the 'estacion' command, providing general information about a station.
- * @description This subcommand displays a comprehensive overview of a specific metro station, including its services, amenities, and connections.
- */
 module.exports = {
     parentCommand: 'estacion',
     data: (subcommand) => subcommand
@@ -17,11 +14,6 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    /**
-     * Handles autocomplete for the 'estacion' option.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
-     */
     async autocomplete(interaction, metro) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         
@@ -42,19 +34,13 @@ module.exports = {
         }
     },
 
-    /**
-     * Executes the 'info' subcommand.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     * @param {import('../../modules/metro/core/MetroCore')} metro The MetroCore instance.
-     */
     async execute(interaction, metro) {
         try {
             await interaction.deferReply();
 
             const stationId = interaction.options.getString('estacion');
-            const metroData = metro.api.getProcessedData();
-
-            const station = Object.values(metroData.stations).find(s => s.id === stationId);
+            const infoProvider = new MetroInfoProvider(metro);
+            const station = infoProvider.getStationById(stationId);
 
             if (!station) {
                 return await interaction.editReply({ 
@@ -63,14 +49,13 @@ module.exports = {
                 });
             }
 
-            // Create and send the station information message.
-            const message = buildStationInfoReply(station, metro, interaction.user.id);
+            const formatter = new DiscordMessageFormatter();
+            const message = formatter.formatStationInfo(station, metro, interaction.user.id);
             
             await interaction.editReply(message);
 
         } catch (error) {
             console.error('Error executing "estacion info" command:', error);
-            // Ensure a reply is sent even if an error occurs.
             if (interaction.deferred || interaction.replied) {
                 await interaction.editReply({
                     content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
