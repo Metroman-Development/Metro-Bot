@@ -94,7 +94,7 @@ module.exports = {
   },
 
   async _loadAccessDetails() {
-      const accessDir = path.join(__dirname, '../json/accessDetails');
+      const accessDir = path.join(__dirname, '..', 'accessDetails');
       try {
           const files = await fs.readdir(accessDir);
           const accessFiles = files.filter(file => file.startsWith('access_') && file.endsWith('.json'));
@@ -382,6 +382,6 @@ module.exports = {
   },
 
   _loadFile(filename) {
-    return loadJsonFile(path.join(__dirname, '../json', filename));
+    return loadJsonFile(path.join(__dirname, '..', filename));
   }
 };

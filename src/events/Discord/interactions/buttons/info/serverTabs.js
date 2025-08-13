@@ -1,7 +1,7 @@
 // buttons/info/serverTabs.js
 // buttons/info/serverTabs.js
 const { TabsTemplate } = require('../../templates/buttons/tabs.js');
-const ServerInfoEmbed = require('../../templates/embeds/ServerInfoEmbed');
+const ServerInfoEmbed = require('../../../templates/embeds/ServerInfoEmbed.js');
 const { CacheManager } = require('../../../../../core/cache/CacheManager.js');
 
 module.exports = TabsTemplate.create({

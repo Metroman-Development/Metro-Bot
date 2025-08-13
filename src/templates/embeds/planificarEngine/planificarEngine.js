@@ -1,4 +1,4 @@
-const { getCachedMetroData } = require('../../../events/metroDataHandler');
+const { getCachedMetroData } = require('../../../events/metroDataHandler.js');
 const metroConfig = require('../../../config/metro/metroConfig.js');
 const { normalize } = require('../../../utils/stringUtils');
 const { hasExpressRoute } = require('../../../utils/lineUtils');

@@ -1,6 +1,6 @@
 const { lines, stations } = require('../queries');
-const { normalizeKey, validLines } = require('stringHandlers/lineProcessing.js');
-const { normalize } = require('stringHandlers/normalization.js');
+const { normalizeKey, validLines } = require('./stringHandlers/lineProcessing.js');
+const { normalize } = require('./stringHandlers/normalization.js');
 
 module.exports = {
   /**

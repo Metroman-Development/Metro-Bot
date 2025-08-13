@@ -1,4 +1,4 @@
-const metroConfig = require('./metroConfig.js');
+const metroConfig = require('./metro/metroConfig.js');
 
 const styles = {};
 

@@ -8,7 +8,7 @@ class AccessCore {
     }
 
     async ensureAccessDetailsDir() {
-        const dirPath = path.join(__dirname, '../data/json/accessDetails');
+        const dirPath = path.join(__dirname, '../../data/accessDetails');
         try {
             await fs.access(dirPath);
         } catch (error) {
@@ -31,7 +31,7 @@ class AccessCore {
 
     getConfigPath(stationKey) {
         const normalized = this.normalizeKey(stationKey);
-        return path.join(__dirname, '../data/json/accessDetails', `access_${normalized}.json`);
+        return path.join(__dirname, '../../data/accessDetails', `access_${normalized}.json`);
     }
 
     parseQuotedArgs(args) {
@@ -235,7 +235,7 @@ class AccessCore {
 
     async updateMainAccessibilityStatus(stationName, line, accessConfig) {
         try {
-            const mainDataPath = path.join(__dirname, '../data/json/stationsData.json');
+            const mainDataPath = path.join(__dirname, '../../data/stationsData.json');
             const rawData = await fs.readFile(mainDataPath, 'utf8');
             const data = JSON.parse(rawData);
 

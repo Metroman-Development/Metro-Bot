@@ -1,5 +1,5 @@
-const apiService = require('../services/apiService');
-const dbService = require('../services/dbService');
+const apiService = require('../services/ApiService.js');
+const dbService = require('../services/dbService.js');
 
 module.exports = async () => {
   try {
@@ -8,7 +8,7 @@ module.exports = async () => {
       dbService.getLatestNetworkState()
     ]);
     
-    return dbData || apiService.transformAPIData(apiData);
+    return dbData || apiService._basicProcessData(apiData);
   } catch (error) {
     return apiService.generateClosedState();
   }

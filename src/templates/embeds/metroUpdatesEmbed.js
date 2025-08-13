@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../config/metro/metroConfig.js');
-const { getStatusSummary, getNetworkStatus } = require('../../statusHelpers/changeDetector');
+const { getStatusSummary, getNetworkStatus } = require('../../core/metro/core/services/ChangeDetector.js');
 const { getLineEmoji, decorateStation } = require('../../utils/stringUtils');
 
 function networkStatusSummary(metroData) {
