@@ -1,7 +1,7 @@
 // metroLoader.js
 const path = require('path');
 const loadJsonFile = require('../../../../utils/jsonLoader.js');
-const styles = {};
+const styles = require('../../../../config/styles.json');
 
 module.exports = {
   source: 'metroGeneral.json',

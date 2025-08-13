@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const metroConfig = require('../config/metro/metroConfig.js');
-const styles = {};
+const styles = require('../config/styles.json');
 const { decorateStation, normalize } = require('./stringUtils');
 
 // Utility functions

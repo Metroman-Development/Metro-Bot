@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs').promises;
 const loadJsonFile = require('../../../../utils/jsonLoader.js');
 const config = require('../../../../config/metro/metroConfig');
-const styles = {};
+const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
 module.exports = {

@@ -1,7 +1,7 @@
 const { Client, MessageEmbed } = require('discord.js');
 const config = {};
 const metroConfig = require('../../../../config/metro/metroConfig'); // Import metroConfig
-const styles = {}; // Import styles.json
+const styles = require('../../../../config/styles.json');
 
 // Store partial messages for reconstruction
 const messageBuffer = new Map(); // Key: userId, Value: { content: string, timestamp: number }

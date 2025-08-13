@@ -8,10 +8,11 @@
 // modules/status/utils/StatusProcessor.js
 const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
-const styles = { lineColors: {} };
+const styles = require('../../../config/styles.json');
 const TimeHelpers = require('../../chronos/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
 const statusConfig = require('../../../config/metro/statusConfig');
+const DatabaseManager = require('../../../database/DatabaseManager');
 
 class StatusProcessor {
   constructor(metroCore) {
@@ -20,9 +21,47 @@ class StatusProcessor {
     this.lineWeights = statusConfig.lineWeights;
     this.statusMap = statusConfig.statusMap;
     this.severityLabels = statusConfig.severityLabels;
+    this._dbInitialized = false;
+    this._initializeDatabase();
   }
 
-  processRawAPIData(rawData) {
+  async _initializeDatabase() {
+    if (this._dbInitialized) return;
+    const db = await DatabaseManager.getInstance();
+    if (!db) {
+      logger.error('[StatusProcessor] Database connection not available for initialization.');
+      return;
+    }
+
+    try {
+      for (const [code, status] of Object.entries(this.statusMap)) {
+        await db.query(
+          `INSERT IGNORE INTO operational_status_types (status_name, status_description, is_operational, severity_level)
+           VALUES (?, ?, ?, ?)`,
+          [status.es, status.en, status.severity === 0 ? 1 : 0, status.severity]
+        );
+
+        const [type] = await db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [status.es]);
+
+        if (type) {
+          await db.query(
+            `INSERT IGNORE INTO js_status_mapping (js_code, status_type_id, severity_level)
+             VALUES (?, ?, ?)`,
+            [code, type.status_type_id, status.severity]
+          );
+        }
+      }
+      logger.info('[StatusProcessor] Database tables initialized successfully.');
+      this._dbInitialized = true;
+    } catch (error) {
+      logger.error('[StatusProcessor] Database initialization failed', {
+        error: error.message,
+        stack: error.stack
+      });
+    }
+  }
+
+  async processRawAPIData(rawData) {
     try {
       if (!rawData || typeof rawData !== 'object') {
         throw new Error('Invalid rawData received');
@@ -51,7 +90,7 @@ class StatusProcessor {
         });
       });
 
-      return {
+      const processedData = {
         network,
         lines,
         stations,
@@ -59,12 +98,110 @@ class StatusProcessor {
         lastUpdated: timestamp.toISOString(),
         isFallback: false
       };
+
+      await this._updateDatabase(processedData);
+
+      return processedData;
     } catch (error) {
       logger.error('[StatusProcessor] Processing failed', {
         error: error.message,
         stack: error.stack
       });
       throw error;
+    }
+  }
+
+  async _updateDatabase(data) {
+    const db = await DatabaseManager.getInstance();
+    if (!db) {
+      logger.error('[StatusProcessor] Database connection not available.');
+      return;
+    }
+
+    try {
+      // Update lines
+      for (const line of Object.values(data.lines)) {
+        await db.query(
+          `INSERT INTO metro_lines (line_id, line_name, line_color, status_code, status_message, app_message)
+           VALUES (?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE
+             line_name = VALUES(line_name),
+             line_color = VALUES(line_color),
+             status_code = VALUES(status_code),
+             status_message = VALUES(status_message),
+             app_message = VALUES(app_message),
+             updated_at = NOW()`,
+          [line.id, line.name, line.color, line.status.code, line.status.message, line.status.appMessage]
+        );
+
+        const statusTypeId = await this._getStatusTypeId(db, line.status.code);
+        if (statusTypeId) {
+          await db.query(
+            `INSERT INTO line_status (line_id, status_type_id, status_description, status_message, last_updated, updated_by)
+             VALUES (?, ?, ?, ?, NOW(), 'system')
+             ON DUPLICATE KEY UPDATE
+               status_type_id = VALUES(status_type_id),
+               status_description = VALUES(status_description),
+               status_message = VALUES(status_message),
+               last_updated = NOW()`,
+            [line.id, statusTypeId, line.status.normalized, line.status.message]
+          );
+        }
+      }
+
+      // Update stations
+      for (const station of Object.values(data.stations)) {
+
+        let [stationRow] = await db.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
+        let station_id;
+
+        if (stationRow) {
+            station_id = stationRow.station_id;
+            await db.query('UPDATE metro_stations SET station_name = ?, display_name = ?, updated_at = NOW() WHERE station_id = ?', [station.name, station.displayName, station_id]);
+        } else {
+            const [result] = await db.query(
+              'INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location) VALUES (?, ?, ?, ?, POINT(0,0))',
+              [station.line, station.id, station.name, station.displayName]
+            );
+            station_id = result.insertId;
+        }
+
+        const statusTypeId = await this._getStatusTypeId(db, station.status.code);
+        if (statusTypeId) {
+            const [currentStatus] = await db.query('SELECT status_type_id FROM station_status WHERE station_id = ?', [station_id]);
+
+            if (currentStatus && currentStatus.status_type_id !== statusTypeId) {
+                await db.query(
+                    'INSERT INTO station_status_history (status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by) SELECT status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by FROM station_status WHERE station_id = ?',
+                 [station_id]);
+
+                await db.query(
+                    "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, 'system')",
+                 [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`]);
+            }
+
+          await db.query(
+            'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), "system") ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
+            [station_id, statusTypeId, station.status.normalized, station.status.message]
+          );
+        }
+      }
+      logger.info('[StatusProcessor] Database updated successfully.');
+    } catch (error) {
+      logger.error('[StatusProcessor] Database update failed', {
+        error: error.message,
+        stack: error.stack
+      });
+    }
+  }
+
+  async _getStatusTypeId(db, statusCode) {
+    try {
+        const [mapping] = await db.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
+        return mapping ? mapping.status_type_id : null;
+    } catch(error) {
+        logger.error(\`Error getting status type id for code \${statusCode}\`, error);
+        return null;
     }
   }
 

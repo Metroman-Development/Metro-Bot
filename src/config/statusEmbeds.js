@@ -1,6 +1,6 @@
 const metroConfig = require('./metro/metroConfig.js');
 
-const styles = {};
+const styles = require('./styles.json');
 
 const stations = {}; // Import stations.json
 
