@@ -102,6 +102,11 @@ class TimeHelpers {
     static getCurrentPeriod(date) {
         try {
             const time = date ? moment(date).tz(config.timezone) : this.currentTime;
+
+            if (!this.isWithinOperatingHours(time)) {
+                return { type: 'CERRADO', name: 'Servicio Cerrado' };
+            }
+
             const timeStr = time.format('HH:mm');
             const dayType = this.getDayType(time.toDate());
             const schedule = this.getScheduleConfig()[dayType];
@@ -115,7 +120,6 @@ class TimeHelpers {
             );
 
             if (isPeak) return { type: 'PUNTA', name: 'Hora Punta' };
-            if (time.hours() < 6 || time.hours() >= 23) return { type: 'BAJO', name: 'Horario Reducido' };
             return { type: 'VALLE', name: 'Horario Normal' };
         } catch (error) {
             logger.error('Failed to get current period:', error);
@@ -434,31 +438,14 @@ static getRawScheduleConfig() {
             throw new Error('Invalid time string format. Use HH:mm');
         }
 
-        const format = 'HH:mm';
-        const current = momentTime.clone().tz(config.timezone);
-        
-        const start = current.clone()
-            .set({
-                hour: moment(startStr, format).hour(),
-                minute: moment(startStr, format).minute(),
-                second: 0,
-                millisecond: 0
-            });
+        const currentTime = momentTime.tz(config.timezone).format('HH:mm');
 
-        const end = current.clone()
-            .set({
-                hour: moment(endStr, format).hour(),
-                minute: moment(endStr, format).minute(),
-                second: 0,
-                millisecond: 0
-            });
-
-        // Handle midnight crossing
-        if (end.isBefore(start)) {
-            return current.isSameOrAfter(start) || current.isBefore(end);
+        // Handle overnight period
+        if (endStr < startStr) {
+            return currentTime >= startStr || currentTime < endStr;
         }
 
-        return current.isSameOrAfter(start) && current.isBefore(end);
+        return currentTime >= startStr && currentTime < endStr;
     }
 }
 
