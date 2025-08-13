@@ -11,8 +11,8 @@ module.exports = {
 
     async execute(interaction) {
         try {
-            const time = TimeHelpers.formatForEmbed();
-            const dayType = TimeHelpers.currentDayType;
+            const time = TimeHelpers.formatTime(TimeHelpers.currentTime.format('HH:mm'));
+            const dayType = TimeHelpers.getDayType();
             
             await interaction.reply([
                 `🕒 **Hora del Metro:** ${time}`,
