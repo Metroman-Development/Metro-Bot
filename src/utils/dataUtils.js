@@ -1,27 +1,12 @@
-/**
- * @module dataUtils
- * @description Provides utilities for loading, caching, and accessing unified station data.
- */
-
 const path = require('path');
 const fs = require('fs');
 const { normalize } = require('./stringUtils');
 const { getCachedMetroData } = require('../events/metroDataHandler');
 const { getClient } = require('./clientManager');
 const logger = require('../events/logger');
-const loadJsonFile = require('./jsonLoader');
 
-/**
- * @property {object|null} cachedStationData - In-memory cache for station data.
- * @private
- */
 let cachedStationData = null;
 
-/**
- * Loads and processes station data from multiple JSON sources, unifying them into a single structure.
- * This function should be called at startup to initialize the station data cache.
- * @returns {boolean} True if data was loaded successfully, false otherwise.
- */
 function loadStationData() {
     const client = getClient(); // Get the client object
 
@@ -29,9 +14,13 @@ function loadStationData() {
         const stationsPath = path.join(__dirname, '../data/stations.json');
         const detailsPath = path.join(__dirname, '../data/stationsData.json');
 
+        // Check if files exist before reading
+        if (!fs.existsSync(stationsPath)) throw new Error('stations.json not found.');
+        if (!fs.existsSync(detailsPath)) throw new Error('stationsData.json not found.');
+
         // Read and parse JSON files
-        const rawStations = loadJsonFile(stationsPath);
-        const rawDetails = loadJsonFile(detailsPath);
+        const rawStations = JSON.parse(fs.readFileSync(stationsPath, 'utf-8'));
+        const rawDetails = JSON.parse(fs.readFileSync(detailsPath, 'utf-8'));
         const metroData = getCachedMetroData();
 
         // Check if metroData is valid
@@ -120,11 +109,7 @@ function loadStationData() {
     }
 }
 
-/**
- * Retrieves a station's data by its identifier (name, code, or normalized name).
- * @param {string} identifier - The station's name, code, or normalized name.
- * @returns {object|null} The station object, or null if not found.
- */
+// Unified access methods
 function getStation(identifier) {
     const client = getClient();
     if (!cachedStationData) {
@@ -150,11 +135,6 @@ function getStation(identifier) {
     return cachedStationData.stations[byNormalized];
 }
 
-/**
- * Retrieves all stations belonging to a specific route.
- * @param {string} route - The route identifier (e.g., 'Roja', 'Verde').
- * @returns {Array<object>} An array of station objects on the specified route.
- */
 function getStationsByRoute(route) {
     if (!cachedStationData) {
         logger.warn(getClient(), 'Station data is not loaded. Call loadStationData() first.');
@@ -165,10 +145,6 @@ function getStationsByRoute(route) {
     );
 }
 
-/**
- * Retrieves all loaded station data.
- * @returns {object} An object containing all station data, keyed by station name.
- */
 function getAllStations() {
     if (!cachedStationData) {
         logger.warn(getClient(), 'Station data is not loaded. Call loadStationData() first.');

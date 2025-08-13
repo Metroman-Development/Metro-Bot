@@ -1,20 +1,11 @@
-/**
- * @module EventTracer
- * @description Provides a singleton class for tracing and collecting statistics on system events.
- */
-
+// core/EventTracer.js
+// core/EventTracer.js
 const EventRegistry = require('./EventRegistry');
 const logger = require('../events/logger');
 
-/**
- * @class EventTracer
- * @description A singleton class to track events, log them, and provide statistics.
- */
 class EventTracer {
     constructor() {
-        /** @type {Array<object>} */
         this.eventLog = [];
-        /** @type {object} */
         this.stats = {
             eventsProcessed: 0,
             lastMinute: 0,
@@ -24,11 +15,6 @@ class EventTracer {
         this._setupCleanupInterval();
     }
 
-    /**
-     * Tracks an event, adding it to the log and updating statistics.
-     * @param {object} event - The event payload to track.
-     * @returns {{payload: object, startTimer: function(): void, endTimer: function(): void}} An object with the event payload and timer functions.
-     */
     track(event) {
         const entry = {
             timestamp: Date.now(),
@@ -52,15 +38,9 @@ class EventTracer {
 
         return {
             payload: event,
-            /**
-             * Starts a timer to measure the processing time of the event.
-             */
             startTimer: () => {
                 entry.startTime = performance.now();
             },
-            /**
-             * Ends the timer and records the processing time.
-             */
             endTimer: () => {
                 if (entry.startTime) {
                     entry.processingTime = performance.now() - entry.startTime;
@@ -70,10 +50,6 @@ class EventTracer {
         };
     }
 
-    /**
-     * Retrieves the current event statistics.
-     * @returns {{total: number, lastMinute: number, byType: object}} An object containing event statistics.
-     */
     getStats() {
         return {
             total: this.stats.eventsProcessed,
@@ -82,10 +58,6 @@ class EventTracer {
         };
     }
 
-    /**
-     * Sets up a cleanup interval to reset the last minute event count and trim the event log.
-     * @private
-     */
     _setupCleanupInterval() {
         setInterval(() => {
             this.stats.lastMinute = 0;
@@ -96,5 +68,6 @@ class EventTracer {
     }
 }
 
-// Export a singleton instance of EventTracer
-module.exports = new EventTracer();
+// Export both the class and a singleton instance
+module.exports =
+    new EventTracer();

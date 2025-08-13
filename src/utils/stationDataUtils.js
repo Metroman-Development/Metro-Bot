@@ -1,24 +1,14 @@
-/**
- * @module stationDataUtils
- * @description Provides a utility for fetching comprehensive, unified data for a specific station.
- */
-
+const fs = require('fs');
 const path = require('path');
-const loadJsonFile = require('./jsonLoader');
 
 // Load all data sources
-const stationsData = loadJsonFile(path.join(__dirname, 'stationsData.json'));
+const stationsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'stationsData.json'), 'utf-8'));
 const lineData = {
-    l1: loadJsonFile(path.join(__dirname, './lineData/l1.json')), // Example line data
+    l1: require('./lineData/l1.json'), // Example line data
     // Add other lines similarly
 };
 
-/**
- * Retrieves and combines data from multiple sources for a single station.
- * @param {string} stationName - The name of the station.
- * @param {string} line - The line identifier (e.g., 'l1').
- * @returns {object} A unified object containing the station's details.
- */
+// 🚀 Unified station data fetcher
 function getFullStationData(stationName, line) {
     const normalizedKey = `${stationName.toLowerCase()} ${line.toLowerCase()}`;
     const lineKey = line.toLowerCase();
@@ -50,5 +40,3 @@ function getFullStationData(stationName, line) {
         municipality: additionalData[6] || 'Unknown'
     };
 }
-
-module.exports = { getFullStationData };

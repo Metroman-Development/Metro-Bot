@@ -1,3 +1,4 @@
+
 // Load events from the JSON file
 const events = require('./events.json');
 
