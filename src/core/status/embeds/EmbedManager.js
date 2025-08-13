@@ -178,13 +178,11 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             logger.debug('[EmbedManager] Updating overview embed');
             this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
             
-            const networkStatus = this.parent.metroCore.api.getProcessedData();
-
             // Transform processed data to raw API structure for the embed function
             const rawLines = {};
-            if (networkStatus && networkStatus.lines) {
-                for (const lineKey in networkStatus.lines) {
-                    rawLines[lineKey] = _transformToRawLine(networkStatus.lines[lineKey]);
+            if (data && data.lines) {
+                for (const lineKey in data.lines) {
+                    rawLines[lineKey] = _transformToRawLine(data.lines[lineKey]);
                 }
             }
 
@@ -208,12 +206,11 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     }
 
     async updateAllLineEmbeds(data) {
-        
-
-       // console.log("hh",data)
-        
         try {
-       //     if (!this.areEmbedsReady) return;
+            if (!data || !data.lines) {
+                logger.warn('[EmbedManager] updateAllLineEmbeds called without line data. Skipping.');
+                return;
+            }
             
             logger.debug('[EmbedManager] Updating line embeds', {
                 lineCount: Object.keys(data.lines).length
