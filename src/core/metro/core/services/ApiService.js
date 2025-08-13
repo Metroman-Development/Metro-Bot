@@ -206,14 +206,14 @@ async updateOverrides(updates = {}) {
         }
         
         // Persist to disk
-        await fs.writeFile(
+        await fsp.writeFile(
             overrideService.overrideFile,
             JSON.stringify(overrideService.overrides, null, 2),
             'utf8'
         );
         
         // Update lastModified
-        const stats = await fs.stat(overrideService.overrideFile);
+        const stats = await fsp.stat(overrideService.overrideFile);
         overrideService.lastModified = stats.mtimeMs;
         
         logger.debug('[ApiService] Overrides updated successfully');
@@ -249,14 +249,14 @@ async removeOverrides(removals = {}) {
         }
         
         // Persist to disk
-        await fs.writeFile(
+        await fsp.writeFile(
             overrideService.overrideFile,
             JSON.stringify(overrideService.overrides, null, 2),
             'utf8'
         );
         
         // Update lastModified
-        const stats = await fs.stat(overrideService.overrideFile);
+        const stats = await fsp.stat(overrideService.overrideFile);
         overrideService.lastModified = stats.mtimeMs;
         
         logger.debug('[ApiService] Overrides removed successfully');
@@ -720,8 +720,8 @@ async activateEventOverrides(eventDetails) {
 
     async _updateCache(data) {
         try {
-            await fs.mkdir(path.dirname(this.cacheFile), { recursive: true });
-            await fs.writeFile(this.cacheFile, JSON.stringify(data, null, 2));
+            await fsp.mkdir(path.dirname(this.cacheFile), { recursive: true });
+            await fsp.writeFile(this.cacheFile, JSON.stringify(data, null, 2));
             logger.debug('[ApiService] Cache updated successfully');
         } catch (error) {
             logger.error('[ApiService] Cache update failed', { error });
@@ -732,11 +732,11 @@ async activateEventOverrides(eventDetails) {
     async _readCachedData() {
         try {
             try {
-                const data = await fs.readFile(this.cacheFile, 'utf8');
+                const data = await fsp.readFile(this.cacheFile, 'utf8');
                 return JSON.parse(data);
             } catch (newCacheError) {
                 if (await this._fileExists(this.legacyCacheFile)) {
-                    const legacyData = await fs.readFile(this.legacyCacheFile, 'utf8');
+                    const legacyData = await fsp.readFile(this.legacyCacheFile, 'utf8');
                     const parsedData = JSON.parse(legacyData);
                     await this._updateCache(parsedData);
                     return parsedData;
@@ -751,7 +751,7 @@ async activateEventOverrides(eventDetails) {
 
     async _fileExists(filePath) {
         try {
-            await fs.access(filePath);
+            await fsp.access(filePath);
             return true;
         } catch {
             return false;
@@ -990,13 +990,13 @@ async activateEventOverrides(eventDetails) {
     
     async _storeProcessedData(data) {
         try {
-            await fs.mkdir(this.cacheDir, { recursive: true });
+            await fsp.mkdir(this.cacheDir, { recursive: true });
             const dataToStore = {
                 ...data,
                 _storedAt: new Date().toISOString(),
                 _cacheVersion: this._dataVersion
             };
-            await fs.writeFile(
+            await fsp.writeFile(
                 this.processedDataFile,
                 JSON.stringify(dataToStore, null, 2),
                 'utf8'
