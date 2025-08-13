@@ -13,7 +13,7 @@ module.exports = {
   },
 
   _loadFile(filename) {
-    return loadJsonFile(path.join(__dirname, '..', filename));
+    return loadJsonFile(path.join(__dirname, '../../../../data', filename));
   },
 
   _transform(info, images) {

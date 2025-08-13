@@ -1,7 +1,7 @@
 const { EmbedBuilder, ButtonStyle } = require('discord.js');
 const TabsTemplate = require('../templates/tabs');
 const metroConfig = require('../../../config/metro/metroConfig');
-const styles = require('../../../../config/styles.json');
+const styles = require('../../../config/styles.json');
 
 // --- Helper Functions (from the old RouteButton class) ---
 

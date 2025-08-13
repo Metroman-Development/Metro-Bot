@@ -27,6 +27,10 @@ class TimeHelpers {
 
     static #currentEvent = null;
 
+    static get currentTime() {
+        return moment().tz(config.timezone);
+    }
+
     static getScheduleConfig() {
         try {
             if (!config.serviceHours || !config.farePeriods) {

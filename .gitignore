@@ -11,6 +11,8 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+errors/
+run.log
 
 # OS-specific files
 .DS_Store
