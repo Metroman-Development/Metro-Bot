@@ -1,8 +1,8 @@
 const { loadStations } = require('../utils/stationData.js');
 
-const { loadLines } = require('../data/loaders/lineData');
+const lineLoader = require('../data/loaders/lineLoader.js');
 
-const stringUtils = require('../modules/metro/utils/stringHandlers');
+const stringUtils = require('../utils/stringHandlers');
 
 module.exports = async () => {
 
@@ -10,7 +10,7 @@ module.exports = async () => {
 
     loadStations(),
 
-    loadLines()
+    lineLoader.load()
 
   ]);
 

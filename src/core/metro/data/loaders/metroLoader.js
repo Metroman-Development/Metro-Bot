@@ -14,7 +14,7 @@ module.exports = {
   },
 
   _loadFile(filename) {
-    return loadJsonFile(path.join(__dirname, '../json', filename));
+    return loadJsonFile(path.join(__dirname, '..', filename));
   },
 
   _transform(data){

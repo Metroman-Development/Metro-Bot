@@ -4,7 +4,7 @@ const logger = require('../../events/logger.js');
 
 module.exports = {
     loadButtons: (buttonsCollection) => {
-        const buttonsPath = join(__dirname, 'buttons', 'templates');
+        const buttonsPath = join(__dirname, '../../events/interactions/buttons/templates');
         let loadedCount = 0;
 
         readdirSync(buttonsPath).forEach(file => {
@@ -12,7 +12,7 @@ module.exports = {
             
             try {
                 const ButtonClass = require(join(buttonsPath, file));
-                if (ButtonClass.prototype instanceof require('./buttons/templates/BaseButton')) {
+                if (ButtonClass.prototype instanceof require('../../events/interactions/buttons/templates/baseButton.js')) {
                     const instance = new ButtonClass();
                     buttonsCollection.set(instance.constructor.name, instance);
                     loadedCount++;

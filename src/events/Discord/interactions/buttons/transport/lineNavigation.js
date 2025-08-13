@@ -2,7 +2,7 @@
 
 const { NavigationTemplate } = require('../templates/navigation.js');
 
-const generalLineInfo = require('../../../config/defaultEmbeds/generalLineInfo');
+const generalLineInfo = require('../../../../../config/defaultEmbeds/generalLineInfo.js');
 
 module.exports = NavigationTemplate.create({
 

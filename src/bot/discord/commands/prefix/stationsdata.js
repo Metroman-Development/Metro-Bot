@@ -30,7 +30,7 @@ module.exports = {
             if (!action) return this.showHelp(message);
 
             // Cargar datos actuales
-            const rawData = loadJsonFile(path.join(__dirname, '../modules/metro/data/json/stationsData.json'));
+            const rawData = loadJsonFile(path.join(__dirname, '../../../../data/stationsData.json'));
             
             switch (action.toLowerCase()) {
                 case 'listar':
@@ -190,7 +190,7 @@ module.exports = {
     },
 
     async handleReload(message) {
-        delete require.cache[require.resolve('../json/stationsData.json')];
+        delete require.cache[require.resolve('../../../../data/stationsData.json')];
         await stationLoader.load();
         await this.sendSuccess(message, '✅ Datos recargados correctamente');
         return this.promptForMore(message);
@@ -276,7 +276,7 @@ module.exports = {
 
     // Then save with proper JSON formatting
     await fs.writeFile(
-        path.join(__dirname, '../modules/metro/data/json/stationsData.json'),
+        path.join(__dirname, '../../../../data/stationsData.json'),
         JSON.stringify(sanitizedData, null, 2), // null, 2 for pretty print
         'utf8'
     );

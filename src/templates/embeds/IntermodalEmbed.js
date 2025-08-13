@@ -1,7 +1,7 @@
 // templates/embeds/IntermodalEmbed.js
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 const { TabsTemplate } = require('../../events/Discord/interactions/templates/buttons/tabs.js');
-const { CacheManager } = require('../../cache/CacheManagerV2');
+const { CacheManager } = require('../../core/cache/CacheManagerV2.js');
 
 class IntermodalEmbed {
     static ITEMS_PER_PAGE = 10;

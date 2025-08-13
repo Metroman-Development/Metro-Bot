@@ -1,4 +1,4 @@
-const metro = require('../../metroSystems'); // Main metro system interface
+const metro = require('../../metroSystems.js'); // Main metro system interface
 const logger = require('../../events/logger');
 
 class StatusCommunicator {

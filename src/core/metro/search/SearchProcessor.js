@@ -1,4 +1,4 @@
-const SearchHelper = require('./SearchHelper');
+const SearchHelper = require('./SearchHelper.js');
 const { DisambiguationHandler } = require('disambiguate/DisambiguationHandler.js');
 const logger = require('../../../events/logger.js');
 const { EmbedBuilder } = require('discord.js');

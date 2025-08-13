@@ -2,7 +2,7 @@
 // modules/embeds/StatusEmbedBuilder.js
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../config/metro/metroConfig');
-const styles = require('../../../config/metro/styles');
+const styles = require('../../../config/metro/styles.json');
 const logger = require('../../../events/logger');
 const TimeHelpers = require('../../chronos/timeHelpers');
 const decorators = require('../../metro/utils/stringHandlers/decorators');

@@ -1,5 +1,5 @@
-const StationFilters = require('./Filters');
-const StationConnections = require('./Connections');
+const StationFilters = require('./Filters.js');
+const StationConnections = require('./Connections.js');
 const { normalize } = require('../../utils/stringHandlers/normalization.js');
 
 module.exports = class StationManager {
