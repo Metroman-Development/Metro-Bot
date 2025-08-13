@@ -1,3 +1,14 @@
+require('dotenv').config();
+
+const DatabaseManager = require('./core/database/DatabaseManager');
+const dbConfig = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.METRODB_NAME,
+};
+DatabaseManager.getInstance(dbConfig);
+
 console.log('███╗   ███╗███████╗████████╗██████╗  ██████╗  ██████╗ ');
 console.log('████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗██╔═══██╗');
 console.log('██╔████╔██║█████╗     ██║   ██████╔╝██║   ██║██║   ██║');
@@ -11,7 +22,6 @@ console.log('              Metrobot Bot - Initialization Process              ')
 console.log('================================================================');
 
 
-require('dotenv').config();
 console.log('[CONFIG] Environment variables loaded.');
 
 
@@ -142,7 +152,7 @@ function scheduleReconnect() {
 // =================================================================
 discordClient.commands = new Collection();
 discordClient.prefixCommands = new Collection();
-discordClient.metroCore = require('./core/metro/MetroCore');
+discordClient.metroCore = require('./core/metro/core/MetroCore');
 discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
 
 // Load prefix commands

@@ -1,0 +1,60 @@
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB'
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+███╗   ███╗███████╗████████╗██████╗  ██████╗  ██████╗
+████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗██╔═══██╗
+██╔████╔██║█████╗     ██║   ██████╔╝██║   ██║██║   ██║
+██║╚██╔╝██║██╔══╝     ██║   ██╔══██╗██║   ██║██║   ██║
+██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝╚██████╔╝
+╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝
+
+
+
+================================================================
+              Metrobot Bot - Initialization Process
+================================================================
+[CONFIG] Environment variables loaded.
+
+[DISCORD] Initializing Discord Bot...
+[DISCORD] Loading internal modules...
+[DB] Waiting for pending initialization
+ℹ️ [2025-08-13T20:27:10.338Z] [INFO] [CacheManager.js:25] [new CacheManager] CacheManager initialized with layered cache system
+[DISCORD] Discord client instance created.
+[CONFIG] Loading external configuration...
+[CONFIG] No external JSON/KSON configuration found. Running in "off-json" mode.
+[DISCORD] Loading interaction handlers...
+[InteractionLoader] Starting to load interaction handlers...
+[CacheManager] Initialized with hourly cleanup.
+[InteractionLoader] ✅ Loaded button handler with prefix: accResults
+[InteractionLoader] ✅ Loaded button handler with prefix: amnResults
+[InteractionLoader] ✅ Loaded button handler with prefix: bikeResults
+[InteractionLoader] ✅ Loaded button handler with prefix: cmd
+[InteractionLoader] ✅ Loaded button handler with prefix: commerceResults
+[INFO] 2025-08-13T20:27:10.444Z - Loaded last state data from /app/src/core/metro/core/services/lastAccessState.json
+[INFO] 2025-08-13T20:27:10.444Z - Loaded cache data from /app/src/core/metro/core/services/accessibilityCache.json
+[InteractionLoader] ✅ Loaded button handler with prefix: expreso
+[InteractionLoader] ✅ Loaded button handler with prefix: express_route_page
+🐛 [2025-08-13T20:27:10.453Z] [INFO] [statusConfig.js:24] [StatusConfig.validateConfigs] CONFIG_VALIDATION
+Metadata: "All required configurations validated"
+[InteractionLoader] ✅ Loaded button handler with prefix: fare_type
+[InteractionLoader] ✅ Loaded button handler with prefix: intermodal
+[InteractionLoader] ✅ Loaded button handler with prefix: routeInfo
+[InteractionLoader] ✅ Loaded button handler with prefix: serverInfo
+[InteractionLoader] ✅ Loaded button handler with prefix: stationInfo
+[InteractionLoader] Finished loading interaction handlers. 12 handlers loaded.
+🐛 [2025-08-13T20:27:10.462Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _botcomandos.js
+🐛 [2025-08-13T20:27:10.463Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _boticonografia.js
+🐛 [2025-08-13T20:27:10.463Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _botinfo.js
+🐛 [2025-08-13T20:27:10.463Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command bot.js
+🐛 [2025-08-13T20:27:10.465Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscaraccesibilidad.js
+🐛 [2025-08-13T20:27:10.466Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcicletero.js
+🐛 [2025-08-13T20:27:10.467Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcomercio.js
+🐛 [2025-08-13T20:27:10.468Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcultura.js
