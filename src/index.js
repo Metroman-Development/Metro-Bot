@@ -41,6 +41,29 @@ const discordClient = new Client({
 });
 console.log('[DISCORD] Discord client instance created.');
 
+// Load external configuration
+console.log('[CONFIG] Loading external configuration...');
+if (process.env.KSON_CONFIG) {
+  try {
+    discordClient.config = JSON.parse(process.env.KSON_CONFIG);
+    console.log('[CONFIG] Loaded configuration from KSON_CONFIG.');
+  } catch (e) {
+    console.error('[CONFIG] Failed to parse KSON_CONFIG:', e);
+    discordClient.config = {};
+  }
+} else if (process.env.JSON_CONFIG) {
+  try {
+    discordClient.config = JSON.parse(process.env.JSON_CONFIG);
+    console.log('[CONFIG] Loaded configuration from JSON_CONFIG.');
+  } catch (e) {
+    console.error('[CONFIG] Failed to parse JSON_CONFIG:', e);
+    discordClient.config = {};
+  }
+} else {
+  discordClient.config = {};
+  console.log('[CONFIG] No external JSON/KSON configuration found. Running in "off-json" mode.');
+}
+
 // Load interaction handlers
 console.log('[DISCORD] Loading interaction handlers...');
 require('./events/interactions/interactionLoader')(discordClient);
