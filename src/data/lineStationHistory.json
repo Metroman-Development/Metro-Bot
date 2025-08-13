@@ -1,0 +1,130 @@
+{
+    "l1": [
+      {
+        "inauguration": "15 de septiembre de 1975",
+        "fromTo": "San Pablo ↔ Los Héroes"
+      },
+      {
+        "inauguration": "31 de marzo de 1977",
+        "fromTo": "La Moneda ↔ Baquedano"
+      },
+      {
+        "inauguration": "31 de agosto de 1980",
+        "fromTo": "Salvador ↔ Escuela Militar"
+      },
+      {
+        "inauguration": "7 de enero de 2010",
+        "fromTo": "Manquehue ↔ Los Dominicos"
+      }
+    ],
+    "l2": [
+      {
+        "inauguration": "31 de marzo de 1978",
+        "fromTo": "Los Héroes ↔ Franklin"
+      },
+      {
+        "inauguration": "21 de diciembre de 1978",
+        "fromTo": "El Llano ↔ Lo Ovalle"
+      },
+      {
+        "inauguration": "25 de julio de 1986",
+        "fromTo": "Santa Ana"
+      },
+      {
+        "inauguration": "15 de septiembre de 1987",
+        "fromTo": "Puente Cal y Canto"
+      },
+      {
+        "inauguration": "8 de septiembre de 2004",
+        "fromTo": "Cerro Blanco ↔ Patronato"
+      },
+      {
+        "inauguration": "22 de diciembre de 2004",
+        "fromTo": "El Parrón ↔ La Cisterna"
+      },
+      {
+        "inauguration": "25 de noviembre de 2005",
+        "fromTo": "Einstein ↔ Cementerios"
+      },
+      {
+        "inauguration": "21 de diciembre de 2006",
+        "fromTo": "Vespucio Norte ↔ Dorsal"
+      },
+      {
+        "inauguration": "27 de noviembre de 2023",
+        "fromTo": "El Bosque ↔ Hospital El Pino"
+      }
+    ],
+    "l3": [
+      {
+        "inauguration": "25 de septiembre de 2023",
+        "fromTo": "Plaza Quilicura ↔ Ferrocarril"
+      },
+      {
+        "inauguration": "22 de enero de 2019",
+        "fromTo": "Los Libertadores ↔ Fernando Castillo Velasco"
+      }
+    ],
+    "l4": [
+      {
+        "inauguration": "30 de noviembre de 2005",
+        "fromTo": "Tobalaba ↔ Plaza Egaña, Vicuña Mackenna ↔ Las Mercedes, Plaza de Puente Alto"
+      },
+      {
+        "inauguration": "2 de marzo de 2006",
+        "fromTo": "Los Presidentes ↔ Macul"
+      },
+      {
+        "inauguration": "5 de noviembre de 2009",
+        "fromTo": "San José de la Estrella"
+      }
+    ],
+    "l4a": [
+      {
+        "inauguration": "16 de agosto de 2006",
+        "fromTo": "Vicuña Mackenna ↔ La Cisterna"
+      }
+    ],
+    "l5": [
+      {
+        "inauguration": "5 de abril de 1997",
+        "fromTo": "Baquedano ↔ Bellavista de La Florida"
+      },
+      {
+        "inauguration": "2 de marzo de 2000",
+        "fromTo": "Santa Ana ↔ Plaza de Armas"
+      },
+      {
+        "inauguration": "31 de marzo de 2004",
+        "fromTo": "Quinta Normal ↔ Cumming"
+      },
+      {
+        "inauguration": "12 de enero de 2010",
+        "fromTo": "Pudahuel ↔ Lo Prado"
+      },
+      {
+        "inauguration": "3 de febrero de 2011",
+        "fromTo": "Plaza de Maipú ↔ Barrancas"
+      },
+      {
+        "inauguration": "30 de noviembre de 2005",
+        "fromTo": "Vicente Valdés"
+      }
+    ],
+    "l6": [
+      {
+        "inauguration": "2 de noviembre de 2017",
+        "fromTo": "Cerrillos ↔ Los Leones"
+      },
+      {
+        "inauguration": "2027 (estimado)",
+        "fromTo": "Lo Errázuriz",
+        "status": "En construcción"
+      },
+      {
+        "inauguration": "2028 (estimado)",
+        "fromTo": "Isidora Goyenechea",
+        "status": "Planificado"
+      }
+    ]
+  }

@@ -1,0 +1,136 @@
+{
+
+  "l1": {
+
+    "Comunas": ["Lo Prado", "Estación Central", "Santiago", "Providencia", "Las Condes"],
+               
+
+    "Estreno": "1975",
+
+    "Longitud": "20.4 km",
+
+    "N° estaciones": "27",
+
+    "Electrificación": "750 VCC", 
+
+
+    "Características": "Primera línea del metro de Santiago, subterránea en su mayoría.",
+
+    "Flota": ["NS-07", "NS-93"]
+              
+
+  },
+
+  "l2": {
+
+    "Comunas": ["Recoleta", "Santiago", "San Miguel", "La Cisterna", "El Bosque", "San Bernardo"],
+
+    "Estreno": "1978",
+
+    "Longitud": "25,9 km", 
+    
+
+    "N° estaciones": "22",
+
+    "Electrificación": "750 VCC",
+
+    "Características": "Conecta el sur y el norponiente de Santiago.",
+
+    "Flota": ["NS-04", "NS-16"]
+
+  },
+
+  "l3": {
+
+    "Comunas": ["Quilicura", "Conchalí", "Independencia", "Santiago", "Ñuñoa", "La Reina"],
+
+    "Estreno": "2019",
+
+    "Longitud": "25 km",
+
+    "N° estaciones": "18",
+
+    "Electrificación": "750 VCC",
+
+    "Características": "Línea automatizada, conecta al oriente con el centro hasta el norponiente.",
+
+    "Flota": ["AS-14"]
+
+  },
+
+  "l4": {
+
+    "Comunas": ["Las Condes", "Providencia", "La Reina", "Ñuñoa", "Peñalolén", "Macul", "La Florida", "Puente Ato"] ,
+
+    "Estreno": "2005",
+
+    "Longitud": "24.7 km",
+
+    "N° estaciones": "23",
+
+    "Electrificación": "750 VCC",
+
+    "Características": "Conecta el oriente con el sur de Santiago.",
+
+    "Flota": ["AS-02"]
+
+  },
+
+  "l4a": {
+
+    "Comunas": ["La Cisterna", "San Ramón", "La Granja", "La Florida"],
+
+    "Estreno": "2006",
+
+    "Longitud": "7.7 km",
+
+    "N° estaciones": "6",
+
+    "Electrificación": "750 VCC",
+
+    "Características": "Ramal de la Línea 4, conecta La Cisterna con La Florida.",
+
+    "Flota": ["AS-02"]
+
+  },
+
+  "l5": {
+
+    "Comunas": ["Maipú", "Pudahuel", "Lo Prado", "Quinta Normal", "Santiago", "Providencia", "Ñuñoa", "Macul", "San Joaquín", "La Florida"],
+
+    "Estreno": "1997",
+
+    "Longitud": "29.7 km",
+
+    "N° estaciones": "30",
+
+    "Electrificación": "750 VCC",
+
+    "Características":"La línea más larga del metro, conecta el surponiente con el centro y el suroriente.",
+
+ 
+      
+
+    "Flota": ["NS-74", "NS-93", "NS-16"]
+
+  },
+
+  "l6": {
+
+    "Comunas": ["Cerrillos", "Pedro Aguirre Cerda", "San Miguel", "Santiago", "Ñuñoa", "Providencia"],
+
+    "Estreno": "2017",
+
+    "Longitud": "15.3 km",
+
+    "N° estaciones": "10",
+
+    "Electrificación": "750 VCC",
+
+    "Características": "La primera línea automatizada, conecta varias comunas centrales.",
+
+    "Flota": ["AS-14"]
+
+  }
+
+}

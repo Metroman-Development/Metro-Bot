@@ -1,0 +1,15 @@
+{
+  "lines": {
+    "l1": {
+      "enabled": true,
+      "lastUpdated": "2025-06-07T10:35:02.567Z"
+    }
+  },
+  "stations": {
+    "CM": {
+      "enabled": false,
+      "lastUpdated": "2025-06-07T11:58:41.019Z",
+      "updatedBy": "admin"
+    }
+  }
+}

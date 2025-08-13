@@ -1,0 +1,416 @@
+{
+    "l1": {
+        "estaciones": [
+            {
+                "nombre": "Pajaritos",
+                "conexiones": ["Centropuerto", "EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Las Rejas",
+                "conexiones": ["Centropuerto"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "San Alberto Hurtado",
+                "conexiones": ["Centropuerto"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Universidad de Santiago",
+                "conexiones": ["Centropuerto", "Terminal de Buses"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Estación Central",
+                "conexiones": ["EFE", "Terminal de Buses"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "U.L.A.",
+                "conexiones": ["Centropuerto"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "República",
+                "conexiones": ["Centropuerto"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Héroes L1",
+                "conexiones": ["Terminal de Buses"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Universidad Católica",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    },
+    "l2": {
+        "estaciones": [
+            {
+                "nombre": "Puente Cal y Canto L2",
+                "conexiones": [],
+                "bici": ["Línea Cero", "U Invertida"]
+            },
+            {
+                "nombre": "Vespucio Norte",
+                "conexiones": ["EIM"],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "La Cisterna L2",
+                "conexiones": ["EIM"],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Santa Ana L2",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Toesca",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "El Parrón",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Lo Ovalle",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "El Bosque",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Observatorio",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Copa Lo Martínez",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Hospital el Pino",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "San Miguel",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Patronato",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Cementerios",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    },
+    "l3": {
+        "estaciones": [
+            {
+                "nombre": "Fernando Castillo Velasco",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Cardenal Caro",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Libertadores",
+                "conexiones": ["EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Vivaceta",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Plaza Chacabuco",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Hospitales",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Monseñor Eyzaguirre",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Ferrocarril",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Lo Cruzat",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Chile-España",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Plaza Quilicura",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Irarrázaval L3",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Matta",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    },
+    "l4": {
+        "estaciones": [
+            {
+                "nombre": "Cristóbal Colón",
+                "conexiones": [],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Las Mercedes",
+                "conexiones": [],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Grecia",
+                "conexiones": [],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Rojas Magallanes",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Orientales",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Quillayes",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Protectora de la Infancia",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Trinidad",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "San José de la Estrella",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Elisa Correa",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Presidentes",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Macul",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Las Torres",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Vicuña Mackenna L4",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Simón Bolívar",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Francisco Bilbao",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    },
+    "l5": {
+        "estaciones": [
+            {
+                "nombre": "Barrancas",
+                "conexiones": ["Centropuerto"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Bellavista de La Florida",
+                "conexiones": ["EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Del Sol",
+                "conexiones": ["EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Gruta de Lourdes",
+                "conexiones": [],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Blanqueado",
+                "conexiones": [],
+                "bici": ["BiciMetro", "Línea Cero"]
+            },
+            {
+                "nombre": "Santiago Bueras",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Las Parcelas",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Pedrero",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Carlos Valdovinos",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Cumming",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Mirador",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Monte Tabor",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Laguna Sur",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Camino Agrícola",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Quinta Normal",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Baquedano L5",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Parque Bustamante",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    },
+    "l6": {
+        "estaciones": [
+            {
+                "nombre": "Franklin L6",
+                "conexiones": ["EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Lo Valledor",
+                "conexiones": ["EFE"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Libertadores",
+                "conexiones": ["EIM"],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Cerrillos",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Bío Bío",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Pedro Aguirre Cerda",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Inés de Suarez",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Los Leones L6",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            },
+            {
+                "nombre": "Estadio Nacional",
+                "conexiones": [],
+                "bici": ["Línea Cero"]
+            }
+        ]
+    }
+}
