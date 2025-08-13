@@ -1,7 +1,7 @@
 // modules/metro/core/services/dataTransformers.js
 const logger = require('../../../../events/logger');
 const metroConfig = require('../../../../config/metro/metroConfig');
-const styles = {};
+const styles = require('../../../../config/styles.json');
 
 
 module.exports = {

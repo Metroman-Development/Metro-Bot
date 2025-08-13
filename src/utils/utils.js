@@ -1,5 +1,5 @@
 /*cnst { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const styles = {};
+const styles = require('../config/styles.json');
 const { getCachedMetroData } = require('../events/metroDataHandler');
 const { normalize } = require('./stringUtils');
 

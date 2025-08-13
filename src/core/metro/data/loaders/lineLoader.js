@@ -1,6 +1,6 @@
 const path = require('path');
 const loadJsonFile = require('../../../../utils/jsonLoader');
-const styles = { lineColors: {} };
+const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
 module.exports = {

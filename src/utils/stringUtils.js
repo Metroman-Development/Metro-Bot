@@ -1,5 +1,5 @@
 const metroConfig = require('../config/metro/metroConfig.js');
-const styles = {};
+const styles = require('../config/styles.json');
 const stations = {};
 const stationConnections = {};
 // const { getCachedMetroData } = require('../events/metroDataHandler');

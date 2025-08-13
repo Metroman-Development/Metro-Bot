@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../config/metro/metroConfig');
-const styles = { lineColors: {} };
+const styles = require('../../config/styles.json');
 const logger = require('../../events/logger');
 const TimeHelpers = require('../../core/chronos/timeHelpers');
 const decorators = require('../../core/metro/utils/stringHandlers/decorators');

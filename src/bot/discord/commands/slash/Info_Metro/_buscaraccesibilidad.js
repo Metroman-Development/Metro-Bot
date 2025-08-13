@@ -1,7 +1,7 @@
 // _buscaraccesibilidad.js - Updated to support both old and new formats
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const AccessibilityResultsManager = require('../../../../../events/interactions/buttons/AccessibilityResultsManager');
-const styles = { lineColors: {} };
+const styles = require('../../../../../config/styles.json');
 
 module.exports = {
     parentCommand: 'buscar',

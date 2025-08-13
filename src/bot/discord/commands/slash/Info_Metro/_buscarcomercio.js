@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const commerceResultsManager = require('../../../../../events/interactions/buttons/commerceResultsManager');
 const metroConfig = require('../../../../../config/metro/metroConfig');
-const styles = {};
+const styles = require('../../../../../config/styles.json');
 
 module.exports = {
     parentCommand: 'buscar',

@@ -1,7 +1,7 @@
 // templates/embeds/stationMainEmbed.js
 const { EmbedBuilder } = require('discord.js');
 const BaseEmbed = require('./baseEmbed');
-const styles = { lineColors: {} };
+const styles = require('../../../config/styles.json');
 class StationMainEmbed extends BaseEmbed {
     constructor(metroCore) {
         super(metroCore);
