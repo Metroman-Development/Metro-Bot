@@ -8,7 +8,7 @@
 // modules/status/utils/StatusProcessor.js
 const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
-const styles = require('../../../config/metro/styles.json');
+const styles = { lineColors: {} };
 const TimeHelpers = require('../../chronos/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
 const statusConfig = require('../../../config/metro/statusConfig');

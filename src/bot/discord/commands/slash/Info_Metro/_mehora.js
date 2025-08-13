@@ -1,7 +1,7 @@
 
 
 const { SlashCommandBuilder } = require('discord.js');
-const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
 
 module.exports = {
     parentCommand: 'calendario-metro',

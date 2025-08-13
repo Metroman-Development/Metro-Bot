@@ -1,5 +1,5 @@
 // templates/embeds/EventEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class EventEmbed extends BaseEmbed {
     create(event) {

@@ -1,5 +1,5 @@
 // templates/embeds/FareEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class FareEmbed extends BaseEmbed {
     createEnhanced(fareType, periodData, fares, showDetails = false) {

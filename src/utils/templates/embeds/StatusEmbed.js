@@ -1,5 +1,5 @@
 // templates/embeds/StatusEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 const config = require('../../../config/metro/metroConfig')
 // templates/embeds/StatusEmbed.js
 

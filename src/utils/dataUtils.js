@@ -19,8 +19,8 @@ function loadStationData() {
         if (!fs.existsSync(detailsPath)) throw new Error('stationsData.json not found.');
 
         // Read and parse JSON files
-        const rawStations = JSON.parse(fs.readFileSync(stationsPath, 'utf-8'));
-        const rawDetails = JSON.parse(fs.readFileSync(detailsPath, 'utf-8'));
+        const rawStations = {};
+        const rawDetails = {};
         const metroData = null; // aida: getCachedMetroData is not available
 
         // Check if metroData is valid

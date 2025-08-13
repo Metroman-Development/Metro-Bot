@@ -4,7 +4,7 @@ const { SlashCommandBuilder, PermissionFlagsBits, Collection } = require('discor
 const { CacheManager } = require('../cache/CacheManager');
 const logger = require('../../events/logger');
 const roleSettings = require('./RoleSettingsManager');
-const config = require('../../config/slashConfig.json');
+const config = { commandDefaults: {}, commands: {} };
 
 class AdvancedCommandLoader {
     constructor(client) {

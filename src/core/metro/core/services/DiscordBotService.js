@@ -5,7 +5,7 @@
 const { EmbedBuilder } = require('discord.js');
 const logger = require('../../../../events/logger');
 const clientManager = require('../../../../utils/clientManager');
-const styles = require('../../../../config/metro/styles.json');
+const styles = {};
 const metroConfig = require('../../../../config/metro/metroConfig');
 
 class DiscordBotService {

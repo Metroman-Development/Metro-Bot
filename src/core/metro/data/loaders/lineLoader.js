@@ -1,7 +1,7 @@
 const path = require('path');
-const loadJsonFile = require('../../../../src/utils/jsonLoader');
-const styles = require('../../../../config/metro/styles.json');
-const estadoRedTemplate = require('../../../../templates/estadoRed.json');
+const loadJsonFile = require('../../../../utils/jsonLoader');
+const styles = { lineColors: {} };
+const estadoRedTemplate = {};
 
 module.exports = {
   source: 'linesData.json + estadoRedDetalle.php',

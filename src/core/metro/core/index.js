@@ -1,4 +1,4 @@
-const { loadStations } = require('../data/loaders/stationData');
+const { loadStations } = require('../utils/stationData.js');
 
 const { loadLines } = require('../data/loaders/lineData');
 
@@ -26,9 +26,9 @@ module.exports = async () => {
 
   return {
 
-    stations: require('../modules/metro/queries/stations')(cores),
+    stations: require('../queries/stations.js')(cores),
 
-    lines: require('../modules/metro/queries/lines')(cores),
+    lines: require('../queries/lines.js')(cores),
 
     utils: cores.stringUtils
 

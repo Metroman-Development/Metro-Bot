@@ -1,6 +1,6 @@
 /*const moment = require('moment-timezone');
 
-const metroConfig = require('../config/metroConfig');
+const metroConfig = require('../config/metro/metroConfig.js');
 
 const logger = require('../events/logger');
 

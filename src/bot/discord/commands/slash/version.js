@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { createEmbed } = require('../../../../utils/embeds');
-const { DatabaseManager } = require('../core/database/DatabaseManager');
-const { CacheManager } = require('../core/cache/CacheManager');
+const { DatabaseManager } = require('../../../../core/database/DatabaseManager.js');
+const { CacheManager } = require('../../../../core/cache/CacheManager.js');
 
 module.exports = {
     data: new SlashCommandBuilder()

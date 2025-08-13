@@ -1,6 +1,6 @@
 const { readdirSync } = require('fs');
 const { join } = require('path');
-const logger = require('./logger');
+const logger = require('../../events/logger.js');
 
 module.exports = {
     loadButtons: (buttonsCollection) => {

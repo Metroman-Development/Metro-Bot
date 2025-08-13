@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-// const styles = require('../config/metro/styles.json');
+// const styles = {};
 
 function createEmbed(description, type = 'primary', title = null) {
     const colorMap = {

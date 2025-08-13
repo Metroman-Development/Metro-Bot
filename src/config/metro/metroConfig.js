@@ -1,7 +1,4 @@
 
-// Load events from the JSON file
-const events = require('./events.json');
-
 module.exports = {
     // Channel IDs
     updatesChannelId: '1347146518943105085', // For new updates/announcements
@@ -205,7 +202,7 @@ api: {
     ],
 
     // Special events (loaded from events.json)
-    events: events.events, // Use the events loaded from the JSON file
+    events: [], // Use the events loaded from the JSON file
 
     metroLogo: {
 

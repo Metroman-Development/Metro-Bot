@@ -1,7 +1,7 @@
 // modules/metro/queries/express.js
-const { normalize } = require('../../utils/stringUtils');
-const linesData = require('../../../data/linesData.json');
-const stationsData = require('../../../data/stations.json');
+const { normalize } = require('../../../utils/stringUtils.js');
+const linesData = {};
+const stationsData = {};
 
 const EXPRESS_LINES = new Set(['l2', 'l4', 'l5']);
 const EXPRESS_ROUTE_TYPES = ['comun', 'verde', 'roja'];

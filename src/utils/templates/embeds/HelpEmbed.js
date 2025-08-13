@@ -1,5 +1,5 @@
 // templates/embeds/HelpEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class HelpEmbed extends BaseEmbed {
     generateInitial(categories, userId, interactionId) {

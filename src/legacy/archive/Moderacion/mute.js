@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
-const moderationSystem = require('../../utils/moderationSystem');
+const moderationSystem = require('../../../utils/moderationSystem.js');
 
 module.exports = {
 

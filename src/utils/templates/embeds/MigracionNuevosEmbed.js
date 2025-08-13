@@ -25,7 +25,7 @@ Sigue este flujo para cada embed que necesites migrar:
 
 2. **Estructura básica**:
    ```javascript
-   const BaseEmbed = require('./baseEmbed');
+   const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
    class MiNuevoEmbed extends BaseEmbed {
        constructor() {
@@ -47,7 +47,7 @@ Sigue este flujo para cada embed que necesites migrar:
 3. **Ejemplo con `CommandEmbed`**:
    ```javascript
    // templates/embeds/CommandEmbed.js
-   const BaseEmbed = require('./baseEmbed');
+   const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
    class CommandEmbed extends BaseEmbed {
        generate(command, userId, interactionId) {
@@ -137,7 +137,7 @@ Para crear un embed desde cero:
 ## **📌 3. Integración con Comandos**
 ### **A. Uso Básico**
 ```javascript
-const HelpEmbed = require('../templates/embeds/HelpEmbed');
+const HelpEmbed = require('../../../templates/embeds/HelpEmbed.js');
 const helpEmbed = new HelpEmbed();
 
 // En un comando:
@@ -148,7 +148,7 @@ await interaction.reply(
 
 ### **B. Para Handlers de Botones**
 ```javascript
-const RouteEmbed = require('../templates/embeds/RouteEmbed');
+const RouteEmbed = require('../../../templates/embeds/RouteEmbed.js');
 const routeEmbed = new RouteEmbed();
 
 // En un interactionCreate:
@@ -202,7 +202,7 @@ if (interaction.isButton() && interaction.customId.startsWith('route_')) {
 ### **Paso 2: Crear la Plantilla**
 ```javascript
 // templates/embeds/DisambiguationEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class DisambiguationEmbed extends BaseEmbed {
     create(query, matches, interaction) {

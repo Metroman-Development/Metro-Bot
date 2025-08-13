@@ -1,5 +1,5 @@
-/*const chronosConfig = require('../../../config/chronosConfig');
-const eventsConfig = require('../../../config/metro/events.json');
+const chronosConfig = require('../../../config/chronosConfig');
+const eventsConfig = { events: [] };
 const moment = require('moment-timezone');
 const logger = require('../../../events/logger');
 
@@ -265,4 +265,4 @@ class StatusConfig {
   }
 }
 
-module.exports = StatusConfig.getInstance();*/
+module.exports = StatusConfig.getInstance();

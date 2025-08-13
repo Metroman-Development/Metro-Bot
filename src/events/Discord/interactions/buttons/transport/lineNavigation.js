@@ -1,6 +1,6 @@
 // buttons/transport/lineNavigation.js
 
-const { NavigationTemplate } = require('../../templates/navigation');
+const { NavigationTemplate } = require('../templates/navigation.js');
 
 const generalLineInfo = require('../../../config/defaultEmbeds/generalLineInfo');
 

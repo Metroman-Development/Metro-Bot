@@ -1,4 +1,4 @@
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class DBEmbed extends BaseEmbed {
 

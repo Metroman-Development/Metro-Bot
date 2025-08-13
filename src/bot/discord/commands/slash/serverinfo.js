@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const serverButtonsHandler = require('../src/events/interactions/buttons/serverButtons');
+const serverButtonsHandler = require('../../../../events/interactions/buttons/serverButtons.js');
 
 module.exports = {
     data: new SlashCommandBuilder()

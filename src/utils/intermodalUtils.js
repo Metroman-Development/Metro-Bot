@@ -1,8 +1,8 @@
 // intermodalUtils.js
 
 // Import the JSON files
-const intermodalInfo = require('../data/intermodalInfo.json');
-const intermodalBuses = require('../data/intermodalBuses.json');
+const intermodalInfo = {};
+const intermodalBuses = {};
 
 // Function to perform a full merge of the data
 function mergeData(infoData, busesData) {

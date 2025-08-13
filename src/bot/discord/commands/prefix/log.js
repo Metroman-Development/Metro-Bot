@@ -2,7 +2,7 @@ const { createEmbed } = require('../../../../utils/embeds');
 const { reportBug, resolveBug, getBugById } = require('../../../../utils/bugTracker');
 const DatabaseManager = require('../../../../core/database/DatabaseManager');
 const TimeHelpers = require('../../../../core/chronos/timeHelpers');
-const config = require('../../../../config/config.json');
+const config = {};
 const cache = require('../../../../core/cache/CacheManager');
 
 // Cache configuration

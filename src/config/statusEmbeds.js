@@ -1,8 +1,8 @@
 const metroConfig = require('./metroConfig.js');
 
-const styles = require('./styles.json');
+const styles = {};
 
-const stations = require('../data/stations.json'); // Import stations.json
+const stations = {}; // Import stations.json
 
 // Utility function to convert hex color to integer
 

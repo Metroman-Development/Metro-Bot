@@ -1,5 +1,5 @@
 // templates/baseCommand.js
-const { setCache, getCache, deleteCache } = require('../utils/cache');
+const { setCache, getCache, deleteCache } = require('../../bot/discord/commands/prefix/cache.js');
 const { setTimeout } = require('node:timers');
 
 class BaseCommand {

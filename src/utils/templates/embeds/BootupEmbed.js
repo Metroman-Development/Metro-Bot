@@ -1,5 +1,5 @@
 // templates/embeds/BootupEmbed.js
-const BaseEmbed = require('./baseEmbed');
+const BaseEmbed = require('../../../templates/embeds/baseEmbed.js');
 
 class BootupEmbed extends BaseEmbed {
     create(botName, status, options = {}) {

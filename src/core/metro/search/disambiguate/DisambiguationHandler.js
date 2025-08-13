@@ -1,6 +1,6 @@
 const { ActionRowBuilder, StringSelectMenuBuilder, EmbedBuilder, ComponentType } = require('discord.js');
-const metroConfig = require('../../config/metroConfig');
-const logger = require('../../events/logger');
+const metroConfig = require('../../../../config/metro/metroConfig.js');
+const logger = require('../../../../events/logger.js');
 
 class DisambiguationHandler {
     static async create(interaction, query, matches, resolveCallback, options = {}) {

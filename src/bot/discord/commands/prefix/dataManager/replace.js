@@ -1,8 +1,8 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { createEmbed } = require('../../utils/embeds');
-const { baseDir } = require('../../config/config.json');
-const { safeReadFile } = require('../../src/utils/fileUtils');
+const { createEmbed } = require('../updateembeds.js');
+const { baseDir } = {};
+const { safeReadFile } = require('../../../../../utils/fileUtils.js');
 
 async function handleReplace(message, methods) {
     const [type, directory, file, keyAction, key, ...values] = methods;

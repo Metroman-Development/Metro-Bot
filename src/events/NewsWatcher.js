@@ -22,16 +22,7 @@ module.exports = class NewsWatcher {
     }
 
     async _checkForUpdates() {
-        try {
-            const newsData = loadJsonFile(this.filePath);
-            
-            if (newsData.lastUpdated && newsData.lastUpdated !== this.lastUpdate) {
-                this.lastUpdate = newsData.lastUpdated;
-                await this._postLatestItem(newsData.items[0]);
-            }
-        } catch (error) {
-            console.error('[NewsWatcher] Update check failed:', error);
-        }
+        // Disabled
     }
 
     async _postLatestItem(item) {

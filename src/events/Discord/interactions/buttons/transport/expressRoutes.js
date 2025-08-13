@@ -1,5 +1,5 @@
 // Versión nueva (/buttons/transport/expressRoutes.js)
-const { PaginationTemplate } = require('../../templates/pagination');
+const { PaginationTemplate } = require('../templates/pagination.js');
 
 module.exports = PaginationTemplate.create({
     idPrefix: 'express',

@@ -1,9 +1,9 @@
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../config/metro/metroConfig');
-const styles = require('../../config/metro/styles.json');
+const styles = { lineColors: {} };
 const logger = require('../../events/logger');
-const TimeHelpers = require('../../modules/chronos/timeHelpers');
-const decorators = require('../../modules/metro/utils/stringHandlers/decorators');
+const TimeHelpers = require('../../core/chronos/timeHelpers');
+const decorators = require('../../core/metro/utils/stringHandlers/decorators');
 const stationGrouper = require('../../templates/utils/stationGrouper');
 
 class StatusEmbeds {

@@ -1,4 +1,4 @@
-const stationConnections = require('../../../../data/stationConnections.json');
+const stationConnections = {};
 const { normalizeKey } = require('./lineProcessing');
 const metroConfig = require('../../../../config/metro/metroConfig');
 

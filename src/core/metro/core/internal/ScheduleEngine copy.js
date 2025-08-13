@@ -12,7 +12,7 @@ module.exports = class ScheduleEngine {
     initialize() {
         if (!this.metro.client) throw new Error("Client not available");
         
-        this.metro._scheduler = new (require('../../../chronos/ScheduleManager'))(
+        this.metro._scheduler = new (require('../../../chronos/managers/ScheduleManager.js'))(
             this.metro.client, 
             {}, 
             this.metro

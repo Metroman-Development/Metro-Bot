@@ -1,10 +1,10 @@
 // stationLoader.js
 const path = require('path');
 const fs = require('fs').promises;
-const loadJsonFile = require('../../../../src/utils/jsonLoader');
+const loadJsonFile = require('../../../../utils/jsonLoader.js');
 const config = require('../../../../config/metro/metroConfig');
-const styles = require('../../../../config/metro/styles.json');
-const estadoRedTemplate = require('../../../../templates/estadoRed.json');
+const styles = {};
+const estadoRedTemplate = {};
 
 module.exports = {
   source: 'stations.json + stationConnections.json + stationsData.json + accessDetails/*.json',

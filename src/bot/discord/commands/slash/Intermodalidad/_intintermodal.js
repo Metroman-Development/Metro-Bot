@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const intermodalButtonsHandler = require('../../../src/events/interactions/buttons/intermodalButtons');
+const intermodalButtonsHandler = require('../../../../../events/interactions/buttons/intermodalButtons.js');
 
 module.exports = {
     parentCommand: 'intermodalidad',

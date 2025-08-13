@@ -5,7 +5,7 @@ const estado = require('./_linestado');
 const info = require('./_lininfo');
 const proyecto = require('./_linproyecto');
 // Import other subcommands as needed
-// const horarios = require('./horarios');
+// const horarios = require('_mthorarios.js');
 // const incidentes = require('./incidentes');
 
 module.exports = {

@@ -38,7 +38,7 @@ module.exports = {
     async getMetroCore(interaction) {
         try {
             if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-                const MetroCore = require('../../modules/metro/core/MetroCore');
+                const MetroCore = require('../../../../../core/metro/MetroCore.js');
                 interaction.client.metroCore = await MetroCore.getInstance({ 
                     client: interaction.client 
                 });

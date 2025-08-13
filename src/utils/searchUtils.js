@@ -1,6 +1,6 @@
  /*
 const { performance } = require('perf_hooks');
-const metro = require('../modules/metro'); // Main metro system
+const metro = require('../bot/discord/commands/prefix/metro.js'); // Main metro system
 const logger = require('../events/logger');
 const { createDisambiguationEmbed } = require('../config/defaultEmbeds/disambiguationEmbed');
 

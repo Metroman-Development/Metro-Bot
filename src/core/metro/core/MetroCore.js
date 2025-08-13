@@ -47,7 +47,7 @@ class MetroCore extends EventEmitter {
         this._debug = options.debug || false;
         this.client = options.client;
         this.config = require('../../../config/metro/metroConfig');
-        this.styles = require('../../../config/metro/styles.json');
+        this.styles = {};
         
         this._initSubsystems();
         this._initDataStores();

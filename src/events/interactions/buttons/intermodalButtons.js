@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const TabsTemplate = require('../templates/tabs');
 const metroConfig = require('../../../config/metro/metroConfig');
-const styles = require('../../../config/metro/styles.json');
+const styles = { defaultTheme: { errorColor: '#000000', primaryColor: '#000000' } };
 
 // --- Helper functions to build embed content ---
 

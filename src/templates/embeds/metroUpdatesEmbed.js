@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const metroConfig = require('../metroConfig');
+const metroConfig = require('../../config/metro/metroConfig.js');
 const { getStatusSummary, getNetworkStatus } = require('../../statusHelpers/changeDetector');
 const { getLineEmoji, decorateStation } = require('../../utils/stringUtils');
 

@@ -1,9 +1,9 @@
 // templates/embeds/StationEmbedHub.js
 const { EmbedBuilder } = require('discord.js');
-const StationMainEmbed = require('./stationMainEmbed');
-const StationTransfersEmbed = require('./stationTransfersEmbed');
-const StationSurroundingsEmbed = require('./stationSurroundingsEmbed');
-const StationAccessibilityEmbed = require('./stationAccessibilityEmbed');
+const StationMainEmbed = require('../../../templates/embeds/stationMainEmbed.js');
+const StationTransfersEmbed = require('../../../templates/embeds/stationTransfersEmbed.js');
+const StationSurroundingsEmbed = require('../../../templates/embeds/stationSurroundingsEmbed.js');
+const StationAccessibilityEmbed = require('../../../templates/embeds/stationAccessibilityEmbed.js');
 
 class StationEmbedHub {
     constructor(metroCore) {

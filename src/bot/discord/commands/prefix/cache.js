@@ -4,7 +4,7 @@ const { confirmAction } = require('../../../../utils/utils'); // Import the conf
 
 const { getCache, setCache, deleteCache, getAllCache } = require('../../../../utils/cache');// Import the cache functions and the cache Map
 
-const config = require('../../../../config/config.json'); // Import the config file
+const config = {}; // Import the config file
 
 module.exports = {
 

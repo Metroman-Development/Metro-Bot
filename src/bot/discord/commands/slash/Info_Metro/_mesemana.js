@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const moment = require('moment-timezone');
-const TimeHelpers = require('../../modules/chronos/timeHelpers');
+const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
 const config = require('../../../../../config/metro/metroConfig');
 
 // Complete Spanish dictionary with proper capitalization

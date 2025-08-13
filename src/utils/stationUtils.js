@@ -1,7 +1,7 @@
 const { getAllStations, getStation, getStationsByRoute, loadStationData } = require('./dataUtils');
 const { normalize } = require('./stringUtils');
 const logger = require('../events/logger');
-const stationsData = require('../data/stations.json'); // Load stations data
+const stationsData = []; // Load stations data
 
 // Existing functions remain unchanged
 function findStationInfo(identifier) {

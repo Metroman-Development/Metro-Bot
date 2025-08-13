@@ -1,6 +1,6 @@
 // utils/lineUtils.js
 const { getCachedMetroData } = require('../events/metroDataHandler');
-const linesData = require('../data/linesData.json');
+const linesData = {};
 const { isExpressActive } = require('./timeUtils');
 
 // --------------------------

@@ -1,6 +1,6 @@
 // commands/intermodal.js
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { MetroCore } = require('../modules/metro/MetroCore');
+const { MetroCore } = require('../../../../core/metro/MetroCore.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
