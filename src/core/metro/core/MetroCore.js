@@ -220,23 +220,9 @@ class MetroCore extends EventEmitter {
                 this._staticData.lines || {}
             );
             
-            // Phase 7: Set up the scheduling system
-            this._subsystems.scheduler = new SchedulerService();
-            this._subsystems.scheduler.addJob({
-                name: 'fetch-network-status',
-                interval: this.config.api.pollingInterval,
-                task: () => this._subsystems.api.fetchNetworkStatus()
-            });
-            this._subsystems.scheduler.addJob({
-                name: 'check-accessibility',
-                interval: 60000, // Every minute
-                task: () => this._subsystems.accessibilityService.checkAccessibility()
-            });
-
-            // Phase 8: Fetch initial network status and start scheduler
+            // Phase 7: Fetch initial network status
             await this._subsystems.api.fetchNetworkStatus();
-            this._subsystems.scheduler.start();
-            
+
             logger.debug('[MetroCore] Initialization complete.');
             
             this._safeEmit(EventRegistry.SYSTEM_READY, { 
@@ -311,11 +297,6 @@ class MetroCore extends EventEmitter {
         if (this.client) {
             logger.info('[MetroCore] Discord client set. Initializing client-dependent subsystems.');
             this._subsystems.timeService = new TimeService(this);
-            this._subsystems.scheduler.addJob({
-                name: 'check-time',
-                interval: 60000, // Every minute
-                task: () => this._subsystems.timeService.checkTime()
-            });
             this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
             this._subsystems.statusUpdater.initialize();
         }
@@ -333,9 +314,6 @@ class MetroCore extends EventEmitter {
      * Cleans up resources used by the MetroCore instance.
      */
     cleanup() {
-        if (this._subsystems.scheduler) {
-            this._subsystems.scheduler.stop();
-        }
         if (this._subsystems.api) {
             this._subsystems.api.cleanup();
         }
