@@ -103,38 +103,50 @@ class StationManager {
     }
 
     get(id) {
-        const station = this._data[id];
+        if (!id) {
+            logger.warn('StationManager.get called with a null or undefined id');
+            return null;
+        }
+        const upperId = id.toUpperCase();
+        const station = this._data[upperId];
         if (!station) {
-            logger.warn(`Station not found: ${id}`);
+            logger.warn(`[StationManager.get] Station not found: ${id} (used ${upperId})`);
             return null;
         }
         return {
             ...station,
-            fullName: `${station.name} (Line ${station.line})`,
-            status: this.getStatus(id)
+            fullName: `${station.name} (Línea ${station.line})`,
+            status: this.getStatus(upperId)
         };
     }
 
     getStatus(id) {
-        if (this._statusCache.has(id)) {
-            return this._statusCache.get(id);
+        if (!id) return { code: '0', message: 'Station ID not provided' };
+        const upperId = id.toUpperCase();
+        if (this._statusCache.has(upperId)) {
+            return this._statusCache.get(upperId);
         }
-        const station = this._data[id];
+        const station = this._data[upperId];
         if (!station) return { code: '0', message: 'Station not found' };
         
         const status = station.status || { code: '0', message: 'Status unknown' };
-        this._statusCache.set(id, status);
+        this._statusCache.set(upperId, status);
         return status;
     }
 
     setStatus(id, newStatus) {
-        if (!this._data[id]) return false;
+        if (!id) return false;
+        const upperId = id.toUpperCase();
+        if (!this._data[upperId]) {
+            logger.warn(`[StationManager.setStatus] Attempted to set status for non-existent station: ${id}`);
+            return false;
+        }
         
-        const oldStatus = this.getStatus(id);
-        this._data[id].status = newStatus;
-        this._statusCache.set(id, newStatus);
+        const oldStatus = this.getStatus(upperId);
+        this._data[upperId].status = newStatus;
+        this._statusCache.set(upperId, newStatus);
 
-        logger.info(`Status changed for station ${id}: ${oldStatus.code} → ${newStatus.code}`);
+        logger.info(`Status changed for station ${upperId}: ${oldStatus.code} → ${newStatus.code}`);
         return true;
     }
 
