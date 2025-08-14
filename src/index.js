@@ -7,6 +7,7 @@ const dbConfig = {
     password: process.env.DB_PASSWORD,
     database: process.env.METRODB_NAME,
 };
+
 DatabaseManager.getInstance(dbConfig);
 
 console.log('███╗   ███╗███████╗████████╗██████╗  ██████╗  ██████╗ ');
