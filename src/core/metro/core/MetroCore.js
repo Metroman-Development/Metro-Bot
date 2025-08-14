@@ -94,6 +94,7 @@ class MetroCore extends EventEmitter {
         this._subsystems.statusProcessor = new StatusProcessor(this);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
         this._subsystems.statusOverrideService = new StatusOverrideService();
+        this._subsystems.overrideManager = new (require('./services/OverrideManager'))(this);
 
         if (this._debug) {
             logger.debug('[MetroCore] Subsystems initialized:', {

@@ -47,6 +47,24 @@ class StatusOverrideService {
         }
     }
 
+    async removeOverride({ targetType, targetId, source }) {
+        let conn;
+        try {
+            conn = await pool.getConnection();
+            const query = `
+                DELETE FROM status_overrides
+                WHERE target_type = ? AND target_id = ? AND source = ?
+            `;
+            await conn.query(query, [targetType, targetId, source]);
+            console.log(`Removed override for ${targetType} ${targetId}`);
+        } catch (err) {
+            console.error(`Could not remove override: ${err.message}`);
+            throw err;
+        } finally {
+            if (conn) conn.release();
+        }
+    }
+
     applyOverrides(data, overrides) {
         if (!data || !overrides) {
             return data;
