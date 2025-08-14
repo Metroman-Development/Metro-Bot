@@ -3,7 +3,7 @@ const PartialSearch = require('./strategies/PartialSearch');
 const SimilaritySearch = require('./strategies/SimilaritySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
-//{ DsabgatinHdl/er   reqire('./../..modules/interactions/buttons/DisambiguationHandler');
+const DataManager = require('../data/DataManager.js');
 const logger = require('../../../events/logger');
 const Normalizer = require('../utils/stringHandlers/normalization');
 
@@ -13,6 +13,7 @@ class SearchCore {
     this.defaultThreshold = options.similarityThreshold || 0.6;
     this.phoneticWeight = options.phoneticWeight || 0.4;
     this.cache = new Map();
+    this.dataManager = new DataManager();
     this.dataSource = null;
     this.normalize = options?.normalize || Normalizer.normalize;
     this.cacheTTL = options.cacheTTL || 300000; // 5 minutes
@@ -39,23 +40,17 @@ class SearchCore {
     logger.debug(`[SEARCH] Initialized SearchCore for ${type}`);
   }
 
-  setDataSource(data) {
-    if (!data) {
-      throw new Error('Data source cannot be null');
-    }
-    if (!data.stations && !data.lines) {
-      throw new Error('Invalid data source - must contain stations or lines');
-    }
-    
-    this.dataSource = this._normalizeDataStructure(data);
-    this.clearCache();
-    return this;
+  async init() {
+      await this.dataManager.loadData();
+      this.dataSource = {
+          stations: this.dataManager.getStations(),
+          lines: this.dataManager.getLines()
+      }
   }
-
 
   async getById(id) {
   if (!this.dataSource) {
-    throw new Error('Data source not loaded');
+    await this.init();
   }
 
   if (this.type === 'station' && this.dataSource.stations[id]) {
@@ -67,64 +62,6 @@ class SearchCore {
   }
 
   return null;
-  }
-
-  _normalizeDataStructure(data) {
-    const result = {
-      stations: {},
-      lines: {},
-      system: data.system || {
-        name: 'Metro de Santiago',
-        status: 'operational',
-        stats: {
-          totalStations: Object.keys(data.stations || {}).length,
-          totalLines: Object.keys(data.lines || {}).length
-        }
-      }
-    };
-
-    if (data.stations) {
-      Object.entries(data.stations).forEach(([id, station]) => {
-        if (!station) {
-          logger.warn(`Undefined station encountered: ${id}`);
-          return;
-        }
-        
-        result.stations[id] = {
-          id: station.id || id,
-          name: station.name || station.displayName || id,
-          displayName: station.displayName || station.name || id,
-          line: (station.line || 'unknown').toLowerCase(),
-          code: station.code || '',
-          status: this._normalizeStatus(station.status),
-          color: station.color || '#CCCCCC',
-          combination: station.combination || null,
-          connections: station.connections || station.transferLines || [],
-          accessibility: station.accessibility || {},
-          amenities: station.amenities || [],
-          commune: station.commune || 'Unknown',
-          aliases: station.aliases || [],
-          _raw: station
-        };
-      });
-    }
-
-    if (data.lines) {
-      Object.entries(data.lines).forEach(([id, line]) => {
-        result.lines[id] = {
-          id: line.id || id,
-          displayName: line.displayName || `Línea ${id.toUpperCase()}`,
-          color: line.color || '#CCCCCC',
-          status: this._normalizeStatus(line.status),
-          fleet: line.fleet || [],
-          details: line.details || {},
-          stations: line.stations || [],
-          _raw: line
-        };
-      });
-    }
-
-    return result;
   }
 
   _normalizeStatus(status) {
