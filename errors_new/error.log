@@ -1,0 +1,8 @@
+[2025-08-14T01:22:03.023Z] ERROR: Error:
+[BOOT] ❌ A critical error occurred during initialization:
+Stack: Error:
+[BOOT] ❌ A critical error occurred during initialization:
+    at Object.fatal (/app/src/events/logger.js:165:27)
+    at /app/src/index.js:238:12
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
