@@ -91,11 +91,33 @@ async function startDiscordBot() {
 
         const SchedulerService = require('./core/chronos/SchedulerService');
         const discordScheduler = new SchedulerService();
+
+        let lastEmbedUpdate = null;
         discordScheduler.addJob({
-            name: 'check-time',
-            interval: 60000, // Every minute
-            task: () => metroCore._subsystems.timeService.checkTime()
+            name: 'update-embeds',
+            interval: 10000, // Every 10 seconds
+            task: async () => {
+                try {
+                    const db = DatabaseManager.getInstance();
+                    const result = await db.query('SELECT last_updated FROM network_status WHERE id = 1');
+                    if (result && result.length > 0) {
+                        const lastUpdated = new Date(result[0].last_updated);
+                        if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
+                            logger.info('[DISCORD] Detected change in network_status, updating embeds...');
+                            if (metroCore._subsystems.statusUpdater && typeof metroCore._subsystems.statusUpdater.updateEmbeds === 'function') {
+                                await metroCore._subsystems.statusUpdater.updateEmbeds();
+                            } else {
+                                logger.warn('[DISCORD] statusUpdater or updateEmbeds method not available.');
+                            }
+                            lastEmbedUpdate = lastUpdated;
+                        }
+                    }
+                } catch (error) {
+                    logger.error('[DISCORD] Error checking for embed updates:', error);
+                }
+            }
         });
+
         discordScheduler.start();
 
     } catch (error) {

@@ -1,10 +1,9 @@
 const axios = require('axios');
-const fs = require('fs').promises;
-const path = require('path');
 const EventEmitter = require('events');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
+const DatabaseService = require('../../../database/DatabaseService');
 
 class AccessibilityService extends EventEmitter {
     constructor(options = {}) {
@@ -12,105 +11,25 @@ class AccessibilityService extends EventEmitter {
         this.timeHelpers = options.timeHelpers;
         this.config = options.config;
         this.apiUrl = process.env.ACCESSARIEL;
-        this.stateFile = path.join(__dirname, '../../../../data/lastAccessState.json');
-        this.cacheFile = path.join(__dirname, '../../../../data/accessibilityCache.json');
+        this.dbService = DatabaseService;
         this.lastStates = {};
         this.cachedStates = {};
     }
 
     async initialize() {
-        await this._initializeStorage();
-        this.lastStates = await this._loadDataFile(this.stateFile, 'last state');
-        this.cachedStates = await this._loadDataFile(this.cacheFile, 'cache');
-
-        if (Object.keys(this.cachedStates).length === 0 && Object.keys(this.lastStates).length > 0) {
-            logger.info('[AccessibilityService] Initializing cache from last state data');
-            this.cachedStates = JSON.parse(JSON.stringify(this.lastStates));
-            await this.saveCache(this.cachedStates);
-        }
-    }
-
-    async _initializeStorage() {
-        try {
-            const dir = path.dirname(this.cacheFile);
-            await fs.mkdir(dir, { recursive: true });
-            logger.info(`[AccessibilityService] Created storage directory: ${dir}`);
-
-            for (const file of [this.stateFile, this.cacheFile]) {
-                try {
-                    await fs.access(file);
-                } catch {
-                    await fs.writeFile(file, JSON.stringify({}, null, 2));
-                    logger.info(`[AccessibilityService] Initialized empty file: ${file}`);
-                }
-            }
-        } catch (error) {
-            logger.error(`[AccessibilityService] Storage initialization failed: ${error.message}`);
-            throw error;
-        }
-    }
-
-    async _loadDataFile(filePath, type) {
-        try {
-            const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
-
-            if (typeof data !== 'object' || data === null) {
-                throw new Error(`Invalid ${type} file structure`);
-            }
-
-            logger.info(`[AccessibilityService] Loaded ${type} data from ${filePath}`);
-            return this._cleanData(data);
-        } catch (error) {
-            logger.error(`[AccessibilityService] Error loading ${type} data: ${error.message}`);
-
-            if (error instanceof SyntaxError) {
-                const backupPath = `${filePath}.bak`;
-                await fs.copyFile(filePath, backupPath);
-                logger.warn(`[AccessibilityService] Created backup of corrupted file at ${backupPath}`);
-            }
-
-            return {};
-        }
-    }
-
-    _cleanData(data) {
-        const cleanData = {};
-        for (const [id, equipment] of Object.entries(data)) {
-            if (!equipment || typeof equipment !== 'object') continue;
-
-            cleanData[id] = {
-                time: equipment.time || this.timeHelpers.currentTime.toISOString(),
-                estado: equipment.estado !== undefined ? equipment.estado : -1,
-                tipo: equipment.tipo || 'unknown',
-                estacion: equipment.estacion || 'unknown',
-                texto: equipment.texto || 'No description'
+        logger.info('[AccessibilityService] Initializing...');
+        const dbStatus = await this.dbService.getAccessibilityStatus();
+        for (const item of dbStatus) {
+            this.lastStates[item.equipment_id] = {
+                time: item.last_updated,
+                estado: item.status,
+                tipo: item.type,
+                estacion: item.station_code,
+                texto: item.text
             };
         }
-        return cleanData;
-    }
-
-    async saveLastStates(newData = null) {
-        try {
-            if (newData) {
-                this.lastStates = newData;
-            }
-            const cleanData = this._cleanData(this.lastStates);
-            await fs.writeFile(this.stateFile, JSON.stringify(cleanData, null, 2));
-            logger.info(`[AccessibilityService] Saved last states to ${this.stateFile}`);
-        } catch (error) {
-            logger.error(`[AccessibilityService] Error saving last states: ${error.message}`);
-        }
-    }
-
-    async saveCache(data) {
-        try {
-            const cleanData = this._cleanData(data);
-            await fs.writeFile(this.cacheFile, JSON.stringify(cleanData, null, 2));
-            this.cachedStates = cleanData;
-            logger.info(`[AccessibilityService] Updated cache at ${this.cacheFile}`);
-        } catch (error) {
-            logger.error(`[AccessibilityService] Error saving cache: ${error.message}`);
-        }
+        this.cachedStates = { ...this.lastStates };
+        logger.info(`[AccessibilityService] Initialized with ${Object.keys(this.lastStates).length} equipment states from DB.`);
     }
 
     isWithinUpdateWindow() {
@@ -135,48 +54,57 @@ class AccessibilityService extends EventEmitter {
             logger.info(`[AccessibilityService] Starting accessibility check. Within update window: ${withinWindow}`);
 
             let currentStates;
-            let comparisonBaseline;
 
             if (withinWindow) {
                 logger.info('[AccessibilityService] Fetching fresh data from API');
                 const response = await axios.get(this.apiUrl);
                 currentStates = response.data;
-                comparisonBaseline = this.lastStates;
-                await this.saveCache(currentStates);
+                this.cachedStates = this._cleanData(currentStates);
             } else {
-                if (Object.keys(this.cachedStates).length > 0) {
-                    currentStates = this.cachedStates;
-                    comparisonBaseline = this.lastStates;
-                    logger.info('[AccessibilityService] Using cached data for comparison');
-                } else {
-                    logger.error('[AccessibilityService] No cached data available');
-                    return;
-                }
+                currentStates = this.cachedStates;
+                logger.info('[AccessibilityService] Using cached data for comparison');
             }
 
             const cleanCurrentStates = this._cleanData(currentStates);
-            const cleanComparisonBaseline = this._cleanData(comparisonBaseline);
 
-            if (Object.keys(cleanComparisonBaseline).length === 0) {
-                logger.info('[AccessibilityService] First run detected, saving initial state');
-                await this.saveLastStates(cleanCurrentStates);
-                return;
-            }
-
-            const changes = this._detectChanges(cleanCurrentStates, cleanComparisonBaseline);
+            const changes = this._detectChanges(cleanCurrentStates, this.lastStates);
             logger.info(`[AccessibilityService] Detected ${changes.length} changes`);
 
             if (changes.length > 0) {
                 this.emit(EventRegistry.ACCESSIBILITY_CHANGE, new EventPayload('accessibilityChange', { changes }));
-                logger.info('[AccessibilityService] Updating lastStates with current data');
-                await this.saveLastStates(cleanCurrentStates);
+                await this.updateDatabase(changes);
+                this.lastStates = cleanCurrentStates;
             }
-
-            this.cachedStates = await this._loadDataFile(this.cacheFile, 'cache');
 
         } catch (error) {
             logger.error(`[AccessibilityService] Error in accessibility check: ${error.message}`);
         }
+    }
+
+    async updateDatabase(changes) {
+        for (const change of changes) {
+            if (change.type === 'new' || change.type === 'state_change') {
+                const { equipmentId, current } = change;
+                const { station_code, line_id } = this.extractStationInfo(current.estacion);
+                await this.dbService.updateAccessibilityStatus(equipmentId, station_code, line_id, current.estado, current.tipo, current.texto);
+            } else if (change.type === 'removed') {
+                await this.dbService.deleteAccessibilityStatus(change.equipmentId);
+            }
+        }
+    }
+
+    extractStationInfo(stationName) {
+        // This is a placeholder. The station name from the API might not directly map to station_code and line_id.
+        // I will assume the station name is in the format "L1 - Los Dominicos"
+        const parts = stationName.split(' - ');
+        if (parts.length === 2) {
+            const line_id = parts[0].toLowerCase();
+            // I need a mapping from station name to station code.
+            // This is a known issue. I will assume the station name is the code for now.
+            const station_code = parts[1];
+            return { line_id, station_code };
+        }
+        return { line_id: 'unknown', station_code: stationName };
     }
 
     _detectChanges(currentStates, comparisonBaseline) {
@@ -212,6 +140,22 @@ class AccessibilityService extends EventEmitter {
         }
 
         return changes;
+    }
+
+    _cleanData(data) {
+        const cleanData = {};
+        for (const [id, equipment] of Object.entries(data)) {
+            if (!equipment || typeof equipment !== 'object') continue;
+
+            cleanData[id] = {
+                time: equipment.time || this.timeHelpers.currentTime.toISOString(),
+                estado: equipment.estado !== undefined ? equipment.estado : -1,
+                tipo: equipment.tipo || 'unknown',
+                estacion: equipment.estacion || 'unknown',
+                texto: equipment.texto || 'No description'
+            };
+        }
+        return cleanData;
     }
 }
 
