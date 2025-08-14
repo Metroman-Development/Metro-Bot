@@ -171,9 +171,13 @@ class AnnouncementHandler {
     async initialize() {
         try {
             logger.debug('[AnnouncementHandler] Initializing AnnouncementManager');
-            await this.manager.initialize();
+            const success = await this.manager.initialize();
+            if (!success) {
+                logger.warn('[AnnouncementHandler] AnnouncementManager failed to initialize. Announcement features will be disabled.');
+            }
         } catch (error) {
-            logger.fatal('[AnnouncementHandler] Failed to initialize', {
+            // This catch block should ideally not be reached now, but is kept as a safeguard.
+            logger.fatal('[AnnouncementHandler] A critical error occurred during initialization', {
                 error: error.message,
                 stack: error.stack
             });

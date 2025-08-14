@@ -26,14 +26,23 @@ class AnnouncementManager {
 
     async initialize() {
         try {
+            if (!metroConfig.announcementChannelId) {
+                logger.warn('[AnnouncementManager] announcementChannelId is not set in config. Announcements disabled.');
+                this.announcementChannel = null;
+                return false;
+            }
+
             this.announcementChannel = await this.client.channels.fetch(
                 metroConfig.announcementChannelId
-            ).catch(error => {
-                throw new Error(`Failed to fetch announcement channel: ${error.message}`);
-            });
+            );
             
             if (!this.announcementChannel) {
-                throw new Error('Announcement channel not found');
+                const notFoundError = new Error('Announcement channel not found');
+                await this._logError('Initialization failed', notFoundError, {
+                    channelId: metroConfig.announcementChannelId
+                });
+                logger.warn(`[AnnouncementManager] Announcement channel with ID ${metroConfig.announcementChannelId} not found. Announcements disabled.`);
+                return false;
             }
             
             logger.debug('[AnnouncementManager] Initialized successfully');
@@ -42,7 +51,9 @@ class AnnouncementManager {
             await this._logError('Initialization failed', error, {
                 channelId: metroConfig.announcementChannelId
             });
-            throw error;
+            logger.error(`[AnnouncementManager] Failed to fetch announcement channel: ${error.message}. Announcements will be disabled.`);
+            this.announcementChannel = null;
+            return false;
         }
     }
 
@@ -228,7 +239,8 @@ class AnnouncementManager {
 
     async _sendSafeEmbed(embed, type, severity = 'medium') {
         if (!this.announcementChannel) {
-            throw new Error('Announcement channel not initialized');
+            logger.debug('[AnnouncementManager] Announcement channel not available, skipping sending embed.');
+            return false;
         }
 
         try {
@@ -237,39 +249,26 @@ class AnnouncementManager {
                 embed.setColor(this._statusColors[severity] || this._statusColors.normal);
             }
             
-            try{
-
             const message = await this.announcementChannel.send({ embeds: [embed] });
                 
-            if (message){   
-            
-          this.lastAnnouncement = { 
-                type, 
-                time: TimeHelpers.currentTime.toDate(),
-                message,
-                severity 
-            };} 
+            if (message) {
+                this.lastAnnouncement = {
+                    type,
+                    time: TimeHelpers.currentTime.toDate(),
+                    message,
+                    severity
+                };
+            }
                 
             return true;
-              } catch(error) {
-
-                   
-
-                  return true; 
-
-                   
-
-               }   
-                
-                
-                
         } catch (error) {
             await this._logError('Embed send failed', error, {
                 type,
                 severity,
-                embed: embed.data
+                channelId: this.announcementChannel.id,
+                embedTitle: embed.data?.title || 'N/A'
             });
-            throw error;
+            return false;
         }
     }
 
