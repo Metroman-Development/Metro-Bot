@@ -54,6 +54,12 @@ async function startScheduler() {
         task: () => timeService.checkTime()
     });
 
+    scheduler.addJob({
+        name: 'check-scheduled-overrides',
+        interval: 60000, // Every minute
+        task: () => metroCore._subsystems.overrideManager.checkScheduledOverrides()
+    });
+
     scheduler.start();
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');
 }
