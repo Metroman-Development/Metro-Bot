@@ -7,11 +7,12 @@ const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
 const mariadb = require('mariadb');
+require('dotenv').config();
 const pool = mariadb.createPool({
-    host: '127.0.0.1',
-    user: 'metroapi',
-    password: 'Metro256',
-    database: 'MetroDB',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.METRODB_NAME,
     connectionLimit: 5
 });
 

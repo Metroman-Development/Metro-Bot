@@ -485,8 +485,8 @@ async activateEventOverrides(eventDetails) {
             }
 
             // PHASE 2c: Process data
-            await this.override.loadOverrides();
-            rawData = this.override.applyOverrides(rawData);
+            const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
+            rawData = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
             const randomizedData = this._randomizeStatuses(rawData);
             
             await this._updateCache(rawData);
