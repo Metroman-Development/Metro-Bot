@@ -103,3 +103,46 @@ Metadata: {
   "error": "(conn:162, no: 1452, SQLState: 23000) Cannot add or update a child row: a foreign key constraint fails (`MetroDB`.`metro_stations`, CONSTRAINT `metro_stations_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`))\nsql: INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,\n                                        transports, services, accessibility, commerce, amenities, image_url, access_details)\n               VALUES (?, ?, ?, ?, POINT(0...",
   "stack": "SqlError: (conn:162, no: 1452, SQLState: 23000) Cannot add or update a child row: a foreign key constraint fails (`MetroDB`.`metro_stations`, CONSTRAINT `metro_stations_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`))\nsql: INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,\n                                        transports, services, accessibility, commerce, amenities, image_url, access_details)\n               VALUES (?, ?, ?, ?, POINT(0...\n    at module.exports.createError (/app/node_modules/mariadb/lib/misc/errors.js:66:10)\n    at PacketNodeEncoded.readError (/app/node_modules/mariadb/lib/io/packet.js:588:19)\n    at Query.handleErrorPacket (/app/node_modules/mariadb/lib/cmd/parser.js:92:24)\n    at Query.readResponsePacket (/app/node_modules/mariadb/lib/cmd/parser.js:70:21)\n    at PacketInputStream.receivePacketBasic (/app/node_modules/mariadb/lib/io/packet-input-stream.js:85:9)\n    at PacketInputStream.onData (/app/node_modules/mariadb/lib/io/packet-input-stream.js:135:20)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)"
 }
+[2025-08-14T12:53:35.377Z] ERROR: Error: [AnnouncementManager] Failed to fetch announcement channel: Expected token to be set for this request, but none was present. Announcements will be disabled.
+Stack: Error: [AnnouncementManager] Failed to fetch announcement channel: Expected token to be set for this request, but none was present. Announcements will be disabled.
+    at Object.error (/app/src/events/logger.js:152:27)
+    at AnnouncementManager.initialize (/app/src/core/status/embeds/AnnouncementManager.js:54:20)
+    at async AnnouncementHandler.initialize (/app/src/core/status/embeds/AnnouncementHandler.js:174:29)
+    at async StatusUpdater.initialize (/app/src/core/status/embeds/StatusUpdater.js:140:13)
+    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:233:13)
+    at async /app/src/core/metro/core/MetroCore.js:165:13
+    at async /app/src/index.js:182:23
+Metadata: {}
+
+[2025-08-14T12:53:35.379Z] ERROR: Error: [EmbedManager] Channel fetch failed
+Stack: Error: [EmbedManager] Channel fetch failed
+    at Object.error (/app/src/events/logger.js:152:27)
+    at EmbedManager._fetchEmbedChannel (/app/src/core/status/embeds/EmbedManager.js:278:20)
+    at async EmbedManager.cacheEmbedMessages (/app/src/core/status/embeds/EmbedManager.js:64:29)
+    at async StatusUpdater.initialize (/app/src/core/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:233:13)
+    at async /app/src/core/metro/core/MetroCore.js:165:13
+    at async /app/src/index.js:182:23
+Metadata: {}
+
+[2025-08-14T12:53:35.380Z] ERROR: Error: [EmbedManager] Failed to cache embeds
+Stack: Error: [EmbedManager] Failed to cache embeds
+    at Object.fatal (/app/src/events/logger.js:165:27)
+    at EmbedManager.cacheEmbedMessages (/app/src/core/status/embeds/EmbedManager.js:87:20)
+    at async StatusUpdater.initialize (/app/src/core/status/embeds/StatusUpdater.js:141:13)
+    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:233:13)
+    at async /app/src/core/metro/core/MetroCore.js:165:13
+    at async /app/src/index.js:182:23
+Metadata: {}
+
+[2025-08-14T12:53:35.381Z] ERROR: Error: [StatusUpdater] Initialization failed
+Stack: Error: [StatusUpdater] Initialization failed
+    at Object.fatal (/app/src/events/logger.js:165:27)
+    at StatusUpdater.initialize (/app/src/core/status/embeds/StatusUpdater.js:148:20)
+    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:233:13)
+    at async /app/src/core/metro/core/MetroCore.js:165:13
+    at async /app/src/index.js:182:23
+Metadata: {
+  "error": "❌ Error al obtener canal de Discord",
+  "stack": "Error: ❌ Error al obtener canal de Discord\n    at EmbedManager._fetchEmbedChannel (/app/src/core/status/embeds/EmbedManager.js:279:19)\n    at async EmbedManager.cacheEmbedMessages (/app/src/core/status/embeds/EmbedManager.js:64:29)\n    at async StatusUpdater.initialize (/app/src/core/status/embeds/StatusUpdater.js:141:13)\n    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:233:13)\n    at async /app/src/core/metro/core/MetroCore.js:165:13\n    at async /app/src/index.js:182:23"
+}

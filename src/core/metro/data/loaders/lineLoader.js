@@ -3,56 +3,56 @@ const loadJsonFile = require('../../../../utils/jsonLoader');
 const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
+const mariadb = require('mariadb');
+const pool = mariadb.createPool({
+    host: '127.0.0.1',
+    user: 'metroapi',
+    password: 'Metro256',
+    database: 'MetroDB',
+    connectionLimit: 5
+});
+
 module.exports = {
-  source: 'linesData.json + estadoRedDetalle.php',
+  source: 'MetroDB/metro_lines',
   async load() {
-    const trainData = await require('./trainLoader').load();
-    const rawLinesData = this._loadFile('linesData.json');
-    return this._transform(rawLinesData, trainData);
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("SELECT * FROM metro_lines");
+        return this._transform(rows);
+    } catch (err) {
+        throw err;
+    } finally {
+        if (conn) conn.release();
+    }
   },
 
-  _loadFile(filename) {
-    return loadJsonFile(path.join(__dirname, '../../../../data', filename));
-  },
-
-  _transform(rawLines, trainData) {
-    return Object.entries(rawLines).reduce((acc, [lineId, data]) => {
-      const id = lineId.toLowerCase();
-      const lineTemplate = estadoRedTemplate[lineId.toUpperCase()] || {};
-      
+  _transform(rows) {
+    return rows.reduce((acc, row) => {
+      const id = row.line_id.toLowerCase();
       acc[id] = {
         id,
-        displayName: `Línea ${lineId.toUpperCase()}`,
+        displayName: row.line_name,
         color: styles.lineColors[id] || '#CCCCCC',
         status: {
-          code: lineTemplate.estado || "1",
-          message: lineTemplate.mensaje || "",
-          appMessage: lineTemplate.mensaje_app || "Línea disponible"
+          code: "1",
+          message: "",
+          appMessage: row.line_description
         },
-        fleet: this._mapFleet(data.Flota, trainData),
+        fleet: [],
         details: {
-          length: data.Longitud,
-          stations: data['N° estaciones'],
-          inauguration: data.Estreno,
-          communes: data.Comunas || []
+          length: row.total_length_km,
+          stations: row.total_stations,
+          inauguration: row.opening_date,
+          communes: []
         },
         infrastructure: {
-          operationalStatus: lineTemplate.estado === "1" ? "operational" : "inactive",
+          operationalStatus: "operational",
           lastUpdated: new Date(),
-          stationCodes: lineTemplate.estaciones 
-            ? lineTemplate.estaciones.map(s => s.codigo) 
-            : []
+          stationCodes: []
         }
       };
       return acc;
     }, {});
-  },
-
-  _mapFleet(fleetList, trainData) {
-    return (fleetList || []).map(modelId => ({
-      id: modelId,
-      ...trainData[modelId],
-      image: trainData[modelId]?.images?.exterior || null
-    }));
   }
 };
