@@ -13,6 +13,9 @@ const ScheduleEngine = require('./internal/ScheduleEngine');
 const DataLoader = require('./DataLoader');
 const ApiService = require('./services/ApiService');
 const StatusOverrideService = require('./services/StatusOverrideService');
+const SchedulerService = require('../../chronos/SchedulerService');
+const TimeService = require('./services/TimeService');
+const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
 const StatusProcessor = require('../../status/utils/StatusProcessor');
 const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
@@ -42,7 +45,7 @@ class MetroCore extends EventEmitter {
         MetroCore.#instance = this;
 
         if (!options.client) {
-            console.warn("A Discord client instance is required for full functionality.");
+            logger.warn("A Discord client instance is required for full functionality.");
         }
         
         this._debug = options.debug || false;
@@ -82,7 +85,7 @@ class MetroCore extends EventEmitter {
                 lines: new (require('./managers/LineManager'))({}, this._subsystems.utils)
             };
         } catch (managerError) {
-            console.error('[MetroCore] Manager initialization failed:', managerError);
+            logger.error('[MetroCore] Manager initialization failed:', { managerError });
             throw new Error(`Failed to initialize managers: ${managerError.message}`);
         }
 
@@ -93,7 +96,7 @@ class MetroCore extends EventEmitter {
         this._subsystems.statusOverrideService = new StatusOverrideService();
 
         if (this._debug) {
-            console.log('[MetroCore] Subsystems initialized:', {
+            logger.debug('[MetroCore] Subsystems initialized:', {
                 utils: Object.keys(this._subsystems.utils),
                 managers: Object.keys(this._subsystems.managers),
                 other: Object.keys(this._subsystems).filter(k => !['utils', 'managers'].includes(k))
@@ -182,7 +185,9 @@ class MetroCore extends EventEmitter {
             // Phase 1: Initialize core services
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
-            
+            this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config });
+            await this._subsystems.accessibilityService.initialize();
+
             // Phase 2: Initialize the API service
             this._subsystems.api = new ApiService(this, {
                 statusProcessor: this._subsystems.statusProcessor,
@@ -191,7 +196,6 @@ class MetroCore extends EventEmitter {
             
             // Phase 3: Set up the public API
             this.api = {
-                timeAwaiter: this._subsystems.api.timeAwaiter,
                 changes: this._subsystems.api.api.changes,
                 metrics: this._subsystems.api.api.metrics,
                 getCacheState: this._subsystems.api.api.getCacheState,
@@ -217,11 +221,21 @@ class MetroCore extends EventEmitter {
             );
             
             // Phase 7: Set up the scheduling system
-            await this._initializeSchedulingSystem();
-            
-            // Phase 8: Fetch initial network status and start polling
+            this._subsystems.scheduler = new SchedulerService();
+            this._subsystems.scheduler.addJob({
+                name: 'fetch-network-status',
+                interval: this.config.api.pollingInterval,
+                task: () => this._subsystems.api.fetchNetworkStatus()
+            });
+            this._subsystems.scheduler.addJob({
+                name: 'check-accessibility',
+                interval: 60000, // Every minute
+                task: () => this._subsystems.accessibilityService.checkAccessibility()
+            });
+
+            // Phase 8: Fetch initial network status and start scheduler
             await this._subsystems.api.fetchNetworkStatus();
-            this._subsystems.api.startPolling();
+            this._subsystems.scheduler.start();
             
             logger.debug('[MetroCore] Initialization complete.');
             
@@ -230,12 +244,9 @@ class MetroCore extends EventEmitter {
                 startupTime: Date.now()
             }, { source: 'MetroCore' });
 
-            // Phase 9: Initialize the status updater
-            this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
-            await this._subsystems.statusUpdater.initialize();
-
+            // Phase 9: Initialize the status updater is now handled by setClient
         } catch (error) {
-            console.error('[MetroCore] A critical error occurred during initialization:', error);
+            logger.error('[MetroCore] A critical error occurred during initialization:', { error });
             this._emitError('initialize', error);
         }
     }
@@ -263,20 +274,6 @@ class MetroCore extends EventEmitter {
         };
     }
 
-    /**
-     * Starts polling for network status updates.
-     * @param {number} interval - The polling interval in milliseconds.
-     */
-    startPolling(interval = 60000) {
-        return this._subsystems.api.startPolling(interval);
-    }
-
-    /**
-     * Stops polling for network status updates.
-     */
-    stopPolling() {
-        return this._subsystems.api.stopPolling();
-    }
 
     /**
      * Sends a full status report to the designated channel.
@@ -309,6 +306,21 @@ class MetroCore extends EventEmitter {
         return this._subsystems.managers.lines;
     }
 
+    setClient(client) {
+        this.client = client;
+        if (this.client) {
+            logger.info('[MetroCore] Discord client set. Initializing client-dependent subsystems.');
+            this._subsystems.timeService = new TimeService(this);
+            this._subsystems.scheduler.addJob({
+                name: 'check-time',
+                interval: 60000, // Every minute
+                task: () => this._subsystems.timeService.checkTime()
+            });
+            this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
+            this._subsystems.statusUpdater.initialize();
+        }
+    }
+
     /**
      * Retrieves the current processed data.
      * @returns {object} The processed metro data.
@@ -321,6 +333,9 @@ class MetroCore extends EventEmitter {
      * Cleans up resources used by the MetroCore instance.
      */
     cleanup() {
+        if (this._subsystems.scheduler) {
+            this._subsystems.scheduler.stop();
+        }
         if (this._subsystems.api) {
             this._subsystems.api.cleanup();
         }

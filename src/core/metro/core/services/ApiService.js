@@ -9,19 +9,17 @@ const fsp = require('fs').promises;
 const path = require('path');
 const { performance } = require('perf_hooks');
 const TimeHelpers = require('../../../chronos/timeHelpers');
-const TimeAwaiter = require('../../../chronos/TimeAwaiter');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const NewsService = require('./NewsService');
 const StatusOverrideService = require('./StatusOverrideService');
-const AccessibilityChangeDetector = require('./AccessibilityChangeDetector') 
+const EstadoRedService = require('./EstadoRedService');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
         super();
-        this.estadoRedUrl = this._getEstadoRedUrl();
         
         // Core dependencies
         this.metro = metro;
@@ -48,15 +46,13 @@ class ApiService extends EventEmitter {
 
         // Path configuration
         this.cacheDir = path.join(__dirname, '../../../../data');
-        this.cacheFile = path.join(this.cacheDir, '/cache/network-status.json');
         this.processedDataFile = path.join(this.cacheDir, 'processedEstadoRed.php.json');
-        this.legacyCacheFile = path.join(__dirname, '../../../../data/estadoRed.json');
 
         // State management
         this.lastRawData = null;
         this.lastProcessedData = null;
         this.lastProcessedTimestamp = null;
-        this.cachedData = this._generateClosedState();
+        this.cachedData = null;
         this.changeHistory = [];
         this.isPolling = false;
         this._activeRequests = new Set();
@@ -71,7 +67,7 @@ class ApiService extends EventEmitter {
         this.override = new StatusOverrideService();
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
-        this.timeAwaiter = new TimeAwaiter(metro);
+        this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
 
         // Metrics
         this.metrics = {
@@ -275,8 +271,7 @@ async removeOverrides(removals = {}) {
  * @returns {Promise<boolean>} True if successful
  */
    async prepareEventOverrides(eventDetails) {
-    console.log("Preparando Overrides");
-    console.log(eventDetails);
+    logger.info("Preparando Overrides", { eventDetails });
     
     if (!eventDetails?.closedStations && !eventDetails?.operationalStations) return false;
     
@@ -285,7 +280,7 @@ async removeOverrides(removals = {}) {
     const stationOverrides = {};
     
     // Get current data (either last fetched or generated closed state)
-    const currentData = this.lastRawData || this._generateClosedState();
+    const currentData = this.lastRawData || {};
 
     // Prepare line overrides (disabled by default)
     const allAffectedLines = new Set([
@@ -323,11 +318,11 @@ async removeOverrides(removals = {}) {
                             enabled: false
                         };
                     } else {
-                        console.warn(`Closed station "${stationName}" not found in line ${lineKey}`);
+                        logger.warn(`Closed station "${stationName}" not found in line ${lineKey}`);
                     }
                 });
             } else {
-                console.warn(`Line ${lineKey} not found in current data for closed stations`);
+                logger.warn(`Line ${lineKey} not found in current data for closed stations`);
             }
         });
     }
@@ -362,14 +357,14 @@ async removeOverrides(removals = {}) {
             }
             
             if (!found) {
-                console.warn(`Operational station "${stationName}" not found in any line`);
+                logger.warn(`Operational station "${stationName}" not found in any line`);
             }
         });
     }
   
     
     
-    console.log("Generated station overrides:", stationOverrides);
+    logger.info("Generated station overrides:", { stationOverrides });
     return this.updateOverrides({
         lines: lineOverrides,
         stations: stationOverrides
@@ -460,12 +455,8 @@ async activateEventOverrides(eventDetails) {
         this.metrics.totalRequests++;
         const startTime = performance.now();
 
-        const accchdetector =  AccessibilityChangeDetector;
-
-
         if ((this.checkCount-1)/15===1||this.checkCount-1===0){
-         await accchdetector.checkAccessibility() 
-            
+            // This will be handled by the SchedulerService
         }
 
        if(this.metrics.totalRequests>1){
@@ -474,15 +465,7 @@ async activateEventOverrides(eventDetails) {
        }
         try {
             // PHASE 2a: Fetch raw data
-            let rawData = this.timeHelpers.isWithinOperatingHours()
-                ? await this._fetchWithRetry()
-                : await this._readCachedData();
-
-            // PHASE 2b: Apply operational state
-            if (!this.timeHelpers.isWithinOperatingHours()) {
-                rawData = this._generateClosedState(rawData);
-                this.metrics.cacheHits++;
-            }
+            let rawData = await this.estadoRedService.fetchStatus();
 
             // PHASE 2c: Process data
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
@@ -519,7 +502,6 @@ async activateEventOverrides(eventDetails) {
                 await this._checkForNewsUpdates();
             }
             
-            this.timeAwaiter.checkTime(this);
             this.metrics.lastSuccess = new Date();
             
            // console.log(this.lastProcessedData) 
@@ -528,10 +510,10 @@ async activateEventOverrides(eventDetails) {
             
             return processedData;
         } catch (error) {
-            console.error(`[ApiService] Fetch failed: ${error}`);
+            logger.error(`[ApiService] Fetch failed`, { error });
             this.metrics.failedRequests++;
             this.metrics.lastFailure = new Date();
-            return this._fallbackToCachedData(error);
+            return null;
         } finally {
             const processingTime = performance.now() - startTime;
             this.metrics.avgResponseTime = 
@@ -572,7 +554,7 @@ async activateEventOverrides(eventDetails) {
                 this.metrics.refreshSkipped++;
             }
         } catch (error) {
-            console.warn('[ApiService] Static data refresh failed, proceeding with existing data:', error);
+            logger.warn('[ApiService] Static data refresh failed, proceeding with existing data:', { error });
         }
     }
 
@@ -647,116 +629,6 @@ async activateEventOverrides(eventDetails) {
         }
     }
 
-    _generateClosedState(rawData = {}) {
-        logger.debug('[ApiService] Generating closed state for non-operating hours');
-        
-        const state = rawData;
-        
-        Object.keys(state).forEach(lineId => {
-            if (['l1', 'l2', 'l3', 'l4', 'l4a', 'l5', 'l6'].includes(lineId)) {
-                if (state[lineId].estado !== undefined) state[lineId].estado = "0";
-                if (state[lineId].mensaje !== undefined) state[lineId].mensaje = "Cierre por horario";
-                if (state[lineId].mensaje_app !== undefined) state[lineId].mensaje_app = "Cierre por horario";
-                
-                if (Array.isArray(state[lineId].estaciones)) {
-                    state[lineId].estaciones.forEach(station => {
-                        if (station.estado !== undefined) station.estado = "0";
-                        if (station.descripcion !== undefined) station.descripcion = "Cierre por horario";
-                        if (station.descripcion_app !== undefined) station.descripcion_app = "Cierre por horario";
-                    });
-                }
-            }
-        });
-        
-        return state;
-    }
-
-    async _fetchWithRetry() {
-        let lastError;
-        const { maxRetries, baseRetryDelay, maxRetryDelay, timeout } = config.api;
-
-        for (let attempt = 1; attempt <= maxRetries; attempt++) {
-            try {
-                const response = await fetch(this.estadoRedUrl, {
-                    headers: config.api.headers,
-                    signal: AbortSignal.timeout(timeout)
-                });
-
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
-                const data = await response.json();
-                this._validateApiResponse(data);
-                return data;
-
-            } catch (error) {
-                lastError = error;
-                
-                if (attempt < maxRetries) {
-                    const delay = this._calculateBackoff(attempt, baseRetryDelay, maxRetryDelay);
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                }
-            }
-        }
-
-        throw lastError;
-    }
-
-    _calculateBackoff(attempt, baseDelay, maxDelay) {
-        return Math.min(baseDelay * Math.pow(2, attempt - 1), maxDelay);
-    }
-
-    _validateApiResponse(data) {
-        logger.debug('[ApiService] Validating response structure');
-        if (!data || typeof data !== 'object') {
-            throw new Error('Invalid network-status-json format');
-        }
-        
-        Object.keys(data.lineas || {}).forEach(line => {
-            if (!line.startsWith('l')) {
-                throw new Error(`Invalid line ID format: ${line}`);
-            }
-        });
-    }
-
-    async _updateCache(data) {
-        try {
-            await fsp.mkdir(path.dirname(this.cacheFile), { recursive: true });
-            await fsp.writeFile(this.cacheFile, JSON.stringify(data, null, 2));
-            logger.debug('[ApiService] Cache updated successfully');
-        } catch (error) {
-            logger.error('[ApiService] Cache update failed', { error });
-            throw error;
-        }
-    }
-
-    async _readCachedData() {
-        try {
-            try {
-                const data = await fsp.readFile(this.cacheFile, 'utf8');
-                return JSON.parse(data);
-            } catch (newCacheError) {
-                if (await this._fileExists(this.legacyCacheFile)) {
-                    const legacyData = await fsp.readFile(this.legacyCacheFile, 'utf8');
-                    const parsedData = JSON.parse(legacyData);
-                    await this._updateCache(parsedData);
-                    return parsedData;
-                }
-                throw newCacheError;
-            }
-        } catch (error) {
-            logger.error('[ApiService] Cache read failed', { error });
-            throw error;
-        }
-    }
-
-    async _fileExists(filePath) {
-        try {
-            await fsp.access(filePath);
-            return true;
-        } catch {
-            return false;
-        }
-    }
 
     _updateState(newData) {
         logger.debug('[ApiService] Updating service state');
@@ -1007,27 +879,6 @@ async activateEventOverrides(eventDetails) {
         }
     }
 
-    async _fallbackToCachedData(error) {
-        logger.warn('[ApiService] Falling back to cached data');
-        try {
-            const cachedData = await this._readCachedData();
-            this.metrics.cacheHits++;
-            const processedData = this._processData(cachedData);
-            this._updateProcessedData(processedData);
-            this._updateState(processedData);
-            return processedData;
-        } catch (cacheError) {
-            logger.error('[ApiService] Cache fallback failed', { error: cacheError });
-            
-            // Final fallback to generated closed state
-            logger.warn('[ApiService] Falling back to generated closed state');
-            const closedState = this._generateClosedState();
-            const processedData = this._processData(closedState);
-            this._updateProcessedData(processedData);
-            this.metrics.dataGeneratedCount++;
-            return processedData;
-        }
-    }
 
     async checkNews() {
         this.metrics.newsChecks++;
@@ -1048,7 +899,7 @@ async activateEventOverrides(eventDetails) {
     }
 
     _simulateChange(type, data) {
-        logger.warn('[ApiService] Simulating change event');
+        logger.warn('[ApiService] Simulating change event', { type, data });
         const simulatedChange = {
             type: type || 'simulated',
             id: data?.id || 'simulated_' + Date.now(),
@@ -1066,42 +917,6 @@ async activateEventOverrides(eventDetails) {
         return simulatedChange;
     }
 
-    _getEstadoRedUrl() {
-        // First, try to get from process.env, which might be correctly set in some environments
-        if (process.env.ESTADO_RED && process.env.ESTADO_RED.startsWith('http')) {
-            return process.env.ESTADO_RED;
-        }
-
-        // If not, read the .env file manually
-        try {
-            const envPath = path.join(__dirname, '../../../../../.env');
-            if (fs.existsSync(envPath)) {
-                const envFileContent = fs.readFileSync(envPath, 'utf-8');
-                const lines = envFileContent.split('\n');
-                for (const line of lines) {
-                    if (line.startsWith('ESTADO_RED')) {
-                        const separatorIndex = line.search(/[:=]/);
-                        if (separatorIndex !== -1) {
-                            const url = line.substring(separatorIndex + 1).trim();
-                            if (url.startsWith('http')) {
-                                return url;
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (e) {
-            // Use the existing logger if available, otherwise console.error
-            if (typeof logger !== 'undefined') {
-                logger.error('[ApiService] Error reading .env file for custom parsing', e);
-            } else {
-                console.error('[ApiService] Error reading .env file for custom parsing', e);
-            }
-        }
-
-        // Fallback or default URL if not found
-        return 'https://www.metro.cl/api/estadoRedDetalle.php';
-    }
 }
 
 module.exports = ApiService;

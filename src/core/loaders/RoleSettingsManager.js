@@ -1,10 +1,9 @@
-const { CacheManager } = require('../cache/CacheManager');
+const CacheManager = require('../cache/CacheManager');
 const logger = require('../../events/logger');
 
 class RoleSettingsManager {
     constructor() {
-        this.cache = CacheManager
-            ;
+        this.cache = CacheManager.getInstance();
         this.config = {};
     }
 
@@ -96,4 +95,4 @@ class RoleSettingsManager {
     }
 }
 
-module.exports = new RoleSettingsManager();
+module.exports = RoleSettingsManager;
