@@ -36,7 +36,7 @@ class TimeAwaiter {
             let apiService = service ? service : this.metroCore.api;
 
             // 1. EVENT DAY MANAGEMENT
-            const isEventActive = this.timeHelpers.isEventActive();
+            const isEventActive = this.timeHelpers.isSpecialEventActive();
             if (eventDetails) {
                 if (isEventActive && !this._lastEventDay) {
                     await apiService.prepareEventOverrides(eventDetails);
