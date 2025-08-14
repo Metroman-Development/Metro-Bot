@@ -32,9 +32,9 @@ module.exports = {
 
   _transform(rows) {
     return rows.reduce((acc, row) => {
-      const id = row.station_code;
+      const id = row.station_code.toUpperCase();
       acc[id] = {
-        id,
+        id: id,
         line: row.line_id,
         displayName: row.station_name,
         status: {message:'operational'},
@@ -43,7 +43,7 @@ module.exports = {
         transports: row.transports,
         services: row.services,
         accessibility: row.accessibility,
-        accessDetails: row.access_details ? JSON.parse(row.access_details) : null,
+        accessDetails: typeof row.access_details === 'string' ? JSON.parse(row.access_details) : row.access_details,
         commerce: row.commerce,
         amenities: row.amenities,
         image: row.image_url,
