@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { searchStations } = require('../../../../../utils/metroUtils');
+const { handleCommandError } = require('../../../../../utils/commandUtils');
+const { createErrorEmbed } = require('../../../../../utils/embedFactory');
 const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 
@@ -15,13 +17,9 @@ module.exports = {
                 .setRequired(true)),
 
     async autocomplete(interaction, metro) {
-        const focusedValue = interaction.options.getFocused().toLowerCase();
-        
+        const focusedValue = interaction.options.getFocused();
         try {
-            const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(metro.api.getProcessedData());
-            const stationResults = await stationSearcher.search(focusedValue, { maxResults: 25 });
-
+            const stationResults = await searchStations(metro, focusedValue);
             await interaction.respond(
                 stationResults.map(result => ({
                     name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
@@ -43,30 +41,17 @@ module.exports = {
             const station = infoProvider.getStationById(stationId);
 
             if (!station) {
-                return await interaction.editReply({ 
-                    content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.',
-                    ephemeral: true 
-                });
+                const errorEmbed = await createErrorEmbed('No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.');
+                return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
             }
 
             const formatter = new DiscordMessageFormatter();
-            const message = formatter.formatStationInfo(station, metro, interaction.user.id);
+            const message = await formatter.formatStationInfo(station, metro, interaction.user.id);
             
             await interaction.editReply(message);
 
         } catch (error) {
-            console.error('Error executing "estacion info" command:', error);
-            if (interaction.deferred || interaction.replied) {
-                await interaction.editReply({
-                    content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
-                    ephemeral: true
-                });
-            } else {
-                await interaction.reply({
-                    content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
-                    ephemeral: true
-                });
-            }
+            await handleCommandError(error, interaction);
         }
     }
 };

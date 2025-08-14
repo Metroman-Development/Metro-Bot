@@ -1,7 +1,8 @@
 const { ButtonStyle, ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require('discord.js');
 const cacheManager = require('../utils/cacheManager');
 const metroConfig = require('../config/metro/metroConfig');
-const StationEmbedHub = require('../templates/embeds/StationEmbedHub');
+const { createErrorEmbed, createEmbed } = require('../utils/embedFactory');
+const { getLineColor, getLineImage } = require('../utils/metroUtils');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
 const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
@@ -61,21 +62,10 @@ class DiscordMessageFormatter {
         return `${CUSTOM_ID_PREFIX}:${userId}:${stationId}`;
     }
 
-    _getLineColor(line) {
-        return metroConfig.lineColors?.[line?.toLowerCase()] || 0x000000;
-    }
-
-    _getLineImage(line) {
-        return `https://www.metro.cl/images/lines/line-${line || 'default'}.png`;
-    }
-
-    _createErrorMessage(message) {
+    async _createErrorMessage(message) {
+        const errorEmbed = await createErrorEmbed(message);
         return {
-            embeds: [new EmbedBuilder()
-                .setTitle('⚠️ Error')
-                .setDescription(message)
-                .setColor(0xFF0000)
-            ],
+            embeds: [errorEmbed],
             components: [],
             ephemeral: true
         };
@@ -92,8 +82,8 @@ class DiscordMessageFormatter {
             displayName: station.displayName || 'Unknown Station',
             line: station.line || 'L0',
             transferLines: station.transferLines || [],
-            color: station.color || staticData.color || this._getLineColor(station.line),
-            image: station.image || staticData.image || this._getLineImage(station.line)
+            color: station.color || staticData.color || getLineColor(station.line),
+            image: station.image || staticData.image || getLineImage(station.line)
         };
     }
 
@@ -113,94 +103,20 @@ class DiscordMessageFormatter {
         return transferStation?.id;
     }
 
-    _createTabButtons(station, activeTab, metroData, userId) {
-        const mainRow = new ActionRowBuilder();
-        const accRow = new ActionRowBuilder();
-        const embedHub = new StationEmbedHub({ config: metroConfig });
-        const availableTabs = embedHub.getAvailableTabs(station);
-        const hasAccessDetails = !!station.accessDetails;
-
-        availableTabs.filter(t => !t.startsWith('acc_')).forEach(tabId => {
-            const tabConfig = tabs[tabId];
-            const isActive = tabId === activeTab;
-
-            if (tabId === 'transfers' && station?.transferLines?.length > 0) {
-                const transferStationId = this._getTransferStationId(station, metroData);
-                if (transferStationId) return;
-            }
-
-            const button = new ButtonBuilder()
-                .setCustomId(`${CUSTOM_ID_PREFIX}:view:${station.id}:${tabId}:${userId}`)
-                .setStyle(isActive ? ButtonStyle.Primary : tabConfig.style)
-                .setDisabled(isActive)
-                .setEmoji(tabConfig.emoji);
-
-            mainRow.addComponents(button);
-        });
-
-        if (station?.transferLines?.length > 0) {
-            const transferStationId = this._getTransferStationId(station, metroData);
-            if (transferStationId) {
-                const lineKey = station.transferLines[0].toLowerCase();
-                let emoji = null;
-
-                if (metroConfig?.linesEmojis?.[lineKey]) {
-                    const emojiString = metroConfig.linesEmojis[lineKey];
-                    const matches = emojiString.match(/^<:(\w+):(\d+)>$/);
-
-                    if (matches) {
-                        emoji = {
-                            id: matches[2],
-                            name: matches[1]
-                        };
-                    }
-                }
-
-                const transferButton = new ButtonBuilder()
-                    .setCustomId(`${CUSTOM_ID_PREFIX}:view:${transferStationId}:main:${userId}`)
-                    .setLabel('🔄')
-                    .setStyle(ButtonStyle.Success)
-                    .setDisabled(false);
-
-                if (emoji) {
-                    transferButton.setEmoji(emoji);
-                }
-
-                mainRow.addComponents(transferButton);
-            }
-        }
-
-        if (hasAccessDetails && availableTabs.includes('accessibility')) {
-            const subTabs = availableTabs.filter(t => t.startsWith('acc_'));
-
-            subTabs.forEach(subTabId => {
-                const isActive = subTabId === activeTab;
-                const tabConfig = tabs[subTabId];
-
-                const button = new ButtonBuilder()
-                    .setCustomId(`${CUSTOM_ID_PREFIX}:view:${station.id}:${subTabId}:${userId}`)
-                    .setStyle(isActive ? ButtonStyle.Primary : tabConfig.style)
-                    .setDisabled(isActive)
-                    .setEmoji(tabConfig.emoji);
-
-                accRow.addComponents(button);
-            });
-        }
-
-        return [mainRow, accRow].filter(row => row.components.length > 0);
-    }
-
-
-    _createStationMessage(cacheData, userId) {
+    async _createStationMessage(cacheData, userId) {
         if (!cacheData?.station) {
             return this._createErrorMessage('Station data unavailable');
         }
 
         try {
-            const embedHub = new StationEmbedHub({ config: metroConfig });
+            const embed = await createEmbed('stationMain', {
+                station: cacheData.station,
+                metroData: cacheData.metroData
+            });
+
             return {
-                embeds: [embedHub.getEmbed(cacheData.currentTab, cacheData.station, cacheData.metroData)],
-                components: this._createTabButtons(cacheData.station, cacheData.currentTab, cacheData.metroData, userId),
+                embeds: [embed],
+                components: [], // TODO: Re-implement tab buttons
                 fetchReply: true
             };
         } catch (error) {
@@ -209,7 +125,7 @@ class DiscordMessageFormatter {
         }
     }
 
-    formatStationInfo(station, metro, userId) {
+    async formatStationInfo(station, metro, userId) {
         try {
             if (!station?.id) throw new Error('Invalid station data');
 
@@ -225,10 +141,10 @@ class DiscordMessageFormatter {
             };
 
             cacheManager.set(cacheKey, cacheData, CACHE_DURATION);
-            return this._createStationMessage(cacheData, userId);
+            return await this._createStationMessage(cacheData, userId);
         } catch (error) {
             console.error('[stationInfoButton] Build failed:', error);
-            return this._createErrorMessage('Error loading station data');
+            return await this._createErrorMessage('Error loading station data');
         }
     }
 

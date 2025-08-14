@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../../../../core/metro/core/MetroCore');
+const { getMetroCore } = require('../../../../../utils/metroUtils');
+const { handleCommandError } = require('../../../../../utils/commandUtils');
 const estado = require('./_estestado');
 const info = require('./_estinfo');
 
@@ -17,27 +18,6 @@ module.exports = {
     category: "Metro Info",
     
     /**
-     * Retrieves or initializes the MetroCore instance.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     * @returns {Promise<MetroCore>} The MetroCore instance.
-     * @throws {Error} If the MetroCore instance cannot be initialized.
-     */
-    async getMetroCore(interaction) {
-        try {
-            // Check if the instance already exists and is initialized.
-            if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-                interaction.client.metroCore = await MetroCore.getInstance({ 
-                    client: interaction.client 
-                });
-            }
-            return interaction.client.metroCore;
-        } catch (error) {
-            console.error('Failed to initialize or retrieve MetroCore instance:', error);
-            throw new Error('No se pudo conectar con el sistema de Metro. Por favor, inténtalo de nuevo más tarde.');
-        }
-    },
-
-    /**
      * Executes the 'estacion' command.
      * @param {import('discord.js').Interaction} interaction The interaction object.
      */
@@ -46,7 +26,7 @@ module.exports = {
         
         try {
             // Ensure MetroCore is available before executing any subcommand.
-            const metro = await this.getMetroCore(interaction);
+            const metro = await getMetroCore(interaction);
             
             // Route to the appropriate subcommand handler.
             switch(subcommand) {
@@ -61,11 +41,7 @@ module.exports = {
                     });
             }
         } catch (error) {
-            console.error(`An error occurred in the /estacion ${subcommand} command:`, error);
-            return interaction.reply({
-                content: `❌ ${error.message || 'Ocurrió un error al procesar tu solicitud.'}`,
-                ephemeral: true
-            });
+            await handleCommandError(error, interaction);
         }
     }
 };
