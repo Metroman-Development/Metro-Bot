@@ -289,7 +289,7 @@ DROP TABLE IF EXISTS `metro_stations`;
 CREATE TABLE `metro_stations` (
   `station_id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
-  `station_code` varchar(20) NOT NULL COMMENT 'Should be uppercase',
+  `station_code` varchar(255) NOT NULL COMMENT 'Should be uppercase',
   `station_name` varchar(100) NOT NULL,
   `display_order` int(11) DEFAULT NULL,
   `commune` varchar(100) DEFAULT NULL,

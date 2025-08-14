@@ -17,7 +17,7 @@ async function readDataFiles() {
     const intermodalInfo = JSON.parse(await fs.readFile(path.join(dataDirPath, 'intermodalInfo.json'), 'utf8'));
     const intermodalBuses = JSON.parse(await fs.readFile(path.join(dataDirPath, 'intermodalBuses.json'), 'utf8'));
     const linesData = JSON.parse(await fs.readFile(path.join(dataDirPath, 'linesData.json'), 'utf8'));
-    const stationsData = JSON.parse(await fs.readFile(path.join(dataDirPath, 'stations.json'), 'utf8'));
+    const estadoRed = JSON.parse(await fs.readFile(path.join(dataDirPath, 'estadoRed.json'), 'utf8'));
     const trainInfo = JSON.parse(await fs.readFile(path.join(dataDirPath, 'trainInfo.json'), 'utf8'));
 
     return {
@@ -25,7 +25,7 @@ async function readDataFiles() {
         intermodalInfo,
         intermodalBuses,
         linesData,
-        stationsData,
+        estadoRed,
         trainInfo
     };
 }
@@ -97,24 +97,25 @@ async function upsertLines(conn, lines) {
     console.log('Lines upserted.');
 }
 
-async function upsertStations(conn, stations) {
+async function upsertStations(conn, estadoRed) {
     console.log('Upserting stations...');
-    for (const lineId in stations) {
-        const lineStations = stations[lineId];
-        for (const stationName in lineStations) {
-            const stationCode = stationName.replace(/\s/g, '').toUpperCase().substring(0, 20);
-            const query = `
-                INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
-                ON DUPLICATE KEY UPDATE
-                    station_name = VALUES(station_name)
-            `;
-            await conn.query(query, [
-                lineId,
-                stationCode,
-                stationName,
-                null, null, null, null, null
-            ]);
+    for (const lineId in estadoRed) {
+        const line = estadoRed[lineId];
+        if (line.estaciones) {
+            for (const station of line.estaciones) {
+                const query = `
+                    INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
+                    ON DUPLICATE KEY UPDATE
+                        station_name = VALUES(station_name)
+                `;
+                await conn.query(query, [
+                    lineId,
+                    station.codigo,
+                    station.nombre,
+                    null, null, null, null, null
+                ]);
+            }
         }
     }
     console.log('Stations upserted.');
@@ -220,7 +221,7 @@ async function main() {
 
         await upsertSystemInfo(conn, data.metroGeneral);
         await upsertLines(conn, data.linesData);
-        await upsertStations(conn, data.stationsData);
+        await upsertStations(conn, data.estadoRed);
         await upsertTrainModels(conn, data.trainInfo);
         await upsertLineFleet(conn, data.linesData);
         const stationIds = await upsertIntermodalStations(conn, data.intermodalInfo);

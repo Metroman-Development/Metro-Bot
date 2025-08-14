@@ -32,29 +32,28 @@ async function loadLines(conn, lines) {
     console.log('Lines loaded.');
 }
 
-async function loadStations(conn, stations) {
+async function loadStations(conn, estadoRed) {
     console.log('Loading stations...');
-    for (const lineId in stations) {
-        const lineStations = stations[lineId];
-        for (const stationName in lineStations) {
-            const station = lineStations[stationName];
-            const query = `
-                INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
-            `;
-            // A station code can be generated from the station name by removing spaces and making it lowercase
-            const stationCode = stationName.replace(/\s/g, '').toUpperCase().substring(0, 20);
-            await conn.query(query, [
-                lineId,
-                stationCode,
-                stationName,
-                null, // display_order
-                null, // commune
-                null, // address
-                null, // latitude
-                null, // longitude
-            ]);
-            console.log(`Inserted station ${stationName}`);
+    for (const lineId in estadoRed) {
+        const line = estadoRed[lineId];
+        if (line.estaciones) {
+            for (const station of line.estaciones) {
+                const query = `
+                    INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
+                `;
+                await conn.query(query, [
+                    lineId,
+                    station.codigo,
+                    station.nombre,
+                    null, // display_order
+                    null, // commune
+                    null, // address
+                    null, // latitude
+                    null, // longitude
+                ]);
+                console.log(`Inserted station ${station.nombre}`);
+            }
         }
     }
     console.log('Stations loaded.');
@@ -207,8 +206,8 @@ async function main() {
         const linesData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/linesData.json'), 'utf8'));
         await loadLines(conn, linesData);
 
-        const stationsData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stations.json'), 'utf8'));
-        await loadStations(conn, stationsData);
+        const estadoRed = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/estadoRed.json'), 'utf8'));
+        await loadStations(conn, estadoRed);
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
         await loadTrainModels(conn, trainInfo);
