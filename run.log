@@ -1,0 +1,202 @@
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB'
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+███╗   ███╗███████╗████████╗██████╗  ██████╗  ██████╗
+████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗██╔═══██╗
+██╔████╔██║█████╗     ██║   ██████╔╝██║   ██║██║   ██║
+██║╚██╔╝██║██╔══╝     ██║   ██╔══██╗██║   ██║██║   ██║
+██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝╚██████╔╝
+╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝
+
+
+
+================================================================
+              Metrobot Bot - Initialization Process
+================================================================
+[CONFIG] Environment variables loaded.
+
+[DISCORD] Initializing Discord Bot...
+[DISCORD] Loading internal modules...
+[DB] Waiting for pending initialization
+ℹ️ [2025-08-14T00:57:03.993Z] [INFO] [CacheManager.js:25] [new CacheManager] CacheManager initialized with layered cache system
+[DISCORD] Discord client instance created.
+[CONFIG] Loading external configuration...
+[CONFIG] Loaded configuration from JSON_CONFIG.
+[DISCORD] Loading interaction handlers...
+[InteractionLoader] Starting to load interaction handlers...
+[CacheManager] Initialized with hourly cleanup.
+[InteractionLoader] ✅ Loaded button handler with prefix: accResults
+[InteractionLoader] ✅ Loaded button handler with prefix: amnResults
+[InteractionLoader] ✅ Loaded button handler with prefix: bikeResults
+[InteractionLoader] ✅ Loaded button handler with prefix: cmd
+[InteractionLoader] ✅ Loaded button handler with prefix: commerceResults
+[INFO] 2025-08-14T00:57:04.101Z - Loaded last state data from /app/src/core/metro/core/services/lastAccessState.json
+[INFO] 2025-08-14T00:57:04.101Z - Loaded cache data from /app/src/core/metro/core/services/accessibilityCache.json
+[InteractionLoader] ✅ Loaded button handler with prefix: expreso
+[InteractionLoader] ✅ Loaded button handler with prefix: express_route_page
+🐛 [2025-08-14T00:57:04.111Z] [INFO] [statusConfig.js:24] [StatusConfig.validateConfigs] CONFIG_VALIDATION
+Metadata: "All required configurations validated"
+[InteractionLoader] ✅ Loaded button handler with prefix: fare_type
+[InteractionLoader] ✅ Loaded button handler with prefix: intermodal
+[InteractionLoader] ✅ Loaded button handler with prefix: routeInfo
+[InteractionLoader] ✅ Loaded button handler with prefix: serverInfo
+[InteractionLoader] ✅ Loaded button handler with prefix: stationInfo
+[InteractionLoader] Finished loading interaction handlers. 12 handlers loaded.
+🐛 [2025-08-14T00:57:04.119Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _botcomandos.js
+🐛 [2025-08-14T00:57:04.120Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _boticonografia.js
+🐛 [2025-08-14T00:57:04.121Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _botinfo.js
+🐛 [2025-08-14T00:57:04.121Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command bot.js
+🐛 [2025-08-14T00:57:04.123Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscaraccesibilidad.js
+🐛 [2025-08-14T00:57:04.124Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcicletero.js
+🐛 [2025-08-14T00:57:04.125Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcomercio.js
+🐛 [2025-08-14T00:57:04.126Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _buscarcultura.js
+🐛 [2025-08-14T00:57:04.130Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _estestado.js
+🐛 [2025-08-14T00:57:04.131Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _estinfo.js
+🐛 [2025-08-14T00:57:04.132Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _expayuda.js
+🐛 [2025-08-14T00:57:04.133Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _expinfo.js
+🐛 [2025-08-14T00:57:04.134Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _linestado.js
+🐛 [2025-08-14T00:57:04.294Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _lininfo.js
+🐛 [2025-08-14T00:57:04.295Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _linproyecto.js
+🐛 [2025-08-14T00:57:04.297Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _meeventos.js
+🐛 [2025-08-14T00:57:04.297Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mehora.js
+🐛 [2025-08-14T00:57:04.298Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mehorario.js
+🐛 [2025-08-14T00:57:04.299Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _memes.js
+🐛 [2025-08-14T00:57:04.300Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _meperiodo.js
+🐛 [2025-08-14T00:57:04.301Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mesemana.js
+🐛 [2025-08-14T00:57:04.302Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _metestado.js
+🐛 [2025-08-14T00:57:04.303Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _metinfo.js
+🐛 [2025-08-14T00:57:04.304Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _metmapa.js
+🐛 [2025-08-14T00:57:04.306Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _metplanificar.js
+🐛 [2025-08-14T00:57:04.308Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mettren.js
+🐛 [2025-08-14T00:57:04.309Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mtactual.js
+🐛 [2025-08-14T00:57:04.310Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mtdiferenciada.js
+🐛 [2025-08-14T00:57:04.311Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mthorarios.js
+🐛 [2025-08-14T00:57:04.312Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mtver.js
+🐛 [2025-08-14T00:57:04.314Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command buscar.js
+🐛 [2025-08-14T00:57:04.316Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command calendario-metro.js
+🐛 [2025-08-14T00:57:04.317Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command estacion.js
+🐛 [2025-08-14T00:57:04.319Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command expreso.js
+🐛 [2025-08-14T00:57:04.321Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command linea.js
+🐛 [2025-08-14T00:57:04.325Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command metro.js
+🐛 [2025-08-14T00:57:04.326Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command servicio-metro.js
+🐛 [2025-08-14T00:57:04.328Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command tarifa.js
+🐛 [2025-08-14T00:57:04.330Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _intintermodal.js
+🐛 [2025-08-14T00:57:04.332Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command intermodalidad.js
+ℹ️ [2025-08-14T00:57:04.332Z] [INFO] [AdvancedCommandLoader.js:49] [AdvancedCommandLoader.loadCommands] ✅ Loaded 40 commands (0 errors)
+[SETUP] ❌ Failed to load prefix commands: Error: Cannot find module '../../../../utils/bugTracker'
+Require stack:
+- /app/src/bot/discord/commands/prefix/log.js
+- /app/src/index.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/app/src/bot/discord/commands/prefix/log.js:2:47)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/app/src/bot/discord/commands/prefix/log.js',
+    '/app/src/index.js'
+  ]
+}
+[DB] Waiting for pending initialization
+🐛 [2025-08-14T00:57:04.370Z] [INFO] [MetroCore.js:178] [MetroCore.initialize] [MetroCore] Starting initialization...
+🐛 [2025-08-14T00:57:04.372Z] [INFO] [StatusService.js:39] [StatusService._setupEventHandlers] [StatusService] Event handlers registered
+🐛 [2025-08-14T00:57:04.372Z] [INFO] [StatusService.js:27] [new StatusService] [StatusService] Initialized with MetroCore instance
+🐛 [2025-08-14T00:57:04.373Z] [INFO] [ApiService.js:651] [ApiService._generateClosedState] [ApiService] Generating closed state for non-operating hours
+🐛 [2025-08-14T00:57:04.385Z] [INFO] [EventEngine.js:123] [EventEngine.removeAllListeners] [MetroCore] Listeners removed
+Metadata: {
+  "core": 2,
+  "subsystems": {
+    "api": 0,
+    "statusService": 0,
+    "scheduler": 0
+  },
+  "timestamp": "2025-08-14T00:57:04.385Z"
+}
+[DataLoader] Loading Data
+Loading Stations Data
+Transforming data
+
+[BOOT] Starting bot launch sequence...
+[BOOT] Shutdown handlers configured.
+[DISCORD] Attempting to connect to Discord...
+Loading Stations Data
+Transforming data
+Promise {
+  {
+    name: 'Metro de Santiago',
+    system: 'Red Metropolitana de Movilidad',
+    inauguration: '15 de septiembre de 1975',
+    technicalCharacteristics: {
+      length: '149 km',
+      stations: 143,
+      trackGauge: '1435 mm (ancho estándar)',
+      electrification: '750 VCC mediante barra guía, tercer riel y catenaria',
+      maxSpeed: '80 km/h'
+    },
+    operation: {
+      status: 'En servicio',
+      lines: 7,
+      cars: 1440,
+      passengers: 1641344,
+      fleet: '245 trenes fabricados por Alstom y CAF',
+      averageSpeed: '34.4 km/h',
+      operator: 'Metro S.A.'
+    },
+    mapUrl: 'https://www.metro.cl/tu-viaje/plano-de-red'
+  }
+}
+Promise { <pending> }
+Promise { <pending> }
+Promise { <pending> }
+Successfully Loaded Data
+🐛 [2025-08-14T00:57:04.519Z] [INFO] [StationManager.js:101] [StationManager.updateData] StationManager updated: 286 added, 0 updated, 0 removed
+🐛 [2025-08-14T00:57:04.519Z] [INFO] [LineManager.js:74] [LineManager.updateData] LineManager updated: 7 added, 0 updated, 0 removed
+🐛 [2025-08-14T00:57:04.521Z] [INFO] [MetroCore.js:338] [MetroCore.refreshStaticData] [MetroCore] Refreshing static data...
+[DataLoader] Loading Data
+Loading Stations Data
+Transforming data
+Loading Stations Data
+Transforming data
+Promise {
+  {
+    name: 'Metro de Santiago',
+    system: 'Red Metropolitana de Movilidad',
+    inauguration: '15 de septiembre de 1975',
+    technicalCharacteristics: {
+      length: '149 km',
+      stations: 143,
+      trackGauge: '1435 mm (ancho estándar)',
+      electrification: '750 VCC mediante barra guía, tercer riel y catenaria',
+      maxSpeed: '80 km/h'
+    },
+    operation: {
+      status: 'En servicio',
+      lines: 7,
+      cars: 1440,
+      passengers: 1641344,
+      fleet: '245 trenes fabricados por Alstom y CAF',
+      averageSpeed: '34.4 km/h',
+      operator: 'Metro S.A.'
+    },
+    mapUrl: 'https://www.metro.cl/tu-viaje/plano-de-red'
+  }
+}
+Promise { <pending> }
+Promise { <pending> }
+Promise { <pending> }
+Successfully Loaded Data
+🐛 [2025-08-14T00:57:04.608Z] [INFO] [StationManager.js:101] [StationManager.updateData] StationManager updated: 5 added, 0 updated, 286 removed

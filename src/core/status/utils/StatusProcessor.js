@@ -230,10 +230,16 @@ class StatusProcessor {
           }
         }
 
-        // Execute all queries
+        // Execute line queries first
         for (const query of [
           ...lineQueries,
           ...lineStatusQueries,
+        ]) {
+          await connection.query(query.sql, query.params);
+        }
+
+        // Execute station queries
+        for (const query of [
           ...stationQueries,
           ...stationHistoryQueries,
           ...statusChangeLogQueries,

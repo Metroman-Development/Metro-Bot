@@ -1,6 +1,6 @@
 {
   "station": "Patronato",
-  "line": "Accesos:",
+  "line": "l2",
   "accesses": [
     {
       "status": "abierto",
