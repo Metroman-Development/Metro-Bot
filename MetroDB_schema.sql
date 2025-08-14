@@ -233,7 +233,7 @@ CREATE TABLE `metro_lines` (
   `operating_hours_end` time DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `display_name` varchar(100) GENERATED ALWAYS AS (concat('Línea ',ucase(`line_id`))) VIRTUAL,
+  `display_name` varchar(100) GENERATED ALWAYS AS (concat('Línea ',ucase(substring(`line_id`, 2)))) VIRTUAL,
   `fleet_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`fleet_data`)),
   `status_code` varchar(20) DEFAULT NULL COMMENT 'Matches JavaScript status.code',
   `status_message` varchar(500) DEFAULT NULL COMMENT 'Matches JavaScript status.message',

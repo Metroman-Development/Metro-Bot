@@ -157,7 +157,7 @@ class MetroSystem {
     results.forEach(line => {
       if (line.status === 'success') {
         embed.addFields({
-          name: `Línea ${line.line}`,
+          name: `Línea ${line.line.replace(/l/i, '')}`,
           value: `Estaciones: ${line.stationCount}\nEstado: ${line.operational ? '🟢 Operativa' : '🔴 Interrumpida'}`,
           inline: true
         });
@@ -228,7 +228,7 @@ class MetroSystem {
       embed.addFields({
         name: i === 0 ? 'Mejor coincidencia' : `Alternativa ${i}`,
         value: [
-          `Línea: ${match.line.toUpperCase()}`,
+          `Línea: ${match.line.replace(/l/i, '').toUpperCase()}`,
           `Estado: ${station?.status || 'desconocido'}`,
           `ID: ${match.id}`,
           `Puntuación: ${match.score.toFixed(2)}`
@@ -269,7 +269,7 @@ class MetroSystem {
     });
 
     const embed = new EmbedBuilder()
-      .setTitle(`🛤️ Línea ${line.id.toUpperCase()}`)
+      .setTitle(`🛤️ Línea ${line.id.replace(/l/i, '').toUpperCase()}`)
       .setColor(parseInt(line.color.replace('#', '0x')))
       .addFields(
         {

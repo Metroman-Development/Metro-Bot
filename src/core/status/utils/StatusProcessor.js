@@ -157,6 +157,14 @@ class StatusProcessor {
           }
         }
 
+        // Execute line queries first to ensure foreign key constraints are met
+        for (const query of [
+          ...lineQueries,
+          ...lineStatusQueries,
+        ]) {
+          await connection.query(query.sql, query.params);
+        }
+
         // Prepare station queries
         for (const station of Object.values(data.stations)) {
           const fullStationData = this.metro.getStationManager().get(station.id);
@@ -230,14 +238,6 @@ class StatusProcessor {
           }
         }
 
-        // Execute line queries first
-        for (const query of [
-          ...lineQueries,
-          ...lineStatusQueries,
-        ]) {
-          await connection.query(query.sql, query.params);
-        }
-
         // Execute station queries
         for (const query of [
           ...stationQueries,
@@ -281,6 +281,10 @@ class StatusProcessor {
     // First pass: collect line statuses and basic severity
     Object.entries(rawData).forEach(([lineId, lineData]) => {
       if (!lineId.startsWith('l')) return;
+      if (!lineData.estado) {
+        logger.warn(`[StatusProcessor] Missing 'estado' property for lineId: ${lineId}`);
+        return;
+      }
       const statusCode = lineData.estado.toString();
       lineStatuses[lineId] = statusCode;
       
