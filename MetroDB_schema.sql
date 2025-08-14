@@ -457,7 +457,44 @@ CREATE TABLE `system_info` (
   `average_speed` varchar(255) DEFAULT NULL,
   `operator` varchar(255) DEFAULT NULL,
   `map_url` varchar(255) DEFAULT NULL,
+  `events` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`events`)),
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `network_status`
+--
+
+DROP TABLE IF EXISTS `network_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `network_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `network_status_summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`network_status_summary`)),
+  `fare_period` varchar(50) DEFAULT NULL,
+  `active_event` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`active_event`)),
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `accessibility_status`
+--
+
+DROP TABLE IF EXISTS `accessibility_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `accessibility_status` (
+  `equipment_id` varchar(255) NOT NULL,
+  `station_code` varchar(255) NOT NULL,
+  `line_id` varchar(10) NOT NULL,
+  `status` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`equipment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

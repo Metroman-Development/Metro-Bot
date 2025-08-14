@@ -3,7 +3,7 @@ const logger = require('./events/logger');
 const MetroCore = require('./core/metro/core/MetroCore');
 const SchedulerService = require('./core/chronos/SchedulerService');
 const DatabaseManager = require('./core/database/DatabaseManager');
-
+const TimeService = require('./core/chronos/TimeService');
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Initializing...');
@@ -25,11 +25,20 @@ async function startScheduler() {
         process.exit(1);
     }
 
+    const timeService = new TimeService();
+    await timeService.initialize();
+
+    timeService.on('serviceEnd', async () => {
+        const DatabaseService = require('./core/database/DatabaseService');
+        logger.info('[SCHEDULER] Service has ended. Setting all stations to "Fuera de servicio".');
+        await DatabaseService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
+    });
+
     const scheduler = new SchedulerService();
 
     scheduler.addJob({
         name: 'fetch-network-status',
-        interval: metroCore.config.api.pollingInterval,
+        interval: 60000, // Every minute
         task: () => metroCore._subsystems.api.fetchNetworkStatus()
     });
 
@@ -39,15 +48,11 @@ async function startScheduler() {
         task: () => metroCore._subsystems.accessibilityService.checkAccessibility()
     });
 
-    // The 'check-time' job depends on the Discord client, which is not available in this process.
-    // I will comment it out for now. If this functionality is needed, it should be moved to the Discord bot process.
-    /*
     scheduler.addJob({
         name: 'check-time',
         interval: 60000, // Every minute
-        task: () => metroCore._subsystems.timeService.checkTime()
+        task: () => timeService.checkTime()
     });
-    */
 
     scheduler.start();
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');

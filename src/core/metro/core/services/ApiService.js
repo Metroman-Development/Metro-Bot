@@ -16,6 +16,7 @@ const config = require('../../../../config/metro/metroConfig');
 const NewsService = require('./NewsService');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
+const DatabaseService = require('../../../database/DatabaseService');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
@@ -68,6 +69,7 @@ class ApiService extends EventEmitter {
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
         this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
+        this.dbService = DatabaseService;
 
         // Metrics
         this.metrics = {
@@ -475,6 +477,9 @@ async activateEventOverrides(eventDetails) {
             await this._updateCache(rawData);
             
             const processedData = this._processData(randomizedData);
+
+            const summary = this.generateNetworkSummary(processedData);
+            await this.dbService.updateNetworkStatusSummary(summary);
      
             
            // console.log(processedData) 
@@ -491,8 +496,11 @@ async activateEventOverrides(eventDetails) {
 
             // PHASE 2e: Handle changes
             if (!this.isFirstTime) {
-                this._handleDataChanges(randomizedData, processedData);
+                const dbRawData = await this.getDbRawData();
+                this._handleDataChanges(randomizedData, processedData, dbRawData);
             }
+            await this.updateDbWithApiData(randomizedData);
+
 
             // PHASE 2f: Persist data
             await this._storeProcessedData(processedData);
@@ -612,8 +620,8 @@ async activateEventOverrides(eventDetails) {
         return processed;
     }
 
-    _handleDataChanges(rawData, processedData) {
-        const changeResult = this.changeDetector.analyze(rawData, this.lastRawData);
+    _handleDataChanges(rawData, processedData, previousRawData) {
+        const changeResult = this.changeDetector.analyze(rawData, previousRawData);
         if (changeResult.changes?.length > 0) {
             this.changeHistory.unshift(...changeResult.changes);
             this.metrics.changeEvents += changeResult.changes.length;
@@ -917,6 +925,64 @@ async activateEventOverrides(eventDetails) {
         return simulatedChange;
     }
 
+    generateNetworkSummary(processedData) {
+        const lines = Object.values(processedData.lines);
+        const stations = lines.flatMap(line => line.stations);
+
+        return {
+            lines: {
+                total: lines.length,
+                operational: lines.filter(line => line.status === '1').length,
+                with_issues: lines.filter(line => line.status !== '1').map(line => line.id),
+            },
+            stations: {
+                total: stations.length,
+                operational: stations.filter(station => station.status === '1').length,
+                with_issues: stations.filter(station => station.status !== '1').map(station => station.id),
+            },
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    async getDbRawData() {
+        const dbLines = await this.dbService.getAllLinesStatus();
+        const dbStations = await this.dbService.getAllStationsStatusAsRaw();
+
+        const dbRawData = { lineas: {} };
+        for (const line of dbLines) {
+            dbRawData.lineas[line.line_id] = {
+                estado: line.status_code,
+                mensaje: line.status_message,
+                mensaje_app: line.app_message,
+                estaciones: []
+            };
+        }
+
+        for (const station of dbStations) {
+            if (dbRawData.lineas[station.line_id]) {
+                dbRawData.lineas[station.line_id].estaciones.push({
+                    codigo: station.station_code,
+                    estado: station.estado,
+                    descripcion: station.descripcion,
+                    descripcion_app: station.descripcion_app
+                });
+            }
+        }
+
+        return dbRawData;
+    }
+
+    async updateDbWithApiData(rawData) {
+        for (const lineId in rawData.lineas) {
+            const line = rawData.lineas[lineId];
+            await this.dbService.updateLineStatus(lineId, line.estado, line.mensaje, line.mensaje_app);
+            if (line.estaciones) {
+                for (const station of line.estaciones) {
+                    await this.dbService.updateStationStatus(station.codigo, lineId, station.estado, station.descripcion, station.descripcion_app);
+                }
+            }
+        }
+    }
 }
 
 module.exports = ApiService;
