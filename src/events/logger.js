@@ -4,7 +4,7 @@ const { createEmbed } = require('../utils/embeds');
 const { getClient } = require('../utils/clientManager'); // Import clientManager to get the client
 
 const ERROR_CHANNEL_ID = '1350243847271092295'; // Channel ID for error summaries
-const ERROR_LOG_DIR = './errors'; // Directory for error logs
+const ERROR_LOG_DIR = './errors_new'; // Directory for error logs
 
 // Ensure the errors directory exists
 if (!fs.existsSync(ERROR_LOG_DIR)) {
@@ -17,16 +17,14 @@ let debugMode = true;
 // Function to log error to file
 function logErrorToFile(error, metadata = {}) {
     try {
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const logFileName = path.join(ERROR_LOG_DIR, `error-${timestamp}.log`);
+        const timestamp = new Date().toISOString();
+        const logFileName = path.join(ERROR_LOG_DIR, `error.log`);
         
-        const logContent = `[${timestamp}] ERROR:\n` +
-                           `Name: ${error.name}\n` +
-                           `Message: ${error.message}\n` +
-                           `Stack:\n${error.stack}\n` +
+        const logContent = `[${timestamp}] ERROR: ${error.name}: ${error.message}\n` +
+                           `Stack: ${error.stack}\n` +
                            `Metadata: ${JSON.stringify(metadata, null, 2)}\n\n`;
         
-        fs.writeFileSync(logFileName, logContent);
+        fs.appendFileSync(logFileName, logContent);
     } catch (fileError) {
         console.error(`Failed to write error log to file: ${fileError.message}`);
     }
