@@ -16,7 +16,7 @@ module.exports = {
   formatDisplay: function(line) {
     // Use module.exports.normalizeKey to ensure proper context
     const key = module.exports.normalizeKey(line);
-    return `Línea ${key.replace('l', '').toUpperCase()}`;
+    return `Línea ${key.replace(/l/i, '').toUpperCase()}`;
   }, 
     
   getLineEmoji: function(lineKey) {

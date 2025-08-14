@@ -369,7 +369,8 @@ class AnnouncementManager {
 
     _formatLineName(lineId) {
         try {
-            return lineId.replace('L', 'Línea ');
+            const lineNumber = lineId.replace(/l/i, '');
+            return `Línea ${lineNumber.toUpperCase()}`;
         } catch (error) {
             console.error('Line name formatting failed:', error);
             return lineId;

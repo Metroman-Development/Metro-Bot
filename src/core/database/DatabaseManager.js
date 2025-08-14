@@ -36,7 +36,7 @@ class DatabaseManager extends EventEmitter {
             user: this.config.user,
             password: this.config.password,
             database: this.config.database,
-            port: process.env.DB_PORT || 3306,
+            port: this.config.port || process.env.DB_PORT || 3306,
             connectionLimit: 50,
             timezone: 'Z',
         });
@@ -298,7 +298,7 @@ class DatabaseManager extends EventEmitter {
 
                     const timeout = setTimeout(() => {
                         reject(new Error('Database connection timeout'));
-                    }, 15000); // Reduced timeout
+                    }, 30000); // Increased timeout to 30 seconds
 
                     instance.once('connected', () => {
                         clearTimeout(timeout);

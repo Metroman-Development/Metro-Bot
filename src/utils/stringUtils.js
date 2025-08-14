@@ -49,10 +49,10 @@ function formatStationName(stationName) {
 
 function formatLineCode(lineCode) {
   const cleaned = cleanLineKey(lineCode);
-  const lineNumber = cleaned.replace(/\D/g, '');
+  const lineNumber = cleaned.replace(/l/i, '');
   const validLines = ['1', '2', '3', '4', '4a', '5', '6'];
   const safeNumber = validLines.includes(lineNumber) ? lineNumber : '1';
-  return `Línea ${safeNumber}`;
+  return `Línea ${safeNumber.toUpperCase()}`;
 }
 
 function capitalizeFirstLetter(str) {
@@ -266,7 +266,7 @@ function formatLineString(input, options = {}) {
   if (options.removeL) return baseNum;
   if (options.abbrevLow) return `l${baseNum}`;
   if (options.abbrevUp) return `L${baseNum.toUpperCase()}`;
-  if (options.unAbbrev) return `Línea ${baseNum}`;
+  if (options.unAbbrev) return `Línea ${baseNum.toUpperCase()}`;
 
   // Default format (L5)
   return `L${baseNum.toUpperCase()}`;
@@ -278,7 +278,7 @@ function convertFormat(baseNum, options) {
   switch (options.to) {
     case 'code': return `L${suffix.toUpperCase()}`;
     case 'lower': return `l${suffix}`;
-    case 'full': return `Línea ${suffix}`;
+    case 'full': return `Línea ${suffix.toUpperCase()}`;
     case 'number': return suffix;
     default: return `L${suffix.toUpperCase()}`;
   }
