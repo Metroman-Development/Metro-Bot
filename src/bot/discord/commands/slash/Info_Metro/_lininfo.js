@@ -1,8 +1,7 @@
-// _lininfo (3).js
-const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-const ImageProcessor = require('../../../../../utils/imageProcessor');
-const horMap = {};
-const metroConfig = require('../../../../../config/metro/metroConfig');
+const { SlashCommandBuilder } = require('discord.js');
+const { handleCommandError } = require('../../../../../utils/commandUtils');
+const { createEmbed, createErrorEmbed } = require('../../../../../utils/embedFactory');
+const { processImageForDiscord } = require('../../../../../utils/imageUtils');
 
 module.exports = {
     parentCommand: 'linea',
@@ -30,22 +29,17 @@ module.exports = {
 
             const lineKey = interaction.options.getString('linea');
             const lineInfo = metro?._staticData.lines[lineKey];
-            const lineEmoji = metroConfig.linesEmojis[lineKey] || '🚇';
-            
+
             if (!lineInfo) {
-                return await interaction.editReply({
-                    content: '❌ No se encontró información para esta línea',
-                    ephemeral: true
-                });
+                const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
+                return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
             }
 
-            // Generate GitHub URL dynamically
             let lineNumber = lineKey.replace('l', '').toUpperCase();
             if (lineKey === 'l4a') lineNumber = '4A';
             const githubImageUrl = `https://raw.githubusercontent.com/MetroManSR/MetroWeb/main/metrobot/assets/L%C3%ADnea_${lineNumber}_del_Metro_de_Santiago.svg.png`;
 
-            // Process image
-            const lineImage = await ImageProcessor.processForDiscord(githubImageUrl, {
+            const lineImage = await processImageForDiscord(githubImageUrl, {
                 filename: `${lineKey}_map.png`,
                 description: `Mapa de ${lineInfo.displayName}`,
                 backgroundColor: '#FFFFFF',
@@ -57,96 +51,19 @@ module.exports = {
             });
 
             if (!lineImage) {
-                // Fallback to original horMap if GitHub fails
-                const fallbackImage = await ImageProcessor.processForDiscord(horMap[lineKey], {
-                    filename: `${lineKey}_map.png`,
-                    description: `Mapa de ${lineInfo.displayName}`,
-                    backgroundColor: '#FFFFFF',
-                    resize: {
-                        width: 800,
-                        height: 300,
-                        fit: 'contain'
-                    }
-                });
-
-                if (!fallbackImage) {
-                    console.error(`Failed to process both GitHub and fallback image for ${lineKey}`);
-                    return await interaction.editReply({
-                        content: '❌ Error al cargar el mapa de la línea',
-                        ephemeral: true
-                    });
-                }
+                const errorEmbed = await createErrorEmbed('Error al cargar el mapa de la línea');
+                return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
             }
 
-            // Build rich embed with enhanced visuals
-            const embed = new EmbedBuilder()
-                .setTitle(`${lineEmoji} ${lineInfo.displayName}`)
-                .setColor(lineInfo.color || '#0099FF')
-                //.setThumbnail(metroConfig.metroLogo.principal)
-                .setImage(`attachment://${lineKey}_map.png`)
-                .addFields(
-                    {
-                        name: `${metroConfig.stationIcons[lineInfo.status.code]?.emoji || '📊'} Estado`,
-                        value: `${this._getStatusEmoji(lineInfo.status.code)} ${metroConfig.statusMapping[lineInfo.status.code]?.message || lineInfo.status.appMessage || 'Estado desconocido'}`,
-                        inline: true
-                    },
-                    {
-                        name: '🎨 Color',
-                        value: `\`${lineInfo.color}\` ${this._getColorSquare(lineInfo.color)}`,
-                        inline: true
-                    },
-                    {
-                        name: '📏 Longitud',
-                        value: lineInfo.details.length || 'N/A',
-                        inline: true
-                    },
-                    {
-                        name: '🚉 Estaciones',
-                        value: lineInfo.details.stations || 'N/A',
-                        inline: true
-                    },
-                    {
-                        name: '📅 Inauguración',
-                        value: lineInfo.details.inauguration || 'N/A',
-                        inline: true
-                    }
-                );
-
-            // Add communes if available
-            if (lineInfo.details.communes?.length > 0) {
-                embed.addFields({
-                    name: '🏙️ Comunas',
-                    value: lineInfo.details.communes.join(', '),
-                    inline: false
-                });
-            }
-
-            // Add metadata footer with logo
-            embed.setFooter({ 
-                text: 'Metro de Santiago • Última actualización', 
-                iconURL: metroConfig.metroLogo.principal
-            }).setTimestamp();
+            const embed = await createEmbed('lineaInfo', { lineInfo, lineKey });
 
             await interaction.editReply({
                 embeds: [embed],
-                files: [lineImage || fallbackImage]
+                files: [lineImage]
             });
 
         } catch (error) {
-            console.error('Error en comando linea info:', error);
-            await interaction.editReply({
-                content: '❌ Ocurrió un error al obtener la información',
-                ephemeral: true
-            });
+            await handleCommandError(error, interaction);
         }
-    },
-
-    _getStatusEmoji(statusCode) {
-        const statusMap = metroConfig.statusMapping;
-        return statusMap[statusCode]?.emoji || '⚪';
-    },
-
-    _getColorSquare(colorHex) {
-        return ""
     }
 };
