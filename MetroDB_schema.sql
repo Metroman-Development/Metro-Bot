@@ -113,6 +113,29 @@ LOCK TABLES `js_status_mapping` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `train_models`
+--
+
+DROP TABLE IF EXISTS `train_models`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `train_models` (
+  `model_id` varchar(50) NOT NULL,
+  `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
+  PRIMARY KEY (`model_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `train_models`
+--
+
+LOCK TABLES `train_models` WRITE;
+/*!40000 ALTER TABLE `train_models` DISABLE KEYS */;
+/*!40000 ALTER TABLE `train_models` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `line_fleet`
 --
 
@@ -123,11 +146,11 @@ CREATE TABLE `line_fleet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
   `model_id` varchar(50) NOT NULL,
-  `fleet_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`fleet_data`)),
   `last_updated` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `idx_line_model` (`line_id`,`model_id`),
-  CONSTRAINT `line_fleet_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`)
+  CONSTRAINT `line_fleet_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`),
+  CONSTRAINT `line_fleet_ibfk_2` FOREIGN KEY (`model_id`) REFERENCES `train_models` (`model_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -266,7 +289,7 @@ DROP TABLE IF EXISTS `metro_stations`;
 CREATE TABLE `metro_stations` (
   `station_id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
-  `station_code` varchar(10) NOT NULL,
+  `station_code` varchar(20) NOT NULL COMMENT 'Should be uppercase',
   `station_name` varchar(100) NOT NULL,
   `display_order` int(11) DEFAULT NULL,
   `commune` varchar(100) DEFAULT NULL,

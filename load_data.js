@@ -43,7 +43,7 @@ async function loadStations(conn, stations) {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
             `;
             // A station code can be generated from the station name by removing spaces and making it lowercase
-            const stationCode = stationName.replace(/\s/g, '').toLowerCase();
+            const stationCode = stationName.replace(/\s/g, '').toUpperCase().substring(0, 20);
             await conn.query(query, [
                 lineId,
                 stationCode,
@@ -144,10 +144,47 @@ async function truncateTables(conn) {
     await conn.query('TRUNCATE TABLE system_info;');
     await conn.query('TRUNCATE TABLE intermodal_buses;');
     await conn.query('TRUNCATE TABLE intermodal_stations;');
+    await conn.query('TRUNCATE TABLE line_fleet;');
+    await conn.query('TRUNCATE TABLE train_models;');
     await conn.query('TRUNCATE TABLE metro_stations;');
     await conn.query('TRUNCATE TABLE metro_lines;');
     await conn.query('SET FOREIGN_KEY_CHECKS = 1;');
     console.log('Tables truncated.');
+}
+
+async function loadTrainModels(conn, trainInfo) {
+    console.log('Loading train models...');
+    for (const modelId in trainInfo.modelos) {
+        const modelData = trainInfo.modelos[modelId];
+        const query = `
+            INSERT INTO train_models (model_id, model_data)
+            VALUES (?, ?)
+        `;
+        await conn.query(query, [
+            modelId,
+            JSON.stringify(modelData)
+        ]);
+        console.log(`Inserted train model ${modelId}`);
+    }
+    console.log('Train models loaded.');
+}
+
+async function loadLineFleet(conn, linesData) {
+    console.log('Loading line fleet...');
+    for (const lineId in linesData) {
+        const line = linesData[lineId];
+        if (line.Flota) {
+            for (const modelId of line.Flota) {
+                const query = `
+                    INSERT INTO line_fleet (line_id, model_id)
+                    VALUES (?, ?)
+                `;
+                await conn.query(query, [lineId, modelId]);
+                console.log(`Associated fleet ${modelId} with line ${lineId}`);
+            }
+        }
+    }
+    console.log('Line fleet loaded.');
 }
 
 async function main() {
@@ -172,6 +209,11 @@ async function main() {
 
         const stationsData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stations.json'), 'utf8'));
         await loadStations(conn, stationsData);
+
+        const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
+        await loadTrainModels(conn, trainInfo);
+
+        await loadLineFleet(conn, linesData);
 
     } catch (err) {
         console.error(err);
