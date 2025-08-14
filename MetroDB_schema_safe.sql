@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `incident_types` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`incident_type_id`),
   UNIQUE KEY `type_name` (`type_name`,`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `incident_types`  */;
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `incidents` (
   CONSTRAINT `incidents_ibfk_1` FOREIGN KEY (`incident_type_id`) REFERENCES `incident_types` (`incident_type_id`),
   CONSTRAINT `incidents_ibfk_2` FOREIGN KEY (`station_id`) REFERENCES `metro_stations` (`station_id`),
   CONSTRAINT `incidents_ibfk_3` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `incidents`  */;
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `js_status_mapping` (
   PRIMARY KEY (`js_code`),
   KEY `status_type_id` (`status_type_id`),
   CONSTRAINT `js_status_mapping_ibfk_1` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `js_status_mapping`  */;
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `train_models` (
   `model_id` varchar(50) NOT NULL,
   `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
   PRIMARY KEY (`model_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `train_models`  */;
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `line_fleet` (
   KEY `idx_line_model` (`line_id`,`model_id`),
   CONSTRAINT `line_fleet_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`),
   CONSTRAINT `line_fleet_ibfk_2` FOREIGN KEY (`model_id`) REFERENCES `train_models` (`model_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `line_fleet`  */;
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `line_status` (
   CONSTRAINT `line_status_ibfk_2` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`),
   CONSTRAINT `line_status_ibfk_3` FOREIGN KEY (`affected_section_start_station_id`) REFERENCES `metro_stations` (`station_id`) ON DELETE SET NULL,
   CONSTRAINT `line_status_ibfk_4` FOREIGN KEY (`affected_section_end_station_id`) REFERENCES `metro_stations` (`station_id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `line_status`  */;
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `loader_raw_data` (
   UNIQUE KEY `idx_loader_checksum` (`loader_name`,`checksum`),
   KEY `idx_loader` (`loader_name`),
   KEY `idx_data_key` (`data_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `loader_raw_data`  */;
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `metro_lines` (
   KEY `display_order` (`display_order`),
   KEY `idx_line_id_ci` (`line_id`) USING HASH,
   KEY `idx_line_status_code` (`status_code_str`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `metro_lines`  */;
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `metro_stations` (
   SPATIAL KEY `location` (`location`),
   KEY `idx_station_display_name` (`display_name`),
   CONSTRAINT `metro_stations_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=701 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=701 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `metro_stations`  */;
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `operational_status_types` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`status_type_id`),
   UNIQUE KEY `status_name` (`status_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `operational_status_types`  */;
@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `station_status` (
   KEY `expected_resolution_time` (`expected_resolution_time`),
   CONSTRAINT `station_status_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `metro_stations` (`station_id`) ON DELETE CASCADE,
   CONSTRAINT `station_status_ibfk_2` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `station_status`  */;
@@ -299,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `station_status_history` (
   KEY `status_type_id` (`status_type_id`),
   CONSTRAINT `station_status_history_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `metro_stations` (`station_id`),
   CONSTRAINT `station_status_history_ibfk_2` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1024 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1024 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `station_status_history`  */;
@@ -327,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `system_info` (
   `operator` varchar(255) DEFAULT NULL,
   `map_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -343,7 +343,7 @@ CREATE TABLE IF NOT EXISTS `intermodal_stations` (
   `operator` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `intermodal_buses` (
   PRIMARY KEY (`id`),
   KEY `station_id` (`station_id`),
   CONSTRAINT `intermodal_buses_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `intermodal_stations` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -374,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `status_overrides` (
   `is_active` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `target_type` (`target_type`,`target_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -400,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `status_change_log` (
   CONSTRAINT `status_change_log_ibfk_2` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `status_change_log_ibfk_3` FOREIGN KEY (`old_status_type_id`) REFERENCES `operational_status_types` (`status_type_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `status_change_log_ibfk_4` FOREIGN KEY (`new_status_type_id`) REFERENCES `operational_status_types` (`status_type_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
 /*!40000 ALTER TABLE `status_change_log`  */;

@@ -2,6 +2,7 @@ require('dotenv').config();
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
 const path = require('path');
+const { findMatchingStation, flattenStaticStations } = require('./src/utils/loadDataUtils.js');
 
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
@@ -32,12 +33,23 @@ async function loadLines(conn, lines) {
     console.log('Lines loaded.');
 }
 
-async function loadStations(conn, estadoRed) {
+async function loadStations(conn, estadoRed, staticStationsData) {
     console.log('Loading stations...');
+    const allStaticStations = flattenStaticStations(staticStationsData);
+
     for (const lineId in estadoRed) {
         const line = estadoRed[lineId];
         if (line.estaciones) {
             for (const station of line.estaciones) {
+                const matchedStation = findMatchingStation(station, lineId, allStaticStations);
+                const stationName = matchedStation ? matchedStation.name : station.nombre;
+
+                if (matchedStation) {
+                    console.log(`[MATCH] Found match for ${station.nombre} -> ${stationName}`);
+                } else {
+                    console.warn(`[NO MATCH] No match found for ${station.nombre}`);
+                }
+
                 const query = `
                     INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
@@ -45,14 +57,14 @@ async function loadStations(conn, estadoRed) {
                 await conn.query(query, [
                     lineId,
                     station.codigo,
-                    station.nombre,
+                    stationName,
                     null, // display_order
                     null, // commune
                     null, // address
                     null, // latitude
                     null, // longitude
                 ]);
-                console.log(`Inserted station ${station.nombre}`);
+                console.log(`Inserted station ${stationName}`);
             }
         }
     }
@@ -207,7 +219,8 @@ async function main() {
         await loadLines(conn, linesData);
 
         const estadoRed = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/estadoRed.json'), 'utf8'));
-        await loadStations(conn, estadoRed);
+        const staticStations = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stations.json'), 'utf8'));
+        await loadStations(conn, estadoRed, staticStations);
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
         await loadTrainModels(conn, trainInfo);
