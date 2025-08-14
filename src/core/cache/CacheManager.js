@@ -3,11 +3,14 @@ const DatabaseCache = require('./adapters/DatabaseCache');
 const logger = require('../../events/logger');
 
 class CacheManager {
-    constructor(options = {}) {
-        if (CacheManager._instance) {
-            return CacheManager._instance;
+    static getInstance(options) {
+        if (!CacheManager._instance) {
+            CacheManager._instance = new CacheManager(options);
         }
+        return CacheManager._instance;
+    }
 
+    constructor(options = {}) {
         this.layers = [
             new MemoryCache({
                 maxSize: options.memorySize || 1000,
@@ -23,14 +26,6 @@ class CacheManager {
         };
         
         logger.info('CacheManager initialized with layered cache system');
-        CacheManager._instance = this;
-    }
-
-    static getInstance(options) {
-        if (!CacheManager._instance) {
-            CacheManager._instance = new CacheManager(options);
-        }
-        return CacheManager._instance;
     }
 
     async get(namespace, key) {
@@ -146,5 +141,5 @@ class CacheManager {
     }
 }
 
-// Export as singleton instance
-module.exports = new CacheManager();
+// Export the class
+module.exports = CacheManager;

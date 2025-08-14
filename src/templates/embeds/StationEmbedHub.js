@@ -1,6 +1,6 @@
 // templates/embeds/StationEmbedHub.js
 const { EmbedBuilder } = require('discord.js');
-const StationMainEmbed = require('./stationMainEmbed');
+const StationMainEmbed = require('./StationEmbed');
 const StationTransfersEmbed = require('./stationTransfersEmbed');
 const StationSurroundingsEmbed = require('./stationSurroundingsEmbed');
 const StationAccessibilityEmbed = require('./stationAccessibilityEmbed');

@@ -1,15 +1,16 @@
 const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 const { SlashCommandBuilder, PermissionFlagsBits, Collection } = require('discord.js');
-const { CacheManager } = require('../cache/CacheManager');
+const CacheManager = require('../cache/CacheManager');
 const logger = require('../../events/logger');
-const roleSettings = require('./RoleSettingsManager');
+const RoleSettingsManager = require('./RoleSettingsManager');
+const roleSettings = new RoleSettingsManager();
 const config = { commandDefaults: {}, commands: {} };
 
 class AdvancedCommandLoader {
     constructor(client) {
         this.client = client;
-        this.cache = CacheManager;
+        this.cache = CacheManager.getInstance();
         this.cooldowns = new Map();
         this.subcommandPaths = new Map(); // Track subcommand file paths
         this.loadCommands();
