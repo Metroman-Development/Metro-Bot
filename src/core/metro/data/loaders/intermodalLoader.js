@@ -1,55 +1,57 @@
 // intermodalLoader.js
-const path = require('path');
-const loadJsonFile = require('../../../../utils/jsonLoader.js');
+const mariadb = require('mariadb');
+require('dotenv').config();
+const pool = mariadb.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.METRODB_NAME,
+    connectionLimit: 5
+});
 
 module.exports = {
-  source: 'intermodalInfo.json + intermodalBuses.json',
+  source: 'MetroDB/intermodal_stations & intermodal_buses',
   async load() {
-    const [info, buses] = await Promise.all([
-      this._loadFile('intermodalInfo.json'),
-      this._loadFile('intermodalBuses.json')
-    ]);
-    return this._transform(info, buses);
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const stations = await conn.query("SELECT * FROM intermodal_stations");
+        const buses = await conn.query("SELECT * FROM intermodal_buses");
+        return this._transform(stations, buses);
+    } catch (err) {
+        throw err;
+    } finally {
+        if (conn) conn.release();
+    }
   },
 
-  _loadFile(filename) {
-    return loadJsonFile(path.join(__dirname, '../../../../data', filename));
-  },
+  _transform(stations, buses) {
+    const busMap = buses.reduce((acc, bus) => {
+        if (!acc[bus.station_id]) {
+            acc[bus.station_id] = [];
+        }
+        acc[bus.station_id].push({
+            'Tipo Servicio': bus.type,
+            'Recorrido/Operador': bus.route,
+            'Destino': bus.destination
+        });
+        return acc;
+    }, {});
 
-  _transform(info, buses) {
-    return Object.entries(info).reduce((acc, [name, data]) => {
-      const normalizedName = this._normalizeName(name);
+    return stations.reduce((acc, station) => {
+      const normalizedName = this._normalizeName(station.name);
       acc[normalizedName] = {
         id: normalizedName,
-        // Preserve all original data under _raw for backwards compatibility
-        _raw: { ...data },
-        // Standardized fields
-        services: data.Servicios || [],
-        buses: this._enhanceBusData(buses[name] || []),
-        location: data.Ubicación || 'N/A',
-        // Additional fields from original data
-        comuna: data.Comuna || 'N/A',
-        inauguration: data.Inauguración || 'N/A',
-        platforms: data['N.º de andenes'] || 'N/A',
-        operator: data.Operador || 'N/A'
+        services: JSON.parse(station.services),
+        buses: busMap[station.id] || [],
+        location: station.location,
+        comuna: station.commune,
+        inauguration: station.inauguration,
+        platforms: station.platforms,
+        operator: station.operator
       };
       return acc;
     }, {});
-  },
-
-  _enhanceBusData(buses) {
-    return buses.map(bus => {
-      if (typeof bus === 'string') {
-        // Convert string format to object format for consistency
-        const parts = bus.split(' ');
-        return {
-          'Tipo Servicio': 'Red',
-          'Recorrido/Operador': parts[0],
-          Destino: parts.slice(1).join(' ') || 'N/A'
-        };
-      }
-      return bus;
-    });
   },
 
   _normalizeName(name) {

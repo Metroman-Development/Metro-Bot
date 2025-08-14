@@ -410,6 +410,97 @@ LOCK TABLES `station_status_history` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `system_info`
+--
+
+DROP TABLE IF EXISTS `system_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `system_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `system` varchar(255) DEFAULT NULL,
+  `inauguration` varchar(255) DEFAULT NULL,
+  `length` varchar(255) DEFAULT NULL,
+  `stations` int(11) DEFAULT NULL,
+  `track_gauge` varchar(255) DEFAULT NULL,
+  `electrification` varchar(255) DEFAULT NULL,
+  `max_speed` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `lines` int(11) DEFAULT NULL,
+  `cars` int(11) DEFAULT NULL,
+  `passengers` int(11) DEFAULT NULL,
+  `fleet` varchar(255) DEFAULT NULL,
+  `average_speed` varchar(255) DEFAULT NULL,
+  `operator` varchar(255) DEFAULT NULL,
+  `map_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `intermodal_stations`
+--
+
+DROP TABLE IF EXISTS `intermodal_stations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `intermodal_stations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `services` text DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `commune` varchar(255) DEFAULT NULL,
+  `inauguration` varchar(255) DEFAULT NULL,
+  `platforms` varchar(255) DEFAULT NULL,
+  `operator` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `intermodal_buses`
+--
+
+DROP TABLE IF EXISTS `intermodal_buses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `intermodal_buses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `station_id` int(11) NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `route` varchar(255) DEFAULT NULL,
+  `destination` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `station_id` (`station_id`),
+  CONSTRAINT `intermodal_buses_ibfk_1` FOREIGN KEY (`station_id`) REFERENCES `intermodal_stations` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `status_overrides`
+--
+
+DROP TABLE IF EXISTS `status_overrides`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `status_overrides` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `target_type` enum('line','station','system') NOT NULL,
+  `target_id` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `message` text DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  PRIMARY KEY (`id`),
+  KEY `target_type` (`target_type`,`target_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `status_change_log`
 --
 
@@ -543,9 +634,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = utf8mb3 */;
 /*!50001 SET character_set_results     = utf8mb3 */;
 /*!50001 SET collation_connection      = utf8mb3_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_lines_with_jsdata` AS select `ml`.`line_id` AS `line_id`,`ml`.`line_name` AS `line_name`,`ml`.`line_color` AS `line_color`,`ml`.`display_order` AS `display_order`,`ml`.`line_description` AS `line_description`,`ml`.`opening_date` AS `opening_date`,`ml`.`total_stations` AS `total_stations`,`ml`.`total_length_km` AS `total_length_km`,`ml`.`avg_daily_ridership` AS `avg_daily_ridership`,`ml`.`operating_hours_start` AS `operating_hours_start`,`ml`.`operating_hours_end` AS `operating_hours_end`,`ml`.`created_at` AS `created_at`,`ml`.`updated_at` AS `updated_at`,`ml`.`display_name` AS `display_name`,`ml`.`fleet_data` AS `fleet_data`,`ml`.`status_code` AS `status_code`,`ml`.`status_message` AS `status_message`,`ml`.`app_message` AS `app_message`,`ml`.`infrastructure` AS `infrastructure`,coalesce(`ml`.`status_code`,`sm`.`js_code`) AS `effective_status_code`,coalesce(`ml`.`status_message`,`ost`.`status_description`) AS `effective_status_message`,json_unquote(json_extract(`ml`.`infrastructure`,'$.name')) AS `infrastructure_data` from ((`metro_lines` `ml` left join `js_status_mapping` `sm` on(`ml`.`status_code` = `sm`.`js_code`)) left join `operational_status_types` `ost` on(`sm`.`status_type_id` = `ost`.`status_type_id`)) */;
+/*!50001 CREATE VIEW `vw_lines_with_jsdata` AS select `ml`.`line_id` AS `line_id`,`ml`.`line_name` AS `line_name`,`ml`.`line_color` AS `line_color`,`ml`.`display_order` AS `display_order`,`ml`.`line_description` AS `line_description`,`ml`.`opening_date` AS `opening_date`,`ml`.`total_stations` AS `total_stations`,`ml`.`total_length_km` AS `total_length_km`,`ml`.`avg_daily_ridership` AS `avg_daily_ridership`,`ml`.`operating_hours_start` AS `operating_hours_start`,`ml`.`operating_hours_end` AS `operating_hours_end`,`ml`.`created_at` AS `created_at`,`ml`.`updated_at` AS `updated_at`,`ml`.`display_name` AS `display_name`,`ml`.`fleet_data` AS `fleet_data`,`ml`.`status_code` AS `status_code`,`ml`.`status_message` AS `status_message`,`ml`.`app_message` AS `app_message`,`ml`.`infrastructure` AS `infrastructure`,coalesce(`ml`.`status_code`,`sm`.`js_code`) AS `effective_status_code`,coalesce(`ml`.`status_message`,`ost`.`status_description`) AS `effective_status_message`,json_unquote(json_extract(`ml`.`infrastructure`,'$.name')) AS `infrastructure_data` from ((`metro_lines` `ml` left join `js_status_mapping` `sm` on(`ml`.`status_code` = `sm`.`js_code`)) left join `operational_status_types` `ost` on(`sm`.`status_type_id` = `ost`.`status_type_id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -561,9 +650,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = utf8mb3 */;
 /*!50001 SET character_set_results     = utf8mb3 */;
 /*!50001 SET collation_connection      = utf8mb3_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_station_status_history` AS select `h`.`history_id` AS `history_id`,`s`.`station_id` AS `station_id`,`s`.`station_name` AS `station_name`,`s`.`line_id` AS `line_id`,`t`.`status_type_id` AS `status_type_id`,`t`.`status_name` AS `status_name`,`h`.`status_message` AS `status_message`,`h`.`last_updated` AS `last_updated`,`h`.`updated_by` AS `updated_by` from ((`station_status_history` `h` join `metro_stations` `s` on(`h`.`station_id` = `s`.`station_id`)) join `operational_status_types` `t` on(`h`.`status_type_id` = `t`.`status_type_id`)) order by `h`.`last_updated` desc */;
+/*!50001 CREATE VIEW `vw_station_status_history` AS select `h`.`history_id` AS `history_id`,`s`.`station_id` AS `station_id`,`s`.`station_name` AS `station_name`,`s`.`line_id` AS `line_id`,`t`.`status_type_id` AS `status_type_id`,`t`.`status_name` AS `status_name`,`h`.`status_message` AS `status_message`,`h`.`last_updated` AS `last_updated`,`h`.`updated_by` AS `updated_by` from ((`station_status_history` `h` join `metro_stations` `s` on(`h`.`station_id` = `s`.`station_id`)) join `operational_status_types` `t` on(`h`.`status_type_id` = `t`.`status_type_id`)) order by `h`.`last_updated` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -579,9 +666,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = utf8mb3 */;
 /*!50001 SET character_set_results     = utf8mb3 */;
 /*!50001 SET collation_connection      = utf8mb3_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_stations_with_jsdata` AS select `ms`.`station_id` AS `station_id`,`ms`.`line_id` AS `line_id`,`ms`.`station_code` AS `station_code`,`ms`.`station_name` AS `station_name`,coalesce(`ms`.`display_name`,`ms`.`station_name`) AS `effective_display_name`,`ss`.`status_type_id` AS `status_type_id`,`ost`.`status_name` AS `status_name`,`ss`.`status_message` AS `status_message`,`ss`.`expected_resolution_time` AS `expected_resolution_time`,`ss`.`is_planned` AS `is_planned`,`ss`.`impact_level` AS `impact_level`,`ms`.`access_details` AS `access_details`,`ms`.`transports` AS `transports`,`ms`.`services` AS `services`,`ms`.`accessibility` AS `accessibility`,`ms`.`commerce` AS `commerce`,`ms`.`amenities` AS `amenities`,`ms`.`image_url` AS `image_url`,`ml`.`line_color` AS `line_color` from (((`metro_stations` `ms` left join `station_status` `ss` on(`ms`.`station_id` = `ss`.`station_id`)) left join `operational_status_types` `ost` on(`ss`.`status_type_id` = `ost`.`status_type_id`)) left join `metro_lines` `ml` on(`ms`.`line_id` = `ml`.`line_id`)) */;
+/*!50001 CREATE VIEW `vw_stations_with_jsdata` AS select `ms`.`station_id` AS `station_id`,`ms`.`line_id` AS `line_id`,`ms`.`station_code` AS `station_code`,`ms`.`station_name` AS `station_name`,coalesce(`ms`.`display_name`,`ms`.`station_name`) AS `effective_display_name`,`ss`.`status_type_id` AS `status_type_id`,`ost`.`status_name` AS `status_name`,`ss`.`status_message` AS `status_message`,`ss`.`expected_resolution_time` AS `expected_resolution_time`,`ss`.`is_planned` AS `is_planned`,`ss`.`impact_level` AS `impact_level`,`ms`.`access_details` AS `access_details`,`ms`.`transports` AS `transports`,`ms`.`services` AS `services`,`ms`.`accessibility` AS `accessibility`,`ms`.`commerce` AS `commerce`,`ms`.`amenities` AS `amenities`,`ms`.`image_url` AS `image_url`,`ml`.`line_color` AS `line_color` from (((`metro_stations` `ms` left join `station_status` `ss` on(`ms`.`station_id` = `ss`.`station_id`)) left join `operational_status_types` `ost` on(`ss`.`status_type_id` = `ost`.`status_type_id`)) left join `metro_lines` `ml` on(`ms`.`line_id` = `ml`.`line_id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;

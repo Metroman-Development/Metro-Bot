@@ -12,6 +12,7 @@ const ScheduleEngine = require('./internal/ScheduleEngine');
 
 const DataLoader = require('./DataLoader');
 const ApiService = require('./services/ApiService');
+const StatusOverrideService = require('./services/StatusOverrideService');
 const stringUtils = require('../utils/stringHandlers');
 const StatusProcessor = require('../../status/utils/StatusProcessor');
 const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
@@ -89,6 +90,7 @@ class MetroCore extends EventEmitter {
         this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
         this._subsystems.statusProcessor = new StatusProcessor(this);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
+        this._subsystems.statusOverrideService = new StatusOverrideService();
 
         if (this._debug) {
             console.log('[MetroCore] Subsystems initialized:', {
