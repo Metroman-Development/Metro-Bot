@@ -194,7 +194,11 @@ class MetroCore extends EventEmitter {
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
-            this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
+            this._subsystems.accessibilityService = new AccessibilityService({
+                timeHelpers: this._subsystems.utils.time,
+                config: this.config,
+                dbService: databaseService
+            });
             await this._subsystems.accessibilityService.initialize();
 
             // Phase 2: Initialize the API service

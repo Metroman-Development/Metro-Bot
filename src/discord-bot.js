@@ -22,8 +22,6 @@ async function startDiscordBot() {
 
     discordClient.commands = new Collection();
     discordClient.prefixCommands = new Collection();
-    discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
-    setClient(discordClient);
 
     const prefixCommandsPath = join(__dirname, 'bot/discord/commands/prefix');
     try {
@@ -69,6 +67,10 @@ async function startDiscordBot() {
     try {
         await connectToDiscord(discordClient);
         metroCore.setClient(discordClient);
+
+        // Initialize the command loader now that the database is ready
+        discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
+        setClient(discordClient);
 
         const SchedulerService = require('./core/chronos/SchedulerService');
         const discordScheduler = new SchedulerService();
