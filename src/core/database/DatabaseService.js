@@ -2,12 +2,13 @@ const DatabaseManager = require('./DatabaseManager');
 const logger = require('../../events/logger');
 
 class DatabaseService {
-    constructor() {
-        this.db = DatabaseManager.getInstance();
-        if (!this.db) {
-            logger.error('[DatabaseService] DatabaseManager not initialized.');
-            throw new Error('DatabaseManager not initialized.');
+    constructor(dbManager) {
+        if (!dbManager) {
+            const errorMessage = '[DatabaseService] DatabaseManager instance is required.';
+            logger.error(errorMessage);
+            throw new Error(errorMessage);
         }
+        this.db = dbManager;
     }
 
     // ... methods for line status
@@ -158,4 +159,4 @@ class DatabaseService {
     }
 }
 
-module.exports = new DatabaseService();
+module.exports = DatabaseService;
