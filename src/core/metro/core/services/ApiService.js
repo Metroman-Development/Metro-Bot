@@ -15,7 +15,6 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
-const DatabaseService = require('../../../database/DatabaseService');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
@@ -67,7 +66,11 @@ class ApiService extends EventEmitter {
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
         this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
-        this.dbService = DatabaseService;
+
+        if (!options.dbService) {
+            throw new Error('[ApiService] A dbService instance is required in options.');
+        }
+        this.dbService = options.dbService;
 
         // Metrics
         this.metrics = {

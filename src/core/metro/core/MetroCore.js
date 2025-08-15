@@ -201,7 +201,8 @@ class MetroCore extends EventEmitter {
             this._subsystems.api = new ApiService(this, {
                 statusProcessor: this._subsystems.statusProcessor,
                 changeDetector: this._subsystems.changeDetector,
-            }, databaseService);
+                dbService: databaseService,
+            });
             
             // Phase 3: Set up the public API
             this.api = {
