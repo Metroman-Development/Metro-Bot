@@ -6,12 +6,12 @@ const EventPayload = require('../../../../core/EventPayload');
 const DatabaseService = require('../../../database/DatabaseService');
 
 class AccessibilityService extends EventEmitter {
-    constructor(options = {}) {
+    constructor(options = {}, databaseService) {
         super();
         this.timeHelpers = options.timeHelpers;
         this.config = options.config;
         this.apiUrl = process.env.ACCESSARIEL;
-        this.dbService = DatabaseService;
+        this.dbService = databaseService;
         this.lastStates = {};
         this.cachedStates = {};
     }
