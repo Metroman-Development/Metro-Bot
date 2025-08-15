@@ -451,8 +451,6 @@ async activateEventOverrides(eventDetails) {
             rawData = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
             const randomizedData = this._randomizeStatuses(rawData);
             
-            await this._updateCache(rawData);
-            
             const processedData = this._processData(randomizedData);
 
             const summary = this.generateNetworkSummary(processedData);
