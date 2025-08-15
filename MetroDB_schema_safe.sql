@@ -406,6 +406,42 @@ CREATE TABLE IF NOT EXISTS `status_change_log` (
 /*!40000 ALTER TABLE `status_change_log`  */;
 /*!40000 ALTER TABLE `status_change_log`  */;
 ;
+CREATE TABLE IF NOT EXISTS `network_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `network_status_summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`network_status_summary`)),
+  `fare_period` varchar(50) DEFAULT NULL,
+  `active_event` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`active_event`)),
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+CREATE TABLE IF NOT EXISTS `accessibility_status` (
+  `equipment_id` varchar(255) NOT NULL,
+  `station_code` varchar(255) NOT NULL,
+  `line_id` varchar(10) NOT NULL,
+  `status` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`equipment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `scheduled_status_overrides` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `target_type` enum('line','station','system') NOT NULL,
+  `target_id` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `message` text DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
+  `start_at` timestamp NOT NULL,
+  `end_at` timestamp NOT NULL,
+  `is_active` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `target_type` (`target_type`,`target_id`),
+  KEY `start_at` (`start_at`),
+  KEY `end_at` (`end_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 ;
 /*!50001 DROP VIEW IF EXISTS `vw_lines_with_jsdata`*/;
 SET @saved_cs_client     = @@character_set_client;
