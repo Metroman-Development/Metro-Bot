@@ -2,14 +2,14 @@ const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 const { SlashCommandBuilder, PermissionFlagsBits, Collection } = require('discord.js');
 const CacheManager = require('../cache/CacheManager');
-const logger = require('../../events/logger');
+const logger =require('../../events/logger');
 const RoleSettingsManager = require('./RoleSettingsManager');
-const roleSettings = new RoleSettingsManager();
 const config = { commandDefaults: {}, commands: {} };
 
 class AdvancedCommandLoader {
     constructor(client) {
         this.client = client;
+        this.roleSettings = new RoleSettingsManager();
         this.cache = CacheManager.getInstance();
         this.cooldowns = new Map();
         this.subcommandPaths = new Map(); // Track subcommand file paths
@@ -220,7 +220,7 @@ class AdvancedCommandLoader {
             const member = interaction.member;
             if (!member) return { allowed: false, reason: '⚠️ Member not found' };
 
-            const settings = await roleSettings.getRoleSettings(member);
+            const settings = await this.roleSettings.getRoleSettings(member);
             if (settings.bypassRestrictions) {
                 return { allowed: true };
             }
@@ -259,7 +259,7 @@ class AdvancedCommandLoader {
         const member = interaction.member;
         if (!member) return '⚠️ No se pudo identificar al miembro';
 
-        const settings = await roleSettings.getRoleSettings(member);
+        const settings = await this.roleSettings.getRoleSettings(member);
         if (settings.ignoreCooldowns) return null;
 
         const cooldownKey = `${member.id}-${command.data.name}`;
@@ -268,7 +268,7 @@ class AdvancedCommandLoader {
         
         // Check if guild is not the specific one (899841261740113980)
         const isTargetGuild = interaction.guild?.id === '899841261740113980';
-        let cooldownAmount = await roleSettings.getEffectiveCooldown(
+        let cooldownAmount = await this.roleSettings.getEffectiveCooldown(
             member, 
             command.data.name,
             interaction.options.getSubcommand(false)
