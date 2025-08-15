@@ -1,41 +1,22 @@
-// _buscaraccesibilidad.js - Updated to support both old and new formats
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const AccessibilityResultsManager = require('../../../../../events/interactions/buttons/AccessibilityResultsManager');
-const styles = require('../../../../../config/styles.json');
+const styles = require('../../../config/styles.json');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
-        .setName('accesibilidad')
-        .setDescription('Buscar estaciones por estado de accesibilidad')
-        .addStringOption(option =>
-            option.setName('estado')
-                .setDescription('Estado de accesibilidad a buscar')
-                .setRequired(true)
-                .addChoices(
-                    { name: 'Operativa', value: 'Operativa' },
-                    { name: 'Fuera de Servicio', value: 'FueraServicio' }
-                ))
-        .addStringOption(option =>
-            option.setName('equipo')
-                .setDescription('Filtrar por tipo de equipo')
-                .setRequired(false)
-                .addChoices(
-                    { name: 'Ascensor', value: 'ascensor' },
-                    { name: 'Escalera Mecánica', value: 'escalera' },
-                    { name: 'Ambos', value: 'ambos' }
-                )),
+    name: 'accesibilidad',
+    description: 'Buscar estaciones por estado de accesibilidad',
+    async execute(ctx, metro) {
+        const args = ctx.message.text.split(' ').slice(1);
+        if (args.length === 0) {
+            return ctx.reply('Por favor, especifica un estado de accesibilidad (operativa/fueraservicio) y opcionalmente un tipo de equipo (ascensor/escalera/ambos).');
+        }
 
-    async execute(interaction, metro) {
-        await interaction.deferReply();
-        const statusQuery = interaction.options.getString('estado');
-        const equipmentFilter = interaction.options.getString('equipo');
+        const statusQuery = args[0].toLowerCase() === 'operativa' ? 'Operativa' : 'FueraServicio';
+        const equipmentFilter = args[1] ? args[1].toLowerCase() : null;
 
         // Get accessibility data from the database
         const accessibilityData = await metro.db.getAccessibilityStatus();
 
         if (!accessibilityData || accessibilityData.length === 0) {
-            return this.sendNoResultsResponse(interaction, statusQuery, equipmentFilter);
+            return ctx.reply('No se encontró información de accesibilidad.');
         }
 
         // Process the data
@@ -46,13 +27,12 @@ module.exports = {
             const stationId = `${item.station_code}-${item.line_id}`;
             if (!stationData[stationId]) {
                 const staticStation = staticStations[stationId];
-                if (!staticStation) continue; // Skip if no static data for the station
+                if (!staticStation) continue;
 
                 stationData[stationId] = {
                     id: stationId,
                     name: staticStation.displayName,
                     line: item.line_id.toUpperCase(),
-                    color: styles.lineColors[item.line_id.toLowerCase()] || '#FFA500',
                     stationData: {
                         ...staticStation,
                         accessDetails: {
@@ -60,7 +40,6 @@ module.exports = {
                             escalators: []
                         }
                     },
-                    isNewFormat: true,
                     hasElevator: false,
                     hasEscalator: false,
                     elevatorWorking: true,
@@ -122,49 +101,40 @@ module.exports = {
             return matchesEquipment && matchesStatus;
         });
 
-
         if (allResults.length === 0) {
-            return this.sendNoResultsResponse(interaction, statusQuery, equipmentFilter);
+            let message = `🔍 No se encontraron estaciones `;
+            const statusText = statusQuery === 'Operativa' ? 'operativas' : 'con problemas de accesibilidad';
+
+            message += statusText;
+
+            if (equipmentFilter) {
+                message += ' en ';
+                if (equipmentFilter === 'ascensor') message += 'ascensores';
+                else if (equipmentFilter === 'escalera') message += 'escaleras mecánicas';
+                else message += 'ambos equipos';
+            }
+            return ctx.reply(message);
         }
 
-        // Create and use the manager
-        const manager = new AccessibilityResultsManager();
-        const filters = {
-            ascensor: equipmentFilter === 'ascensor' || equipmentFilter === 'ambos',
-            escaleraMecanica: equipmentFilter === 'escalera' || equipmentFilter === 'ambos',
-            operativo: statusQuery === 'Operativa',
-            fueraDeServicio: statusQuery !== 'Operativa'
-        };
-
-        const messageData = manager.buildAccessibilityReply(
-            statusQuery,
-            filters,
-            allResults,
-            interaction.user.id
-        );
-
-        await interaction.editReply(messageData);
-    },
-
-    /**
-     * Sends a response when no stations are found
-     */
-    sendNoResultsResponse(interaction, statusQuery, equipmentFilter) {
-        let message = `🔍 No se encontraron estaciones `;
-        const statusText = statusQuery === 'Operativa' ? 'operativas' : 'con problemas de accesibilidad';
-        
-        message += statusText;
-        
-        if (equipmentFilter) {
-            message += ' en ';
-            if (equipmentFilter === 'ascensor') message += 'ascensores';
-            else if (equipmentFilter === 'escalera') message += 'escaleras mecánicas';
-            else message += 'ambos equipos';
-        }
-        
-        return interaction.editReply({
-            content: message,
-            ephemeral: true
+        // Format the response for Telegram
+        let response = `*Estaciones con accesibilidad: ${statusQuery === 'Operativa' ? 'Operativas' : 'Con problemas'}*\n\n`;
+        allResults.forEach(station => {
+            response += `*${station.name} (${station.line})*\n`;
+            if (station.stationData.accessDetails.elevators.length > 0) {
+                response += `  *Ascensores:*\n`;
+                station.stationData.accessDetails.elevators.forEach(e => {
+                    response += `    - ${e.text} (${e.status === 1 ? 'Operativo' : 'Fuera de servicio'})\n`;
+                });
+            }
+            if (station.stationData.accessDetails.escalators.length > 0) {
+                response += `  *Escaleras:*\n`;
+                station.stationData.accessDetails.escalators.forEach(e => {
+                    response += `    - ${e.text} (${e.status === 1 ? 'Operativo' : 'Fuera de servicio'})\n`;
+                });
+            }
+            response += '\n';
         });
+
+        return ctx.replyWithMarkdown(response);
     }
 };
