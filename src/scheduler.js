@@ -2,7 +2,6 @@ require('dotenv').config();
 const logger = require('./events/logger');
 const MetroCore = require('./core/metro/core/MetroCore');
 const SchedulerService = require('./core/chronos/SchedulerService');
-const DatabaseManager = require('./core/database/DatabaseManager');
 const TimeService = require('./core/chronos/TimeService');
 
 async function startScheduler() {
@@ -14,24 +13,21 @@ async function startScheduler() {
         password: process.env.DB_PASSWORD,
         database: process.env.METRODB_NAME,
     };
-    await DatabaseManager.getInstance(dbConfig);
 
     let metroCore;
     try {
-        metroCore = await MetroCore.getInstance();
+        metroCore = await MetroCore.getInstance({ dbConfig });
         logger.info('[SCHEDULER] MetroCore initialized.');
     } catch (error) {
         logger.error('[SCHEDULER] ❌ Failed to initialize MetroCore:', { error });
         process.exit(1);
     }
 
-    const timeService = new TimeService();
-    await timeService.initialize();
+    const timeService = new TimeService(metroCore);
 
     timeService.on('serviceEnd', async () => {
-        const DatabaseService = require('./core/database/DatabaseService');
         logger.info('[SCHEDULER] Service has ended. Setting all stations to "Fuera de servicio".');
-        await DatabaseService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
+        await metroCore._subsystems.api.dbService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
     });
 
     const scheduler = new SchedulerService();

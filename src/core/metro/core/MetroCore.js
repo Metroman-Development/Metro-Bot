@@ -4,6 +4,7 @@ const { performance } = require('perf_hooks');
 const logger = require('../../../events/logger');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
+const DatabaseManager = require('../../../core/database/DatabaseManager');
 
 const DataEngine = require('./internal/DataEngine');
 const EventEngine = require('./internal/EventEngine');
@@ -19,6 +20,7 @@ const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
 const StatusProcessor = require('../../status/utils/StatusProcessor');
 const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
+const OverrideManager = require('./services/OverrideManager');
 
 /**
  * @class MetroCore
@@ -51,6 +53,9 @@ class MetroCore extends EventEmitter {
         this._debug = options.debug || false;
         this.client = options.client;
         this.config = require('../../../config/metro/metroConfig');
+        if (options.dbConfig) {
+            this.config.database = options.dbConfig;
+        }
         this.styles = {};
         
         this._initSubsystems();
@@ -94,7 +99,6 @@ class MetroCore extends EventEmitter {
         this._subsystems.statusProcessor = new StatusProcessor(this);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
         this._subsystems.statusOverrideService = new StatusOverrideService();
-        this._subsystems.overrideManager = new (require('./services/OverrideManager'))(this);
 
         if (this._debug) {
             logger.debug('[MetroCore] Subsystems initialized:', {
@@ -184,16 +188,20 @@ class MetroCore extends EventEmitter {
             logger.debug('[MetroCore] Starting initialization...');
 
             // Phase 1: Initialize core services
+            const dbManager = await DatabaseManager.getInstance(this.config.database);
+            const DatabaseService = require('../../../core/database/DatabaseService');
+            const databaseService = new DatabaseService(dbManager);
+            this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
-            this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config });
+            this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
             await this._subsystems.accessibilityService.initialize();
 
             // Phase 2: Initialize the API service
             this._subsystems.api = new ApiService(this, {
                 statusProcessor: this._subsystems.statusProcessor,
                 changeDetector: this._subsystems.changeDetector,
-            });
+            }, databaseService);
             
             // Phase 3: Set up the public API
             this.api = {
@@ -322,7 +330,7 @@ class MetroCore extends EventEmitter {
     }
 
     /**
-     * Refreshes static data from source files and updates all dependent subsystems.
+     * Refreshes static data from source files and and updates all dependent subsystems.
      * @returns {Promise<void>} Resolves when the refresh is complete, or rejects on error.
      */
     async refreshStaticData() {
