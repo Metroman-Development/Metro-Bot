@@ -1,0 +1,31 @@
+ℹ️ [2025-08-15T16:41:32.190Z] [INFO] [scheduler.js:8] [startScheduler] [SCHEDULER] Initializing...
+⚠️ [2025-08-15T16:41:32.192Z] [WARN] [MetroCore.js:50] [new MetroCore] A Discord client instance is required for full functionality.
+🐛 [2025-08-15T16:41:32.196Z] [INFO] [MetroCore.js:188] [MetroCore.initialize] [MetroCore] Starting initialization...
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: undefined,
+  user: undefined,
+  password: undefined,
+  database: undefined
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+/app/src/core/database/DatabaseManager.js:265
+            throw new Error('DatabaseManager requires a configuration object for the first initialization.');
+                  ^
+
+Error: DatabaseManager requires a configuration object for the first initialization.
+    at DatabaseManager.getInstance (/app/src/core/database/DatabaseManager.js:265:19)
+    at StatusProcessor._initializeDatabase (/app/src/core/status/utils/StatusProcessor.js:30:38)
+    at new StatusProcessor (/app/src/core/status/utils/StatusProcessor.js:25:10)
+    at MetroCore._initSubsystems (/app/src/core/metro/core/MetroCore.js:99:44)
+    at new MetroCore (/app/src/core/metro/core/MetroCore.js:61:14)
+    at /app/src/core/metro/core/MetroCore.js:174:30
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:177:11)
+    at startScheduler (/app/src/scheduler.js:19:37)
+    at Object.<anonymous> (/app/src/scheduler.js:63:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+
+Node.js v22.17.1
