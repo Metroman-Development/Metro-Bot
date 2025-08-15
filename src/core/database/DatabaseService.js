@@ -16,6 +16,11 @@ class DatabaseService {
         return this.db.query('SELECT status_code, status_message, app_message FROM metro_lines WHERE line_id = ?', [lineId]);
     }
 
+    async getLineInfo(lineId) {
+        const results = await this.db.query('SELECT * FROM metro_lines WHERE line_id = ?', [lineId]);
+        return results.length > 0 ? results[0] : null;
+    }
+
     async updateLineStatus(lineId, statusCode, statusMessage, appMessage) {
         return this.db.query('UPDATE metro_lines SET status_code = ?, status_message = ?, app_message = ? WHERE line_id = ?', [statusCode, statusMessage, appMessage, lineId]);
     }
@@ -79,6 +84,11 @@ class DatabaseService {
             return JSON.parse(result[0].events);
         }
         return [];
+    }
+
+    async getSystemInfo() {
+        const results = await this.db.query('SELECT * FROM system_info WHERE id = ?', [1]);
+        return results.length > 0 ? results[0] : null;
     }
 
     async updateSystemEvents(events) {
@@ -156,6 +166,14 @@ class DatabaseService {
 
     async deleteAccessibilityStatus(equipmentId) {
         return this.db.query('DELETE FROM accessibility_status WHERE equipment_id = ?', [equipmentId]);
+    }
+
+    async getIntermodalStations() {
+        return this.db.query('SELECT * FROM intermodal_stations');
+    }
+
+    async getIntermodalBuses(stationId) {
+        return this.db.query('SELECT * FROM intermodal_buses WHERE station_id = ?', [stationId]);
     }
 }
 
