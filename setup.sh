@@ -53,14 +53,18 @@ else
 fi
 
 # Check if required DB variables are set
-if [ -z "$DB_HOST" ] || [ -z "$DB_USER" ] || [ -z "$DB_PASSWORD" ] || [ -z "$METRODB_NAME" ]; then
-    error "One or more database variables (DB_HOST, DB_USER, DB_PASSWORD, METRODB_NAME) are not set in $ENV_FILE."
+if [ -z "$DB_HOST" ] || [ -z "$DB_USER" ] || [ -z "$METRODB_NAME" ]; then
+    error "One or more database variables (DB_HOST, DB_USER, METRODB_NAME) are not set in $ENV_FILE."
 fi
 
 info "Checking if the database '$METRODB_NAME' exists..."
 if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" -e "USE $METRODB_NAME;" 2>/dev/null; then
-    info "Database '$METRODB_NAME' already exists. Skipping schema import."
-    info "If you need to re-import the schema, you must drop the database first."
+    info "Database '$METRODB_NAME' already exists. Applying schema..."
+    if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "$DB_SCHEMA_FILE"; then
+        info "✅ Database schema updated successfully."
+    else
+        error "Failed to update database schema."
+    fi
 else
     info "Database '$METRODB_NAME' does not exist. Creating it..."
     if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" -e "CREATE DATABASE $METRODB_NAME;"; then
