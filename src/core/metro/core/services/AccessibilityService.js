@@ -8,10 +8,13 @@ const DatabaseService = require('../../../database/DatabaseService');
 class AccessibilityService extends EventEmitter {
     constructor(options = {}) {
         super();
+        if (!options.dbService) {
+            throw new Error("AccessibilityService requires a dbService instance.");
+        }
         this.timeHelpers = options.timeHelpers;
         this.config = options.config;
         this.apiUrl = process.env.ACCESSARIEL;
-        this.dbService = DatabaseService;
+        this.dbService = options.dbService;
         this.lastStates = {};
         this.cachedStates = {};
     }
