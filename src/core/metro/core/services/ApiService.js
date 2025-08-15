@@ -861,8 +861,15 @@ async activateEventOverrides(eventDetails) {
     }
 
     generateNetworkSummary(processedData) {
+        if (!processedData || !processedData.lines) {
+            return {
+                lines: { total: 0, operational: 0, with_issues: [] },
+                stations: { total: 0, operational: 0, with_issues: [] },
+                timestamp: new Date().toISOString()
+            };
+        }
         const lines = Object.values(processedData.lines);
-        const stations = lines.flatMap(line => line.stations);
+        const stations = lines.flatMap(line => line.stations || []);
 
         return {
             lines: {
