@@ -9,8 +9,6 @@ const initialize = require('./core/bootstrap');
 const DatabaseManager = require('./core/database/DatabaseManager');
 
 async function startDiscordBot() {
-    const { metroCore } = await initialize('DISCORD');
-
     const discordClient = new Client({
         intents: [
             GatewayIntentBits.Guilds,
@@ -19,11 +17,13 @@ async function startDiscordBot() {
             GatewayIntentBits.GuildMembers,
         ],
     });
+    setClient(discordClient);
+
+    const { metroCore } = await initialize('DISCORD');
 
     discordClient.commands = new Collection();
     discordClient.prefixCommands = new Collection();
     discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
-    setClient(discordClient);
 
     const prefixCommandsPath = join(__dirname, 'bot/discord/commands/prefix');
     try {
