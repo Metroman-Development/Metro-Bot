@@ -13,7 +13,6 @@ const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
-const NewsService = require('./NewsService');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
 const DatabaseService = require('../../../database/DatabaseService');
@@ -64,7 +63,6 @@ class ApiService extends EventEmitter {
 
         // Service dependencies
         this.timeHelpers = TimeHelpers;
-        this.newsService = new NewsService(metro);
         this.override = new StatusOverrideService();
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
@@ -81,8 +79,6 @@ class ApiService extends EventEmitter {
             cacheHits: 0,
             avgResponseTime: 0,
             lastProcessingTime: 0,
-            newsChecks: 0,
-            newsPosted: 0,
             staticDataRefreshes: 0,
             refreshSkipped: 0,
             dataStaleCount: 0,
@@ -121,19 +117,6 @@ class ApiService extends EventEmitter {
                 };
             },
             
-            // News service
-            news: Object.freeze({
-                check: this.checkNews.bind(this),
-                forceCheck: async () => {
-                    this.metrics.newsChecks++;
-                    const result = await this.newsService.checkNews(true);
-                    if (result?.posted) this.metrics.newsPosted += result.posted;
-                    return result;
-                },
-                getPostedCount: () => this.metrics.newsPosted,
-                getLastPosted: () => this.newsService.getLastPosted()
-            }),
-            
             // Control methods
             startPolling: this.startPolling.bind(this),
             stopPolling: this.stopPolling.bind(this),
@@ -149,12 +132,6 @@ class ApiService extends EventEmitter {
                 toggleDebug: (state) => {
                     this.debug = typeof state === 'boolean' ? state : !this.debug;
                     return this.debug;
-                },
-                injectNews: async (newsData) => {
-                    return this.newsService.injectNews(newsData);
-                },
-                clearNewsCache: () => {
-                    return this.newsService.clearCache();
                 },
                 getDataState: () => ({
                     hasRawData: !!this.lastRawData,
@@ -505,11 +482,6 @@ async activateEventOverrides(eventDetails) {
             // PHASE 2f: Persist data
             await this._storeProcessedData(processedData);
 
-            // PHASE 2g: Check news
-            if (this.timeHelpers.isWithinOperatingHours()) {
-                await this._checkForNewsUpdates();
-            }
-            
             this.metrics.lastSuccess = new Date();
             
            // console.log(this.lastProcessedData) 
@@ -628,15 +600,6 @@ async activateEventOverrides(eventDetails) {
             this._emitChanges(changeResult, processedData);
         }
     }
-
-    async _checkForNewsUpdates() {
-        this.metrics.newsChecks++;
-        const newsResult = await this.newsService.checkNews();
-        if (newsResult?.posted) {
-            this.metrics.newsPosted += newsResult.posted;
-        }
-    }
-
 
     _updateState(newData) {
         logger.debug('[ApiService] Updating service state');
@@ -787,11 +750,6 @@ async activateEventOverrides(eventDetails) {
                 refreshes: this.metrics.staticDataRefreshes,
                 skipped: this.metrics.refreshSkipped
             },
-            newsMetrics: {
-                checks: this.metrics.newsChecks,
-                posted: this.metrics.newsPosted,
-                lastPosted: this.newsService.getLastPosted()
-            },
             dataMetrics: {
                 staleCount: this.metrics.dataStaleCount,
                 generatedCount: this.metrics.dataGeneratedCount
@@ -820,7 +778,6 @@ async activateEventOverrides(eventDetails) {
             activeRequests: this._activeRequests.size,
             overridesActive: Object.values(this.override.getOverrides().lines).some(o => o.enabled) || 
                            Object.values(this.override.getOverrides().stations).some(o => o.enabled),
-            newsService: this.newsService.getStatus(),
             staticData: {
                 lastRefresh: this.metro.api.getDataFreshness().lastRefresh,
                 refreshCount: this.metrics.staticDataRefreshes
@@ -865,7 +822,6 @@ async activateEventOverrides(eventDetails) {
         this.removeAllListeners();
         this._activeRequests.clear();
         this.changeHistory = [];
-        this.newsService.cleanup();
     }
     
     async _storeProcessedData(data) {
@@ -884,25 +840,6 @@ async activateEventOverrides(eventDetails) {
             logger.debug('[ApiService] Processed data stored successfully');
         } catch (error) {
             logger.error('[ApiService] Failed to store processed data', { error });
-        }
-    }
-
-
-    async checkNews() {
-        this.metrics.newsChecks++;
-        try {
-            const result = await this.newsService.checkNews();
-            if (result?.posted) {
-                this.metrics.newsPosted += result.posted;
-            }
-            return { 
-                success: true, 
-                posted: result?.posted || 0,
-                timestamp: new Date() 
-            };
-        } catch (error) {
-            logger.error('[ApiService] News check failed:', error);
-            return { success: false, error: error.message };
         }
     }
 
