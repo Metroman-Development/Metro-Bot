@@ -139,10 +139,10 @@ async function updateEstadoRed(conn, estadoRedData) {
         if (line.Flota) {
             for (const modelId of line.Flota) {
                 const query = `
-                    INSERT INTO line_fleet (line_id, model_id)
-                    VALUES (?, ?)
+                    INSERT INTO line_fleet (line_id, model_id, fleet_data)
+                    VALUES (?, ?, ?)
                 `;
-                await conn.query(query, [lineId, modelId]);
+                await conn.query(query, [lineId, modelId, '{}']);
                 console.log(`Associated fleet ${modelId} with line ${lineId}`);
             }
         }
