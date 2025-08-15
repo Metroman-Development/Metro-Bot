@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
 const { join } = require('path');
@@ -7,28 +5,11 @@ const loadEvents = require('./events');
 const { setClient } = require('./utils/clientManager');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const logger = require('./events/logger');
+const initialize = require('./core/bootstrap');
 const DatabaseManager = require('./core/database/DatabaseManager');
-const MetroCore = require('./core/metro/core/MetroCore');
 
 async function startDiscordBot() {
-    logger.info('[DISCORD] Initializing...');
-
-    const dbConfig = {
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.METRODB_NAME,
-    };
-    await DatabaseManager.getInstance(dbConfig);
-
-    let metroCore;
-    try {
-        metroCore = await MetroCore.getInstance();
-        logger.info('[DISCORD] MetroCore initialized.');
-    } catch (error) {
-        logger.error('❌ Failed to initialize MetroCore:', { error });
-        process.exit(1);
-    }
+    const { metroCore } = await initialize('DISCORD');
 
     const discordClient = new Client({
         intents: [
