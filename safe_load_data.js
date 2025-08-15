@@ -145,8 +145,8 @@ async function upsertLineFleet(conn, linesData) {
                 const selectQuery = 'SELECT id FROM line_fleet WHERE line_id = ? AND model_id = ?';
                 const rows = await conn.query(selectQuery, [lineId, modelId]);
                 if (rows.length === 0) {
-                    const insertQuery = 'INSERT INTO line_fleet (line_id, model_id) VALUES (?, ?)';
-                    await conn.query(insertQuery, [lineId, modelId]);
+                    const insertQuery = 'INSERT INTO line_fleet (line_id, model_id, fleet_data) VALUES (?, ?, ?)';
+                    await conn.query(insertQuery, [lineId, modelId, '{}']);
                 }
             }
         }
