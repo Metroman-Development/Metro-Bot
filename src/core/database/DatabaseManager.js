@@ -91,7 +91,7 @@ class DatabaseManager extends EventEmitter {
     async scheduleRetry() {
         if (this.connectionAttempts >= this.maxRetries) {
             console.error('[DB] Max connection retries reached - giving up');
-            this.emit('connection_failed');
+            this.emit('connection_failed', new Error('Max connection retries reached'));
             return;
         }
 
