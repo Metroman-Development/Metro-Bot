@@ -85,12 +85,12 @@ class EventValidator {
                 stations: {
                     type: 'object',
                     validate: (stations) => Object.values(stations).every(s =>
-                        s.id && s.name && s.status)
+                        s.id && s.name && (typeof s.status === 'string' || (typeof s.status === 'object' && s.status.code !== undefined)))
                 },
                 lines: {
                     type: 'object',
                     validate: (lines) => Object.values(lines).every(l =>
-                        l.id && l.displayName && l.status)
+                        l.id && l.displayName && (typeof l.status === 'string' || (typeof l.status === 'object' && l.status.code !== undefined)))
                 },
                 network: {
                     type: 'object',

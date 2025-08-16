@@ -37,12 +37,12 @@ module.exports = class DataEngine {
         const combined = {
             ...this.metro._staticData,
             ...this.metro._dynamicData,
-            lastUpdated: new Date(),
-            version: this.metro._dynamicData?.version || '0.0.0'
         };
 
-        // Get network status
-        combined.network = this._getNetworkStatus(combined.lines);
+        // If dynamic data doesn't have a network object, create a basic one.
+        if (!combined.network) {
+            combined.network = this._getNetworkStatus(combined.lines);
+        }
 
         // Update managers with fresh data
         this._updateManagers(combined);

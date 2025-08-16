@@ -62,6 +62,7 @@ class StatusProcessor {
         lines,
         stations,
         version,
+        lastUpdated: timestamp.toISOString(),
         isFallback: false
       };
 
