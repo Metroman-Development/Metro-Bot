@@ -39,6 +39,12 @@ async function startScheduler() {
         task: () => metroCore._subsystems.overrideManager.checkScheduledOverrides()
     });
 
+    scheduler.addJob({
+        name: 'send-system-status-report',
+        interval: 3600000, // Every hour
+        task: () => metroCore.sendSystemStatusReport()
+    });
+
     scheduler.start();
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');
 }
