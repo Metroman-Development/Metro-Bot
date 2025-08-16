@@ -1,27 +1,16 @@
 // intermodalLoader.js
-const mariadb = require('mariadb');
-require('dotenv').config();
-const pool = mariadb.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.METRODB_NAME,
-    connectionLimit: 5
-});
+const DatabaseManager = require('../../../database/DatabaseManager');
 
 module.exports = {
   source: 'MetroDB/intermodal_stations & intermodal_buses',
   async load() {
-    let conn;
     try {
-        conn = await pool.getConnection();
-        const stations = await conn.query("SELECT * FROM intermodal_stations");
-        const buses = await conn.query("SELECT * FROM intermodal_buses");
+        const dbManager = await DatabaseManager.getInstance();
+        const stations = await dbManager.query("SELECT * FROM intermodal_stations");
+        const buses = await dbManager.query("SELECT * FROM intermodal_buses");
         return this._transform(stations, buses);
     } catch (err) {
         throw err;
-    } finally {
-        if (conn) conn.release();
     }
   },
 

@@ -3,28 +3,17 @@ const loadJsonFile = require('../../../../utils/jsonLoader');
 const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
-const mariadb = require('mariadb');
-require('dotenv').config();
-const pool = mariadb.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.METRODB_NAME,
-    connectionLimit: 5
-});
+const DatabaseManager = require('../../../database/DatabaseManager');
 
 module.exports = {
   source: 'MetroDB/metro_lines',
   async load() {
-    let conn;
     try {
-        conn = await pool.getConnection();
-        const rows = await conn.query("SELECT * FROM metro_lines");
+        const dbManager = await DatabaseManager.getInstance();
+        const rows = await dbManager.query("SELECT * FROM metro_lines");
         return this._transform(rows);
     } catch (err) {
         throw err;
-    } finally {
-        if (conn) conn.release();
     }
   },
 
