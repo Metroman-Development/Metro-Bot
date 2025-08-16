@@ -7,7 +7,7 @@ class OverrideManager {
             throw new Error('OverrideManager requires a DatabaseManager instance.');
         }
         this.db = dbManager;
-        this.statusOverrideService = new StatusOverrideService();
+        this.statusOverrideService = new StatusOverrideService(this.db);
     }
 
     async addScheduledOverride({ targetType, targetId, status, message, source, startAt, endAt }) {
