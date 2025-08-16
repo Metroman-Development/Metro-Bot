@@ -1,6 +1,3 @@
-// modules/metro/core/internal/StatusEngine.js
-// modules/metro/core/internal/StatusEngine.js
-// modules/metro/core/internal/StatusEngine.js
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const logger = require('../../../../events/logger');
