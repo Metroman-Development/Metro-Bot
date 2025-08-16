@@ -12,17 +12,18 @@ const SearchCore = require('../core/metro/search/SearchCore');
  * @returns {Promise<MetroCore>} The MetroCore instance.
  * @throws {Error} If the MetroCore instance cannot be initialized.
  */
+const MetroSystem = require('../core/metro/MetroSystem');
+
 async function getMetroCore(interaction) {
     try {
         // Check if the instance already exists and is initialized.
-        if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-            interaction.client.metroCore = await MetroCore.getInstance({
-                client: interaction.client
-            });
+        if (!interaction.client.metroSystem) {
+            interaction.client.metroSystem = new MetroSystem();
+            await interaction.client.metroSystem.initialize();
         }
-        return interaction.client.metroCore;
+        return interaction.client.metroSystem;
     } catch (error) {
-        console.error('Failed to initialize or retrieve MetroCore instance:', error);
+        console.error('Failed to initialize or retrieve MetroSystem instance:', error);
         throw new Error('No se pudo conectar con el sistema de Metro. Por favor, inténtalo de nuevo más tarde.');
     }
 }
@@ -34,9 +35,7 @@ async function getMetroCore(interaction) {
  * @returns {Promise<Array>} A promise that resolves to an array of station results.
  */
 async function searchStations(metro, query) {
-    const stationSearcher = new SearchCore('station');
-    stationSearcher.setDataSource(metro.api.getProcessedData());
-    return await stationSearcher.search(query.toLowerCase(), { maxResults: 25 });
+    return await metro.searcher.search(query, { maxResults: 25 });
 }
 
 const metroConfig = require('../config/metro/metroConfig');

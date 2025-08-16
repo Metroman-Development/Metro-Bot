@@ -6,14 +6,14 @@ const config = require('../../../../config/metro/metroConfig');
 const styles = require('../../../../config/styles.json');
 const estadoRedTemplate = {};
 
-const DatabaseManager = require('../../../database/DatabaseManager');
+const DatabaseService = require('../../../database/DatabaseService');
 
 module.exports = {
   source: 'MetroDB/metro_stations',
   async load() {
     try {
-        const dbManager = await DatabaseManager.getInstance();
-        const rows = await dbManager.query("SELECT * FROM metro_stations");
+        const dbService = await DatabaseService.getInstance();
+        const rows = await dbService.getAllStations();
         return this._transform(rows);
     } catch (err) {
         throw err;

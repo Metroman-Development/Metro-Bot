@@ -53,8 +53,10 @@ class SearchCore {
     await this.init();
   }
 
-  if (this.type === 'station' && this.dataSource.stations[id]) {
-    return this._createMatchObject(this.dataSource.stations[id], 'exact');
+  const normalizedId = this.normalize(id);
+
+  if (this.type === 'station' && this.dataSource.stations[normalizedId]) {
+    return this._createMatchObject(this.dataSource.stations[normalizedId], 'exact');
   }
 
   if (this.type === 'line' && this.dataSource.lines[id]) {

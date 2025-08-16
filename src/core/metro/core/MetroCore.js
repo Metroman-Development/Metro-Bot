@@ -186,7 +186,7 @@ class MetroCore extends EventEmitter {
             // Phase 1: Initialize core services
             const dbManager = this.dbManager;
             const DatabaseService = require('../../../core/database/DatabaseService');
-            const databaseService = new DatabaseService(dbManager);
+            const databaseService = await DatabaseService.getInstance(dbManager);
             this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
