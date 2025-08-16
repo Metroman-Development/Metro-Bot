@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { createEmbed } = require('../../../../utils/embeds');
-const { DatabaseManager } = require('../../../../core/database/DatabaseManager.js');
+const DatabaseService = require('../../../../core/database/DatabaseService');
 const { CacheManager } = require('../../../../core/cache/CacheManager.js');
 
 module.exports = {
@@ -24,44 +24,35 @@ module.exports = {
             }
 
             // Get from database if not in cache
-            const conn = await DatabaseManager.getConnection();
-            try {
-                const [rows] = await conn.query(`
-                    SELECT version, release_date, changelog 
-                    FROM bot_versions 
-                    ORDER BY created_at DESC 
-                    LIMIT 1
-                `);
-                
-                let versionData;
-                if (rows.length > 0) {
-                    versionData = {
-                        version: rows[0].version,
-                        date: rows[0].release_date,
-                        changes: rows[0].changelog
-                    };
-                } else {
-                    // Fallback to default version
-                    versionData = {
-                        version: "5.0.0",
-                        date: "No registrada",
-                        changes: "Versión inicial del bot"
-                    };
-                }
+            const databaseService = await DatabaseService.getInstance();
+            const row = await databaseService.getBotVersion();
 
-                // Cache the result for 1 hour
-                await CacheManager.set(
-                    cacheKey,
-                    versionData,
-                    3600000 // 1 hour TTL
-                );
-
-                await interaction.reply({ 
-                    embeds: [this.buildVersionEmbed(versionData)]
-                });
-            } finally {
-                conn.release();
+            let versionData;
+            if (row) {
+                versionData = {
+                    version: row.version,
+                    date: row.release_date,
+                    changes: row.changelog
+                };
+            } else {
+                // Fallback to default version
+                versionData = {
+                    version: "5.0.0",
+                    date: "No registrada",
+                    changes: "Versión inicial del bot"
+                };
             }
+
+            // Cache the result for 1 hour
+            await CacheManager.set(
+                cacheKey,
+                versionData,
+                3600000 // 1 hour TTL
+            );
+
+            await interaction.reply({
+                embeds: [this.buildVersionEmbed(versionData)]
+            });
         } catch (error) {
             console.error('Error en comando /version:', error);
             

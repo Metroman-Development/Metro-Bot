@@ -7,12 +7,14 @@ const SearchCore = require('./search/SearchCore');
  * @description A class to handle Metro system reports and information.
  */
 class MetroSystem {
-  constructor() {
+  constructor(options = {}) {
+    this.client = options.client;
     this.metro = null;
     this.search = new SearchCore('station', {
       similarityThreshold: 0.8,
       phoneticWeight: 0.6
     });
+    this.searcher = new SearchCore('station');
   }
 
   /**
@@ -21,8 +23,9 @@ class MetroSystem {
    */
   async initialize() {
     if (!this.metro) {
-      this.metro = await MetroCore.getInstance();
+      this.metro = await MetroCore.getInstance({ client: this.client });
     }
+    await this.searcher.init();
     return this.metro;
   }
 
