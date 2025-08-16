@@ -1,4 +1,4 @@
-/*const EventEmitter = require('events');
+const EventEmitter = require('events');
 const DailyReloadJob = require('../jobs/DailyReloadJob');
 const ServiceHoursJob = require('../jobs/ServiceHoursJob');
 const ExpressServiceJob = require('../jobs/ExpressServiceJob');
@@ -139,4 +139,3 @@ class ScheduleManager extends EventEmitter {
 }
 
 module.exports = ScheduleManager;
-*/
