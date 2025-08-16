@@ -122,13 +122,15 @@ class StatusUpdater extends EventEmitter {
         this.listener.setupEventListeners();
     }
     
-    async resetMetroCore() {
+    async triggerInitialUpdate() {
         
         this.metroCore = await this.metroCore;
         
         const isThereData = this.metroCore.api.getProcessedData()? true : false;
         
         logger.info("INFORMACION, HAY DATOS?", isThereData) 
+
+        this.updateEmbeds();
         
        } 
 
@@ -165,6 +167,7 @@ class StatusUpdater extends EventEmitter {
 
     // Proxy methods to components
     async cacheEmbedMessages() { return this.embeds.cacheEmbedMessages(); }
+    async updateEmbeds() { return this.embeds.updateAllEmbeds(); }
     async handleDataUpdate(data) { return this.processor.handleDataUpdate(data); }
     async handleInitialState(data) { return this.processor.handleInitialState(data); }
     async processChanges(changes) { return this.processor.processChanges(changes); }
