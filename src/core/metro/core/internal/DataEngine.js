@@ -44,6 +44,9 @@ module.exports = class DataEngine {
             version: this.metro._dynamicData?.version || '0.0.0'
         };
 
+        // Get network status
+        combined.network = this._getNetworkStatus(combined.lines);
+
         // Update managers with fresh data
         this._updateManagers(combined);
         
@@ -52,6 +55,37 @@ module.exports = class DataEngine {
         this.metro._combinedData = combined;
         
         return combined;
+    }
+
+    _getNetworkStatus(lines) {
+        if (!lines || Object.keys(lines).length === 0) {
+            return { status: 'outage', lastUpdated: new Date().toISOString() };
+        }
+
+        const lineStatuses = Object.values(lines).map(line => line.status);
+
+        let operationalLines = 0;
+        let degradedLines = 0;
+
+        for (const status of lineStatuses) {
+            if (status === '1') { // Assuming '1' is operational
+                operationalLines++;
+            } else {
+                degradedLines++;
+            }
+        }
+
+        let overallStatus = 'operational';
+        if (degradedLines > 0 && operationalLines === 0) {
+            overallStatus = 'outage';
+        } else if (degradedLines > 0) {
+            overallStatus = 'degraded';
+        }
+
+        return {
+            status: overallStatus,
+            lastUpdated: new Date().toISOString()
+        };
     }
 
     _updateManagers(data) {
@@ -68,63 +102,6 @@ module.exports = class DataEngine {
         }
     }
 
-    createStationInterface(stationsData) {
-        return {
-            getAll: () => Object.values(stationsData),
-            get: (id) => {
-                const station = stationsData[id.toLowerCase()];
-                if (!station) {
-                    this.metro.emit(EventRegistry.STATION_NOT_FOUND, 
-                        new EventPayload(
-                            EventRegistry.STATION_NOT_FOUND,
-                            { stationId: id },
-                            { source: 'StationManager' }
-                        )
-                    );
-                    return null;
-                }
-                return station;
-            },
-            search: (query) => {
-                const term = query.toLowerCase();
-                return Object.values(stationsData).filter(s =>
-                    s.name.toLowerCase().includes(term) ||
-                    (s.displayName && s.displayName.toLowerCase().includes(term))
-                );
-            },
-            count: () => Object.keys(stationsData).length,
-            getByLine: (lineId) => Object.values(stationsData)
-                .filter(s => s.line === lineId.toLowerCase())
-        };
-    }
-
-    createLineInterface(linesData) {
-        return {
-            getAll: () => Object.values(linesData),
-            get: (id) => {
-                const line = linesData[id.toLowerCase()];
-                if (!line) {
-                    this.metro.emit(EventRegistry.LINE_NOT_FOUND,
-                        new EventPayload(
-                            EventRegistry.LINE_NOT_FOUND,
-                            { lineId: id },
-                            { source: 'LineManager' }
-                        )
-                    );
-                    return null;
-                }
-                return line;
-            },
-            getStatusSummary: () => {
-                return Object.values(linesData).reduce((acc, line) => {
-                    const status = line.status?.normalized || 'unknown';
-                    acc[status] = (acc[status] || 0) + 1;
-                    return acc;
-                }, {});
-            },
-            count: () => Object.keys(linesData).length
-        };
-    }
 
     getLastCombinedData() {
         return this.lastCombinedData;
