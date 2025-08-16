@@ -444,39 +444,51 @@ async activateEventOverrides(eventDetails) {
         this.metrics.totalRequests++;
         const startTime = performance.now();
 
-        if ((this.checkCount-1)/15===1||this.checkCount-1===0){
+        if ((this.checkCount - 1) / 15 === 1 || this.checkCount - 1 === 0) {
             // This will be handled by the SchedulerService
         }
 
-       if(this.metrics.totalRequests>1){
-        this.checkCount++
+        if (this.metrics.totalRequests > 1) {
+            this.checkCount++
+        }
 
-       }
         try {
-            // PHASE 2a: Fetch raw data
-            let rawData = await this.estadoRedService.fetchStatus();
+            let rawData;
+            let fromPrimarySource = true;
+            try {
+                // PHASE 2a: Fetch raw data from API/cache
+                rawData = await this.estadoRedService.fetchStatus();
+            } catch (fetchError) {
+                logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
+                fromPrimarySource = false;
+                rawData = await this.getDbRawData();
+                if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
+                    throw new Error("All data sources failed, including database fallback.");
+                }
+                logger.info("[ApiService] Successfully loaded data from database fallback.");
+            }
 
             // PHASE 2c: Process data
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
-            rawData = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
-            const randomizedData = this._randomizeStatuses(rawData);
-            
+            const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
+            const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
+
             const processedData = this._processData(randomizedData);
 
             const summary = this.generateNetworkSummary(processedData);
             await this.dbService.updateNetworkStatusSummary(summary);
-     
-            
-           // console.log(processedData) 
+
+
+            // console.log(processedData)
 
             // PHASE 2d: Update data state
             this.lastRawData = rawData;
-            
-            
-          this.lastProcessedData = processedData;  
-            
-            
-             //this._updateProcessedData(processedData);
+
+
+            this.lastProcessedData = processedData;
+
+
+            //this._updateProcessedData(processedData);
             this._updateState(processedData);
 
             // PHASE 2e: Handle changes
@@ -484,28 +496,32 @@ async activateEventOverrides(eventDetails) {
                 const dbRawData = await this.getDbRawData();
                 this._handleDataChanges(randomizedData, processedData, dbRawData);
             }
-            await this.updateDbWithApiData(randomizedData);
+            if (fromPrimarySource) {
+                await this.updateDbWithApiData(randomizedData);
+            }
 
 
             // PHASE 2f: Persist data
             await this._storeProcessedData(processedData);
 
             this.metrics.lastSuccess = new Date();
-            
-           // console.log(this.lastProcessedData) 
 
-           
-            
+            // console.log(this.lastProcessedData)
+
+
+
             return processedData;
         } catch (error) {
-            logger.error(`[ApiService] Fetch failed`, { error });
+            logger.error(`[ApiService] Fetch failed`, {
+                error
+            });
             this.metrics.failedRequests++;
             this.metrics.lastFailure = new Date();
             return null;
         } finally {
             const processingTime = performance.now() - startTime;
-            this.metrics.avgResponseTime = 
-                (this.metrics.avgResponseTime * (this.metrics.totalRequests - 1) + processingTime) / 
+            this.metrics.avgResponseTime =
+                (this.metrics.avgResponseTime * (this.metrics.totalRequests - 1) + processingTime) /
                 this.metrics.totalRequests;
             this.metrics.lastProcessingTime = processingTime;
             this._activeRequests.delete(requestId);
