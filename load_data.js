@@ -2,6 +2,7 @@ require('dotenv').config();
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
 const path = require('path');
+const normalizer = require('./src/core/metro/utils/stringHandlers/normalization');
 
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
@@ -15,13 +16,14 @@ async function loadLines(conn, lines) {
     console.log('Loading lines...');
     for (const lineId in lines) {
         const line = lines[lineId];
+        const lowerLineId = lineId.toLowerCase();
         const query = `
             INSERT INTO metro_lines (line_id, line_name, line_description, opening_date, total_stations, total_length_km, fleet_data)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         `;
         await conn.query(query, [
-            lineId,
-            `Línea ${lineId.substring(1)}`,
+            lowerLineId,
+            `Línea ${lowerLineId.substring(1)}`,
             line['Características'],
             `${line['Estreno']}-01-01`,
             parseInt(line['N° estaciones']),
@@ -35,21 +37,21 @@ async function loadLines(conn, lines) {
 
 async function loadStations(conn, estadoRed, stationsData) {
     console.log('Loading stations...');
-    const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [key.toLowerCase(), value]));
+    const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
 
     for (const lineId in estadoRed) {
         const line = estadoRed[lineId];
         if (line.estaciones) {
             for (const station of line.estaciones) {
-                const stationNameKey = station.nombre.toLowerCase();
+                const stationNameKey = normalizer.normalize(station.nombre);
                 const extraData = stationDataMap.get(stationNameKey) || [];
                 const query = `
                     INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?)
                 `;
                 await conn.query(query, [
-                    lineId,
-                    station.codigo,
+                    lineId.toLowerCase(),
+                    station.codigo.toUpperCase(),
                     station.nombre,
                     null, // display_order
                     extraData[6] || null, // commune
@@ -189,7 +191,7 @@ async function loadLineFleet(conn, linesData) {
                     INSERT INTO line_fleet (line_id, model_id, fleet_data)
                     VALUES (?, ?, ?)
                 `;
-                await conn.query(query, [lineId, modelId, '{}']);
+                await conn.query(query, [lineId.toLowerCase(), modelId, '{}']);
                 console.log(`Associated fleet ${modelId} with line ${lineId}`);
             }
         }

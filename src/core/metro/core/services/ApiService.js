@@ -255,13 +255,13 @@ async removeOverrides(removals = {}) {
  */
    async prepareEventOverrides(eventDetails) {
     logger.info("Preparando Overrides", { eventDetails });
-    
+
     if (!eventDetails?.closedStations && !eventDetails?.operationalStations) return false;
-    
+
     const overrideService = this.getOverridesService();
     const lineOverrides = {};
     const stationOverrides = {};
-    
+
     // Get current data (either last fetched or generated closed state)
     const currentData = this.lastRawData || {};
 
@@ -270,9 +270,9 @@ async removeOverrides(removals = {}) {
         ...Object.keys(eventDetails.closedStations || {}),
         ...Object.keys(eventDetails.operationalStations || {})
     ]);
-    
+
     allAffectedLines.forEach(lineId => {
-        lineOverrides[lineId] = {
+        lineOverrides[lineId.toLowerCase()] = { // Standardize to lowercase
             estado: 5,
             mensaje: `Servicio afectado por Evento: ${eventDetails.name}`,
             mensaje_app: `Servicio afectado por Evento`,
@@ -283,21 +283,20 @@ async removeOverrides(removals = {}) {
     // Process closed stations (exact name match)
     if (eventDetails.closedStations) {
         Object.entries(eventDetails.closedStations).forEach(([lineId, stationNames]) => {
-            const lineKey = `l${lineId.toLowerCase().replace('l', '').toLowerCase()}`; // Ensure 'l1' format
+            const lineKey = lineId.toLowerCase(); // Standardize to lowercase
             const lineData = currentData[lineKey];
-            
+
             if (lineData && lineData.estaciones) {
                 stationNames.forEach(stationName => {
-                    const station = lineData.estaciones.find(s => 
+                    const station = lineData.estaciones.find(s =>
                         s.nombre.includes(stationName) // Exact match
                     );
-                    
+
                     if (station) {
-                        stationOverrides[station.codigo.toLowerCase() ] = {
+                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
                             estado: 5,
                             descripcion: "Servicio Extendido Únicamente para Salida",
                             descripcion_app: "Horario Extendido por Evento",
-                            
                             enabled: false
                         };
                     } else {
@@ -310,24 +309,20 @@ async removeOverrides(removals = {}) {
         });
     }
 
-    // Process operational stations (exact name match)
-    
-        
-
     // Process operational stations (search across all lines)
     if (eventDetails.operationalStations) {
         eventDetails.operationalStations.forEach(stationName => {
             let found = false;
-            
+
             // Search through all lines
             for (const [lineKey, lineData] of Object.entries(currentData)) {
                 if (lineKey.startsWith('l') && lineData.estaciones) {
-                    const station = lineData.estaciones.find(s => 
+                    const station = lineData.estaciones.find(s =>
                         s.nombre === stationName
                     );
-                    
+
                     if (station) {
-                        stationOverrides[station.codigo] = {
+                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
                             estado: 5,
                             descripcion: "Servicio Extendido Únicamente para Entrada",
                             descripcion_app: "Horario Extendido por Evento",
@@ -338,7 +333,7 @@ async removeOverrides(removals = {}) {
                     }
                 }
             }
-            
+
             if (!found) {
                 logger.warn(`Operational station "${stationName}" not found in any line`);
             }
@@ -617,31 +612,34 @@ async activateEventOverrides(eventDetails) {
     _basicProcessData(rawData) {
         const lines = Object.fromEntries(
             Object.entries(rawData.lineas || {})
-                .filter(([k]) => k.startsWith('l'))
-                .map(([lineId, lineData]) => [
-                    lineId,
-                    {
-                        id: lineId,
-                        displayName: lineData.nombre,
-                        status: lineData.estado,
-                        message: lineData.mensaje,
-                        message_app: lineData.mensaje_app,
-                        stations: lineData.estaciones?.map(station => ({
-                            id: station.codigo,
-                            name: station.nombre,
-                            status: station.estado,
-                            description: station.descripcion,
-                            description_app: station.descripcion_app,
-                            transfer: station.combinacion || '',
-                            ...(station.isTransferOperational !== undefined && {
-                                isTransferOperational: station.isTransferOperational
-                            }),
-                            ...(station.accessPointsOperational !== undefined && {
-                                accessPointsOperational: station.accessPointsOperational
-                            })
-                        })) || []
-                    }
-                ])
+                .filter(([k]) => k.toLowerCase().startsWith('l'))
+                .map(([lineId, lineData]) => {
+                    const lowerLineId = lineId.toLowerCase();
+                    return [
+                        lowerLineId,
+                        {
+                            id: lowerLineId,
+                            displayName: lineData.nombre,
+                            status: lineData.estado,
+                            message: lineData.mensaje,
+                            message_app: lineData.mensaje_app,
+                            stations: lineData.estaciones?.map(station => ({
+                                id: station.codigo.toUpperCase(),
+                                name: station.nombre,
+                                status: station.estado,
+                                description: station.descripcion,
+                                description_app: station.descripcion_app,
+                                transfer: station.combinacion || '',
+                                ...(station.isTransferOperational !== undefined && {
+                                    isTransferOperational: station.isTransferOperational
+                                }),
+                                ...(station.accessPointsOperational !== undefined && {
+                                    accessPointsOperational: station.accessPointsOperational
+                                })
+                            })) || []
+                        }
+                    ];
+                })
         );
 
         const networkStatus = this._generateNetworkStatus(lines);
@@ -978,7 +976,8 @@ async activateEventOverrides(eventDetails) {
 
         const dbRawData = { lineas: {} };
         for (const line of dbLines) {
-            dbRawData.lineas[line.line_id] = {
+            const lineId = line.line_id.toLowerCase();
+            dbRawData.lineas[lineId] = {
                 nombre: line.line_name,
                 estado: line.status_code,
                 mensaje: line.status_message,
@@ -988,9 +987,10 @@ async activateEventOverrides(eventDetails) {
         }
 
         for (const station of dbStations) {
-            if (dbRawData.lineas[station.line_id]) {
-                dbRawData.lineas[station.line_id].estaciones.push({
-                    codigo: station.station_code,
+            const lineId = station.line_id.toLowerCase();
+            if (dbRawData.lineas[lineId]) {
+                dbRawData.lineas[lineId].estaciones.push({
+                    codigo: station.station_code.toUpperCase(),
                     nombre: station.nombre,
                     estado: station.estado,
                     descripcion: station.descripcion,
@@ -1004,11 +1004,12 @@ async activateEventOverrides(eventDetails) {
 
     async updateDbWithApiData(rawData) {
         for (const lineId in rawData.lineas) {
+            const lowerLineId = lineId.toLowerCase();
             const line = rawData.lineas[lineId];
-            await this.dbService.updateLineStatus(lineId, line.estado, line.mensaje, line.mensaje_app);
+            await this.dbService.updateLineStatus(lowerLineId, line.estado, line.mensaje, line.mensaje_app);
             if (line.estaciones) {
                 for (const station of line.estaciones) {
-                    await this.dbService.updateStationStatus(station.codigo, lineId, station.estado, station.descripcion, station.descripcion_app);
+                    await this.dbService.updateStationStatus(station.codigo.toUpperCase(), lowerLineId, station.estado, station.descripcion, station.descripcion_app);
                 }
             }
         }
