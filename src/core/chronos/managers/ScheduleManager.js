@@ -71,8 +71,7 @@ class ScheduleManager extends EventEmitter {
 
     createServiceMonitorJob() {
         // Runs every 5 minutes to verify services
-        return schedule.scheduleJob('*/ /*
-5 * * * *', async () => {
+        return schedule.scheduleJob('*/5 * * * *', async () => {
             const status = {
                 runningJobs: this.jobs.size,
                 nextReload: this.jobs.get('daily-reload')?.nextInvocation().format('HH:mm') || 'None',
