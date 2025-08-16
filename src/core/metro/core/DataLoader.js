@@ -1,6 +1,6 @@
 // DataLoader.js
-const lineLoader = require('../data/loaders/lineLoader');
-const stationLoader = require('../data/loaders/stationLoader');
+const lineLoader = require('../data/loaders/db/dbLineLoader');
+const stationLoader = require('../data/loaders/db/dbStationLoader');
 const metroLoader = require('../data/loaders/metroLoader');
 const intermodalLoader = require('../data/loaders/intermodalLoader');
 // const trainLoader = require('../data/loaders/trainLoader');
