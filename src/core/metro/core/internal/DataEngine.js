@@ -37,11 +37,16 @@ module.exports = class DataEngine {
     }
 
     combine() {
+        const dynamicData = this.metro._dynamicData || {};
+        const staticData = this.metro._staticData || {};
+
+        // Prioritize dynamic data, but ensure all static data is carried over.
         const combined = {
-            ...this.metro._staticData,
-            ...this.metro._dynamicData,
+            ...staticData,
+            ...dynamicData, // Overwrites lines, stations, etc. with fresh data
+            network: dynamicData.network || staticData.network || { status: 'initializing' },
+            version: dynamicData.version || staticData.version || '0.0.0',
             lastUpdated: new Date(),
-            version: this.metro._dynamicData?.version || '0.0.0'
         };
 
         // Update managers with fresh data
