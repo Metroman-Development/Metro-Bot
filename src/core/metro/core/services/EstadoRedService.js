@@ -35,10 +35,7 @@ class EstadoRedService {
 
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = await fetch(this.estadoRedUrl, {
-                    headers: this.config.api.headers,
-                    signal: AbortSignal.timeout(timeout)
-                });
+                const response = await fetch(this.estadoRedUrl);
 
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
