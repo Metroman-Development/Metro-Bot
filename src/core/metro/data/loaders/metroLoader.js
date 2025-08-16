@@ -3,9 +3,9 @@ const DatabaseManager = require('../../../database/DatabaseManager');
 
 module.exports = {
   source: 'MetroDB/system_info',
-  async load() {
+  async load(dbManager) {
     try {
-        const dbManager = await DatabaseManager.getInstance();
+        if (!dbManager) throw new Error('DatabaseManager is not provided to metroLoader');
         const rows = await dbManager.query("SELECT * FROM system_info LIMIT 1");
         return this._transform(rows[0]);
     } catch (err) {

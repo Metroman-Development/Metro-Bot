@@ -6,10 +6,10 @@ class DbLineLoader {
         this.source = 'database';
     }
 
-    async load() {
+    async load(dbManager) {
         try {
-            const db = await DatabaseManager.getInstance();
-            const lines = await db.query('SELECT * FROM metro_lines');
+            if (!dbManager) throw new Error('DatabaseManager is not provided to dbLineLoader');
+            const lines = await dbManager.query('SELECT * FROM metro_lines');
 
             const lineData = {};
             for (const line of lines) {

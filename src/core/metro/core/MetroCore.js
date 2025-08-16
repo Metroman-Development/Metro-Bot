@@ -91,7 +91,7 @@ class MetroCore extends EventEmitter {
             throw new Error(`Failed to initialize managers: ${managerError.message}`);
         }
 
-        this._subsystems.dataLoader = new DataLoader();
+        this._subsystems.dataLoader = new DataLoader({ dbManager: this.dbManager });
         this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
         this._subsystems.statusProcessor = new StatusProcessor(this, this.dbManager);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
