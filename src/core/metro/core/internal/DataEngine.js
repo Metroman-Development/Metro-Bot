@@ -11,14 +11,13 @@ module.exports = class DataEngine {
         this.lastCombinedData = null;
     }
 
-    async handleRawData(rawData) {
+    async handleRawData(processedData) { // Renamed
         try {
-            if (!rawData || typeof rawData !== 'object') {
-                throw new Error('Invalid rawData received');
+            if (!processedData || typeof processedData !== 'object') {
+                throw new Error('Invalid processedData received');
             }
 
-            // Process through StatusProcessor
-            const processedData = await this.metro._subsystems.statusProcessor.processRawAPIData(rawData);
+            // Data is already processed by ApiService, no need to re-process.
             
             // Store the processed data
             this.metro._dynamicData = processedData;
@@ -32,7 +31,7 @@ module.exports = class DataEngine {
             
             return combined;
         } catch (error) {
-            this.metro._emitError('handleRawData', error, { rawData });
+            this.metro._emitError('handleRawData', error, { rawData: processedData });
             return null;
         }
     }
