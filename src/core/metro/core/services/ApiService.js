@@ -421,7 +421,7 @@ async activateEventOverrides(eventDetails) {
         if (!this.lastProcessedData) {
             logger.warn('[ApiService] No processed data available, generating fresh data');
             this.metrics.dataGeneratedCount++;
-            const freshData = this._basicProcessData(this.lastRawData || this._generateClosedState());
+            const freshData = this._basicProcessData(this.lastRawData || {});
             this._updateProcessedData(freshData);
             return freshData;
         }
