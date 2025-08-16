@@ -15,50 +15,13 @@ const statusConfig = require('../../../config/metro/statusConfig');
 const DatabaseManager = require('../../database/DatabaseManager');
 
 class StatusProcessor {
-  constructor(metroCore) {
+  constructor(metroCore, dbManager) {
     this.metro = metroCore;
+    this.db = dbManager;
     this.timeHelpers = TimeHelpers;
     this.lineWeights = statusConfig.lineWeights;
     this.statusMap = statusConfig.statusMap;
     this.severityLabels = statusConfig.severityLabels;
-    this._dbInitialized = false;
-    this._initializeDatabase();
-  }
-
-  async _initializeDatabase() {
-    if (this._dbInitialized) return;
-    const db = await DatabaseManager.getInstance();
-    if (!db) {
-      logger.error('[StatusProcessor] Database connection not available for initialization.');
-      return;
-    }
-
-    try {
-      for (const [code, status] of Object.entries(this.statusMap)) {
-        await db.query(
-          `INSERT IGNORE INTO operational_status_types (status_name, status_description, is_operational, severity_level)
-           VALUES (?, ?, ?, ?)`,
-          [status.es, status.en, status.severity === 0 ? 1 : 0, status.severity]
-        );
-
-        const [type] = await db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [status.es]);
-
-        if (type) {
-          await db.query(
-            `INSERT IGNORE INTO js_status_mapping (js_code, status_type_id, severity_level)
-             VALUES (?, ?, ?)`,
-            [code, type.status_type_id, status.severity]
-          );
-        }
-      }
-      logger.info('[StatusProcessor] Database tables initialized successfully.');
-      this._dbInitialized = true;
-    } catch (error) {
-      logger.error('[StatusProcessor] Database initialization failed', {
-        error: error.message,
-        stack: error.stack
-      });
-    }
   }
 
   async processRawAPIData(rawData) {
@@ -115,7 +78,7 @@ class StatusProcessor {
   }
 
   async _updateDatabase(data) {
-    const db = await DatabaseManager.getInstance();
+    const db = this.db;
     if (!db) {
       logger.error('[StatusProcessor] Database connection not available.');
       return;
