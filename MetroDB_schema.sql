@@ -574,6 +574,7 @@ CREATE TABLE `scheduled_status_overrides` (
   `status` varchar(255) NOT NULL,
   `message` text DEFAULT NULL,
   `source` varchar(255) DEFAULT NULL,
+  `type` enum('external','technical','other') NOT NULL DEFAULT 'other',
   `start_at` timestamp NOT NULL,
   `end_at` timestamp NOT NULL,
   `is_active` tinyint(1) DEFAULT 0,

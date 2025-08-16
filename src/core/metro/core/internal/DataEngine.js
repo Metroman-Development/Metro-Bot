@@ -49,8 +49,8 @@ module.exports = class DataEngine {
             // Overwrite with fresh data from dynamic sources
             // Do not fall back to staticData.lines or staticData.stations because their
             // structure is not compatible with the DATA_UPDATED event.
-            lines: dynamicData.lines || {},
-            stations: dynamicData.stations || {},
+            lines: { ...staticData.lines, ...dynamicData.lines },
+            stations: { ...staticData.stations, ...dynamicData.stations },
 
             // Properties that should always come from dynamic data
             network: dynamicData.network,
