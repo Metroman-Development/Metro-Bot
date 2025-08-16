@@ -27,7 +27,7 @@ module.exports = {
         id: id,
         line: row.line_id,
         displayName: row.station_name,
-        status: {message:'operational'},
+        status: {code: '1', message:'operational'},
         color: styles.lineColors[row.line_id] || config.defaultLineColor,
         connections: { transports: [], bikes: [] },
         transports: row.transports,
