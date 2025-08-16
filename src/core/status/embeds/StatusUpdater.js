@@ -165,6 +165,7 @@ class StatusUpdater extends EventEmitter {
 
     // Proxy methods to components
     async cacheEmbedMessages() { return this.embeds.cacheEmbedMessages(); }
+    async updateEmbeds() { return this.embeds.updateAllEmbeds(); }
     async handleDataUpdate(data) { return this.processor.handleDataUpdate(data); }
     async handleInitialState(data) { return this.processor.handleInitialState(data); }
     async processChanges(changes) { return this.processor.processChanges(changes); }
