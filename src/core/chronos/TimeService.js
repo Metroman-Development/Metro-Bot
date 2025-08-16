@@ -1,16 +1,18 @@
 const EventEmitter = require('events');
 const timeHelpers = require('./timeHelpers');
 const logger = require('../../events/logger');
-const DatabaseManager = require('../database/DatabaseManager');
-const DatabaseService = require('../database/DatabaseService');
 const chronosConfig = require('../../config/chronosConfig');
 const moment = require('moment-timezone');
 
 class TimeService extends EventEmitter {
-    constructor() {
+    constructor(metroCore) {
         super();
-        this.db = DatabaseManager.getInstance();
-        this.dbService = DatabaseService;
+        if (!metroCore) {
+            throw new Error('TimeService requires a MetroCore instance.');
+        }
+        // Get dependencies from MetroCore
+        this.dbManager = metroCore.dbManager;
+        this.dbService = metroCore._subsystems.dbService;
         this.lastFarePeriod = null;
         this.lastServiceStatus = null;
     }
@@ -74,7 +76,8 @@ class TimeService extends EventEmitter {
 
     async checkEvents() {
         try {
-            const result = await this.db.query('SELECT events FROM system_info WHERE id = ?', [1]);
+            // Use the injected dbManager instance
+            const result = await this.dbManager.query('SELECT events FROM system_info WHERE id = ?', [1]);
             let activeEvent = null;
             if (result && result.length > 0 && result[0].events) {
                 const events = JSON.parse(result[0].events);
@@ -94,7 +97,6 @@ class TimeService extends EventEmitter {
             }
             await this.dbService.updateActiveEvent(activeEvent);
         } catch (error) {
-            // It's possible the 'events' column does not exist yet, or is null.
             if (error.code !== 'ER_BAD_FIELD_ERROR' && (!error.message || !error.message.includes("Cannot read property 'events' of undefined"))) {
                  logger.error('[TimeService] Error checking for events:', error);
             }
