@@ -95,7 +95,7 @@ class MetroCore extends EventEmitter {
 
         this._subsystems.dataLoader = new DataLoader();
         this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
-        this._subsystems.statusProcessor = new StatusProcessor(this);
+        this._subsystems.statusProcessor = new StatusProcessor(this, this.dbManager);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
         this._subsystems.statusOverrideService = new StatusOverrideService();
 
@@ -165,6 +165,9 @@ class MetroCore extends EventEmitter {
 
         this.#initializationPromise = (async () => {
             const instance = new MetroCore(options);
+            instance.dbManager = await DatabaseManager.getInstance(instance.config.database);
+            // Re-initialize subsystems that depend on the database.
+            instance._initSubsystems();
             await instance.initialize();
             return instance;
         })();
@@ -181,7 +184,7 @@ class MetroCore extends EventEmitter {
             logger.debug('[MetroCore] Starting initialization...');
 
             // Phase 1: Initialize core services
-            const dbManager = await DatabaseManager.getInstance(this.config.database);
+            const dbManager = this.dbManager;
             const DatabaseService = require('../../../core/database/DatabaseService');
             const databaseService = new DatabaseService(dbManager);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
