@@ -1,7 +1,3 @@
-// modules/metro/core/internal/ScheduleEngine.
-
-// modules/metro/core/internal/ScheduleEngine.js
-// modules/metro/core/internal/ScheduleEngine.js
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const logger = require('../../../../events/logger');
@@ -12,11 +8,10 @@ module.exports = class ScheduleEngine {
     }
 
     initialize() {
-        if (!this.metro.client) console.warn("Client not available");
-        
-    this.metro._scheduler = null
-
-        return 
+        if (!this.metro.client) {
+            console.warn("Client not available for ScheduleEngine.");
+        }
+        // Initialization logic for scheduling can be added here in the future.
     }
 
     handleServiceTransition(data) {
