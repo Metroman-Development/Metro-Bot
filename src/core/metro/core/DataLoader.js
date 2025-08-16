@@ -12,6 +12,7 @@ class DataLoader {
   constructor(options = {}) {
     this.tracer = EventTracer;
     this.emitter = options.emitter || null;
+    this.dbManager = options.dbManager || null;
     this._lastLoadDuration = 0;
   }
 
@@ -104,7 +105,7 @@ class DataLoader {
     loaderTrace.startTimer();
 
     try {
-      const data = await loader.load();
+      const data = await loader.load(this.dbManager);
         
       loaderTrace.endTimer();
       
