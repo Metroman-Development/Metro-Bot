@@ -59,7 +59,6 @@ class MetroCore extends EventEmitter {
         }
         this.styles = {};
         
-        this._initSubsystems();
         this._initDataStores();
         this._initEngines();
     }
@@ -164,12 +163,18 @@ class MetroCore extends EventEmitter {
         if (this.#initializationPromise) return this.#initializationPromise;
 
         this.#initializationPromise = (async () => {
-            const instance = new MetroCore(options);
-            instance.dbManager = await DatabaseManager.getInstance(instance.config.database);
-            // Re-initialize subsystems that depend on the database.
-            instance._initSubsystems();
-            await instance.initialize();
-            return instance;
+            try {
+                const instance = new MetroCore(options);
+                instance.dbManager = await DatabaseManager.getInstance(instance.config.database);
+                // Re-initialize subsystems that depend on the database.
+                instance._initSubsystems();
+                await instance.initialize();
+                return instance;
+            } catch (error) {
+                logger.error('[MetroCore] Failed to initialize database manager:', { error: error.message });
+                // Re-throw the error to be caught by the caller
+                throw new Error(`MetroCore initialization failed: ${error.message}`);
+            }
         })();
 
         return this.#initializationPromise;
