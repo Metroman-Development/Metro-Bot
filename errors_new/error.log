@@ -31996,3 +31996,273 @@ Metadata: {
   "error": "(intermediate value) is not iterable",
   "stack": "TypeError: (intermediate value) is not iterable\n    at /app/src/core/status/utils/StatusProcessor.js:164:30\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async DatabaseManager.transaction (/app/src/core/database/DatabaseManager.js:204:28)\n    at async StatusProcessor._updateDatabase (/app/src/core/status/utils/StatusProcessor.js:89:7)\n    at async StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:69:7)\n    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)"
 }
+[2025-08-16T14:12:21.720Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:14:21.832Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:15:50.768Z] ERROR: Error: [SchedulerService] Error in job check-time:
+Stack: Error: [SchedulerService] Error in job check-time:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:25:28)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Metadata: {}
+
+[2025-08-16T14:19:47.807Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:20:21.976Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:20:47.809Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:20:50.874Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:21:21.977Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:21:47.821Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:21:50.906Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:22:22.006Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:22:47.852Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:22:50.933Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:23:22.038Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:23:47.884Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:23:50.964Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:24:22.069Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:24:47.917Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:24:50.993Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:25:22.100Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:25:47.947Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:25:51.023Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:33:03.883Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
+
+[2025-08-16T14:33:37.997Z] ERROR: Error: [TimeService] Error checking for events:
+Stack: Error: [TimeService] Error checking for events:
+    at Object.error (/app/src/events/logger.js:152:27)
+    at TimeService.checkEvents (/app/src/core/chronos/TimeService.js:99:25)
+    at TimeService.checkTime (/app/src/core/chronos/TimeService.js:28:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
+Metadata: {}
