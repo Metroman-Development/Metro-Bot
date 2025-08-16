@@ -1,4 +1,4 @@
-const { MetroCore } = require('./core/MetroCore');
+const MetroCore = require('./core/MetroCore');
 const { EmbedBuilder } = require('discord.js');
 const SearchCore = require('./search/SearchCore');
 
