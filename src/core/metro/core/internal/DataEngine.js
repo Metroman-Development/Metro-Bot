@@ -36,6 +36,8 @@ module.exports = class DataEngine {
     combine() {
         const staticData = this.metro._staticData || {};
         const dynamicData = this.metro._dynamicData || {};
+        const now = new Date();
+        const newVersion = `2.0.0-${now.getTime()}`;
 
         // Explicitly construct the combined object to ensure correct structure
         const combined = {
@@ -50,15 +52,15 @@ module.exports = class DataEngine {
 
             // Properties that should always come from dynamic data
             network: dynamicData.network,
-            version: dynamicData.version, // This is the top-level version the validator expects
-            lastUpdated: dynamicData.lastUpdated,
+            version: dynamicData.version || newVersion, // This is the top-level version the validator expects
+            lastUpdated: dynamicData.lastUpdated || now.toISOString(),
             isFallback: dynamicData.isFallback,
 
             // Rebuild metadata to be clean, accurate, and free of old version numbers
             metadata: {
                 loadDuration: staticData.metadata?.loadDuration,
                 sources: staticData.metadata?.sources,
-                lastUpdated: dynamicData.lastUpdated || new Date().toISOString(),
+                lastUpdated: dynamicData.lastUpdated || now.toISOString(),
             },
         };
 

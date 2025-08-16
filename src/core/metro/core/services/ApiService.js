@@ -622,6 +622,7 @@ async activateEventOverrides(eventDetails) {
                     lineId,
                     {
                         id: lineId,
+                        displayName: lineData.nombre,
                         status: lineData.estado,
                         message: lineData.mensaje,
                         message_app: lineData.mensaje_app,
@@ -978,6 +979,7 @@ async activateEventOverrides(eventDetails) {
         const dbRawData = { lineas: {} };
         for (const line of dbLines) {
             dbRawData.lineas[line.line_id] = {
+                nombre: line.line_name,
                 estado: line.status_code,
                 mensaje: line.status_message,
                 mensaje_app: line.app_message,
@@ -989,6 +991,7 @@ async activateEventOverrides(eventDetails) {
             if (dbRawData.lineas[station.line_id]) {
                 dbRawData.lineas[station.line_id].estaciones.push({
                     codigo: station.station_code,
+                    nombre: station.nombre,
                     estado: station.estado,
                     descripcion: station.descripcion,
                     descripcion_app: station.descripcion_app
