@@ -13,9 +13,12 @@ class DbStationLoader {
 
             const stationData = {};
             for (const station of stations) {
-                stationData[station.station_code.toUpperCase()] = {
-                    nombre: station.station_name,
+                const stationId = station.station_code.toUpperCase();
+                stationData[stationId] = {
+                    id: stationId,
+                    name: station.station_name,
                     linea: station.line_id.toLowerCase(),
+                    status: '', // Add default status
                     // Add other properties as needed from the metro_stations table
                 };
             }
