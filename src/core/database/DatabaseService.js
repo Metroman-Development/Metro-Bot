@@ -116,12 +116,12 @@ class DatabaseService {
     }
 
     async getAllLinesStatus() {
-        return this.db.query('SELECT line_id, status_code, status_message, app_message FROM metro_lines');
+        return this.db.query('SELECT line_id, line_name, status_code, status_message, app_message FROM metro_lines');
     }
 
     async getAllStationsStatusAsRaw() {
         return this.db.query(`
-            SELECT s.station_code, s.line_id, jsm.js_code as estado, ost.status_description as descripcion, ost.status_description as descripcion_app
+            SELECT s.station_code, s.station_name as nombre, s.line_id, jsm.js_code as estado, ost.status_description as descripcion, ost.status_description as descripcion_app
             FROM station_status ss
             JOIN metro_stations s ON ss.station_id = s.station_id
             JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
