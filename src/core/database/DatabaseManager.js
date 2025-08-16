@@ -169,6 +169,19 @@ class DatabaseManager extends EventEmitter {
                error.message.includes('Connection lost');
     }
 
+    isConnected() {
+        return this.connectionState === 'connected';
+    }
+
+    async ping() {
+        try {
+            await this.testConnection();
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
     formatError(error, sql) {
         console.log('[DB] Formatting database error for reporting');
         const formatted = new Error(`Database error: ${error.message}`);
@@ -266,25 +279,6 @@ class DatabaseManager extends EventEmitter {
         }
 
         console.log('[DB] Creating new DatabaseManager instance');
-        const createDummyManager = () => {
-            console.warn('[DB] Creating dummy DatabaseManager due to connection failure.');
-            return {
-                query: async () => {
-                    console.warn('[DB-DUMMY] Query called, but no database connection.');
-                    return [];
-                },
-                transaction: async (callback) => {
-                    console.warn('[DB-DUMMY] Transaction called, but no database connection.');
-                    // In a dummy manager, we can't execute a transaction.
-                    // We can choose to not call the callback or simulate a failure.
-                    // For now, we just won't call it.
-                },
-                close: async () => {},
-                on: () => {},
-                emit: () => {},
-                connectionState: 'disconnected',
-            };
-        };
 
         this.#initializationPromise = (async () => {
             try {
@@ -315,8 +309,8 @@ class DatabaseManager extends EventEmitter {
                 return instance;
             } catch (error) {
                 console.error(`[DB] Final connection attempt failed: ${error.message}.`);
-                this.#instance = createDummyManager();
-                return this.#instance;
+                this.#instance = null;
+                return null;
             }
         })();
 
