@@ -612,7 +612,7 @@ async activateEventOverrides(eventDetails) {
     _basicProcessData(rawData) {
         const lines = Object.fromEntries(
             Object.entries(rawData.lineas || {})
-                .filter(([k]) => k.toLowerCase().startsWith('l'))
+                .filter(([k, lineData]) => k.toLowerCase().startsWith('l') && lineData.nombre)
                 .map(([lineId, lineData]) => {
                     const lowerLineId = lineId.toLowerCase();
                     return [
@@ -623,7 +623,7 @@ async activateEventOverrides(eventDetails) {
                             status: lineData.estado,
                             message: lineData.mensaje,
                             message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.map(station => ({
+                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
                                 id: station.codigo.toUpperCase(),
                                 name: station.nombre,
                                 status: station.estado,
