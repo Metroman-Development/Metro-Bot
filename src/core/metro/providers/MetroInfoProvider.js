@@ -3,19 +3,21 @@ const { normalize } = require('../../../utils/stringUtils');
 class MetroInfoProvider {
     constructor(metroCore) {
         this.metroCore = metroCore;
-        this.data = this.metroCore.api.getProcessedData();
+    }
+
+    get data() {
+        // This getter ensures we always get the latest data.
+        // It also provides a default structure if getProcessedData returns nullish value.
+        return this.metroCore.api.getProcessedData() || { stations: {}, lines: {} };
     }
 
     getStationById(stationId) {
+        // The getter ensures this.data and this.data.stations exist.
         return Object.values(this.data.stations).find(s => s.id === stationId);
     }
 
     findStationInfo(identifier) {
-        const station = this.getStationById(identifier);
-        if (!station) {
-            return null;
-        }
-        return station;
+        return this.getStationById(identifier);
     }
 
     getTransferInfo(stationName) {
@@ -31,11 +33,12 @@ class MetroInfoProvider {
     }
 
     getStationsOnRoute(route) {
-        const stations = Object.values(this.data.stations).filter(s => s.route === route);
-        if (!stations || stations.length === 0) {
+        const stations = this.data.stations;
+        const filteredStations = Object.values(stations).filter(s => s.route === route);
+        if (!filteredStations || filteredStations.length === 0) {
             return [];
         }
-        return stations.map(station => ({
+        return filteredStations.map(station => ({
             name: station.original,
             line: station.line,
             route: station.route,
@@ -76,7 +79,6 @@ class MetroInfoProvider {
 
     countStationsBetween(startStation, endStation, line, routeType = null) {
         const allStations = this.data.stations;
-        if (!allStations) return null;
 
         const lineNumber = line.replace('l', '').toLowerCase();
 
@@ -110,7 +112,6 @@ class MetroInfoProvider {
 
     getDominantRoute(startStation, endStation, line) {
         const allStations = this.data.stations;
-        if (!allStations) return 'comun';
 
         const lineNumber = line.replace('l', '').toLowerCase();
         const normalizedStart = normalize(startStation);
@@ -145,7 +146,6 @@ class MetroInfoProvider {
 
     getStationsBetween(startStation, endStation, line, routeType = null) {
         const allStations = this.data.stations;
-        if (!allStations) return null;
 
         const lineNumber = line.replace('l', '').toLowerCase();
         const normalizedStart = normalize(startStation);
@@ -180,7 +180,6 @@ class MetroInfoProvider {
 
     hasExpressRoutes(line) {
         const allStations = this.data.stations;
-        if (!allStations) return false;
 
         const lineNumber = line.replace('l', '').toLowerCase();
         return Object.values(allStations).some(station =>
@@ -192,7 +191,6 @@ class MetroInfoProvider {
 
     getStationRoute(stationName, line) {
         const allStations = this.data.stations;
-        if (!allStations) return 'comun';
 
         const lineNumber = line.replace('l', '').toLowerCase();
         const normalizedName = normalize(stationName);
@@ -217,17 +215,19 @@ class MetroInfoProvider {
     }
 
     getLineData(lineKey) {
-        const metroData = this.metroCore.api.getProcessedData();
+        const metroData = this.data;
         if (!metroData) {
             return null;
         }
 
+        // metroData itself is the full data object, which contains lines as keys
         const lineInfo = metroData[lineKey];
         if (!lineInfo) {
             return null;
         }
 
-        const lineDataFromJSON = this.data.lines[lineKey];
+        // The 'lines' property within the data holds additional static info
+        const lineDataFromJSON = metroData.lines?.[lineKey];
         return {
             nombre: `Línea ${lineKey.replace('l', '')}`,
             key: lineKey,
