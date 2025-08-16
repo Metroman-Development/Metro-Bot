@@ -294,6 +294,11 @@ class MetroCore extends EventEmitter {
         return this._engines.status.sendFullReport();
     }
 
+    sendSystemStatusReport() {
+        logger.info('[MetroCore] Sending system status report...');
+        return this.sendFullStatusReport();
+    }
+
     /**
      * Performs a health check of the system.
      * @returns {object} An object containing health check results.
