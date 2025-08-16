@@ -61,7 +61,6 @@ class MetroCore extends EventEmitter {
         this._initSubsystems();
         this._initDataStores();
         this._initEngines();
-        this._setupEventSystem();
     }
 
     /**
@@ -146,11 +145,8 @@ class MetroCore extends EventEmitter {
      * Binds methods from the internal engines to the MetroCore instance.
      */
     _bindEngineMethods() {
-        this._setupEventSystem = this._engines.events.setupSystem.bind(this._engines.events);
         this._safeEmit = this._engines.events.safeEmit.bind(this._engines.events);
         this._combineData = this._engines.data.combine.bind(this._engines.data);
-        this._createStationInterface = this._engines.data.createStationInterface.bind(this._engines.data);
-        this._createLineInterface = this._engines.data.createLineInterface.bind(this._engines.data);
         this._emitError = this._engines.events.emitError.bind(this._engines.events);
         this._handleRawData = this._engines.data.handleRawData.bind(this._engines.data);
         this._enterSafeMode = this._engines.status.enterSafeMode.bind(this._engines.status);
@@ -366,10 +362,10 @@ class MetroCore extends EventEmitter {
 
             await Promise.all([
                 this._subsystems.managers.stations.updateData(
-                    this._createStationInterface(newStaticData.stations || {})
+                    newStaticData.stations || {}
                 ),
                 this._subsystems.managers.lines.updateData(
-                    this._createLineInterface(newStaticData.lines || {})
+                    newStaticData.lines || {}
                 )
             ]);
 
