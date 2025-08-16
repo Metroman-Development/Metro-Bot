@@ -1,67 +1,50 @@
-const mariadb = require('mariadb');
-require('dotenv').config();
-const pool = mariadb.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.METRODB_NAME,
-    connectionLimit: 5
-});
-
 class StatusOverrideService {
-    constructor() {}
+    constructor(dbManager) {
+        if (!dbManager) {
+            throw new Error('StatusOverrideService requires a dbManager instance.');
+        }
+        this.dbManager = dbManager;
+    }
 
     async addOverride({ targetType, targetId, status, message, source, expiresAt }) {
-        let conn;
         try {
-            conn = await pool.getConnection();
             const query = `
                 INSERT INTO status_overrides (target_type, target_id, status, message, source, expires_at)
                 VALUES (?, ?, ?, ?, ?, ?)
             `;
-            await conn.query(query, [targetType, targetId, status, message, source, expiresAt]);
+            await this.dbManager.query(query, [targetType, targetId, status, message, source, expiresAt]);
             console.log(`Added override for ${targetType} ${targetId}`);
         } catch (err) {
             console.error(`Could not add override: ${err.message}`);
             throw err;
-        } finally {
-            if (conn) conn.release();
         }
     }
 
     async getActiveOverrides() {
-        let conn;
         try {
-            conn = await pool.getConnection();
             const query = `
                 SELECT * FROM status_overrides
                 WHERE is_active = 1 AND (expires_at IS NULL OR expires_at > NOW())
             `;
-            const overrides = await conn.query(query);
+            const overrides = await this.dbManager.query(query);
             return overrides;
         } catch (err) {
             console.error(`Could not get active overrides: ${err.message}`);
             throw err;
-        } finally {
-            if (conn) conn.release();
         }
     }
 
     async removeOverride({ targetType, targetId, source }) {
-        let conn;
         try {
-            conn = await pool.getConnection();
             const query = `
                 DELETE FROM status_overrides
                 WHERE target_type = ? AND target_id = ? AND source = ?
             `;
-            await conn.query(query, [targetType, targetId, source]);
+            await this.dbManager.query(query, [targetType, targetId, source]);
             console.log(`Removed override for ${targetType} ${targetId}`);
         } catch (err) {
             console.error(`Could not remove override: ${err.message}`);
             throw err;
-        } finally {
-            if (conn) conn.release();
         }
     }
 
