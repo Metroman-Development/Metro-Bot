@@ -588,6 +588,13 @@ async activateEventOverrides(eventDetails) {
             }
         };
 
+        processed.stations = Object.values(processed.lines)
+            .flatMap(line => line.stations)
+            .reduce((acc, station) => {
+                acc[station.id] = station;
+                return acc;
+            }, {});
+
         // Store the processed data immediately
         this._updateProcessedData(processed);
         return processed;
