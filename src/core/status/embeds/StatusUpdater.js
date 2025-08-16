@@ -122,13 +122,15 @@ class StatusUpdater extends EventEmitter {
         this.listener.setupEventListeners();
     }
     
-    async resetMetroCore() {
+    async triggerInitialUpdate() {
         
         this.metroCore = await this.metroCore;
         
         const isThereData = this.metroCore.api.getProcessedData()? true : false;
         
         logger.info("INFORMACION, HAY DATOS?", isThereData) 
+
+        this.updateEmbeds();
         
        } 
 

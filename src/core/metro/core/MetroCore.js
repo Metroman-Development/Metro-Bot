@@ -344,7 +344,8 @@ class MetroCore extends EventEmitter {
             this._subsystems.timeService = new TimeService(this);
             await this._initializeSchedulingSystem();
             this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
-            this._subsystems.statusUpdater.initialize();
+            await this._subsystems.statusUpdater.initialize();
+            this._subsystems.statusUpdater.triggerInitialUpdate();
         }
     }
 
