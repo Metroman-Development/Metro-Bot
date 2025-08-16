@@ -5,7 +5,7 @@
         "axios": "^1.6.7",
         "bottleneck": "^2.19.5",
         "discord.js": "^14.14.1",
-        "dotenv": "^16.0.0",
+        "dotenv": "^16.6.1",
         "fs-extra": "^11.2.0",
         "joi": "^17.11.0",
         "lru-cache": "^10.0.0",
