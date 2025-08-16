@@ -84,4 +84,32 @@ describe('EmbedManager', () => {
             expect(mockStatusUpdater.parent.metroCore.api.getProcessedData).not.toHaveBeenCalled();
         });
     });
+
+    describe('updateAllEmbeds', () => {
+        beforeEach(() => {
+            embedManager.areEmbedsReady = true;
+            embedManager.updateOverviewEmbed = jest.fn();
+            embedManager.updateAllLineEmbeds = jest.fn();
+        });
+
+        it('should call updateOverviewEmbed and updateAllLineEmbeds with the provided data', async () => {
+            const data = {
+                lines: { l1: { id: 'L1' } },
+                stations: {},
+            };
+
+            await embedManager.updateAllEmbeds(data);
+
+            expect(embedManager.updateOverviewEmbed).toHaveBeenCalledWith(data, null);
+            expect(embedManager.updateAllLineEmbeds).toHaveBeenCalledWith(data);
+        });
+
+        it('should log an error and not proceed if no data is provided', async () => {
+            await embedManager.updateAllEmbeds(null);
+
+            expect(logger.error).toHaveBeenCalledWith('[EmbedManager] updateAllEmbeds called without data. Aborting.');
+            expect(embedManager.updateOverviewEmbed).not.toHaveBeenCalled();
+            expect(embedManager.updateAllLineEmbeds).not.toHaveBeenCalled();
+        });
+    });
 });
