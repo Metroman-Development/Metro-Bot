@@ -43,9 +43,13 @@ setupListeners() {
 
     // API Service Events (primary source of changes)
     this.metro._subsystems.api
-        .on(EventRegistry.RAW_DATA_FETCHED, (rawData) => {
-            this.metro._handleRawData(rawData).catch(error => {
-                this.emitError('RAW_DATA_FETCHED', error, { rawData });
+        .on(EventRegistry.RAW_DATA_FETCHED, (payload) => { // Renamed to payload
+            if (!payload || !payload.data) {
+                this.emitError('RAW_DATA_FETCHED', new Error('Invalid or empty payload received'));
+                return;
+            }
+            this.metro._handleRawData(payload.data).catch(error => {
+                this.emitError('RAW_DATA_FETCHED', error, { rawData: payload.data });
             });
         })
         .on(EventRegistry.FETCH_COMPLETE, () => {
