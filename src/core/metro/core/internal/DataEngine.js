@@ -34,20 +34,43 @@ module.exports = class DataEngine {
     }
 
     combine() {
+        const staticData = this.metro._staticData || {};
+        const dynamicData = this.metro._dynamicData || {};
+
+        // Explicitly construct the combined object to ensure correct structure
         const combined = {
-            ...this.metro._staticData,
-            ...this.metro._dynamicData,
+            // Base properties from static data
+            system: staticData.system,
+            intermodal: staticData.intermodal,
+            trains: staticData.trains,
+
+            // Overwrite with fresh data from dynamic sources
+            lines: dynamicData.lines || staticData.lines || {},
+            stations: dynamicData.stations || staticData.stations || {},
+
+            // Properties that should always come from dynamic data
+            network: dynamicData.network,
+            version: dynamicData.version, // This is the top-level version the validator expects
+            lastUpdated: dynamicData.lastUpdated,
+            isFallback: dynamicData.isFallback,
+
+            // Rebuild metadata to be clean, accurate, and free of old version numbers
+            metadata: {
+                loadDuration: staticData.metadata?.loadDuration,
+                sources: staticData.metadata?.sources,
+                lastUpdated: dynamicData.lastUpdated || new Date().toISOString(),
+            },
         };
 
-        // If dynamic data doesn't have a network object, create a basic one.
+        // If dynamic data didn't provide a network object, create a fallback.
         if (!combined.network) {
             combined.network = this._getNetworkStatus(combined.lines);
         }
 
-        // Update managers with fresh data
+        // Update data managers with the newly combined data
         this._updateManagers(combined);
         
-        // Store and return
+        // Store the result for state consistency
         this.lastCombinedData = combined;
         this.metro._combinedData = combined;
         
