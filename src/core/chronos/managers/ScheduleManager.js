@@ -1,8 +1,4 @@
 const EventEmitter = require('events');
-const DailyReloadJob = require('../jobs/DailyReloadJob');
-const ServiceHoursJob = require('../jobs/ServiceHoursJob');
-const ExpressServiceJob = require('../jobs/ExpressServiceJob');
-const SpecialEventsJob = require('../jobs/SpecialEventsJob');
 const Logger = require('../utilities/Logger');
 
 class ScheduleManager extends EventEmitter {
@@ -11,24 +7,14 @@ class ScheduleManager extends EventEmitter {
         this.client = client;
         this.logger = new Logger(client);
         
-        this.jobs = {
-            dailyReload: new DailyReloadJob(client),
-            serviceHours: new ServiceHoursJob(client),
-            expressService: new ExpressServiceJob(client),
-            specialEvents: new SpecialEventsJob(client)
-        };
+        this.jobs = new Map();
     }
 
     async initialize() {
         try {
-            await Promise.all([
-                this.jobs.dailyReload.initialize(),
-                this.jobs.serviceHours.scheduleAll(),
-                this.jobs.expressService.scheduleAll(),
-                this.jobs.specialEvents.scheduleEvents()
-            ]);
-            
-            this.logger.log('Schedule Manager', 'All jobs initialized successfully');
+            // The logic for scheduling jobs will be handled by other methods.
+            // For now, we just log that the manager has started.
+            this.logger.log('Schedule Manager', 'Initialized successfully');
             this.emit('ready'); // Emit ready event
         } catch (error) {
             this.logger.error('Schedule Manager', 'Initialization failed', error);
