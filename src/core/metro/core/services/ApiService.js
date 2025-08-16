@@ -650,9 +650,14 @@ async activateEventOverrides(eventDetails) {
     }
 
     _emitRawData(rawData, hasChanges) {
+        const dataWithVersion = {
+            ...rawData,
+            version: rawData.version || this._dataVersion,
+        };
+
         const payload = new EventPayload(
             EventRegistry.RAW_DATA_FETCHED,
-            Object.freeze({...rawData}),
+            Object.freeze(dataWithVersion),
             {
                 source: 'ApiService',
                 timestamp: new Date(),
