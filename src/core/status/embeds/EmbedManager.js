@@ -74,15 +74,6 @@ class EmbedManager {
             
             this._emitEvent(EventRegistry.EMBEDS_READY);
             await this.parent.processor.processPendingUpdates();
-            
-            if (!this.parent.metroCore.api) {
-                logger.warn('[EmbedManager] MetroCore API not ready, waiting for SYSTEM_READY event.');
-                await new Promise(resolve => this.parent.metroCore.once(EventRegistry.SYSTEM_READY, resolve));
-                logger.info('[EmbedManager] SYSTEM_READY event received, proceeding with embed update.');
-            }
-
-           await this.updateAllEmbeds(this.parent.metroCore.api.getProcessedData()) 
-            
         } catch (error) {
             logger.fatal('[EmbedManager] Failed to cache embeds', error);
             this._emitEvent(EventRegistry.EMBEDS_CACHE_FAILED, { error });
@@ -132,7 +123,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
 
         // 3. Always get fresh data for time-based updates
-        const processedData = data || this.parent.metroCore?.api?.getProcessedData() || this.parent.metroCore.getCurrentData();
+        const processedData = data;
+        if (!processedData) {
+            logger.error('[EmbedManager] updateAllEmbeds called without data. Aborting.');
+            this._updateLock = false;
+            return;
+        }
 
         // 4. Execute the full update cycle
         await this._executeBatchUpdate(processedData, changes);

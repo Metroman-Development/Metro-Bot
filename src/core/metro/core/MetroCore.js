@@ -95,6 +95,7 @@ class MetroCore extends EventEmitter {
         this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
         this._subsystems.statusProcessor = new StatusProcessor(this, this.dbManager);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
+        this._subsystems.metroInfoProvider = require('../../../utils/MetroInfoProvider');
 
         if (this._debug) {
             logger.debug('[MetroCore] Subsystems initialized:', {
