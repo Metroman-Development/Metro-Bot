@@ -1,7 +1,3 @@
-// modules/metro/core/internal/EventEngine.js
-// modules/metro/core/internal/EventEngine.js
-// modules/metro/core/internal/EventEngine.js
-// modules/metro/core/internal/EventEngine.js
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const logger = require('../../../../events/logger');
@@ -14,32 +10,8 @@ class EventEngine {
         this._listenerCounts = new Map();
     }
 
-    setupSystem() {
-        const originalEmit = this.metro.emit;
-        this.metro.emit = (event, ...args) => {
-            if (!Object.values(EventRegistry).includes(event)) {
-                logger.warn(`Invalid event type emitted: ${event}`);
-                return false;
-            }
-
-            if (this._backpressure && !event.startsWith('internal.')) {
-                logger.debug(`Delaying event due to backpressure: ${event}`);
-                setTimeout(() => originalEmit.apply(this.metro, [event, ...args]), 100);
-                return true;
-            }
-
-            this._updateListenerStats(event);
-            return originalEmit.apply(this.metro, [event, ...args]);
-        };
-
-        setInterval(() => this._checkBackpressure(), 5000);
-    }
-
-    // modules/metro/core/internal/EventEngine.js
-// Updated version - remove ChangeDetector event handling and align with current architecture
-
-setupListeners() {
-    this.metro._removeAllListeners();
+    setupListeners() {
+        this.metro._removeAllListeners();
 
     // API Service Events (primary source of changes)
     this.metro._subsystems.api
