@@ -2,7 +2,7 @@
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const logger = require('../../../../events/logger');
-const stringUtils = require('../../utils/stringHandlers'); 
+const stringUtils = require('../../utils/stringUtils');
                             
 const metroConfig = require('../../../../config/metro/metroConfig');
 
