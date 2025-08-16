@@ -129,10 +129,11 @@ class DatabaseService {
         `);
     }
 
-    async updateNetworkStatusSummary(summary) {
+    static async updateNetworkStatusSummary(summary) {
         const summaryJson = JSON.stringify(summary);
+        const db = await DatabaseManager.getInstance();
         // INSERT ... ON DUPLICATE KEY UPDATE is safer if the row doesn't exist yet.
-        return this.db.query(
+        return db.query(
             'INSERT INTO network_status (id, network_status_summary) VALUES (1, ?) ON DUPLICATE KEY UPDATE network_status_summary = ?',
             [summaryJson, summaryJson]
         );
