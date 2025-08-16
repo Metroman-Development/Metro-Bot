@@ -21,6 +21,10 @@ async function startDiscordBot() {
 
     const { metroCore } = await initialize('DISCORD');
 
+    if (!metroCore.isReady) {
+        await new Promise(resolve => metroCore.once('ready', resolve));
+    }
+
     discordClient.commands = new Collection();
     discordClient.prefixCommands = new Collection();
     discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
