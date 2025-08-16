@@ -26,6 +26,7 @@ module.exports = {
       acc[id] = {
         id: id,
         line: row.line_id,
+        name: row.station_name,
         displayName: row.station_name,
         status: {code: '1', message:'operational'},
         color: styles.lineColors[row.line_id] || config.defaultLineColor,
