@@ -310,7 +310,8 @@ class DatabaseManager extends EventEmitter {
             } catch (error) {
                 console.error(`[DB] Final connection attempt failed: ${error.message}.`);
                 this.#instance = null;
-                return null;
+                this.#initializationPromise = null;
+                throw new Error(`Failed to connect to the database: ${error.message}`);
             }
         })();
 
