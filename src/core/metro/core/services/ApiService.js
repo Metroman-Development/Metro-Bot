@@ -63,7 +63,7 @@ class ApiService extends EventEmitter {
 
         // Service dependencies
         this.timeHelpers = TimeHelpers;
-        this.override = new StatusOverrideService();
+        this.override = this.metro._subsystems.statusOverrideService;
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
         this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
