@@ -18,9 +18,9 @@ class Normalizer {
   normalize(text) {
     if (typeof text !== 'string') return '';
     return text
-      .toLowerCase()
+      .toUpperCase()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove accents
-      .replace(/[^a-z0-9\s]/g, '') // Keep alphanumeric + spaces
+      .replace(/[^A-Z0-9\s]/g, '') // Keep alphanumeric + spaces
       .trim();
   }
 

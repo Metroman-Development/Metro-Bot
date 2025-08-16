@@ -101,10 +101,10 @@ class AccessibilityService extends EventEmitter {
             const line_id = parts[0].toLowerCase();
             // I need a mapping from station name to station code.
             // This is a known issue. I will assume the station name is the code for now.
-            const station_code = parts[1];
+            const station_code = parts[1].toUpperCase();
             return { line_id, station_code };
         }
-        return { line_id: 'unknown', station_code: stationName };
+        return { line_id: 'unknown', station_code: stationName.toUpperCase() };
     }
 
     _detectChanges(currentStates, comparisonBaseline) {

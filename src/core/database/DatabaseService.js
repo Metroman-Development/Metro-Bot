@@ -11,6 +11,18 @@ class DatabaseService {
         this.db = dbManager;
     }
 
+    static #instance = null;
+
+    static async getInstance() {
+        if (this.#instance) {
+            return this.#instance;
+        }
+
+        const dbManager = await DatabaseManager.getInstance();
+        this.#instance = new DatabaseService(dbManager);
+        return this.#instance;
+    }
+
     // ... methods for line status
     async getLineStatus(lineId) {
         return this.db.query('SELECT status_code, status_message, app_message FROM metro_lines WHERE line_id = ?', [lineId]);
@@ -173,6 +185,15 @@ class DatabaseService {
 
     async getIntermodalBuses(stationId) {
         return this.db.query('SELECT * FROM intermodal_buses WHERE station_id = ?', [stationId]);
+    }
+
+    async getAllStations() {
+        return this.db.query('SELECT * FROM metro_stations');
+    }
+
+    async getBotVersion() {
+        const results = await this.db.query('SELECT version, release_date, changelog FROM bot_versions ORDER BY created_at DESC LIMIT 1');
+        return results.length > 0 ? results[0] : null;
     }
 }
 

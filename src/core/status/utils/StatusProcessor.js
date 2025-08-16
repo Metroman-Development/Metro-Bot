@@ -53,7 +53,7 @@ class StatusProcessor {
 
         // Process stations
         (lineData.estaciones || []).forEach(station => {
-          const stationId = station.codigo.toLowerCase();
+          const stationId = station.codigo.toUpperCase();
           stations[stationId] = this._transformStation(station, lineId);
         });
       });
@@ -687,7 +687,7 @@ _transformStation(station, lineId) {
       : [];
 
     return {
-      id: station.codigo.toLowerCase(),
+      id: station.codigo.toUpperCase(),
       name: station.nombre,
       displayName: station.nombre,
       line: lineId,
