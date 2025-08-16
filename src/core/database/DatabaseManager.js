@@ -320,4 +320,10 @@ class DatabaseManager extends EventEmitter {
     }
 }
 
-module.exports = DatabaseManager;
+const isWorker = process.env.IS_WORKER_PROCESS === 'true';
+
+if (isWorker) {
+    module.exports = require('./DatabaseManagerProxy');
+} else {
+    module.exports = DatabaseManager;
+}
