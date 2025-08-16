@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const fs = require('fs').promises;
 const path = require('path');
 const schedule = require('node-schedule');
+const normalizer = require('./src/core/metro/utils/stringHandlers/normalization');
 
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
@@ -60,7 +61,7 @@ async function updateAccessDetails(conn, accessArielData) {
     const accessibilityByStation = {};
     for (const key in accessArielData) {
         const item = accessArielData[key];
-        const stationCode = item.estacion;
+        const stationCode = item.estacion.toUpperCase();
         if (!accessibilityByStation[stationCode]) {
             accessibilityByStation[stationCode] = [];
         }
@@ -87,6 +88,7 @@ async function updateEstadoRed(conn, estadoRedData) {
     // Update metro_lines
     for (const lineId in estadoRedData) {
         const line = estadoRedData[lineId];
+        const lowerLineId = lineId.toLowerCase();
         const fleetData = linesData[lineId] ? JSON.stringify(linesData[lineId].Flota) : null;
         const query = `
             INSERT INTO metro_lines (line_id, line_name, status_message, status_code, fleet_data)
@@ -97,8 +99,8 @@ async function updateEstadoRed(conn, estadoRedData) {
             status_code = VALUES(status_code),
             fleet_data = VALUES(fleet_data)
         `;
-        await conn.query(query, [lineId, `Línea ${lineId.substring(1)}`, line.mensaje, line.estado, fleetData]);
-        console.log(`Upserted line ${lineId}`);
+        await conn.query(query, [lowerLineId, `Línea ${lowerLineId.substring(1)}`, line.mensaje, line.estado, fleetData]);
+        console.log(`Upserted line ${lowerLineId}`);
     }
 
     // Update metro_stations
@@ -113,7 +115,7 @@ async function updateEstadoRed(conn, estadoRedData) {
                     station_name = VALUES(station_name),
                     display_name = VALUES(display_name)
                 `;
-                await conn.query(stationQuery, [lineId, station.codigo, station.nombre, station.nombre]);
+                await conn.query(stationQuery, [lineId.toLowerCase(), station.codigo.toUpperCase(), station.nombre, station.nombre]);
                 console.log(`Upserted station ${station.nombre}`);
             }
         }
@@ -142,7 +144,7 @@ async function updateEstadoRed(conn, estadoRedData) {
                     INSERT INTO line_fleet (line_id, model_id, fleet_data)
                     VALUES (?, ?, ?)
                 `;
-                await conn.query(query, [lineId, modelId, '{}']);
+                await conn.query(query, [lineId.toLowerCase(), modelId, '{}']);
                 console.log(`Associated fleet ${modelId} with line ${lineId}`);
             }
         }
