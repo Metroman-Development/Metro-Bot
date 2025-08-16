@@ -43,13 +43,13 @@ class DataLoader {
         //console.log(system) 
         
      const result = {
+        version: `1.0.0-${Date.now()}`,
         system,
         lines,
         stations,
         intermodal,
         trains: {},
         metadata: {
-          version: Date.now(),
           loadDuration: this._lastLoadDuration,
           sources: {
             stations: stationLoader.source,
