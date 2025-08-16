@@ -18,7 +18,10 @@ class DbLineLoader {
                     id: lineId,
                     displayName: line.line_name,
                     color: line.line_color,
-                    status: '', // Add default status
+                    status: {
+                        message: line.status_message,
+                        code: line.status_code
+                    },
                     // Add other properties as needed from the metro_lines table
                 };
             }
