@@ -65,7 +65,7 @@ module.exports = class DataEngine {
         };
 
         // If dynamic data didn't provide a network object, create a fallback.
-        if (!combined.network) {
+        if (!combined.network || typeof combined.network !== 'object' || !combined.network.status) {
             combined.network = this._getNetworkStatus(combined.lines);
         }
 
