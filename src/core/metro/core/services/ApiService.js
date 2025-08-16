@@ -593,7 +593,7 @@ async activateEventOverrides(eventDetails) {
 
     _generateNetworkStatus(lines) {
         if (!lines || Object.keys(lines).length === 0) {
-            return { status: 'outage', timestamp: new Date().toISOString() };
+            return { status: 'outage', lastUpdated: new Date().toISOString() };
         }
 
         const lineStatuses = Object.values(lines).map(line => line.status);
@@ -610,7 +610,7 @@ async activateEventOverrides(eventDetails) {
 
         return {
             status: overallStatus,
-            timestamp: new Date().toISOString()
+            lastUpdated: new Date().toISOString()
         };
     }
 
