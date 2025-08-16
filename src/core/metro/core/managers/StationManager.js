@@ -37,7 +37,7 @@ class StationManager {
         const safeStation = station || {};
         return {
             id: id.toUpperCase(),
-            code: id.toLowerCase(),
+            code: id.toUpperCase(),
             name: (safeStation.name || 'Unknown Station'),
             line: (safeStation.line || 'UNK').toLowerCase(),
             status: safeStation.status || { code: '0', message: 'Status unknown' },
@@ -133,8 +133,8 @@ class StationManager {
             logger.warn('StationManager.getByCode called with a null or undefined code');
             return null;
         }
-        const lowerCode = code.toLowerCase();
-        const stationId = this._index.codes[lowerCode];
+        const upperCode = code.toUpperCase();
+        const stationId = this._index.codes[upperCode];
         if (!stationId) {
             logger.warn(`[StationManager.getByCode] Station not found for code: ${code}`);
             return null;
