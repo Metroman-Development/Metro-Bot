@@ -106,8 +106,6 @@ class DataLoader {
     try {
       const data = await loader.load();
         
-        console.log(loader.load());
-        
       loaderTrace.endTimer();
       
       this._emitEvent(
