@@ -2,7 +2,7 @@ describe('TimeService', () => {
     let TimeService;
     let timeService;
     let dbManagerMock;
-    let DatabaseService;
+    let dbServiceMock;
     let timeHelpers;
     let moment;
 
@@ -13,13 +13,17 @@ describe('TimeService', () => {
             query: jest.fn(),
         };
 
+        dbServiceMock = {
+            updateFarePeriod: jest.fn(),
+            updateActiveEvent: jest.fn(),
+        };
+
         jest.doMock('../../src/core/database/DatabaseManager', () => ({
             getInstance: () => dbManagerMock,
         }));
 
         jest.doMock('../../src/core/database/DatabaseService', () => ({
-            updateFarePeriod: jest.fn(),
-            updateActiveEvent: jest.fn(),
+            getInstance: () => dbServiceMock,
         }));
 
         jest.doMock('../../src/core/chronos/timeHelpers', () => ({
@@ -36,12 +40,18 @@ describe('TimeService', () => {
             debug: jest.fn(),
         }));
 
+        const mockMetroCore = {
+            dbManager: dbManagerMock,
+            _subsystems: {
+                dbService: dbServiceMock,
+            },
+        };
+
         TimeService = require('../../src/core/chronos/TimeService');
-        DatabaseService = require('../../src/core/database/DatabaseService');
         timeHelpers = require('../../src/core/chronos/timeHelpers');
         moment = require('moment-timezone');
 
-        timeService = new TimeService();
+        timeService = new TimeService(mockMetroCore);
     });
 
     afterEach(() => {
@@ -66,7 +76,7 @@ describe('TimeService', () => {
 
             expect(timeService.lastFarePeriod).toBe('PUNTA');
             expect(emitSpy).toHaveBeenCalledWith('farePeriodChange', { from: null, to: 'PUNTA' });
-            expect(DatabaseService.updateFarePeriod).toHaveBeenCalledWith('PUNTA');
+            expect(dbServiceMock.updateFarePeriod).toHaveBeenCalledWith('PUNTA');
         });
     });
 
@@ -95,7 +105,7 @@ describe('TimeService', () => {
             await timeService.checkEvents();
 
             expect(emitSpy).toHaveBeenCalledWith('activeEvent', fakeEvent);
-            expect(DatabaseService.updateActiveEvent).toHaveBeenCalledWith(fakeEvent);
+            expect(dbServiceMock.updateActiveEvent).toHaveBeenCalledWith(fakeEvent);
         });
     });
 });

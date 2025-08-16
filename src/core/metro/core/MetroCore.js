@@ -4,8 +4,6 @@ const { performance } = require('perf_hooks');
 const logger = require('../../../events/logger');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
-const DatabaseManager = require('../../../core/database/DatabaseManager');
-
 const DataEngine = require('./internal/DataEngine');
 const EventEngine = require('./internal/EventEngine');
 const StatusEngine = require('./internal/StatusEngine');
@@ -165,7 +163,20 @@ class MetroCore extends EventEmitter {
         this.#initializationPromise = (async () => {
             try {
                 const instance = new MetroCore(options);
-                instance.dbManager = await DatabaseManager.getInstance(instance.config.database);
+
+                // Dynamically select the database manager based on the process type
+                let dbManager;
+                if (process.env.IS_WORKER_PROCESS === 'true') {
+                    const DatabaseManagerProxy = require('../../../core/database/DatabaseManagerProxy');
+                    dbManager = DatabaseManagerProxy.getInstance();
+                    logger.info('[MetroCore] Using DatabaseManagerProxy for worker process.');
+                } else {
+                    const DatabaseManager = require('../../../core/database/DatabaseManager');
+                    dbManager = await DatabaseManager.getInstance(instance.config.database);
+                    logger.info('[MetroCore] Using real DatabaseManager for master process.');
+                }
+                instance.dbManager = dbManager;
+
                 // Re-initialize subsystems that depend on the database.
                 instance._initSubsystems();
                 await instance.initialize();
@@ -191,7 +202,8 @@ class MetroCore extends EventEmitter {
             // Phase 1: Initialize core services
             const dbManager = this.dbManager;
             const DatabaseService = require('../../../core/database/DatabaseService');
-            const databaseService = await DatabaseService.getInstance(dbManager);
+            this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
+            const databaseService = this._subsystems.dbService; // for local use
             this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
