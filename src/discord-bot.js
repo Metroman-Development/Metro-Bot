@@ -79,7 +79,7 @@ async function startDiscordBot() {
             interval: 10000, // Every 10 seconds
             task: async () => {
                 try {
-                    const db = DatabaseManager.getInstance();
+                    const db = await DatabaseManager.getInstance();
                     const result = await db.query('SELECT last_updated FROM network_status WHERE id = 1');
                     if (result && result.length > 0) {
                         const lastUpdated = new Date(result[0].last_updated);
