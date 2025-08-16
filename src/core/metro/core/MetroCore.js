@@ -152,9 +152,6 @@ class MetroCore extends EventEmitter {
         this._createStationInterface = this._engines.data.createStationInterface.bind(this._engines.data);
         this._createLineInterface = this._engines.data.createLineInterface.bind(this._engines.data);
         this._emitError = this._engines.events.emitError.bind(this._engines.events);
-        this._initializeSchedulingSystem = this._engines.schedule.initialize.bind(this._engines.schedule);
-        this._handleServiceTransition = this._engines.schedule.handleServiceTransition.bind(this._engines.schedule);
-        this._handleExpressChange = this._engines.schedule.handleExpressChange.bind(this._engines.schedule);
         this._handleRawData = this._engines.data.handleRawData.bind(this._engines.data);
         this._enterSafeMode = this._engines.status.enterSafeMode.bind(this._engines.status);
         this._setupEventListeners = this._engines.events.setupListeners.bind(this._engines.events);
@@ -302,11 +299,26 @@ class MetroCore extends EventEmitter {
         return this._subsystems.managers.lines;
     }
 
-    setClient(client) {
+    async _initializeSchedulingSystem() {
+        if (!this._engines.schedule) {
+            logger.warn('[MetroCore] Schedule engine not found.');
+            return;
+        }
+        try {
+            await this._engines.schedule.initialize();
+            logger.info('[MetroCore] Scheduling system initialized.');
+        } catch (error) {
+            logger.error('[MetroCore] Failed to initialize scheduling system:', { error });
+            this._emitError('initializeSchedulingSystem', error);
+        }
+    }
+
+    async setClient(client) {
         this.client = client;
         if (this.client) {
             logger.info('[MetroCore] Discord client set. Initializing client-dependent subsystems.');
             this._subsystems.timeService = new TimeService(this);
+            await this._initializeSchedulingSystem();
             this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
             this._subsystems.statusUpdater.initialize();
         }
