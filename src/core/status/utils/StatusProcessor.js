@@ -137,6 +137,11 @@ class StatusProcessor {
         for (const station of Object.values(data.stations)) {
           const fullStationData = this.metro.getStationManager().getByCode(station.id);
 
+          if (!fullStationData) {
+            logger.warn(`[StatusProcessor] Could not find full station data for ${station.id}, skipping database update for this station.`);
+            continue;
+          }
+
           let [stationRow] = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
           let station_id;
 
