@@ -71,7 +71,11 @@ class StatusProcessor {
       const timestamp = this.timeHelpers.currentTime;
 
       // Process network status
-      const network = this._transformNetworkStatus(rawData);
+      const networkStatusDetails = this._transformNetworkStatus(rawData);
+      const network = {
+          status: this._mapNetworkStatus(networkStatusDetails.status),
+          lastUpdated: networkStatusDetails.timestamp
+      };
 
       // Process lines and stations
       const lines = {};
@@ -95,7 +99,6 @@ class StatusProcessor {
         lines,
         stations,
         version,
-        lastUpdated: timestamp.toISOString(),
         isFallback: false
       };
 
@@ -559,6 +562,17 @@ class StatusProcessor {
   _getSeverityLabel(score, lang = 'es') {
     const labels = this.severityLabels[lang].slice().reverse();
     return labels.find(l => score >= l.threshold)?.label || 'Desconocida';
+  }
+
+  _mapNetworkStatus(status) {
+    const statusLower = status.toLowerCase();
+    if (statusLower.includes('operativa')) {
+      return 'operational';
+    }
+    if (statusLower.includes('suspendido')) {
+      return 'outage';
+    }
+    return 'degraded';
   }
 
   _generateSpanishSummary(networkStatus, details, segments, totalSeverity) {
