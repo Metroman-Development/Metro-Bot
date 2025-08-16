@@ -54,6 +54,7 @@ class ApiService extends EventEmitter {
         this.cachedData = null;
         this.changeHistory = [];
         this.isPolling = false;
+        this.isFetching = false;
         this._activeRequests = new Set();
         this._pollInterval = null;
         this._backoffDelay = 0;
@@ -428,6 +429,12 @@ async activateEventOverrides(eventDetails) {
     }
 
     async fetchNetworkStatus() {
+        if (this.isFetching) {
+            logger.warn('[ApiService] Fetch already in progress. Skipping.');
+            return;
+        }
+        this.isFetching = true;
+
         // PHASE 1: Ensure static data freshness
         await this._ensureStaticDataFreshness();
 
@@ -503,6 +510,7 @@ async activateEventOverrides(eventDetails) {
             this.metrics.lastProcessingTime = processingTime;
             this._activeRequests.delete(requestId);
             this.isFirstTime = false;
+            this.isFetching = false;
         }
     }
 
@@ -547,10 +555,6 @@ async activateEventOverrides(eventDetails) {
 
     _basicProcessData(rawData) {
         const processed = {
-            network: {
-                status: this.timeHelpers.isWithinOperatingHours() ? 'operational' : 'closed',
-                timestamp: new Date().toISOString()
-            },
             lines: Object.fromEntries(
                 Object.entries(rawData.lineas || {})
                     .filter(([k]) => k.startsWith('l'))
