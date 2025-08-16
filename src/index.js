@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { spawn } = require('child_process');
 const path = require('path');
 const logger = require('./events/logger');
@@ -10,14 +11,20 @@ const components = [
 
 function startComponent(component) {
     const componentPath = path.join(__dirname, component.path);
-    const process = spawn('node', [componentPath], { stdio: 'inherit' });
+    const childProcess = spawn('node', [componentPath], {
+        stdio: 'pipe',
+        env: process.env
+    });
 
-    process.on('close', (code) => {
+    childProcess.stdout.pipe(process.stdout);
+    childProcess.stderr.pipe(process.stderr);
+
+    childProcess.on('close', (code) => {
         logger.warn(`[${component.name}] child process exited with code ${code}. Restarting...`);
         startComponent(component);
     });
 
-    process.on('error', (err) => {
+    childProcess.on('error', (err) => {
         logger.error(`[${component.name}] error: ${err}`);
     });
 
