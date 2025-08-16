@@ -33,3 +33,4 @@ build/
 
 # Ignore local development files
 *.local
+errors_new/error.log
