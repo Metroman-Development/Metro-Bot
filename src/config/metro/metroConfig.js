@@ -59,6 +59,7 @@ embedMessageIds: {
 
     statusTypes: {
         // Station Statuses
+        '0': { name: 'fuera de horario', description: 'Estación Cerrada por Horario', isOperational: false, severity: 0, color: 0x00FF00, emoji: '🌙', notification: false },
         '1': { name: 'abierta', description: 'Estación Abierta', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', notification: false },
         '2': { name: 'combinación', description: 'Estación con combinación', isOperational: true, severity: 1, color: 0x0000FF, emoji: '🔄', notification: false },
         '3': { name: 'accesos controlados', description: 'Accesos controlados', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', notification: true },
