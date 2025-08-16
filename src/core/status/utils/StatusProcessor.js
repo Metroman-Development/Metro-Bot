@@ -135,7 +135,7 @@ class StatusProcessor {
 
         // Prepare station queries
         for (const station of Object.values(data.stations)) {
-          const fullStationData = this.metro.getStationManager().get(station.id);
+          const fullStationData = this.metro.getStationManager().getByCode(station.id);
 
           let [stationRow] = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
           let station_id;
