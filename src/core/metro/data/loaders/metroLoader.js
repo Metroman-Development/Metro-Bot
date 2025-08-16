@@ -1,26 +1,16 @@
 // metroLoader.js
-const mariadb = require('mariadb');
-require('dotenv').config();
-const pool = mariadb.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.METRODB_NAME,
-    connectionLimit: 5
-});
+const DatabaseManager = require('../../../database/DatabaseManager');
 
 module.exports = {
   source: 'MetroDB/system_info',
   async load() {
-    let conn;
     try {
-        conn = await pool.getConnection();
-        const rows = await conn.query("SELECT * FROM system_info LIMIT 1");
+        const dbManager = await DatabaseManager.getInstance();
+        const rows = await dbManager.query("SELECT * FROM system_info LIMIT 1");
         return this._transform(rows[0]);
     } catch (err) {
+        // Rethrow the error to be handled by the caller
         throw err;
-    } finally {
-        if (conn) conn.release();
     }
   },
 

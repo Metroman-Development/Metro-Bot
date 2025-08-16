@@ -13,20 +13,13 @@ async function initialize(componentName) {
         database: process.env.METRODB_NAME,
     };
 
-    try {
-        await DatabaseManager.getInstance(dbConfig);
-        logger.info(`[${componentName}] Database connection established.`);
-    } catch (error) {
-        logger.error(`[${componentName}] ❌ Failed to connect to the database:`, { error });
-        process.exit(1);
-    }
-
     let metroCore;
     try {
-        metroCore = await MetroCore.getInstance();
-        logger.info(`[${componentName}] MetroCore initialized.`);
+        // Pass dbConfig to MetroCore, which will in turn initialize DatabaseManager
+        metroCore = await MetroCore.getInstance({ dbConfig });
+        logger.info(`[${componentName}] MetroCore and DatabaseManager initialized.`);
     } catch (error) {
-        logger.error(`[${componentName}] ❌ Failed to initialize MetroCore:`, { error });
+        logger.error(`[${componentName}] ❌ Failed to initialize MetroCore or Database:`, { error });
         process.exit(1);
     }
 
