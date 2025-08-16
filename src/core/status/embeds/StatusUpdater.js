@@ -123,15 +123,21 @@ class StatusUpdater extends EventEmitter {
     }
     
     async triggerInitialUpdate() {
-        
         this.metroCore = await this.metroCore;
-        
-        const isThereData = this.metroCore.api.getProcessedData()? true : false;
-        
-        logger.info("INFORMACION, HAY DATOS?", isThereData) 
+        const metroInfoProvider = this.metroCore._subsystems.metroInfoProvider;
 
-        this.updateEmbeds();
-        
+        if (!metroInfoProvider) {
+            logger.error('[StatusUpdater] MetroInfoProvider not available. Skipping initial embed update.');
+            return;
+        }
+
+        const initialData = metroInfoProvider.getFullData();
+        if (initialData && Object.keys(initialData.lines).length > 0) {
+            logger.info('[StatusUpdater] Triggering initial embed update with full data.');
+            await this.updateAllEmbeds(initialData);
+        } else {
+            logger.warn('[StatusUpdater] No data available for initial embed update.');
+        }
        } 
 
     async initialize() {
@@ -167,7 +173,7 @@ class StatusUpdater extends EventEmitter {
 
     // Proxy methods to components
     async cacheEmbedMessages() { return this.embeds.cacheEmbedMessages(); }
-    async updateEmbeds() { return this.embeds.updateAllEmbeds(); }
+    async updateEmbeds(data) { return this.embeds.updateAllEmbeds(data); }
     async handleDataUpdate(data) { return this.processor.handleDataUpdate(data); }
     async handleInitialState(data) { return this.processor.handleInitialState(data); }
     async processChanges(changes) { return this.processor.processChanges(changes); }

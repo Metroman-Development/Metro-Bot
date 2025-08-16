@@ -78,6 +78,10 @@ module.exports = class DataEngine {
         this.lastCombinedData = combined;
         this.metro._combinedData = combined;
         
+        if (this.metro._subsystems.metroInfoProvider) {
+            this.metro._subsystems.metroInfoProvider.updateData(combined);
+        }
+
         return combined;
     }
 
