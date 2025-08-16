@@ -2,6 +2,7 @@ require('dotenv').config();
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
 const path = require('path');
+const normalizer = require('./src/core/metro/utils/stringHandlers/normalization');
 
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
@@ -142,6 +143,7 @@ async function correctStationCodes(conn) {
 
     for (const lineId in stationsData) {
         const lineStations = stationsData[lineId];
+        const lowerLineId = lineId.toLowerCase();
         for (const stationName in lineStations) {
             const stationCode = stationName.replace(/\s/g, '').toUpperCase().substring(0, 20);
             const query = `
@@ -150,7 +152,7 @@ async function correctStationCodes(conn) {
                 WHERE station_name = ? AND line_id = ?
             `;
             try {
-                await conn.query(query, [stationCode, stationName, lineId]);
+                await conn.query(query, [stationCode, stationName, lowerLineId]);
             } catch (err) {
                 // ignore error
             }

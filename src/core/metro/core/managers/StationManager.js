@@ -28,7 +28,7 @@ class StationManager {
 
     _initializeData(rawData) {
         return Object.entries(rawData).reduce((acc, [id, station]) => {
-            acc[id] = this._normalizeStation(station, id);
+            acc[id.toUpperCase()] = this._normalizeStation(station, id);
             return acc;
         }, {});
     }
@@ -36,9 +36,9 @@ class StationManager {
     _normalizeStation(station, id) {
         const safeStation = station || {};
         return {
-            id: id,
-            name: (safeStation.name || 'Unknown Station').toUpperCase(),
-            line: safeStation.line || 'UNK',
+            id: id.toUpperCase(),
+            name: (safeStation.name || 'Unknown Station'),
+            line: (safeStation.line || 'UNK').toLowerCase(),
             status: safeStation.status || { code: '0', message: 'Status unknown' },
             coordinates: safeStation.coordinates || { lat: 0, lng: 0 },
             facilities: safeStation.facilities || [],
@@ -76,16 +76,17 @@ class StationManager {
 
         // Handle updates
         Object.entries(newData).forEach(([id, station]) => {
-            if (!this._data[id]) {
+            const upperId = id.toUpperCase();
+            if (!this._data[upperId]) {
                 changes.added++;
-            } else if (JSON.stringify(this._data[id]) !== JSON.stringify(station)) {
+            } else if (JSON.stringify(this._data[upperId]) !== JSON.stringify(station)) {
                 changes.updated++;
             }
-            this._data[id] = this._normalizeStation(station, id);
+            this._data[upperId] = this._normalizeStation(station, id);
         });
 
         // Handle removals
-        const existingIds = new Set(Object.keys(newData));
+        const existingIds = new Set(Object.keys(newData).map(id => id.toUpperCase()));
         Object.keys(this._data).forEach(id => {
             if (!existingIds.has(id)) {
                 delete this._data[id];

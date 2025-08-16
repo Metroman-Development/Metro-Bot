@@ -13,7 +13,7 @@ class DbLineLoader {
 
             const lineData = {};
             for (const line of lines) {
-                lineData[line.line_id] = {
+                lineData[line.line_id.toLowerCase()] = {
                     nombre: line.line_name,
                     color: line.line_color,
                     // Add other properties as needed from the metro_lines table
