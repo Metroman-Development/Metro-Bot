@@ -82,14 +82,22 @@ const LOG_LEVELS = {
 // Get the file name, line number, and function name
 function getCallerInfo() {
     const stack = new Error().stack.split('\n');
+    // Add a defensive check for stack length
+    if (stack.length < 5) {
+        return { fileName: 'unknown', lineNumber: 'unknown', functionName: 'unknown' };
+    }
     // The 4th line in the stack trace is the caller
-    const callerLine = stack[4].trim();
-    const match = callerLine.match(/\((.+):(\d+):\d+\)/);
+    const callerLine = stack[4];
+    if (!callerLine) {
+        return { fileName: 'unknown', lineNumber: 'unknown', functionName: 'unknown' };
+    }
+    const trimmedCallerLine = callerLine.trim();
+    const match = trimmedCallerLine.match(/\((.+):(\d+):\d+\)/);
     if (match) {
         const filePath = match[1];
         const lineNumber = match[2];
         const fileName = path.basename(filePath);
-        const functionName = callerLine.match(/at (.+) \(/)?.[1] || 'anonymous';
+        const functionName = trimmedCallerLine.match(/at (.+) \(/)?.[1] || 'anonymous';
         return { fileName, lineNumber, functionName };
     }
     return { fileName: 'unknown', lineNumber: 'unknown', functionName: 'unknown' };

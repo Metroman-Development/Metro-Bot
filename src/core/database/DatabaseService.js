@@ -13,16 +13,15 @@ class DatabaseService {
 
     static #instance = null;
 
-    static async getInstance() {
+    static async getInstance(dbManager) {
         if (this.#instance) {
             return this.#instance;
         }
 
-        const dbManager = await DatabaseManager.getInstance();
         if (!dbManager) {
-            this.#instance = null;
-            return null;
+            throw new Error('[DatabaseService] A DatabaseManager instance must be provided to getInstance.');
         }
+
         this.#instance = new DatabaseService(dbManager);
         return this.#instance;
     }
