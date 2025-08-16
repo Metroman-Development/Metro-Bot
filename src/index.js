@@ -111,17 +111,29 @@ async function main() {
                 }
             } catch (error) {
                 const simplifiedError = { message: error.message, code: error.code };
-                if (type.startsWith('db-transaction')) {
+                // Check if it's a query within a transaction or a regular query
+                if (queryId !== undefined) {
+                    childProcess.send({ type: 'db-error', queryId, error: simplifiedError });
+                }
+                // Handle transaction lifecycle errors (begin, commit, rollback)
+                else if (txId !== undefined) {
                     childProcess.send({ type: 'db-transaction-error', txId, error: simplifiedError });
-                    // Clean up failed transaction
+                }
+
+                // If the error originated from any transaction-related operation, try to clean up.
+                if (type.startsWith('db-transaction')) {
                     connection = activeTransactions.get(txId);
                     if (connection) {
-                        await connection.rollback();
-                        connection.release();
-                        activeTransactions.delete(txId);
+                        // This might fail if connection is already lost, but it's a good faith effort.
+                        try {
+                            await connection.rollback();
+                            connection.release();
+                        } catch (cleanupError) {
+                            logger.error(`[Master] Failed to cleanup transaction ${txId} after error:`, cleanupError);
+                        } finally {
+                            activeTransactions.delete(txId);
+                        }
                     }
-                } else {
-                    childProcess.send({ type: 'db-error', queryId, error: simplifiedError });
                 }
             }
         });

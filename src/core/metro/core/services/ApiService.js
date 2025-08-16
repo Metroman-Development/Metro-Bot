@@ -27,22 +27,6 @@ class ApiService extends EventEmitter {
         this._cycleCount = 0;
         this.checkCount = 1;
 
-        // Status configuration
-        this._statusOptions = {
-            lineStatuses: {
-                '1': { mensaje: 'Operativo', mensaje_app: 'Operational' },
-                '2': { mensaje: 'Con demoras', mensaje_app: 'Delayed' },
-                '3': { mensaje: 'Servicio parcial', mensaje_app: 'Partial service' },
-                '4': { mensaje: 'Suspendido', mensaje_app: 'Suspended' }
-            },
-            stationStatuses: {
-                '1': { descripcion: 'Operativa', descripcion_app: 'Operational' },
-                '2': { descripcion: 'Con demoras', descripcion_app: 'Delayed' },
-                '3': { descripcion: 'Servicio parcial', descripcion_app: 'Partial service' },
-                '4': { descripcion: 'Suspendida', descripcion_app: 'Suspended' }
-            }
-        };
-
         // Path configuration
         this.cacheDir = path.join(__dirname, '../../../../data');
         this.processedDataFile = path.join(this.cacheDir, 'processedEstadoRed.php.json');
@@ -687,26 +671,31 @@ async activateEventOverrides(eventDetails) {
 
     _randomizeStatuses(data) {
         if (!this.debug || !data) return data;
-        
+
         this._cycleCount++;
         const prob = Math.max(0.1, 1 - (this.chaosFactor / 100));
         logger.debug(`[ApiService] Applying chaos (factor: ${this.chaosFactor}, prob: ${prob})`);
 
+        const lineStatusKeys = Object.keys(this.metro.config.statusTypes).filter(k => parseInt(k) >= 10 && parseInt(k) <= 14);
+        const stationStatusKeys = Object.keys(this.metro.config.statusTypes).filter(k => parseInt(k) >= 0 && parseInt(k) <= 9);
+
         Object.entries(data || {}).forEach(([lineId, line]) => {
             if (Math.random() < prob) {
-                const newStatus = Math.floor(Math.random() * 4) + 1;
-                logger.debug(`[ApiService] Changing ${lineId} to status ${newStatus}`);
-                line.estado = newStatus.toString();
-                line.mensaje = this._statusOptions.lineStatuses[newStatus].mensaje;
-                line.mensaje_app = this._statusOptions.lineStatuses[newStatus].mensaje_app;
+                const randomStatusKey = lineStatusKeys[Math.floor(Math.random() * lineStatusKeys.length)];
+                const newStatus = this.metro.config.statusTypes[randomStatusKey];
+                logger.debug(`[ApiService] Changing ${lineId} to status ${randomStatusKey} (${newStatus.name})`);
+                line.estado = randomStatusKey;
+                line.mensaje = newStatus.description; // Using description as the main message
+                line.mensaje_app = newStatus.name;
             }
 
             line.estaciones?.forEach(station => {
                 if (Math.random() < prob * 0.7) {
-                    const newStatus = Math.floor(Math.random() * 4) + 1;
-                    station.estado = newStatus.toString();
-                    station.descripcion = this._statusOptions.stationStatuses[newStatus].descripcion;
-                    station.descripcion_app = this._statusOptions.stationStatuses[newStatus].descripcion_app;
+                    const randomStatusKey = stationStatusKeys[Math.floor(Math.random() * stationStatusKeys.length)];
+                    const newStatus = this.metro.config.statusTypes[randomStatusKey];
+                    station.estado = randomStatusKey;
+                    station.descripcion = newStatus.description;
+                    station.descripcion_app = newStatus.name;
                 }
             });
         });
