@@ -435,6 +435,12 @@ async activateEventOverrides(eventDetails) {
         }
         this.isFetching = true;
 
+        if (this.isFirstTime) {
+            logger.info('[ApiService] First run detected. Forcing API fetch to populate database.');
+            // Force fetch from API and populate DB, then proceed
+            await this.forceApiFetchAndPopulateDb();
+        }
+
         // PHASE 1: Ensure static data freshness
         await this._ensureStaticDataFreshness();
 
@@ -454,19 +460,32 @@ async activateEventOverrides(eventDetails) {
 
         try {
             let rawData;
-            let fromPrimarySource = true;
-            try {
-                // PHASE 2a: Fetch raw data from API/cache
-                rawData = await this.estadoRedService.fetchStatus();
-            } catch (fetchError) {
-                logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
-                fromPrimarySource = false;
+            let fromPrimarySource = false;
+
+            if (this.timeHelpers.isWithinOperatingHours()) {
+                logger.info('[ApiService] Within operating hours. Fetching from API.');
+                try {
+                    // PHASE 2a: Fetch raw data from API/cache
+                    rawData = await this.estadoRedService.fetchStatus();
+                    fromPrimarySource = true;
+                    logger.info('[ApiService] Successfully fetched data from API.');
+                } catch (fetchError) {
+                    logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
+                    rawData = await this.getDbRawData();
+                    if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
+                        throw new Error("All data sources failed, including database fallback.");
+                    }
+                    logger.info("[ApiService] Successfully loaded data from database fallback.");
+                }
+            } else {
+                logger.info('[ApiService] Outside of operating hours. Fetching from database.');
                 rawData = await this.getDbRawData();
                 if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
-                    throw new Error("All data sources failed, including database fallback.");
+                    throw new Error("Could not retrieve data from database outside of operating hours.");
                 }
-                logger.info("[ApiService] Successfully loaded data from database fallback.");
+                logger.info("[ApiService] Successfully loaded data from database.");
             }
+
 
             // PHASE 2c: Process data
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
@@ -543,9 +562,12 @@ async activateEventOverrides(eventDetails) {
 
     async _ensureStaticDataFreshness() {
         try {
-            const maxAge = this.timeHelpers.isWithinOperatingHours()
-                ? config.api.minStaticDataFreshness || 300000  // 5 minutes during operations
-                : 86400000; // 24 hours during off-hours
+            if (!this.timeHelpers.isWithinOperatingHours()) {
+                logger.info('[ApiService] Outside of operating hours. Skipping static data freshness check.');
+                return;
+            }
+
+            const maxAge = config.api.minStaticDataFreshness || 300000;  // 5 minutes during operations
 
             const refreshed = await this.metro.refreshStaticData({
                 maxAge,
@@ -958,6 +980,19 @@ async activateEventOverrides(eventDetails) {
                     await this.dbService.updateStationStatus(station.codigo, lineId, station.estado, station.descripcion, station.descripcion_app);
                 }
             }
+        }
+    }
+
+    async forceApiFetchAndPopulateDb() {
+        try {
+            logger.info('[ApiService] Forcing API fetch to populate database...');
+            const rawData = await this.estadoRedService.fetchStatus();
+            await this.updateDbWithApiData(rawData);
+            logger.info('[ApiService] Database populated with initial data from API.');
+        } catch (error) {
+            logger.error('[ApiService] Failed to force fetch and populate database:', { error });
+            // In a real scenario, we might want to throw this error
+            // to prevent the application from starting in a bad state.
         }
     }
 }
