@@ -37,6 +37,7 @@ class StationManager {
         const safeStation = station || {};
         return {
             id: id.toUpperCase(),
+            code: id.toLowerCase(),
             name: (safeStation.name || 'Unknown Station'),
             line: (safeStation.line || 'UNK').toLowerCase(),
             status: safeStation.status || { code: '0', message: 'Status unknown' },
@@ -62,8 +63,14 @@ class StationManager {
             }
             acc.lines[lineKey].push(station.id);
 
+            // Index by code
+            const codeKey = station.code;
+            if (!acc.codes[codeKey]) {
+                acc.codes[codeKey] = station.id;
+            }
+
             return acc;
-        }, { names: {}, lines: {} });
+        }, { names: {}, lines: {}, codes: {} });
     }
 
     // Core Methods
@@ -119,6 +126,20 @@ class StationManager {
             fullName: `${station.name} (Línea ${station.line})`,
             status: this.getStatus(upperId)
         };
+    }
+
+    getByCode(code) {
+        if (!code) {
+            logger.warn('StationManager.getByCode called with a null or undefined code');
+            return null;
+        }
+        const lowerCode = code.toLowerCase();
+        const stationId = this._index.codes[lowerCode];
+        if (!stationId) {
+            logger.warn(`[StationManager.getByCode] Station not found for code: ${code}`);
+            return null;
+        }
+        return this.get(stationId);
     }
 
     getStatus(id) {
