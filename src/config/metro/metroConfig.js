@@ -57,40 +57,31 @@ embedMessageIds: {
         la:  '<:lA:1379150815696261120>'
     },
 
-    statusMapping: {
-    '0': {emoji: '🌙', message: 'Cierre por Horario'},
-    '1': { emoji: '🟩', message: 'Operativa' },
-    '2': { emoji: '🟥', message: 'Cerrada' },
-    '3': { emoji: '🟨', message: 'Cierre Parcial' },
-    '4': { emoji: '⏲️', message: 'Demoras en Frecuencia' },
-    '5': { emoji: '<:extendida:1354249821829075155>', message: 'Ruta Extendida' }, // Extended Route
-},
-
-// Icons for stations
-stationIcons: {
-    'redoperativa': {emoji: '<:todalareddisponible:900165185321459773>', message: "Toda la Red Operativa"},
-    0: { emoji: '🌙', message: 'Cierre por Horario' },
-    1: { emoji: '<:operativa:1348394413357010984>', message: 'Operativa' },
-    3: { emoji: '<:parcial:1348400125005008977>', message: 'Cierre Parcial' },
-    2: { emoji: '<:cerrada:1348394347045064766>', message: 'Cierre Temporal' },
-
-    4: { emoji: '⏲️', message: 'Retrasos en Frecuencia' },
-
-
-    5: { emoji: '<:extendida:1354249821829075155>', message: 'Ruta Extendida' }, // Added extended status
-    'comun': { emoji: '<:comun:1348400171578425404>', message: 'Ruta Común' },
-    'roja': { emoji: '<:roja:1348395124627083476>', message: 'Ruta Roja' },
-    'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' },
-},
-
-// New dictionary for transfer combinations
-combIcons: {
-   0: {emoji: "🌙", message: "Cierre por Horario"},
-    1: { emoji: '<:combOperativa:1362494217569697923>', message: 'Combinación Operativa' },
-    2: { emoji: '<:combCerrada:1362494130361466900>', message: 'Combinación Cerrada' },
-    3: { emoji: '<:combParcial:1362494331595915315>', message: 'Combinación Parcial' },
-    5: { emoji: '<:combExtendida:1362494085923078326>', message: 'Combinación Extendida' },
-},
+    statusTypes: {
+        // Station Statuses
+        '1': { name: 'abierta', description: 'Estación Abierta', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', notification: false },
+        '2': { name: 'combinación', description: 'Estación con combinación', isOperational: true, severity: 1, color: 0x0000FF, emoji: '🔄', notification: false },
+        '3': { name: 'accesos controlados', description: 'Accesos controlados', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', notification: true },
+        '4': { name: 'accesos parciales', description: 'Accesos parciales', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', notification: true },
+        '5': { name: 'cerrada', description: 'Estación Cerrada', isOperational: false, severity: 4, color: 0xFF0000, emoji: '❌', notification: true },
+        '7': { name: 'contención', description: 'Contención', isOperational: false, severity: 3, color: 0xFFA500, emoji: '🛡️', notification: true },
+        '8': { name: 'servicio extendido solo entrada', description: 'Servicio extendido solo entrada', isOperational: true, severity: 2, color: 0x0000FF, emoji: '➡️', notification: true },
+        '9': { name: 'servicio extendido solo salida', description: 'Servicio extendido solo salida', isOperational: true, severity: 2, color: 0x0000FF, emoji: '⬅️', notification: true },
+        // Line Statuses
+        '10': { name: 'operativa', description: 'Línea Operativa', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', notification: false },
+        '11': { name: 'lenta', description: 'Línea Lenta', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '🕰️', notification: true },
+        '12': { name: 'retrasos', description: 'Línea con Retrasos', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', notification: true },
+        '13': { name: 'parcial', description: 'Línea Parcialmente Operativa', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', notification: true },
+        '14': { name: 'suspendida', description: 'Línea Suspendida', isOperational: false, severity: 5, color: 0xFF0000, emoji: '❌', notification: true },
+        // Other statuses from the table. I'll use the description as the primary message.
+        '15': { name: 'fuera de servicio', description: 'Fuera de servicio por horario', isOperational: true, severity: 0, color: 0x808080, emoji: '🌙', notification: false },
+        '16': { name: 'operativo', description: 'Operativo', isOperational: true, severity: 0, color: 0x00FF00, emoji: '✅', notification: false },
+        '17': { name: 'con demoras', description: 'Con demoras', isOperational: false, severity: 4, color: 0xFFA500, emoji: '🕰️', notification: true },
+        '18': { name: 'servicio parcial', description: 'Servicio parcial', isOperational: false, severity: 3, color: 0xFFFF00, emoji: '⚠️', notification: true },
+        '19': { name: 'suspendido', description: 'Suspendido', isOperational: false, severity: 1, color: 0xFF0000, emoji: '❌', notification: true },
+        '20': { name: 'servicio extendido', description: 'Servicio extendido', isOperational: true, severity: 0, color: 0x0000FF, emoji: '🔄', notification: false },
+        'default': { name: 'desconocido', description: 'Estado desconocido', isOperational: false, severity: 5, color: 0xAAAAAA, emoji: '❓', notification: true },
+    },
     // Metro operating hours
     horario: {
         Semana: ["6:00 AM", "11:00 PM"], // Weekdays
@@ -231,23 +222,6 @@ api: {
 
     },
 
-    NETWORK_STATUS_MAP: {
-
-        1 : {emoji: '<:todalareddisponible:900165185321459773>', message: "Toda la Red Operativa"},
-
-        0 : { emoji: '🌙', message: 'Cierre por Horario' },
-
-
-
-       3: { emoji: '<:parcial:1348400125005008977>', message: 'Estacion(es) con Cierre Parcial en La Red' },
-
-        2: { emoji: '<:cerrada:1348394347045064766>', message: 'Estaciones Cerradas en La Red' },
-
-        4: { emoji: '⏲️', message: 'Red Con Retrasos' },
-
-        5: { emoji: '🔵', message: 'Red con Servicio Extendido en Ciertas Estaciones' },
-
-    },
 
 
 
