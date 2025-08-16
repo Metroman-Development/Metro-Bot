@@ -19,6 +19,10 @@ class DatabaseService {
         }
 
         const dbManager = await DatabaseManager.getInstance();
+        if (!dbManager) {
+            this.#instance = null;
+            return null;
+        }
         this.#instance = new DatabaseService(dbManager);
         return this.#instance;
     }
