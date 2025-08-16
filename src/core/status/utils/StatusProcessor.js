@@ -30,11 +30,12 @@ class StatusProcessor {
         throw new Error('Invalid rawData received');
       }
 
+      const dataToProcess = rawData.lineas || rawData;
       const version = this._generateVersion();
       const timestamp = this.timeHelpers.currentTime;
 
       // Process network status
-      const networkStatusDetails = this._transformNetworkStatus(rawData);
+      const networkStatusDetails = this._transformNetworkStatus(dataToProcess);
       const network = {
           status: this._mapNetworkStatus(networkStatusDetails.status),
           lastUpdated: networkStatusDetails.timestamp
@@ -44,7 +45,7 @@ class StatusProcessor {
       const lines = {};
       const stations = {};
 
-      Object.entries(rawData).forEach(([lineId, lineData]) => {
+      Object.entries(dataToProcess).forEach(([lineId, lineData]) => {
         if (!lineId.startsWith('l')) return;
 
         // Process line
