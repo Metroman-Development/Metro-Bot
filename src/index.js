@@ -1,3 +1,8 @@
+// Patch BigInt serialization
+BigInt.prototype.toJSON = function() {
+    return this.toString();
+};
+
 require('dotenv').config();
 const { spawn } = require('child_process');
 const path = require('path');
