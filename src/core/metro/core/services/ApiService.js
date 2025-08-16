@@ -591,35 +591,63 @@ async activateEventOverrides(eventDetails) {
             : this._basicProcessData(rawData);
     }
 
+    _generateNetworkStatus(lines) {
+        if (!lines || Object.keys(lines).length === 0) {
+            return { status: 'outage', timestamp: new Date().toISOString() };
+        }
+
+        const lineStatuses = Object.values(lines).map(line => line.status);
+        const operationalLines = lineStatuses.filter(s => s === '1').length;
+        const totalLines = lineStatuses.length;
+        const degradedLines = totalLines - operationalLines;
+
+        let overallStatus = 'operational';
+        if (degradedLines > 0 && operationalLines === 0) {
+            overallStatus = 'outage';
+        } else if (degradedLines > 0) {
+            overallStatus = 'degraded';
+        }
+
+        return {
+            status: overallStatus,
+            timestamp: new Date().toISOString()
+        };
+    }
+
     _basicProcessData(rawData) {
+        const lines = Object.fromEntries(
+            Object.entries(rawData.lineas || {})
+                .filter(([k]) => k.startsWith('l'))
+                .map(([lineId, lineData]) => [
+                    lineId,
+                    {
+                        id: lineId,
+                        status: lineData.estado,
+                        message: lineData.mensaje,
+                        message_app: lineData.mensaje_app,
+                        stations: lineData.estaciones?.map(station => ({
+                            id: station.codigo,
+                            name: station.nombre,
+                            status: station.estado,
+                            description: station.descripcion,
+                            description_app: station.descripcion_app,
+                            transfer: station.combinacion || '',
+                            ...(station.isTransferOperational !== undefined && {
+                                isTransferOperational: station.isTransferOperational
+                            }),
+                            ...(station.accessPointsOperational !== undefined && {
+                                accessPointsOperational: station.accessPointsOperational
+                            })
+                        })) || []
+                    }
+                ])
+        );
+
+        const networkStatus = this._generateNetworkStatus(lines);
+
         const processed = {
-            lines: Object.fromEntries(
-                Object.entries(rawData.lineas || {})
-                    .filter(([k]) => k.startsWith('l'))
-                    .map(([lineId, lineData]) => [
-                        lineId,
-                        {
-                            id: lineId,
-                            status: lineData.estado,
-                            message: lineData.mensaje,
-                            message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.map(station => ({
-                                id: station.codigo,
-                                name: station.nombre,
-                                status: station.estado,
-                                description: station.descripcion,
-                                description_app: station.descripcion_app,
-                                transfer: station.combinacion || '',
-                                ...(station.isTransferOperational !== undefined && { 
-                                    isTransferOperational: station.isTransferOperational 
-                                }),
-                                ...(station.accessPointsOperational !== undefined && { 
-                                    accessPointsOperational: station.accessPointsOperational 
-                                })
-                            })) || []
-                        }
-                    ])
-            ),
+            lines,
+            network: networkStatus,
             stations: {},
             version: this._dataVersion,
             lastUpdated: new Date().toISOString(),
