@@ -3,9 +3,9 @@ const DatabaseManager = require('../../../database/DatabaseManager');
 
 module.exports = {
   source: 'MetroDB/intermodal_stations & intermodal_buses',
-  async load() {
+  async load(dbManager) {
     try {
-        const dbManager = await DatabaseManager.getInstance();
+        if (!dbManager) throw new Error('DatabaseManager is not provided to intermodalLoader');
         const stations = await dbManager.query("SELECT * FROM intermodal_stations");
         const buses = await dbManager.query("SELECT * FROM intermodal_buses");
         return this._transform(stations, buses);

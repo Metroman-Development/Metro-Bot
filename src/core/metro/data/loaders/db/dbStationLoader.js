@@ -6,10 +6,10 @@ class DbStationLoader {
         this.source = 'database';
     }
 
-    async load() {
+    async load(dbManager) {
         try {
-            const db = await DatabaseManager.getInstance();
-            const stations = await db.query('SELECT * FROM metro_stations');
+            if (!dbManager) throw new Error('DatabaseManager is not provided to dbStationLoader');
+            const stations = await dbManager.query('SELECT * FROM metro_stations');
 
             const stationData = {};
             for (const station of stations) {
