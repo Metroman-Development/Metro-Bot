@@ -51,6 +51,7 @@ class MetroCore extends EventEmitter {
         }
         
         this._debug = options.debug || false;
+        this.isReady = false;
         this.client = options.client;
         this.config = require('../../../config/metro/metroConfig');
         if (options.dbConfig) {
@@ -236,6 +237,8 @@ class MetroCore extends EventEmitter {
                 startupTime: Date.now()
             }, { source: 'MetroCore' });
 
+            this.isReady = true;
+            this.emit('ready');
             // Phase 9: Initialize the status updater is now handled by setClient
         } catch (error) {
             logger.error('[MetroCore] A critical error occurred during initialization:', { error });
@@ -313,6 +316,11 @@ class MetroCore extends EventEmitter {
     }
 
     async setClient(client) {
+        if (!this.isReady) {
+            logger.warn('[MetroCore] setClient called before instance is ready. Waiting...');
+            await new Promise(resolve => this.once('ready', resolve));
+            logger.info('[MetroCore] Instance is now ready. Proceeding with setClient.');
+        }
         this.client = client;
         if (this.client) {
             logger.info('[MetroCore] Discord client set. Initializing client-dependent subsystems.');
