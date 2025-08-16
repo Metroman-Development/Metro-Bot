@@ -174,6 +174,19 @@ class UpdateListener extends EventEmitter {
                 });
             });
         });
+
+        this.parent.metroCore.on(EventRegistry.STATUS_REPORT, (payload) => {
+            this._trackEventTiming('STATUS_REPORT', () => {
+                if (!this._validatePayload(payload, EventRegistry.STATUS_REPORT)) return;
+
+                const updateId = this.parent.processor._generateUpdateId('status_report');
+                this.parent.processor._queueUpdate(updateId, {
+                    type: 'status_report',
+                    data: payload.data,
+                    timestamp: new Date()
+                });
+            });
+        });
     }
 
     _setupApiServiceListeners() {

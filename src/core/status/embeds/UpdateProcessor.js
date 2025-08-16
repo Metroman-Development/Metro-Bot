@@ -5,6 +5,7 @@ const { performance } = require('perf_hooks');
 const timeUtils = require('../../chronos/timeHelpers');
 const TelegramBot = require('../../../bot/discord/commands/slash/Bot_Info/bot.js');
 const ChangeAnnouncer = require('../ChangeAnnouncer');
+const SystemStatusEmbed = require('../../../templates/embeds/SystemStatusEmbed.js');
 
 class UpdateProcessor {
     constructor(statusUpdater) {
@@ -42,7 +43,8 @@ class UpdateProcessor {
             DATA_UPDATE: 'data_update',
             INITIAL_STATE: 'initial_state',
             CHANGES: 'changes',
-            EVENT: 'event'
+            EVENT: 'event',
+            STATUS_REPORT: 'status_report'
         };
     }
 
@@ -257,6 +259,9 @@ class UpdateProcessor {
                 case this.UPDATE_TYPES.EMBED_REFRESH:
                     result = await this._processEmbedRefresh(updateId, update.data);
                     break;
+                case this.UPDATE_TYPES.STATUS_REPORT:
+                    result = await this._processStatusReportUpdate(updateId, update.data);
+                    break;
                 default:
                     logger.warn('[UpdateProcessor] Unknown update type', { type: update.type });
                     return;
@@ -266,6 +271,38 @@ class UpdateProcessor {
         } catch (error) {
             this._handleUpdateError(updateId, update, error, startTime);
         }
+    }
+
+    async _processStatusReportUpdate(updateId, data) {
+        logger.debug(`[UpdateProcessor] Processing status report update ${updateId}`);
+        this.parent.emit('updateStarted', updateId);
+
+        try {
+            if (this.parent.client && this.parent.client.isReady()) {
+                const systemStatusEmbed = new SystemStatusEmbed(this.parent.metroCore);
+                const embed = systemStatusEmbed.createSystemStatusEmbed(data);
+
+                const channelId = this.parent.metroCore.config.discord.channels.status_reports;
+                const channel = await this.parent.client.channels.fetch(channelId);
+
+                if (channel) {
+                    await channel.send({ embeds: [embed.embed] });
+                    logger.info(`[UpdateProcessor] System status report sent to channel ${channelId}`);
+                } else {
+                    logger.error(`[UpdateProcessor] Could not find status report channel with ID ${channelId}`);
+                }
+            } else {
+                logger.info('[UpdateProcessor] Discord client not available. Logging status report to console instead.');
+                console.log(JSON.stringify(data, null, 2));
+            }
+        } catch (error) {
+            logger.error(`[UpdateProcessor] Error sending status report: ${error.message}`);
+            logger.info('[UpdateProcessor] Logging status report to console due to error.');
+            console.log(JSON.stringify(data, null, 2));
+            this._handleUpdateError(updateId, error, 'status_report');
+        }
+
+        this.parent.emit('updateCompleted', updateId);
     }
 
     async _processDataUpdate(updateId, data) {
