@@ -205,9 +205,10 @@ class MetroCore extends EventEmitter {
             const DatabaseService = require('../../../core/database/DatabaseService');
             this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
             const databaseService = this._subsystems.dbService; // for local use
-            this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
+            this._subsystems.statusOverrideService = new StatusOverrideService(databaseService);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
-            this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
+            const cacheDir = path.join(__dirname, '../../../../data');
+            this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, { dbService: databaseService, cacheDir: cacheDir });
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
             this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
             await this._subsystems.accessibilityService.initialize();
@@ -224,8 +225,6 @@ class MetroCore extends EventEmitter {
                 changes: this._subsystems.api.api.changes,
                 metrics: this._subsystems.api.api.metrics,
                 getCacheState: this._subsystems.api.api.getCacheState,
-                getOverridesService: () => this._subsystems.api.api.getOverridesService(),
-                prepareEventOverrides: async (eventDetails) => await this._subsystems.api.api.prepareEventOverrides(eventDetails),
                 getProcessedData: () => this._subsystems.api.api.getProcessedData(),
                 status: this.getSystemStatus.bind(this)
             };
