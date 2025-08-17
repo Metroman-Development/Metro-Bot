@@ -1,0 +1,1271 @@
+Starting the bot in PRODUCTION mode.
+-------------------------------------
+INFO: Loaded configuration from config.json
+[Master] Initializing master process...
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: { host: 'localhost', user: 'root', password: '', database: 'metro_db' }
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+[DB] Executing ping test...
+[DB] Connection test successful
+[DB] Releasing health check connection
+[DB] Connection established successfully
+[DB] Starting health checks every 60 seconds
+[DB] Initialization completed successfully
+ℹ️ [2025-08-17T00:07:36.732Z] [INFO] [index.js:45] [main] [Master] ✅ DatabaseManager initialized successfully.
+ℹ️ [2025-08-17T00:07:36.740Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+ℹ️ [2025-08-17T00:07:36.745Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:36.749Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:37.629Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:37.851Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:37.853Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:37.855Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:37.858Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:37.861Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+ℹ️ [2025-08-17T00:07:37.869Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+⚠️ [2025-08-17T00:07:37.871Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+⚠️ [2025-08-17T00:07:37.872Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:37.876Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+ℹ️ [2025-08-17T00:07:37.872Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:37.875Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+❌ [2025-08-17T00:07:37.877Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:37.885Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+⚠️ [2025-08-17T00:07:37.885Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:37.890Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:37.894Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:37.898Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:38.397Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:38.441Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:38.444Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:38.445Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:38.448Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:38.451Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+ℹ️ [2025-08-17T00:07:38.457Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+⚠️ [2025-08-17T00:07:38.461Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:38.461Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-17T00:07:38.464Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:38.471Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+❌ [2025-08-17T00:07:38.464Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+❌ [2025-08-17T00:07:38.466Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:38.482Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:38.487Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:38.582Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:38.591Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:38.594Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:39.039Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+ℹ️ [2025-08-17T00:07:39.041Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-17T00:07:39.041Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:39.045Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:39.047Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:39.056Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.058Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:39.096Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:39.154Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:39.156Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:39.157Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:39.160Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+❌ [2025-08-17T00:07:39.162Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+⚠️ [2025-08-17T00:07:39.179Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.183Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:39.289Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:39.298Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.300Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:39.626Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+⚠️ [2025-08-17T00:07:39.628Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:39.629Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:39.632Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:39.633Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:39.641Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.643Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:39.741Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:39.805Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:39.808Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:39.809Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:39.813Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:39.816Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+⚠️ [2025-08-17T00:07:39.824Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.827Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:39.889Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:39.898Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:39.900Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:40.191Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+ℹ️ [2025-08-17T00:07:40.195Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-17T00:07:40.193Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:40.198Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:40.200Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:40.209Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:40.212Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:40.370Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:40.407Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+ℹ️ [2025-08-17T00:07:40.410Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-17T00:07:40.409Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:40.413Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:40.416Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+⚠️ [2025-08-17T00:07:40.428Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:40.432Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:40.530Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:40.542Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:40.544Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:40.760Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+ℹ️ [2025-08-17T00:07:40.763Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+⚠️ [2025-08-17T00:07:40.762Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:40.767Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:40.782Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:40.794Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:40.797Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:41.050Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:41.084Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:41.086Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:41.090Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+ℹ️ [2025-08-17T00:07:41.087Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:41.093Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+⚠️ [2025-08-17T00:07:41.107Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:41.110Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:41.208Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:41.222Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:41.227Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:41.384Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+⚠️ [2025-08-17T00:07:41.386Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:41.390Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+ℹ️ [2025-08-17T00:07:41.387Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:41.392Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:41.410Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:41.413Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:41.710Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-17T00:07:41.732Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:41.734Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:41.735Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:41.738Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:41.741Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+⚠️ [2025-08-17T00:07:41.750Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [DiscordBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:41.755Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /estacion
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-17T00:07:41.881Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+/app/node_modules/telegraf/lib/core/network/client.js:290
+            throw new error_1.default({
+                  ^
+
+TelegramError: 401: Bot Token is required
+    at Telegram.callApi (/app/node_modules/telegraf/lib/core/network/client.js:290:19)
+    at Telegram.getMe (/app/node_modules/telegraf/lib/telegram.js:17:21)
+    at Telegraf.launch (/app/node_modules/telegraf/lib/telegraf.js:188:98)
+    at TelegramBot.launch (/app/src/bot/telegram/bot.js:141:14)
+    at startTelegramBot (/app/src/telegram-bot.js:8:21)
+    at Object.<anonymous> (/app/src/telegram-bot.js:16:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) {
+  response: { error_code: 401, description: 'Bot Token is required' },
+  on: {}
+}
+
+Node.js v22.17.1
+⚠️ [2025-08-17T00:07:41.890Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [TelegramBot] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:41.892Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-17T00:07:41.996Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+ℹ️ [2025-08-17T00:07:41.998Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-17T00:07:41.998Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+❌ [2025-08-17T00:07:42.001Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startScheduler (/app/src/scheduler.js:7:33)
+    at Object.<anonymous> (/app/src/scheduler.js:52:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+❌ [2025-08-17T00:07:42.003Z] [ERROR] [bootstrap.js:42] [initialize] [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startScheduler (/app/src/scheduler.js:7:33)
+      at Object.<anonymous> (/app/src/scheduler.js:52:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
+Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startScheduler (/app/src/scheduler.js:7:27)
+⚠️ [2025-08-17T00:07:42.012Z] [WARN] [index.js:130] [ChildProcess.<anonymous>] [Scheduler] exited with code 1. Restarting...
+ℹ️ [2025-08-17T00:07:42.014Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-17T00:07:42.339Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+⚠️ [2025-08-17T00:07:42.341Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-17T00:07:42.342Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+❌ [2025-08-17T00:07:42.345Z] [ERROR] [unknown:unknown] [unknown] [MetroCore] Failed to initialize database manager:
+Metadata: {
+  "error": "Cannot read properties of undefined (reading '0')"
+}
+Error: [MetroCore] Failed to initialize database manager:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at /app/src/core/metro/core/MetroCore.js:186:24
+    at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+    at initialize (/app/src/core/bootstrap.js:39:37)
+    at startDiscordBot (/app/src/discord-bot.js:22:33)
+    at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12) { error: "Cannot read properties of undefined (reading '0')" }
+❌ [2025-08-17T00:07:42.348Z] [ERROR] [bootstrap.js:42] [initialize] [DISCORD] ❌ Failed to initialize MetroCore or Database:
+Metadata: {
+  "error": {}
+}
+Error: [DISCORD] ❌ Failed to initialize MetroCore or Database:
+    at Object.error (/app/src/events/logger.js:160:27)
+    at initialize (/app/src/core/bootstrap.js:42:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async startDiscordBot (/app/src/discord-bot.js:22:27) {
+  error: Error: MetroCore initialization failed: Cannot read properties of undefined (reading '0')
+      at /app/src/core/metro/core/MetroCore.js:188:23
+      at MetroCore.getInstance (/app/src/core/metro/core/MetroCore.js:190:11)
+      at initialize (/app/src/core/bootstrap.js:39:37)
+      at startDiscordBot (/app/src/discord-bot.js:22:33)
+      at Object.<anonymous> (/app/src/discord-bot.js:115:1)
+      at Module._compile (node:internal/modules/cjs/loader:1730:14)
+      at Object..js (node:internal/modules/cjs/loader:1895:10)
+      at Module.load (node:internal/modules/cjs/loader:1465:32)
+      at Function._load (node:internal/modules/cjs/loader:1282:12)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+}
