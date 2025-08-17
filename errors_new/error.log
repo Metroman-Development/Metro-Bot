@@ -39746,3 +39746,625 @@ Stack: Error: [SCHEDULER] ❌ Failed to initialize MetroCore or Database:
 Metadata: {
   "error": {}
 }
+[2025-08-17T20:16:19.369Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:16:19.370Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:16:19.371Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:16:19.371Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:16:19.372Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:16:19.374Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:16:19.375Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:19:27.471Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:19:27.472Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:19:27.473Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:19:27.473Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:19:27.474Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:19:27.476Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:19:27.477Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:22:25.139Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:22:25.140Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:22:25.141Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:22:25.142Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:22:25.143Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:22:25.148Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:22:25.151Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:20.130Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:20.132Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:20.134Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:20.136Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:20.137Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:20.141Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:20.153Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:47.161Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:47.162Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:47.164Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:47.164Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:47.165Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:47.167Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:47.168Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:48.030Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:48.031Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:48.031Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:48.032Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:48.033Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:24:48.034Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:24:48.036Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:25:31.766Z] ERROR: Error: [EmbedManager] Line l1 update failed
+Stack: Error: [EmbedManager] Line l1 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:25:31.767Z] ERROR: Error: [EmbedManager] Line l2 update failed
+Stack: Error: [EmbedManager] Line l2 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:25:31.768Z] ERROR: Error: [EmbedManager] Line l3 update failed
+Stack: Error: [EmbedManager] Line l3 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:25:31.769Z] ERROR: Error: [EmbedManager] Line l4 update failed
+Stack: Error: [EmbedManager] Line l4 update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:25:31.769Z] ERROR: Error: [EmbedManager] Line l4a update failed
+Stack: Error: [EmbedManager] Line l4a update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateLineEmbed (/app/src/core/status/embeds/EmbedManager.js:228:20)
+    at /app/src/core/status/embeds/EmbedManager.js:195:26
+    at Array.map (<anonymous>)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:194:41)
+    at EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:288:18)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:20)
+    at StatusUpdater.updateAllEmbeds (/app/src/core/status/embeds/StatusUpdater.js:184:63)
+    at StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Metadata: {}
+
+[2025-08-17T20:25:31.771Z] ERROR: Error: [EmbedManager] Line updates failed
+Stack: Error: [EmbedManager] Line updates failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllLineEmbeds (/app/src/core/status/embeds/EmbedManager.js:207:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async EmbedManager._executeBatchUpdate (/app/src/core/status/embeds/EmbedManager.js:286:9)
+    at async EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:114:9)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
+
+[2025-08-17T20:25:31.775Z] ERROR: Error: [EmbedManager] Full update failed
+Stack: Error: [EmbedManager] Full update failed
+    at Object.error (/app/src/events/logger.js:160:27)
+    at EmbedManager.updateAllEmbeds (/app/src/core/status/embeds/EmbedManager.js:128:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async StatusUpdater.triggerInitialUpdate (/app/src/core/status/embeds/StatusUpdater.js:137:13)
+Metadata: {}
