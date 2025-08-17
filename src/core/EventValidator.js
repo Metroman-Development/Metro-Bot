@@ -94,7 +94,7 @@ class EventValidator {
                 },
                 network: {
                     type: 'object',
-                    required: ['status', 'lastUpdated'],
+                    required: ['status', 'timestamp'],
                     status: { type: 'string', enum: ['operational', 'degraded', 'outage'] }
                 }
             },
@@ -220,7 +220,7 @@ class EventValidator {
         if (schema.required) {
             schema.required.forEach(field => {
                 if (payload.data[field] === undefined) {
-                    errors.push(`Missing required field: ${field}`);
+                    errors.push();
                 }
             });
         }
@@ -234,37 +234,37 @@ class EventValidator {
 
             // Type checking
             if (rules.type && typeof value !== rules.type) {
-                errors.push(`Field ${field} must be type ${rules.type}`);
+                errors.push();
             }
 
             // Custom validators
             if (this.validators[field]) {
                 const valid = this.validators[field](value, payload.data);
                 if (!valid) {
-                    errors.push(`Field ${field} failed custom validation`);
+                    errors.push();
                 }
             }
 
             // String constraints
             if (typeof value === 'string') {
                 if (rules.minLength && value.length < rules.minLength) {
-                    errors.push(`Field ${field} too short (min ${rules.minLength})`);
+                    errors.push();
                 }
                 if (rules.pattern && !rules.pattern.test(value)) {
-                    errors.push(`Field ${field} must match pattern ${rules.pattern}`);
+                    errors.push();
                 }
                 if (rules.enum && !rules.enum.includes(value)) {
-                    errors.push(`Field ${field} must be one of: ${rules.enum.join(', ')}`);
+                    errors.push();
                 }
             }
 
             // Number constraints
             if (typeof value === 'number') {
                 if (rules.min !== undefined && value < rules.min) {
-                    errors.push(`Field ${field} too small (min ${rules.min})`);
+                    errors.push();
                 }
                 if (rules.max !== undefined && value > rules.max) {
-                    errors.push(`Field ${field} too large (max ${rules.max})`);
+                    errors.push();
                 }
             }
 
@@ -272,10 +272,10 @@ class EventValidator {
             if (rules.validate && typeof rules.validate === 'function') {
                 try {
                     if (!rules.validate(value)) {
-                        errors.push(`Field ${field} failed custom validation`);
+                        errors.push();
                     }
                 } catch (error) {
-                    errors.push(`Validation failed for ${field}: ${error.message}`);
+                    errors.push();
                 }
             }
         });
