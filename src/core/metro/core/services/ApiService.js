@@ -765,32 +765,26 @@ async activateEventOverrides(eventDetails) {
             : [changeResult.changes].filter(Boolean);
 
         const validatedChanges = changesArray.map(change => {
-            if (typeof change === 'string') {
-                return {
-                    id: change,
-                    name: 'unknown', 
-                    lineId: 'unknown', 
-                    type: 'unknown',
-                    from: 'unknown',
-                    to: 'unknown',
-                    severity: 'none'
-                };
+            // Basic validation to ensure the change object is well-formed
+            if (!change || typeof change.id === 'undefined' || typeof change.type === 'undefined') {
+                logger.warn('[ApiService] Invalid change object detected. Skipping.', { change });
+                return null;
             }
-            
+
             return {
                 type: change.type,
-                id: change.id || String(change.line || change.stationId || 'unknown'),
-                name: change.name,
+                id: String(change.id),
+                name: change.name || 'unknown',
                 line: change.line,
-                from: String(change.from || change.fromState || 'unknown'),
-                to: String(change.to || change.toState || 'unknown'),
-                ...(change.description && { description: String(change.description) }),
-                ...(change.timestamp && { timestamp: new Date(change.timestamp).toISOString() }),
-                severity: ['critical','high','medium','low','none'].includes(change.severity) 
-                    ? change.severity 
+                from: String(change.from || 'unknown'),
+                to: String(change.to || 'unknown'),
+                description: String(change.description || change.message || ''),
+                timestamp: change.timestamp ? new Date(change.timestamp).toISOString() : new Date().toISOString(),
+                severity: ['critical', 'high', 'medium', 'low', 'none'].includes(change.severity)
+                    ? change.severity
                     : 'none'
             };
-        }).filter(change => change.id && change.type && change.from && change.to);
+        }).filter(Boolean);
 
         const metadata = {
             severity: ['critical','high','medium','low','none'].includes(changeResult.severity)
