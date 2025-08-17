@@ -149,16 +149,20 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
     async updateOverviewEmbed(data, changes = null) {
         try {
-            if (!this.areEmbedsReady) return;
-
-            logger.debug('[EmbedManager] Updating overview embed');
-            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
-
             const embed = StatusEmbeds.overviewEmbed(
                 data.network,
                 data.lines,
                 TimeHelpers.currentTime.format('HH:mm')
             );
+
+            if (!this.areEmbedsReady) {
+                logger.info('[EmbedManager] Discord bot not available. Logging overview embed to console.');
+                this._logEmbedToConsole('overview', embed);
+                return;
+            }
+
+            logger.debug('[EmbedManager] Updating overview embed');
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
 
             const message = this.embedMessages.get('overview');
             if (message && embed) {
@@ -219,6 +223,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
                 TimeHelpers.currentTime.format('HH:mm')
             );
 
+            if (!this.areEmbedsReady) {
+                logger.info(`[EmbedManager] Discord bot not available. Logging ${lineKey} embed to console.`);
+                this._logEmbedToConsole(lineKey, embed);
+                return;
+            }
+
             const message = this.embedMessages.get(lineKey);
             if (message && embed) {
                 await this._safeEmbedEdit(message, embed);
@@ -231,6 +241,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     }
 
     // ==================== PRIVATE METHODS ====================
+
+    _logEmbedToConsole(embedName, embed) {
+        console.log(`--- [Embed Log: ${embedName}] ---`);
+        console.log(JSON.stringify(embed.toJSON(), null, 2));
+        console.log(`--- [End Embed Log: ${embedName}] ---`);
+    }
 
     async _fetchEmbedChannel() {
         try {
