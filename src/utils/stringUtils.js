@@ -147,12 +147,12 @@ function getConnectionEmojis(connections) {
   ].filter(e => e).join(' ');
 }
 function getStatusEmoji(statusCode) {
-  // Convert statusCode to a string (since some keys are numbers in stationIcons)
+  // Convert statusCode to a string (since some keys are numbers in statusTypes)
   const statusKey = String(statusCode);
 
-  // Check if the status exists in stationIcons
-  if (metroConfig.stationIcons[statusKey]) {
-    return metroConfig.stationIcons[statusKey].emoji;
+  // Check if the status exists in statusTypes
+  if (metroConfig.statusTypes[statusKey]) {
+    return metroConfig.statusTypes[statusKey].emoji;
   }
 
   // Fallback to 🔵 if status is unknown
@@ -170,7 +170,7 @@ function getRouteEmoji(lineKey, stationName) {
   const cleanName = stationName;
   const routeType = stations[lineKey.toLowerCase()]?.[cleanName]?.ruta?.toLowerCase().replace(/\s+/g, '').replace("ruta", "").replace("ú","u") ;
 
-    const emoji = metroConfig.stationIcons[routeType]?.emoji || '';
+    const emoji = metroConfig.routeStyles[routeType]?.emoji || '';
 
   logDebug('Route emoji for', {
     station: stationName,
@@ -379,7 +379,7 @@ module.exports = {
     }
     if (route) {
       const routeKey = route.toLowerCase().replace(/\s+/g, '');
-      const emoji = metroConfig.stationIcons[routeKey]?.emoji;
+      const emoji = metroConfig.routeStyles[routeKey]?.emoji;
       if (emoji) decorated = `${emoji} ${decorated}`;
     }
     return decorated;

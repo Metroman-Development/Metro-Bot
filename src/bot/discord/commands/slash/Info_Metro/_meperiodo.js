@@ -103,7 +103,7 @@ module.exports = {
             if (hours.isExtended) {
                 embed.addFields({
                     name: '⚠️ Horario extendido',
-                    value: `Servicio extendido hasta **${hours.extension[1]}**\n${metroConfig.stationIcons[5].emoji} ${metroConfig.stationIcons[5].message}`,
+                    value: `Servicio extendido hasta **${hours.extension[1]}**\n${metroConfig.statusTypes['5'].emoji} ${metroConfig.statusTypes['5'].description}`,
                     inline: false
                 });
             }

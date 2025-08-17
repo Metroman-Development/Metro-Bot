@@ -22,7 +22,7 @@ class DiscordBotService {
             },
             icons: {
                 metro: metroConfig.metroLogo.principal,
-                transfer: metroConfig.stationIcons[1].emoji,
+                transfer: metroConfig.statusTypes['2'].emoji,
                 express: metroConfig.linesEmojis.l2, // Using line 2 emoji as default express
                 access: metroConfig.accessCards.bip
             }

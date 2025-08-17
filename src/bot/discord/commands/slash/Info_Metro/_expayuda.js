@@ -18,15 +18,15 @@ module.exports = {
                 .setDescription('Todo lo que necesitas saber sobre el servicio de trenes expresos')
                 .addFields(
                     {
-                        name: `${config.stationIcons.roja.emoji} ${config.stationIcons.roja.message}`,
+                        name: `${config.routeStyles.roja.emoji} ${config.routeStyles.roja.message}`,
                         value: 'Para solo en Estaciones Rojas'
                     },
                     {
-                        name: `${config.stationIcons.verde.emoji} ${config.stationIcons.verde.message}`,
+                        name: `${config.routeStyles.verde.emoji} ${config.routeStyles.verde.message}`,
                         value: 'Para en Estaciones Verdes'
                     },
                     {
-                        name: `${config.stationIcons.comun.emoji} ${config.stationIcons.comun.message}`,
+                        name: `${config.routeStyles.comun.emoji} ${config.routeStyles.comun.message}`,
                         value: '- No hay trenes Ruta Común, sin embargo en estas Estaciones todos los Trenes se detienen\n- Habitualmente son Estaciones con Harto Flujo o Estaciones de Combinación'
                     },
                     {
@@ -44,7 +44,7 @@ ${config.horarioExpreso.morning.join(' - ')}\nTarde: ${config.horarioExpreso.eve
                     },
                     {
                         name: '📌 Cómo Identificarlos',
-                        value: `• ${config.stationIcons.roja.emoji}/${config.stationIcons.verde.emoji} en cabinas\n• Avisos sonoros\n• Letreros en andenes`
+                        value: `• ${config.routeStyles.roja.emoji}/${config.routeStyles.verde.emoji} en cabinas\n• Avisos sonoros\n• Letreros en andenes`
                     },
                     {
                         name: '🔄 Reglas de Trasbordo',

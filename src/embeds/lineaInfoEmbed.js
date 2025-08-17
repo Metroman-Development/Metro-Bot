@@ -7,7 +7,7 @@ const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../config/metro/metroConfig');
 
 function getStatusEmoji(statusCode) {
-    const statusMap = metroConfig.statusMapping;
+    const statusMap = metroConfig.statusTypes;
     return statusMap[statusCode]?.emoji || '⚪';
 }
 
@@ -20,8 +20,8 @@ function create({ lineInfo, lineKey }) {
         .setImage(`attachment://${lineKey}_map.png`)
         .addFields(
             {
-                name: `${metroConfig.stationIcons[lineInfo.status.code]?.emoji || '📊'} Estado`,
-                value: `${getStatusEmoji(lineInfo.status.code)} ${metroConfig.statusMapping[lineInfo.status.code]?.message || lineInfo.status.appMessage || 'Estado desconocido'}`,
+                name: `${metroConfig.statusTypes[lineInfo.status.code]?.emoji || '📊'} Estado`,
+                value: `${getStatusEmoji(lineInfo.status.code)} ${metroConfig.statusTypes[lineInfo.status.code]?.description || lineInfo.status.appMessage || 'Estado desconocido'}`,
                 inline: true
             },
             {

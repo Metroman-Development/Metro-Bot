@@ -21,17 +21,17 @@ class StatusEmbedBuilder {
     // Helper methods for consistent status code handling
     static #getStatusMapping(code) {
         const codeStr = code.toString();
-        return metroConfig.statusMapping[codeStr] || metroConfig.statusMapping['1'];
+        return metroConfig.statusTypes[codeStr] || metroConfig.statusTypes['1'];
     }
 
     static #getStationIcon(code) {
         const codeNum = parseInt(code);
-        return metroConfig.stationIcons[codeNum] || metroConfig.stationIcons[1];
+        return metroConfig.statusTypes[codeNum] || metroConfig.statusTypes[1];
     }
 
     static #getCombIcon(code) {
         const codeNum = parseInt(code);
-        return metroConfig.combIcons[codeNum] || metroConfig.combIcons[1];
+        return metroConfig.statusTypes[codeNum] || metroConfig.statusTypes[2];
     }
 
     static buildOverviewEmbed(networkData = {}, changes = [], metroCore = {}, UI_STRINGS = {}) {
@@ -194,7 +194,7 @@ class StatusEmbedBuilder {
                 
                 return [
                     `🔄 **${transfer.station?.toUpperCase() || 'Transferencia'}:** ${lines}`,
-                    `${transferStatus.emoji} **Estado:** ${transferStatus.message}`,
+                    `${transferStatus.emoji} **Estado:** ${transferStatus.description}`,
                     `• Impacto: ${severityInfo.emoji} ${severityInfo.display}`
                 ].join('\n');
             }).filter(Boolean).join('\n\n');
@@ -223,7 +223,7 @@ class StatusEmbedBuilder {
                 case 'line':
                     return `${time}: ${decorators.decorateLine(change.id, metroCore)} → ${this.#getStatusMapping(change.to).emoji}`;
                 case 'network':
-                    return `${time}: Red → ${metroConfig.NETWORK_STATUS_MAP[parseInt(change.to)]?.emoji || '❓'}`;
+                    return `${time}: Red → ${metroConfig.statusTypes[parseInt(change.to)]?.emoji || '❓'}`;
                 default:
                     return `${time}: ${change.id} → ${this.#getStatusEmoji(change.to)}`;
             }
@@ -341,10 +341,10 @@ class StatusEmbedBuilder {
         const statusCode = data.status?.code || 
                          (data.status === 'partial_outage' ? '3' : 
                           data.status === 'major_outage' ? '2' : '1');
-        const statusInfo = metroConfig.NETWORK_STATUS_MAP[parseInt(statusCode)] || metroConfig.NETWORK_STATUS_MAP[1];
+        const statusInfo = metroConfig.statusTypes[parseInt(statusCode)] || metroConfig.statusTypes[1];
         return {
             emoji: statusInfo.emoji,
-            display: statusInfo.message,
+            display: statusInfo.description,
             color: this.#getColorForStatus(statusCode)
         };
     }

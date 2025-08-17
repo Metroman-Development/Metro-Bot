@@ -5,15 +5,15 @@ class ChangeAnnouncer {
     constructor() {
         this.statusMap = {
             '0' : { 
-                emoji: metroConfig.statusMapping['0'].emoji,
-                text: metroConfig.statusMapping['0'].message,
+                emoji: metroConfig.statusTypes['0'].emoji,
+                text: metroConfig.statusTypes['0'].description,
                 color: '#7289DA',
                 changeTitle: (isStation) => isStation ? 'Estación Cerrada por Horario' : 'Línea Cerrada por Horario',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '1' : { 
-                emoji: metroConfig.statusMapping['1'].emoji,
-                text: metroConfig.statusMapping['1'].message,
+                emoji: metroConfig.statusTypes['1'].emoji,
+                text: metroConfig.statusTypes['1'].description,
                 color: '#00AA00',
                 changeTitle: (isStation) => isStation ? 'Estación Operativa Nuevamente' : 'Línea Operativa Nuevamente',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`,
@@ -27,29 +27,29 @@ class ChangeAnnouncer {
                 victoryEmoji: '🎉'
             },
             '2': { 
-                emoji: metroConfig.statusMapping['2'].emoji,
-                text: metroConfig.statusMapping['2'].message,
+                emoji: metroConfig.statusTypes['5'].emoji,
+                text: metroConfig.statusTypes['5'].description,
                 color: '#FF0000',
                 changeTitle: (isStation) => isStation ? 'Estación Cerrada' : 'Línea Cerrada',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '3' : { 
-                emoji: metroConfig.statusMapping['3'].emoji,
-                text: metroConfig.statusMapping['3'].message,
+                emoji: metroConfig.statusTypes['4'].emoji,
+                text: metroConfig.statusTypes['4'].description,
                 color: '#FFA500',
                 changeTitle: (isStation) => isStation ? 'Accesos Cerrados' : 'Servicio Interrumpido',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '4' : { 
-                emoji: metroConfig.statusMapping['4'].emoji,
-                text: metroConfig.statusMapping['4'].message,
+                emoji: metroConfig.statusTypes['12'].emoji,
+                text: metroConfig.statusTypes['12'].description,
                 color: '#FFFF00',
                 changeTitle: (isStation) => isStation ? 'Demoras en Estación' : 'Demoras en Línea',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '5' : { 
-                emoji: metroConfig.statusMapping['5'].emoji,
-                text: metroConfig.statusMapping['5'].message,
+                emoji: metroConfig.statusTypes['8'].emoji,
+                text: metroConfig.statusTypes['8'].description,
                 color: '#0000FF',
                 changeTitle: (isStation) => isStation ? 'Ruta Extendida' : 'Servicio Extendido',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
@@ -78,8 +78,7 @@ class ChangeAnnouncer {
         if (typeof status === 'object' && status.code) {
             return this.getStatusText(status);
         }
-        return metroConfig.statusMapping[status]?.message || 
-               metroConfig.stationIcons[status]?.message || 
+        return metroConfig.statusTypes[status]?.description ||
                'Desconocido';
     }
 
@@ -113,25 +112,21 @@ class ChangeAnnouncer {
 
     getStatusEmoji(status) {
         if (typeof status === 'object' && status.code) {
-            return metroConfig.statusMapping[status.code]?.emoji || 
-                   metroConfig.stationIcons[status.code]?.emoji || 
+            return metroConfig.statusTypes[status.code]?.emoji ||
                    status.appDescription || 
                    '⚪';
         }
-        return metroConfig.statusMapping[status]?.emoji || 
-               metroConfig.stationIcons[status]?.emoji || 
+        return metroConfig.statusTypes[status]?.emoji ||
                '⚪';
     }
 
     getStatusText(status, isStation = true) {
         if (typeof status === 'object' && status.code) {
             return status.appDescription || 
-                   metroConfig.statusMapping[status.code]?.message || 
-                   metroConfig.stationIcons[status.code]?.message || 
+                   metroConfig.statusTypes[status.code]?.description ||
                    'Desconocido';
         }
-        return metroConfig.statusMapping[status]?.message || 
-               metroConfig.stationIcons[status]?.message || 
+        return metroConfig.statusTypes[status]?.description ||
                'Desconocido';
     }
 
@@ -477,8 +472,8 @@ class ChangeAnnouncer {
         if (station.transfers?.length > 0 && 
             ((typeof currentStatus === 'object' && (currentStatus.code === 2 || currentStatus.code === 3)) || 
             currentStatus === 2 || currentStatus === 3)) {
-            const transferEmoji = metroConfig.combIcons[currentStatus.code]?.emoji || '🚫';
-            stationText += `\n   ↳ ${transferEmoji} **Transbordos:** ${metroConfig.combIcons[currentStatus.code]?.message || 'Combinaciones afectadas'}`;
+            const transferEmoji = metroConfig.statusTypes[currentStatus.code]?.emoji || '🚫';
+            stationText += `\n   ↳ ${transferEmoji} **Transbordos:** ${metroConfig.statusTypes[currentStatus.code]?.description || 'Combinaciones afectadas'}`;
         }
         
         // Add notes if available

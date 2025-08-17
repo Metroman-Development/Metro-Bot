@@ -15,6 +15,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
+const { translateApiData } = require('../../data/dataTranslator');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}) {
@@ -508,7 +509,7 @@ async activateEventOverrides(eventDetails) {
             // PHASE 2e: Handle changes
             if (!this.isFirstTime) {
                 const dbRawData = await this.getDbRawData();
-                this._handleDataChanges(randomizedData, processedData, dbRawData);
+                await this._handleDataChanges(randomizedData, processedData, dbRawData);
             }
             if (fromPrimarySource) {
                 await this.updateDbWithApiData(randomizedData);
@@ -581,9 +582,10 @@ async activateEventOverrides(eventDetails) {
     }
 
     _processData(rawData) {
+        const translatedData = translateApiData(rawData);
         return this.statusProcessor
-            ? this.statusProcessor.processRawAPIData(rawData)
-            : this._basicProcessData(rawData);
+            ? this.statusProcessor.processRawAPIData(translatedData)
+            : this._basicProcessData(translatedData);
     }
 
     _generateNetworkStatus(lines) {
@@ -669,12 +671,34 @@ async activateEventOverrides(eventDetails) {
         return processed;
     }
 
-    _handleDataChanges(rawData, processedData, previousRawData) {
+    async _handleDataChanges(rawData, processedData, previousRawData) {
         const changeResult = this.changeDetector.analyze(rawData, previousRawData);
         if (changeResult.changes?.length > 0) {
             this.changeHistory.unshift(...changeResult.changes);
             this.metrics.changeEvents += changeResult.changes.length;
             this._emitChanges(changeResult, processedData);
+
+            const apiChangesPath = path.join(this.cacheDir, 'apiChanges.json');
+            let apiChanges = [];
+            try {
+                const data = await fsp.readFile(apiChangesPath, 'utf8');
+                apiChanges = JSON.parse(data);
+            } catch (error) {
+                if (error.code !== 'ENOENT') {
+                    logger.error('[ApiService] Failed to read apiChanges.json', { error });
+                }
+            }
+
+            apiChanges.unshift(rawData);
+            if (apiChanges.length > 10) {
+                apiChanges = apiChanges.slice(0, 10);
+            }
+
+            try {
+                await fsp.writeFile(apiChangesPath, JSON.stringify(apiChanges, null, 2), 'utf8');
+            } catch (error) {
+                logger.error('[ApiService] Failed to write apiChanges.json', { error });
+            }
         }
     }
 

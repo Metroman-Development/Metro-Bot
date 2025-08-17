@@ -38,6 +38,53 @@ describe('ApiService', () => {
         apiService = new ApiService(mockMetro, { dbService: mockDbService });
     });
 
+    describe('_processData', () => {
+        it('should translate raw data before processing', () => {
+            const rawData = {
+                lineas: {
+                    l1: {
+                        estado: '1',
+                        estaciones: [
+                            { estado: '1' },
+                            { estado: '2' },
+                        ]
+                    },
+                    l2: {
+                        estado: '2',
+                        estaciones: [
+                            { estado: '3' },
+                        ]
+                    }
+                }
+            };
+
+            const mockStatusProcessor = {
+                processRawAPIData: jest.fn(data => data)
+            };
+            apiService.statusProcessor = mockStatusProcessor;
+
+            apiService._processData(rawData);
+
+            expect(mockStatusProcessor.processRawAPIData).toHaveBeenCalledWith({
+                lineas: {
+                    l1: {
+                        estado: '10',
+                        estaciones: [
+                            { estado: '1' },
+                            { estado: '5' },
+                        ]
+                    },
+                    l2: {
+                        estado: '13',
+                        estaciones: [
+                            { estado: '4' },
+                        ]
+                    }
+                }
+            });
+        });
+    });
+
     it('should add a version to raw data if it is missing', () => {
         const rawData = {
             lines: { l1: { id: 'l1', status: '1' } },
@@ -72,5 +119,28 @@ describe('ApiService', () => {
 
         const emittedPayload = apiService.emit.mock.calls[0][1];
         expect(emittedPayload.data.version).toBe('existing-version-123');
+    });
+
+    describe('_handleDataChanges', () => {
+        it('should save the last 10 api changes to apiChanges.json', async () => {
+            const fsp = require('fs').promises;
+            fsp.readFile = jest.fn().mockResolvedValue(JSON.stringify(new Array(10).fill({})));
+            fsp.writeFile = jest.fn();
+
+            apiService.changeDetector = {
+                analyze: jest.fn().mockReturnValue({ changes: [{ id: 'l1', to: '2' }] })
+            };
+
+            await apiService._handleDataChanges({}, {}, {});
+
+            expect(fsp.writeFile).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.any(String),
+                'utf8'
+            );
+
+            const writtenData = JSON.parse(fsp.writeFile.mock.calls[0][1]);
+            expect(writtenData.length).toBe(10);
+        });
     });
 });

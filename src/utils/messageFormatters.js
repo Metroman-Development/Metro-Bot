@@ -59,9 +59,9 @@ function _processLineKeywords(text) {
     .replace(/\bl7\b/gi, metroConfig.linesEmojis.l7)
     .replace(/\bl8\b/gi, metroConfig.linesEmojis.l8)
     .replace(/\bl9\b/gi, metroConfig.linesEmojis.l9)
-    .replace(/\$verde/gi, metroConfig.stationIcons.verde.emoji)
-    .replace(/\$roja/gi, metroConfig.stationIcons.roja.emoji)
-    .replace(/\$comun/gi, `${metroConfig.stationIcons.comun.emoji}`);
+    .replace(/\$verde/gi, metroConfig.routeStyles.verde.emoji)
+    .replace(/\$roja/gi, metroConfig.routeStyles.roja.emoji)
+    .replace(/\$comun/gi, `${metroConfig.routeStyles.comun.emoji}`);
 }
 
 module.exports = {

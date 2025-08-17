@@ -8,7 +8,7 @@ module.exports = {
     },
     emojis: {
         lines: metroConfig.linesEmojis,
-        status: metroConfig.stationIcons,
+        status: metroConfig.statusTypes,
         logo: metroConfig.logoMetroEmoji
     },
     /*schedule: {
@@ -17,7 +17,7 @@ module.exports = {
         periods: metroConfig.horarioPeriodos
     },*/
     fares: metroConfig.tarifario,
-    statusMapping: metroConfig.statusMapping,
+    statusMapping: metroConfig.statusTypes,
     api: {
         endpoint: metroConfig.apiEndpoint
     }

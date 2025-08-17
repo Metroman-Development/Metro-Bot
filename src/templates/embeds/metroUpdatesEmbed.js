@@ -6,10 +6,10 @@ const { getLineEmoji, decorateStation } = require('../../utils/stringUtils');
 function networkStatusSummary(metroData) {
     const summary = getStatusSummary();
     const networkStatus = getNetworkStatus();
-    const statusInfo = metroConfig.NETWORK_STATUS_MAP[networkStatus] || { emoji: '🔵', message: 'Estado desconocido' };
+    const statusInfo = metroConfig.statusTypes[networkStatus] || { emoji: '🔵', description: 'Estado desconocido' };
 
     const embed = new EmbedBuilder()
-        .setDescription(`${statusInfo.emoji} **${statusInfo.message}**`)
+        .setDescription(`${statusInfo.emoji} **${statusInfo.description}**`)
         .setColor(getStatusColor(networkStatus));
 
     if (networkStatus !== 1) {
@@ -54,7 +54,7 @@ module.exports = {
                 : '😴 El servicio está finalizando. ¡Hasta mañana!')
             .setColor(type === 'start' ? '#00FF00' : '#FF0000')
             .addFields({
-                name: `${metroConfig.stationIcons.comun.emoji} Horario`,
+                name: `${metroConfig.routeStyles.comun.emoji} Horario`,
                 value: `\`\`\`${schedule}\`\`\``
             });
 
@@ -90,7 +90,7 @@ module.exports = {
                 : `Horario ${period} finalizado`)
             .setColor(getStatusColor(period === 'PUNTA' ? 4 : 1))
             .addFields({
-                name: `${metroConfig.stationIcons.comun.emoji} Horario`,
+                name: `${metroConfig.routeStyles.comun.emoji} Horario`,
                 value: `\`\`\`${schedule}\`\`\``
             })
             .setFooter({ text: 'Actualizado' }).setTimestamp();
