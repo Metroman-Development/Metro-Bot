@@ -90,8 +90,13 @@ async function startDiscordBot() {
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
                             if (metroCore._subsystems.statusUpdater && typeof metroCore._subsystems.statusUpdater.updateEmbeds === 'function') {
-                                await metroCore._subsystems.statusUpdater.updateEmbeds();
-                                lastEmbedUpdate = lastUpdated;
+                                const data = metroCore.api.getProcessedData();
+                                if (data) {
+                                    await metroCore._subsystems.statusUpdater.updateEmbeds(data);
+                                    lastEmbedUpdate = lastUpdated;
+                                } else {
+                                    logger.warn('[DISCORD] No data available from getProcessedData, skipping embed update.');
+                                }
                             } else {
                                 logger.warn('[DISCORD] statusUpdater or updateEmbeds method not available.');
                             }
