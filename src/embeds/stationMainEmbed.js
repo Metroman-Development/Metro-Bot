@@ -23,11 +23,11 @@ function create(station, metroData) {
 
     let stationDeco = `${metroConfig.linesEmojis[normalizedStation.line.toLowerCase()] || '🚇'}`;
     if (stationDyna.status?.code) {
-        stationDeco += metroConfig.stationIcons[parseInt(stationDyna.status.code)]?.emoji || 'ℹ️';
+        stationDeco += metroConfig.statusTypes[parseInt(stationDyna.status.code)]?.emoji || 'ℹ️';
     }
     if (normalizedStation.ruta) {
         const rutaKey = normalizedStation.ruta.toLowerCase().replace(/ /g, "").replace("ruta", "").replace("ú", "u");
-        stationDeco += metroConfig.stationIcons[rutaKey]?.emoji || '';
+        stationDeco += metroConfig.routeStyles[rutaKey]?.emoji || '';
     }
 
     const embed = new EmbedBuilder()

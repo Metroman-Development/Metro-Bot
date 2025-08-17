@@ -40,7 +40,6 @@ embedMessageIds: {
 
 },
 
-    // Emojis for each Metro line
     linesEmojis: {
         l1: '<:l1:1362493392084275331>',
 
@@ -91,6 +90,12 @@ embedMessageIds: {
     },
 
     expressLines: [ "l2" , "l4" , "l5"],
+
+    routeStyles: {
+        'comun': { emoji: '<:comun:1348400171578425404>', message: 'Ruta Común' },
+        'roja': { emoji: '<:roja:1348395124627083476>', message: 'Ruta Roja' },
+        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' },
+    },
 
 
 
