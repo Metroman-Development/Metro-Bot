@@ -69,6 +69,11 @@ module.exports = class DataEngine {
         // If dynamic data didn't provide a network object, create a fallback.
         if (!combined.network || typeof combined.network !== 'object' || !combined.network.status) {
             combined.network = this._getNetworkStatus(combined.lines);
+        } else {
+            // Ensure the timestamp field exists for validation, using lastUpdated as a fallback
+            if (!combined.network.timestamp && combined.lastUpdated) {
+                combined.network.timestamp = combined.lastUpdated;
+            }
         }
 
         // Update data managers with the newly combined data
@@ -86,8 +91,9 @@ module.exports = class DataEngine {
     }
 
     _getNetworkStatus(lines) {
+        const now = new Date().toISOString();
         if (!lines || Object.keys(lines).length === 0) {
-            return { status: 'outage', lastUpdated: new Date().toISOString() };
+            return { status: 'outage', timestamp: now, lastUpdated: now };
         }
 
         const lineStatuses = Object.values(lines).map(line => line.status);
@@ -110,9 +116,11 @@ module.exports = class DataEngine {
             overallStatus = 'degraded';
         }
 
+        const now = new Date().toISOString();
         return {
             status: overallStatus,
-            lastUpdated: new Date().toISOString()
+            timestamp: now,
+            lastUpdated: now
         };
     }
 
