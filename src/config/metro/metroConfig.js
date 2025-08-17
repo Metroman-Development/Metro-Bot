@@ -41,6 +41,12 @@ embedMessageIds: {
 },
 
     // Emojis for each Metro line
+    stationIcons: {
+        'redoperativa': {emoji: '<:todalareddisponible:900165185321459773>', message: "Toda la Red Operativa"},
+        'comun': { emoji: '<:comun:1348400171578425404>', message: 'Ruta Común' },
+        'roja': { emoji: '<:roja:1348395124627083476>', message: 'Ruta Roja' },
+        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' },
+    },
     linesEmojis: {
         l1: '<:l1:1362493392084275331>',
 

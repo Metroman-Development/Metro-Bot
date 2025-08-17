@@ -29,15 +29,9 @@ function getEnhancedStationData(station, metroCore) {
 }
 
 function getStatusComponents(station, isTransfer) {
-    
-   //console.log(station.status)
-    
-    
     const statusCode = station.status?.code || station.normalizedStatus || '1';
     return {
-        emoji: isTransfer
-            ? (config.combIcons[statusCode]?.emoji || config.stationIcons[statusCode]?.emoji || '🟩')
-            : (config.stationIcons[parseInt(statusCode)]?.emoji || '🟩'),
+        emoji: config.statusTypes[statusCode]?.emoji || '🟩',
         isTransfer
     };
 }
