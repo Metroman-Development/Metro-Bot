@@ -12,7 +12,7 @@
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `incident_types` (
+CREATE TABLE `incident_types` (
   `incident_type_id` int(11) NOT NULL AUTO_INCREMENT,
   `type_name` varchar(50) NOT NULL,
   `category` enum('safety','technical','health','operational','facility','security','weather','other') NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `incident_types` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `incidents` (
+CREATE TABLE `incidents` (
   `incident_id` int(11) NOT NULL AUTO_INCREMENT,
   `incident_type_id` int(11) NOT NULL,
   `station_id` int(11) DEFAULT NULL,
@@ -49,10 +49,7 @@ CREATE TABLE IF NOT EXISTS `incidents` (
   PRIMARY KEY (`incident_id`),
   KEY `incident_type_id` (`incident_type_id`),
   KEY `station_id` (`station_id`),
-  KEY `line_id` (`line_id`),
-  CONSTRAINT `incidents_ibfk_1` FOREIGN KEY (`incident_type_id`) REFERENCES `incident_types` (`incident_type_id`),
-  CONSTRAINT `incidents_ibfk_2` FOREIGN KEY (`station_id`) REFERENCES `metro_stations` (`station_id`),
-  CONSTRAINT `incidents_ibfk_3` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`)
+  KEY `line_id` (`line_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ;
@@ -62,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `incidents` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `js_status_mapping` (
+CREATE TABLE `js_status_mapping` (
   `js_code` varchar(20) NOT NULL,
   `status_type_id` int(11) NOT NULL,
   `severity_level` tinyint(4) DEFAULT 1,
@@ -78,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `js_status_mapping` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `train_models` (
+CREATE TABLE `train_models` (
   `model_id` varchar(50) NOT NULL,
   `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
   PRIMARY KEY (`model_id`)
@@ -91,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `train_models` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `line_fleet` (
+CREATE TABLE `line_fleet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
   `model_id` varchar(50) NOT NULL,
@@ -109,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `line_fleet` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `line_status` (
+CREATE TABLE `line_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
   `status_type_id` int(11) NOT NULL,
@@ -141,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `line_status` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `loader_raw_data` (
+CREATE TABLE `loader_raw_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `loader_name` varchar(50) NOT NULL COMMENT 'stationLoader/lineLoader/etc',
   `data_key` varchar(100) NOT NULL COMMENT 'Original filename/key',
@@ -161,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `loader_raw_data` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `metro_lines` (
+CREATE TABLE `metro_lines` (
   `line_id` varchar(10) NOT NULL,
   `line_name` varchar(50) NOT NULL,
   `line_color` varchar(20) DEFAULT NULL,
@@ -195,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `metro_lines` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `metro_stations` (
+CREATE TABLE `metro_stations` (
   `station_id` int(11) NOT NULL AUTO_INCREMENT,
   `line_id` varchar(10) NOT NULL,
   `station_code` varchar(20) NOT NULL COMMENT 'Should be uppercase',
@@ -234,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `metro_stations` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `operational_status_types` (
+CREATE TABLE `operational_status_types` (
   `status_type_id` int(11) NOT NULL AUTO_INCREMENT,
   `status_name` varchar(50) NOT NULL,
   `status_description` varchar(255) DEFAULT NULL,
@@ -256,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `operational_status_types` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `station_status` (
+CREATE TABLE `station_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
   `station_id` int(11) NOT NULL,
   `status_type_id` int(11) NOT NULL,
@@ -282,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `station_status` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `station_status_history` (
+CREATE TABLE `station_status_history` (
   `history_id` int(11) NOT NULL AUTO_INCREMENT,
   `status_id` int(11) NOT NULL,
   `station_id` int(11) NOT NULL,
@@ -308,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `station_status_history` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `system_info` (
+CREATE TABLE `system_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `system` varchar(255) DEFAULT NULL,
@@ -332,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `system_info` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `intermodal_stations` (
+CREATE TABLE `intermodal_stations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `services` text DEFAULT NULL,
@@ -348,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `intermodal_stations` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `intermodal_buses` (
+CREATE TABLE `intermodal_buses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `station_id` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
@@ -362,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `intermodal_buses` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `status_overrides` (
+CREATE TABLE `status_overrides` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `target_type` enum('line','station','system') NOT NULL,
   `target_id` varchar(255) NOT NULL,
@@ -379,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `status_overrides` (
 ;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `status_change_log` (
+CREATE TABLE `status_change_log` (
   `log_id` int(11) NOT NULL AUTO_INCREMENT,
   `station_id` int(11) DEFAULT NULL,
   `line_id` varchar(10) DEFAULT NULL,
@@ -406,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `status_change_log` (
 /*!40000 ALTER TABLE `status_change_log`  */;
 /*!40000 ALTER TABLE `status_change_log`  */;
 ;
-CREATE TABLE IF NOT EXISTS `network_status` (
+CREATE TABLE `network_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `network_status_summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`network_status_summary`)),
   `fare_period` varchar(50) DEFAULT NULL,
@@ -414,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `network_status` (
   `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-CREATE TABLE IF NOT EXISTS `accessibility_status` (
+CREATE TABLE `accessibility_status` (
   `equipment_id` varchar(255) NOT NULL,
   `station_code` varchar(255) NOT NULL,
   `line_id` varchar(10) NOT NULL,
@@ -425,7 +422,7 @@ CREATE TABLE IF NOT EXISTS `accessibility_status` (
   PRIMARY KEY (`equipment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `scheduled_status_overrides` (
+CREATE TABLE `scheduled_status_overrides` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `target_type` enum('line','station','system') NOT NULL,
   `target_id` varchar(255) NOT NULL,
@@ -442,6 +439,10 @@ CREATE TABLE IF NOT EXISTS `scheduled_status_overrides` (
   KEY `start_at` (`start_at`),
   KEY `end_at` (`end_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+ALTER TABLE `incidents` ADD CONSTRAINT `incidents_ibfk_1` FOREIGN KEY (`incident_type_id`) REFERENCES `incident_types` (`incident_type_id`);
+ALTER TABLE `incidents` ADD CONSTRAINT `incidents_ibfk_2` FOREIGN KEY (`station_id`) REFERENCES `metro_stations` (`station_id`);
+ALTER TABLE `incidents` ADD CONSTRAINT `incidents_ibfk_3` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`);
 ;
 /*!50001 DROP VIEW IF EXISTS `vw_lines_with_jsdata`*/;
 SET @saved_cs_client     = @@character_set_client;

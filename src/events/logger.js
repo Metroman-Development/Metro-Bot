@@ -18,13 +18,19 @@ let debugMode = true;
 function logErrorToFile(error, metadata = {}) {
     try {
         const timestamp = new Date().toISOString();
-        const logFileName = path.join(ERROR_LOG_DIR, `error.log`);
-        
+        const logFileName = path.join(ERROR_LOG_DIR, 'error.log');
+        const oldLogFileName = path.join(ERROR_LOG_DIR, 'error.log.old');
+
+        // If the log file exists, rotate it
+        if (fs.existsSync(logFileName)) {
+            fs.renameSync(logFileName, oldLogFileName);
+        }
+
         const logContent = `[${timestamp}] ERROR: ${error.name}: ${error.message}\n` +
-                           `Stack: ${error.stack}\n` +
-                           `Metadata: ${JSON.stringify(metadata, null, 2)}\n\n`;
-        
-        fs.appendFileSync(logFileName, logContent);
+            `Stack: ${error.stack}\n` +
+            `Metadata: ${JSON.stringify(metadata, null, 2)}\n\n`;
+
+        fs.writeFileSync(logFileName, logContent); // Use writeFileSync to create a new file
     } catch (fileError) {
         console.error(`Failed to write error log to file: ${fileError.message}`);
     }
@@ -106,9 +112,13 @@ function getCallerInfo() {
 // Format the log message
 function formatLog(level, message, metadata = {}) {
     const timestamp = new Date().toISOString();
-    const { fileName, lineNumber, functionName } = getCallerInfo();
-    return `[${timestamp}] [${level}] [${fileName}:${lineNumber}] [${functionName}] ${message}` +
-           (Object.keys(metadata).length > 0 ? `\nMetadata: ${JSON.stringify(metadata, null, 2)}` : '');
+    let callerInfo = '';
+    if (debugMode) {
+        const { fileName, lineNumber, functionName } = getCallerInfo();
+        callerInfo = `[${fileName}:${lineNumber}] [${functionName}] `;
+    }
+    return `[${timestamp}] [${level}] ${callerInfo}${message}` +
+        (Object.keys(metadata).length > 0 ? `\nMetadata: ${JSON.stringify(metadata, null, 2)}` : '');
 }
 
 // Logger functions
