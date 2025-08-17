@@ -26,25 +26,17 @@ class ChangeDetector {
      * @param {Object} newData - The new data to analyze
      * @returns {Object} - Change detection result with metadata and changes
      */
-    analyze(newData, oldData=null) {
-        
-        /*if(!this.lastData){
-            
-            this.lastData = newData
-            
-            }*/
-        
-       // console.log(this.lastData)
-           
-        
+    analyze(newData, oldData = null) {
         try {
-        if (!newData || typeof newData !== 'object') {
-                console.log('Invalid data provided for analysis');
+            if (!newData || typeof newData !== 'object') {
+                logger.warn('[ChangeDetector] Invalid data provided for analysis');
             }
 
+            const referenceData = oldData || this.lastData;
+
             // Detect changes and update network status
-            let changes = this._detectChanges(newData);
-            
+            let changes = this._detectChanges(newData, referenceData);
+
             this._updateNetworkStatus(newData, changes);
             this._updateLastStates(newData);
 
@@ -66,15 +58,15 @@ class ChangeDetector {
      * Detects changes between current and new data
      * @private
      */
-    _detectChanges(newData) {
+    _detectChanges(newData, referenceData) {
         const changes = [];
-        const isInitialRun = this.lastData === null;
+        const isInitialRun = !referenceData || Object.keys(referenceData).length === 0;
 
         Object.entries(newData).forEach(([lineId, lineData]) => {
             if (!this._isValidLineId(lineId)) return;
 
             // Process line changes
-            const previousLine = this.lastData?.[lineId];
+            const previousLine = referenceData?.[lineId];
             const fromState = previousLine?.estado ?? 'unknown';
             const toState = lineData.estado ?? 'unknown';
 
@@ -92,10 +84,11 @@ class ChangeDetector {
                 changes,
                 lineId,
                 lineData.estaciones || [],
+                referenceData,
                 isInitialRun
             );
         });
-        
+
         this.latestChanges = changes;
 
         return changes;
@@ -111,43 +104,40 @@ class ChangeDetector {
      * Processes station-level changes
      * @private
      */
-    _processStationChanges(changes, lineId, stations, isInitialRun) {
-    stations.forEach(station => {
-        const stationId = station.codigo?.toLowerCase();
-        if (!stationId) return;
+    _processStationChanges(changes, lineId, stations, referenceData, isInitialRun) {
+        stations.forEach(station => {
+            const stationId = station.codigo?.toLowerCase();
+            if (!stationId) return;
 
-        // First try to find the station in lastData
-        let fromState = 'unknown';
-        if (this.lastData && this.lastData[lineId]) {
-            const previousStation = (this.lastData[lineId].estaciones || [])
-                .find(s => s.codigo?.toLowerCase() === stationId);
-            if (previousStation) {
-                fromState = previousStation.estado ?? 'unknown';
+            // First try to find the station in referenceData
+            let fromState = 'unknown';
+            if (referenceData && referenceData[lineId]) {
+                const previousStation = (referenceData[lineId].estaciones || [])
+                    .find(s => s.codigo?.toLowerCase() === stationId);
+                if (previousStation) {
+                    fromState = previousStation.estado ?? 'unknown';
+                }
             }
-        }
-        
-        // Fall back to lastStationStates if not found in lastData
-        if (fromState === 'unknown' && this.lastStationStates.has(stationId)) {
-            fromState = this.lastStationStates.get(stationId).estado ?? 'unknown';
-            
-            if (fromState === "unknown") return;
-            
-        }
 
-        const toState = station.estado ?? 'unknown';
+            // Fall back to lastStationStates if not found in referenceData
+            if (fromState === 'unknown' && this.lastStationStates.has(stationId)) {
+                fromState = this.lastStationStates.get(stationId).estado ?? 'unknown';
+            }
 
-        if (fromState !== toState) {
-            changes.push(this._createStationChange(
-                stationId,
-                station.nombre || `Station ${stationId}`,
-                lineId,
-                fromState,
-                toState,
-                station.descripcion || ''
-            ));
-        }
-    });
-}
+            const toState = station.estado ?? 'unknown';
+
+            if (isInitialRun || fromState !== toState) {
+                changes.push(this._createStationChange(
+                    stationId,
+                    station.nombre || `Station ${stationId}`,
+                    lineId,
+                    fromState,
+                    toState,
+                    station.descripcion || ''
+                ));
+            }
+        });
+    }
 
     /**
      * Updates the cached network status
