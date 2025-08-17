@@ -188,10 +188,10 @@ async function loadLineFleet(conn, linesData) {
         if (line.Flota) {
             for (const modelId of line.Flota) {
                 const query = `
-                    INSERT INTO line_fleet (line_id, model_id, fleet_data)
-                    VALUES (?, ?, ?)
+                    INSERT INTO line_fleet (line_id, model_id)
+                    VALUES (?, ?)
                 `;
-                await conn.query(query, [lineId.toLowerCase(), modelId, '{}']);
+                await conn.query(query, [lineId.toLowerCase(), modelId]);
                 console.log(`Associated fleet ${modelId} with line ${lineId}`);
             }
         }

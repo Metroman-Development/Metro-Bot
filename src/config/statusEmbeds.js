@@ -1,4 +1,5 @@
 const metroConfig = require('./metro/metroConfig.js');
+const logger = require('../events/logger');
 
 const styles = require('./styles.json');
 
@@ -71,6 +72,7 @@ module.exports = {
     },
 
     lineEmbed: (lineData, allStations, timestamp) => {
+        logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
         if (!lineData || !allStations) {
             return {
                 title: '🚇 Estado de la Línea',
@@ -97,7 +99,10 @@ module.exports = {
 
         const stationFields = lineData.stations.reduce((acc, stationId) => {
             const station = allStations[stationId];
-            if (!station) return acc;
+            if (!station) {
+                logger.warn(`[EmbedManager] Station not found: ${stationId}`);
+                return acc;
+            }
 
             const lastField = acc[acc.length - 1];
             const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
@@ -117,9 +122,12 @@ module.exports = {
             let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
             if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
 
-            if (lastField?.value.length + stationText.length < 1024) {
+            logger.info(`[EmbedManager] Line: ${lineData.id}, Station: ${stationName}, Text length: ${stationText.length}`);
+
+            if (lastField?.value.length + stationText.length + 1 < 1024) {
                 lastField.value += `\n${stationText}`;
             } else {
+                logger.info(`[EmbedManager] Creating new field for line ${lineData.id}. Current field length: ${lastField.value.length}`);
                 acc.push({ name: 'Estaciones', value: stationText, inline: false });
             }
             return acc;

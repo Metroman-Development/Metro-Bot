@@ -111,7 +111,7 @@ async function startDiscordBot() {
         discordScheduler.start();
 
     } catch (error) {
-        logger.warn(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}.`);
+        logger.fatal(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. Exiting...`, error);
         // In a subprocess, we should exit if we can't connect to Discord
         process.exit(1);
     }
