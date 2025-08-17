@@ -6,26 +6,6 @@ const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
 
-function _transformToRawStation(station) {
-    return {
-        codigo: station.id,
-        nombre: station.name,
-        estado: station.status,
-        descripcion: station.description,
-        descripcion_app: station.description_app,
-        combinacion: station.transfer || '',
-    };
-}
-
-function _transformToRawLine(line) {
-    return {
-        estado: line.status,
-        mensaje: line.message,
-        mensaje_app: line.message_app,
-        estaciones: line.stations?.map(_transformToRawStation) || [],
-    };
-}
-
 class EmbedManager {
     constructor(statusUpdater) {
         this.parent = statusUpdater;
@@ -170,20 +150,13 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async updateOverviewEmbed(data, changes = null) {
         try {
             if (!this.areEmbedsReady) return;
-            
+
             logger.debug('[EmbedManager] Updating overview embed');
             this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
-            
-            // Transform processed data to raw API structure for the embed function
-            const rawLines = {};
-            if (data && data.lines) {
-                for (const lineKey in data.lines) {
-                    rawLines[lineKey] = _transformToRawLine(data.lines[lineKey]);
-                }
-            }
 
             const embed = StatusEmbeds.overviewEmbed(
-                rawLines,
+                data.network,
+                data.lines,
                 TimeHelpers.currentTime.format('HH:mm')
             );
 
@@ -240,15 +213,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         try {
             const lineKey = lineData.id.toLowerCase();
 
-            // Transform processed line data to raw API structure
-            const rawLineData = _transformToRawLine(lineData);
-
             const embed = StatusEmbeds.lineEmbed(
-                lineKey,
-                rawLineData,
+                lineData,
+                lineData._allStations,
                 TimeHelpers.currentTime.format('HH:mm')
             );
-            
+
             const message = this.embedMessages.get(lineKey);
             if (message && embed) {
                 await this._safeEmbedEdit(message, embed);
