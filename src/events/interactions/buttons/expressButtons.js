@@ -11,17 +11,17 @@ const STATIONS_PER_PAGE = 10;
 
 function getRouteTypes() {
     return {
-        todas: { label: 'Todas', style: ButtonStyle.Primary, emoji: metroConfig.stationIcons.redoperativa.emoji, exclusive: true },
-        verde: { label: 'Verde', style: ButtonStyle.Success, emoji: metroConfig.stationIcons.verde.emoji, filter: (s) => s.ruta === 'Ruta Verde' },
-        roja: { label: 'Roja', style: ButtonStyle.Danger, emoji: metroConfig.stationIcons.roja.emoji, filter: (s) => s.ruta === 'Ruta Roja' },
-        comun: { label: 'Común', style: ButtonStyle.Secondary, emoji: metroConfig.stationIcons.comun.emoji, filter: (s) => !s.ruta || s.ruta === 'Común' },
+        todas: { label: 'Todas', style: ButtonStyle.Primary, emoji: '🌐', exclusive: true },
+        verde: { label: 'Verde', style: ButtonStyle.Success, emoji: metroConfig.routeStyles.verde.emoji, filter: (s) => s.ruta === 'Ruta Verde' },
+        roja: { label: 'Roja', style: ButtonStyle.Danger, emoji: metroConfig.routeStyles.roja.emoji, filter: (s) => s.ruta === 'Ruta Roja' },
+        comun: { label: 'Común', style: ButtonStyle.Secondary, emoji: metroConfig.routeStyles.comun.emoji, filter: (s) => !s.ruta || s.ruta === 'Común' },
     };
 }
 
 function getStationEmoji(station) {
-    if (!station.ruta) return metroConfig.stationIcons.comun.emoji;
+    if (!station.ruta) return metroConfig.routeStyles.comun.emoji;
     const routeType = station.ruta.toLowerCase().replace('ruta ', '');
-    return metroConfig.stationIcons[routeType]?.emoji || metroConfig.stationIcons.comun.emoji;
+    return metroConfig.routeStyles[routeType]?.emoji || metroConfig.routeStyles.comun.emoji;
 }
 
 function getCurrentStations(cacheData) {

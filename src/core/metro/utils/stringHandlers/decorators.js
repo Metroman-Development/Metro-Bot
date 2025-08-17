@@ -40,7 +40,7 @@ function getRouteEmoji(routeType) {
    
    // console.log("Hols ", routeType) 
     const routeKey = routeType.toLowerCase().replace("ruta ", "").replace("ú", "u");
-    return config.stationIcons[routeKey]?.emoji || '';
+    return config.routeStyles[routeKey]?.emoji || '';
 }
 
 function getLineEmoji(station, metroCore) {

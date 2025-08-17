@@ -112,7 +112,7 @@ module.exports = {
 
             const lineEmoji = metroConfig.linesEmojis?.[lowercaseLineKey] || '';
 
-            const statusConfig = metroConfig.statusMapping?.[lineData.estado] || {};
+            const statusConfig = metroConfig.statusTypes?.[lineData.estado] || {};
 
             // Check if the line is in "Cierre por Horario" (using mensaje_app)
 
@@ -122,7 +122,7 @@ module.exports = {
 
                 ? `🌙 ${lineData.mensaje_app}`
 
-                : lineData.mensaje_app || statusConfig.message || 'Estado desconocido';
+                : lineData.mensaje_app || statusConfig.description || 'Estado desconocido';
 
             return {
 
@@ -200,15 +200,15 @@ module.exports = {
 
     const statusConfig = lineData.estado === '0'
 
-        ? { emoji: '🌙', message: 'Cierre por Horario' }
+        ? { emoji: '🌙', description: 'Cierre por Horario' }
 
-        : metroConfig.statusMapping?.[lineData.estado] || {};
+        : metroConfig.statusTypes?.[lineData.estado] || {};
 
     return {
 
         title: `${lineEmoji} Línea ${displayLineKey}`,
 
-        description: `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.message || 'Estado desconocido'}`,
+        description: `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`,
 
         color: hexToInt(lineColor),
 
@@ -230,19 +230,7 @@ module.exports = {
 
             // Get base status icon
 
-            let stationIcon;
-
-            switch (station.estado) {
-
-                case '1': stationIcon = metroConfig.stationIcons.operativa?.emoji || '✅'; break;
-
-                case '2': stationIcon = metroConfig.stationIcons.cerrada?.emoji || '🟥'; break;
-
-                case '3': stationIcon = metroConfig.stationIcons.parcial?.emoji || '🟨'; break;
-
-                default: stationIcon = '❓';
-
-            }
+            let stationIcon = metroConfig.statusTypes[station.estado]?.emoji || '❓';
 
             // Add 🌙 prefix if in "Cierre por Horario"
 
@@ -254,7 +242,7 @@ module.exports = {
 
             let rutaKey = stationRuta?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
 
-            const rutaIcon = metroConfig.stationIcons[rutaKey]?.emoji || '';
+            const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
 
             // Get combinación emoji
 

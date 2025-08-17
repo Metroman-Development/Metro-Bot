@@ -66,14 +66,11 @@ module.exports = {
      * @returns {string} The formatted legend.
      */
     generateNetworkLegend() {
+        const lineStatuses = Object.values(metroConfig.statusTypes).filter(s => s.name.includes('Línea') || ['operativa', 'lenta', 'retrasos', 'parcial', 'suspendida'].includes(s.name));
+        const legend = lineStatuses.map(s => `${s.emoji} = ${s.description}`);
         return [
-            '**🚇 Estados de Red:**',
-            `${metroConfig.NETWORK_STATUS_MAP[1].emoji} = ${metroConfig.NETWORK_STATUS_MAP[1].message}`,
-            `${metroConfig.NETWORK_STATUS_MAP[0].emoji} = ${metroConfig.NETWORK_STATUS_MAP[0].message}`,
-            `${metroConfig.NETWORK_STATUS_MAP[3].emoji} = ${metroConfig.NETWORK_STATUS_MAP[3].message}`,
-            `${metroConfig.NETWORK_STATUS_MAP[2].emoji} = ${metroConfig.NETWORK_STATUS_MAP[2].message}`,
-            `${metroConfig.NETWORK_STATUS_MAP[4].emoji} = ${metroConfig.NETWORK_STATUS_MAP[4].message}`,
-            `${metroConfig.NETWORK_STATUS_MAP[5].emoji} = ${metroConfig.NETWORK_STATUS_MAP[5].message}`
+            '**🚇 Estados de Red (Líneas):**',
+            ...legend
         ].join('\n');
     },
 
@@ -82,22 +79,11 @@ module.exports = {
      * @returns {string} The formatted legend.
      */
     generateStationsLegend() {
+        const stationStatuses = Object.values(metroConfig.statusTypes).filter(s => !s.name.includes('Línea') && !['operativa', 'lenta', 'retrasos', 'parcial', 'suspendida'].includes(s.name));
+        const legend = stationStatuses.map(s => `${s.emoji} = ${s.description}`);
         return [
             '**🚉 Estados de Estación:**',
-            '*(Estación Simple)*',
-            `${metroConfig.stationIcons[1].emoji} = ${metroConfig.stationIcons[1].message}`,
-            `${metroConfig.stationIcons[2].emoji} = ${metroConfig.stationIcons[2].message}`,
-            `${metroConfig.stationIcons[3].emoji} = ${metroConfig.stationIcons[3].message}`,
-            `${metroConfig.stationIcons[4].emoji} = ${metroConfig.stationIcons[4].message}`,
-            `${metroConfig.stationIcons[5].emoji} = ${metroConfig.stationIcons[5].message}`,
-            `${metroConfig.stationIcons[0].emoji} = ${metroConfig.stationIcons[0].message}`,
-            '',
-            '*(Estación de Combinación)*',
-            `${metroConfig.combIcons[1].emoji} = ${metroConfig.combIcons[1].message}`,
-            `${metroConfig.combIcons[2].emoji} = ${metroConfig.combIcons[2].message}`,
-            `${metroConfig.combIcons[3].emoji} = ${metroConfig.combIcons[3].message}`,
-            `${metroConfig.combIcons[5].emoji} = ${metroConfig.combIcons[5].message}`,
-            `${metroConfig.combIcons[0].emoji} = ${metroConfig.combIcons[0].message}`
+            ...legend
         ].join('\n');
     },
 
