@@ -2,67 +2,89 @@
 
 Este documento describe el flujo de datos de la aplicación, desde la obtención de datos de la API hasta su salida final. Incluye detalles sobre la fuente de datos, el esquema, el procesamiento y el uso.
 
-## 1. Fuente de Datos
+## 1. Flujo de Datos
 
-Esta sección describe cómo la aplicación obtiene los datos de la API de Metro.
+Esta sección describe el flujo de datos de la aplicación, desde la obtención de datos de la API hasta su almacenamiento y procesamiento.
 
-La configuración para la API de Metro se encuentra en `src/core/metro/apiConfig.js`. Este archivo exporta un objeto `metroApiConfig` que construye la URL para las solicitudes a la API.
+### 1.1. Obtención de Datos
 
-### Configuración de la API
+El servicio `EstadoRedService.js`, ubicado en `src/core/metro/core/services/`, es responsable de obtener los datos del estado de la red de Metro. Este servicio utiliza el siguiente endpoint de la API:
 
-El objeto `metroApiConfig` tiene la siguiente estructura:
+- **URL:** `https://www.metro.cl/api/estadoRedDetalle.php`
 
-- `baseUrl`: La URL base de la API, obtenida de la variable de entorno `METRO_API_BASE_URL`.
-- `path`: La ruta de la API, obtenida de la variable de entorno `METRO_API_PATH`.
-- `defaultDay`: El día predeterminado para la consulta, obtenido de la variable de entorno `METRO_API_DEFAULT_DAY`.
-- `paramOrder`: Un array con el orden de los parámetros, obtenido de la variable de entorno `METRO_API_PARAMS`.
+El `EstadoRedService.js` también gestiona una caché local de los datos para evitar solicitudes innecesarias a la API y para proporcionar datos de respaldo en caso de que la API no esté disponible.
 
-### Construcción de la URL
+### 1.2. Procesamiento y Transformación
 
-La URL se construye utilizando la función `buildUrl(startCode, endCode, farePeriod)`. Esta función toma los siguientes parámetros:
+El `ApiService.js` (`src/core/metro/core/services/`) orquesta el procesamiento de los datos. Recibe los datos brutos de `EstadoRedService.js` y realiza los siguientes pasos:
 
-- `startCode`: El código de la estación de inicio.
-- `endCode`: El código de la estación de fin.
-- `farePeriod`: El período tarifario.
+1.  **Traducción de Datos:** Los datos brutos de la API son pasados al `dataTranslator.js` (`src/core/metro/data/`). Este traductor mapea los códigos de estado de la API a los códigos de estado internos de la aplicación.
+2.  **Procesamiento de Estado:** Los datos traducidos son procesados por el `StatusProcessor` para determinar el estado general de la red y de cada componente.
+3.  **Actualización de la Base de Datos:** Los datos procesados se utilizan para actualizar las tablas `metro_lines` y `metro_stations` en la base de datos.
 
-La función construye la URL con los parámetros en el orden especificado en `paramOrder`.
+### 1.3. Almacenamiento en Base de Datos
 
-**Ejemplo de URL:**
+Los datos del estado de la red se almacenan en la base de datos `MetroDB` para su consulta y persistencia. Las tablas principales involucradas son:
 
-```
-https://api.metro.cl/v1/ruta?estacion_inicio=SP&estacion_fin=LD&dia=L&periodo=P
-```
+-   `metro_lines`: Almacena el estado de cada línea.
+-   `metro_stations`: Almacena el estado de cada estación.
 
-## 2. Esquema de Datos
+## 2. Esquema y Códigos de Estado
 
-Esta sección proporciona una descripción detallada de la estructura de los datos, incluido el formato JSON de la API y el esquema de la base de datos correspondiente.
+### 2.1. Esquema del JSON de la API (`estadoRedDetalle.php`)
 
-### Esquema del JSON `estadoRed.json`
+El JSON devuelto por la API tiene la siguiente estructura:
 
-El archivo `estadoRed.json` contiene el estado de la red de metro. La estructura principal es un objeto donde cada clave es el ID de una línea (por ejemplo, "l1", "l2", etc.).
+-   **Claves de Línea:** El objeto principal contiene claves para cada línea (ej. `l1`, `l2`).
+-   **Objeto de Línea:** Cada línea tiene un `estado`, `mensaje`, `mensaje_app`, y un array de `estaciones`.
+-   **Objeto de Estación:** Cada estación tiene `nombre`, `codigo`, `estado`, `combinacion`, `descripcion`, y `descripcion_app`.
 
-Cada objeto de línea tiene la siguiente estructura:
+### 2.2. Códigos de Estado de la API
 
-- `estado`: El estado de la línea.
-  - `1`: Operativa.
-  - `0`: No operativa.
-- `mensaje`: Un mensaje descriptivo del estado.
-- `mensaje_app`: Un mensaje para la aplicación.
-- `estaciones`: Un array de objetos, donde cada objeto representa una estación de la línea.
+La API de `estadoRed` utiliza los siguientes códigos de estado:
 
-Cada objeto de estación tiene la siguiente estructura:
+#### Estaciones
 
-- `nombre`: El nombre de la estación.
-- `codigo`: El código de la estación.
-- `estado`: El estado de la estación.
-  - `1`: Operativa.
-  - `0`: No operativa.
-- `combinacion`: El ID de la línea con la que tiene combinación.
-- `descripcion`: Una descripción del estado de la estación.
-- `descripcion_app`: Una descripción para la aplicación.
-- `mensaje`: Un mensaje adicional.
+| Código | Significado |
+| :----: | ----------- |
+| `1` | Abierta |
+| `2` | Cerrada |
+| `3` | Accesos controlados |
+| `4` | Accesos parciales |
 
-### Esquema de la Base de Datos
+#### Líneas
+
+| Código | Significado |
+| :----: | ----------- |
+| `1` | Operacional |
+| `2` | Algunas estaciones cerradas |
+| `3` | Servicio parcial |
+| `4` | Retrasos |
+
+### 2.3. Mapeo de Códigos de Estado
+
+Los códigos de estado de la API son mapeados a códigos de estado internos de la aplicación a través del `dataTranslator.js`. A continuación se muestra el mapeo:
+
+#### Estaciones
+
+| Código API | Código Interno | Significado |
+| :--------: | :------------: | ----------- |
+| `1` | `1` | Abierta |
+| `2` | `5` | Cerrada |
+| `3` | `4` | Accesos parciales |
+
+#### Líneas
+
+| Código API | Código Interno | Significado |
+| :--------: | :------------: | ----------- |
+| `1` | `10` | Operativa |
+| `2` | `13` | Parcial |
+| `3` | `13` | Parcial |
+| `4` | `12` | Retrasos |
+
+Los códigos de estado internos se definen en `src/config/metro/metroConfig.js`.
+
+### 2.4. Esquema de la Base de Datos
 
 La base de datos `MetroDB` contiene varias tablas para almacenar la información de la red de metro. A continuación, se describen las tablas más relevantes.
 
