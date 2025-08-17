@@ -50,8 +50,9 @@ module.exports = {
                 ? `🌙 Cierre por Horario`
                 : line.message || statusConfig.description || 'Estado desconocido';
 
+            const lineName = line.displayName || line.name || '';
             return {
-                name: `${lineEmoji} Línea ${line.name.replace('Línea ', '')}`,
+                name: `${lineEmoji} Línea ${lineName.replace('Línea ', '')}`,
                 value: `${statusConfig.emoji || '❓'} ${lineStatus}`,
                 inline: true
             };
@@ -85,7 +86,8 @@ module.exports = {
         const lineKey = lineData.id.toLowerCase();
         const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
         const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
-        const displayLineKey = lineData.name.replace('Línea ', '');
+        const lineName = lineData.displayName || lineData.name || '';
+        const displayLineKey = lineName.replace('Línea ', '');
 
         const statusConfig = metroConfig.statusTypes?.[lineData.status] || {};
         const isClosed = lineData.status === '0' || lineData.message?.includes('Cierre por Horario');
