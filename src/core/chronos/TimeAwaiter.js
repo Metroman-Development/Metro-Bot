@@ -39,10 +39,10 @@ class TimeAwaiter {
             const isEventActive = this.timeHelpers.isSpecialEventActive();
             if (eventDetails) {
                 if (isEventActive && !this._lastEventDay) {
-                    await apiService.prepareEventOverrides(eventDetails);
+                    await this.metroCore._subsystems.statusOverrideService.prepareEventOverrides(eventDetails);
                 } 
                 else if (!isEventActive && this._lastEventDay) {
-                    await apiService.cleanupEventOverridesIfNeeded(eventDetails);
+                    await this.metroCore._subsystems.statusOverrideService.cleanupEventOverrides();
                 }
                 this._lastEventDay = isEventActive;
             }
@@ -50,7 +50,6 @@ class TimeAwaiter {
             // 2. EXTENDED HOURS HANDLING
             const isExtendedHours = current.farePeriod === 'EXTENDED';
             if (isExtendedHours && !this._lastExtendedHours) {
-                await apiService.activateEventOverrides(eventDetails);
                 this._handleExtendedHoursTransition(true);
             } 
             else if (!isExtendedHours && this._lastExtendedHours) {
@@ -94,12 +93,6 @@ class TimeAwaiter {
             // Update state trackers
             this._lastState = current;
             this._lastExpressState = currentExpress;
-
-            // 6. SAFETY CLEANUP
-            if (!eventDetails && (Object.keys(this._lastOverrides?.lines || {}).length > 0 || 
-                                Object.keys(this._lastOverrides?.stations || {}).length > 0)) {
-                await apiService.cleanupEventOverridesIfNeeded();
-            }
 
         } catch (error) {
             console.error('[TimeAwaiter] Error in checkTime:', error);

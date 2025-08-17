@@ -15,6 +15,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
+const DataProcessor = require('./DataProcessor');
 const { translateApiData } = require('../../data/dataTranslator');
 
 class ApiService extends EventEmitter {
@@ -67,6 +68,7 @@ class ApiService extends EventEmitter {
         this.override = this.metro._subsystems.statusOverrideService;
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
+        this.dataProcessor = new DataProcessor(this.statusProcessor);
         this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
 
         if (!options.dbService) {
@@ -97,8 +99,6 @@ class ApiService extends EventEmitter {
             getProcessedData: this.getProcessedData.bind(this),
             getCachedData: () => Object.freeze({...this.cachedData}),
             
-            prepareEventOverrides: async (eventDetails) => await this.prepareEventOverrides(eventDetails), 
-            
             // Status information
             status: this.getSystemStatus.bind(this),
             metrics: this.getMetrics.bind(this),
@@ -111,16 +111,6 @@ class ApiService extends EventEmitter {
                 subscribe: (listener) => this.on(EventRegistry.CHANGES_DETECTED, listener),
                 unsubscribe: (listener) => this.off(EventRegistry.CHANGES_DETECTED, listener)
             }),
-            
-            // Configuration
-            reloadOverrides: async () => {
-                const result = await this.override.loadOverrides();
-                return { 
-                    success: result, 
-                    timestamp: new Date(),
-                    overrides: this.override.getOverrides()
-                };
-            },
             
             // Control methods
             startPolling: this.startPolling.bind(this),
@@ -152,272 +142,12 @@ class ApiService extends EventEmitter {
                 
            
       }
-   
-    // Add to ApiService class
-
-/**
- * Gets the override service instance
- * @returns {ApiServiceOverride} The override service instance
- */
-getOverridesService() {
-    if (!this.override) {
-        throw new Error('Override service not initialized');
-    }
-    return this.override;
-}
-
-/**
- * Updates overrides and persists them to disk
- * @param {object} updates - The updates to apply
- * @param {object} updates.lines - Line overrides to update
- * @param {object} updates.stations - Station overrides to update
- * @returns {Promise<boolean>} True if successful
- */
-async updateOverrides(updates = {}) {
-    try {
-        const overrideService = this.getOverridesService();
-        
-        // Apply updates
-        if (updates.lines) {
-            Object.assign(overrideService.overrides.lines, updates.lines);
-        }
-        if (updates.stations) {
-            Object.assign(overrideService.overrides.stations, updates.stations);
-        }
-        
-        // Persist to disk
-        await fsp.writeFile(
-            overrideService.overrideFile,
-            JSON.stringify(overrideService.overrides, null, 2),
-            'utf8'
-        );
-        
-        // Update lastModified
-        const stats = await fsp.stat(overrideService.overrideFile);
-        overrideService.lastModified = stats.mtimeMs;
-        
-        logger.debug('[ApiService] Overrides updated successfully');
-        return true;
-    } catch (error) {
-        logger.error('[ApiService] Failed to update overrides', { error });
-        return false;
-    }
-}
-
-    
-/**
- * Removes overrides and persists changes to disk
- * @param {object} removals - The removals to apply
- * @param {string[]} removals.lines - Line IDs to remove
- * @param {string[]} removals.stations - Station codes to remove
- * @returns {Promise<boolean>} True if successful
- */
-async removeOverrides(removals = {}) {
-    try {
-        const overrideService = this.getOverridesService();
-        
-        // Apply removals
-        if (removals.lines) {
-            removals.lines.forEach(lineId => {
-                delete overrideService.overrides.lines[lineId];
-            });
-        }
-        if (removals.stations) {
-            removals.stations.forEach(stationCode => {
-                delete overrideService.overrides.stations[stationCode];
-            });
-        }
-        
-        // Persist to disk
-        await fsp.writeFile(
-            overrideService.overrideFile,
-            JSON.stringify(overrideService.overrides, null, 2),
-            'utf8'
-        );
-        
-        // Update lastModified
-        const stats = await fsp.stat(overrideService.overrideFile);
-        overrideService.lastModified = stats.mtimeMs;
-        
-        logger.debug('[ApiService] Overrides removed successfully');
-        return true;
-    } catch (error) {
-        logger.error('[ApiService] Failed to remove overrides', { error });
-        return false;
-    }
-}
-    
-    // In ApiService class
-
-/**
- * Prepares event overrides (disabled by default)
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if successful
- */
-   async prepareEventOverrides(eventDetails) {
-    logger.info("Preparando Overrides", { eventDetails });
-
-    if (!eventDetails?.closedStations && !eventDetails?.operationalStations) return false;
-
-    const overrideService = this.getOverridesService();
-    const lineOverrides = {};
-    const stationOverrides = {};
-
-    // Get current data (either last fetched or generated closed state)
-    const currentData = this.lastRawData || {};
-
-    // Prepare line overrides (disabled by default)
-    const allAffectedLines = new Set([
-        ...Object.keys(eventDetails.closedStations || {}),
-        ...Object.keys(eventDetails.operationalStations || {})
-    ]);
-
-    allAffectedLines.forEach(lineId => {
-        lineOverrides[lineId.toLowerCase()] = { // Standardize to lowercase
-            estado: 5,
-            mensaje: `Servicio afectado por Evento: ${eventDetails.name}`,
-            mensaje_app: `Servicio afectado por Evento`,
-            enabled: false // Disabled by default
-        };
-    });
-
-    // Process closed stations (exact name match)
-    if (eventDetails.closedStations) {
-        Object.entries(eventDetails.closedStations).forEach(([lineId, stationNames]) => {
-            const lineKey = lineId.toLowerCase(); // Standardize to lowercase
-            const lineData = currentData[lineKey];
-
-            if (lineData && lineData.estaciones) {
-                stationNames.forEach(stationName => {
-                    const station = lineData.estaciones.find(s =>
-                        s.nombre.includes(stationName) // Exact match
-                    );
-
-                    if (station) {
-                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
-                            estado: 5,
-                            descripcion: "Servicio Extendido Únicamente para Salida",
-                            descripcion_app: "Horario Extendido por Evento",
-                            enabled: false
-                        };
-                    } else {
-                        logger.warn(`Closed station "${stationName}" not found in line ${lineKey}`);
-                    }
-                });
-            } else {
-                logger.warn(`Line ${lineKey} not found in current data for closed stations`);
-            }
-        });
-    }
-
-    // Process operational stations (search across all lines)
-    if (eventDetails.operationalStations) {
-        eventDetails.operationalStations.forEach(stationName => {
-            let found = false;
-
-            // Search through all lines
-            for (const [lineKey, lineData] of Object.entries(currentData)) {
-                if (lineKey.startsWith('l') && lineData.estaciones) {
-                    const station = lineData.estaciones.find(s =>
-                        s.nombre === stationName
-                    );
-
-                    if (station) {
-                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
-                            estado: 5,
-                            descripcion: "Servicio Extendido Únicamente para Entrada",
-                            descripcion_app: "Horario Extendido por Evento",
-                            enabled: false
-                        };
-                        found = true;
-                        break; // Stop searching once found
-                    }
-                }
-            }
-
-            if (!found) {
-                logger.warn(`Operational station "${stationName}" not found in any line`);
-            }
-        });
-    }
-  
-    
-    
-    logger.info("Generated station overrides:", { stationOverrides });
-    return this.updateOverrides({
-        lines: lineOverrides,
-        stations: stationOverrides
-    });
-}
-    
-    
-/**
- * Cleans up event overrides if not event day
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if cleaned or no cleanup needed
- */
-async cleanupEventOverridesIfNeeded(eventDetails) {
-    const now = new Date();
-    const eventDate = new Date(eventDetails?.date);
-    
-    // Only clean up if it's not the event day
-    if (eventDetails && now.toDateString() === eventDate.toDateString()) {
-        return false;
-    }
-
-    const overrideService = this.getOverridesService();
-    const removals = {
-        lines: Object.keys(overrideService.overrides.lines)
-            .filter(lineId => overrideService.overrides.lines[lineId].enabled === false),
-        stations: Object.keys(overrideService.overrides.stations)
-            .filter(stationId => overrideService.overrides.stations[stationId].enabled === false)
-    };
-
-    if (removals.lines.length > 0 || removals.stations.length > 0) {
-        return this.removeOverrides(removals);
-    }
-    return true;
-}
-
-/**
- * Activates prepared event overrides
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if successful
- */
-async activateEventOverrides(eventDetails) {
-    if (!eventDetails?.closedStations) return false;
-
-    const overrideService = this.getOverridesService();
-    const updates = {
-        lines: {},
-        stations: {}
-    };
-
-    // Enable line overrides
-    Object.keys(eventDetails.closedStations).forEach(lineId => {
-        if (overrideService.overrides.lines[lineId]) {
-            updates.lines[lineId] = { enabled: true };
-        }
-    });
-
-    // Enable station overrides
-    Object.entries(eventDetails.closedStations).forEach(([lineId, stations]) => {
-        stations.forEach(stationId => {
-            if (overrideService.overrides.stations[stationId]) {
-                updates.stations[stationId] = { enabled: true };
-            }
-        });
-    });
-
-    return this.updateOverrides(updates);
-}
-
     getProcessedData() {
         // Backward compatible version that EmbedManager expects
         if (!this.lastProcessedData) {
             logger.warn('[ApiService] No processed data available, generating fresh data');
             this.metrics.dataGeneratedCount++;
-            const freshData = this._basicProcessData(this.lastRawData || {});
+            const freshData = this.dataProcessor.processData(this.lastRawData || {}, this._dataVersion);
             this._updateProcessedData(freshData);
             return freshData;
         }
@@ -467,7 +197,7 @@ async activateEventOverrides(eventDetails) {
                     logger.info('[ApiService] Successfully fetched data from API.');
                 } catch (fetchError) {
                     logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
-                    rawData = await this.getDbRawData();
+                    rawData = await this.dbService.getDbRawData();
                     if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
                         throw new Error("All data sources failed, including database fallback.");
                     }
@@ -475,7 +205,7 @@ async activateEventOverrides(eventDetails) {
                 }
             } else {
                 logger.info('[ApiService] Outside of operating hours. Fetching from database.');
-                rawData = await this.getDbRawData();
+                rawData = await this.dbService.getDbRawData();
                 if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
                     throw new Error("Could not retrieve data from database outside of operating hours.");
                 }
@@ -488,7 +218,7 @@ async activateEventOverrides(eventDetails) {
             const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
 
-            const processedData = this._processData(randomizedData);
+            const processedData = this.dataProcessor.processData(randomizedData, this._dataVersion);
 
             const summary = this.generateNetworkSummary(processedData);
             await this.dbService.updateNetworkStatusSummary(summary);
@@ -508,7 +238,7 @@ async activateEventOverrides(eventDetails) {
 
             // PHASE 2e: Handle changes
             if (!this.isFirstTime) {
-                const dbRawData = await this.getDbRawData();
+                const dbRawData = await this.dbService.getDbRawData();
                 await this._handleDataChanges(randomizedData, processedData, dbRawData);
             }
             if (fromPrimarySource) {
@@ -579,96 +309,6 @@ async activateEventOverrides(eventDetails) {
         } catch (error) {
             logger.warn('[ApiService] Static data refresh failed, proceeding with existing data:', { error });
         }
-    }
-
-    _processData(rawData) {
-        const translatedData = translateApiData(rawData);
-        return this.statusProcessor
-            ? this.statusProcessor.processRawAPIData(translatedData)
-            : this._basicProcessData(translatedData);
-    }
-
-    _generateNetworkStatus(lines) {
-        if (!lines || Object.keys(lines).length === 0) {
-            return { status: 'outage', lastUpdated: new Date().toISOString() };
-        }
-
-        const lineStatuses = Object.values(lines).map(line => line.status);
-        const operationalLines = lineStatuses.filter(s => s === '1').length;
-        const totalLines = lineStatuses.length;
-        const degradedLines = totalLines - operationalLines;
-
-        let overallStatus = 'operational';
-        if (degradedLines > 0 && operationalLines === 0) {
-            overallStatus = 'outage';
-        } else if (degradedLines > 0) {
-            overallStatus = 'degraded';
-        }
-
-        return {
-            status: overallStatus,
-            lastUpdated: new Date().toISOString()
-        };
-    }
-
-    _basicProcessData(rawData) {
-        const lines = Object.fromEntries(
-            Object.entries(rawData.lineas || {})
-                .filter(([k, lineData]) => k.toLowerCase().startsWith('l') && lineData.nombre)
-                .map(([lineId, lineData]) => {
-                    const lowerLineId = lineId.toLowerCase();
-                    return [
-                        lowerLineId,
-                        {
-                            id: lowerLineId,
-                            displayName: lineData.nombre,
-                            status: lineData.estado,
-                            message: lineData.mensaje,
-                            message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
-                                id: station.codigo.toUpperCase(),
-                                name: station.nombre,
-                                status: station.estado,
-                                description: station.descripcion,
-                                description_app: station.descripcion_app,
-                                transfer: station.combinacion || '',
-                                ...(station.isTransferOperational !== undefined && {
-                                    isTransferOperational: station.isTransferOperational
-                                }),
-                                ...(station.accessPointsOperational !== undefined && {
-                                    accessPointsOperational: station.accessPointsOperational
-                                })
-                            })) || []
-                        }
-                    ];
-                })
-        );
-
-        const networkStatus = this._generateNetworkStatus(lines);
-
-        const processed = {
-            lines,
-            network: networkStatus,
-            stations: {},
-            version: this._dataVersion,
-            lastUpdated: new Date().toISOString(),
-            _metadata: {
-                source: 'generated',
-                timestamp: new Date(),
-                generation: 'basic'
-            }
-        };
-
-        processed.stations = Object.values(processed.lines)
-            .flatMap(line => line.stations)
-            .reduce((acc, station) => {
-                acc[station.id] = station;
-                return acc;
-            }, {});
-
-        // Store the processed data immediately
-        this._updateProcessedData(processed);
-        return processed;
     }
 
     async _handleDataChanges(rawData, processedData, previousRawData) {
@@ -876,8 +516,6 @@ async activateEventOverrides(eventDetails) {
             chaosFactor: this.chaosFactor,
             debugMode: this.debug,
             activeRequests: this._activeRequests.size,
-            overridesActive: Object.values(this.override.getOverrides().lines).some(o => o.enabled) || 
-                           Object.values(this.override.getOverrides().stations).some(o => o.enabled),
             staticData: {
                 lastRefresh: this.metro.api.getDataFreshness().lastRefresh,
                 refreshCount: this.metrics.staticDataRefreshes
@@ -986,38 +624,6 @@ async activateEventOverrides(eventDetails) {
             },
             timestamp: new Date().toISOString()
         };
-    }
-
-    async getDbRawData() {
-        const dbLines = await this.dbService.getAllLinesStatus();
-        const dbStations = await this.dbService.getAllStationsStatusAsRaw();
-
-        const dbRawData = { lineas: {} };
-        for (const line of dbLines) {
-            const lineId = line.line_id.toLowerCase();
-            dbRawData.lineas[lineId] = {
-                nombre: line.line_name,
-                estado: line.status_code,
-                mensaje: line.status_message,
-                mensaje_app: line.app_message,
-                estaciones: []
-            };
-        }
-
-        for (const station of dbStations) {
-            const lineId = station.line_id.toLowerCase();
-            if (dbRawData.lineas[lineId]) {
-                dbRawData.lineas[lineId].estaciones.push({
-                    codigo: station.station_code.toUpperCase(),
-                    nombre: station.nombre,
-                    estado: station.estado,
-                    descripcion: station.descripcion,
-                    descripcion_app: station.descripcion_app
-                });
-            }
-        }
-
-        return dbRawData;
     }
 
     async updateDbWithApiData(rawData) {

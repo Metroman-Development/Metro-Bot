@@ -198,6 +198,38 @@ class DatabaseService {
         const results = await this.db.query('SELECT version, release_date, changelog FROM bot_versions ORDER BY created_at DESC LIMIT 1');
         return results.length > 0 ? results[0] : null;
     }
+
+    async getDbRawData() {
+        const dbLines = await this.getAllLinesStatus();
+        const dbStations = await this.getAllStationsStatusAsRaw();
+
+        const dbRawData = { lineas: {} };
+        for (const line of dbLines) {
+            const lineId = line.line_id.toLowerCase();
+            dbRawData.lineas[lineId] = {
+                nombre: line.line_name,
+                estado: line.status_code,
+                mensaje: line.status_message,
+                mensaje_app: line.app_message,
+                estaciones: []
+            };
+        }
+
+        for (const station of dbStations) {
+            const lineId = station.line_id.toLowerCase();
+            if (dbRawData.lineas[lineId]) {
+                dbRawData.lineas[lineId].estaciones.push({
+                    codigo: station.station_code.toUpperCase(),
+                    nombre: station.nombre,
+                    estado: station.estado,
+                    descripcion: station.descripcion,
+                    descripcion_app: station.descripcion_app
+                });
+            }
+        }
+
+        return dbRawData;
+    }
 }
 
 module.exports = DatabaseService;

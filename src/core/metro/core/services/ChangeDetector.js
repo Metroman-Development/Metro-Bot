@@ -5,10 +5,12 @@ const crypto = require('crypto');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
+const fsp = require('fs').promises;
+const path = require('path');
 const baseline = {}
 
 class ChangeDetector {
-    constructor() {
+    constructor(metro, options = {}) {
         this.latestChanges = [];
         this.lastData = baseline;
         this.lastLineStates = new Map();
@@ -19,6 +21,8 @@ class ChangeDetector {
             lastUpdated: null,
             lines: {}
         };
+        this.dbService = options.dbService;
+        this.cacheDir = options.cacheDir;
     }
 
     /**
@@ -362,6 +366,65 @@ class ChangeDetector {
      */
     getRecentChanges() {
         return this.lastChanges || [];
+    }
+
+    _isEqual(a, b) {
+        if (a === b) return true;
+
+        if (a && b && typeof a == 'object' && typeof b == 'object') {
+            if (a.constructor !== b.constructor) return false;
+
+            var length = Object.keys(a).length;
+            if (length != Object.keys(b).length) return false;
+
+            for (var key in a) {
+                if (b.hasOwnProperty(key)) {
+                    if (!this._isEqual(a[key], b[key])) return false;
+                } else {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        return a === b;
+    }
+
+    async hasDataChanged(currentRawData) {
+        // 1. Read from DB
+        const dbData = await this.dbService.getDbRawData();
+        const dbDataHasChanged = !this._isEqual(currentRawData, dbData);
+
+        // 2. Read from JSON
+        const apiChangesPath = path.join(this.cacheDir, 'apiChanges.json');
+        let latestApiChange = null;
+        try {
+            const data = await fsp.readFile(apiChangesPath, 'utf8');
+            const apiChanges = JSON.parse(data);
+            if (apiChanges.length > 0) {
+                latestApiChange = apiChanges[0];
+            }
+        } catch (error) {
+            if (error.code !== 'ENOENT') {
+                logger.error('[ChangeDetector] Failed to read apiChanges.json for change detection', { error });
+            }
+        }
+
+        let jsonDataHasChanged = true;
+        if (latestApiChange) {
+            jsonDataHasChanged = !this._isEqual(currentRawData, latestApiChange);
+        }
+
+        const hasChanged = dbDataHasChanged || jsonDataHasChanged;
+
+        if (hasChanged) {
+            logger.info('[ChangeDetector] Change detected.', { dbDataHasChanged, jsonDataHasChanged });
+        } else {
+            logger.info('[ChangeDetector] No changes detected against DB and JSON file.');
+        }
+
+        return hasChanged;
     }
 }
 

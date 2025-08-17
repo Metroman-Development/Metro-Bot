@@ -38,7 +38,7 @@ describe('ApiService', () => {
         apiService = new ApiService(mockMetro, { dbService: mockDbService });
     });
 
-    describe('_processData', () => {
+    describe('dataProcessor.processData', () => {
         it('should translate raw data before processing', () => {
             const rawData = {
                 lineas: {
@@ -61,9 +61,9 @@ describe('ApiService', () => {
             const mockStatusProcessor = {
                 processRawAPIData: jest.fn(data => data)
             };
-            apiService.statusProcessor = mockStatusProcessor;
+            apiService.dataProcessor.statusProcessor = mockStatusProcessor;
 
-            apiService._processData(rawData);
+            apiService.dataProcessor.processData(rawData, '1.0.0');
 
             expect(mockStatusProcessor.processRawAPIData).toHaveBeenCalledWith({
                 lineas: {
