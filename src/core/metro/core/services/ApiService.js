@@ -1083,6 +1083,8 @@ async activateEventOverrides(eventDetails) {
             }
         }
 
+        console.log(dbRawData);
+
         return dbRawData;
     }
 
