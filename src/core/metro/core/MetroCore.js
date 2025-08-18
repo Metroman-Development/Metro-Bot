@@ -226,7 +226,6 @@ class MetroCore extends EventEmitter {
                 getCacheState: this._subsystems.api.api.getCacheState,
                 getOverridesService: () => this._subsystems.api.api.getOverridesService(),
                 prepareEventOverrides: async (eventDetails) => await this._subsystems.api.api.prepareEventOverrides(eventDetails),
-                getProcessedData: () => this._subsystems.api.api.getProcessedData(),
                 status: this.getSystemStatus.bind(this)
             };
             
@@ -356,9 +355,9 @@ class MetroCore extends EventEmitter {
 
     /**
      * Retrieves the current processed data.
-     * @returns {object} The processed metro data.
+     * @returns {Promise<object>} The processed metro data.
      */
-    getCurrentData() {
+    async getCurrentData() {
         return this.api.getProcessedData();
     }
 

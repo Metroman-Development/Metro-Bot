@@ -90,7 +90,7 @@ async function startDiscordBot() {
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
                             if (metroCore._subsystems.statusUpdater && typeof metroCore._subsystems.statusUpdater.updateEmbeds === 'function') {
-                                const data = metroCore.api.getProcessedData();
+                                const data = await metroCore.getCurrentData();
                                 if (data) {
                                     await metroCore._subsystems.statusUpdater.updateEmbeds(data);
                                     lastEmbedUpdate = lastUpdated;
