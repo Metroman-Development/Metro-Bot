@@ -983,10 +983,42 @@ async activateEventOverrides(eventDetails) {
     }
 
     async getDbRawData() {
-        const [dbLines, dbStations, accessibilityStatus] = await Promise.all([
+        const [
+            dbLines,
+            dbStations,
+            accessibilityStatus,
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        ] = await Promise.all([
             this.dbService.getAllLinesStatus(),
             this.dbService.getAllStationsStatusAsRaw(),
-            this.dbService.getAccessibilityStatus()
+            this.dbService.getAccessibilityStatus(),
+            this.dbService.getAllIncidents(),
+            this.dbService.getAllIncidentTypes(),
+            this.dbService.getAllTrainModels(),
+            this.dbService.getAllLineFleet(),
+            this.dbService.getAllStatusOverrides(),
+            this.dbService.getAllScheduledStatusOverrides(),
+            this.dbService.getAllJsStatusMapping(),
+            this.dbService.getAllOperationalStatusTypes(),
+            this.dbService.getAllStationStatusHistory(),
+            this.dbService.getAllStatusChangeLog(),
+            this.dbService.getSystemInfo(),
+            this.dbService.getIntermodalStations(),
+            this.dbService.getAllIntermodalBuses(), // Assuming you add this method
+            this.dbService.getNetworkStatus() // Assuming you add this method
         ]);
 
         const accessibilityByStation = {};
@@ -998,7 +1030,24 @@ async activateEventOverrides(eventDetails) {
             accessibilityByStation[stationCode].push(item);
         }
 
-        const dbRawData = { lineas: {} };
+        const dbRawData = {
+            lineas: {},
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        };
+
         for (const line of dbLines) {
             const lineId = line.line_id.toLowerCase();
             dbRawData.lineas[lineId] = {
