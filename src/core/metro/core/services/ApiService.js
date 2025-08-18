@@ -1085,6 +1085,9 @@ async activateEventOverrides(eventDetails) {
             }
         }
 
+        console.log(dbRawData.lineas['l1'].estaciones);
+        
+
         return dbRawData;
     }
 
