@@ -84,6 +84,170 @@ async function updateStationInDb(station, dbService) {
 }
 
 
+async function updateIncidentsInDb(data, dbService) {
+    if (data.incidents && Array.isArray(data.incidents)) {
+        for (const incident of data.incidents) {
+            const query = `
+                INSERT INTO incidents (incident_id, incident_type_id, station_id, line_id, description, severity_level, status, photo_url, reported_by, resolved_at, resolved_by)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    incident_type_id = VALUES(incident_type_id),
+                    station_id = VALUES(station_id),
+                    line_id = VALUES(line_id),
+                    description = VALUES(description),
+                    severity_level = VALUES(severity_level),
+                    status = VALUES(status),
+                    photo_url = VALUES(photo_url),
+                    reported_by = VALUES(reported_by),
+                    resolved_at = VALUES(resolved_at),
+                    resolved_by = VALUES(resolved_by)
+            `;
+            await dbService.db.query(query, [
+                incident.incident_id, incident.incident_type_id, incident.station_id, incident.line_id, incident.description,
+                incident.severity_level, incident.status, incident.photo_url, incident.reported_by, incident.resolved_at, incident.resolved_by
+            ]);
+        }
+        console.log('[Data Loader] Upserted incidents.');
+    }
+}
+
+async function updateSystemInfoInDb(data, dbService) {
+    if (data.systemInfo) {
+        const info = data.systemInfo;
+        const query = `
+            INSERT INTO system_info (id, name, system, inauguration, length, stations, track_gauge, electrification, max_speed, status, lines, cars, passengers, fleet, average_speed, operator, map_url, events)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                name = VALUES(name), system = VALUES(system), inauguration = VALUES(inauguration), length = VALUES(length), stations = VALUES(stations),
+                track_gauge = VALUES(track_gauge), electrification = VALUES(electrification), max_speed = VALUES(max_speed), status = VALUES(status),
+                lines = VALUES(lines), cars = VALUES(cars), passengers = VALUES(passengers), fleet = VALUES(fleet), average_speed = VALUES(average_speed),
+                operator = VALUES(operator), map_url = VALUES(map_url), events = VALUES(events)
+        `;
+        await dbService.db.query(query, [
+            info.id, info.name, info.system, info.inauguration, info.length, info.stations, info.track_gauge, info.electrification,
+            info.max_speed, info.status, info.lines, info.cars, info.passengers, info.fleet, info.average_speed, info.operator,
+            info.map_url, JSON.stringify(info.events)
+        ]);
+        console.log('[Data Loader] Upserted system info.');
+    }
+}
+
+async function updateTrainModelsInDb(data, dbService) {
+    if (data.trainModels && Array.isArray(data.trainModels)) {
+        for (const model of data.trainModels) {
+            const query = `
+                INSERT INTO train_models (model_id, model_data)
+                VALUES (?, ?)
+                ON DUPLICATE KEY UPDATE model_data = VALUES(model_data)
+            `;
+            await dbService.db.query(query, [model.model_id, JSON.stringify(model.model_data)]);
+        }
+        console.log('[Data Loader] Upserted train models.');
+    }
+}
+
+async function updateLineFleetInDb(data, dbService) {
+    if (data.lineFleet && Array.isArray(data.lineFleet)) {
+        for (const fleet of data.lineFleet) {
+            const query = `
+                INSERT INTO line_fleet (id, line_id, model_id)
+                VALUES (?, ?, ?)
+                ON DUPLICATE KEY UPDATE line_id = VALUES(line_id), model_id = VALUES(model_id)
+            `;
+            await dbService.db.query(query, [fleet.id, fleet.line_id, fleet.model_id]);
+        }
+        console.log('[Data Loader] Upserted line fleet.');
+    }
+}
+
+async function updateStatusOverridesInDb(data, dbService) {
+    if (data.statusOverrides && Array.isArray(data.statusOverrides)) {
+        for (const override of data.statusOverrides) {
+            const query = `
+                INSERT INTO status_overrides (id, target_type, target_id, status, message, source, expires_at, is_active)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    target_type = VALUES(target_type), target_id = VALUES(target_id), status = VALUES(status), message = VALUES(message),
+                    source = VALUES(source), expires_at = VALUES(expires_at), is_active = VALUES(is_active)
+            `;
+            await dbService.db.query(query, [
+                override.id, override.target_type, override.target_id, override.status, override.message,
+                override.source, override.expires_at, override.is_active
+            ]);
+        }
+        console.log('[Data Loader] Upserted status overrides.');
+    }
+}
+
+async function updateScheduledStatusOverridesInDb(data, dbService) {
+    if (data.scheduledStatusOverrides && Array.isArray(data.scheduledStatusOverrides)) {
+        for (const override of data.scheduledStatusOverrides) {
+            const query = `
+                INSERT INTO scheduled_status_overrides (id, target_type, target_id, status, message, source, type, start_at, end_at, is_active)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    target_type = VALUES(target_type), target_id = VALUES(target_id), status = VALUES(status), message = VALUES(message),
+                    source = VALUES(source), type = VALUES(type), start_at = VALUES(start_at), end_at = VALUES(end_at), is_active = VALUES(is_active)
+            `;
+            await dbService.db.query(query, [
+                override.id, override.target_type, override.target_id, override.status, override.message,
+                override.source, override.type, override.start_at, override.end_at, override.is_active
+            ]);
+        }
+        console.log('[Data Loader] Upserted scheduled status overrides.');
+    }
+}
+
+async function updateIntermodalStationsInDb(data, dbService) {
+    if (data.intermodalStations && Array.isArray(data.intermodalStations)) {
+        for (const station of data.intermodalStations) {
+            const query = `
+                INSERT INTO intermodal_stations (id, name, services, location, commune, inauguration, platforms, operator)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    name = VALUES(name), services = VALUES(services), location = VALUES(location), commune = VALUES(commune),
+                    inauguration = VALUES(inauguration), platforms = VALUES(platforms), operator = VALUES(operator)
+            `;
+            await dbService.db.query(query, [
+                station.id, station.name, station.services, station.location, station.commune,
+                station.inauguration, station.platforms, station.operator
+            ]);
+        }
+        console.log('[Data Loader] Upserted intermodal stations.');
+    }
+}
+
+async function updateIntermodalBusesInDb(data, dbService) {
+    if (data.intermodalBuses && Array.isArray(data.intermodalBuses)) {
+        for (const bus of data.intermodalBuses) {
+            const query = `
+                INSERT INTO intermodal_buses (id, station_id, type, route, destination)
+                VALUES (?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    station_id = VALUES(station_id), type = VALUES(type), route = VALUES(route), destination = VALUES(destination)
+            `;
+            await dbService.db.query(query, [bus.id, bus.station_id, bus.type, bus.route, bus.destination]);
+        }
+        console.log('[Data Loader] Upserted intermodal buses.');
+    }
+}
+
+async function updateNetworkStatusInDb(data, dbService) {
+    if (data.networkStatus) {
+        const status = data.networkStatus;
+        const query = `
+            INSERT INTO network_status (id, network_status_summary, fare_period, active_event)
+            VALUES (?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                network_status_summary = VALUES(network_status_summary), fare_period = VALUES(fare_period), active_event = VALUES(active_event)
+        `;
+        await dbService.db.query(query, [
+            status.id, JSON.stringify(status.network_status_summary), status.fare_period, JSON.stringify(status.active_event)
+        ]);
+        console.log('[Data Loader] Upserted network status.');
+    }
+}
+
 async function runUpdate() {
     console.log('[Data Loader] Running data update job...');
     try {
@@ -117,6 +281,17 @@ async function runUpdate() {
                     }
                 }
             }
+
+            await updateIncidentsInDb(data, dbService);
+            await updateSystemInfoInDb(data, dbService);
+            await updateTrainModelsInDb(data, dbService);
+            await updateLineFleetInDb(data, dbService);
+            await updateStatusOverridesInDb(data, dbService);
+            await updateScheduledStatusOverridesInDb(data, dbService);
+            await updateIntermodalStationsInDb(data, dbService);
+            await updateIntermodalBusesInDb(data, dbService);
+            await updateNetworkStatusInDb(data, dbService);
+
             console.log('[Data Loader] Database update process complete.');
         } else {
             console.error('[Data Loader] Failed to get complete data from Metrocore after multiple retries.');
