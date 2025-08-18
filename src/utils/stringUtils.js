@@ -185,21 +185,43 @@ function getRouteEmoji(lineKey, stationName) {
 
 async function getTransferLines(stationName, lineKey) {
   if (!stationName || !lineKey) return '';
-  return ''; // aida: getCachedMetroData is not available
+
+  try {
+    const { stations } = await getCachedMetroData();
+    if (!stations) return '';
+
+    const station = stations[lineKey]?.[stationName];
+    if (!station || !station.combinacion) return '';
+
+    const transferLines = station.combinacion
+      .map(line => metroConfig.linesEmojis[line.toLowerCase()])
+      .filter(Boolean)
+      .join(' ');
+
+    return transferLines ? ` ${transferLines}` : '';
+  } catch (error) {
+    console.error(`Error getting transfer lines for ${stationName}:`, error);
+    return '';
+  }
 }
 
 
 
 // Update decorateStation function
 async function decorateStation(stationName, options = {}) {
-  const { line, estado, ruta, combinacion, conexiones } = options;
+  try {
+    const { line, estado, ruta, combinacion, conexiones } = options;
 
-  const statusEmoji = getStatusEmoji(estado);
-  const routeEmoji = ruta ? getRouteEmoji(line, stationName) : '';
-  const transferInfo = combinacion ? await getTransferLines(stationName, line) : '';
-  const connectionEmojis = conexiones ? getConnectionEmojis(getStationConnections(line, stationName)) : '';
+    const statusEmoji = getStatusEmoji(estado);
+    const routeEmoji = ruta ? getRouteEmoji(line, stationName) : '';
+    const transferInfo = combinacion ? await getTransferLines(stationName, line) : '';
+    const connectionEmojis = conexiones ? getConnectionEmojiList(stationName, line) : '';
 
-  return `${statusEmoji} ${routeEmoji} ${removeLineSuffix(stationName) }${transferInfo} ${connectionEmojis}`.trim();
+    return `${statusEmoji} ${routeEmoji} ${removeLineSuffix(stationName)}${transferInfo} ${connectionEmojis}`.trim();
+  } catch (error) {
+    console.error(`Error decorating station ${stationName}:`, error);
+    return stationName; // Fallback to just the station name
+  }
 }
 
 // Modified isTransferStation to be more accurate
