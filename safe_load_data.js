@@ -104,16 +104,14 @@ async function upsertStations(conn, estadoRed) {
         if (line.estaciones) {
             for (const station of line.estaciones) {
                 const query = `
-                    INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0))
-                    ON DUPLICATE KEY UPDATE
-                        station_name = VALUES(station_name)
+                    UPDATE metro_stations
+                    SET station_name = ?
+                    WHERE station_code = ? AND line_id = ?
                 `;
                 await conn.query(query, [
-                    lineId,
-                    station.codigo,
                     station.nombre,
-                    null, null, null, null, null
+                    station.codigo,
+                    lineId
                 ]);
             }
         }

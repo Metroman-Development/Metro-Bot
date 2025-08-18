@@ -983,8 +983,20 @@ async activateEventOverrides(eventDetails) {
     }
 
     async getDbRawData() {
-        const dbLines = await this.dbService.getAllLinesStatus();
-        const dbStations = await this.dbService.getAllStationsStatusAsRaw();
+        const [dbLines, dbStations, accessibilityStatus] = await Promise.all([
+            this.dbService.getAllLinesStatus(),
+            this.dbService.getAllStationsStatusAsRaw(),
+            this.dbService.getAccessibilityStatus()
+        ]);
+
+        const accessibilityByStation = {};
+        for (const item of accessibilityStatus) {
+            const stationCode = item.station_code.toUpperCase();
+            if (!accessibilityByStation[stationCode]) {
+                accessibilityByStation[stationCode] = [];
+            }
+            accessibilityByStation[stationCode].push(item);
+        }
 
         const dbRawData = { lineas: {} };
         for (const line of dbLines) {
@@ -1001,13 +1013,15 @@ async activateEventOverrides(eventDetails) {
         for (const station of dbStations) {
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lineas[lineId]) {
+                const stationCode = station.station_code.toUpperCase();
                 dbRawData.lineas[lineId].estaciones.push({
                     ...station,
-                    codigo: station.station_code.toUpperCase(),
+                    codigo: stationCode,
                     nombre: station.nombre,
                     estado: station.estado,
                     descripcion: station.descripcion,
-                    descripcion_app: station.descripcion_app
+                    descripcion_app: station.descripcion_app,
+                    access_details: accessibilityByStation[stationCode] || []
                 });
             }
         }
