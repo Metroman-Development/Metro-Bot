@@ -1056,6 +1056,7 @@ async activateEventOverrides(eventDetails) {
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lineas[lineId]) {
                 dbRawData.lineas[lineId].estaciones.push({
+                    ...station,
                     codigo: station.station_code.toUpperCase(),
                     nombre: station.nombre,
                     estado: station.estado,
