@@ -1,4 +1,3 @@
-
 module.exports = {
     // Channel IDs
     updatesChannelId: '1347146518943105085', // For new updates/announcements
@@ -58,29 +57,29 @@ embedMessageIds: {
 
     statusTypes: {
         // Station Statuses
-        '0': { name: 'fuera de horario', description: 'Estación Cerrada por Horario', isOperational: false, severity: 0, color: 0x00FF00, emoji: '🌙', notification: false },
-        '1': { name: 'abierta', description: 'Estación Abierta', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', notification: false },
-        '2': { name: 'combinación', description: 'Estación con combinación', isOperational: true, severity: 1, color: 0x0000FF, emoji: '🔄', notification: false },
-        '3': { name: 'accesos controlados', description: 'Accesos controlados', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', notification: true },
-        '4': { name: 'accesos parciales', description: 'Accesos parciales', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', notification: true },
-        '5': { name: 'cerrada', description: 'Estación Cerrada', isOperational: false, severity: 4, color: 0xFF0000, emoji: '❌', notification: true },
-        '7': { name: 'contención', description: 'Contención', isOperational: false, severity: 3, color: 0xFFA500, emoji: '🛡️', notification: true },
-        '8': { name: 'servicio extendido solo entrada', description: 'Servicio extendido solo entrada', isOperational: true, severity: 2, color: 0x0000FF, emoji: '➡️', notification: true },
-        '9': { name: 'servicio extendido solo salida', description: 'Servicio extendido solo salida', isOperational: true, severity: 2, color: 0x0000FF, emoji: '⬅️', notification: true },
+        '0': { name: 'fuera de horario', description: 'Estación Cerrada por Horario', isOperational: false, severity: 0, color: 0x00FF00, emoji: '🌙', discordem: '🌙', notification: false },
+        '1': { name: 'abierta', description: 'Estación Abierta', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', discordem: '✅', notification: false },
+        '2': { name: 'combinación', description: 'Estación con combinación', isOperational: true, severity: 1, color: 0x0000FF, emoji: '🔄', discordem: '🔄', notification: false },
+        '3': { name: 'accesos controlados', description: 'Accesos controlados', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', discordem: '⚠️', notification: true },
+        '4': { name: 'accesos parciales', description: 'Accesos parciales', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '⚠️', discordem: '⚠️', notification: true },
+        '5': { name: 'cerrada', description: 'Estación Cerrada', isOperational: false, severity: 4, color: 0xFF0000, emoji: '❌', discordem: '❌', notification: true },
+        '7': { name: 'contención', description: 'Contención', isOperational: false, severity: 3, color: 0xFFA500, emoji: '🛡️', discordem: '🛡️', notification: true },
+        '8': { name: 'servicio extendido solo entrada', description: 'Servicio extendido solo entrada', isOperational: true, severity: 2, color: 0x0000FF, emoji: '➡️', discordem: '➡️', notification: true },
+        '9': { name: 'servicio extendido solo salida', description: 'Servicio extendido solo salida', isOperational: true, severity: 2, color: 0x0000FF, emoji: '⬅️', discordem: '⬅️', notification: true },
         // Line Statuses
-        '10': { name: 'operativa', description: 'Línea Operativa', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', notification: false },
-        '11': { name: 'lenta', description: 'Línea Lenta', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '🕰️', notification: true },
-        '12': { name: 'retrasos', description: 'Línea con Retrasos', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', notification: true },
-        '13': { name: 'parcial', description: 'Línea Parcialmente Operativa', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', notification: true },
-        '14': { name: 'suspendida', description: 'Línea Suspendida', isOperational: false, severity: 5, color: 0xFF0000, emoji: '❌', notification: true },
+        '10': { name: 'operativa', description: 'Línea Operativa', isOperational: true, severity: 1, color: 0x00FF00, emoji: '✅', discordem: '✅', notification: false },
+        '11': { name: 'lenta', description: 'Línea Lenta', isOperational: false, severity: 2, color: 0xFFFF00, emoji: '🕰️', discordem: '🕰️', notification: true },
+        '12': { name: 'retrasos', description: 'Línea con Retrasos', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', discordem: '⚠️', notification: true },
+        '13': { name: 'parcial', description: 'Línea Parcialmente Operativa', isOperational: false, severity: 3, color: 0xFFA500, emoji: '⚠️', discordem: '⚠️', notification: true },
+        '14': { name: 'suspendida', description: 'Línea Suspendida', isOperational: false, severity: 5, color: 0xFF0000, emoji: '❌', discordem: '❌', notification: true },
         // Other statuses from the table. I'll use the description as the primary message.
-        '15': { name: 'fuera de servicio', description: 'Fuera de servicio por horario', isOperational: true, severity: 0, color: 0x808080, emoji: '🌙', notification: false },
-        '16': { name: 'operativo', description: 'Operativo', isOperational: true, severity: 0, color: 0x00FF00, emoji: '✅', notification: false },
-        '17': { name: 'con demoras', description: 'Con demoras', isOperational: false, severity: 4, color: 0xFFA500, emoji: '🕰️', notification: true },
-        '18': { name: 'servicio parcial', description: 'Servicio parcial', isOperational: false, severity: 3, color: 0xFFFF00, emoji: '⚠️', notification: true },
-        '19': { name: 'suspendido', description: 'Suspendido', isOperational: false, severity: 1, color: 0xFF0000, emoji: '❌', notification: true },
-        '20': { name: 'servicio extendido', description: 'Servicio extendido', isOperational: true, severity: 0, color: 0x0000FF, emoji: '🔄', notification: false },
-        'default': { name: 'desconocido', description: 'Estado desconocido', isOperational: false, severity: 5, color: 0xAAAAAA, emoji: '❓', notification: true },
+        '15': { name: 'fuera de servicio', description: 'Fuera de servicio por horario', isOperational: true, severity: 0, color: 0x808080, emoji: '🌙', discordem: '🌙', notification: false },
+        '16': { name: 'operativo', description: 'Operativo', isOperational: true, severity: 0, color: 0x00FF00, emoji: '✅', discordem: '✅', notification: false },
+        '17': { name: 'con demoras', description: 'Con demoras', isOperational: false, severity: 4, color: 0xFFA500, emoji: '🕰️', discordem: '🕰️', notification: true },
+        '18': { name: 'servicio parcial', description: 'Servicio parcial', isOperational: false, severity: 3, color: 0xFFFF00, emoji: '⚠️', discordem: '⚠️', notification: true },
+        '19': { name: 'suspendido', description: 'Suspendido', isOperational: false, severity: 1, color: 0xFF0000, emoji: '❌', discordem: '❌', notification: true },
+        '20': { name: 'servicio extendido', description: 'Servicio extendido', isOperational: true, severity: 0, color: 0x0000FF, emoji: '🔄', discordem: '🔄', notification: false },
+        'default': { name: 'desconocido', description: 'Estado desconocido', isOperational: false, severity: 5, color: 0xAAAAAA, emoji: '❓', discordem: '❓', notification: true },
     },
     // Metro operating hours
     horario: {
