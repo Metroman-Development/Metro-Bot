@@ -137,7 +137,21 @@ class DatabaseService {
 
     async getAllStationsStatusAsRaw() {
         return this.db.query(`
-            SELECT s.*, s.station_name as nombre, jsm.js_code as estado, ost.status_description as descripcion, ost.status_description as descripcion_app
+            SELECT
+                s.*,
+                ss.status_id,
+                ss.status_type_id,
+                ss.status_description AS station_status_description,
+                ss.status_message,
+                ss.expected_resolution_time,
+                ss.is_planned,
+                ss.impact_level,
+                ss.last_updated AS station_status_last_updated,
+                ss.updated_by,
+                s.station_name AS nombre,
+                jsm.js_code AS estado,
+                ost.status_description AS descripcion,
+                ost.status_description AS descripcion_app
             FROM metro_stations s
             LEFT JOIN station_status ss ON s.station_id = ss.station_id
             LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
