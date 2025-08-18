@@ -69,7 +69,7 @@ class StatusEmbed extends BaseEmbed {
 
 
 
-    static createStationStatus(metro, station) {
+    static async createStationStatus(metro, station) {
         const statusCode = station.status?.code || 'default';
         const statusStyle = config.statusMapping[parseInt(statusCode)];
         const statusText = statusStyle.message;
@@ -81,7 +81,8 @@ class StatusEmbed extends BaseEmbed {
         if (station.transferLines.length>0){
 
             const cleanStationName = station.name.replace(/\s*L\d+[A-Z]?\s*/i, '');
-            const stationsLol = Object.values(metro.api.getProcessedData().stations)
+            const metroData = await metro.getCurrentData();
+            const stationsLol = Object.values(metroData.stations)
 
             console.log(stationsLol)
 
@@ -148,8 +149,8 @@ class StatusEmbed extends BaseEmbed {
         };
     }
 
-    static createLineStatus(metro, line) {
-    const metroData = metro.api.getProcessedData();
+    static async createLineStatus(metro, line) {
+    const metroData = await metro.getCurrentData();
     const allStations = metroData.stations;
 
     // Convert hex color to numerical

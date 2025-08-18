@@ -178,44 +178,34 @@ describe('ApiService', () => {
         });
     });
 
-    describe('getMetroData', () => {
-        it('should return processed data with nested station status', async () => {
-            const mockRawData = {
+    describe('getCurrentData', () => {
+        it('should return processed data from the database', async () => {
+            const mockDbData = {
                 lineas: {
                     l1: {
                         nombre: 'Linea 1',
                         estado: '1',
-                        mensaje: 'Normal',
-                        mensaje_app: 'Normal',
-                        estaciones: [
-                            {
-                                codigo: 'SP',
-                                nombre: 'San Pablo',
-                                estado: '1',
-                                descripcion: 'Operativa',
-                                status_message: 'Todo bien',
-                                is_planned: false,
-                                impact_level: 0,
-                                is_operational: 1,
-                                combinacion: 'l5'
-                            }
-                        ]
+                        mensaje: '',
+                        mensaje_app: '',
+                        estaciones: [{
+                            codigo: 'SP',
+                            nombre: 'San Pablo',
+                            estado: '1',
+                            descripcion: 'Operativa',
+                            descripcion_app: 'Operational',
+                        }]
                     }
                 }
             };
-            apiService.getDbRawData = jest.fn().mockResolvedValue(mockRawData);
+            apiService.getDbRawData = jest.fn().mockResolvedValue(mockDbData);
 
-            const processedData = await apiService.getMetroData();
-            const station = processedData.stations['SP'];
+            const processedData = await apiService.getCurrentData();
 
-            expect(station).toBeDefined();
-            expect(station.status).toBeInstanceOf(Object);
-            expect(station.status).toHaveProperty('code', '1');
-            expect(station.status).toHaveProperty('description', 'Operativa');
-            expect(station.status).toHaveProperty('message', 'Todo bien');
-            expect(station.status).toHaveProperty('isPlanned', false);
-            expect(station.status).toHaveProperty('impactLevel', 0);
-            expect(station.status).toHaveProperty('isOperational', true);
+            expect(apiService.getDbRawData).toHaveBeenCalled();
+            expect(processedData).toHaveProperty('lines');
+            expect(processedData).toHaveProperty('stations');
+            expect(processedData.lines.l1.displayName).toBe('Linea 1');
+            expect(processedData.stations.SP.name).toBe('San Pablo');
         });
     });
 });

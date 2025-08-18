@@ -7,8 +7,8 @@ class MetroInfoProvider {
 
     get data() {
         // This getter ensures we always get the latest data.
-        // It also provides a default structure if getProcessedData returns nullish value.
-        return this.metroCore.api.getProcessedData() || { stations: {}, lines: {} };
+        // It also provides a default structure if getCurrentData returns nullish value.
+        return this.metroCore.getCurrentData() || { stations: {}, lines: {} };
     }
 
     getStationById(stationId) {

@@ -28,7 +28,7 @@ module.exports = {
     try {
         await interaction.deferReply();
         const elementValue = interaction.options.getString('linea');
-        const metroData = metro.api.getProcessedData();
+        const metroData = await metro.getCurrentData();
         const line = metroData.lines[elementValue];
 
         if (!line) {

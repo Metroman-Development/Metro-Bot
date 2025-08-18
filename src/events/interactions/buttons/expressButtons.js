@@ -116,7 +116,7 @@ async function build(interaction, metro) {
     const userId = interaction.user.id;
     const cacheKey = `${CUSTOM_ID_PREFIX}:${userId}:${interaction.id}`;
 
-    const metroData = metro.api.getProcessedData();
+    const metroData = await metro.getCurrentData();
     const staticData = metro._staticData;
     const line = metroData.lines[lineValue];
     const allStations = Object.values(staticData.stations)
