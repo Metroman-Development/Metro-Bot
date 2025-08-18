@@ -70,9 +70,9 @@ async function startDiscordBot() {
         logger.info('[DISCORD] Login successful.');
     }
 
-    await metroCore.setClient(discordClient);
     try {
         await connectToDiscord(discordClient);
+        await metroCore.setClient(discordClient);
 
         const SchedulerService = require('./core/chronos/SchedulerService');
         const discordScheduler = new SchedulerService();
