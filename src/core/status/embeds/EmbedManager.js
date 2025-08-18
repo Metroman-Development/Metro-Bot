@@ -138,7 +138,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         this._emitStatusUpdate(
             this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'all')
         );
-        throw error;
     } finally {
         // 6. Release lock and process any queued updates
         this._updateLock = false;
@@ -181,7 +180,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             this._emitStatusUpdate(
                 this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'overview')
             );
-            throw error;
         }
     }
 
@@ -244,7 +242,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             }
         } catch (error) {
             logger.error(`[EmbedManager] Line ${lineData.id} update failed`, error);
-            throw error;
         }
     }
 
