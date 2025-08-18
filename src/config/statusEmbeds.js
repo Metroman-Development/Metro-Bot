@@ -71,7 +71,7 @@ module.exports = {
         };
     },
 
-    lineEmbed: (lineData, timestamp) => {
+    lineEmbed: (lineData, stations, timestamp) => {
         logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
         if (!lineData) {
             return {
@@ -91,14 +91,17 @@ module.exports = {
         const lineName = lineData.displayName || lineData.name || '';
         const displayLineKey = lineName.replace('Línea ', '');
 
-        const statusConfig = metroConfig.statusTypes?.[lineData.status] || {};
-        const isClosed = lineData.status === '0' || lineData.message?.includes('Cierre por Horario');
+        const statusConfig = metroConfig.statusTypes?.[lineData.status.code] || {};
+        const isClosed = lineData.status.code === '0' || lineData.status.message?.includes('Cierre por Horario');
         const description = isClosed
             ? `🌙 Cierre por Horario`
-            : `${statusConfig.emoji || '❓'} ${lineData.message || statusConfig.description || 'Estado desconocido'}`;
+            : `${statusConfig.emoji || '❓'} ${lineData.status.message || statusConfig.description || 'Estado desconocido'}`;
 
-        const stationFields = (lineData.stations || []).reduce((acc, station) => {
+        const stationObjects = (lineData.stations || [])
+            .map(stationId => stations[stationId.toUpperCase()])
+            .filter(Boolean);
 
+        const stationFields = stationObjects.reduce((acc, station) => {
             const lastField = acc[acc.length - 1];
             const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
             const isStationClosed = station.status.code === '0';
@@ -109,9 +112,10 @@ module.exports = {
             const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
 
             let combinacionEmoji = '';
-            if (station.transfer) {
-                const combinacionLineKey = station.transfer.toLowerCase();
-                combinacionEmoji = metroConfig.linesEmojis?.[combinacionLineKey] || '';
+            if (station.transferLines && station.transferLines.length > 0) {
+                combinacionEmoji = station.transferLines
+                    .map(lineId => metroConfig.linesEmojis?.[lineId.toLowerCase()] || '')
+                    .join(' ');
             }
 
             let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
@@ -119,14 +123,13 @@ module.exports = {
 
             logger.info(`[EmbedManager] Line: ${lineData.id}, Station: ${stationName}, Text length: ${stationText.length}`);
 
-            if (lastField?.value.length + stationText.length + 1 < 1024) {
+            if (lastField && lastField.value.length + stationText.length + 1 < 1024) {
                 lastField.value += `\n${stationText}`;
             } else {
-                logger.info(`[EmbedManager] Creating new field for line ${lineData.id}. Current field length: ${lastField.value.length}`);
                 acc.push({ name: 'Estaciones', value: stationText, inline: false });
             }
             return acc;
-        }, [{ name: 'Estaciones', value: '', inline: false }]);
+        }, []);
 
         return {
             title: `${lineEmoji} Línea ${displayLineKey}`,

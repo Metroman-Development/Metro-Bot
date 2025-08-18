@@ -201,7 +201,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             for (let i = 0; i < lineKeys.length; i += BATCH_SIZE) {
                 const batch = lineKeys.slice(i, i + BATCH_SIZE);
                 await Promise.all(batch.map(lineKey =>
-                    this.updateLineEmbed(data.lines[lineKey])
+                    this.updateLineEmbed(data.lines[lineKey], data.stations)
                 ));
                 
                 // Rate limit between batches
@@ -215,12 +215,13 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         }
     }
 
-    async updateLineEmbed(lineData) {
+    async updateLineEmbed(lineData, stations) {
         try {
             const lineKey = lineData.id.toLowerCase();
 
             const embedData = StatusEmbeds.lineEmbed(
                 lineData,
+                stations,
                 TimeHelpers.currentTime.format('HH:mm')
             );
             const embed = new EmbedBuilder(embedData);

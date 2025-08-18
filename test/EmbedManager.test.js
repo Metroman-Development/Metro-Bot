@@ -53,16 +53,16 @@ describe('EmbedManager', () => {
             expect(logger.warn).toHaveBeenCalledWith('[EmbedManager] updateAllLineEmbeds called without line data. Skipping.');
         });
 
-        it('should call updateLineEmbed for each line', async () => {
+        it('should call updateLineEmbed for each line with stations data', async () => {
             const data = {
                 lines: {
                     l1: { id: 'L1' },
                 },
-                stations: {},
+                stations: { 'ST1': { id: 'ST1', name: 'Station 1' } },
             };
             embedManager.updateLineEmbed = jest.fn();
             await embedManager.updateAllLineEmbeds(data);
-            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith({ id: 'L1' });
+            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith(data.lines.l1, data.stations);
         });
     });
 
