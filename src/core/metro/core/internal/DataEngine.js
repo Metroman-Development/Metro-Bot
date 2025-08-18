@@ -116,7 +116,6 @@ module.exports = class DataEngine {
             overallStatus = 'degraded';
         }
 
-        const now = new Date().toISOString();
         return {
             status: overallStatus,
             timestamp: now,
