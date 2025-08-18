@@ -97,7 +97,7 @@ module.exports = {
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.message || statusConfig.description || 'Estado desconocido'}`;
 
-        const stationFields = lineData.stations.reduce((acc, stationId) => {
+        const stationFields = (lineData.stations || []).reduce((acc, stationId) => {
             const station = allStations[stationId];
             if (!station) {
                 logger.warn(`[EmbedManager] Station not found: ${stationId}`);
