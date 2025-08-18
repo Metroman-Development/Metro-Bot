@@ -43,8 +43,9 @@ async function loadStations(conn, estadoRed, stationsData) {
     const allStations = [];
     const lineOrder = ['L1', 'L2', 'L3', 'L4', 'L4A', 'L5', 'L6']; // Explicitly define line order
     for (const lineId of lineOrder) {
-        if (estadoRed[lineId] && estadoRed[lineId].estaciones) {
-            estadoRed[lineId].estaciones.forEach(station => {
+        const lowerLineId = lineId.toLowerCase();
+        if (estadoRed[lowerLineId] && estadoRed[lowerLineId].estaciones) {
+            estadoRed[lowerLineId].estaciones.forEach(station => {
                 allStations.push({ ...station, line_id: lineId });
             });
         }

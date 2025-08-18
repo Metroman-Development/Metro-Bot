@@ -9,7 +9,22 @@ class DbStationLoader {
     async load(dbManager) {
         try {
             if (!dbManager) throw new Error('DatabaseManager is not provided to dbStationLoader');
-            const stations = await dbManager.query('SELECT * FROM metro_stations');
+
+            const query = `
+                SELECT
+                    ms.station_code,
+                    ms.station_name,
+                    ms.line_id,
+                    ost.status_description
+                FROM
+                    metro_stations ms
+                LEFT JOIN
+                    station_status ss ON ms.station_id = ss.station_id
+                LEFT JOIN
+                    operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            `;
+
+            const stations = await dbManager.query(query);
 
             const stationData = {};
             for (const station of stations) {
@@ -18,8 +33,7 @@ class DbStationLoader {
                     id: stationId,
                     name: station.station_name,
                     linea: station.line_id.toLowerCase(),
-                    status: '', // Add default status
-                    // Add other properties as needed from the metro_stations table
+                    status: station.status_description || '',
                 };
             }
 
