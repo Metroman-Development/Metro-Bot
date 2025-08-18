@@ -1,8 +1,6 @@
-[2025-08-18T14:11:45.078Z] ERROR: Error: [DISCORD] ❌ Failed to load prefix commands:
-Stack: Error: [DISCORD] ❌ Failed to load prefix commands:
-    at Object.error (/app/src/events/logger.js:170:27)
-    at startDiscordBot (/app/src/discord-bot.js:44:16)
+[2025-08-18T14:11:51.488Z] ERROR: Error: [DISCORD] ⚠️ Could not connect to Discord: Unexpected token '.'. Exiting...
+Stack: Error: [DISCORD] ⚠️ Could not connect to Discord: Unexpected token '.'. Exiting...
+    at Object.fatal (/app/src/events/logger.js:183:27)
+    at startDiscordBot (/app/src/discord-bot.js:117:20)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-Metadata: {
-  "error": {}
-}
+Metadata: {}

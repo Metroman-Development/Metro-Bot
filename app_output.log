@@ -1,0 +1,13 @@
+[Master] Initializing master process...
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: undefined,
+  user: undefined,
+  password: undefined,
+  database: undefined,
+  port: undefined
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
