@@ -994,6 +994,7 @@ async activateEventOverrides(eventDetails) {
         const [
             dbLines,
             dbStations,
+            dbStationsStatus,
             accessibilityStatus,
             incidents,
             incidentTypes,
@@ -1011,6 +1012,7 @@ async activateEventOverrides(eventDetails) {
             networkStatus
         ] = await Promise.all([
             this.dbService.getAllLinesStatus(),
+            this.dbService.getAllStations(),
             this.dbService.getAllStationsStatusAsRaw(),
             this.dbService.getAccessibilityStatus(),
             this.dbService.getAllIncidents(),
