@@ -510,7 +510,8 @@ async activateEventOverrides(eventDetails) {
                 await this._handleDataChanges(randomizedData, processedData, dbRawData);
             }
             if (fromPrimarySource) {
-                await this.updateDbWithApiData(randomizedData);
+                // The old partial update is replaced by the new comprehensive one.
+                await this.dbService.updateAllData(randomizedData);
             }
 
 
@@ -1078,24 +1079,12 @@ async activateEventOverrides(eventDetails) {
         return dbRawData;
     }
 
-    async updateDbWithApiData(rawData) {
-        for (const lineId in rawData.lineas) {
-            const lowerLineId = lineId.toLowerCase();
-            const line = rawData.lineas[lineId];
-            await this.dbService.updateLineStatus(lowerLineId, line.estado, line.mensaje, line.mensaje_app);
-            if (line.estaciones) {
-                for (const station of line.estaciones) {
-                    await this.dbService.updateStationStatus(station.codigo.toUpperCase(), lowerLineId, station.estado, station.descripcion, station.descripcion_app);
-                }
-            }
-        }
-    }
-
     async forceApiFetchAndPopulateDb() {
         try {
             logger.info('[ApiService] Forcing API fetch to populate database...');
             const rawData = await this.estadoRedService.fetchStatus();
-            await this.updateDbWithApiData(rawData);
+            // Call the new comprehensive update method
+            await this.dbService.updateAllData(rawData);
             logger.info('[ApiService] Database populated with initial data from API.');
         } catch (error) {
             logger.error('[ApiService] Failed to force fetch and populate database:', { error });
