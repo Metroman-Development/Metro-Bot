@@ -110,6 +110,8 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             processedData = await this.parent.metroCore.api.getProcessedData();
         }
 
+        console.log(processedData)
+
         if (!processedData) {
             logger.error('[EmbedManager] Failed to get processed data. Aborting update.');
             this._updateLock = false;
