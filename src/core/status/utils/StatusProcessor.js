@@ -514,7 +514,7 @@ class StatusProcessor {
 
   _calculateLineSeverity(lineId, statusCode) {
     const code = statusCode.toString();
-    if (!this.statusMap[code] || !this.statusMap[code].lineSeverityImpact) {
+    if (!this.statusMap[code] || typeof this.statusMap[code].lineSeverityImpact === 'undefined') {
       logger.warn(`[StatusProcessor] Unknown or invalid line status code '${code}' for line ${lineId}. Treating as 0 severity.`);
       return 0;
     }
