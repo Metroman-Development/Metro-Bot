@@ -427,16 +427,24 @@ async activateEventOverrides(eventDetails) {
                             status: lineData.estado,
                             message: lineData.mensaje,
                             message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
-                                ...station,
-                                id: station.codigo.toUpperCase(),
-                                linea: lowerLineId,
-                                name: station.nombre,
-                                status: station.estado,
-                                description: station.descripcion,
-                                description_app: station.descripcion_app,
-                                transfer: station.combinacion || ''
-                            })) || []
+                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => {
+                                const { codigo, nombre, estado, descripcion, descripcion_app, combinacion, ...rest } = station;
+                                return {
+                                    ...rest,
+                                    id: codigo.toUpperCase(),
+                                    linea: lowerLineId,
+                                    name: nombre,
+                                    status: {
+                                        code: estado || 'operational',
+                                        description: descripcion,
+                                        message: station.status_message,
+                                        isPlanned: station.is_planned,
+                                        impactLevel: station.impact_level,
+                                        isOperational: station.is_operational !== 0,
+                                    },
+                                    transfer: combinacion || ''
+                                };
+                            }) || []
                         }
                     ];
                 })

@@ -151,6 +151,7 @@ class DatabaseService {
                 s.station_name AS nombre,
                 jsm.js_code AS estado,
                 ost.status_description AS descripcion,
+                ost.is_operational,
                 ost.status_description AS descripcion_app
             FROM metro_stations s
             LEFT JOIN station_status ss ON s.station_id = ss.station_id
