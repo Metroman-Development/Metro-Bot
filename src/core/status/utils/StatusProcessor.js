@@ -38,7 +38,7 @@ class StatusProcessor {
       const networkStatusDetails = this._transformNetworkStatus(dataToProcess);
       const network = {
           status: this._mapNetworkStatus(networkStatusDetails.status),
-          lastUpdated: networkStatusDetails.timestamp
+          timestamp: networkStatusDetails.timestamp
       };
 
       // Process lines and stations
