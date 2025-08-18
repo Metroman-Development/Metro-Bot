@@ -39,35 +39,60 @@ async function loadStations(conn, estadoRed, stationsData) {
     console.log('Loading stations...');
     const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
 
-    for (const lineId in estadoRed) {
-        const line = estadoRed[lineId];
-        if (line.estaciones) {
-            for (const station of line.estaciones) {
-                const stationNameKey = normalizer.normalize(station.nombre);
-                const extraData = stationDataMap.get(stationNameKey) || [];
-                const query = `
-                    INSERT INTO metro_stations (line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?)
-                `;
-                await conn.query(query, [
-                    lineId.toLowerCase(),
-                    station.codigo.toUpperCase(),
-                    station.nombre,
-                    null, // display_order
-                    extraData[6] || null, // commune
-                    null, // address
-                    null, // latitude
-                    null, // longitude
-                    extraData[0] || null, // transports
-                    extraData[1] || null, // services
-                    extraData[2] || null, // accessibility
-                    extraData[3] || null, // commerce
-                    extraData[4] || null, // amenities
-                    extraData[5] || null  // image_url
-                ]);
-                console.log(`Inserted station ${station.nombre}`);
-            }
+    // Flatten all stations from estadoRed into a single list to control the insertion order and ID assignment.
+    const allStations = [];
+    const lineOrder = ['L1', 'L2', 'L3', 'L4', 'L4A', 'L5', 'L6']; // Explicitly define line order
+    for (const lineId of lineOrder) {
+        if (estadoRed[lineId] && estadoRed[lineId].estaciones) {
+            estadoRed[lineId].estaciones.forEach(station => {
+                allStations.push({ ...station, line_id: lineId });
+            });
         }
+    }
+
+    let stationIdCounter = 1;
+    for (const station of allStations) {
+        const stationNameKey = normalizer.normalize(station.nombre);
+        const extraData = stationDataMap.get(stationNameKey) || [];
+        const query = `
+            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                line_id = VALUES(line_id),
+                station_code = VALUES(station_code),
+                station_name = VALUES(station_name),
+                display_order = VALUES(display_order),
+                commune = VALUES(commune),
+                address = VALUES(address),
+                latitude = VALUES(latitude),
+                longitude = VALUES(longitude),
+                location = VALUES(location),
+                transports = VALUES(transports),
+                services = VALUES(services),
+                accessibility = VALUES(accessibility),
+                commerce = VALUES(commerce),
+                amenities = VALUES(amenities),
+                image_url = VALUES(image_url)
+        `;
+        await conn.query(query, [
+            stationIdCounter,
+            station.line_id.toLowerCase(),
+            station.codigo.toUpperCase(),
+            station.nombre,
+            null, // display_order
+            extraData[6] || null, // commune
+            null, // address
+            null, // latitude
+            null, // longitude
+            extraData[0] || null, // transports
+            extraData[1] || null, // services
+            extraData[2] || null, // accessibility
+            extraData[3] || null, // commerce
+            extraData[4] || null, // amenities
+            extraData[5] || null  // image_url
+        ]);
+        console.log(`Upserted station ${station.nombre} with ID ${stationIdCounter}`);
+        stationIdCounter++;
     }
     console.log('Stations loaded.');
 }

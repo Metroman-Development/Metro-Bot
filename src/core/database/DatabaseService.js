@@ -69,7 +69,7 @@ class DatabaseService {
         );
     }
 
-    async setAllStationsStatus(statusName, statusDescription) {
+    async setAllStationsStatus(statusName, statusDescription, statusMessage) {
         const statusType = await this.db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [statusName]);
         if (statusType.length === 0) {
             logger.warn(`[DatabaseService] Status name "${statusName}" not found in operational_status_types.`);
@@ -83,9 +83,10 @@ class DatabaseService {
         const stationIds = stations.map(s => s.station_id);
 
         const promises = stationIds.map(stationId => {
+            const message = statusMessage || statusDescription;
             return this.db.query(
-                'INSERT INTO station_status (station_id, status_type_id, status_description) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?',
-                [stationId, statusTypeId, statusDescription, statusTypeId, statusDescription]
+                'INSERT INTO station_status (station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?, status_message = ?',
+                [stationId, statusTypeId, statusDescription, message, statusTypeId, statusDescription, message]
             );
         });
 
