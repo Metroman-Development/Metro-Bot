@@ -207,5 +207,44 @@ describe('ApiService', () => {
             expect(processedData.lines.l1.displayName).toBe('Linea 1');
             expect(processedData.stations.SP.name).toBe('San Pablo');
         });
+
+        it('should correctly process data when dbStations is an object', async () => {
+            const mockStations = {
+                'SP': {
+                    line_id: 'l1',
+                    station_code: 'SP',
+                    nombre: 'San Pablo',
+                    estado: '1',
+                    descripcion: 'Operativa',
+                    descripcion_app: 'Operational',
+                }
+            };
+
+            apiService.dbService.getAllLinesStatus.mockResolvedValue([{ line_id: 'l1', line_name: 'Linea 1', status_code: '1', status_message: '', app_message: '' }]);
+            apiService.dbService.getAllStationsStatusAsRaw.mockResolvedValue(mockStations);
+            apiService.dbService.getAccessibilityStatus = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidents = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidentTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllTrainModels = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllLineFleet = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllScheduledStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllJsStatusMapping = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllOperationalStatusTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStationStatusHistory = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusChangeLog = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getSystemInfo = jest.fn().mockResolvedValue({});
+            apiService.dbService.getIntermodalStations = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIntermodalBuses = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getNetworkStatus = jest.fn().mockResolvedValue({});
+
+            const processedData = await apiService.getCurrentData();
+
+            expect(processedData).toHaveProperty('lines');
+            expect(processedData).toHaveProperty('stations');
+            expect(processedData.lines.l1.displayName).toBe('Linea 1');
+            expect(processedData.stations.SP.name).toBe('San Pablo');
+            expect(Array.isArray(processedData.lines.l1.stations)).toBe(true);
+        });
     });
 });

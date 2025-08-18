@@ -1067,7 +1067,9 @@ async activateEventOverrides(eventDetails) {
             };
         }
 
-        for (const station of dbStations) {
+        const stationsArray = Array.isArray(dbStations) ? dbStations : Object.values(dbStations);
+
+        for (const station of stationsArray) {
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lineas[lineId]) {
                 const stationCode = station.station_code.toUpperCase();
@@ -1082,8 +1084,6 @@ async activateEventOverrides(eventDetails) {
                 });
             }
         }
-
-        console.log(dbRawData.lineas['l1'].estaciones);
 
         return dbRawData;
     }
