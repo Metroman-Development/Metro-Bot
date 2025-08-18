@@ -214,6 +214,57 @@ class DatabaseService {
         const results = await this.db.query('SELECT version, release_date, changelog FROM bot_versions ORDER BY created_at DESC LIMIT 1');
         return results.length > 0 ? results[0] : null;
     }
+
+    // New methods for fetching data from all tables
+
+    async getAllIncidents() {
+        return this.db.query('SELECT * FROM incidents');
+    }
+
+    async getAllIncidentTypes() {
+        return this.db.query('SELECT * FROM incident_types');
+    }
+
+    async getAllTrainModels() {
+        return this.db.query('SELECT * FROM train_models');
+    }
+
+    async getAllLineFleet() {
+        return this.db.query('SELECT * FROM line_fleet');
+    }
+
+    async getAllStatusOverrides() {
+        return this.db.query('SELECT * FROM status_overrides');
+    }
+
+    async getAllScheduledStatusOverrides() {
+        return this.db.query('SELECT * FROM scheduled_status_overrides');
+    }
+
+    async getAllJsStatusMapping() {
+        return this.db.query('SELECT * FROM js_status_mapping');
+    }
+
+    async getAllOperationalStatusTypes() {
+        return this.db.query('SELECT * FROM operational_status_types');
+    }
+
+    async getAllStationStatusHistory() {
+        return this.db.query('SELECT * FROM station_status_history');
+    }
+
+    async getAllStatusChangeLog() {
+        return this.db.query('SELECT * FROM status_change_log');
+    }
+
+    async getAllIntermodalBuses() {
+        return this.db.query('SELECT * FROM intermodal_buses');
+    }
+
+    async getNetworkStatus() {
+        const results = await this.db.query('SELECT * FROM network_status WHERE id = ?', [1]);
+        return results.length > 0 ? results[0] : null;
+    }
 }
 
 module.exports = DatabaseService;

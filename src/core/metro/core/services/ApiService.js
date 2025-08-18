@@ -983,10 +983,71 @@ async activateEventOverrides(eventDetails) {
     }
 
     async getDbRawData() {
-        const dbLines = await this.dbService.getAllLinesStatus();
-        const dbStations = await this.dbService.getAllStationsStatusAsRaw();
+        const [
+            dbLines,
+            dbStations,
+            accessibilityStatus,
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        ] = await Promise.all([
+            this.dbService.getAllLinesStatus(),
+            this.dbService.getAllStationsStatusAsRaw(),
+            this.dbService.getAccessibilityStatus(),
+            this.dbService.getAllIncidents(),
+            this.dbService.getAllIncidentTypes(),
+            this.dbService.getAllTrainModels(),
+            this.dbService.getAllLineFleet(),
+            this.dbService.getAllStatusOverrides(),
+            this.dbService.getAllScheduledStatusOverrides(),
+            this.dbService.getAllJsStatusMapping(),
+            this.dbService.getAllOperationalStatusTypes(),
+            this.dbService.getAllStationStatusHistory(),
+            this.dbService.getAllStatusChangeLog(),
+            this.dbService.getSystemInfo(),
+            this.dbService.getIntermodalStations(),
+            this.dbService.getAllIntermodalBuses(), // Assuming you add this method
+            this.dbService.getNetworkStatus() // Assuming you add this method
+        ]);
 
-        const dbRawData = { lineas: {} };
+        const accessibilityByStation = {};
+        for (const item of accessibilityStatus) {
+            const stationCode = item.station_code.toUpperCase();
+            if (!accessibilityByStation[stationCode]) {
+                accessibilityByStation[stationCode] = [];
+            }
+            accessibilityByStation[stationCode].push(item);
+        }
+
+        const dbRawData = {
+            lineas: {},
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        };
+
         for (const line of dbLines) {
             const lineId = line.line_id.toLowerCase();
             dbRawData.lineas[lineId] = {
@@ -1001,13 +1062,15 @@ async activateEventOverrides(eventDetails) {
         for (const station of dbStations) {
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lineas[lineId]) {
+                const stationCode = station.station_code.toUpperCase();
                 dbRawData.lineas[lineId].estaciones.push({
                     ...station,
-                    codigo: station.station_code.toUpperCase(),
+                    codigo: stationCode,
                     nombre: station.nombre,
                     estado: station.estado,
                     descripcion: station.descripcion,
-                    descripcion_app: station.descripcion_app
+                    descripcion_app: station.descripcion_app,
+                    access_details: accessibilityByStation[stationCode] || []
                 });
             }
         }

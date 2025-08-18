@@ -1,0 +1,80 @@
+Data loader scheduled to run every 5 minutes.
+Connected to the database.
+Fetching estadoRed data...
+Fetching accessAriel data...
+estadoRed data has changed. Updating database...
+Updating estadoRed data...
+Upserted line l1
+Upserted line l2
+Upserted line l3
+Upserted line l4
+Upserted line l4a
+Upserted line l5
+Upserted line l6
+SqlError: (conn:122, no: 1364, SQLState: HY000) Field 'location' doesn't have a default value
+sql:
+                    INSERT INTO metro_stations (station_code, line_id, station_name, display_name, access_details)
+                    VALUES (?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        station_name = VALUES(station...
+    at module.exports.createError (/app/node_modules/mariadb/lib/misc/errors.js:66:10)
+    at PacketNodeEncoded.readError (/app/node_modules/mariadb/lib/io/packet.js:588:19)
+    at Query.handleErrorPacket (/app/node_modules/mariadb/lib/cmd/parser.js:92:24)
+    at Query.readResponsePacket (/app/node_modules/mariadb/lib/cmd/parser.js:70:21)
+    at PacketInputStream.receivePacketBasic (/app/node_modules/mariadb/lib/io/packet-input-stream.js:85:9)
+    at PacketInputStream.onData (/app/node_modules/mariadb/lib/io/packet-input-stream.js:135:20)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5) {
+  sqlMessage: "Field 'location' doesn't have a default value",
+  sql: '\n' +
+    '                    INSERT INTO metro_stations (station_code, line_id, station_name, display_name, access_details)\n' +
+    '                    VALUES (?, ?, ?, ?, ?)\n' +
+    '                    ON DUPLICATE KEY UPDATE\n' +
+    '                        station_name = VALUES(station...',
+  fatal: false,
+  errno: 1364,
+  sqlState: 'HY000',
+  code: 'ER_NO_DEFAULT_FOR_FIELD'
+}
+Running data update job...
+Connected to the database.
+Fetching estadoRed data...
+Fetching accessAriel data...
+estadoRed data has changed. Updating database...
+Updating estadoRed data...
+Upserted line l1
+Upserted line l2
+Upserted line l3
+Upserted line l4
+Upserted line l4a
+Upserted line l5
+Upserted line l6
+SqlError: (conn:123, no: 1364, SQLState: HY000) Field 'location' doesn't have a default value
+sql:
+                    INSERT INTO metro_stations (station_code, line_id, station_name, display_name, access_details)
+                    VALUES (?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        station_name = VALUES(station...
+    at module.exports.createError (/app/node_modules/mariadb/lib/misc/errors.js:66:10)
+    at PacketNodeEncoded.readError (/app/node_modules/mariadb/lib/io/packet.js:588:19)
+    at Query.handleErrorPacket (/app/node_modules/mariadb/lib/cmd/parser.js:92:24)
+    at Query.readResponsePacket (/app/node_modules/mariadb/lib/cmd/parser.js:70:21)
+    at PacketInputStream.receivePacketBasic (/app/node_modules/mariadb/lib/io/packet-input-stream.js:85:9)
+    at PacketInputStream.onData (/app/node_modules/mariadb/lib/io/packet-input-stream.js:135:20)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5) {
+  sqlMessage: "Field 'location' doesn't have a default value",
+  sql: '\n' +
+    '                    INSERT INTO metro_stations (station_code, line_id, station_name, display_name, access_details)\n' +
+    '                    VALUES (?, ?, ?, ?, ?)\n' +
+    '                    ON DUPLICATE KEY UPDATE\n' +
+    '                        station_name = VALUES(station...',
+  fatal: false,
+  errno: 1364,
+  sqlState: 'HY000',
+  code: 'ER_NO_DEFAULT_FOR_FIELD'
+}
