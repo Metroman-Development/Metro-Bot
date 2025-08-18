@@ -418,7 +418,6 @@ async activateEventOverrides(eventDetails) {
         logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
         const processedData = this._processData(dbRawData);
-        console.log(processedData);
         
         this._updateProcessedData(processedData);
         return processedData;
@@ -993,7 +992,6 @@ async activateEventOverrides(eventDetails) {
     async getDbRawData() {
         const [
             dbLines,
-            dbStations,
             dbStationsStatus,
             accessibilityStatus,
             incidents,
@@ -1012,7 +1010,6 @@ async activateEventOverrides(eventDetails) {
             networkStatus
         ] = await Promise.all([
             this.dbService.getAllLinesStatus(),
-            this.dbService.getAllStations(),
             this.dbService.getAllStationsStatusAsRaw(),
             this.dbService.getAccessibilityStatus(),
             this.dbService.getAllIncidents(),
@@ -1069,10 +1066,7 @@ async activateEventOverrides(eventDetails) {
             };
         }
 
-        const stationsArray = Array.isArray(dbStations) ? dbStations : Object.values(dbStations);
-
-
-        console.log(stationsArray)
+        const stationsArray = Array.isArray(dbStationsStatus) ? dbStationsStatus : Object.values(dbStationsStatus);
         
         for (const station of stationsArray) {
             const lineId = station.line_id.toLowerCase();
@@ -1089,10 +1083,7 @@ async activateEventOverrides(eventDetails) {
                 });
             }
         }
-
-        //console.log(dbRawData.lineas['l1'].estaciones);
         
-
         return dbRawData;
     }
 
