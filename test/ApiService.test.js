@@ -178,7 +178,7 @@ describe('ApiService', () => {
         });
     });
 
-    describe('getProcessedData', () => {
+    describe('getCurrentData', () => {
         it('should return processed data from the database', async () => {
             const mockDbData = {
                 lineas: {
@@ -199,7 +199,7 @@ describe('ApiService', () => {
             };
             apiService.getDbRawData = jest.fn().mockResolvedValue(mockDbData);
 
-            const processedData = await apiService.getProcessedData();
+            const processedData = await apiService.getCurrentData();
 
             expect(apiService.getDbRawData).toHaveBeenCalled();
             expect(processedData).toHaveProperty('lines');

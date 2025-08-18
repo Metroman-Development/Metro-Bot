@@ -130,7 +130,7 @@ class DiscordMessageFormatter {
             if (!station?.id) throw new Error('Invalid station data');
 
             const cacheKey = this._getCacheKey(station.id, userId);
-            const metroData = metro?.api?.getProcessedData() || {};
+            const metroData = (await metro?.getCurrentData()) || {};
             const enrichedStation = this._enrichStationData(station, metro);
 
             const cacheData = {
