@@ -428,18 +428,14 @@ async activateEventOverrides(eventDetails) {
                             message: lineData.mensaje,
                             message_app: lineData.mensaje_app,
                             stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
+                                ...station,
                                 id: station.codigo.toUpperCase(),
+                                linea: lowerLineId,
                                 name: station.nombre,
                                 status: station.estado,
                                 description: station.descripcion,
                                 description_app: station.descripcion_app,
-                                transfer: station.combinacion || '',
-                                ...(station.isTransferOperational !== undefined && {
-                                    isTransferOperational: station.isTransferOperational
-                                }),
-                                ...(station.accessPointsOperational !== undefined && {
-                                    accessPointsOperational: station.accessPointsOperational
-                                })
+                                transfer: station.combinacion || ''
                             })) || []
                         }
                     ];
@@ -682,18 +678,14 @@ async activateEventOverrides(eventDetails) {
                             message: lineData.mensaje,
                             message_app: lineData.mensaje_app,
                             stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
+                                ...station,
                                 id: station.codigo.toUpperCase(),
+                                linea: lowerLineId,
                                 name: station.nombre,
                                 status: station.estado,
                                 description: station.descripcion,
                                 description_app: station.descripcion_app,
-                                transfer: station.combinacion || '',
-                                ...(station.isTransferOperational !== undefined && {
-                                    isTransferOperational: station.isTransferOperational
-                                }),
-                                ...(station.accessPointsOperational !== undefined && {
-                                    accessPointsOperational: station.accessPointsOperational
-                                })
+                                transfer: station.combinacion || ''
                             })) || []
                         }
                     ];

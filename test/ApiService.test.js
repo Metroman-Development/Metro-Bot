@@ -143,4 +143,38 @@ describe('ApiService', () => {
             expect(writtenData.length).toBe(10);
         });
     });
+
+    describe('_basicProcessData', () => {
+        it('should add linea and other properties to stations', () => {
+            const rawData = {
+                lineas: {
+                    l1: {
+                        nombre: 'Linea 1',
+                        estado: '1',
+                        mensaje: '',
+                        mensaje_app: '',
+                        estaciones: [
+                            {
+                                codigo: 'SP',
+                                nombre: 'San Pablo',
+                                estado: '1',
+                                descripcion: 'Operativa',
+                                descripcion_app: 'Operational',
+                                extra_field: 'extra_value'
+                            }
+                        ]
+                    }
+                }
+            };
+
+            const processedData = apiService._basicProcessData(rawData);
+
+            const station = processedData.stations['SP'];
+            expect(station).toBeDefined();
+            expect(station.linea).toBe('l1');
+            expect(station.id).toBe('SP');
+            expect(station.name).toBe('San Pablo');
+            expect(station.extra_field).toBe('extra_value');
+        });
+    });
 });
