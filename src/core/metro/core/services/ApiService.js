@@ -418,6 +418,8 @@ async activateEventOverrides(eventDetails) {
         logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
         const processedData = this._processData(dbRawData);
+        console.log(processedData);
+        
         this._updateProcessedData(processedData);
         return processedData;
     }
