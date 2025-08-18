@@ -243,6 +243,16 @@ class StatusEmbedBuilder {
     static buildLineEmbed(lineData = {}, allStations = {}, metroCore = {}) {
         try {
             const lineKey = lineData.id?.toLowerCase() || 'unknown';
+            logger.info(`Building embed for line: ${lineKey}`);
+
+            if (!allStations || Object.keys(allStations).length === 0) {
+                logger.error('LINE_EMBED_FAILED - allStations is empty or null', {
+                    line: lineKey,
+                    lineData: lineData
+                });
+                return this.buildErrorEmbed(`Error al mostrar línea ${lineData?.displayName || 'desconocida'}: No se encontraron estaciones.`);
+            }
+
             const lineStatus = this.#getLineStatus(lineData);
             const embed = new EmbedBuilder()
                 .setTitle(`${metroConfig.linesEmojis[lineKey]} ${lineData.displayName}`)
