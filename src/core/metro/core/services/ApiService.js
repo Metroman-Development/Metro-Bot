@@ -488,6 +488,9 @@ async activateEventOverrides(eventDetails) {
 
             const processedData = this._processData(randomizedData);
 
+
+            console.log(processedData);
+            
             const summary = this.generateNetworkSummary(processedData);
             await this.dbService.updateNetworkStatusSummary(summary);
 
@@ -547,7 +550,9 @@ async activateEventOverrides(eventDetails) {
     _updateProcessedData(newData) {
         const now = new Date();
         this.lastProcessedData = newData 
-            
+
+       // console.log(newData);
+        
         this.lastProcessedTimestamp = now;
         logger.debug('[ApiService] Processed data updated', {
             timestamp: now.toISOString(),
