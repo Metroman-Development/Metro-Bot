@@ -26,6 +26,272 @@ class DatabaseService {
         return this.#instance;
     }
 
+    async updateAllData(data) {
+        logger.info('[DatabaseService] Starting full database update from raw data...');
+        try {
+            // This is the main orchestrator method
+            if (!data || !data.lineas) {
+                logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
+                return;
+            }
+
+            for (const lineId in data.lineas) {
+                const line = data.lineas[lineId];
+                if (line.estaciones && Array.isArray(line.estaciones)) {
+                    for (const station of line.estaciones) {
+                        // Assuming the raw station object has all necessary fields.
+                        // We might need to map fields from raw API structure to DB structure.
+                        // For now, assuming direct mapping.
+                        const stationWithLine = { ...station, line_id: lineId };
+                        await this.updateStation(stationWithLine);
+                    }
+                }
+            }
+
+            await this.updateIncidents(data);
+            await this.updateSystemInfo(data);
+            await this.updateTrainModels(data);
+            await this.updateLineFleet(data);
+            await this.updateStatusOverrides(data);
+            await this.updateScheduledStatusOverrides(data);
+            await this.updateIntermodalStations(data);
+            await this.updateIntermodalBuses(data);
+            await this.updateNetworkStatus(data);
+
+            logger.info('[DatabaseService] Full database update complete.');
+
+        } catch (error) {
+            logger.error('[DatabaseService] An error occurred during the full data update process:', error);
+        }
+    }
+
+    async updateStation(station) {
+        // 1. Validate data
+        if (!station.comuna || !station.estado) { // Note: Field names from raw API might be different, e.g. 'comuna' not 'commune'
+            logger.warn(`[DatabaseService] Skipping station ${station.codigo} due to missing 'comuna' or 'estado' data.`);
+            return;
+        }
+
+        // 2. Update metro_stations table
+        const stationQuery = `
+            INSERT INTO metro_stations (
+                line_id, station_code, station_name, display_name, display_order,
+                commune, address, latitude, longitude, location,
+                transports, services, accessibility, commerce, amenities, image_url, access_details
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                station_name = VALUES(station_name),
+                display_name = VALUES(display_name),
+                display_order = VALUES(display_order),
+                commune = VALUES(commune),
+                address = VALUES(address),
+                latitude = VALUES(latitude),
+                longitude = VALUES(longitude),
+                location = VALUES(location),
+                transports = VALUES(transports),
+                services = VALUES(services),
+                accessibility = VALUES(accessibility),
+                commerce = VALUES(commerce),
+                amenities = VALUES(amenities),
+                image_url = VALUES(image_url),
+                access_details = VALUES(access_details)
+        `;
+
+        const longitude = parseFloat(station.longitud); // Adjust field name if needed
+        const latitude = parseFloat(station.latitud); // Adjust field name if needed
+        const validPoint = !isNaN(longitude) && !isNaN(latitude);
+
+        // Map raw station data to the database schema. This is an assumption.
+        // The actual field names from the API might be different.
+        await this.db.query(stationQuery, [
+            station.line_id, station.codigo, station.nombre, station.nombre, station.orden,
+            station.comuna, station.direccion, station.latitud, station.longitud,
+            validPoint ? longitude : 0, validPoint ? latitude : 0,
+            station.transporte, station.servicios, station.accesibilidad, station.comercio, station.amenidades, station.imagen,
+            station.detalles_acceso ? JSON.stringify(station.detalles_acceso) : null
+        ]);
+
+        // 3. Update station_status table (already handled by updateStationStatus)
+        await this.updateStationStatus(
+            station.codigo,
+            station.line_id,
+            station.estado,
+            station.descripcion,
+            station.descripcion_app
+        );
+
+        // 4. Update accessibility_status table
+        if (station.detalles_acceso && Array.isArray(station.detalles_acceso)) {
+            for (const item of station.detalles_acceso) {
+                await this.updateAccessibilityStatus(
+                    item.equipment_id,
+                    item.station_code,
+                    item.line_id,
+                    item.status,
+                    item.type,
+                    item.text
+                );
+            }
+        }
+    }
+
+    async updateIncidents(data) {
+        if (data.incidents && Array.isArray(data.incidents)) {
+            for (const incident of data.incidents) {
+                const query = `
+                    INSERT INTO incidents (incident_id, incident_type_id, station_id, line_id, description, severity_level, status, photo_url, reported_by, resolved_at, resolved_by)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        incident_type_id = VALUES(incident_type_id),
+                        station_id = VALUES(station_id),
+                        line_id = VALUES(line_id),
+                        description = VALUES(description),
+                        severity_level = VALUES(severity_level),
+                        status = VALUES(status),
+                        photo_url = VALUES(photo_url),
+                        reported_by = VALUES(reported_by),
+                        resolved_at = VALUES(resolved_at),
+                        resolved_by = VALUES(resolved_by)
+                `;
+                await this.db.query(query, [
+                    incident.incident_id, incident.incident_type_id, incident.station_id, incident.line_id, incident.description,
+                    incident.severity_level, incident.status, incident.photo_url, incident.reported_by, incident.resolved_at, incident.resolved_by
+                ]);
+            }
+        }
+    }
+
+    async updateSystemInfo(data) {
+        if (data.systemInfo) {
+            const info = data.systemInfo;
+            const query = `
+                INSERT INTO system_info (id, name, system, inauguration, length, stations, track_gauge, electrification, max_speed, status, lines, cars, passengers, fleet, average_speed, operator, map_url, events)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    name = VALUES(name), system = VALUES(system), inauguration = VALUES(inauguration), length = VALUES(length), stations = VALUES(stations),
+                    track_gauge = VALUES(track_gauge), electrification = VALUES(electrification), max_speed = VALUES(max_speed), status = VALUES(status),
+                    lines = VALUES(lines), cars = VALUES(cars), passengers = VALUES(passengers), fleet = VALUES(fleet), average_speed = VALUES(average_speed),
+                    operator = VALUES(operator), map_url = VALUES(map_url), events = VALUES(events)
+            `;
+            await this.db.query(query, [
+                info.id, info.name, info.system, info.inauguration, info.length, info.stations, info.track_gauge, info.electrification,
+                info.max_speed, info.status, info.lines, info.cars, info.passengers, info.fleet, info.average_speed, info.operator,
+                info.map_url, JSON.stringify(info.events)
+            ]);
+        }
+    }
+
+    async updateTrainModels(data) {
+        if (data.trainModels && Array.isArray(data.trainModels)) {
+            for (const model of data.trainModels) {
+                const query = `
+                    INSERT INTO train_models (model_id, model_data)
+                    VALUES (?, ?)
+                    ON DUPLICATE KEY UPDATE model_data = VALUES(model_data)
+                `;
+                await this.db.query(query, [model.model_id, JSON.stringify(model.model_data)]);
+            }
+        }
+    }
+
+    async updateLineFleet(data) {
+        if (data.lineFleet && Array.isArray(data.lineFleet)) {
+            for (const fleet of data.lineFleet) {
+                const query = `
+                    INSERT INTO line_fleet (id, line_id, model_id)
+                    VALUES (?, ?, ?)
+                    ON DUPLICATE KEY UPDATE line_id = VALUES(line_id), model_id = VALUES(model_id)
+                `;
+                await this.db.query(query, [fleet.id, fleet.line_id, fleet.model_id]);
+            }
+        }
+    }
+
+    async updateStatusOverrides(data) {
+        if (data.statusOverrides && Array.isArray(data.statusOverrides)) {
+            for (const override of data.statusOverrides) {
+                const query = `
+                    INSERT INTO status_overrides (id, target_type, target_id, status, message, source, expires_at, is_active)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        target_type = VALUES(target_type), target_id = VALUES(target_id), status = VALUES(status), message = VALUES(message),
+                        source = VALUES(source), expires_at = VALUES(expires_at), is_active = VALUES(is_active)
+                `;
+                await this.db.query(query, [
+                    override.id, override.target_type, override.target_id, override.status, override.message,
+                    override.source, override.expires_at, override.is_active
+                ]);
+            }
+        }
+    }
+
+    async updateScheduledStatusOverrides(data) {
+        if (data.scheduledStatusOverrides && Array.isArray(data.scheduledStatusOverrides)) {
+            for (const override of data.scheduledStatusOverrides) {
+                const query = `
+                    INSERT INTO scheduled_status_overrides (id, target_type, target_id, status, message, source, type, start_at, end_at, is_active)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        target_type = VALUES(target_type), target_id = VALUES(target_id), status = VALUES(status), message = VALUES(message),
+                        source = VALUES(source), type = VALUES(type), start_at = VALUES(start_at), end_at = VALUES(end_at), is_active = VALUES(is_active)
+                `;
+                await this.db.query(query, [
+                    override.id, override.target_type, override.target_id, override.status, override.message,
+                    override.source, override.type, override.start_at, override.end_at, override.is_active
+                ]);
+            }
+        }
+    }
+
+    async updateIntermodalStations(data) {
+        if (data.intermodalStations && Array.isArray(data.intermodalStations)) {
+            for (const station of data.intermodalStations) {
+                const query = `
+                    INSERT INTO intermodal_stations (id, name, services, location, commune, inauguration, platforms, operator)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        name = VALUES(name), services = VALUES(services), location = VALUES(location), commune = VALUES(commune),
+                        inauguration = VALUES(inauguration), platforms = VALUES(platforms), operator = VALUES(operator)
+                `;
+                await this.db.query(query, [
+                    station.id, station.name, station.services, station.location, station.commune,
+                    station.inauguration, station.platforms, station.operator
+                ]);
+            }
+        }
+    }
+
+    async updateIntermodalBuses(data) {
+        if (data.intermodalBuses && Array.isArray(data.intermodalBuses)) {
+            for (const bus of data.intermodalBuses) {
+                const query = `
+                    INSERT INTO intermodal_buses (id, station_id, type, route, destination)
+                    VALUES (?, ?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        station_id = VALUES(station_id), type = VALUES(type), route = VALUES(route), destination = VALUES(destination)
+                `;
+                await this.db.query(query, [bus.id, bus.station_id, bus.type, bus.route, bus.destination]);
+            }
+        }
+    }
+
+    async updateNetworkStatus(data) {
+        if (data.networkStatus) {
+            const status = data.networkStatus;
+            const query = `
+                INSERT INTO network_status (id, network_status_summary, fare_period, active_event)
+                VALUES (?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                    network_status_summary = VALUES(network_status_summary), fare_period = VALUES(fare_period), active_event = VALUES(active_event)
+            `;
+            await this.db.query(query, [
+                status.id, JSON.stringify(status.network_status_summary), status.fare_period, JSON.stringify(status.active_event)
+            ]);
+        }
+    }
+
+
     // ... methods for line status
     async getLineStatus(lineId) {
         return this.db.query('SELECT status_code, status_message, app_message FROM metro_lines WHERE line_id = ?', [lineId]);
