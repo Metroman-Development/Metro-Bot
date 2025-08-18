@@ -13,13 +13,20 @@ const pool = mariadb.createPool({
 });
 
 async function loadLines(conn, lines) {
-    console.log('Loading lines...');
+    console.log('Upserting lines...');
     for (const lineId in lines) {
         const line = lines[lineId];
         const lowerLineId = lineId.toLowerCase();
         const query = `
             INSERT INTO metro_lines (line_id, line_name, line_description, opening_date, total_stations, total_length_km, fleet_data)
             VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                line_name = VALUES(line_name),
+                line_description = VALUES(line_description),
+                opening_date = VALUES(opening_date),
+                total_stations = VALUES(total_stations),
+                total_length_km = VALUES(total_length_km),
+                fleet_data = VALUES(fleet_data)
         `;
         await conn.query(query, [
             lowerLineId,
@@ -30,13 +37,13 @@ async function loadLines(conn, lines) {
             parseFloat(line['Longitud']),
             '[]'
         ]);
-        console.log(`Inserted line ${lineId}`);
+        console.log(`Upserted line ${lineId}`);
     }
-    console.log('Lines loaded.');
+    console.log('Lines upserted.');
 }
 
 async function loadStations(conn, estadoRed, stationsData) {
-    console.log('Loading stations...');
+    console.log('Upserting stations...');
     const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
 
     // Flatten all stations from estadoRed into a single list to control the insertion order and ID assignment.
@@ -59,8 +66,6 @@ async function loadStations(conn, estadoRed, stationsData) {
             INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
-                line_id = VALUES(line_id),
-                station_code = VALUES(station_code),
                 station_name = VALUES(station_name),
                 display_order = VALUES(display_order),
                 commune = VALUES(commune),
@@ -95,14 +100,19 @@ async function loadStations(conn, estadoRed, stationsData) {
         console.log(`Upserted station ${station.nombre} with ID ${stationIdCounter}`);
         stationIdCounter++;
     }
-    console.log('Stations loaded.');
+    console.log('Stations upserted.');
 }
 
 async function loadSystemInfo(conn, data) {
-    console.log('Loading system info...');
+    console.log('Upserting system info...');
     const query = `
-        INSERT INTO system_info (name, \`system\`, inauguration, length, stations, track_gauge, electrification, max_speed, \`status\`, \`lines\`, cars, passengers, fleet, average_speed, operator, map_url)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO system_info (id, name, \`system\`, inauguration, length, stations, track_gauge, electrification, max_speed, \`status\`, \`lines\`, cars, passengers, fleet, average_speed, operator, map_url)
+        VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+            name = VALUES(name), \`system\` = VALUES(\`system\`), inauguration = VALUES(inauguration), length = VALUES(length), stations = VALUES(stations),
+            track_gauge = VALUES(track_gauge), electrification = VALUES(electrification), max_speed = VALUES(max_speed), \`status\` = VALUES(\`status\`),
+            \`lines\` = VALUES(\`lines\`), cars = VALUES(cars), passengers = VALUES(passengers), fleet = VALUES(fleet), average_speed = VALUES(average_speed),
+            operator = VALUES(operator), map_url = VALUES(map_url)
     `;
     await conn.query(query, [
         data.name,
@@ -122,7 +132,7 @@ async function loadSystemInfo(conn, data) {
         data.operation.operator,
         data.mapUrl
     ]);
-    console.log('System info loaded.');
+    console.log('System info upserted.');
 }
 
 async function loadIntermodalStations(conn, data) {
@@ -133,6 +143,13 @@ async function loadIntermodalStations(conn, data) {
         const query = `
             INSERT INTO intermodal_stations (name, services, location, commune, inauguration, platforms, operator)
             VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                services = VALUES(services),
+                location = VALUES(location),
+                commune = VALUES(commune),
+                inauguration = VALUES(inauguration),
+                platforms = VALUES(platforms),
+                operator = VALUES(operator)
         `;
         const result = await conn.query(query, [
             stationName,
@@ -143,15 +160,23 @@ async function loadIntermodalStations(conn, data) {
             station['N.º de andenes'],
             station.Operador
         ]);
-        stationIds[stationName] = result.insertId;
-        console.log(`Inserted intermodal station ${stationName}`);
+        if (result.insertId) {
+            stationIds[stationName] = result.insertId;
+        } else {
+            const selectQuery = 'SELECT id FROM intermodal_stations WHERE name = ?';
+            const rows = await conn.query(selectQuery, [stationName]);
+            if(rows.length > 0) {
+                stationIds[stationName] = rows[0].id;
+            }
+        }
+        console.log(`Upserted intermodal station ${stationName}`);
     }
     console.log('Intermodal stations loaded.');
     return stationIds;
 }
 
 async function loadIntermodalBuses(conn, data, stationIds) {
-    console.log('Loading intermodal buses...');
+    console.log('Upserting intermodal buses...');
     for (const stationName in data) {
         const buses = data[stationName];
         const stationId = stationIds[stationName];
@@ -160,6 +185,10 @@ async function loadIntermodalBuses(conn, data, stationIds) {
                 const query = `
                     INSERT INTO intermodal_buses (station_id, type, route, destination)
                     VALUES (?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        type = VALUES(type),
+                        route = VALUES(route),
+                        destination = VALUES(destination)
                 `;
                 await conn.query(query, [
                     stationId,
@@ -168,12 +197,12 @@ async function loadIntermodalBuses(conn, data, stationIds) {
                     bus['Destino']
                 ]);
             }
-            console.log(`Inserted buses for ${stationName}`);
+            console.log(`Upserted buses for ${stationName}`);
         } else {
             console.warn(`Could not find station ID for ${stationName}`);
         }
     }
-    console.log('Intermodal buses loaded.');
+    console.log('Intermodal buses upserted.');
 }
 
 async function truncateTables(conn) {
@@ -191,24 +220,26 @@ async function truncateTables(conn) {
 }
 
 async function loadTrainModels(conn, trainInfo) {
-    console.log('Loading train models...');
+    console.log('Upserting train models...');
     for (const modelId in trainInfo.modelos) {
         const modelData = trainInfo.modelos[modelId];
         const query = `
             INSERT INTO train_models (model_id, model_data)
             VALUES (?, ?)
+            ON DUPLICATE KEY UPDATE
+                model_data = VALUES(model_data)
         `;
         await conn.query(query, [
             modelId,
             JSON.stringify(modelData)
         ]);
-        console.log(`Inserted train model ${modelId}`);
+        console.log(`Upserted train model ${modelId}`);
     }
-    console.log('Train models loaded.');
+    console.log('Train models upserted.');
 }
 
 async function loadLineFleet(conn, linesData) {
-    console.log('Loading line fleet...');
+    console.log('Upserting line fleet...');
     for (const lineId in linesData) {
         const line = linesData[lineId];
         if (line.Flota) {
@@ -216,13 +247,15 @@ async function loadLineFleet(conn, linesData) {
                 const query = `
                     INSERT INTO line_fleet (line_id, model_id)
                     VALUES (?, ?)
+                    ON DUPLICATE KEY UPDATE
+                        model_id = VALUES(model_id)
                 `;
                 await conn.query(query, [lineId.toLowerCase(), modelId]);
-                console.log(`Associated fleet ${modelId} with line ${lineId}`);
+                console.log(`Upserted fleet ${modelId} with line ${lineId}`);
             }
         }
     }
-    console.log('Line fleet loaded.');
+    console.log('Line fleet upserted.');
 }
 
 async function main() {
@@ -231,7 +264,7 @@ async function main() {
         conn = await pool.getConnection();
         console.log('Connected to the database.');
 
-        await truncateTables(conn);
+        // await truncateTables(conn);
 
         const metroGeneral = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/metroGeneral.json'), 'utf8'));
         await loadSystemInfo(conn, metroGeneral);
