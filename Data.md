@@ -112,6 +112,12 @@ Esta tabla almacena información sobre las estaciones de metro.
 | `station_code` | `varchar(255)` | El código de la estación. |
 | `station_name` | `varchar(100)` | El nombre de la estación. |
 | `display_name` | `varchar(100)` | El nombre para mostrar de la estación. |
+| `commune` | `varchar(100)` | La comuna donde se encuentra la estación. |
+| `transports` | `varchar(255)` | Otros medios de transporte disponibles en la estación. |
+| `services` | `varchar(255)` | Servicios disponibles en la estación. |
+| `commerce` | `varchar(255)` | Comercios disponibles en la estación. |
+| `amenities` | `varchar(255)` | Otras comodidades disponibles en la estación. |
+| `image_url` | `varchar(255)` | URL de una imagen de la estación. |
 
 ## 3. Procesamiento de Datos
 
@@ -135,6 +141,33 @@ El array de estaciones de cada línea en el JSON se itera y cada objeto de estac
 - `codigo` se mapea a `station_code`.
 - `estado` se mapea a un campo de estado en la tabla (no definido en el esquema actual).
 - `combinacion` se utiliza para establecer relaciones entre estaciones.
+
+### Nueva Estructura de Datos de Estaciones
+
+El `dbStationLoader.js` carga los datos de las estaciones desde la base de datos y los transforma en un objeto con la siguiente estructura:
+
+```javascript
+{
+    id: stationId,
+    name: station.station_name,
+    displayName: station.display_name || station.station_name,
+    line: station.line_id.toLowerCase(),
+    commune: station.commune,
+    transports: station.transports,
+    services: station.services,
+    commerce: station.commerce,
+    amenities: station.amenities,
+    image: station.image_url,
+    status: {
+        code: station.status_code || 'operational',
+        description: station.status_description,
+        message: station.status_message,
+        isPlanned: station.is_planned,
+        impactLevel: station.impact_level,
+        isOperational: station.is_operational !== 0,
+    }
+}
+```
 
 ## 4. Salida de Datos
 
