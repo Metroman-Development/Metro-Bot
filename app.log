@@ -1,3 +1,183 @@
-Starting the bot in PRODUCTION mode.
--------------------------------------
-INFO: Loaded configuration from config.json
+[Master] Initializing master process...
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB'
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+[DB] Executing ping test...
+[DB] Connection test successful
+[DB] Releasing health check connection
+[DB] Connection established successfully
+[DB] Starting health checks every 60 seconds
+[DB] Initialization completed successfully
+ℹ️ [2025-08-18T14:17:50.790Z] [INFO] [index.js:45] [main] [Master] ✅ DatabaseManager initialized successfully.
+ℹ️ [2025-08-18T14:17:50.796Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
+ℹ️ [2025-08-18T14:17:50.799Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
+ℹ️ [2025-08-18T14:17:50.802Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...
+ℹ️ [2025-08-18T14:17:51.311Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+{
+  name: 'accesibilidad',
+  description: 'Buscar estaciones por estado de accesibilidad',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /accesibilidad
+{
+  execute: [AsyncFunction: execute],
+  description: 'Muestra todos los comandos disponibles y su descripción'
+}
+Registered command: /ayuda
+{ execute: [Function: execute] }
+Registered command: /bot
+ℹ️ [2025-08-18T14:17:51.431Z] [INFO] [bootstrap.js:9] [initialize] [SCHEDULER] Initializing...
+⚠️ [2025-08-18T14:17:51.433Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+ℹ️ [2025-08-18T14:17:51.434Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+🐛 [2025-08-18T14:17:51.438Z] [INFO] [MetroCore.js:201] [MetroCore.initialize] [MetroCore] Starting initialization...
+🐛 [2025-08-18T14:17:51.443Z] [INFO] [StatusService.js:39] [StatusService._setupEventHandlers] [StatusService] Event handlers registered
+🐛 [2025-08-18T14:17:51.444Z] [INFO] [StatusService.js:27] [new StatusService] [StatusService] Initialized with MetroCore instance
+ℹ️ [2025-08-18T14:17:51.445Z] [INFO] [AccessibilityService.js:20] [AccessibilityService.initialize] [AccessibilityService] Initializing...
+[DB] [QID:pwnuvs] Preparing query: SELECT * FROM accessibility_status
+[DB] [QID:pwnuvs] Acquiring connection from pool
+[DB] [QID:pwnuvs] Executing query
+[DB] [QID:pwnuvs] Query completed in 4ms, returned 0 rows
+[DB] [QID:pwnuvs] Releasing connection back to pool
+ℹ️ [2025-08-18T14:17:51.453Z] [INFO] [AccessibilityService.js:32] [AccessibilityService.initialize] [AccessibilityService] Initialized with 0 equipment states from DB.
+🐛 [2025-08-18T14:17:51.454Z] [INFO] [EventEngine.js:99] [EventEngine.removeAllListeners] [MetroCore] Listeners removed
+Metadata: {
+  "core": 2,
+  "subsystems": {
+    "api": 0,
+    "statusService": 0,
+    "scheduler": 0
+  },
+  "timestamp": "2025-08-18T14:17:51.454Z"
+}
+ℹ️ [2025-08-18T14:17:51.456Z] [INFO] [bootstrap.js:9] [initialize] [DISCORD] Initializing...
+ℹ️ [2025-08-18T14:17:51.459Z] [INFO] [unknown:unknown] [unknown] [MetroCore] Using DatabaseManagerProxy for worker process.
+⚠️ [2025-08-18T14:17:51.458Z] [WARN] [MetroCore.js:48] [new MetroCore] A Discord client instance is required for full functionality.
+[DataLoader] Loading Data
+[DB] [QID:npe8p8] Preparing query: SELECT * FROM system_info LIMIT 1
+[DB] [QID:npe8p8] Acquiring connection from pool
+[DB] [QID:s340xs] Preparing query: SELECT * FROM metro_lines
+[DB] [QID:s340xs] Acquiring connection from pool
+[DB] [QID:npe8p8] Executing query
+[DB] [QID:66pbl2] Preparing query:
+                SELECT
+                    ms.station_code,
+                    ms.station_name,
+  ...
+[DB] [QID:66pbl2] Acquiring connection from pool
+[DB] [QID:k770n0] Preparing query: SELECT * FROM intermodal_stations
+[DB] [QID:k770n0] Acquiring connection from pool
+[DB] [QID:npe8p8] Query completed in 3ms, returned 1 rows
+[DB] [QID:npe8p8] Releasing connection back to pool
+[DB] [QID:s340xs] Executing query
+[DB] [QID:s340xs] Query completed in 4ms, returned 7 rows
+[DB] [QID:s340xs] Releasing connection back to pool
+🐛 [2025-08-18T14:17:51.463Z] [INFO] [MetroCore.js:201] [MetroCore.initialize] [MetroCore] Starting initialization...
+[DB] [QID:66pbl2] Executing query
+[DB] [QID:k770n0] Executing query
+🐛 [2025-08-18T14:17:51.466Z] [INFO] [StatusService.js:39] [StatusService._setupEventHandlers] [StatusService] Event handlers registered
+🐛 [2025-08-18T14:17:51.466Z] [INFO] [StatusService.js:27] [new StatusService] [StatusService] Initialized with MetroCore instance
+ℹ️ [2025-08-18T14:17:51.466Z] [INFO] [AccessibilityService.js:20] [AccessibilityService.initialize] [AccessibilityService] Initializing...
+[DB] [QID:66pbl2] Query completed in 6ms, returned 143 rows
+[DB] [QID:66pbl2] Releasing connection back to pool
+[DB] [QID:vbyl9n] Preparing query: SELECT * FROM accessibility_status
+[DB] [QID:vbyl9n] Acquiring connection from pool
+[DB] [QID:k770n0] Query completed in 8ms, returned 8 rows
+[DB] [QID:k770n0] Releasing connection back to pool
+[DB] [QID:vbyl9n] Executing query
+[DB] [QID:vbyl9n] Query completed in 1ms, returned 0 rows
+[DB] [QID:vbyl9n] Releasing connection back to pool
+[DB] [QID:g73ik2] Preparing query: SELECT * FROM intermodal_buses
+[DB] [QID:g73ik2] Acquiring connection from pool
+ℹ️ [2025-08-18T14:17:51.472Z] [INFO] [AccessibilityService.js:32] [AccessibilityService.initialize] [AccessibilityService] Initialized with 0 equipment states from DB.
+[DB] [QID:g73ik2] Executing query
+[DB] [QID:g73ik2] Query completed in 2ms, returned 107 rows
+[DB] [QID:g73ik2] Releasing connection back to pool
+🐛 [2025-08-18T14:17:51.474Z] [INFO] [EventEngine.js:99] [EventEngine.removeAllListeners] [MetroCore] Listeners removed
+Metadata: {
+  "core": 2,
+  "subsystems": {
+    "api": 0,
+    "statusService": 0,
+    "scheduler": 0
+  },
+  "timestamp": "2025-08-18T14:17:51.474Z"
+}
+Successfully Loaded Data
+{
+  name: 'estacion',
+  description: 'Muestra información sobre una estación de metro.',
+  execute: [AsyncFunction: execute]
+}
+🐛 [2025-08-18T14:17:51.478Z] [INFO] [StationManager.js:109] [StationManager.updateData] StationManager updated: 143 added, 0 updated, 0 removed
+Registered command: /estacion
+🐛 [2025-08-18T14:17:51.478Z] [INFO] [LineManager.js:74] [LineManager.updateData] LineManager updated: 7 added, 0 updated, 0 removed
+ℹ️ [2025-08-18T14:17:51.479Z] [INFO] [ApiService.js:495] [ApiService.fetchNetworkStatus] [ApiService] First run detected. Forcing API fetch to populate database.
+ℹ️ [2025-08-18T14:17:51.479Z] [INFO] [ApiService.js:1095] [ApiService.forceApiFetchAndPopulateDb] [ApiService] Forcing API fetch to populate database...
+{
+  name: 'intermodal',
+  description: 'Muestra información de una estación intermodal.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /intermodal
+{
+  name: 'linea',
+  description: 'Muestra información de una línea del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /linea
+{
+  name: 'metro',
+  description: 'Muestra información general del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /metro
+{
+  name: 'tarifa',
+  description: 'Muestra las tarifas del Metro de Santiago.',
+  execute: [AsyncFunction: execute]
+}
+Registered command: /tarifa
+ℹ️ [2025-08-18T14:17:51.482Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+[DataLoader] Loading Data
+[DB] [QID:eceee8] Preparing query: SELECT * FROM system_info LIMIT 1
+[DB] [QID:eceee8] Acquiring connection from pool
+[DB] [QID:otcicz] Preparing query: SELECT * FROM metro_lines
+[DB] [QID:otcicz] Acquiring connection from pool
+[DB] [QID:v52fwl] Preparing query:
+                SELECT
+                    ms.station_code,
+                    ms.station_name,
+  ...
+[DB] [QID:v52fwl] Acquiring connection from pool
+[DB] [QID:jbz6wp] Preparing query: SELECT * FROM intermodal_stations
+[DB] [QID:jbz6wp] Acquiring connection from pool
+[DB] [QID:eceee8] Executing query
+[DB] [QID:otcicz] Executing query
+[DB] [QID:v52fwl] Executing query
+[DB] [QID:jbz6wp] Executing query
+[DB] [QID:otcicz] Query completed in 4ms, returned 7 rows
+[DB] [QID:otcicz] Releasing connection back to pool
+[DB] [QID:v52fwl] Query completed in 5ms, returned 143 rows
+[DB] [QID:v52fwl] Releasing connection back to pool
+[DB] [QID:jbz6wp] Query completed in 6ms, returned 8 rows
+[DB] [QID:jbz6wp] Releasing connection back to pool
+[DB] [QID:eceee8] Query completed in 8ms, returned 1 rows
+[DB] [QID:eceee8] Releasing connection back to pool
+[DB] [QID:qj3v37] Preparing query: SELECT * FROM intermodal_buses
+[DB] [QID:qj3v37] Acquiring connection from pool
+[DB] [QID:qj3v37] Executing query
+[DB] [QID:qj3v37] Query completed in 1ms, returned 107 rows
+[DB] [QID:qj3v37] Releasing connection back to pool
+Successfully Loaded Data
+🐛 [2025-08-18T14:17:51.499Z] [INFO] [StationManager.js:109] [StationManager.updateData] StationManager updated: 143 added, 0 updated, 0 removed
+🐛 [2025-08-18T14:17:51.499Z] [INFO] [LineManager.js:74] [LineManager.updateData] LineManager updated: 7 added, 0 updated, 0 removed
+ℹ️ [2025-08-18T14:17:51.500Z] [INFO] [ApiService.js:495] [ApiService.fetchNetworkStatus] [ApiService] First run detected. Forcing API fetch to populate database.
+ℹ️ [2025-08-18T14:17:51.500Z] [INFO] [ApiService.js:1095] [ApiService.forceApiFetchAndPopulateDb] [ApiService] Forcing API fetch to populate database...
