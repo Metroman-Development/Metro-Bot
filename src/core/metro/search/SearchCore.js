@@ -203,7 +203,7 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
       name: item.name || item.displayName || 'Unknown',
       displayName: item.displayName || item.name || 'Unknown',
       line: item.line ? item.line.toLowerCase() : 'unknown',
-      status: item.status || 'operational',
+      status: item.status?.code || 'operational',
       score: 1.0,
       matchType,
       phoneticMatch: false,

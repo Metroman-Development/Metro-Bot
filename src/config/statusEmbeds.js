@@ -106,8 +106,8 @@ module.exports = {
 
             const lastField = acc[acc.length - 1];
             const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
-            const isStationClosed = station.status === '0';
-            const stationIcon = metroConfig.statusTypes[station.status]?.emoji || '❓';
+            const isStationClosed = station.status.code === '0';
+            const stationIcon = metroConfig.statusTypes[station.status.code]?.emoji || '❓';
             const stationStatusIcon = isStationClosed ? `🌙 ${stationIcon}` : stationIcon;
 
             const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
