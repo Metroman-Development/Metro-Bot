@@ -19,7 +19,7 @@ module.exports = {
         
         try {
             const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(metro.api.getProcessedData());
+            stationSearcher.setDataSource(await metro.getCurrentData());
 
             const stationResults = await stationSearcher.search(focusedValue, { maxResults: 25 });
 

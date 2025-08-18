@@ -94,7 +94,7 @@ class ApiService extends EventEmitter {
         this.api = {
             // Data access
             getRawData: () => this.lastRawData ? Object.freeze({...this.lastRawData}) : null,
-            getProcessedData: this.getProcessedData.bind(this),
+            getCurrentData: this.getCurrentData.bind(this),
             getCachedData: () => Object.freeze({...this.cachedData}),
             
             prepareEventOverrides: async (eventDetails) => await this.prepareEventOverrides(eventDetails), 
@@ -412,10 +412,10 @@ async activateEventOverrides(eventDetails) {
     return this.updateOverrides(updates);
 }
 
-    async getProcessedData() {
+    async getCurrentData() {
         // This function now fetches data directly from the database, processes it, and returns it.
         // It ensures that the embed manager always has the most up-to-date information from the database.
-        logger.debug('[ApiService] getProcessedData called. Fetching fresh data from database.');
+        logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
         const processedData = this._processData(dbRawData);
         this._updateProcessedData(processedData);

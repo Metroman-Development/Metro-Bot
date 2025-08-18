@@ -24,7 +24,7 @@ class StatusEmbed extends BaseEmbed {
         }).filter(Boolean);
     }
 
-    static createStationStatus(metro, station) {
+    static async createStationStatus(metro, station) {
         try {
             if (!station || !station.status) {
                 logger.error('Invalid station data provided to createStationStatus.');
@@ -37,7 +37,8 @@ class StatusEmbed extends BaseEmbed {
             let transferInfo = "";
             if (station.transferLines && station.transferLines.length > 0) {
                 const cleanStationName = (station.name || '').replace(/\s*L\d+[A-Z]?\s*/i, '');
-                const stations = Object.values(metro.api.getProcessedData().stations);
+                const metroData = await metro.getCurrentData();
+                const stations = Object.values(metroData.stations);
                 const transferStation = stations.find(s => s.displayName === `${cleanStationName} ${station.line.toUpperCase()}`);
 
                 if (transferStation) {
@@ -99,14 +100,14 @@ class StatusEmbed extends BaseEmbed {
         }
     }
 
-    static createLineStatus(metro, line) {
+    static async createLineStatus(metro, line) {
         try {
             if (!line || !line.status) {
                 logger.error('Invalid line data provided to createLineStatus.');
                 return null;
             }
 
-            const metroData = metro.api.getProcessedData();
+            const metroData = await metro.getCurrentData();
             if (!metroData || !metroData.stations) {
                 logger.error('Invalid metro data provided to createLineStatus.');
                 return null;

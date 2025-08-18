@@ -39,7 +39,7 @@ module.exports = {
     async autocomplete(interaction, metro) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         const stationSearcher = new SearchCore('station');
-        stationSearcher.setDataSource(metro.api.getProcessedData());
+        stationSearcher.setDataSource(await metro.getCurrentData());
 
         const results = await stationSearcher.search(focusedValue, { 
             maxResults: 25,
@@ -80,7 +80,7 @@ module.exports = {
             const farePeriod = interaction.options.getString('periodo');
             
             const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(metro.api.getProcessedData());
+            stationSearcher.setDataSource(await metro.getCurrentData());
             
             const [origin, destination] = await Promise.all([
                 this._validateStation(originId, stationSearcher, 'origen'),
@@ -110,7 +110,7 @@ module.exports = {
             
             const context = {
                 route: routeData,
-                metroData: metro.api.getProcessedData(),
+                metroData: await metro.getCurrentData(),
                 staticData: metro._staticData
             };
 

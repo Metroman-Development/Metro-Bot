@@ -95,7 +95,7 @@ async function startDiscordBot() {
                                     await metroCore._subsystems.statusUpdater.updateEmbeds(data);
                                     lastEmbedUpdate = lastUpdated;
                                 } else {
-                                    logger.warn('[DISCORD] No data available from getProcessedData, skipping embed update.');
+                                    logger.warn('[DISCORD] No data available from getCurrentData, skipping embed update.');
                                 }
                             } else {
                                 logger.warn('[DISCORD] statusUpdater or updateEmbeds method not available.');

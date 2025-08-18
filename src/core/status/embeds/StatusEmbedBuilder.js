@@ -34,9 +34,9 @@ class StatusEmbedBuilder {
         return metroConfig.statusTypes[codeNum] || metroConfig.statusTypes[2];
     }
 
-    static buildOverviewEmbed(networkData = {}, changes = [], metroCore = {}, UI_STRINGS = {}) {
+    static async buildOverviewEmbed(networkData = {}, changes = [], metroCore = {}, UI_STRINGS = {}) {
         try {
-            const validatedData = this.#validateNetworkData(networkData, metroCore);
+            const validatedData = await this.#validateNetworkData(networkData, metroCore);
             if (!validatedData) return this.buildErrorEmbed('Datos de red no válidos');
 
             const networkStatus = this.#getNetworkStatus(networkData);
@@ -110,8 +110,8 @@ class StatusEmbedBuilder {
         });
     }
 
-    static #validateNetworkData(data, metroCore) {
-        const allData = metroCore.api?.getProcessedData();
+    static async #validateNetworkData(data, metroCore) {
+        const allData = await metroCore.getCurrentData();
         if (!allData) return null;
         
         const network = data.network || data;

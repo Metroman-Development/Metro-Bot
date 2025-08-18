@@ -254,7 +254,7 @@ class UpdateListener extends EventEmitter {
                 });
                 
                 // 2. Get current data state
-                const currentData = this.parent.metroCore.api.getProcessedData() || {
+                const currentData = (await this.parent.metroCore.getCurrentData()) || {
                     lines: allStations?.lines || {},
                     stations: allStations?.stations || {}
                 };
