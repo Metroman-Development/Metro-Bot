@@ -412,76 +412,14 @@ async activateEventOverrides(eventDetails) {
     return this.updateOverrides(updates);
 }
 
-    async getMetroData() {
-        const dbRawData = await this.getDbRawData();
-        const lines = Object.fromEntries(
-            Object.entries(dbRawData.lineas || {})
-                .filter(([k, lineData]) => k.toLowerCase().startsWith('l') && lineData.nombre)
-                .map(([lineId, lineData]) => {
-                    const lowerLineId = lineId.toLowerCase();
-                    return [
-                        lowerLineId,
-                        {
-                            id: lowerLineId,
-                            displayName: lineData.nombre,
-                            status: lineData.estado,
-                            message: lineData.mensaje,
-                            message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => {
-                                const { codigo, nombre, estado, descripcion, descripcion_app, combinacion, ...rest } = station;
-                                return {
-                                    ...rest,
-                                    id: codigo.toUpperCase(),
-                                    linea: lowerLineId,
-                                    name: nombre,
-                                    status: {
-                                        code: estado || 'operational',
-                                        description: descripcion,
-                                        message: station.status_message,
-                                        isPlanned: station.is_planned,
-                                        impactLevel: station.impact_level,
-                                        isOperational: station.is_operational !== 0,
-                                    },
-                                    transfer: combinacion || ''
-                                };
-                            }) || []
-                        }
-                    ];
-                })
-        );
-
-        const networkStatus = this._generateNetworkStatus(lines);
-
-        const processed = {
-            lines,
-            network: networkStatus,
-            stations: {},
-            version: this._dataVersion,
-            lastUpdated: new Date().toISOString(),
-            _metadata: {
-                source: 'database',
-                timestamp: new Date(),
-                generation: 'basic'
-            }
-        };
-
-        processed.stations = Object.values(processed.lines)
-            .flatMap(line => line.stations)
-            .reduce((acc, station) => {
-                acc[station.id] = station;
-                return acc;
-            }, {});
-
-        return processed;
-    }
-
     async getProcessedData() {
         // This function now fetches data directly from the database, processes it, and returns it.
         // It ensures that the embed manager always has the most up-to-date information from the database.
         logger.debug('[ApiService] getProcessedData called. Fetching fresh data from database.');
-        const freshData = await this.getMetroData();
-        this._updateProcessedData(freshData);
-        return freshData;
+        const dbRawData = await this.getDbRawData();
+        const processedData = this._processData(dbRawData);
+        this._updateProcessedData(processedData);
+        return processedData;
     }
 
     async fetchNetworkStatus() {
