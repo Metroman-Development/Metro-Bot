@@ -32,7 +32,7 @@ class DataLoader {
         console.log("[DataLoader] Loading Data") 
         
         const [system, lines, stations, intermodal] = await Promise.all([
-        await this._loadWithTracking(metroLoader, 'metro'),
+        this._loadWithTracking(metroLoader, 'metro'),
         this._loadWithTracking(lineLoader, 'lines'),
         this._loadWithTracking(stationLoader, 'stations'),
         this._loadWithTracking(intermodalLoader, 'intermodal'),

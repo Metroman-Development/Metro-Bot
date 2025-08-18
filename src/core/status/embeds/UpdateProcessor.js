@@ -84,23 +84,18 @@ class UpdateProcessor {
         }
     }
 
-    async processChanges(changes, allStations) {
+    async processChanges(changePayload) {
         try {
+            const { changes, newState } = changePayload;
             logger.debug('[UpdateProcessor] Processing changes', {
-                changes: changes
+                changeCount: changes.length
             });
 
-            const messages = await this._prepareChangeMessages(changes, allStations);
+            const messages = await this._prepareChangeMessages(changes, newState);
             await this.parent.announcer.processChangeMessages(messages, changes.severity);
-            
-            if(!allStations) {
-                
-                allStations = this.parent.metroCore.api.getProcessedData()
-                
-               } 
-            
-            await this._updateEmbedsForChanges(allStations, changes);
-            
+
+            await this._updateEmbedsForChanges(newState, changes);
+
             this._logChangeHistory(changes);
             this.parent.emit('changesProcessed', changes);
         } catch (error) {
@@ -340,7 +335,7 @@ class UpdateProcessor {
         
         console.log(changes)
 
-        const changedLines = this._getAffectedLines({ changes });
+        const changedLines = this._getAffectedLines(changes);
         
         console.log(changedLines) 
         
