@@ -1,4 +1,5 @@
 // modules/status/EmbedManager.js
+const { EmbedBuilder } = require('discord.js');
 const logger = require('../../../events/logger');
 const StatusEmbeds = require('../../../config/statusEmbeds');
 const TimeHelpers = require('../../chronos/timeHelpers');
@@ -103,9 +104,14 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
 
         // 3. Always get fresh data for time-based updates
-        const processedData = data;
+        let processedData = data;
         if (!processedData) {
-            logger.error('[EmbedManager] updateAllEmbeds called without data. Aborting.');
+            logger.debug('[EmbedManager] No data provided, fetching fresh data...');
+            processedData = this.parent.metroCore.api.getProcessedData();
+        }
+
+        if (!processedData) {
+            logger.error('[EmbedManager] Failed to get processed data. Aborting update.');
             this._updateLock = false;
             return;
         }
@@ -149,11 +155,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
     async updateOverviewEmbed(data, changes = null) {
         try {
-            const embed = StatusEmbeds.overviewEmbed(
+            const embedData = StatusEmbeds.overviewEmbed(
                 data.network,
                 data.lines,
                 TimeHelpers.currentTime.format('HH:mm')
             );
+            const embed = new EmbedBuilder(embedData);
 
             if (!this.areEmbedsReady) {
                 logger.info('[EmbedManager] Discord bot not available. Logging overview embed to console.');
@@ -217,11 +224,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         try {
             const lineKey = lineData.id.toLowerCase();
 
-            const embed = StatusEmbeds.lineEmbed(
+            const embedData = StatusEmbeds.lineEmbed(
                 lineData,
                 lineData._allStations,
                 TimeHelpers.currentTime.format('HH:mm')
             );
+            const embed = new EmbedBuilder(embedData);
 
             if (!this.areEmbedsReady) {
                 logger.info(`[EmbedManager] Discord bot not available. Logging ${lineKey} embed to console.`);
