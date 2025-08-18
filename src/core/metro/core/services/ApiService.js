@@ -1072,13 +1072,15 @@ async activateEventOverrides(eventDetails) {
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lineas[lineId]) {
                 const stationCode = station.station_code.toUpperCase();
+                // The new mapping ensures all data from metro_stations is preserved,
+                // and the status data is correctly assigned.
                 dbRawData.lineas[lineId].estaciones.push({
-                    ...station,
+                    ...station, // Preserves all fields from metro_stations
                     codigo: stationCode,
-                    nombre: station.nombre,
-                    estado: station.estado,
-                    descripcion: station.descripcion,
-                    descripcion_app: station.descripcion_app,
+                    nombre: station.station_name, // Use station_name directly
+                    estado: station.estado, // from the alias
+                    descripcion: station.descripcion, // from the alias
+                    descripcion_app: station.descripcion_app, // from the alias
                     access_details: accessibilityByStation[stationCode] || []
                 });
             }

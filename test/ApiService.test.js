@@ -213,7 +213,7 @@ describe('ApiService', () => {
                 'SP': {
                     line_id: 'l1',
                     station_code: 'SP',
-                    nombre: 'San Pablo',
+                    station_name: 'San Pablo',
                     estado: '1',
                     descripcion: 'Operativa',
                     descripcion_app: 'Operational',
@@ -246,5 +246,6 @@ describe('ApiService', () => {
             expect(processedData.stations.SP.name).toBe('San Pablo');
             expect(Array.isArray(processedData.lines.l1.stations)).toBe(true);
         });
+
     });
 });

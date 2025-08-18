@@ -402,9 +402,12 @@ class DatabaseService {
     }
 
     async getAllStationsStatusAsRaw() {
+        // This query now explicitly selects all columns from metro_stations to avoid ambiguity with `s.*`
+        // and to ensure all data is being fetched.
+        // It also provides clear aliases for fields from joined tables.
         return this.db.query(`
             SELECT
-                s.*,
+                s.station_id, s.line_id, s.station_code, s.station_name, s.display_order, s.commune, s.address, s.latitude, s.longitude, s.location, s.opened_date, s.last_renovation_date, s.created_at, s.updated_at, s.display_name, s.transports, s.services, s.accessibility, s.commerce, s.amenities, s.image_url, s.access_details, s.combinacion,
                 ss.status_id,
                 ss.status_type_id,
                 ss.status_description AS station_status_description,
@@ -414,10 +417,11 @@ class DatabaseService {
                 ss.impact_level,
                 ss.last_updated AS station_status_last_updated,
                 ss.updated_by,
+                ost.status_name,
+                ost.is_operational,
                 s.station_name AS nombre,
                 jsm.js_code AS estado,
                 ost.status_description AS descripcion,
-                ost.is_operational,
                 ost.status_description AS descripcion_app
             FROM metro_stations s
             LEFT JOIN station_status ss ON s.station_id = ss.station_id
