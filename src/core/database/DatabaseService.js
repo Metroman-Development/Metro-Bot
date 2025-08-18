@@ -69,7 +69,7 @@ class DatabaseService {
         );
     }
 
-    async setAllStationsStatus(statusName, statusDescription) {
+    async setAllStationsStatus(statusName, statusDescription, statusMessage) {
         const statusType = await this.db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [statusName]);
         if (statusType.length === 0) {
             logger.warn(`[DatabaseService] Status name "${statusName}" not found in operational_status_types.`);
@@ -83,9 +83,10 @@ class DatabaseService {
         const stationIds = stations.map(s => s.station_id);
 
         const promises = stationIds.map(stationId => {
+            const message = statusMessage || statusDescription;
             return this.db.query(
-                'INSERT INTO station_status (station_id, status_type_id, status_description) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?',
-                [stationId, statusTypeId, statusDescription, statusTypeId, statusDescription]
+                'INSERT INTO station_status (station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?, status_message = ?',
+                [stationId, statusTypeId, statusDescription, message, statusTypeId, statusDescription, message]
             );
         });
 
@@ -137,9 +138,9 @@ class DatabaseService {
     async getAllStationsStatusAsRaw() {
         return this.db.query(`
             SELECT s.*, s.station_name as nombre, jsm.js_code as estado, ost.status_description as descripcion, ost.status_description as descripcion_app
-            FROM station_status ss
-            JOIN metro_stations s ON ss.station_id = s.station_id
-            JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            FROM metro_stations s
+            LEFT JOIN station_status ss ON s.station_id = ss.station_id
+            LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
             LEFT JOIN js_status_mapping jsm ON ost.status_type_id = jsm.status_type_id
         `);
     }
