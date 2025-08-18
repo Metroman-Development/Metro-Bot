@@ -263,10 +263,11 @@ class StatusProcessor {
       
       const lineSeverity = this._calculateLineSeverity(lineId, statusCode);
       if (lineSeverity > 0) {
+        const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
         severityDetails.lines[lineId] = {
           name: `Línea ${lineId.slice(1)}`,
-          status: this.statusMap[statusCode].es,
-          statusEn: this.statusMap[statusCode].en,
+          status: statusInfo.es,
+          statusEn: statusInfo.en,
           severity: lineSeverity,
           connectedTransfers: [],
           code: statusCode // Track raw status code
@@ -294,12 +295,13 @@ class StatusProcessor {
               .filter(line => line.length > 0 && line !== lineId);
           }
 
+          const statusInfo = this._getStatusInfo(stationStatusCode, 'station', station.codigo);
           const stationEntry = {
             id: stationId,
             name: station.nombre,
             line: lineId,
-            status: this.statusMap[stationStatusCode].es,
-            statusEn: this.statusMap[stationStatusCode].en,
+            status: statusInfo.es,
+            statusEn: statusInfo.en,
             severity: stationSeverity,
             connectedLines,
             code: stationStatusCode // Track raw status code
@@ -315,8 +317,8 @@ class StatusProcessor {
               name: station.nombre,
               lines: [lineId, ...connectedLines],
               totalSeverity: stationSeverity,
-              status: this.statusMap[stationStatusCode].es,
-              statusEn: this.statusMap[stationStatusCode].en,
+              status: statusInfo.es,
+              statusEn: statusInfo.en,
               code: stationStatusCode
             });
           }
@@ -341,10 +343,11 @@ class StatusProcessor {
       );
 
       if (segments.length > 0) {
+        const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
         affectedSegments[lineId] = segments.map(segment => ({
           line: lineId,
-          status: this.statusMap[statusCode].es,
-          statusEn: this.statusMap[statusCode].en,
+          status: statusInfo.es,
+          statusEn: statusInfo.en,
           stations: segment.stations.map(s => s.id.toUpperCase()),
           firstStation: segment.firstStation.id.toUpperCase(),
           lastStation: segment.lastStation.id.toUpperCase(),
@@ -511,12 +514,21 @@ class StatusProcessor {
 
   _calculateLineSeverity(lineId, statusCode) {
     const code = statusCode.toString();
+    if (!this.statusMap[code] || !this.statusMap[code].lineSeverityImpact) {
+      logger.warn(`[StatusProcessor] Unknown or invalid line status code '${code}' for line ${lineId}. Treating as 0 severity.`);
+      return 0;
+    }
     return this.lineWeights[lineId] * this.statusMap[code].lineSeverityImpact;
   }
 
   _calculateStationSeverity(station, lineId) {
     const statusCode = station.estado.toString();
     if (['0', '1', '5'].includes(statusCode)) return 0;
+
+    if (!this.statusMap[statusCode] || typeof this.statusMap[statusCode].severity === 'undefined') {
+      logger.warn(`[StatusProcessor] Unknown or invalid station status code '${statusCode}' for station ${station.codigo}. Treating as 0 severity.`);
+      return 0;
+    }
 
     const connectedLines = (station.combinacion || '')
       .split(',')
@@ -661,10 +673,20 @@ class StatusProcessor {
     };
   }
 
+_getStatusInfo(code, type = 'line', id = 'unknown') {
+    const statusInfo = this.statusMap[code.toString()];
+    if (!statusInfo) {
+      logger.warn(`[StatusProcessor] Unknown ${type} status code '${code}' for ID ${id}. Using default status.`);
+      return { es: 'Estado desconocido', en: 'Unknown status' };
+    }
+    return statusInfo;
+  }
+
   // In the _transformLine method:
 _transformLine(lineId, lineData) {
     const statusCode = lineData.estado.toString();
-    const statusInfo = this.statusMap[statusCode];
+    const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
+
     return {
       id: lineId,
       name: `Línea ${lineId.slice(1)}`,
@@ -686,7 +708,8 @@ _transformLine(lineId, lineData) {
 // In the _transformStation method:
 _transformStation(station, lineId) {
     const statusCode = station.estado.toString();
-    const statusInfo = this.statusMap[statusCode];
+    const statusInfo = this._getStatusInfo(statusCode, 'station', station.codigo);
+
     const transferLines = station.combinacion 
       ? station.combinacion.split(',').map(l => l.trim().toLowerCase())
       : [];
