@@ -1,15 +1,8 @@
-[2025-08-18T09:29:50.618Z] ERROR: Error: [StatusProcessor] Processing failed
-Stack: Error: [StatusProcessor] Processing failed
+[2025-08-18T14:11:45.078Z] ERROR: Error: [DISCORD] ❌ Failed to load prefix commands:
+Stack: Error: [DISCORD] ❌ Failed to load prefix commands:
     at Object.error (/app/src/events/logger.js:170:27)
-    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:74:14)
-    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:587:36)
-    at ApiService.fetchNetworkStatus (/app/src/core/metro/core/services/ApiService.js:491:40)
+    at startDiscordBot (/app/src/discord-bot.js:44:16)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:249:13)
-    at async /app/src/core/metro/core/MetroCore.js:183:17
-    at async initialize (/app/src/core/bootstrap.js:39:21)
-    at async startScheduler (/app/src/scheduler.js:7:27)
 Metadata: {
-  "error": "Cannot read properties of null (reading 'toString')",
-  "stack": "TypeError: Cannot read properties of null (reading 'toString')\n    at /app/src/core/status/utils/StatusProcessor.js:332:42\n    at Array.forEach (<anonymous>)\n    at StatusProcessor._transformNetworkStatus (/app/src/core/status/utils/StatusProcessor.js:330:29)\n    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:38:41)\n    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:587:36)\n    at ApiService.fetchNetworkStatus (/app/src/core/metro/core/services/ApiService.js:491:40)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async MetroCore.initialize (/app/src/core/metro/core/MetroCore.js:249:13)\n    at async /app/src/core/metro/core/MetroCore.js:183:17\n    at async initialize (/app/src/core/bootstrap.js:39:21)"
+  "error": {}
 }
