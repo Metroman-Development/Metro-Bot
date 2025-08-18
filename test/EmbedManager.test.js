@@ -19,11 +19,9 @@ describe('EmbedManager', () => {
         logger.debug.mockClear();
 
         mockStatusUpdater = {
-            parent: {
-                metroCore: {
-                    api: {
-                        getProcessedData: jest.fn(),
-                    },
+            metroCore: {
+                api: {
+                    getProcessedData: jest.fn(),
                 },
             },
             UI_STRINGS: {
@@ -81,7 +79,7 @@ describe('EmbedManager', () => {
 
             await embedManager.updateOverviewEmbed(data);
             // Verify that getProcessedData was NOT called
-            expect(mockStatusUpdater.parent.metroCore.api.getProcessedData).not.toHaveBeenCalled();
+            expect(mockStatusUpdater.metroCore.api.getProcessedData).not.toHaveBeenCalled();
         });
     });
 
@@ -107,7 +105,7 @@ describe('EmbedManager', () => {
         it('should log an error and not proceed if no data is provided', async () => {
             await embedManager.updateAllEmbeds(null);
 
-            expect(logger.error).toHaveBeenCalledWith('[EmbedManager] updateAllEmbeds called without data. Aborting.');
+            expect(logger.error).toHaveBeenCalledWith('[EmbedManager] Failed to get processed data. Aborting update.');
             expect(embedManager.updateOverviewEmbed).not.toHaveBeenCalled();
             expect(embedManager.updateAllLineEmbeds).not.toHaveBeenCalled();
         });
