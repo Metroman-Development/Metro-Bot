@@ -64,7 +64,7 @@ describe('EmbedManager', () => {
             };
             embedManager.updateLineEmbed = jest.fn();
             await embedManager.updateAllLineEmbeds(data);
-            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith({ id: 'L1', _allStations: {} });
+            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith({ id: 'L1' });
         });
     });
 
