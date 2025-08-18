@@ -19,13 +19,16 @@ async function runTests() {
 
     for (const { query, expected } of testCases) {
         const results = await searchCore.search(query, { needsOneMatch: true });
-        const resultName = results && results.length > 0 ? results[0].name : 'Not found';
+        const result = results && results.length > 0 ? results[0] : null;
 
-        if (resultName === expected) {
+        if (result && result.name === expected) {
             console.log(`✅ Test passed for query: "${query}"`);
+            if (query === 'San Pablo L1') {
+                console.log('Full result for "San Pablo L1":', JSON.stringify(result, null, 2));
+            }
         } else {
             console.error(`❌ Test failed for query: "${query}"`);
-            console.error(`   Expected: "${expected}", but got: "${resultName}"`);
+            console.error(`   Expected: "${expected}", but got: "${result ? result.name : 'Not found'}"`);
         }
     }
 
