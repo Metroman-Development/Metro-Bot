@@ -101,8 +101,7 @@ module.exports = {
             .map(stationId => stations[stationId.toUpperCase()])
             .filter(Boolean);
 
-        const stationFields = stationObjects.reduce((acc, station) => {
-            const lastField = acc[acc.length - 1];
+        const stationLines = stationObjects.map(station => {
             const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
             const isStationClosed = station.status.code === '0';
             const stationIcon = metroConfig.statusTypes[station.status.code]?.emoji || '❓';
@@ -121,15 +120,24 @@ module.exports = {
             let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
             if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
 
-            logger.info(`[EmbedManager] Line: ${lineData.id}, Station: ${stationName}, Text length: ${stationText.length}`);
+            return stationText;
+        });
 
-            if (lastField && lastField.value.length + stationText.length + 1 < 1024) {
-                lastField.value += `\n${stationText}`;
-            } else {
-                acc.push({ name: 'Estaciones', value: stationText, inline: false });
+        let stationListString = stationLines.join('\n');
+        const maxChars = 1024;
+        let stationFields = [];
+
+        if (stationListString.length > 0) {
+            if (stationListString.length > maxChars) {
+                let truncatedString = stationListString.substring(0, maxChars);
+                const lastNewlineIndex = truncatedString.lastIndexOf('\n');
+                if (lastNewlineIndex > 0) {
+                    truncatedString = truncatedString.substring(0, lastNewlineIndex);
+                }
+                stationListString = truncatedString + '\n...';
             }
-            return acc;
-        }, []);
+            stationFields.push({ name: 'Estaciones', value: stationListString, inline: false });
+        }
 
         return {
             title: `${lineEmoji} Línea ${displayLineKey}`,
