@@ -71,9 +71,9 @@ module.exports = {
         };
     },
 
-    lineEmbed: (lineData, allStations, timestamp) => {
+    lineEmbed: (lineData, timestamp) => {
         logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
-        if (!lineData || !allStations) {
+        if (!lineData) {
             return {
                 title: '🚇 Estado de la Línea',
                 description: '⚠️ No se pudo obtener la información de la línea.',
@@ -97,12 +97,7 @@ module.exports = {
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.message || statusConfig.description || 'Estado desconocido'}`;
 
-        const stationFields = (lineData.stations || []).reduce((acc, stationId) => {
-            const station = allStations[stationId];
-            if (!station) {
-                logger.warn(`[EmbedManager] Station not found: ${stationId}`);
-                return acc;
-            }
+        const stationFields = (lineData.stations || []).reduce((acc, station) => {
 
             const lastField = acc[acc.length - 1];
             const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
