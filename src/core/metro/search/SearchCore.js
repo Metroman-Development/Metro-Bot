@@ -40,6 +40,18 @@ class SearchCore {
     logger.debug(`[SEARCH] Initialized SearchCore for ${type}`);
   }
 
+  setDataSource(data) {
+    if (!data || (!data.stations && !data.lines)) {
+        logger.warn('[SearchCore] setDataSource called with invalid data format.');
+        return;
+    }
+    this.dataSource = {
+        stations: data.stations || {},
+        lines: data.lines || {}
+    };
+    logger.debug('[SearchCore] External data source has been set.');
+  }
+
   async init() {
       await this.dataManager.loadData();
       this.dataSource = {
