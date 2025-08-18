@@ -178,4 +178,34 @@ describe('ApiService', () => {
         });
     });
 
+    describe('getProcessedData', () => {
+        it('should return processed data from the database', async () => {
+            const mockDbData = {
+                lineas: {
+                    l1: {
+                        nombre: 'Linea 1',
+                        estado: '1',
+                        mensaje: '',
+                        mensaje_app: '',
+                        estaciones: [{
+                            codigo: 'SP',
+                            nombre: 'San Pablo',
+                            estado: '1',
+                            descripcion: 'Operativa',
+                            descripcion_app: 'Operational',
+                        }]
+                    }
+                }
+            };
+            apiService.getDbRawData = jest.fn().mockResolvedValue(mockDbData);
+
+            const processedData = await apiService.getProcessedData();
+
+            expect(apiService.getDbRawData).toHaveBeenCalled();
+            expect(processedData).toHaveProperty('lines');
+            expect(processedData).toHaveProperty('stations');
+            expect(processedData.lines.l1.displayName).toBe('Linea 1');
+            expect(processedData.stations.SP.name).toBe('San Pablo');
+        });
+    });
 });

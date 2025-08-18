@@ -16,7 +16,7 @@ module.exports = {
         try {
             const metroCore = await MetroCore.getInstance();
             const searchCore = new SearchCore('station');
-            searchCore.setDataSource(metroCore.api.getProcessedData());
+            searchCore.setDataSource(metroCore.getCurrentData());
             const results = await searchCore.search(stationName);
 
             if (results.length === 0) {

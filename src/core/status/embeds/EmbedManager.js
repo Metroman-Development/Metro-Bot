@@ -107,7 +107,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         let processedData = data;
         if (!processedData) {
             logger.debug('[EmbedManager] No data provided, fetching fresh data...');
-            processedData = await this.parent.metroCore.api.getProcessedData();
+            processedData = await this.parent.metroCore.getCurrentData();
         }
 
         if (!processedData) {
@@ -406,7 +406,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async refreshAllEmbeds() {
     try {
         logger.debug('[EmbedManager] Starting full refresh');
-        const currentData = await this.parent.metroCore.api.getProcessedData();
+        const currentData = await this.parent.metroCore.getCurrentData();
         
         // Bypass normal queue for time-critical updates
         if (this._updateLock) {
