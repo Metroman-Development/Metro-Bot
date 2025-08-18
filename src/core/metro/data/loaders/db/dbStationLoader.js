@@ -15,13 +15,14 @@ class DbStationLoader {
                     ms.station_code,
                     ms.station_name,
                     ms.line_id,
-                    ost.status_description
+                    ms.commune,
+                    ms.transports,
+                    ms.services,
+                    ms.commerce,
+                    ms.amenities,
+                    ms.image_url
                 FROM
                     metro_stations ms
-                LEFT JOIN
-                    station_status ss ON ms.station_id = ss.station_id
-                LEFT JOIN
-                    operational_status_types ost ON ss.status_type_id = ost.status_type_id
             `;
 
             const stations = await dbManager.query(query);
@@ -32,8 +33,14 @@ class DbStationLoader {
                 stationData[stationId] = {
                     id: stationId,
                     name: station.station_name,
-                    linea: station.line_id.toLowerCase(),
-                    status: station.status_description || '',
+                    displayName: station.station_name,
+                    line: station.line_id.toLowerCase(),
+                    commune: station.commune,
+                    transports: station.transports,
+                    services: station.services,
+                    commerce: station.commerce,
+                    amenities: station.amenities,
+                    image: station.image_url,
                 };
             }
 
