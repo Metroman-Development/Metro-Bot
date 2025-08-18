@@ -1,4 +1,4 @@
-[2025-08-17T22:26:21.452Z] ERROR: Error: [DISCORD] ⚠️ Could not connect to Discord: An invalid token was provided.. Exiting...
+[2025-08-17T22:25:45.816Z] ERROR: Error: [DISCORD] ⚠️ Could not connect to Discord: An invalid token was provided.. Exiting...
 Stack: Error: [DISCORD] ⚠️ Could not connect to Discord: An invalid token was provided.. Exiting...
     at Object.fatal (/app/src/events/logger.js:183:27)
     at startDiscordBot (/app/src/discord-bot.js:114:16)
@@ -6,4 +6,3 @@ Stack: Error: [DISCORD] ⚠️ Could not connect to Discord: An invalid token wa
 Metadata: {
   "code": "TokenInvalid"
 }
-

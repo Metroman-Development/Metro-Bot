@@ -345,14 +345,13 @@ class MetroCore extends EventEmitter {
             logger.info('[MetroCore] Instance is now ready. Proceeding with setClient.');
         }
         this.client = client;
-        if (this.client) {
-            logger.info('[MetroCore] Discord client set. Initializing client-dependent subsystems.');
-            this._subsystems.timeService = new TimeService(this);
-            await this._initializeSchedulingSystem();
-            this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
-            await this._subsystems.statusUpdater.initialize();
-            this._subsystems.statusUpdater.triggerInitialUpdate();
-        }
+
+        logger.info('[MetroCore] Initializing client-dependent subsystems.');
+        this._subsystems.timeService = new TimeService(this);
+        await this._initializeSchedulingSystem();
+        this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
+        await this._subsystems.statusUpdater.initialize();
+        this._subsystems.statusUpdater.triggerInitialUpdate();
     }
 
     /**

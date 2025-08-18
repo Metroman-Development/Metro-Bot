@@ -70,9 +70,9 @@ async function startDiscordBot() {
         logger.info('[DISCORD] Login successful.');
     }
 
+    await metroCore.setClient(discordClient);
     try {
         await connectToDiscord(discordClient);
-        await metroCore.setClient(discordClient);
 
         const SchedulerService = require('./core/chronos/SchedulerService');
         const discordScheduler = new SchedulerService();
@@ -111,9 +111,13 @@ async function startDiscordBot() {
         discordScheduler.start();
 
     } catch (error) {
-        logger.fatal(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. Exiting...`, error);
-        // In a subprocess, we should exit if we can't connect to Discord
-        process.exit(1);
+        if (error.code === 'TokenInvalid') {
+            logger.warn(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. The bot will not be available on Discord, but other systems will continue to run.`);
+        } else {
+            logger.fatal(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. Exiting...`, error);
+            // In a subprocess, we should exit if we can't connect to Discord
+            process.exit(1);
+        }
     }
 }
 
