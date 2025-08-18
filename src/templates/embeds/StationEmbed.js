@@ -40,13 +40,13 @@ class StationEmbed {
 
         }
 
-        if (station.ammenities ) {
+        if (station.amenities ) {
 
             embed.addFields({
 
                 name: 'Cultura',
 
-                value: station.ammenities,
+                value: station.amenities,
 
                 inline: false
 
