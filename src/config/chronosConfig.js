@@ -84,7 +84,25 @@ const config = {
         afternoon: { start: "13:00", end: "18:00" },
         evening: { start: "19:00", end: "23:00" },
         default: { start: "12:00", end: "20:00" }
-    }
+    },
+
+    // Job Definitions for Period Transitions
+    jobs: [
+        // Service start/end times
+        { name: 'service-start-weekday', schedule: '0 6 * * 1-5', task: 'timeService.checkServiceStatus' },
+        { name: 'service-end-weekday', schedule: '0 23 * * 1-5', task: 'timeService.checkServiceStatus' },
+        { name: 'service-start-saturday', schedule: '30 6 * * 6', task: 'timeService.checkServiceStatus' },
+        { name: 'service-end-saturday', schedule: '0 23 * * 6', task: 'timeService.checkServiceStatus' },
+        { name: 'service-start-sunday-festive', schedule: '30 7 * * 0,7', task: 'timeService.checkServiceStatus' },
+        { name: 'service-end-sunday-festive', schedule: '0 23 * * 0,7', task: 'timeService.checkServiceStatus' },
+
+        // Fare period transitions (weekday)
+        { name: 'fare-period-to-punta-morning', schedule: '0 7 * * 1-5', task: 'timeService.checkFarePeriod' },
+        { name: 'fare-period-to-valle-morning', schedule: '0 9 * * 1-5', task: 'timeService.checkFarePeriod' },
+        { name: 'fare-period-to-punta-evening', schedule: '0 18 * * 1-5', task: 'timeService.checkFarePeriod' },
+        { name: 'fare-period-to-valle-evening', schedule: '0 20 * * 1-5', task: 'timeService.checkFarePeriod' },
+        { name: 'fare-period-to-bajo-evening', schedule: '45 20 * * 1-5', task: 'timeService.checkFarePeriod' }
+    ]
 };
 
 module.exports = config;
