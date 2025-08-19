@@ -29,7 +29,7 @@ describe('SchedulerService', () => {
 
     it('should throw an error if a job is missing required properties', () => {
         const invalidJob = { name: 'invalid-job', interval: 1000 }; // Missing task
-        expect(() => scheduler.addJob(invalidJob)).toThrow('Job must have a name, interval, and task');
+        expect(() => scheduler.addJob(invalidJob)).toThrow('Job must have a name, task, and either an interval or schedule.');
     });
 
     it('should start running jobs when start is called', async () => {

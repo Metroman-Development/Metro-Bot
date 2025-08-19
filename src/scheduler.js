@@ -14,29 +14,25 @@ async function startScheduler() {
     });
 
     const scheduler = new SchedulerService();
+    const chronosConfig = require('../config/chronosConfig');
+
+    // Combined task for jobs that run every minute
+    const everyMinuteTasks = async () => {
+        await metroCore._subsystems.api.fetchNetworkStatus();
+        await timeService.checkTime();
+        await metroCore._subsystems.overrideManager.checkScheduledOverrides();
+    };
 
     scheduler.addJob({
-        name: 'fetch-network-status',
+        name: 'every-minute-tasks',
         interval: 60000, // Every minute
-        task: () => metroCore._subsystems.api.fetchNetworkStatus()
+        task: everyMinuteTasks
     });
 
     scheduler.addJob({
         name: 'check-accessibility',
-        interval: 60000, // Every minute
+        interval: 300000, // Every 5 minutes
         task: () => metroCore._subsystems.accessibilityService.checkAccessibility()
-    });
-
-    scheduler.addJob({
-        name: 'check-time',
-        interval: 60000, // Every minute
-        task: () => timeService.checkTime()
-    });
-
-    scheduler.addJob({
-        name: 'check-scheduled-overrides',
-        interval: 60000, // Every minute
-        task: () => metroCore._subsystems.overrideManager.checkScheduledOverrides()
     });
 
     scheduler.addJob({
@@ -44,6 +40,26 @@ async function startScheduler() {
         interval: 3600000, // Every hour
         task: () => metroCore.sendSystemStatusReport()
     });
+
+    // Load jobs from chronosConfig
+    if (chronosConfig.jobs && Array.isArray(chronosConfig.jobs)) {
+        chronosConfig.jobs.forEach(jobConfig => {
+            const taskFunction = () => {
+                const [service, method] = jobConfig.task.split('.');
+                if (service === 'timeService' && typeof timeService[method] === 'function') {
+                    return timeService[method]();
+                } else {
+                    logger.error(`[Scheduler] Task not found: ${jobConfig.task}`);
+                }
+            };
+
+            scheduler.addJob({
+                name: jobConfig.name,
+                schedule: jobConfig.schedule,
+                task: taskFunction
+            });
+        });
+    }
 
     scheduler.start();
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');
