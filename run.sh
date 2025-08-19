@@ -9,24 +9,52 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# --- Initial Setup ---
+echo "Pulling latest changes from git..."
+git pull
+echo "Installing/updating npm dependencies..."
+npm install
+
+
 # --- Configuration ---
 RUN_DIR="run"
 LOG_DIR="logs"
 mkdir -p "$RUN_DIR"
 mkdir -p "$LOG_DIR"
 
-# Service definitions
-declare -A services
-services=(
+# --- Service Definitions ---
+
+# Core modules that are foundational but not runnable as standalone services
+declare -A core_modules
+core_modules=(
+    [metrocore]="./src/core/metro/MetroCore.js"
+    [metro-info-provider]="./src/core/metro/providers/MetroInfoProvider.js"
+)
+
+# Application services that run as standalone processes
+declare -A app_services
+app_services=(
     [discord]="./src/discord-bot.js"
     [telegram]="./src/telegram-bot.js"
     [scheduler]="./src/scheduler.js"
 )
 
+# Define all services for easier lookup
+declare -A all_services
+all_services=(
+    ["metrocore"]=1
+    ["metro-info-provider"]=1
+    ["discord"]=2
+    ["telegram"]=2
+    ["scheduler"]=2
+)
+
+
 declare -A service_dependencies
 service_dependencies=(
-    [discord]="scheduler"
-    [telegram]="scheduler"
+    [discord]="scheduler metrocore"
+    [telegram]="scheduler metrocore"
+    [metrocore]="metro-info-provider"
 )
 
 # --- Helper Functions ---
@@ -47,7 +75,20 @@ is_running() {
 # Start a service
 start_service() {
     local service_name="$1"
-    local service_script="${services[$service_name]}"
+
+    # Check if it's a core module
+    if [ -n "${core_modules[$service_name]}" ]; then
+        echo "INFO: Core module '$service_name' is a foundational component and will be loaded by application services."
+        return
+    fi
+
+    # Check if it's an app service
+    if [ -z "${app_services[$service_name]}" ]; then
+        echo "Error: Unknown service '$service_name'"
+        exit 1
+    fi
+
+    local service_script="${app_services[$service_name]}"
     local pid_file="$RUN_DIR/$service_name.pid"
     local log_file="$LOG_DIR/$service_name.log"
 
@@ -60,12 +101,12 @@ start_service() {
     local dependencies="${service_dependencies[$service_name]}"
     if [ -n "$dependencies" ]; then
         for dep in $dependencies; do
-            if ! is_running "$dep"; then
+            if [ -n "${core_modules[$dep]}" ]; then
+                echo "INFO: Acknowledging dependency on core module '$dep' for service '$service_name'."
+            elif ! is_running "$dep"; then
                 echo "Dependency '$dep' for service '$service_name' is not running. Starting it now..."
                 start_service "$dep"
                 echo "Waiting for dependency '$dep' to start..."
-                # In a more robust system, this would be a health check,
-                # but for now, we'll just wait a few seconds.
                 sleep 5
             fi
         done
@@ -81,6 +122,13 @@ start_service() {
 # Stop a service
 stop_service() {
     local service_name="$1"
+
+    # Core modules don't run as separate processes, so they can't be stopped.
+    if [ -n "${core_modules[$service_name]}" ]; then
+        echo "INFO: Core module '$service_name' cannot be stopped as it is not a running process."
+        return
+    fi
+
     local pid_file="$RUN_DIR/$service_name.pid"
 
     if ! is_running "$service_name"; then
@@ -98,13 +146,19 @@ stop_service() {
 # Show status of services
 show_status() {
     echo "--- Service Status ---"
-    for service_name in "${!services[@]}"; do
+    echo "Application Services:"
+    for service_name in "${!app_services[@]}"; do
         if is_running "$service_name"; then
             local pid=$(cat "$RUN_DIR/$service_name.pid")
-            echo "[RUNNING] $service_name (PID: $pid)"
+            echo "  [RUNNING] $service_name (PID: $pid)"
         else
-            echo "[STOPPED] $service_name"
+            echo "  [STOPPED] $service_name"
         fi
+    done
+    echo ""
+    echo "Core Modules:"
+    for module_name in "${!core_modules[@]}"; do
+        echo "  [LOADED]  $module_name (as a foundational component)"
     done
     echo "----------------------"
 }
@@ -127,12 +181,12 @@ SERVICE="$2"
 case "$COMMAND" in
     start)
         if [ -z "$SERVICE" ]; then
-            echo "Starting all services..."
-            for service_name in "${!services[@]}"; do
+            echo "Starting all application services..."
+            for service_name in "${!app_services[@]}"; do
                 start_service "$service_name"
             done
         else
-            if [ -n "${services[$SERVICE]}" ]; then
+            if [ -n "${all_services[$SERVICE]}" ]; then
                 start_service "$SERVICE"
             else
                 echo "Error: Unknown service '$SERVICE'"
@@ -143,12 +197,12 @@ case "$COMMAND" in
         ;;
     stop)
         if [ -z "$SERVICE" ]; then
-            echo "Stopping all services..."
-            for service_name in "${!services[@]}"; do
+            echo "Stopping all application services..."
+            for service_name in "${!app_services[@]}"; do
                 stop_service "$service_name"
             done
         else
-            if [ -n "${services[$SERVICE]}" ]; then
+            if [ -n "${all_services[$SERVICE]}" ]; then
                 stop_service "$SERVICE"
             else
                 echo "Error: Unknown service '$SERVICE'"
@@ -159,13 +213,13 @@ case "$COMMAND" in
         ;;
     restart)
         if [ -z "$SERVICE" ]; then
-            echo "Restarting all services..."
-            for service_name in "${!services[@]}"; do
+            echo "Restarting all application services..."
+            for service_name in "${!app_services[@]}"; do
                 stop_service "$service_name"
                 start_service "$service_name"
             done
         else
-            if [ -n "${services[$SERVICE]}" ]; then
+            if [ -n "${all_services[$SERVICE]}" ]; then
                 stop_service "$SERVICE"
                 start_service "$SERVICE"
             else
@@ -180,7 +234,8 @@ case "$COMMAND" in
         ;;
     *)
         echo "Usage: $0 {start|stop|restart|status} [service_name]"
-        echo "Services: ${!services[@]}"
+        echo "Application Services: ${!app_services[@]}"
+        echo "Core Modules: ${!core_modules[@]}"
         exit 1
         ;;
 esac
