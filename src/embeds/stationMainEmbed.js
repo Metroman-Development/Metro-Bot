@@ -100,23 +100,11 @@ function addAccessibilityField(embed, station) {
     const processedLines = processAccessibilityText(station.accessibility);
     const fullText = processedLines.join('\n');
 
-    const displayText = fullText.length > 300
-        ? `${fullText.substring(0, 300)}...`
-        : fullText;
-
     embed.addFields({
         name: `${metroConfig.accessibility?.logo || '♿'} Accesibilidad`,
-        value: displayText,
+        value: fullText,
         inline: false
     });
-
-    if (fullText.length > 300) {
-        embed.addFields({
-            name: '\u200B',
-            value: `*Para ver la información completa de accesibilidad, haz clic en el botón ♿*`,
-            inline: false
-        });
-    }
 }
 
 module.exports = {
