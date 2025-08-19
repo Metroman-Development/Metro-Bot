@@ -42,7 +42,7 @@ class MetroInfoProvider {
             name: station.original,
             line: station.line,
             route: station.route,
-            status: station.status?.description || 'No status information',
+            status: station.status?.message || 'No status information',
         }));
     }
 
@@ -65,7 +65,6 @@ class MetroInfoProvider {
             },
             status: {
                 code: station.status?.code || '0',
-                description: station.status?.description || 'No status information',
                 message: station.status?.message || '',
             },
         };
