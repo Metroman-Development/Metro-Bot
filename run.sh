@@ -7,6 +7,12 @@ set -e
 echo "Starting the bot in PRODUCTION mode."
 echo "-------------------------------------"
 
+# --- Update and Install ---
+echo "Pulling latest changes from git..."
+git pull
+echo "Installing/updating dependencies..."
+npm install
+
 # --- Configuration Loading ---
 # This script loads the configuration from a JSON file and passes it to the Node.js application
 # via an environment variable. This allows the configuration to be managed separately from the code.
