@@ -26,12 +26,12 @@ class DatabaseService {
         return this.#instance;
     }
 
-    async updateAllData(processedData.stations['SP'].status) {
+    async updateAllData(processedData) {
         const data = await processedData;
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
 
-        console.log(data);
+        console.log(data.stations['SP'].status);
          
         if (!data || !data.lines || typeof data.lines !== 'object' || Object.keys(data.lines).length === 0) {
             logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
