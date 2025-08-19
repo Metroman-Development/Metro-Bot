@@ -14,7 +14,7 @@ async function startScheduler() {
     });
 
     const scheduler = new SchedulerService();
-    const chronosConfig = require('../config/chronosConfig');
+    const chronosConfig = require('./config/chronosConfig');
 
     // Combined task for jobs that run every minute
     const everyMinuteTasks = async () => {
