@@ -512,7 +512,7 @@ async activateEventOverrides(eventDetails) {
             }
             if (fromPrimarySource) {
                 // The old partial update is replaced by the new comprehensive one.
-                await this.dbService.updateAllData(randomizedData);
+                await this.dbService.updateAllData(processedData);
             }
 
 
@@ -1117,8 +1117,9 @@ async activateEventOverrides(eventDetails) {
         try {
             logger.info('[ApiService] Forcing API fetch to populate database...');
             const rawData = await this.estadoRedService.fetchStatus();
+            const processedData = this._processData(rawData);
             // Call the new comprehensive update method
-            await this.dbService.updateAllData(rawData);
+            await this.dbService.updateAllData(processedData);
             logger.info('[ApiService] Database populated with initial data from API.');
         } catch (error) {
             logger.error('[ApiService] Failed to force fetch and populate database:', { error });
