@@ -9,6 +9,13 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# --- Initial Setup ---
+echo "Pulling latest changes from git..."
+git pull
+echo "Installing/updating npm dependencies..."
+npm install
+
+
 # --- Configuration ---
 RUN_DIR="run"
 LOG_DIR="logs"
