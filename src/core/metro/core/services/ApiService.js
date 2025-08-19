@@ -18,11 +18,12 @@ const EstadoRedService = require('./EstadoRedService');
 const { translateApiData } = require('../../data/dataTranslator');
 
 class ApiService extends EventEmitter {
-    constructor(metro, options = {}) {
+    constructor(metro, options = {}, dataEngine) {
         super();
         
         // Core dependencies
         this.metro = metro;
+        this.dataEngine = dataEngine;
         this.debug = options.debug || false;
         this.chaosFactor = options.chaosFactor || 2000;
         this._cycleCount = 0;
