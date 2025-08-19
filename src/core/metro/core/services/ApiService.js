@@ -473,12 +473,8 @@ async activateEventOverrides(eventDetails) {
                     logger.info("[ApiService] Successfully loaded data from database fallback.");
                 }
             } else {
-                logger.info('[ApiService] Outside of operating hours. Fetching from database.');
-                rawData = await this.getDbRawData();
-                if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
-                    throw new Error("Could not retrieve data from database outside of operating hours.");
-                }
-                logger.info("[ApiService] Successfully loaded data from database.");
+                logger.info('[ApiService] Outside of operating hours. Generating off-hours data.');
+                rawData = await this._generateOffHoursData();
             }
 
 
@@ -670,6 +666,33 @@ async activateEventOverrides(eventDetails) {
         // Store the processed data immediately
         this._updateProcessedData(processed);
         return processed;
+    }
+
+    async _generateOffHoursData() {
+        const dbData = await this.getDbRawData();
+        if (!dbData || !dbData.lineas) {
+            logger.error('[ApiService] Cannot generate off-hours data: no data from database.');
+            return { lineas: {} };
+        }
+
+        const offHoursData = JSON.parse(JSON.stringify(dbData));
+
+        for (const lineId in offHoursData.lineas) {
+            const line = offHoursData.lineas[lineId];
+            line.estado = '15';
+            line.mensaje = 'Fuera de Horario Operativo';
+            line.mensaje_app = 'Fuera de Horario Operativo';
+
+            if (line.estaciones) {
+                for (const station of line.estaciones) {
+                    station.estado = '15';
+                    station.descripcion = 'Fuera de Horario Operativo';
+                    station.descripcion_app = 'Fuera de Horario Operativo';
+                }
+            }
+        }
+
+        return offHoursData;
     }
 
     async _handleDataChanges(rawData, processedData, previousRawData) {
