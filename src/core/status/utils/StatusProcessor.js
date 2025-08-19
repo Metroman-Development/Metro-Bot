@@ -715,6 +715,7 @@ _transformStation(station, lineId) {
       : [];
 
     return {
+      ...station,
       id: station.codigo.toUpperCase(),
       name: station.nombre,
       displayName: station.nombre,

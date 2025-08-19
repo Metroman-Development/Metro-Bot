@@ -66,4 +66,33 @@ describe('StatusProcessor', () => {
             expect(transformedStation.transferLines).toEqual([]);
         });
     });
+
+    describe('property preservation', () => {
+        it('should preserve all original station properties', () => {
+            const stationData = {
+                codigo: 'TEST',
+                nombre: 'Test Station',
+                estado: '1',
+                combinacion: 'L2',
+                transports: 'Bus, Taxi',
+                services: 'ATM, Wifi',
+                accessibility: 'Full',
+                commerce: 'Cafe',
+                amenities: 'Restrooms',
+                image_url: 'http://example.com/image.png'
+            };
+
+            const transformedStation = statusProcessor._transformStation(stationData, 'l1');
+
+            expect(transformedStation.transports).toBe('Bus, Taxi');
+            expect(transformedStation.services).toBe('ATM, Wifi');
+            expect(transformedStation.accessibility).toBe('Full');
+            expect(transformedStation.commerce).toBe('Cafe');
+            expect(transformedStation.amenities).toBe('Restrooms');
+            expect(transformedStation.image_url).toBe('http://example.com/image.png');
+            // Also check a transformed property to be sure
+            expect(transformedStation.id).toBe('TEST');
+            expect(transformedStation.line).toBe('l1');
+        });
+    });
 });
