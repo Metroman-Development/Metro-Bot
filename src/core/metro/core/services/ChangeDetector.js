@@ -26,32 +26,46 @@ class ChangeDetector {
      * @param {Object} newData - The new data to analyze
      * @returns {Object} - Change detection result with metadata and changes
      */
-    analyze(newData, oldData = null) {
-        try {
-            if (!newData || typeof newData !== 'object') {
-                logger.warn('[ChangeDetector] Invalid data provided for analysis');
+    analyze(processedData, dbData, cacheData) {
+        const changes = [];
+        const processedStations = processedData.stations;
+
+        for (const stationId in processedStations) {
+            const processedStation = processedStations[stationId];
+            const dbStation = dbData.stations[stationId];
+            const cacheStation = cacheData ? cacheData.stations[stationId] : null;
+
+            let changeToApply = null;
+
+            // Compare with DB
+            if (dbStation && processedStation.status !== dbStation.status) {
+                changeToApply = {
+                    ...processedStation,
+                    from: dbStation.status,
+                    to: processedStation.status,
+                    timestamp: new Date()
+                };
             }
 
-            const referenceData = oldData || this.lastData;
+            // Compare with Cache
+            if (cacheStation && processedStation.status !== cacheStation.status) {
+                const cacheChange = {
+                    ...processedStation,
+                    from: cacheStation.status,
+                    to: processedStation.status,
+                    timestamp: new Date(cacheData._storedAt)
+                };
 
-            // Detect changes and update network status
-            let changes = this._detectChanges(newData, referenceData);
+                if (!changeToApply || cacheChange.timestamp < changeToApply.timestamp) {
+                    changeToApply = cacheChange;
+                }
+            }
 
-            this._updateNetworkStatus(newData, changes);
-            this._updateLastStates(newData);
-
-            return {
-                metadata: this._generateMetadata(newData, changes),
-                changes: changes,
-                networkStatus: this.cachedNetwork
-            };
-        } catch (error) {
-            logger.error('[ChangeDetector] Analysis failed', {
-                error: error.message,
-                stack: error.stack
-            });
-            return this._createFallbackResponse(error);
+            if (changeToApply) {
+                changes.push(changeToApply);
+            }
         }
+        return changes;
     }
 
     /**
