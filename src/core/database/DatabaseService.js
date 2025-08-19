@@ -26,42 +26,46 @@ class DatabaseService {
         return this.#instance;
     }
 
-    async updateAllData(data) {
-        logger.info('[DatabaseService] Starting full database update from raw data...');
-        try {
-            // This is the main orchestrator method
-            if (!data || !data.lineas) {
-                logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
-                return;
-            }
+    async updateAllData(processedData) {
+        logger.info('[DatabaseService] Starting full database update from processed data...');
 
-            for (const lineId in data.lineas) {
-                const line = data.lineas[lineId];
-                if (line.estaciones && Array.isArray(line.estaciones)) {
-                    for (const station of line.estaciones) {
-                        // Assuming the raw station object has all necessary fields.
-                        // We might need to map fields from raw API structure to DB structure.
-                        // For now, assuming direct mapping.
-                        const stationWithLine = { ...station, line_id: lineId };
-                        await this.updateStation(stationWithLine);
+        if (!processedData || !processedData.lines || typeof processedData.lines !== 'object' || Object.keys(processedData.lines).length === 0) {
+            logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
+            return;
+        }
+
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            for (const lineId in processedData.lines) {
+                const line = processedData.lines[lineId];
+                await this.updateLineStatus(connection, {
+                    lineId: lineId.toLowerCase(),
+                    statusCode: line.status,
+                    statusMessage: line.message,
+                    appMessage: line.message_app
+                });
+
+                if (line.stations) {
+                    for (const station of line.stations) {
+                        await this.updateStationStatus(connection, {
+                            stationCode: station.id.toUpperCase(),
+                            statusCode: station.status,
+                            statusDescription: station.description,
+                            appDescription: station.description_app
+                        });
                     }
                 }
             }
 
-            await this.updateIncidents(data);
-            await this.updateSystemInfo(data);
-            await this.updateTrainModels(data);
-            await this.updateLineFleet(data);
-            await this.updateStatusOverrides(data);
-            await this.updateScheduledStatusOverrides(data);
-            await this.updateIntermodalStations(data);
-            await this.updateIntermodalBuses(data);
-            await this.updateNetworkStatus(data);
-
-            logger.info('[DatabaseService] Full database update complete.');
-
+            await connection.commit();
         } catch (error) {
-            logger.error('[DatabaseService] An error occurred during the full data update process:', error);
+            await connection.rollback();
+            logger.error('[DatabaseService] Full data update failed:', { error });
+            throw error;
+        } finally {
+            connection.release();
         }
     }
 
