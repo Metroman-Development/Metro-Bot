@@ -27,12 +27,13 @@ class DatabaseService {
     }
 
     async updateAllData(processedData) {
+        const data = await processedData;
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
 
-        console.log(processedData);
+        console.log(data);
          
-        if (!processedData || !processedData.lines || typeof processedData.lines !== 'object' || Object.keys(processedData.lines).length === 0) {
+        if (!data || !data.lines || typeof data.lines !== 'object' || Object.keys(data.lines).length === 0) {
             logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
             return;
         }
@@ -41,8 +42,8 @@ class DatabaseService {
         try {
             await connection.beginTransaction();
 
-            for (const lineId in processedData.lines) {
-                const line = processedData.lines[lineId];
+            for (const lineId in data.lines) {
+                const line = data.lines[lineId];
                 await this.updateLineStatus(connection, {
                     lineId: lineId.toLowerCase(),
                     statusCode: line.status,
