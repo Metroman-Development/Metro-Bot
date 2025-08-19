@@ -26,6 +26,47 @@ class DatabaseService {
         return this.#instance;
     }
 
+    async updateChanges(changes) {
+        logger.info(`[DatabaseService] Starting partial database update with ${changes.length} changes...`);
+        if (!changes || changes.length === 0) {
+            logger.info('[DatabaseService] No changes to update.');
+            return;
+        }
+
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            for (const change of changes) {
+                if (change.type === 'line') {
+                    await this.updateLineStatus(connection, {
+                        lineId: change.id,
+                        statusCode: change.to.code,
+                        statusMessage: change.to.message,
+                        appMessage: change.to.appMessage
+                    });
+                } else if (change.type === 'station') {
+                    await this._updateStationStatusInTransaction(connection, {
+                        stationCode: change.id,
+                        lineId: change.line,
+                        statusCode: change.to.code,
+                        statusDescription: change.to.message,
+                        appDescription: change.to.appMessage
+                    });
+                }
+            }
+
+            await connection.commit();
+            logger.info(`[DatabaseService] Successfully updated ${changes.length} changes.`);
+        } catch (error) {
+            await connection.rollback();
+            logger.error('[DatabaseService] Partial data update failed:', { error });
+            throw error;
+        } finally {
+            connection.release();
+        }
+    }
+
     async updateAllData(processedData) {
         const data = await processedData;
         logger.info('[DatabaseService] Starting full database update from processed data...');

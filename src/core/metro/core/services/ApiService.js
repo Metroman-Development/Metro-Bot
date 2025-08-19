@@ -512,7 +512,7 @@ async activateEventOverrides(eventDetails) {
             }
             if (fromPrimarySource) {
                 // The old partial update is replaced by the new comprehensive one.
-                await this.dbService.updateAllData(processedData);
+                // await this.dbService.updateAllData(processedData);
             }
 
 
@@ -697,7 +697,12 @@ async activateEventOverrides(eventDetails) {
     }
 
     async _handleDataChanges(rawData, processedData, previousRawData) {
-        const changeResult = this.changeDetector.analyze(rawData, previousRawData);
+        const changeResult = this.changeDetector.analyze(rawData, previousRawData, processedData);
+        if (this.isFirstTime) {
+            await this.dbService.updateAllData(processedData);
+        } else if (changeResult.changes?.length > 0) {
+            await this.dbService.updateChanges(changeResult.changes);
+        }
         if (changeResult.changes?.length > 0) {
             this.changeHistory.unshift(...changeResult.changes);
             this.metrics.changeEvents += changeResult.changes.length;
