@@ -432,103 +432,49 @@ async activateEventOverrides(eventDetails) {
 
         if (this.isFirstTime) {
             logger.info('[ApiService] First run detected. Forcing API fetch to populate database.');
-            // Force fetch from API and populate DB, then proceed
             await this.forceApiFetchAndPopulateDb();
         }
 
-        // PHASE 1: Ensure static data freshness
         await this._ensureStaticDataFreshness();
 
-        // PHASE 2: Execute network fetch
         const requestId = crypto.randomUUID();
         this._activeRequests.add(requestId);
         this.metrics.totalRequests++;
         const startTime = performance.now();
 
-        if ((this.checkCount - 1) / 15 === 1 || this.checkCount - 1 === 0) {
-            // This will be handled by the SchedulerService
-        }
-
-        if (this.metrics.totalRequests > 1) {
-            this.checkCount++
-        }
-
         try {
             let rawData;
-            let fromPrimarySource = false;
-
             if (this.timeHelpers.isWithinOperatingHours()) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
-                try {
-                    // PHASE 2a: Fetch raw data from API/cache
-                    rawData = await this.estadoRedService.fetchStatus();
-                    fromPrimarySource = true;
-                    logger.info('[ApiService] Successfully fetched data from API.');
-                } catch (fetchError) {
-                    logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
-                    rawData = await this.getDbRawData();
-                    if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
-                        throw new Error("All data sources failed, including database fallback.");
-                    }
-                    logger.info("[ApiService] Successfully loaded data from database fallback.");
-                }
+                rawData = await this.estadoRedService.fetchStatus();
             } else {
-                logger.info('[ApiService] Outside of operating hours. Generating off-hours data.');
-                rawData = await this._generateOffHoursData();
+                logger.info('[ApiService] Outside of operating hours. Fetching from DB and setting status to 15.');
+                const dbData = await this.getDbRawData();
+                rawData = this._setAllStationsStatus(dbData, '15');
             }
 
-
-            // PHASE 2c: Process data
-            const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
-            const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
-            const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
-
-            const processedData = this._processData(randomizedData);
-
-
-            console.log(processedData);
+            const processedData = this._processData(rawData);
             
-            const summary = this.generateNetworkSummary(processedData);
-            await this.dbService.updateNetworkStatusSummary(summary);
+            const dbData = await this.getDbRawData();
+            const cacheData = await this._readProcessedData();
 
+            const changes = this.changeDetector.analyze(processedData, dbData, cacheData);
 
-            // console.log(processedData)
+            if (changes.length > 0) {
+                await this.dbService.updateChanges(changes);
+                // TODO: Fetch overview and line embed
+                logger.info('[ApiService] Changes detected and pushed to the database.');
+            } else {
+                logger.info('[ApiService] No changes detected.');
+            }
 
-            // PHASE 2d: Update data state
-            this.lastRawData = rawData;
-
-
-            this.lastProcessedData = processedData;
-
-
-            //this._updateProcessedData(processedData);
             this._updateState(processedData);
-
-            // PHASE 2e: Handle changes
-            if (!this.isFirstTime) {
-                const dbRawData = await this.getDbRawData();
-                await this._handleDataChanges(randomizedData, processedData, dbRawData);
-            }
-            if (fromPrimarySource) {
-                // The old partial update is replaced by the new comprehensive one.
-                await this.dbService.updateAllData(randomizedData);
-            }
-
-
-            // PHASE 2f: Persist data
             await this._storeProcessedData(processedData);
-
             this.metrics.lastSuccess = new Date();
-
-            // console.log(this.lastProcessedData)
-
-
-
             return processedData;
+
         } catch (error) {
-            logger.error(`[ApiService] Fetch failed`, {
-                error
-            });
+            logger.error(`[ApiService] Fetch failed`, { error });
             this.metrics.failedRequests++;
             this.metrics.lastFailure = new Date();
             return null;
@@ -724,6 +670,21 @@ async activateEventOverrides(eventDetails) {
                 logger.error('[ApiService] Failed to write apiChanges.json', { error });
             }
         }
+    }
+
+    _setAllStationsStatus(data, status) {
+        const newData = JSON.parse(JSON.stringify(data));
+        for (const lineId in newData.lineas) {
+            const line = newData.lineas[lineId];
+            if (line.estaciones) {
+                for (const station of line.estaciones) {
+                    station.estado = status;
+                    station.descripcion = 'Fuera de Horario Operativo';
+                    station.descripcion_app = 'Fuera de Horario Operativo';
+                }
+            }
+        }
+        return newData;
     }
 
     _updateState(newData) {
@@ -948,6 +909,20 @@ async activateEventOverrides(eventDetails) {
         this.changeHistory = [];
     }
     
+    async _readProcessedData() {
+        try {
+            const data = await fsp.readFile(this.processedDataFile, 'utf8');
+            return JSON.parse(data);
+        } catch (error) {
+            if (error.code === 'ENOENT') {
+                logger.warn('[ApiService] Processed data file not found. Returning null.');
+                return null;
+            }
+            logger.error('[ApiService] Failed to read processed data', { error });
+            return null;
+        }
+    }
+
     async _storeProcessedData(data) {
         try {
             await fsp.mkdir(this.cacheDir, { recursive: true });
@@ -1114,15 +1089,13 @@ async activateEventOverrides(eventDetails) {
 
     async forceApiFetchAndPopulateDb() {
         try {
-            logger.info('[ApiService] Forcing API fetch to populate database...');
+            console.log('[ApiService] Forcing API fetch to populate database...');
             const rawData = await this.estadoRedService.fetchStatus();
-            // Call the new comprehensive update method
+            console.log('[ApiService] Fetched raw data from API.');
             await this.dbService.updateAllData(rawData);
-            logger.info('[ApiService] Database populated with initial data from API.');
+            console.log('[ApiService] Database populated with initial data from API.');
         } catch (error) {
-            logger.error('[ApiService] Failed to force fetch and populate database:', { error });
-            // In a real scenario, we might want to throw this error
-            // to prevent the application from starting in a bad state.
+            console.error('[ApiService] Failed to force fetch and populate database:', error);
         }
     }
 }

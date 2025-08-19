@@ -60,7 +60,7 @@ class DatabaseManager extends EventEmitter {
             console.log('[DB] Connection test successful');
             return true;
         } catch (error) {
-            console.error('[DB] Connection test failed:', error.message);
+            console.error('[DB] Connection test failed:', error);
             this.connectionState = 'disconnected';
             throw error;
         } finally {
@@ -237,6 +237,21 @@ class DatabaseManager extends EventEmitter {
                 connection.release();
             }
         }
+    }
+
+    async updateChanges(changes) {
+        if (!changes || changes.length === 0) {
+            return;
+        }
+
+        const sql = 'UPDATE metro_stations_status SET status_code = ?, status_message = ?, app_message = ? WHERE station_code = ?';
+
+        await this.transaction(async (connection) => {
+            for (const change of changes) {
+                const params = [change.to, change.description, change.description_app, change.id];
+                await connection.query(sql, params);
+            }
+        });
     }
 
     async close() {

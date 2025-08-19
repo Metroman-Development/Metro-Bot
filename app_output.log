@@ -3,11 +3,10 @@
 [DB] Initializing new DatabaseManager instance
 [DB] Starting initialization...
 [DB] Creating new connection pool with config: {
-  host: undefined,
-  user: undefined,
-  password: undefined,
-  database: undefined,
-  port: undefined
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB'
 }
 [DB] Connection pool created, testing connection...
 [DB] Acquiring connection for health check...

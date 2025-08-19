@@ -44,6 +44,7 @@ class EstadoRedService {
                 return data;
 
             } catch (error) {
+                console.error(`[EstadoRedService] Fetch attempt ${attempt} failed:`, error);
                 lastError = error;
 
                 if (attempt < maxRetries) {
@@ -138,38 +139,38 @@ class EstadoRedService {
     }
 
     _getEstadoRedUrl() {
-        // First, try to get from process.env, which might be correctly set in some environments
-        if (process.env.ESTADO_RED && process.env.ESTADO_RED.startsWith('http')) {
-            return process.env.ESTADO_RED;
-        }
+        let url = 'https://www.metro.cl/api/estadoRedDetalle.php'; // Default fallback
 
-        // If not, read the .env file manually
-        try {
-            const envPath = path.join(__dirname, '../../../../../.env');
-            if (fs.existsSync(envPath)) {
-                const envFileContent = fs.readFileSync(envPath, 'utf-8');
-                const lines = envFileContent.split('\n');
-                for (const line of lines) {
-                    if (line.startsWith('ESTADO_RED')) {
-                        const separatorIndex = line.search(/[:=]/);
-                        if (separatorIndex !== -1) {
-                            const url = line.substring(separatorIndex + 1).trim();
-                            if (url.startsWith('http')) {
-                                return url;
+        // First, try to get from process.env
+        if (process.env.ESTADO_RED && process.env.ESTADO_RED.startsWith('http')) {
+            url = process.env.ESTADO_RED;
+        } else {
+            // If not, read the .env file manually
+            try {
+                const envPath = path.join(__dirname, '../../../../../.env');
+                if (fs.existsSync(envPath)) {
+                    const envFileContent = fs.readFileSync(envPath, 'utf-8');
+                    const lines = envFileContent.split('\n');
+                    for (const line of lines) {
+                        if (line.startsWith('ESTADO_RED')) {
+                            const separatorIndex = line.search(/[:=]/);
+                            if (separatorIndex !== -1) {
+                                const parsedUrl = line.substring(separatorIndex + 1).trim();
+                                if (parsedUrl.startsWith('http')) {
+                                    url = parsedUrl;
+                                    break;
+                                }
                             }
                         }
                     }
                 }
-            }
-        } catch (e) {
-            if (typeof logger !== 'undefined') {
-                logger.error('[EstadoRedService] Error reading .env file for custom parsing', e);
-            } else {
+            } catch (e) {
                 console.error('[EstadoRedService] Error reading .env file for custom parsing', e);
             }
         }
 
-        return 'https://www.metro.cl/api/estadoRedDetalle.php';
+        console.log(`[EstadoRedService] Using URL: ${url}`);
+        return url;
     }
 }
 
