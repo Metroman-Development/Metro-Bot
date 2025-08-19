@@ -52,13 +52,17 @@ class DatabaseService {
                     for (const stationId of line.stations) {
                         const station = data.stations[stationId.toUpperCase()];
                         if (station) {
-                            await this._updateStationStatusInTransaction(connection, {
-                                stationCode: station.id,
-                                lineId: station.line,
-                                statusCode: station.status.code,
-                                statusDescription: station.status.message,
-                                appDescription: station.status.appMessage
-                            });
+                            if (station.status && station.status.code) {
+                                await this._updateStationStatusInTransaction(connection, {
+                                    stationCode: station.id,
+                                    lineId: station.line,
+                                    statusCode: station.status.code,
+                                    statusDescription: station.status.message,
+                                    appDescription: station.status.appMessage
+                                });
+                            } else {
+                                logger.warn(`[DatabaseService] Station ${station.id} has no status code, skipping status update.`);
+                            }
                         }
                     }
                 }
