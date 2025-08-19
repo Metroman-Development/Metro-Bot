@@ -729,6 +729,22 @@ _transformStation(station, lineId) {
       },
       transferLines,
       lastUpdated: this.timeHelpers.currentTime.toISOString(),
+      // Explicitly add all fields from the station object
+      services: station.services,
+      amenities: station.amenities,
+      image_url: station.image_url,
+      combinacion: station.combinacion,
+      transports: station.transports,
+      accessibility: station.accessibility,
+      commerce: station.commerce,
+      commune: station.commune,
+      address: station.address,
+      latitude: station.latitude,
+      longitude: station.longitude,
+      location: station.location,
+      opened_date: station.opened_date,
+      last_renovation_date: station.last_renovation_date,
+      access_details: station.access_details,
       // Only include these properties if they're true
       ...(station.isTransferOperational === true && { isTransferOperational: true }),
       ...(station.accessPointsOperational === true && { accessPointsOperational: true })
