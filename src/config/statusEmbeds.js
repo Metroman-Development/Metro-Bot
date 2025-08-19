@@ -44,12 +44,12 @@ module.exports = {
         const fields = Object.values(lines).map(line => {
             const lineKey = line.id.toLowerCase();
             const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
-            const statusConfig = metroConfig.statusTypes?.[line.status] || {};
+            const statusConfig = metroConfig.statusTypes?.[line.status.code] || {};
 
-            const isClosed = line.status === '0' || line.message?.includes('Cierre por Horario');
+            const isClosed = line.status.code === '0' || line.status.message?.includes('Cierre por Horario');
             const lineStatus = isClosed
                 ? `🌙 Cierre por Horario`
-                : line.message || statusConfig.description || 'Estado desconocido';
+                : line.status.message || statusConfig.description || 'Estado desconocido';
 
             const lineName = line.displayName || line.name || '';
             return {
