@@ -45,20 +45,23 @@ class DatabaseService {
             for (const lineId in data.lines) {
                 const line = data.lines[lineId];
                 await this.updateLineStatus(connection, {
-                    lineId: lineId.toLowerCase(),
-                    statusCode: line.status,
-                    statusMessage: line.message,
-                    appMessage: line.message_app
+                    lineId: line.id,
+                    statusCode: line.status.code,
+                    statusMessage: line.status.message,
+                    appMessage: line.status.appMessage
                 });
 
                 if (line.stations) {
-                    for (const station of line.stations) {
-                        await this.updateStationStatus(connection, {
-                            stationCode: station.id.toUpperCase(),
-                            statusCode: station.status,
-                            statusDescription: station.description,
-                            appDescription: station.description_app
-                        });
+                    for (const stationId of line.stations) {
+                        const station = data.stations[stationId.toUpperCase()];
+                        if (station) {
+                            await this.updateStationStatus(connection, {
+                                stationCode: station.id,
+                                statusCode: station.status.code,
+                                statusDescription: station.status.message,
+                                appDescription: station.status.appMessage
+                            });
+                        }
                     }
                 }
             }
