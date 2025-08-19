@@ -3,6 +3,27 @@ const logger = require('../../../../events/logger');
 const metroConfig = require('../../../../config/metro/metroConfig');
 const styles = require('../../../../config/styles.json');
 
+function getNetworkStatus(apiData) {
+    const lineStatuses = Object.values(apiData).map(lineData => {
+        // Ensure we are only looking at line objects, which should have an 'estado' property
+        if (lineData && typeof lineData.estado !== 'undefined') {
+            return lineData.estado === "1";
+        }
+        return null; // Or some other indicator for non-line properties
+    }).filter(status => status !== null); // Filter out non-line properties
+
+    if (lineStatuses.length === 0) {
+        return 'unknown'; // No line data found
+    }
+
+    if (lineStatuses.every(status => status === true)) {
+        return 'operational';
+    } else if (lineStatuses.every(status => status === false)) {
+        return 'closed';
+    } else {
+        return 'special';
+    }
+}
 
 module.exports = {
   /**
@@ -13,11 +34,14 @@ module.exports = {
   transformAPIData: (apiData) => {
     try {
       const transformed = {
-        network: 'operational',
+        network: {
+          status: getNetworkStatus(apiData),
+          timestamp: new Date().toISOString()
+        },
         lines: {},
         stations: {},
         lastUpdated: new Date(),
-        version: metroConfig.dataVersion || '1.0.0'
+        version: `${metroConfig.dataVersion || '1.0.0'}-${Date.now()}`
       };
 
       // Transform each line
@@ -138,7 +162,7 @@ module.exports = {
    console.log("VALIDANDO");
       
       
-    const requiredKeys = ['network', 'lines', 'stations', 'lastUpdated'];
+    const requiredKeys = ['network', 'lines', 'stations', 'lastUpdated', 'version'];
     const lineRequiredKeys = ['id', 'status', 'stations'];
     const stationRequiredKeys = ['id', 'name', 'line', 'status'];
 
@@ -146,6 +170,10 @@ module.exports = {
       // Check top-level structure
       if (!requiredKeys.every(k => data.hasOwnProperty(k))) {
         throw new Error('Missing required top-level keys');
+      }
+
+      if (typeof data.network !== 'object' || data.network === null || !data.network.status || !data.network.timestamp) {
+        throw new Error('Invalid network field structure');
       }
 
       // Check line structure

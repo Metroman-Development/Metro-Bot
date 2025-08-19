@@ -217,7 +217,7 @@ class MetroCore extends EventEmitter {
                 statusProcessor: this._subsystems.statusProcessor,
                 changeDetector: this._subsystems.changeDetector,
                 dbService: databaseService,
-            });
+            }, this._engines.data);
             
             // Phase 3: Set up the public API
             this.api = {
