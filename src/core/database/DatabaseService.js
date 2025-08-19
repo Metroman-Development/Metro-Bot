@@ -67,8 +67,8 @@ class DatabaseService {
 
     async updateStation(station) {
         // 1. Validate data
-        if (!station.comuna || !station.estado) { // Note: Field names from raw API might be different, e.g. 'comuna' not 'commune'
-            logger.warn(`[DatabaseService] Skipping station ${station.codigo} due to missing 'comuna' or 'estado' data.`);
+        if (!station.commune || !station.estado) {
+            logger.warn(`[DatabaseService] Skipping station ${station.station_code} due to missing 'commune' or 'estado' data.`);
             return;
         }
 
@@ -77,9 +77,10 @@ class DatabaseService {
             INSERT INTO metro_stations (
                 line_id, station_code, station_name, display_name, display_order,
                 commune, address, latitude, longitude, location,
-                transports, services, accessibility, commerce, amenities, image_url, access_details
+                transports, services, accessibility, commerce, amenities, image_url, access_details,
+                opened_date, last_renovation_date, combinacion
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 station_name = VALUES(station_name),
                 display_name = VALUES(display_name),
@@ -95,26 +96,28 @@ class DatabaseService {
                 commerce = VALUES(commerce),
                 amenities = VALUES(amenities),
                 image_url = VALUES(image_url),
-                access_details = VALUES(access_details)
+                access_details = VALUES(access_details),
+                opened_date = VALUES(opened_date),
+                last_renovation_date = VALUES(last_renovation_date),
+                combinacion = VALUES(combinacion)
         `;
 
-        const longitude = parseFloat(station.longitud); // Adjust field name if needed
-        const latitude = parseFloat(station.latitud); // Adjust field name if needed
+        const longitude = parseFloat(station.longitude);
+        const latitude = parseFloat(station.latitude);
         const validPoint = !isNaN(longitude) && !isNaN(latitude);
 
-        // Map raw station data to the database schema. This is an assumption.
-        // The actual field names from the API might be different.
         await this.db.query(stationQuery, [
-            station.line_id, station.codigo, station.nombre, station.nombre, station.orden,
-            station.comuna, station.direccion, station.latitud, station.longitud,
+            station.line_id, station.station_code, station.station_name, station.display_name, station.display_order,
+            station.commune, station.address, station.latitude, station.longitude,
             validPoint ? longitude : 0, validPoint ? latitude : 0,
-            station.transporte, station.servicios, station.accesibilidad, station.comercio, station.amenidades, station.imagen,
-            station.detalles_acceso ? JSON.stringify(station.detalles_acceso) : null
+            station.transports, station.services, station.accessibility, station.commerce, station.amenities, station.image_url,
+            station.access_details ? JSON.stringify(station.access_details) : null,
+            station.opened_date, station.last_renovation_date, station.combinacion
         ]);
 
-        // 3. Update station_status table (already handled by updateStationStatus)
+        // 3. Update station_status table
         await this.updateStationStatus(
-            station.codigo,
+            station.station_code,
             station.line_id,
             station.estado,
             station.descripcion,
@@ -122,8 +125,8 @@ class DatabaseService {
         );
 
         // 4. Update accessibility_status table
-        if (station.detalles_acceso && Array.isArray(station.detalles_acceso)) {
-            for (const item of station.detalles_acceso) {
+        if (station.access_details && Array.isArray(station.access_details)) {
+            for (const item of station.access_details) {
                 await this.updateAccessibilityStatus(
                     item.equipment_id,
                     item.station_code,
