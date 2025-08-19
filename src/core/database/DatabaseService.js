@@ -29,6 +29,9 @@ class DatabaseService {
     async updateAllData(processedData) {
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
+
+        console.log(processedData);
+         
         if (!processedData || !processedData.lines || typeof processedData.lines !== 'object' || Object.keys(processedData.lines).length === 0) {
             logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
             return;
