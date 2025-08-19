@@ -26,7 +26,7 @@ class DatabaseService {
         return this.#instance;
     }
 
-    async updateAllData(processedData) {
+    async updateAllData(processedData.stations['SP'].status) {
         const data = await processedData;
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
