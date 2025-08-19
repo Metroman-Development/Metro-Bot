@@ -77,7 +77,7 @@ class SearchProcessor {
       id: { weight: 1.0, searchFn: this._searchExactMatch },
       displayName: { weight: 0.9, searchFn: this._searchFuzzyMatch },
       color: { weight: 0.1, searchFn: this._searchExactMatch },
-      status: { weight: 0.3, searchFn: this._searchExactMatch },
+      status: { weight: 0.3, searchFn: (query, value) => this._searchStatusField(query, value) },
       fleet: { 
         weight: 0.4,
         searchFn: (query, value) => this._searchTrainFleet(query, value) 
@@ -106,7 +106,7 @@ class SearchProcessor {
       manufacturer: { weight: 0.6, searchFn: this._searchFuzzyMatch },
       year: { weight: 0.4, searchFn: this._searchNumeric },
       capacity: { weight: 0.3, searchFn: this._searchNumeric },
-      status: { weight: 0.7, searchFn: this._searchExactMatch },
+      status: { weight: 0.7, searchFn: (query, value) => this._searchStatusField(query, value) },
       lastMaintenance: { weight: 0.2, searchFn: this._searchDate },
       currentLocation: { weight: 0.5, searchFn: this._searchFuzzyMatch }
     };
@@ -283,6 +283,15 @@ class SearchProcessor {
   _searchAccessibility(query, accessibilityData) {
     if (!accessibilityData) return { score: 0 };
     return this._searchFuzzyMatch(query, accessibilityData.description || '');
+  }
+
+  _searchStatusField(query, status) {
+    if (typeof status !== 'object' || status === null) return { score: 0 };
+    const values = [status.message, status.appMessage, status.normalized, status.normalizedEn];
+    const bestMatch = values
+      .map(item => this._searchFuzzyMatch(query, item))
+      .sort((a, b) => b.score - a.score)[0];
+    return bestMatch || { score: 0 };
   }
 
   // ... (other field-specific search methods)

@@ -30,9 +30,6 @@ class DatabaseService {
         const data = await processedData;
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
-
-        console.log(data.stations['SP'].status);
-         
         if (!data || !data.lines || typeof data.lines !== 'object' || Object.keys(data.lines).length === 0) {
             logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
             return;
@@ -55,12 +52,17 @@ class DatabaseService {
                     for (const stationId of line.stations) {
                         const station = data.stations[stationId.toUpperCase()];
                         if (station) {
-                            await this.updateStationStatus(connection, {
-                                stationCode: station.id,
-                                statusCode: station.status.code,
-                                statusDescription: station.status.message,
-                                appDescription: station.status.appMessage
-                            });
+                            if (station.status && station.status.code) {
+                                await this._updateStationStatusInTransaction(connection, {
+                                    stationCode: station.id,
+                                    lineId: station.line,
+                                    statusCode: station.status.code,
+                                    statusDescription: station.status.message,
+                                    appDescription: station.status.appMessage
+                                });
+                            } else {
+                                logger.warn(`[DatabaseService] Station ${station.id} has no status code, skipping status update.`);
+                            }
                         }
                     }
                 }
@@ -316,8 +318,9 @@ class DatabaseService {
         return results.length > 0 ? results[0] : null;
     }
 
-    async updateLineStatus(lineId, statusCode, statusMessage, appMessage) {
-        return this.db.query('UPDATE metro_lines SET status_code = ?, status_message = ?, app_message = ? WHERE line_id = ?', [statusCode, statusMessage, appMessage, lineId]);
+    async updateLineStatus(connection, data) {
+        const { lineId, statusCode, statusMessage, appMessage } = data;
+        return connection.query('UPDATE metro_lines SET status_code = ?, status_message = ?, app_message = ? WHERE line_id = ?', [statusCode, statusMessage, appMessage, lineId]);
     }
 
     // ... methods for station status
@@ -326,6 +329,28 @@ class DatabaseService {
         const station = await this.db.query('SELECT station_id FROM metro_stations WHERE station_code = ? AND line_id = ?', [stationCode, lineId]);
         if (station.length === 0) return null;
         return this.db.query('SELECT ost.status_name, ss.status_description, ss.status_message FROM station_status ss JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id WHERE ss.station_id = ?', [station[0].station_id]);
+    }
+
+    async _updateStationStatusInTransaction(connection, data) {
+        const { stationCode, lineId, statusCode, statusDescription, appDescription } = data;
+        const statusType = await connection.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
+        if (statusType.length === 0) {
+            logger.warn(`[DatabaseService] JS code "${statusCode}" not found in js_status_mapping.`);
+            return;
+        }
+        const statusTypeId = statusType[0].status_type_id;
+
+        const station = await connection.query('SELECT station_id FROM metro_stations WHERE station_code = ? AND line_id = ?', [stationCode, lineId]);
+        if (station.length === 0) {
+            logger.warn(`[DatabaseService] Station with code "${stationCode}" on line "${lineId}" not found.`);
+            return;
+        }
+        const stationId = station[0].station_id;
+
+        return connection.query(
+            'INSERT INTO station_status (station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?, status_message = ?',
+            [stationId, statusTypeId, statusDescription, appDescription, statusTypeId, statusDescription, appDescription]
+        );
     }
 
     async updateStationStatus(stationCode, lineId, jsCode, statusDescription, statusMessage) {
