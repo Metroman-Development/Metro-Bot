@@ -53,7 +53,7 @@ class StatusEngine {
         return {
             version: this.metro._combinedData.version,
             network: this.metro._combinedData.network,
-            lines: Object.values(this.metro._combinedData.lines).map(line => ({
+        lines: this.metro.getLineManager().getAll().map(line => ({
                 id: line.id,
                 status: line.status,
                 stations: line.stations.length

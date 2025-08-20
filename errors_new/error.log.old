@@ -1,13 +1,7 @@
-[2025-08-19T16:14:43.469Z] ERROR: Error: [StatusProcessor] Processing failed
-Stack: Error: [StatusProcessor] Processing failed
+[2025-08-19T16:14:43.470Z] ERROR: Error: [DISCORD] Error checking for embed updates:
+Stack: Error: [DISCORD] Error checking for embed updates:
     at Object.error (/app/src/events/logger.js:170:27)
-    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:74:14)
-    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:589:36)
-    at ApiService.getCurrentData (/app/src/core/metro/core/services/ApiService.js:421:36)
+    at Object.task (/app/src/discord-bot.js:106:28)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async Object.task (/app/src/discord-bot.js:93:46)
     at async Timeout._onTimeout (/app/src/core/chronos/SchedulerService.js:23:21)
-Metadata: {
-  "error": "Cannot read properties of null (reading 'toString')",
-  "stack": "TypeError: Cannot read properties of null (reading 'toString')\n    at /app/src/core/status/utils/StatusProcessor.js:281:50\n    at Array.forEach (<anonymous>)\n    at /app/src/core/status/utils/StatusProcessor.js:279:35\n    at Array.forEach (<anonymous>)\n    at StatusProcessor._transformNetworkStatus (/app/src/core/status/utils/StatusProcessor.js:255:29)\n    at StatusProcessor.processRawAPIData (/app/src/core/status/utils/StatusProcessor.js:38:41)\n    at ApiService._processData (/app/src/core/metro/core/services/ApiService.js:589:36)\n    at ApiService.getCurrentData (/app/src/core/metro/core/services/ApiService.js:421:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Object.task (/app/src/discord-bot.js:93:46)"
-}
+Metadata: {}
