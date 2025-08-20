@@ -9,8 +9,8 @@ const stationStatusMap = {
 const lineStatusMap = {
     '1': '10', // operativa -> operativa
     '2': '13', // algunas estaciones cerradas -> parcial
-    '3': '13', // servicio parcial (en segmentos) -> parcial
-    '4': '12', // retrasos -> retrasos
+    '3': '14', // servicio interrumpido -> suspendida
+    '4': '17', // demoras -> con demoras
 };
 
 function translateApiData(rawData) {
