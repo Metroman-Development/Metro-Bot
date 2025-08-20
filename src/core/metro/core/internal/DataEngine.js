@@ -40,27 +40,27 @@ module.exports = class DataEngine {
         this.lastCombinedData = null;
     }
 
-    async handleRawData(processedData) { // Renamed
+    async handleRawData(currentData) { // Renamed
         try {
-            if (!processedData || typeof processedData !== 'object') {
-                throw new Error('Invalid processedData received');
+            if (!currentData || typeof currentData !== 'object') {
+                throw new Error('Invalid currentData received');
             }
 
             // Data is already processed by ApiService, no need to re-process.
             
             // Store the processed data
-            this.metro._dynamicData = processedData;
+            this.metro._dynamicData = currentData;
             
             // Combine with static data
             const combined = this.combine();
             
             // Emit events
-            this.metro._safeEmit(EventRegistry.RAW_DATA_PROCESSED, processedData);
+            this.metro._safeEmit(EventRegistry.RAW_DATA_PROCESSED, currentData);
             this.metro._safeEmit(EventRegistry.DATA_UPDATED, combined);
             
             return combined;
         } catch (error) {
-            this.metro._emitError('handleRawData', error, { rawData: processedData });
+            this.metro._emitError('handleRawData', error, { rawData: currentData });
             return null;
         }
     }

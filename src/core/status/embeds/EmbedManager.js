@@ -104,20 +104,20 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
 
         // 3. Always get fresh data for time-based updates
-        let processedData = data;
-        if (!processedData) {
+        let currentData = data;
+        if (!currentData) {
             logger.debug('[EmbedManager] No data provided, fetching fresh data...');
-            processedData = await this.parent.metroCore.getCurrentData();
+            currentData = await this.parent.metroCore.getCurrentData();
         }
 
-        if (!processedData) {
+        if (!currentData) {
             logger.error('[EmbedManager] Failed to get processed data. Aborting update.');
             this._updateLock = false;
             return;
         }
 
         // 4. Execute the full update cycle
-        await this._executeBatchUpdate(processedData, changes);
+        await this._executeBatchUpdate(currentData, changes);
 
         // 5. Emit completion events
         this._emitEvent(EventRegistry.EMBEDS_UPDATED);
