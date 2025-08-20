@@ -7,6 +7,7 @@ jest.mock('../src/events/logger', () => ({
     info: jest.fn(),
     warn: jest.fn(),
     error: jest.fn(),
+    detailed: jest.fn(),
 }));
 
 describe('ApiService', () => {

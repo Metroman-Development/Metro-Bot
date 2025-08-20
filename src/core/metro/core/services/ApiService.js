@@ -425,6 +425,7 @@ async activateEventOverrides(eventDetails) {
     }
 
     async fetchNetworkStatus() {
+        logger.detailed('[ApiService] Starting fetchNetworkStatus');
         if (this.isFetching) {
             logger.warn('[ApiService] Fetch already in progress. Skipping.');
             return;
@@ -463,6 +464,7 @@ async activateEventOverrides(eventDetails) {
                 try {
                     // PHASE 2a: Fetch raw data from API/cache
                     rawData = await this.estadoRedService.fetchStatus();
+                    logger.detailed('[ApiService] Fetched raw data from estadoRedService', rawData);
                     fromPrimarySource = true;
                     logger.info('[ApiService] Successfully fetched data from API.');
                 } catch (fetchError) {
@@ -481,10 +483,12 @@ async activateEventOverrides(eventDetails) {
 
             // PHASE 2c: Process data
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
+            logger.detailed('[ApiService] Active overrides', overrides);
             const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
 
             const processedData = this._processData(randomizedData);
+            logger.detailed('[ApiService] Processed data', processedData);
 
 
             console.log(processedData);
@@ -528,7 +532,8 @@ async activateEventOverrides(eventDetails) {
             return processedData;
         } catch (error) {
             logger.error(`[ApiService] Fetch failed`, {
-                error
+                error: error.message,
+                stack: error.stack
             });
             this.metrics.failedRequests++;
             this.metrics.lastFailure = new Date();
@@ -584,6 +589,7 @@ async activateEventOverrides(eventDetails) {
     }
 
     _processData(rawData) {
+        logger.detailed('[ApiService] Processing raw data', rawData);
         const translatedData = translateApiData(rawData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
@@ -699,6 +705,7 @@ async activateEventOverrides(eventDetails) {
     async _handleDataChanges(rawData, processedData, previousRawData) {
         const rawDataWithTimestamp = { ...rawData, timestamp: new Date().toISOString() };
         const changeResult = await this.changeDetector.analyze(rawDataWithTimestamp, previousRawData, processedData);
+        logger.detailed('[ApiService] Change detection result', changeResult);
         if (this.isFirstTime) {
             await this.dbService.updateAllData(processedData, 'MetroApp');
         } else if (changeResult.changes?.length > 0) {
