@@ -22,7 +22,8 @@ module.exports = class ApiResponseTransformer {
       result.lines[normalizedLineId] = {
         id: normalizedLineId,
         name: `Línea ${lineId.toUpperCase()}`,
-        status: STATUS_MAP[lineData.estado] || lineData.estado,
+        estado: lineData.estado,
+        status: STATUS_MAP[lineData.estado] || 'unknown',
         stations: []
       };
 

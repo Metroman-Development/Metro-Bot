@@ -2,6 +2,7 @@ const path = require('path'); // Import the path module
 const fs = require('fs'); // Import the file system module
 const { createEmbed } = require('../utils/embeds');
 const { getClient } = require('../utils/clientManager'); // Import clientManager to get the client
+const { truncate } = require('../utils/logUtils'); // Import the truncate utility
 
 const ERROR_CHANNEL_ID = '1350243847271092295'; // Channel ID for error summaries
 const ERROR_LOG_DIR = './errors_new'; // Directory for error logs
@@ -80,6 +81,7 @@ const LOG_LEVELS = {
     TRACE: 'TRACE', // Very detailed logs for debugging
     DEBUG: 'DEBUG', // Debugging information
     INFO: 'INFO',   // General information
+    DETAILED: 'DETAILED', // Detailed logs with truncated data
     WARN: 'WARN',   // Warnings
     ERROR: 'ERROR', // Errors
     FATAL: 'FATAL', // Critical errors
@@ -182,6 +184,13 @@ const logger = {
             // If the message is a string, wrap it in an Error object
             const error = new Error(message);
             sendErrorEmbed(error, metadata);
+        }
+    },
+
+    detailed: (message, data = {}) => {
+        if (debugMode) {
+            const truncatedData = truncate(data);
+            console.log("📝", formatLog(LOG_LEVELS.DETAILED, message, truncatedData));
         }
     },
 

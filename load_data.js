@@ -1,3 +1,4 @@
+const logger = require('./src/events/logger.js');
 require('dotenv').config();
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
@@ -13,6 +14,7 @@ const pool = mariadb.createPool({
 });
 
 async function loadLines(conn, lines) {
+    logger.detailed('Processing lines data for insertion', lines);
     console.log('Upserting lines...');
     for (const lineId in lines) {
         const line = lines[lineId];
@@ -43,6 +45,7 @@ async function loadLines(conn, lines) {
 }
 
 async function loadStations(conn, estadoRed, stationsData) {
+    logger.detailed('Processing stations data for insertion', { estadoRed, stationsData });
     console.log('Upserting stations...');
     const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
 
@@ -104,6 +107,7 @@ async function loadStations(conn, estadoRed, stationsData) {
 }
 
 async function loadSystemInfo(conn, data) {
+    logger.detailed('Processing system info data for insertion', data);
     console.log('Upserting system info...');
     const query = `
         INSERT INTO system_info (id, name, \`system\`, inauguration, length, stations, track_gauge, electrification, max_speed, \`status\`, \`lines\`, cars, passengers, fleet, average_speed, operator, map_url)
@@ -136,6 +140,7 @@ async function loadSystemInfo(conn, data) {
 }
 
 async function loadIntermodalStations(conn, data) {
+    logger.detailed('Processing intermodal stations data for insertion', data);
     console.log('Loading intermodal stations...');
     const stationIds = {};
     for (const stationName in data) {
@@ -176,6 +181,7 @@ async function loadIntermodalStations(conn, data) {
 }
 
 async function loadIntermodalBuses(conn, data, stationIds) {
+    logger.detailed('Processing intermodal buses data for insertion', data);
     console.log('Upserting intermodal buses...');
     for (const stationName in data) {
         const buses = data[stationName];
@@ -220,6 +226,7 @@ async function truncateTables(conn) {
 }
 
 async function loadTrainModels(conn, trainInfo) {
+    logger.detailed('Processing train models data for insertion', trainInfo);
     console.log('Upserting train models...');
     for (const modelId in trainInfo.modelos) {
         const modelData = trainInfo.modelos[modelId];
@@ -239,6 +246,7 @@ async function loadTrainModels(conn, trainInfo) {
 }
 
 async function loadLineFleet(conn, linesData) {
+    logger.detailed('Processing line fleet data for insertion', linesData);
     console.log('Upserting line fleet...');
     for (const lineId in linesData) {
         const line = linesData[lineId];
@@ -267,22 +275,29 @@ async function main() {
         // await truncateTables(conn);
 
         const metroGeneral = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/metroGeneral.json'), 'utf8'));
+        logger.detailed('Loaded metroGeneral.json', metroGeneral);
         await loadSystemInfo(conn, metroGeneral);
 
         const intermodalInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/intermodalInfo.json'), 'utf8'));
+        logger.detailed('Loaded intermodalInfo.json', intermodalInfo);
         const stationIds = await loadIntermodalStations(conn, intermodalInfo);
 
         const intermodalBuses = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/intermodalBuses.json'), 'utf8'));
+        logger.detailed('Loaded intermodalBuses.json', intermodalBuses);
         await loadIntermodalBuses(conn, intermodalBuses, stationIds);
 
         const linesData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/linesData.json'), 'utf8'));
+        logger.detailed('Loaded linesData.json', linesData);
         await loadLines(conn, linesData);
 
         const estadoRed = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/estadoRed.json'), 'utf8'));
+        logger.detailed('Loaded estadoRed.json', estadoRed);
         const stationsData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stationsData.json'), 'utf8'));
+        logger.detailed('Loaded stationsData.json', stationsData);
         await loadStations(conn, estadoRed, stationsData);
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
+        logger.detailed('Loaded trainInfo.json', trainInfo);
         await loadTrainModels(conn, trainInfo);
 
         await loadLineFleet(conn, linesData);

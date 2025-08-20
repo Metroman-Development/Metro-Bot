@@ -9,11 +9,14 @@ const stationStatusMap = {
 const lineStatusMap = {
     '1': '10', // operativa -> operativa
     '2': '13', // algunas estaciones cerradas -> parcial
-    '3': '13', // servicio parcial (en segmentos) -> parcial
-    '4': '12', // retrasos -> retrasos
+    '3': '14', // servicio interrumpido -> suspendida
+    '4': '17', // demoras -> con demoras
 };
 
+const logger = require('../../../events/logger');
+
 function translateApiData(rawData) {
+    logger.detailed('[dataTranslator] Starting translation of API data', rawData);
     if (!rawData || !rawData.lineas) {
         return rawData;
     }
@@ -38,6 +41,7 @@ function translateApiData(rawData) {
         }
     }
 
+    logger.detailed('[dataTranslator] Finished translation of API data', translatedData);
     return translatedData;
 }
 
