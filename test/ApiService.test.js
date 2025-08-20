@@ -33,6 +33,8 @@ describe('ApiService', () => {
             getAllStationsStatusAsRaw: jest.fn().mockResolvedValue([]),
             updateLineStatus: jest.fn(),
             updateStationStatus: jest.fn(),
+            updateAllData: jest.fn(),
+            updateChanges: jest.fn(),
         };
 
         apiService = new ApiService(mockMetro, { dbService: mockDbService });
@@ -81,7 +83,7 @@ describe('ApiService', () => {
                         ]
                     }
                 }
-            });
+            }, 'MetroApp');
         });
     });
 

@@ -24,7 +24,7 @@ class StatusProcessor {
     this.severityLabels = statusConfig.severityLabels;
   }
 
-  async processRawAPIData(rawData) {
+  async processRawAPIData(rawData, user = 'system') {
     try {
       if (!rawData || typeof rawData !== 'object') {
         throw new Error('Invalid rawData received');
@@ -67,7 +67,7 @@ class StatusProcessor {
         isFallback: false
       };
 
-      await this._updateDatabase(processedData);
+      await this._updateDatabase(processedData, user);
 
       return processedData;
     } catch (error) {
@@ -79,7 +79,7 @@ class StatusProcessor {
     }
   }
 
-  async _updateDatabase(data) {
+  async _updateDatabase(data, user = 'system') {
     const db = this.db;
     if (!db) {
       logger.error('[StatusProcessor] Database connection not available.');
@@ -114,13 +114,13 @@ class StatusProcessor {
           if (statusTypeId) {
             lineStatusQueries.push({
               sql: `INSERT INTO line_status (line_id, status_type_id, status_description, status_message, last_updated, updated_by)
-                    VALUES (?, ?, ?, ?, NOW(), 'system')
+                    VALUES (?, ?, ?, ?, NOW(), ?)
                     ON DUPLICATE KEY UPDATE
                       status_type_id = VALUES(status_type_id),
                       status_description = VALUES(status_description),
                       status_message = VALUES(status_message),
                       last_updated = NOW()`,
-              params: [line.id, statusTypeId, line.status.normalized, line.status.message]
+              params: [line.id, statusTypeId, line.status.normalized, line.status.message, user]
             });
           }
         }
@@ -199,13 +199,13 @@ class StatusProcessor {
                   params: [station_id]
                 });
                 statusChangeLogQueries.push({
-                  sql: "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, 'system')",
-                  params: [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`]
+                  sql: "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, ?)",
+                  params: [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`, user]
                 });
               }
               stationStatusQueries.push({
-                sql: 'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), "system") ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
-                params: [station_id, statusTypeId, station.status.normalized, station.status.message]
+                sql: 'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), ?) ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
+                params: [station_id, statusTypeId, station.status.normalized, station.status.message, user]
               });
             }
           }

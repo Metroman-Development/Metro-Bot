@@ -2,13 +2,18 @@
 // modules/metro/core/services/ChangeDetector.js
 // modules/metro/core/services/ChangeDetector.js
 const crypto = require('crypto');
+const fs = require('fs').promises;
+const path = require('path');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
+const { getTimestamp } = require('../../../chronos/timeHelpers');
 const baseline = {}
 
 class ChangeDetector {
-    constructor() {
+    constructor(metro, dbService) {
+        this.metro = metro;
+        this.dbService = dbService;
         this.latestChanges = [];
         this.lastData = baseline;
         this.lastLineStates = new Map();
@@ -19,17 +24,58 @@ class ChangeDetector {
             lastUpdated: null,
             lines: {}
         };
+        this.apiChangesPath = path.join(__dirname, '../../../../data/apiChanges.json');
     }
+
+    async _getLatestApiChangeTimestamp() {
+        try {
+            const data = await fs.readFile(this.apiChangesPath, 'utf8');
+            const apiChanges = JSON.parse(data);
+            if (apiChanges.length > 0 && apiChanges[0].timestamp) {
+                return new Date(apiChanges[0].timestamp);
+            }
+        } catch (error) {
+            if (error.code !== 'ENOENT') {
+                logger.error('[ChangeDetector] Failed to read apiChanges.json', { error });
+            }
+        }
+        return null;
+    }
+
+    async _getLatestChangeTimestampFromDb() {
+        const latestChange = await this.dbService.getLatestChange();
+        return latestChange ? new Date(latestChange.changed_at) : null;
+    }
+
 
     /**
      * Analyzes new data and detects changes
      * @param {Object} newData - The new data to analyze
      * @returns {Object} - Change detection result with metadata and changes
      */
-    analyze(newData, oldData = null, processedData = null) {
+    async analyze(newData, oldData = null, processedData = null) {
         try {
             if (!newData || typeof newData !== 'object') {
                 logger.warn('[ChangeDetector] Invalid data provided for analysis');
+            }
+
+            const earliestChangeTimestamp = getTimestamp(newData.timestamp);
+            const latestDbChangeTimestamp = await this._getLatestChangeTimestampFromDb();
+            const latestApiChangeTimestamp = await this._getLatestApiChangeTimestamp();
+
+            logger.info(`[ChangeDetector] Timestamps - Earliest: ${earliestChangeTimestamp}, DB: ${latestDbChangeTimestamp}, API: ${latestApiChangeTimestamp}`);
+
+            if (earliestChangeTimestamp && latestDbChangeTimestamp && latestApiChangeTimestamp) {
+                if (earliestChangeTimestamp > latestDbChangeTimestamp && earliestChangeTimestamp > latestApiChangeTimestamp) {
+                    // New change is newer than both, proceed
+                } else {
+                    logger.info('[ChangeDetector] No new changes detected based on timestamps. Skipping analysis.');
+                    return {
+                        metadata: this._generateMetadata(newData, []),
+                        changes: [],
+                        networkStatus: this.cachedNetwork
+                    };
+                }
             }
 
             const referenceData = oldData || this.lastData;
