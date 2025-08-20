@@ -485,10 +485,11 @@ async activateEventOverrides(eventDetails) {
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
             logger.detailed('[ApiService] Active overrides', overrides);
             const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
+            logger.detailed('[ApiService] Raw data after applying overrides', rawDataWithOverrides);
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
+            logger.detailed('[ApiService] Data after randomizing statuses', randomizedData);
 
             const processedData = this._processData(randomizedData);
-            logger.detailed('[ApiService] Processed data', processedData);
 
 
             console.log(processedData);
@@ -589,8 +590,9 @@ async activateEventOverrides(eventDetails) {
     }
 
     _processData(rawData) {
-        logger.detailed('[ApiService] Processing raw data', rawData);
+        logger.detailed('[ApiService] Starting data processing', rawData);
         const translatedData = translateApiData(rawData);
+        logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
             : this._basicProcessData(translatedData);
