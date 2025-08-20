@@ -9,6 +9,11 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# Export environment variables from .env file
+if [ -f .env ]; then
+    export $(cat .env | sed 's/#.*//g' | xargs)
+fi
+
 # --- Initial Setup ---
 echo "Pulling latest changes from git..."
 git pull
