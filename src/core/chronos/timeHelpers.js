@@ -447,6 +447,12 @@ static getRawScheduleConfig() {
 
         return currentTime >= startStr && currentTime < endStr;
     }
+    static getTimestamp(date) {
+        if (!date) {
+            return null;
+        }
+        return new Date(date);
+    }
 }
 
 module.exports = TimeHelpers;

@@ -615,6 +615,11 @@ class DatabaseService {
         const results = await this.db.query('SELECT * FROM network_status WHERE id = ?', [1]);
         return results.length > 0 ? results[0] : null;
     }
+
+    async getLatestChange() {
+        const results = await this.db.query('SELECT * FROM status_change_log ORDER BY changed_at DESC LIMIT 1');
+        return results.length > 0 ? results[0] : null;
+    }
 }
 
 module.exports = DatabaseService;

@@ -586,7 +586,7 @@ async activateEventOverrides(eventDetails) {
     _processData(rawData) {
         const translatedData = translateApiData(rawData);
         return this.statusProcessor
-            ? this.statusProcessor.processRawAPIData(translatedData)
+            ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
             : this._basicProcessData(translatedData);
     }
 
@@ -697,11 +697,12 @@ async activateEventOverrides(eventDetails) {
     }
 
     async _handleDataChanges(rawData, processedData, previousRawData) {
-        const changeResult = this.changeDetector.analyze(rawData, previousRawData, processedData);
+        const rawDataWithTimestamp = { ...rawData, timestamp: new Date().toISOString() };
+        const changeResult = await this.changeDetector.analyze(rawDataWithTimestamp, previousRawData, processedData);
         if (this.isFirstTime) {
-            await this.dbService.updateAllData(processedData);
+            await this.dbService.updateAllData(processedData, 'MetroApp');
         } else if (changeResult.changes?.length > 0) {
-            await this.dbService.updateChanges(changeResult.changes);
+            await this.dbService.updateChanges(changeResult.changes, 'MetroApp');
         }
         if (changeResult.changes?.length > 0) {
             this.changeHistory.unshift(...changeResult.changes);
@@ -719,7 +720,7 @@ async activateEventOverrides(eventDetails) {
                 }
             }
 
-            apiChanges.unshift(rawData);
+            apiChanges.unshift(rawDataWithTimestamp);
             if (apiChanges.length > 10) {
                 apiChanges = apiChanges.slice(0, 10);
             }
