@@ -152,7 +152,7 @@ async function translateApiData(apiData) {
                     aliases.push(stationName.toLowerCase())
                 }
 
-                unifiedStations[stationId] = {
+                const station_data = {
                     id: stationId,
                     name: stationName,
                     displayName: stationName,
@@ -161,18 +161,24 @@ async function translateApiData(apiData) {
                     status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
                     combination: station.combinacion,
                     aliases: aliases,
-                    transports: extraData ? extraData[0] : 'None',
-                    services: extraData ? extraData[1] : 'None',
-                    commerce: extraData ? extraData[3] : 'None',
-                    amenities: extraData ? extraData[4] : 'None',
-                    imageUrl: extraData ? extraData[5] : null,
-                    commune: extraData ? extraData[6] : null,
                     accessibility: {
                         status: accessibility.length > 0 ? 'available' : 'unavailable',
                         details: accessibility,
                     },
-                    _raw: { ...station, ...extraData },
+                    _raw: { ...station },
                 };
+
+                if (extraData) {
+                    station_data.transports = extraData[0] || 'None';
+                    station_data.services = extraData[1] || 'None';
+                    station_data.commerce = extraData[3] || 'None';
+                    station_data.amenities = extraData[4] || 'None';
+                    station_data.imageUrl = extraData[5] || null;
+                    station_data.commune = extraData[6] || null;
+                    station_data._raw = { ...station_data._raw, ...extraData };
+                }
+
+                unifiedStations[stationId] = station_data;
                 unifiedLines[lineId].stations.push(stationId);
             }
         }

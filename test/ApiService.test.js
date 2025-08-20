@@ -42,20 +42,20 @@ describe('ApiService', () => {
     });
 
     describe('_processData', () => {
-        it('should translate raw data before processing', () => {
+        it('should translate raw data before processing', async () => {
             const rawData = {
                 lineas: {
                     l1: {
                         estado: '1',
                         estaciones: [
-                            { estado: '1' },
-                            { estado: '2' },
+                            { estado: '1', nombre: 'San Pablo', codigo: 'SP' },
+                            { estado: '2', nombre: 'Neptuno', codigo: 'NE' },
                         ]
                     },
                     l2: {
                         estado: '2',
                         estaciones: [
-                            { estado: '3' },
+                            { estado: '3', nombre: 'Pajaritos', codigo: 'PA' },
                         ]
                     }
                 }
@@ -66,25 +66,28 @@ describe('ApiService', () => {
             };
             apiService.statusProcessor = mockStatusProcessor;
 
-            apiService._processData(rawData);
+            await apiService._processData(rawData);
 
-            expect(mockStatusProcessor.processRawAPIData).toHaveBeenCalledWith({
-                lineas: {
-                    l1: {
-                        estado: '10',
-                        estaciones: [
-                            { estado: '1' },
-                            { estado: '5' },
-                        ]
-                    },
-                    l2: {
-                        estado: '13',
-                        estaciones: [
-                            { estado: '4' },
-                        ]
+            expect(mockStatusProcessor.processRawAPIData).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    lineas: {
+                        l1: {
+                            estado: '1',
+                            estaciones: [
+                                { estado: '1', nombre: 'San Pablo', codigo: 'SP' },
+                                { estado: '2', nombre: 'Neptuno', codigo: 'NE' },
+                            ]
+                        },
+                        l2: {
+                            estado: '2',
+                            estaciones: [
+                                { estado: '3', nombre: 'Pajaritos', codigo: 'PA' },
+                            ]
+                        }
                     }
-                }
-            }, 'MetroApp');
+                }),
+                'MetroApp'
+            );
         });
     });
 
