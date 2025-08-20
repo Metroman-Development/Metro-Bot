@@ -67,8 +67,8 @@ class DatabaseService {
         }
     }
 
-    async updateAllData(processedData) {
-        const data = await processedData;
+    async updateAllData(currentData) {
+        const data = await currentData;
         logger.info('[DatabaseService] Starting full database update from processed data...');
 
         if (!data || !data.lines || typeof data.lines !== 'object' || Object.keys(data.lines).length === 0) {

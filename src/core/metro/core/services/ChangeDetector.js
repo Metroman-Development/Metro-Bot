@@ -53,7 +53,7 @@ class ChangeDetector {
      * @param {Object} newData - The new data to analyze
      * @returns {Object} - Change detection result with metadata and changes
      */
-    async analyze(newData, oldData = null, processedData = null) {
+    async analyze(newData, oldData = null, currentData = null) {
         try {
             if (!newData || typeof newData !== 'object') {
                 logger.warn('[ChangeDetector] Invalid data provided for analysis');
@@ -81,7 +81,7 @@ class ChangeDetector {
             const referenceData = oldData || this.lastData;
 
             // Detect changes and update network status
-            let changes = this._detectChanges(newData, referenceData, processedData);
+            let changes = this._detectChanges(newData, referenceData, currentData);
 
             this._updateNetworkStatus(newData, changes);
             this._updateLastStates(newData);
@@ -104,7 +104,7 @@ class ChangeDetector {
      * Detects changes between current and new data
      * @private
      */
-    _detectChanges(newData, referenceData, processedData) {
+    _detectChanges(newData, referenceData, currentData) {
         const changes = [];
         const isInitialRun = !referenceData || Object.keys(referenceData).length === 0;
 
@@ -122,7 +122,7 @@ class ChangeDetector {
                     fromState,
                     toState,
                     lineData.mensaje || '',
-                    processedData
+                    currentData
                 ));
             }
 
@@ -133,7 +133,7 @@ class ChangeDetector {
                 lineData.estaciones || [],
                 referenceData,
                 isInitialRun,
-                processedData
+                currentData
             );
         });
 
@@ -152,7 +152,7 @@ class ChangeDetector {
      * Processes station-level changes
      * @private
      */
-    _processStationChanges(changes, lineId, stations, referenceData, isInitialRun, processedData) {
+    _processStationChanges(changes, lineId, stations, referenceData, isInitialRun, currentData) {
         stations.forEach(station => {
             const stationId = station.codigo?.toLowerCase();
             if (!stationId) return;
@@ -182,7 +182,7 @@ class ChangeDetector {
                     fromState,
                     toState,
                     station.descripcion || '',
-                    processedData
+                    currentData
                 ));
             }
         });
@@ -253,8 +253,8 @@ class ChangeDetector {
      * Creates a line change object
      * @private
      */
-    _createLineChange(lineId, oldStatus, newStatus, message, processedData) {
-        const lineData = processedData?.lines?.[lineId];
+    _createLineChange(lineId, oldStatus, newStatus, message, currentData) {
+        const lineData = currentData?.lines?.[lineId];
         return {
             type: 'line',
             id: lineId,
@@ -271,8 +271,8 @@ class ChangeDetector {
      * Creates a station change object
      * @private
      */
-    _createStationChange(stationId, stationName, lineId, oldStatus, newStatus, description, processedData) {
-        const stationData = processedData?.stations?.[stationId.toUpperCase()];
+    _createStationChange(stationId, stationName, lineId, oldStatus, newStatus, description, currentData) {
+        const stationData = currentData?.stations?.[stationId.toUpperCase()];
         return {
             type: 'station',
             id: stationId,

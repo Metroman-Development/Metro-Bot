@@ -47,12 +47,12 @@ class ApiService extends EventEmitter {
 
         // Path configuration
         this.cacheDir = path.join(__dirname, '../../../../data');
-        this.processedDataFile = path.join(this.cacheDir, 'processedEstadoRed.php.json');
+        this.currentDataFile = path.join(this.cacheDir, 'processedEstadoRed.php.json');
 
         // State management
         this.lastRawData = null;
-        this.lastProcessedData = null;
-        this.lastProcessedTimestamp = null;
+        this.lastCurrentData = null;
+        this.lastCurrentTimestamp = null;
         this.cachedData = null;
         this.changeHistory = [];
         this.isPolling = false;
@@ -141,8 +141,8 @@ class ApiService extends EventEmitter {
                 },
                 getDataState: () => ({
                     hasRawData: !!this.lastRawData,
-                    hasProcessedData: !!this.lastProcessedData,
-                    lastProcessedTimestamp: this.lastProcessedTimestamp,
+                    hasCurrentData: !!this.lastCurrentData,
+                    lastCurrentTimestamp: this.lastCurrentTimestamp,
                     cacheValid: !!this.cachedData,
                     dataVersion: this._dataVersion
                 }), 
@@ -418,10 +418,10 @@ async activateEventOverrides(eventDetails) {
         // It ensures that the embed manager always has the most up-to-date information from the database.
         logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
-        const processedData = this._processData(dbRawData);
+        const currentData = this._processData(dbRawData);
         
-        this._updateProcessedData(processedData);
-        return processedData;
+        this._updateCurrentData(currentData);
+        return currentData;
     }
 
     async fetchNetworkStatus() {
@@ -489,48 +489,48 @@ async activateEventOverrides(eventDetails) {
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
             logger.detailed('[ApiService] Data after randomizing statuses', randomizedData);
 
-            const processedData = this._processData(randomizedData);
+            const currentData = this._processData(randomizedData);
 
 
-            console.log(processedData);
+            console.log(currentData);
             
-            const summary = this.generateNetworkSummary(processedData);
+            const summary = this.generateNetworkSummary(currentData);
             await this.dbService.updateNetworkStatusSummary(summary);
 
 
-            // console.log(processedData)
+            // console.log(currentData)
 
             // PHASE 2d: Update data state
             this.lastRawData = rawData;
 
 
-            this.lastProcessedData = processedData;
+            this.lastCurrentData = currentData;
 
 
-            //this._updateProcessedData(processedData);
-            this._updateState(processedData);
+            //this._updateCurrentData(currentData);
+            this._updateState(currentData);
 
             // PHASE 2e: Handle changes
             if (!this.isFirstTime) {
                 const dbRawData = await this.getDbRawData();
-                await this._handleDataChanges(randomizedData, processedData, dbRawData);
+                await this._handleDataChanges(randomizedData, currentData, dbRawData);
             }
             if (fromPrimarySource) {
                 // The old partial update is replaced by the new comprehensive one.
-                // await this.dbService.updateAllData(processedData);
+                // await this.dbService.updateAllData(currentData);
             }
 
 
             // PHASE 2f: Persist data
-            await this._storeProcessedData(processedData);
+            await this._storeCurrentData(currentData);
 
             this.metrics.lastSuccess = new Date();
 
-            // console.log(this.lastProcessedData)
+            // console.log(this.lastCurrentData)
 
 
 
-            return processedData;
+            return currentData;
         } catch (error) {
             logger.error(`[ApiService] Fetch failed`, {
                 error: error.message,
@@ -551,14 +551,14 @@ async activateEventOverrides(eventDetails) {
         }
     }
 
-    _updateProcessedData(newData) {
+    _updateCurrentData(newData) {
         const now = new Date();
-        this.lastProcessedData = newData 
+        this.lastCurrentData = newData
 
        // console.log(newData);
         
-        this.lastProcessedTimestamp = now;
-        logger.debug('[ApiService] Processed data updated', {
+        this.lastCurrentTimestamp = now;
+        logger.debug('[ApiService] Current data updated', {
             timestamp: now.toISOString(),
             dataVersion: this._dataVersion
         });
@@ -652,7 +652,7 @@ async activateEventOverrides(eventDetails) {
 
         const networkStatus = this._generateNetworkStatus(lines);
 
-        const processed = {
+        const currentData = {
             lines,
             network: networkStatus,
             stations: {},
@@ -665,7 +665,7 @@ async activateEventOverrides(eventDetails) {
             }
         };
 
-        processed.stations = Object.values(processed.lines)
+        currentData.stations = Object.values(currentData.lines)
             .flatMap(line => line.stations)
             .reduce((acc, station) => {
                 acc[station.id] = station;
@@ -673,8 +673,8 @@ async activateEventOverrides(eventDetails) {
             }, {});
 
         // Store the processed data immediately
-        this._updateProcessedData(processed);
-        return processed;
+        this._updateCurrentData(currentData);
+        return currentData;
     }
 
     async _generateOffHoursData() {
@@ -704,19 +704,19 @@ async activateEventOverrides(eventDetails) {
         return offHoursData;
     }
 
-    async _handleDataChanges(rawData, processedData, previousRawData) {
+    async _handleDataChanges(rawData, currentData, previousRawData) {
         const rawDataWithTimestamp = { ...rawData, timestamp: new Date().toISOString() };
-        const changeResult = await this.changeDetector.analyze(rawDataWithTimestamp, previousRawData, processedData);
+        const changeResult = await this.changeDetector.analyze(rawDataWithTimestamp, previousRawData, currentData);
         logger.detailed('[ApiService] Change detection result', changeResult);
         if (this.isFirstTime) {
-            await this.dbService.updateAllData(processedData, 'MetroApp');
+            await this.dbService.updateAllData(currentData, 'MetroApp');
         } else if (changeResult.changes?.length > 0) {
             await this.dbService.updateChanges(changeResult.changes, 'MetroApp');
         }
         if (changeResult.changes?.length > 0) {
             this.changeHistory.unshift(...changeResult.changes);
             this.metrics.changeEvents += changeResult.changes.length;
-            this._emitChanges(changeResult, processedData);
+            this._emitChanges(changeResult, currentData);
 
             const apiChangesPath = path.join(this.cacheDir, 'apiChanges.json');
             let apiChanges = [];
@@ -797,7 +797,7 @@ async activateEventOverrides(eventDetails) {
         this.emit(EventRegistry.RAW_DATA_FETCHED, payload);
     }
 
-    _emitChanges(changeResult, processedData) {
+    _emitChanges(changeResult, currentData) {
         if (!changeResult?.changes || changeResult.changes.length === 0) return;
 
         const changesArray = Array.isArray(changeResult.changes) 
@@ -842,8 +842,8 @@ async activateEventOverrides(eventDetails) {
             {
                 changes: validatedChanges,
                 metadata: metadata,
-                ...(this.lastProcessedData && { previousState: this.lastProcessedData }),
-                ...(processedData && { newState: processedData })
+                ...(this.lastCurrentData && { previousState: this.lastCurrentData }),
+                ...(currentData && { newState: currentData })
             }
         );
 
@@ -912,7 +912,7 @@ async activateEventOverrides(eventDetails) {
     getSystemStatus() {
         return {
             isPolling: this.isPolling,
-            lastUpdate: this.lastProcessedTimestamp || null,
+            lastUpdate: this.lastCurrentTimestamp || null,
             chaosFactor: this.chaosFactor,
             debugMode: this.debug,
             activeRequests: this._activeRequests.size,
@@ -924,9 +924,9 @@ async activateEventOverrides(eventDetails) {
             },
             dataState: {
                 version: this._dataVersion,
-                freshness: this.lastProcessedTimestamp ? 
-                    (new Date() - this.lastProcessedTimestamp) : null,
-                source: this.lastProcessedData?._metadata?.source || 'unknown'
+                freshness: this.lastCurrentTimestamp ?
+                    (new Date() - this.lastCurrentTimestamp) : null,
+                source: this.lastCurrentData?._metadata?.source || 'unknown'
             }
         };
     }
@@ -964,7 +964,7 @@ async activateEventOverrides(eventDetails) {
         this.changeHistory = [];
     }
     
-    async _storeProcessedData(data) {
+    async _storeCurrentData(data) {
         try {
             await fsp.mkdir(this.cacheDir, { recursive: true });
             const dataToStore = {
@@ -973,13 +973,13 @@ async activateEventOverrides(eventDetails) {
                 _cacheVersion: this._dataVersion
             };
             await fsp.writeFile(
-                this.processedDataFile,
+                this.currentDataFile,
                 JSON.stringify(dataToStore, null, 2),
                 'utf8'
             );
-            logger.debug('[ApiService] Processed data stored successfully');
+            logger.debug('[ApiService] Current data stored successfully');
         } catch (error) {
-            logger.error('[ApiService] Failed to store processed data', { error });
+            logger.error('[ApiService] Failed to store current data', { error });
         }
     }
 
@@ -997,20 +997,20 @@ async activateEventOverrides(eventDetails) {
         this._emitChanges({
             changes: [simulatedChange],
             severity: simulatedChange.severity
-        }, this.lastProcessedData);
+        }, this.lastCurrentData);
         
         return simulatedChange;
     }
 
-    generateNetworkSummary(processedData) {
-        if (!processedData || !processedData.lines) {
+    generateNetworkSummary(currentData) {
+        if (!currentData || !currentData.lines) {
             return {
                 lines: { total: 0, operational: 0, with_issues: [] },
                 stations: { total: 0, operational: 0, with_issues: [] },
                 timestamp: new Date().toISOString()
             };
         }
-        const lines = Object.values(processedData.lines);
+        const lines = Object.values(currentData.lines);
         const stations = lines.flatMap(line => line.stations || []);
 
         return {
@@ -1132,9 +1132,9 @@ async activateEventOverrides(eventDetails) {
         try {
             logger.info('[ApiService] Forcing API fetch to populate database...');
             const rawData = await this.estadoRedService.fetchStatus();
-            const processedData = this._processData(rawData);
+            const currentData = this._processData(rawData);
             // Call the new comprehensive update method
-            await this.dbService.updateAllData(processedData);
+            await this.dbService.updateAllData(currentData);
             logger.info('[ApiService] Database populated with initial data from API.');
         } catch (error) {
             logger.error('[ApiService] Failed to force fetch and populate database:', { error });

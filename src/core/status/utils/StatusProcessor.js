@@ -58,7 +58,7 @@ class StatusProcessor {
         });
       });
 
-      const processedData = {
+      const currentData = {
         network,
         lines,
         stations,
@@ -67,9 +67,9 @@ class StatusProcessor {
         isFallback: false
       };
 
-      await this._updateDatabase(processedData, user);
+      await this._updateDatabase(currentData, user);
 
-      return processedData;
+      return currentData;
     } catch (error) {
       logger.error('[StatusProcessor] Processing failed', {
         error: error.message,
