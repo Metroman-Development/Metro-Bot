@@ -1,4 +1,5 @@
 #!/bin/bash
+export $(cat .env | xargs)
 #
 # This script manages the services for the bot application.
 # It is intended to be used in a production environment where the code

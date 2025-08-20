@@ -93,6 +93,7 @@ class DatabaseService {
                     for (const stationId of line.stations) {
                         const station = data.stations[stationId.toUpperCase()];
                         if (station) {
+                            await this._insertStationInTransaction(connection, station);
                             if (station.status && station.status.code) {
                                 await this._updateStationStatusInTransaction(connection, {
                                     stationCode: station.id,
@@ -392,6 +393,52 @@ class DatabaseService {
             'INSERT INTO station_status (station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE status_type_id = ?, status_description = ?, status_message = ?',
             [stationId, statusTypeId, statusDescription, appDescription, statusTypeId, statusDescription, appDescription]
         );
+    }
+
+    async _insertStationInTransaction(connection, station) {
+        const stationQuery = `
+            INSERT INTO metro_stations (
+                line_id, station_code, station_name, display_name,
+                commune, address, latitude, longitude, location,
+                transports, services, accessibility, commerce, amenities, image_url, access_details,
+                opened_date, last_renovation_date, combinacion
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                station_name = VALUES(station_name),
+                display_name = VALUES(display_name),
+                commune = VALUES(commune),
+                address = VALUES(address),
+                latitude = VALUES(latitude),
+                longitude = VALUES(longitude),
+                location = VALUES(location),
+                transports = VALUES(transports),
+                services = VALUES(services),
+                accessibility = VALUES(accessibility),
+                commerce = VALUES(commerce),
+                amenities = VALUES(amenities),
+                image_url = VALUES(image_url),
+                access_details = VALUES(access_details),
+                opened_date = VALUES(opened_date),
+                last_renovation_date = VALUES(last_renovation_date),
+                combinacion = VALUES(combinacion)
+        `;
+
+        const longitude = parseFloat(station.longitude);
+        const latitude = parseFloat(station.latitude);
+        const validPoint = !isNaN(longitude) && !isNaN(latitude);
+
+        const params = [
+            station.line, station.id, station.name, station.displayName,
+            station.commune || null, station.address || null, station.latitude || null, station.longitude || null,
+            validPoint ? longitude : 0, validPoint ? latitude : 0,
+            station.transports || null, station.services || null, station.accessibility || null,
+            station.commerce || null, station.amenities || null, station.image_url || null,
+            station.access_details ? JSON.stringify(station.access_details) : null,
+            station.opened_date || null, station.last_renovation_date || null, station.combinacion || null
+        ];
+
+        await connection.query(stationQuery, params);
     }
 
     async updateStationStatus(stationCode, lineId, jsCode, statusDescription, statusMessage) {

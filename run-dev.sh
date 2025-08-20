@@ -29,4 +29,4 @@ fi
 # --- Run with Nodemon ---
 # We use npx to run the local version of nodemon installed from package.json.
 # We watch only the 'src' directory for changes.
-npx nodemon --watch src/ src/index.js
+npx nodemon --watch src/ src/index.js > app_output.log 2>&1

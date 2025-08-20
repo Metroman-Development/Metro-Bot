@@ -6,6 +6,7 @@ BigInt.prototype.toJSON = function() {
 require('dotenv').config();
 const { spawn } = require('child_process');
 const path = require('path');
+require('dotenv').config();
 const fs = require('fs');
 const logger = require('./events/logger');
 const DatabaseManager = require('./core/database/DatabaseManager');
