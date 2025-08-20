@@ -277,6 +277,10 @@ class StatusProcessor {
 
       // Process stations with proper transfer detection
       (lineData.estaciones || []).forEach(station => {
+        if (station.estado == null) {
+          logger.warn(`[StatusProcessor] Missing 'estado' property for station ${station.codigo} in line ${lineId}`);
+          return;
+        }
         const stationId = station.codigo.toLowerCase();
         const stationStatusCode = station.estado.toString();
         const transformedStation = this._transformStation(station, lineId);
@@ -329,6 +333,10 @@ class StatusProcessor {
     // Second pass: identify affected segments
     Object.entries(rawData).forEach(([lineId, lineData]) => {
       if (!lineId.startsWith('l')) return;
+      if (lineData.estado == null) {
+        logger.warn(`[StatusProcessor] Missing 'estado' property for lineId: ${lineId} in second pass`);
+        return;
+      }
       const statusCode = lineData.estado.toString();
       if (['0', '1', '5'].includes(statusCode)) return;
       
@@ -522,6 +530,9 @@ class StatusProcessor {
   }
 
   _calculateStationSeverity(station, lineId) {
+    if (station.estado == null) {
+      return 0;
+    }
     const statusCode = station.estado.toString();
     if (['0', '1', '5'].includes(statusCode)) return 0;
 
@@ -684,7 +695,8 @@ _getStatusInfo(code, type = 'line', id = 'unknown') {
 
   // In the _transformLine method:
 _transformLine(lineId, lineData) {
-    const statusCode = lineData.estado.toString();
+    const estado = lineData.estado;
+    const statusCode = estado != null ? estado.toString() : 'unknown';
     const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
 
     return {
@@ -693,7 +705,7 @@ _transformLine(lineId, lineData) {
       displayName: `Línea ${lineId.toUpperCase().replace("L", "")}`,
       color: styles.lineColors[lineId] || '#CCCCCC',
       status: {
-        code: lineData.estado,
+        code: estado,
         message: lineData.mensaje || '',
         appMessage: lineData.mensaje_app || lineData.mensaje || '',
         normalized: statusInfo.es,
@@ -707,7 +719,8 @@ _transformLine(lineId, lineData) {
 
 // In the _transformStation method:
 _transformStation(station, lineId) {
-    const statusCode = station.estado.toString();
+    const estado = station.estado;
+    const statusCode = estado != null ? estado.toString() : 'unknown';
     const statusInfo = this._getStatusInfo(statusCode, 'station', station.codigo);
 
     const transferLines = station.combinacion 
@@ -721,7 +734,7 @@ _transformStation(station, lineId) {
       displayName: station.nombre,
       line: lineId,
       status: {
-        code: station.estado,
+        code: estado,
         message: station.descripcion || '',
         appMessage: station.descripcion_app || station.descripcion || '',
         normalized: statusInfo.es,
