@@ -62,6 +62,12 @@ if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" -e "USE $METRODB_NAME;" 2>
     info "Database '$METRODB_NAME' already exists. Applying schema..."
     if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "$DB_SCHEMA_FILE"; then
         info "✅ Database schema updated successfully."
+    info "Seeding status tables..."
+    if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "seed_status_tables.sql"; then
+        info "✅ Status tables seeded successfully."
+    else
+        error "Failed to seed status tables."
+    fi
     else
         error "Failed to update database schema."
     fi

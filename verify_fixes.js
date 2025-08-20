@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { exec } = require('child_process');
 const mariadb = require('mariadb');
 const DatabaseManager = require('./src/core/database/DatabaseManager');
