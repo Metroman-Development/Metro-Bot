@@ -173,7 +173,7 @@ class MetroCore extends EventEmitter {
                     logger.info('[MetroCore] Using DatabaseManagerProxy for worker process.');
                 } else {
                     const DatabaseManager = require('../../../core/database/DatabaseManager');
-                    dbManager = await DatabaseManager.getInstance(instance.config.database);
+                    dbManager = await DatabaseManager.getInstance(options.dbConfig || instance.config.database);
                     logger.info('[MetroCore] Using real DatabaseManager for master process.');
                 }
                 instance.dbManager = dbManager;
@@ -207,7 +207,7 @@ class MetroCore extends EventEmitter {
             const databaseService = this._subsystems.dbService; // for local use
             this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
-            this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this);
+            this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, databaseService);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
             this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
             await this._subsystems.accessibilityService.initialize();
