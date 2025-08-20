@@ -15,7 +15,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
-const { translateApiData } = require('../../data/dataTranslator');
+const { translateApiData } = require('../../data/DataManager');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}, dataEngine) {

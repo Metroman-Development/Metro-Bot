@@ -30,6 +30,7 @@ class DatabaseManager extends EventEmitter {
 
     async createConnectionPool() {
         console.log('[DB] Creating new connection pool with config:', this.config);
+        console.log(this.config);
 
         this.pool = mariadb.createPool({
             host: this.config.host,

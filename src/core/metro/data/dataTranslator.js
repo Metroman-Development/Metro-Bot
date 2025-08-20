@@ -1,50 +1,116 @@
-const metroConfig = require('../../../config/metro/metroConfig');
-
-const stationStatusMap = {
-    '1': '1', // abierta -> abierta
-    '2': '5', // cerrada -> cerrada
-    '3': '4', // accesos parciales -> accesos parciales
-};
-
-const lineStatusMap = {
-    '1': '10', // operativa -> operativa
-    '2': '13', // algunas estaciones cerradas -> parcial
-    '3': '14', // servicio interrumpido -> suspendida
-    '4': '17', // demoras -> con demoras
-};
-
+const fs = require('fs').promises;
+const path = require('path');
 const logger = require('../../../events/logger');
 
-function translateApiData(rawData) {
-    logger.detailed('[dataTranslator] Starting translation of API data', rawData);
-    if (!rawData || !rawData.lineas) {
-        return rawData;
-    }
-
-    const translatedData = JSON.parse(JSON.stringify(rawData));
-
-    for (const lineId in translatedData.lineas) {
-        const line = translatedData.lineas[lineId];
-
-        // Translate line status
-        if (lineStatusMap[line.estado]) {
-            line.estado = lineStatusMap[line.estado];
-        }
-
-        // Translate station statuses
-        if (line.estaciones) {
-            for (const station of line.estaciones) {
-                if (stationStatusMap[station.estado]) {
-                    station.estado = stationStatusMap[station.estado];
-                }
-            }
-        }
-    }
-
-    logger.detailed('[dataTranslator] Finished translation of API data', translatedData);
-    return translatedData;
+function normalizeStationName(name) {
+    if (!name) return '';
+    return name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\./g, '')
+        .replace(/l\d[ab]?$/, '')
+        .trim();
 }
 
-module.exports = {
-    translateApiData,
-};
+class DataManager {
+    constructor() {
+        this.stations = null;
+        this.lines = null;
+    }
+
+    async loadData() {
+        try {
+            const stationsDataPath = path.join(__dirname, '..', '..', '..', 'data', 'stationsData.json');
+            const estadoRedPath = path.join(__dirname, '..', '..', '..', 'data', 'estadoRed.json');
+            const accessibilityCachePath = path.join(__dirname, '..', '..', '..', 'data', 'accessibilityCache.json');
+
+            const stationsDataFile = await fs.readFile(stationsDataPath, 'utf8');
+            const estadoRedFile = await fs.readFile(estadoRedPath, 'utf8');
+            const accessibilityCacheFile = await fs.readFile(accessibilityCachePath, 'utf8');
+
+            const stationsData = JSON.parse(stationsDataFile).stationsData;
+            const estadoRedData = JSON.parse(estadoRedFile);
+            const accessibilityCache = JSON.parse(accessibilityCacheFile);
+
+            const unifiedStations = {};
+            const unifiedLines = {};
+
+            const stationsDataLookup = {};
+            for (const key in stationsData) {
+                stationsDataLookup[normalizeStationName(key)] = stationsData[key];
+            }
+
+            for (const lineId in estadoRedData) {
+                const line = estadoRedData[lineId];
+                unifiedLines[lineId] = {
+                    id: lineId,
+                    name: `Línea ${lineId.toUpperCase()}`,
+                    status: line.estado === '1' ? 'operational' : 'closed',
+                    message: line.mensaje_app,
+                    stations: []
+                };
+
+                for (const station of line.estaciones) {
+                    const stationId = `${station.codigo}_${lineId}`;
+                    const stationName = station.nombre;
+                    const normalizedStationName = normalizeStationName(stationName);
+                    const extraData = stationsDataLookup[normalizedStationName];
+
+                    if (!extraData) {
+                        logger.warn(`[DataManager] No extraData found for station: ${stationName} (${station.codigo}) on line ${lineId}. Transports will be empty.`);
+                    }
+
+                    const accessibility = Object.entries(accessibilityCache)
+                        .filter(([id, item]) => item.estacion === station.codigo)
+                        .map(([id, item]) => ({ id, ...item }));
+
+                    const aliases = [];
+                    if(extraData){
+                        aliases.push(stationName.toLowerCase())
+                    }
+
+                    unifiedStations[stationId] = {
+                        id: stationId,
+                        name: stationName,
+                        displayName: stationName,
+                        line: lineId,
+                        code: station.codigo,
+                        status: station.estado === '1' ? 'operational' : 'closed',
+                        combination: station.combinacion,
+                        aliases: aliases,
+                        transports: extraData ? extraData[0] : 'None',
+                        services: extraData ? extraData[1] : 'None',
+                        commerce: extraData ? extraData[3] : 'None',
+                        amenities: extraData ? extraData[4] : 'None',
+                        imageUrl: extraData ? extraData[5] : null,
+                        commune: extraData ? extraData[6] : null,
+                        accessibility: {
+                            status: accessibility.length > 0 ? 'available' : 'unavailable',
+                            details: accessibility,
+                        },
+                        _raw: { ...station, ...extraData },
+                    };
+                    unifiedLines[lineId].stations.push(stationId);
+                }
+            }
+
+            this.stations = unifiedStations;
+            this.lines = unifiedLines;
+
+        } catch (error) {
+            logger.error('Error loading data in DataManager:', error);
+            throw error;
+        }
+    }
+
+    getStations() {
+        return this.stations;
+    }
+
+    getLines() {
+        return this.lines;
+    }
+}
+
+module.exports = DataManager;
