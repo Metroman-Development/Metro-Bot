@@ -215,6 +215,7 @@ CREATE TABLE `metro_stations` (
   `amenities` text DEFAULT NULL COMMENT 'From stationData[4]',
   `image_url` varchar(255) DEFAULT NULL COMMENT 'From stationData[5]',
   `access_details` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`access_details`)),
+  `combinacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`station_id`),
   UNIQUE KEY `line_id` (`line_id`,`station_code`),
   KEY `station_name` (`station_name`),
@@ -323,6 +324,7 @@ CREATE TABLE `system_info` (
   `average_speed` varchar(255) DEFAULT NULL,
   `operator` varchar(255) DEFAULT NULL,
   `map_url` varchar(255) DEFAULT NULL,
+  `events` json DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

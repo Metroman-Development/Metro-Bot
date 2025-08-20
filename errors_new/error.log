@@ -1,10 +1,10 @@
-[2025-08-19T17:22:35.267Z] ERROR: Error: [ApiService] Failed to read apiChanges.json
-Stack: Error: [ApiService] Failed to read apiChanges.json
+[2025-08-20T08:21:17.737Z] ERROR: Error: [SchedulerService] Error in job send-system-status-report:
+Stack: Error: [SchedulerService] Error in job send-system-status-report:
     at Object.error (/home/ubuntu/bot/Metro-Bot/src/events/logger.js:170:27)
-    at ApiService._handleDataChanges (/home/ubuntu/bot/Metro-Bot/src/core/metro/core/services/ApiService.js:712:28)
-    at async ApiService.fetchNetworkStatus (/home/ubuntu/bot/Metro-Bot/src/core/metro/core/services/ApiService.js:510:17)
-    at async Timeout._onTimeout (/home/ubuntu/bot/Metro-Bot/src/core/chronos/SchedulerService.js:23:21)
-Metadata: {
-  "error": {}
-}
+    at jobWrapper (/home/ubuntu/bot/Metro-Bot/src/core/chronos/SchedulerService.js:76:24)
+    at SchedulerService.scheduleIntervalJob (/home/ubuntu/bot/Metro-Bot/src/core/chronos/SchedulerService.js:85:9)
+    at Timeout._onTimeout (/home/ubuntu/bot/Metro-Bot/src/core/chronos/SchedulerService.js:80:55)
+    at listOnTimeout (node:internal/timers:581:17)
+    at process.processTimers (node:internal/timers:519:7)
+Metadata: {}
 
