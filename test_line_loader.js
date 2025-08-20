@@ -1,4 +1,3 @@
-require('dotenv').config();
 const DatabaseManager = require('./src/core/database/DatabaseManager');
 const dbLineLoader = require('./src/core/metro/data/loaders/db/dbLineLoader');
 const dbConfig = {

@@ -1,5 +1,4 @@
 #!/bin/bash
-export $(cat .env | xargs)
 #
 # This script manages the services for the bot application.
 # It is intended to be used in a production environment where the code
@@ -12,7 +11,9 @@ set -e
 
 # Export environment variables from .env file
 if [ -f .env ]; then
-    export $(cat .env | sed 's/#.*//g' | xargs)
+    set -a
+    source .env
+    set +a
 fi
 
 # --- Initial Setup ---

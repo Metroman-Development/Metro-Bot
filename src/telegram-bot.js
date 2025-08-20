@@ -1,4 +1,3 @@
-require('dotenv').config();
 const logger = require('./events/logger');
 const TelegramBot = require('./bot/telegram/bot.js');
 
