@@ -418,7 +418,7 @@ async activateEventOverrides(eventDetails) {
         // It ensures that the embed manager always has the most up-to-date information from the database.
         logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
-        const currentData = this._processData(dbRawData);
+        const currentData = await this._processData(dbRawData);
         
         this._updateCurrentData(currentData);
         return currentData;
@@ -489,7 +489,7 @@ async activateEventOverrides(eventDetails) {
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
             logger.detailed('[ApiService] Data after randomizing statuses', randomizedData);
 
-            const currentData = this._processData(randomizedData);
+            const currentData = await this._processData(randomizedData);
 
 
             console.log(currentData);
@@ -589,9 +589,9 @@ async activateEventOverrides(eventDetails) {
         }
     }
 
-    _processData(rawData) {
+    async _processData(rawData) {
         logger.detailed('[ApiService] Starting data processing', rawData);
-        const translatedData = translateApiData(rawData);
+        const translatedData = await translateApiData(rawData);
         logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
@@ -1132,7 +1132,7 @@ async activateEventOverrides(eventDetails) {
         try {
             logger.info('[ApiService] Forcing API fetch to populate database...');
             const rawData = await this.estadoRedService.fetchStatus();
-            const currentData = this._processData(rawData);
+            const currentData = await this._processData(rawData);
             // Call the new comprehensive update method
             await this.dbService.updateAllData(currentData);
             logger.info('[ApiService] Database populated with initial data from API.');
