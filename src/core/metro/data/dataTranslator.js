@@ -13,7 +13,10 @@ const lineStatusMap = {
     '4': '17', // demoras -> con demoras
 };
 
+const logger = require('../../../events/logger');
+
 function translateApiData(rawData) {
+    logger.detailed('[dataTranslator] Starting translation of API data', rawData);
     if (!rawData || !rawData.lineas) {
         return rawData;
     }
@@ -38,6 +41,7 @@ function translateApiData(rawData) {
         }
     }
 
+    logger.detailed('[dataTranslator] Finished translation of API data', translatedData);
     return translatedData;
 }
 
