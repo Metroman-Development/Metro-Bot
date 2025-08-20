@@ -142,7 +142,8 @@ class StatusProcessor {
             continue;
           }
 
-          let [stationRow] = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
+          const stationResult = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
+          const stationRow = stationResult && stationResult[0] ? stationResult[0] : null;
           let station_id;
 
           if (stationRow) {
