@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
 const logger = require('../events/logger');
 const DatabaseManager = require('./database/DatabaseManager');
 const MetroCore = require('./metro/core/MetroCore');

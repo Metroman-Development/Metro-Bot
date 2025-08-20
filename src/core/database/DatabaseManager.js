@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mariadb = require('mariadb');
 const { EventEmitter } = require('events');
 

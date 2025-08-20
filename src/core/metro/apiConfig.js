@@ -1,5 +1,4 @@
 // File: config/apiConfig.js
-require('dotenv').config();
 
 const metroApiConfig = {
   baseUrl: process.env.METRO_API_BASE_URL,

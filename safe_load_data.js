@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
 const path = require('path');

@@ -1,5 +1,4 @@
 // modules/metro/core/services/ApiService.js// modules/metro/core/services/ApiService.js
-require('dotenv').config()
 // modules/metro/core/services/ApiService.js
 const EventEmitter = require('events');
 const { fetch } = require('undici');
