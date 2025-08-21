@@ -4,6 +4,7 @@ const SchedulerService = require('./core/chronos/SchedulerService');
 const TimeService = require('./core/chronos/TimeService');
 
 async function startScheduler() {
+    logger.info('[SCHEDULER] Starting scheduler...');
     const { metroCore } = await initialize('SCHEDULER');
 
     const timeService = new TimeService(metroCore);
@@ -70,5 +71,6 @@ startScheduler();
 process.on('SIGINT', () => {
     logger.info('[SCHEDULER] Shutting down...');
     // Add cleanup logic here if needed, e.g., scheduler.stop()
+    logger.info('[SCHEDULER] ✅ Scheduler shut down successfully.');
     process.exit(0);
 });
