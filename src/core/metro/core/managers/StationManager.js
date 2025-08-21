@@ -43,7 +43,15 @@ class StationManager {
             status: safeStation.status || { code: '0', message: 'Status unknown' },
             coordinates: safeStation.coordinates || { lat: 0, lng: 0 },
             facilities: safeStation.facilities || [],
-            metadata: safeStation.metadata || {}
+            metadata: safeStation.metadata || {},
+            transports: safeStation.transports || null,
+            services: safeStation.services || null,
+            accessibility: safeStation.accessibility || null,
+            commerce: safeStation.commerce || null,
+            amenities: safeStation.amenities || null,
+            image_url: safeStation.image_url || null,
+            access_details: safeStation.access_details || null,
+            combinacion: safeStation.combinacion || null
         };
     }
 
