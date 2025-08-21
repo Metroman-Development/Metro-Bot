@@ -172,6 +172,12 @@ class StatusService extends EventEmitter {
     this.state.changeHistory.push(changeRecord);
     logger.info(`[StatusService] ${type} ${id} changed: ${previousStatus?.code || 'none'} → ${newStatus.code}`);
 
+    if (this.metro._subsystems.dbService) {
+      this.metro._subsystems.dbService.logStatusChange(changeRecord).catch(error => {
+        logger.error('[StatusService] Failed to log status change to database:', error);
+      });
+    }
+
     if (type === 'line') {
       this.emit('lineStatusUpdated', changeRecord);
     } else {
