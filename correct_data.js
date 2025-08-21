@@ -81,6 +81,7 @@ async function ensureSchema(conn) {
           \`amenities\` text DEFAULT NULL,
           \`image_url\` varchar(255) DEFAULT NULL,
           \`access_details\` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(\`access_details\`)),
+          \`combinacion\` varchar(255) DEFAULT NULL,
           PRIMARY KEY (\`station_id\`),
           UNIQUE KEY \`line_id\` (\`line_id\`,\`station_code\`),
           CONSTRAINT \`metro_stations_ibfk_1\` FOREIGN KEY (\`line_id\`) REFERENCES \`metro_lines\` (\`line_id\`)

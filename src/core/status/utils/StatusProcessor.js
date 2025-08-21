@@ -152,7 +152,9 @@ class StatusProcessor {
               sql: `UPDATE metro_stations SET
                       station_name = ?, display_name = ?, transports = ?, services = ?,
                       accessibility = ?, commerce = ?, amenities = ?, image_url = ?,
-                      access_details = ?, updated_at = NOW()
+                      access_details = ?, updated_at = NOW(),
+                      display_order = ?, commune = ?, address = ?, latitude = ?, longitude = ?, location = POINT(?, ?),
+                      opened_date = ?, last_renovation_date = ?, combinacion = ?
                     WHERE station_id = ?`,
               params: [
                 station.name,
@@ -164,26 +166,47 @@ class StatusProcessor {
                 fullStationData?.amenities,
                 fullStationData?.image,
                 JSON.stringify(fullStationData?.accessDetails),
+                fullStationData?.display_order,
+                fullStationData?.commune,
+                fullStationData?.address,
+                fullStationData?.latitude,
+                fullStationData?.longitude,
+                fullStationData?.longitude || 0,
+                fullStationData?.latitude || 0,
+                fullStationData?.opened_date,
+                fullStationData?.last_renovation_date,
+                fullStationData?.combinacion,
                 station_id
               ]
             });
           } else {
             const [result] = await connection.query(
               `INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,
-                                        transports, services, accessibility, commerce, amenities, image_url, access_details)
-               VALUES (?, ?, ?, ?, POINT(0,0), ?, ?, ?, ?, ?, ?, ?)`,
+                                        transports, services, accessibility, commerce, amenities, image_url, access_details,
+                                        display_order, commune, address, latitude, longitude, opened_date, last_renovation_date, combinacion)
+               VALUES (?, ?, ?, ?, POINT(?,?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
               [
                 station.line,
                 station.id,
                 station.name,
                 station.displayName,
+                fullStationData?.longitude || 0,
+                fullStationData?.latitude || 0,
                 fullStationData?.transports,
                 fullStationData?.services,
                 fullStationData?.accessibility,
                 fullStationData?.commerce,
                 fullStationData?.amenities,
                 fullStationData?.image,
-                JSON.stringify(fullStationData?.accessDetails)
+                JSON.stringify(fullStationData?.accessDetails),
+                fullStationData?.display_order,
+                fullStationData?.commune,
+                fullStationData?.address,
+                fullStationData?.latitude,
+                fullStationData?.longitude,
+                fullStationData?.opened_date,
+                fullStationData?.last_renovation_date,
+                fullStationData?.combinacion
               ]
             );
             station_id = result.insertId;
