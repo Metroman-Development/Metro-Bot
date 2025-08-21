@@ -66,6 +66,21 @@ service_dependencies=(
 
 # --- Helper Functions ---
 
+# Rotate log file if it exceeds a certain size
+rotate_log() {
+    local log_file="$1"
+    local max_size=$((10 * 1024 * 1024)) # 10 MB
+
+    if [ -f "$log_file" ]; then
+        local file_size=$(stat -c%s "$log_file")
+        if [ "$file_size" -gt "$max_size" ]; then
+            echo "Rotating log file: $log_file"
+            # Keep the last 10MB of the log file
+            tail -c "$max_size" "$log_file" > "$log_file.tmp" && mv "$log_file.tmp" "$log_file"
+        fi
+    fi
+}
+
 # Check if a service is running
 is_running() {
     local service_name="$1"
@@ -120,6 +135,7 @@ start_service() {
     fi
 
     echo "Starting service '$service_name'..."
+    rotate_log "$log_file"
     nohup node "$service_script" > "$log_file" 2>&1 &
     local pid=$!
     echo "$pid" > "$pid_file"
