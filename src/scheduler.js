@@ -14,14 +14,14 @@ async function startScheduler() {
         await metroCore._subsystems.api.dbService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
     });
 
-    const scheduler = new SchedulerService();
+    const scheduler = new SchedulerService(metroCore, timeService);
     const chronosConfig = require('./config/chronosConfig');
 
     // Combined task for jobs that run every minute
     const everyMinuteTasks = async () => {
-        await metroCore._subsystems.api.fetchNetworkStatus();
-        await timeService.checkTime();
-        await metroCore._subsystems.overrideManager.checkScheduledOverrides();
+        await scheduler.metroCore._subsystems.api.fetchNetworkStatus();
+        await scheduler.timeService.checkTime();
+        await scheduler.metroCore._subsystems.overrideManager.checkScheduledOverrides();
     };
 
     scheduler.addJob({
@@ -33,13 +33,13 @@ async function startScheduler() {
     scheduler.addJob({
         name: 'check-accessibility',
         interval: 300000, // Every 5 minutes
-        task: () => metroCore._subsystems.accessibilityService.checkAccessibility()
+        task: () => scheduler.metroCore._subsystems.accessibilityService.checkAccessibility()
     });
 
     scheduler.addJob({
         name: 'send-system-status-report',
         interval: 3600000, // Every hour
-        task: () => metroCore.sendSystemStatusReport()
+        task: () => scheduler.metroCore.sendSystemStatusReport()
     });
 
     // Load jobs from chronosConfig
@@ -47,8 +47,8 @@ async function startScheduler() {
         chronosConfig.jobs.forEach(jobConfig => {
             const taskFunction = () => {
                 const [service, method] = jobConfig.task.split('.');
-                if (service === 'timeService' && typeof timeService[method] === 'function') {
-                    return timeService[method]();
+                if (service === 'timeService' && typeof scheduler.timeService[method] === 'function') {
+                    return scheduler.timeService[method]();
                 } else {
                     logger.error(`[Scheduler] Task not found: ${jobConfig.task}`);
                 }
