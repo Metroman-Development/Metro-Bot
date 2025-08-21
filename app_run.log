@@ -1,25 +1,20 @@
-Starting the bot in PRODUCTION mode.
--------------------------------------
-INFO: Loaded configuration from config.json
 [Master] Initializing master process...
 [DB] Creating new DatabaseManager instance
 [DB] Initializing new DatabaseManager instance
 [DB] Starting initialization...
 [DB] Creating new connection pool with config: {
-  host: '127.0.0.1',
-  user: 'metroapi',
-  password: 'Metro256',
-  database: 'MetroDB'
+  host: undefined,
+  user: undefined,
+  password: undefined,
+  database: undefined,
+  port: undefined
+}
+{
+  host: undefined,
+  user: undefined,
+  password: undefined,
+  database: undefined,
+  port: undefined
 }
 [DB] Connection pool created, testing connection...
 [DB] Acquiring connection for health check...
-[DB] Executing ping test...
-[DB] Connection test successful
-[DB] Releasing health check connection
-[DB] Connection established successfully
-[DB] Starting health checks every 60 seconds
-[DB] Initialization completed successfully
-ℹ️ [2025-08-18T17:16:31.199Z] [INFO] [index.js:45] [main] [Master] ✅ DatabaseManager initialized successfully.
-ℹ️ [2025-08-18T17:16:31.207Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: DiscordBot...
-ℹ️ [2025-08-18T17:16:31.210Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: TelegramBot...
-ℹ️ [2025-08-18T17:16:31.212Z] [INFO] [index.js:139] [startComponent] [Master] Starting component: Scheduler...

@@ -35,24 +35,22 @@ class StationManager {
 
     _normalizeStation(station, id) {
         const safeStation = station || {};
-        return {
+        const normalized = {
+            ...safeStation, // Preserve all existing fields
             id: id.toUpperCase(),
             code: id.toUpperCase(),
             name: (safeStation.name || 'Unknown Station'),
             line: (safeStation.line || 'UNK').toLowerCase(),
             status: safeStation.status || { code: '0', message: 'Status unknown' },
-            coordinates: safeStation.coordinates || { lat: 0, lng: 0 },
-            facilities: safeStation.facilities || [],
-            metadata: safeStation.metadata || {},
-            transports: safeStation.transports || null,
-            services: safeStation.services || null,
-            accessibility: safeStation.accessibility || null,
-            commerce: safeStation.commerce || null,
-            amenities: safeStation.amenities || null,
-            image_url: safeStation.image_url || null,
-            access_details: safeStation.access_details || null,
-            combinacion: safeStation.combinacion || null
+            image_url: safeStation.image || safeStation.image_url || null, // Handle both `image` and `image_url`
+            access_details: safeStation.accessDetails || safeStation.access_details || null, // Handle both `accessDetails` and `access_details`
         };
+
+        // Clean up redundant fields
+        delete normalized.image;
+        delete normalized.accessDetails;
+
+        return normalized;
     }
 
     _buildIndex() {
