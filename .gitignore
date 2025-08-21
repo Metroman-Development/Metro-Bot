@@ -45,6 +45,8 @@ src/data/lastAccessState.json
 src/data/lineStationHistory.json
 src/data/processedEstadoRed.json
 src/data/processedEstadoRed (1).json
+src/data/change_log.json
+src/data/estadoRed.json
 
 # Ignore local development files
 *.local
