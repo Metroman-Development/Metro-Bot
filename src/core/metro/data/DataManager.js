@@ -110,22 +110,8 @@ class DataManager {
 
 async function translateApiData(apiData) {
     try {
-        const stationsDataPath = path.join(__dirname, '..', '..', '..', 'data', 'stationsData.json');
-        const accessibilityCachePath = path.join(__dirname, '..', '..', '..', 'data', 'accessibilityCache.json');
-
-        const stationsDataFile = await fs.readFile(stationsDataPath, 'utf8');
-        const accessibilityCacheFile = await fs.readFile(accessibilityCachePath, 'utf8');
-
-        const stationsData = JSON.parse(stationsDataFile).stationsData;
-        const accessibilityCache = JSON.parse(accessibilityCacheFile);
-
         const unifiedStations = {};
         const unifiedLines = {};
-
-        const stationsDataLookup = {};
-        for (const key in stationsData) {
-            stationsDataLookup[normalizeStationName(key)] = stationsData[key];
-        }
 
         for (const lineId in apiData.lineas) {
             const line = apiData.lineas[lineId];
@@ -140,17 +126,6 @@ async function translateApiData(apiData) {
             for (const station of line.estaciones) {
                 const stationId = `${station.codigo}_${lineId}`;
                 const stationName = station.nombre;
-                const normalizedStationName = normalizeStationName(stationName);
-                const extraData = stationsDataLookup[normalizedStationName];
-
-                const accessibility = Object.entries(accessibilityCache)
-                    .filter(([id, item]) => item.estacion === station.codigo)
-                    .map(([id, item]) => ({ id, ...item }));
-
-                const aliases = [];
-                if(extraData){
-                    aliases.push(stationName.toLowerCase())
-                }
 
                 const station_data = {
                     ...station,
@@ -161,23 +136,19 @@ async function translateApiData(apiData) {
                     code: station.codigo,
                     status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
                     combination: station.combinacion,
-                    aliases: aliases,
+                    aliases: [stationName.toLowerCase()],
+                    transports: station.transports || 'None',
+                    services: station.services || 'None',
+                    commerce: station.commerce || 'None',
+                    amenities: station.amenities || 'None',
+                    imageUrl: station.image_url || null,
+                    commune: station.commune || null,
                     accessibility: {
-                        status: accessibility.length > 0 ? 'available' : 'unavailable',
-                        details: accessibility,
+                        status: station.access_details && station.access_details.length > 0 ? 'available' : 'unavailable',
+                        details: station.access_details || [],
                     },
                     _raw: { ...station },
                 };
-
-                if (extraData) {
-                    station_data.transports = extraData[0] || 'None';
-                    station_data.services = extraData[1] || 'None';
-                    station_data.commerce = extraData[3] || 'None';
-                    station_data.amenities = extraData[4] || 'None';
-                    station_data.imageUrl = extraData[5] || null;
-                    station_data.commune = extraData[6] || null;
-                    station_data._raw = { ...station_data._raw, ...extraData };
-                }
 
                 unifiedStations[stationId] = station_data;
                 unifiedLines[lineId].stations.push(stationId);
