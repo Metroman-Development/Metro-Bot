@@ -47,6 +47,20 @@ module.exports = class DataEngine {
             }
 
             // Data is already processed by ApiService, no need to re-process.
+
+            // Log summary for station 'CH'
+            if (currentData && currentData.stations && currentData.stations['CH']) {
+                const chStation = currentData.stations['CH'];
+                const summary = {};
+                for (const key in chStation) {
+                    if (Array.isArray(chStation[key])) {
+                        summary[key] = `${chStation[key].length} items`;
+                    } else {
+                        summary[key] = '1 item';
+                    }
+                }
+                logger.info(`[DataEngine] Quantity of items per field for station CH: ${JSON.stringify(summary)}`);
+            }
             
             // Store the processed data
             this.metro._dynamicData = currentData;

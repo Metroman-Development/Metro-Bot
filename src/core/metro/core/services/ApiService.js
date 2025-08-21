@@ -490,8 +490,19 @@ async activateEventOverrides(eventDetails) {
 
             const currentData = await this._processData(randomizedData);
 
-
-            console.log(currentData);
+            // Log summary for station 'CH'
+            if (currentData && currentData.stations && currentData.stations['CH']) {
+                const chStation = currentData.stations['CH'];
+                const summary = {};
+                for (const key in chStation) {
+                    if (Array.isArray(chStation[key])) {
+                        summary[key] = `${chStation[key].length} items`;
+                    } else {
+                        summary[key] = '1 item';
+                    }
+                }
+                logger.info(`[ApiService] Quantity of items per field for station CH: ${JSON.stringify(summary)}`);
+            }
             
             const summary = this.generateNetworkSummary(currentData);
             await this.dbService.updateNetworkStatusSummary(summary);
