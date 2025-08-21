@@ -47,12 +47,35 @@ module.exports = class DataEngine {
             }
 
             // Data is already processed by ApiService, no need to re-process.
+
+            // Log summary for station 'CH'
+            if (currentData && currentData.stations && currentData.stations['CH']) {
+                const chStation = currentData.stations['CH'];
+                const summary = {};
+                for (const key in chStation) {
+                    if (Array.isArray(chStation[key])) {
+                        summary[key] = `${chStation[key].length} items`;
+                    } else {
+                        summary[key] = '1 item';
+                    }
+                }
+                logger.info(`[DataEngine] Quantity of items per field for station CH: ${JSON.stringify(summary)}`);
+            }
             
             // Store the processed data
             this.metro._dynamicData = currentData;
             
             // Combine with static data
             const combined = this.combine();
+
+            if (combined && combined.stations) {
+                for (const stationId in combined.stations) {
+                    const station = combined.stations[stationId];
+                    if (station.commerce === null || station.commerce === undefined) {
+                        logger.warn(`[DataEngine] here's the spot where we lose information: commerce is null/undefined for station ${stationId}`);
+                    }
+                }
+            }
             
             // Emit events
             this.metro._safeEmit(EventRegistry.RAW_DATA_PROCESSED, currentData);

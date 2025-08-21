@@ -40,8 +40,9 @@ class SchedulerService {
             }
             try {
                 this.running.add(jobName);
-                logger.debug(`[SchedulerService] Running job: ${jobName}`);
+                logger.info(`[SchedulerService] Starting job: ${jobName}`);
                 await job.task();
+                logger.info(`[SchedulerService] Finished job: ${jobName}`);
             } catch (error) {
                 logger.error(`[SchedulerService] Error in job ${jobName}:`, error);
             } finally {
@@ -70,8 +71,9 @@ class SchedulerService {
 
             try {
                 this.running.add(jobName);
-                logger.debug(`[SchedulerService] Running job: ${jobName}`);
+                logger.info(`[SchedulerService] Starting job: ${jobName}`);
                 await job.task();
+                logger.info(`[SchedulerService] Finished job: ${jobName}`);
             } catch (error) {
                 logger.error(`[SchedulerService] Error in job ${jobName}:`, error);
             } finally {
