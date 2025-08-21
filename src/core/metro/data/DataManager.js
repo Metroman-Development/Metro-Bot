@@ -153,6 +153,7 @@ async function translateApiData(apiData) {
                 }
 
                 const station_data = {
+                    ...station,
                     id: stationId,
                     name: stationName,
                     displayName: stationName,
