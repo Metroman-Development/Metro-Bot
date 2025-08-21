@@ -67,8 +67,6 @@ class StatusProcessor {
         isFallback: false
       };
 
-      await this._updateDatabase(currentData, user);
-
       return currentData;
     } catch (error) {
       logger.error('[StatusProcessor] Processing failed', {
