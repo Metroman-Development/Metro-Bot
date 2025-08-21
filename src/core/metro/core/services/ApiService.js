@@ -758,6 +758,35 @@ async activateEventOverrides(eventDetails) {
             } catch (error) {
                 logger.error('[ApiService] Failed to write apiChanges.json', { error });
             }
+
+            const changeLogPath = path.join(this.cacheDir, 'change_log.json');
+            let changeLog = [];
+            try {
+                const data = await fsp.readFile(changeLogPath, 'utf8');
+                changeLog = JSON.parse(data);
+            } catch (error) {
+                if (error.code !== 'ENOENT') {
+                    logger.error('[ApiService] Failed to read change_log.json', { error });
+                }
+            }
+
+            changeLog.unshift(...changeResult.changes);
+            if (changeLog.length > 100) { // Keep the last 100 changes
+                changeLog = changeLog.slice(0, 100);
+            }
+
+            try {
+                await fsp.writeFile(changeLogPath, JSON.stringify(changeLog, null, 2), 'utf8');
+            } catch (error) {
+                logger.error('[ApiService] Failed to write change_log.json', { error });
+            }
+
+            try {
+                const estadoRedPath = path.join(this.cacheDir, 'estadoRed.json');
+                await fsp.writeFile(estadoRedPath, JSON.stringify(rawData, null, 2), 'utf8');
+            } catch (error) {
+                logger.error('[ApiService] Failed to write estadoRed.json', { error });
+            }
         }
     }
 
@@ -1183,16 +1212,17 @@ async activateEventOverrides(eventDetails) {
                         const dbStation = stationsByCode[stationCode];
 
                         if (dbStation) {
-                            // Merge DB data into API station data, preserving API status
-                            Object.assign(apiStation, {
-                                ...dbStation,
-                                // Ensure live status from API is not overwritten by stale DB status
-                                estado: apiStation.estado,
-                                descripcion: apiStation.descripcion,
-                                descripcion_app: apiStation.descripcion_app,
-                                // Add accessibility details
+                            const cleanDbStation = Object.fromEntries(
+                                Object.entries(dbStation).filter(([, value]) => value !== null)
+                            );
+
+                            const finalStation = {
+                                ...cleanDbStation,
+                                ...apiStation,
                                 access_details: accessibilityByStation[stationCode] || []
-                            });
+                            };
+
+                            Object.assign(apiStation, finalStation);
                         }
                     }
                 }
