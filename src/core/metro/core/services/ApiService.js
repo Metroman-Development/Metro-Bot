@@ -513,12 +513,16 @@ async activateEventOverrides(eventDetails) {
             // PHASE 2d: Update data state
             this.lastRawData = rawData;
 
+            // Run DataEngine to combine data, update managers, and emit events.
+            const combinedData = await this.dataEngine.handleRawData(currentData);
 
-            this.lastCurrentData = currentData;
+            // Now that managers are updated, update the database.
+            await this.statusProcessor._updateDatabase(currentData, 'MetroApp');
 
+            this.lastCurrentData = combinedData;
 
             //this._updateCurrentData(currentData);
-            this._updateState(currentData);
+            this._updateState(combinedData);
 
             // PHASE 2e: Handle changes
             if (!this.isFirstTime) {
@@ -532,7 +536,7 @@ async activateEventOverrides(eventDetails) {
 
 
             // PHASE 2f: Persist data
-            await this._storeCurrentData(currentData);
+            await this._storeCurrentData(combinedData);
 
             this.metrics.lastSuccess = new Date();
 
@@ -540,7 +544,7 @@ async activateEventOverrides(eventDetails) {
 
 
 
-            return currentData;
+            return combinedData;
         } catch (error) {
             logger.error(`[ApiService] Fetch failed`, {
                 error: error.message,
