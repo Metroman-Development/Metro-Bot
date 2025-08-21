@@ -464,8 +464,13 @@ async activateEventOverrides(eventDetails) {
                     // PHASE 2a: Fetch raw data from API/cache
                     rawData = await this.estadoRedService.fetchStatus();
                     logger.detailed('[ApiService] Fetched raw data from estadoRedService', rawData);
+
+                    // Enrich with DB data
+                    rawData = await this._enrichApiData(rawData);
+                    logger.detailed('[ApiService] Enriched raw data with DB details', rawData);
+
                     fromPrimarySource = true;
-                    logger.info('[ApiService] Successfully fetched data from API.');
+                    logger.info('[ApiService] Successfully fetched and enriched data from API.');
                 } catch (fetchError) {
                     logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
                     rawData = await this.getDbRawData();
@@ -1142,10 +1147,72 @@ async activateEventOverrides(eventDetails) {
         return dbRawData;
     }
 
+    async _enrichApiData(apiData) {
+        if (!apiData || !apiData.lineas) {
+            logger.warn('[ApiService] Cannot enrich data: invalid apiData input.');
+            return apiData;
+        }
+
+        try {
+            logger.debug('[ApiService] Starting data enrichment from database.');
+
+            const [dbStations, accessibilityStatus] = await Promise.all([
+                this.dbService.getAllStationsStatusAsRaw(),
+                this.dbService.getAccessibilityStatus()
+            ]);
+
+            const accessibilityByStation = accessibilityStatus.reduce((acc, item) => {
+                const stationCode = item.station_code.toUpperCase();
+                if (!acc[stationCode]) {
+                    acc[stationCode] = [];
+                }
+                acc[stationCode].push(item);
+                return acc;
+            }, {});
+
+            const stationsByCode = dbStations.reduce((acc, station) => {
+                acc[station.station_code.toUpperCase()] = station;
+                return acc;
+            }, {});
+
+            for (const lineId in apiData.lineas) {
+                const line = apiData.lineas[lineId];
+                if (line.estaciones && Array.isArray(line.estaciones)) {
+                    for (const apiStation of line.estaciones) {
+                        const stationCode = apiStation.codigo.toUpperCase();
+                        const dbStation = stationsByCode[stationCode];
+
+                        if (dbStation) {
+                            // Merge DB data into API station data, preserving API status
+                            Object.assign(apiStation, {
+                                ...dbStation,
+                                // Ensure live status from API is not overwritten by stale DB status
+                                estado: apiStation.estado,
+                                descripcion: apiStation.descripcion,
+                                descripcion_app: apiStation.descripcion_app,
+                                // Add accessibility details
+                                access_details: accessibilityByStation[stationCode] || []
+                            });
+                        }
+                    }
+                }
+            }
+
+            logger.debug('[ApiService] Data enrichment complete.');
+            return apiData;
+
+        } catch (error) {
+            logger.error('[ApiService] Failed to enrich API data from database', { error });
+            // Return original data if enrichment fails to prevent full crash
+            return apiData;
+        }
+    }
+
     async forceApiFetchAndPopulateDb() {
         try {
             logger.info('[ApiService] Forcing API fetch to populate database...');
-            const rawData = await this.estadoRedService.fetchStatus();
+            let rawData = await this.estadoRedService.fetchStatus();
+            rawData = await this._enrichApiData(rawData);
             const currentData = await this._processData(rawData);
             // Call the new comprehensive update method
             await this.dbService.updateAllData(currentData);
