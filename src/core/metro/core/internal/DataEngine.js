@@ -22,11 +22,13 @@ function deepMerge(target, ...sources) {
 
     if (isObject(target) && isObject(source)) {
         for (const key in source) {
-            if (isObject(source[key])) {
-                if (!target[key]) Object.assign(target, { [key]: {} });
-                deepMerge(target[key], source[key]);
-            } else {
-                Object.assign(target, { [key]: source[key] });
+            if (source[key] !== undefined) {
+                if (isObject(source[key])) {
+                    if (!target[key]) Object.assign(target, { [key]: {} });
+                    deepMerge(target[key], source[key]);
+                } else {
+                    Object.assign(target, { [key]: source[key] });
+                }
             }
         }
     }
