@@ -64,10 +64,6 @@ class SchedulerService {
         const jobWrapper = async () => {
             if (this.running.has(jobName)) {
                 logger.warn(`[SchedulerService] Job "${jobName}" is already running. Skipping this execution.`);
-                if (this.jobs.has(jobName)) {
-                    job.timer = setTimeout(() => this.scheduleIntervalJob(jobName), job.interval);
-                    this.jobs.set(jobName, job);
-                }
                 return;
             }
 
