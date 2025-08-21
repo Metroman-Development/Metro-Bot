@@ -2,7 +2,9 @@ const logger = require('../../events/logger');
 const schedule = require('node-schedule');
 
 class SchedulerService {
-    constructor() {
+    constructor(metroCore, timeService) {
+        this.metroCore = metroCore;
+        this.timeService = timeService;
         this.jobs = new Map();
         this.running = new Set();
     }
