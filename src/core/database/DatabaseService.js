@@ -667,6 +667,74 @@ class DatabaseService {
         const results = await this.db.query('SELECT * FROM status_change_log ORDER BY changed_at DESC LIMIT 1');
         return results.length > 0 ? results[0] : null;
     }
+
+    async logStatusChange(changeRecord) {
+        const { type, id, from, to, timestamp } = changeRecord;
+
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            const getStatusTypeId = async (statusCode) => {
+                if (!statusCode) return null;
+                const result = await connection.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
+                return result.length > 0 ? result[0].status_type_id : null;
+            };
+
+            const oldStatusTypeId = await getStatusTypeId(from?.code);
+            const newStatusTypeId = await getStatusTypeId(to.code);
+
+            if (!newStatusTypeId) {
+                logger.warn(`[DatabaseService] No status_type_id found for new status code: ${to.code}`);
+                await connection.rollback();
+                return;
+            }
+
+            let stationId = null;
+            let lineId = null;
+
+            if (type === 'station') {
+                const stationResult = await connection.query('SELECT station_id, line_id FROM metro_stations WHERE station_code = ?', [id]);
+                if (stationResult.length > 0) {
+                    stationId = stationResult[0].station_id;
+                    lineId = stationResult[0].line_id;
+                } else {
+                    logger.warn(`[DatabaseService] Station not found for code: ${id}`);
+                    await connection.rollback();
+                    return;
+                }
+            } else {
+                lineId = id;
+            }
+
+            const query = `
+                INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, is_planned, expected_duration_minutes, changed_by, changed_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+
+            const description = `Status changed from ${from?.code || 'none'} to ${to.code}`;
+
+            await connection.query(query, [
+                stationId,
+                lineId,
+                oldStatusTypeId,
+                newStatusTypeId,
+                description,
+                0, // is_planned
+                null, // expected_duration_minutes
+                'system', // changed_by
+                timestamp
+            ]);
+
+            await connection.commit();
+        } catch (error) {
+            await connection.rollback();
+            logger.error('[DatabaseService] Failed to log status change:', { error, changeRecord });
+            throw error;
+        } finally {
+            connection.release();
+        }
+    }
 }
 
 module.exports = DatabaseService;

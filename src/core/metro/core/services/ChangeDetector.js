@@ -59,6 +59,17 @@ class ChangeDetector {
                 logger.warn('[ChangeDetector] Invalid data provided for analysis');
             }
 
+            const estadoRedPath = path.join(__dirname, '../../../../data/estadoRed.json');
+            let referenceData = {};
+            try {
+                const data = await fs.readFile(estadoRedPath, 'utf8');
+                referenceData = JSON.parse(data);
+            } catch (error) {
+                if (error.code !== 'ENOENT') {
+                    logger.error('[ChangeDetector] Failed to read estadoRed.json', { error });
+                }
+            }
+
             const earliestChangeTimestamp = getTimestamp(newData.timestamp);
             const latestDbChangeTimestamp = await this._getLatestChangeTimestampFromDb();
             const latestApiChangeTimestamp = await this._getLatestApiChangeTimestamp();
@@ -77,8 +88,6 @@ class ChangeDetector {
                     };
                 }
             }
-
-            const referenceData = oldData || this.lastData;
 
             // Detect changes and update network status
             let changes = this._detectChanges(newData, referenceData, currentData);
@@ -105,7 +114,7 @@ class ChangeDetector {
      * @private
      */
     _detectChanges(newData, referenceData, currentData) {
-        const changes = [];
+        const changesMap = new Map();
         const isInitialRun = !referenceData || Object.keys(referenceData).length === 0;
 
         Object.entries(newData).forEach(([lineId, lineData]) => {
@@ -117,18 +126,22 @@ class ChangeDetector {
             const toState = lineData.estado ?? 'unknown';
 
             if (isInitialRun || fromState !== toState) {
-                changes.push(this._createLineChange(
+                const change = this._createLineChange(
                     lineId,
                     fromState,
                     toState,
                     lineData.mensaje || '',
                     currentData
-                ));
+                );
+                const existingChange = changesMap.get(change.id);
+                if (!existingChange || new Date(change.timestamp) > new Date(existingChange.timestamp)) {
+                    changesMap.set(change.id, change);
+                }
             }
 
             // Process station changes
             this._processStationChanges(
-                changes,
+                changesMap,
                 lineId,
                 lineData.estaciones || [],
                 referenceData,
@@ -137,6 +150,7 @@ class ChangeDetector {
             );
         });
 
+        const changes = Array.from(changesMap.values());
         this.latestChanges = changes;
 
         return changes;
@@ -152,7 +166,7 @@ class ChangeDetector {
      * Processes station-level changes
      * @private
      */
-    _processStationChanges(changes, lineId, stations, referenceData, isInitialRun, currentData) {
+    _processStationChanges(changesMap, lineId, stations, referenceData, isInitialRun, currentData) {
         stations.forEach(station => {
             const stationId = station.codigo?.toLowerCase();
             if (!stationId) return;
@@ -175,7 +189,7 @@ class ChangeDetector {
             const toState = station.estado ?? 'unknown';
 
             if (isInitialRun || fromState !== toState) {
-                changes.push(this._createStationChange(
+                const change = this._createStationChange(
                     stationId,
                     station.nombre || `Station ${stationId}`,
                     lineId,
@@ -183,7 +197,11 @@ class ChangeDetector {
                     toState,
                     station.descripcion || '',
                     currentData
-                ));
+                );
+                const existingChange = changesMap.get(change.id);
+                if (!existingChange || new Date(change.timestamp) > new Date(existingChange.timestamp)) {
+                    changesMap.set(change.id, change);
+                }
             }
         });
     }
