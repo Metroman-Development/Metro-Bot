@@ -53,6 +53,15 @@ module.exports = class DataEngine {
             
             // Combine with static data
             const combined = this.combine();
+
+            if (combined && combined.stations) {
+                for (const stationId in combined.stations) {
+                    const station = combined.stations[stationId];
+                    if (station.commerce === null || station.commerce === undefined) {
+                        logger.warn(`[DataEngine] here's the spot where we lose information: commerce is null/undefined for station ${stationId}`);
+                    }
+                }
+            }
             
             // Emit events
             this.metro._safeEmit(EventRegistry.RAW_DATA_PROCESSED, currentData);
