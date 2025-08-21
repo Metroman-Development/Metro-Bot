@@ -1,3 +1,4 @@
+require('dotenv').config();
 const logger = require('./src/events/logger.js');
 const mariadb = require('mariadb');
 const fs = require('fs').promises;
