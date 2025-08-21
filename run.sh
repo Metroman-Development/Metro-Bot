@@ -120,7 +120,7 @@ start_service() {
     fi
 
     echo "Starting service '$service_name'..."
-    nohup node "$service_script" >> "$log_file" 2>&1 &
+    nohup node "$service_script" > "$log_file" 2>&1 &
     local pid=$!
     echo "$pid" > "$pid_file"
     echo "Service '$service_name' started with PID $pid. Log: $log_file"
