@@ -66,8 +66,8 @@ async function loadStations(conn, estadoRed, stationsData) {
         const stationNameKey = normalizer.normalize(station.nombre);
         const extraData = stationDataMap.get(stationNameKey) || [];
         const query = `
-            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?)
+            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url, combinacion, display_name, access_details, opened_date, last_renovation_date)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 station_name = VALUES(station_name),
                 display_order = VALUES(display_order),
@@ -81,7 +81,12 @@ async function loadStations(conn, estadoRed, stationsData) {
                 accessibility = VALUES(accessibility),
                 commerce = VALUES(commerce),
                 amenities = VALUES(amenities),
-                image_url = VALUES(image_url)
+                image_url = VALUES(image_url),
+                combinacion = VALUES(combinacion),
+                display_name = VALUES(display_name),
+                access_details = VALUES(access_details),
+                opened_date = VALUES(opened_date),
+                last_renovation_date = VALUES(last_renovation_date)
         `;
         await conn.query(query, [
             stationIdCounter,
@@ -98,7 +103,12 @@ async function loadStations(conn, estadoRed, stationsData) {
             extraData[2] || null, // accessibility
             extraData[3] || null, // commerce
             extraData[4] || null, // amenities
-            extraData[5] || null  // image_url
+            extraData[5] || null, // image_url
+            null, // combinacion
+            station.nombre, // display_name
+            null, // access_details
+            null, // opened_date
+            null // last_renovation_date
         ]);
         console.log(`Upserted station ${station.nombre} with ID ${stationIdCounter}`);
         stationIdCounter++;

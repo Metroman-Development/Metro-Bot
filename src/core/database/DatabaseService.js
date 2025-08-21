@@ -398,12 +398,12 @@ class DatabaseService {
     async _insertStationInTransaction(connection, station) {
         const stationQuery = `
             INSERT INTO metro_stations (
-                line_id, station_code, station_name, display_name,
+                line_id, station_code, station_name, display_name, display_order,
                 commune, address, latitude, longitude, location,
                 transports, services, accessibility, commerce, amenities, image_url, access_details,
                 opened_date, last_renovation_date, combinacion
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 station_name = VALUES(station_name),
                 display_name = VALUES(display_name),
@@ -429,7 +429,7 @@ class DatabaseService {
         const validPoint = !isNaN(longitude) && !isNaN(latitude);
 
         const params = [
-            station.line, station.id, station.name, station.displayName,
+            station.line, station.id, station.name, station.displayName, station.display_order || null,
             station.commune || null, station.address || null, station.latitude || null, station.longitude || null,
             validPoint ? longitude : 0, validPoint ? latitude : 0,
             station.transports || null, station.services || null, station.accessibility || null,
