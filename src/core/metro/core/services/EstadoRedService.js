@@ -17,8 +17,8 @@ class EstadoRedService {
         if (this.timeHelpers.isWithinOperatingHours()) {
             try {
                 const rawData = await this._fetchWithRetry();
-                await this._updateCache(rawData);
-                return rawData;
+                await this._updateCache({ lineas: rawData });
+                return { lineas: rawData };
             } catch (error) {
                 logger.error('[EstadoRedService] Fetch failed, falling back to cache', { error });
                 return this._readCachedData();
@@ -66,7 +66,7 @@ class EstadoRedService {
             throw new Error('Invalid network-status-json format');
         }
 
-        Object.keys(data.lineas || {}).forEach(line => {
+        Object.keys(data).forEach(line => {
             if (!line.startsWith('l')) {
                 throw new Error(`Invalid line ID format: ${line}`);
             }
