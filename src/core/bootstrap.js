@@ -11,10 +11,11 @@ async function initialize(componentName) {
     let dbConfig;
     if (process.env.DB_HOST) {
         dbConfig = {
-            host: '127.0.0.1',
-            user: 'metroapi',
-            password: 'Metro256',
-            database: 'MetroDB',
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            database: process.env.METRODB_NAME,
+            port: process.env.DB_PORT
         };
     } else {
         const configPath = path.join(__dirname, '../../config.json');
