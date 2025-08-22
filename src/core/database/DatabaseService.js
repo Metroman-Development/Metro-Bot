@@ -552,7 +552,7 @@ class DatabaseService {
             LEFT JOIN station_status ss ON s.station_id = ss.station_id
             LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
             LEFT JOIN js_status_mapping jsm ON ost.status_type_id = jsm.status_type_id
-        `);)
+        `))
         // This query now explicitly selects all columns from metro_stations to avoid ambiguity with `s.*`
         // and to ensure all data is being fetched.
         // It also provides clear aliases for fields from joined tables.
