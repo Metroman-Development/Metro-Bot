@@ -1,3 +1,4 @@
+
 # Documentación de Datos
 
 Este documento describe el flujo de datos de la aplicación, desde la obtención de datos de la API hasta su salida final. Incluye detalles sobre la fuente de datos, el esquema, el procesamiento y el uso.
