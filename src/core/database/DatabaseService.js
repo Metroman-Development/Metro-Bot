@@ -528,51 +528,62 @@ class DatabaseService {
         return this.db.query('SELECT line_id, line_name, status_code, status_message, app_message FROM metro_lines');
     }
 
+
     async getAllStationsStatusAsRaw() {
-    return this.db.query(`
-        SELECT
-            s.station_id,
-            s.line_id,
-            s.station_code,
-            s.station_name,
-            s.display_order,
-            s.commune,
-            s.address,
-            s.latitude,
-            s.longitude,
-            s.location,
-            s.opened_date,
-            s.last_renovation_date,
-            s.created_at,
-            s.updated_at,
-            s.display_name,
-            s.transports,
-            s.services,
-            s.accessibility,
-            s.commerce,
-            s.amenities,
-            s.image_url,
-            s.access_details,
-            s.combinacion,
-            ss.status_id,
-            ss.status_type_id,
-            ss.status_description AS station_status_description,
-            ss.status_message,
-            ss.expected_resolution_time,
-            ss.is_planned,
-            ss.impact_level,
-            ss.last_updated AS station_status_last_updated,
-            ss.updated_by,
-            ost.status_name,
-            ost.is_operational,
-            ost.status_description AS operational_status_description,
-            jsm.js_code
-        FROM metro_stations s
-        LEFT JOIN station_status ss ON s.station_id = ss.station_id
-        LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
-        LEFT JOIN js_status_mapping jsm ON ost.status_type_id = jsm.status_type_id
-        ORDER BY s.line_id, s.display_order
-    `);
+    try {
+        // First get all basic station data
+        const stationsQuery = `
+            SELECT 
+                station_id, line_id, station_code, station_name, display_order,
+                commune, address, latitude, longitude, location,
+                opened_date, last_renovation_date, created_at, updated_at,
+                display_name, transports, services, accessibility, commerce,
+                amenities, image_url, access_details, combinacion
+            FROM metro_stations 
+            ORDER BY line_id, display_order
+        `;
+        
+        const stations = await this.db.query(stationsQuery);
+        
+        // Then get status information separately
+        const statusQuery = `
+            SELECT 
+                ss.station_id,
+                ss.status_type_id,
+                ss.status_description,
+                ss.status_message,
+                ss.expected_resolution_time,
+                ss.is_planned,
+                ss.impact_level,
+                ss.last_updated,
+                ss.updated_by,
+                ost.status_name,
+                ost.is_operational,
+                ost.status_description as operational_status_desc,
+                jsm.js_code
+            FROM station_status ss
+            LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            LEFT JOIN js_status_mapping jsm ON ost.status_type_id = jsm.status_type_id
+        `;
+        
+        const statusData = await this.db.query(statusQuery);
+        
+        // Create a lookup map for status data
+        const statusMap = {};
+        statusData.forEach(status => {
+            statusMap[status.station_id] = status;
+        });
+        
+        // Combine the data
+        return stations.map(station => ({
+            ...station,
+            status_data: statusMap[station.station_id] || null
+        }));
+        
+    } catch (error) {
+        logger.error('[DatabaseService] Error in getAllStationsStatusAsRaw:', error);
+        throw error;
+    }
     }
 
     async updateNetworkStatusSummary(summary) {
