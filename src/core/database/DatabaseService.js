@@ -168,6 +168,9 @@ class DatabaseService {
                     };
 
                     const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
+
+                    console.log("SECONDLY: ", params);
+                    
                     await connection.query(query, params);
                 }
             }
@@ -230,7 +233,9 @@ class DatabaseService {
         const insertColumns = Object.keys(insertData).join(', ');
         const insertPlaceholders = Object.keys(insertData).map(() => '?').join(', ');
         const insertValues = Object.values(insertData);
-
+        
+        console.log("ALMOST: ", insertValues);
+        
         const updateClauses = Object.keys(updateData)
             .filter(key => updateData[key] !== null && updateData[key] !== undefined)
             .map(key => `${key} = VALUES(${key})`)
