@@ -101,7 +101,7 @@ class DatabaseService {
                             stationsToInsert.push(station);
                             if (station.status && station.status.code) {
                                 stationStatusesToUpdate.push({
-                                    stationCode: station.id,
+                                    stationCode: station.code,
                                     lineId: station.line,
                                     statusCode: station.status.code,
                                     statusDescription: station.status.message,
@@ -143,7 +143,7 @@ class DatabaseService {
 
                     const stationData = {
                         line_id: s.line,
-                        station_code: s.id,
+                        station_code: s.code,
                         station_name: s.name,
                         display_name: s.displayName,
                         display_order: s.display_order || null,
@@ -271,7 +271,7 @@ class DatabaseService {
             address: station.address,
             latitude: station.latitude,
             longitude: station.longitude,
-            location: validPoint ? `POINT(${longitude} ${latitude})` : null,
+            location: validPoint ? `POINT(${longitude} ${latitude})` : 'POINT(0 0)',
             transports: station.transports,
             services: station.services,
             accessibility: station.accessibility,
@@ -527,7 +527,7 @@ class DatabaseService {
             address: station.address || null,
             latitude: station.latitude || null,
             longitude: station.longitude || null,
-            location: validPoint ? `POINT(${longitude} ${latitude})` : null,
+            location: validPoint ? `POINT(${longitude} ${latitude})` : 'POINT(0 0)',
             transports: station.transports || null,
             services: station.services || null,
             accessibility: station.accessibility || null,
