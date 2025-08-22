@@ -244,7 +244,8 @@ class DatabaseService {
             INSERT INTO ${tableName} (${insertColumns})
             VALUES (${insertPlaceholders})
             ON DUPLICATE KEY UPDATE ${updateClauses}
-        `;
+        `
+        console.log(query);
 
         return { query, params: insertValues };
     }
