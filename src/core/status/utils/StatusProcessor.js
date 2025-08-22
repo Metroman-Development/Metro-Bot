@@ -145,37 +145,45 @@ class StatusProcessor {
 
           if (stationRow) {
             station_id = stationRow.station_id;
-            stationQueries.push({
-              sql: `UPDATE metro_stations SET
-                      station_name = ?, display_name = ?, transports = ?, services = ?,
-                      accessibility = ?, commerce = ?, amenities = ?, image_url = ?,
-                      access_details = ?, updated_at = NOW(),
-                      display_order = ?, commune = ?, address = ?, latitude = ?, longitude = ?, location = POINT(?, ?),
-                      opened_date = ?, last_renovation_date = ?, combinacion = ?
-                    WHERE station_id = ?`,
-              params: [
-                station.name,
-                station.displayName,
-                fullStationData?.transports,
-                fullStationData?.services,
-                fullStationData?.accessibility,
-                fullStationData?.commerce,
-                fullStationData?.amenities,
-                fullStationData?.image,
-                JSON.stringify(fullStationData?.accessDetails),
-                fullStationData?.display_order,
-                fullStationData?.commune,
-                fullStationData?.address,
-                fullStationData?.latitude,
-                fullStationData?.longitude,
-                fullStationData?.longitude || 0,
-                fullStationData?.latitude || 0,
-                fullStationData?.opened_date,
-                fullStationData?.last_renovation_date,
-                fullStationData?.combinacion,
-                station_id
-              ]
-            });
+
+            const fieldsToUpdate = {
+                station_name: station.name,
+                display_name: station.displayName,
+                transports: fullStationData?.transports,
+                services: fullStationData?.services,
+                accessibility: fullStationData?.accessibility,
+                commerce: fullStationData?.commerce,
+                amenities: fullStationData?.amenities,
+                image_url: fullStationData?.image,
+                access_details: JSON.stringify(fullStationData?.accessDetails),
+                display_order: fullStationData?.display_order,
+                commune: fullStationData?.commune,
+                address: fullStationData?.address,
+                latitude: fullStationData?.latitude,
+                longitude: fullStationData?.longitude,
+                opened_date: fullStationData?.opened_date,
+                last_renovation_date: fullStationData?.last_renovation_date,
+                combinacion: fullStationData?.combinacion
+            };
+
+            const validUpdates = Object.entries(fieldsToUpdate)
+                .filter(([, value]) => value !== null && value !== undefined);
+
+            if (validUpdates.length > 0) {
+                const setClauses = validUpdates.map(([key]) => `${key} = ?`);
+                const params = validUpdates.map(([, value]) => value);
+
+                if (fullStationData?.longitude && fullStationData?.latitude) {
+                    setClauses.push('location = POINT(?, ?)');
+                    params.push(fullStationData.longitude, fullStationData.latitude);
+                }
+
+                setClauses.push('updated_at = NOW()');
+                params.push(station_id);
+
+                const sql = `UPDATE metro_stations SET ${setClauses.join(', ')} WHERE station_id = ?`;
+                stationQueries.push({ sql, params });
+            }
           } else {
             const [result] = await connection.query(
               `INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,
