@@ -91,7 +91,7 @@ describe('StatusProcessor', () => {
             expect(transformedStation.amenities).toBe('Restrooms');
             expect(transformedStation.image_url).toBe('http://example.com/image.png');
             // Also check a transformed property to be sure
-            expect(transformedStation.id).toBe('TEST');
+            expect(transformedStation.code).toBe('TEST');
             expect(transformedStation.line).toBe('l1');
         });
     });
