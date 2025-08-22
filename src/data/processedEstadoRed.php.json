@@ -1,4 +1,2632 @@
 {
-  "_storedAt": "2025-08-20T17:50:06.219Z",
-  "_cacheVersion": "1.0.0-1755711840553"
+  "system": {},
+  "intermodal": {},
+  "trains": {},
+  "lines": {
+    "l1": {
+      "id": "l1",
+      "name": "Línea 1",
+      "displayName": "Línea 1",
+      "color": "#EA2A0A",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "sp",
+        "np",
+        "pj",
+        "lr",
+        "ec",
+        "ah",
+        "us",
+        "el",
+        "la",
+        "rp",
+        "lh",
+        "lm",
+        "ch",
+        "sl",
+        "uc",
+        "ba",
+        "sa",
+        "mm",
+        "pv",
+        "le",
+        "tb",
+        "go",
+        "al",
+        "em",
+        "mq",
+        "hm",
+        "ld"
+      ]
+    },
+    "l2": {
+      "id": "l2",
+      "name": "Línea 2",
+      "displayName": "Línea 2",
+      "color": "#FFA500",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "av",
+        "za",
+        "do",
+        "ei",
+        "ce",
+        "cb",
+        "pt",
+        "ca",
+        "an",
+        "he",
+        "to",
+        "pq",
+        "ro",
+        "fr",
+        "ll",
+        "sm",
+        "lv",
+        "de",
+        "cn",
+        "lo",
+        "ep",
+        "lc",
+        "eb",
+        "ob",
+        "cm",
+        "pi"
+      ]
+    },
+    "l3": {
+      "id": "l3",
+      "name": "Línea 3",
+      "displayName": "Línea 3",
+      "color": "#672612",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "pqu",
+        "lcr",
+        "fer",
+        "lib",
+        "car",
+        "viv",
+        "cch",
+        "pzc",
+        "hos",
+        "pca",
+        "pza",
+        "uch",
+        "pal",
+        "mat",
+        "ira",
+        "mey",
+        "nun",
+        "esp",
+        "vfr",
+        "pze",
+        "fcv"
+      ]
+    },
+    "l4": {
+      "id": "l4",
+      "name": "Línea 4",
+      "displayName": "Línea 4",
+      "color": "#1F1F83",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "tob",
+        "col",
+        "bil",
+        "pdg",
+        "sbo",
+        "peg",
+        "lor",
+        "rgr",
+        "lpr",
+        "rqu",
+        "lto",
+        "mac",
+        "vma",
+        "vva",
+        "rma",
+        "tri",
+        "sje",
+        "lqu",
+        "eco",
+        "hsr",
+        "pin",
+        "lme",
+        "ppa"
+      ]
+    },
+    "l4a": {
+      "id": "l4a",
+      "name": "Línea 4a",
+      "displayName": "Línea 4A",
+      "color": "#0079C1",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "vim",
+        "sju",
+        "lgr",
+        "sro",
+        "sra",
+        "lci"
+      ]
+    },
+    "l5": {
+      "id": "l5",
+      "name": "Línea 5",
+      "displayName": "Línea 5",
+      "color": "#00AB5C",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "pm",
+        "sb",
+        "ds",
+        "mt",
+        "lp",
+        "ls",
+        "br",
+        "pu",
+        "so",
+        "pr",
+        "bl",
+        "gl",
+        "qn",
+        "rc",
+        "na",
+        "pz",
+        "be",
+        "bq",
+        "pb",
+        "si",
+        "ir",
+        "nu",
+        "ra",
+        "cv",
+        "ag",
+        "sj",
+        "pe",
+        "ma",
+        "lf",
+        "vv"
+      ]
+    },
+    "l6": {
+      "id": "l6",
+      "name": "Línea 6",
+      "displayName": "Línea 6",
+      "color": "#953D96",
+      "status": {
+        "code": "1",
+        "message": "",
+        "appMessage": "Línea disponible",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "stations": [
+        "cer",
+        "lva",
+        "pac",
+        "fra",
+        "bio",
+        "nub",
+        "esn",
+        "nuo",
+        "isu",
+        "len"
+      ]
+    }
+  },
+  "stations": {
+    "SP": {
+      "code": "SP",
+      "name": "San Pablo L1",
+      "displayName": "San Pablo L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": "L5"
+    },
+    "NP": {
+      "code": "NP",
+      "name": "Neptuno",
+      "displayName": "Neptuno",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "PJ": {
+      "code": "PJ",
+      "name": "Pajaritos",
+      "displayName": "Pajaritos",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "LR": {
+      "code": "LR",
+      "name": "Las Rejas",
+      "displayName": "Las Rejas",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "EC": {
+      "code": "EC",
+      "name": "Ecuador",
+      "displayName": "Ecuador",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "AH": {
+      "code": "AH",
+      "name": "San Alberto Hurtado",
+      "displayName": "San Alberto Hurtado",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "US": {
+      "code": "US",
+      "name": "Universidad de Santiago",
+      "displayName": "Universidad de Santiago",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "EL": {
+      "code": "EL",
+      "name": "Estación Central",
+      "displayName": "Estación Central",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "LA": {
+      "code": "LA",
+      "name": "U.L.A.",
+      "displayName": "U.L.A.",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "RP": {
+      "code": "RP",
+      "name": "República",
+      "displayName": "República",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": ""
+    },
+    "LH": {
+      "code": "LH",
+      "name": "Los Héroes L1",
+      "displayName": "Los Héroes L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l2"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.583Z",
+      "combinacion": "L2"
+    },
+    "LM": {
+      "code": "LM",
+      "name": "La Moneda",
+      "displayName": "La Moneda",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CH": {
+      "code": "CH",
+      "name": "Universidad de Chile L1",
+      "displayName": "Universidad de Chile L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L3"
+    },
+    "SL": {
+      "code": "SL",
+      "name": "Santa Lucía",
+      "displayName": "Santa Lucía",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "UC": {
+      "code": "UC",
+      "name": "Universidad Católica",
+      "displayName": "Universidad Católica",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "BA": {
+      "code": "BA",
+      "name": "Baquedano L1",
+      "displayName": "Baquedano L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L5"
+    },
+    "SA": {
+      "code": "SA",
+      "name": "Salvador",
+      "displayName": "Salvador",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "MM": {
+      "code": "MM",
+      "name": "Manuel Montt",
+      "displayName": "Manuel Montt",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "PV": {
+      "code": "PV",
+      "name": "Pedro de Valdivia",
+      "displayName": "Pedro de Valdivia",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "LE": {
+      "code": "LE",
+      "name": "Los Leones L1",
+      "displayName": "Los Leones L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l6"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L6"
+    },
+    "TB": {
+      "code": "TB",
+      "name": "Tobalaba L1",
+      "displayName": "Tobalaba L1",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L4"
+    },
+    "GO": {
+      "code": "GO",
+      "name": "El Golf",
+      "displayName": "El Golf",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "AL": {
+      "code": "AL",
+      "name": "Alcántara",
+      "displayName": "Alcántara",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "EM": {
+      "code": "EM",
+      "name": "Escuela Militar",
+      "displayName": "Escuela Militar",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "MQ": {
+      "code": "MQ",
+      "name": "Manquehue",
+      "displayName": "Manquehue",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "HM": {
+      "code": "HM",
+      "name": "Hernando de Magallanes",
+      "displayName": "Hernando de Magallanes",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "LD": {
+      "code": "LD",
+      "name": "Los Dominicos",
+      "displayName": "Los Dominicos",
+      "line": "l1",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "AV": {
+      "code": "AV",
+      "name": "Vespucio Norte",
+      "displayName": "Vespucio Norte",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "ZA": {
+      "code": "ZA",
+      "name": "Zapadores",
+      "displayName": "Zapadores",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "DO": {
+      "code": "DO",
+      "name": "Dorsal",
+      "displayName": "Dorsal",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "EI": {
+      "code": "EI",
+      "name": "Einstein",
+      "displayName": "Einstein",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CE": {
+      "code": "CE",
+      "name": "Cementerios",
+      "displayName": "Cementerios",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CB": {
+      "code": "CB",
+      "name": "Cerro Blanco",
+      "displayName": "Cerro Blanco",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "PT": {
+      "code": "PT",
+      "name": "Patronato",
+      "displayName": "Patronato",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CA": {
+      "code": "CA",
+      "name": "Puente Cal y Canto L2",
+      "displayName": "Puente Cal y Canto L2",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L3"
+    },
+    "AN": {
+      "code": "AN",
+      "name": "Santa Ana L2",
+      "displayName": "Santa Ana L2",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L5"
+    },
+    "HE": {
+      "code": "HE",
+      "name": "Los Héroes L2",
+      "displayName": "Los Héroes L2",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L1"
+    },
+    "TO": {
+      "code": "TO",
+      "name": "Toesca",
+      "displayName": "Toesca",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "PQ": {
+      "code": "PQ",
+      "name": "Parque O'Higgins",
+      "displayName": "Parque O'Higgins",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "RO": {
+      "code": "RO",
+      "name": "Rondizzoni",
+      "displayName": "Rondizzoni",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "FR": {
+      "code": "FR",
+      "name": "Franklin L2",
+      "displayName": "Franklin L2",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l6"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L6"
+    },
+    "LL": {
+      "code": "LL",
+      "name": "El Llano",
+      "displayName": "El Llano",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "SM": {
+      "code": "SM",
+      "name": "San Miguel",
+      "displayName": "San Miguel",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "LV": {
+      "code": "LV",
+      "name": "Lo Vial",
+      "displayName": "Lo Vial",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "DE": {
+      "code": "DE",
+      "name": "Departamental",
+      "displayName": "Departamental",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CN": {
+      "code": "CN",
+      "name": "Ciudad del Niño",
+      "displayName": "Ciudad del Niño",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "LO": {
+      "code": "LO",
+      "name": "Lo Ovalle",
+      "displayName": "Lo Ovalle",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "EP": {
+      "code": "EP",
+      "name": "El Parrón",
+      "displayName": "El Parrón",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "LC": {
+      "code": "LC",
+      "name": "La Cisterna L2",
+      "displayName": "La Cisterna L2",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4a"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": "L4a"
+    },
+    "EB": {
+      "code": "EB",
+      "name": "El Bosque",
+      "displayName": "El Bosque",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "OB": {
+      "code": "OB",
+      "name": "Observatorio",
+      "displayName": "Observatorio",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "CM": {
+      "code": "CM",
+      "name": "Copa Lo Martinez",
+      "displayName": "Copa Lo Martinez",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.585Z",
+      "combinacion": ""
+    },
+    "PI": {
+      "code": "PI",
+      "name": "Hospital El Pino",
+      "displayName": "Hospital El Pino",
+      "line": "l2",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PQU": {
+      "code": "PQU",
+      "name": "Plaza Quilicura",
+      "displayName": "Plaza Quilicura",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LCR": {
+      "code": "LCR",
+      "name": "Lo Cruzat",
+      "displayName": "Lo Cruzat",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "FER": {
+      "code": "FER",
+      "name": "Ferrocarril",
+      "displayName": "Ferrocarril",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LIB": {
+      "code": "LIB",
+      "name": "Los Libertadores",
+      "displayName": "Los Libertadores",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "CAR": {
+      "code": "CAR",
+      "name": "Cardenal Caro",
+      "displayName": "Cardenal Caro",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "VIV": {
+      "code": "VIV",
+      "name": "Vivaceta",
+      "displayName": "Vivaceta",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "CCH": {
+      "code": "CCH",
+      "name": "Conchalí",
+      "displayName": "Conchalí",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PZC": {
+      "code": "PZC",
+      "name": "Plaza Chacabuco",
+      "displayName": "Plaza Chacabuco",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "HOS": {
+      "code": "HOS",
+      "name": "Hospitales",
+      "displayName": "Hospitales",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PCA": {
+      "code": "PCA",
+      "name": "Puente Cal y Canto L3",
+      "displayName": "Puente Cal y Canto L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l2"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L2"
+    },
+    "PZA": {
+      "code": "PZA",
+      "name": "Plaza de Armas L3",
+      "displayName": "Plaza de Armas L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L5"
+    },
+    "UCH": {
+      "code": "UCH",
+      "name": "Universidad de Chile L3",
+      "displayName": "Universidad de Chile L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L1"
+    },
+    "PAL": {
+      "code": "PAL",
+      "name": "Parque Almagro",
+      "displayName": "Parque Almagro",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "MAT": {
+      "code": "MAT",
+      "name": "Matta",
+      "displayName": "Matta",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "IRA": {
+      "code": "IRA",
+      "name": "Irarrázaval L3",
+      "displayName": "Irarrázaval L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L5"
+    },
+    "MEY": {
+      "code": "MEY",
+      "name": "Monseñor Eyzaguirre",
+      "displayName": "Monseñor Eyzaguirre",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "NUN": {
+      "code": "NUN",
+      "name": "Ñuñoa L3",
+      "displayName": "Ñuñoa L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l6"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L6"
+    },
+    "ESP": {
+      "code": "ESP",
+      "name": "Chile España",
+      "displayName": "Chile España",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "VFR": {
+      "code": "VFR",
+      "name": "Villa Frei",
+      "displayName": "Villa Frei",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PZE": {
+      "code": "PZE",
+      "name": "Plaza Egaña L3",
+      "displayName": "Plaza Egaña L3",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L4"
+    },
+    "FCV": {
+      "code": "FCV",
+      "name": "Fernando Castillo Velasco",
+      "displayName": "Fernando Castillo Velasco",
+      "line": "l3",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "TOB": {
+      "code": "TOB",
+      "name": "Tobalaba L4",
+      "displayName": "Tobalaba L4",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L1"
+    },
+    "COL": {
+      "code": "COL",
+      "name": "Cristóbal Colón",
+      "displayName": "Cristóbal Colón",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "BIL": {
+      "code": "BIL",
+      "name": "Francisco Bilbao",
+      "displayName": "Francisco Bilbao",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PDG": {
+      "code": "PDG",
+      "name": "Príncipe de Gales",
+      "displayName": "Príncipe de Gales",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SBO": {
+      "code": "SBO",
+      "name": "Simón Bolivar",
+      "displayName": "Simón Bolivar",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PEG": {
+      "code": "PEG",
+      "name": "Plaza Egaña L4",
+      "displayName": "Plaza Egaña L4",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L3"
+    },
+    "LOR": {
+      "code": "LOR",
+      "name": "Los Orientales",
+      "displayName": "Los Orientales",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "RGR": {
+      "code": "RGR",
+      "name": "Grecia",
+      "displayName": "Grecia",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LPR": {
+      "code": "LPR",
+      "name": "Los Presidentes",
+      "displayName": "Los Presidentes",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "RQU": {
+      "code": "RQU",
+      "name": "Quilín",
+      "displayName": "Quilín",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LTO": {
+      "code": "LTO",
+      "name": "Las Torres",
+      "displayName": "Las Torres",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "MAC": {
+      "code": "MAC",
+      "name": "Macul",
+      "displayName": "Macul",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "VMA": {
+      "code": "VMA",
+      "name": "Vicuña Mackenna L4",
+      "displayName": "Vicuña Mackenna L4",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4a"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L4a"
+    },
+    "VVA": {
+      "code": "VVA",
+      "name": "Vicente Valdés L4",
+      "displayName": "Vicente Valdés L4",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L5"
+    },
+    "RMA": {
+      "code": "RMA",
+      "name": "Rojas Magallanes",
+      "displayName": "Rojas Magallanes",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "TRI": {
+      "code": "TRI",
+      "name": "Trinidad",
+      "displayName": "Trinidad",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SJE": {
+      "code": "SJE",
+      "name": "San José de la Estrella",
+      "displayName": "San José de la Estrella",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LQU": {
+      "code": "LQU",
+      "name": "Los Quillayes",
+      "displayName": "Los Quillayes",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "ECO": {
+      "code": "ECO",
+      "name": "Elisa Correa",
+      "displayName": "Elisa Correa",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "HSR": {
+      "code": "HSR",
+      "name": "Hospital Sótero del Río",
+      "displayName": "Hospital Sótero del Río",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PIN": {
+      "code": "PIN",
+      "name": "Protectora de la Infancia",
+      "displayName": "Protectora de la Infancia",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LME": {
+      "code": "LME",
+      "name": "Las Mercedes",
+      "displayName": "Las Mercedes",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PPA": {
+      "code": "PPA",
+      "name": "Plaza de Puente Alto",
+      "displayName": "Plaza de Puente Alto",
+      "line": "l4",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "VIM": {
+      "code": "VIM",
+      "name": "Vicuña Mackenna L4A",
+      "displayName": "Vicuña Mackenna L4A",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L4"
+    },
+    "SJU": {
+      "code": "SJU",
+      "name": "Santa Julia",
+      "displayName": "Santa Julia",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LGR": {
+      "code": "LGR",
+      "name": "La Granja",
+      "displayName": "La Granja",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SRO": {
+      "code": "SRO",
+      "name": "Santa Rosa",
+      "displayName": "Santa Rosa",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SRA": {
+      "code": "SRA",
+      "name": "San Ramón",
+      "displayName": "San Ramón",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LCI": {
+      "code": "LCI",
+      "name": "La Cisterna L4A",
+      "displayName": "La Cisterna L4A",
+      "line": "l4a",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l2"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L2"
+    },
+    "PM": {
+      "code": "PM",
+      "name": "Plaza de Maipú",
+      "displayName": "Plaza de Maipú",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SB": {
+      "code": "SB",
+      "name": "Santiago Bueras",
+      "displayName": "Santiago Bueras",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "DS": {
+      "code": "DS",
+      "name": "Del Sol",
+      "displayName": "Del Sol",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "MT": {
+      "code": "MT",
+      "name": "Monte Tabor",
+      "displayName": "Monte Tabor",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LP": {
+      "code": "LP",
+      "name": "Las Parcelas",
+      "displayName": "Las Parcelas",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LS": {
+      "code": "LS",
+      "name": "Laguna Sur",
+      "displayName": "Laguna Sur",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "BR": {
+      "code": "BR",
+      "name": "Barrancas",
+      "displayName": "Barrancas",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PU": {
+      "code": "PU",
+      "name": "Pudahuel",
+      "displayName": "Pudahuel",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SO": {
+      "code": "SO",
+      "name": "San Pablo L5",
+      "displayName": "San Pablo L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L1"
+    },
+    "PR": {
+      "code": "PR",
+      "name": "Lo Prado",
+      "displayName": "Lo Prado",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "BL": {
+      "code": "BL",
+      "name": "Blanqueado",
+      "displayName": "Blanqueado",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "GL": {
+      "code": "GL",
+      "name": "Gruta de Lourdes",
+      "displayName": "Gruta de Lourdes",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "QN": {
+      "code": "QN",
+      "name": "Quinta Normal",
+      "displayName": "Quinta Normal",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "RC": {
+      "code": "RC",
+      "name": "Cumming",
+      "displayName": "Cumming",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "NA": {
+      "code": "NA",
+      "name": "Santa Ana L5",
+      "displayName": "Santa Ana L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l2"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L2"
+    },
+    "PZ": {
+      "code": "PZ",
+      "name": "Plaza de Armas L5",
+      "displayName": "Plaza de Armas L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L3"
+    },
+    "BE": {
+      "code": "BE",
+      "name": "Bellas Artes",
+      "displayName": "Bellas Artes",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "BQ": {
+      "code": "BQ",
+      "name": "Baquedano L5",
+      "displayName": "Baquedano L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L1"
+    },
+    "PB": {
+      "code": "PB",
+      "name": "Parque Bustamante",
+      "displayName": "Parque Bustamante",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SI": {
+      "code": "SI",
+      "name": "Santa Isabel",
+      "displayName": "Santa Isabel",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "IR": {
+      "code": "IR",
+      "name": "Irarrázaval L5",
+      "displayName": "Irarrázaval L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L3"
+    },
+    "NU": {
+      "code": "NU",
+      "name": "Ñuble L5",
+      "displayName": "Ñuble L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l6"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L6"
+    },
+    "RA": {
+      "code": "RA",
+      "name": "Rodrigo de Araya",
+      "displayName": "Rodrigo de Araya",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "CV": {
+      "code": "CV",
+      "name": "Carlos Valdovinos",
+      "displayName": "Carlos Valdovinos",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "AG": {
+      "code": "AG",
+      "name": "Camino Agrícola",
+      "displayName": "Camino Agrícola",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "SJ": {
+      "code": "SJ",
+      "name": "San Joaquín",
+      "displayName": "San Joaquín",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PE": {
+      "code": "PE",
+      "name": "Pedrero",
+      "displayName": "Pedrero",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "MA": {
+      "code": "MA",
+      "name": "Mirador",
+      "displayName": "Mirador",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LF": {
+      "code": "LF",
+      "name": "Bellavista de La Florida",
+      "displayName": "Bellavista de La Florida",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "VV": {
+      "code": "VV",
+      "name": "Vicente Valdés L5",
+      "displayName": "Vicente Valdés L5",
+      "line": "l5",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l4"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": "L4"
+    },
+    "CER": {
+      "code": "CER",
+      "name": "Cerrillos",
+      "displayName": "Cerrillos",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "LVA": {
+      "code": "LVA",
+      "name": "Lo Valledor",
+      "displayName": "Lo Valledor",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "PAC": {
+      "code": "PAC",
+      "name": "Pdte. Pedro Aguirre Cerda",
+      "displayName": "Pdte. Pedro Aguirre Cerda",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.586Z",
+      "combinacion": ""
+    },
+    "FRA": {
+      "code": "FRA",
+      "name": "Franklin L6",
+      "displayName": "Franklin L6",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l2"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": "L2"
+    },
+    "BIO": {
+      "code": "BIO",
+      "name": "Bío Bío",
+      "displayName": "Bío Bío",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": ""
+    },
+    "NUB": {
+      "code": "NUB",
+      "name": "Ñuble L6",
+      "displayName": "Ñuble L6",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l5"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": "L5"
+    },
+    "ESN": {
+      "code": "ESN",
+      "name": "Estadio Nacional",
+      "displayName": "Estadio Nacional",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": ""
+    },
+    "NUO": {
+      "code": "NUO",
+      "name": "Ñuñoa L6",
+      "displayName": "Ñuñoa L6",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l3"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": "L3"
+    },
+    "ISU": {
+      "code": "ISU",
+      "name": "Inés de Suárez",
+      "displayName": "Inés de Suárez",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": ""
+    },
+    "LEN": {
+      "code": "LEN",
+      "name": "Los Leones L6",
+      "displayName": "Los Leones L6",
+      "line": "l6",
+      "status": {
+        "code": "1",
+        "message": "Estación Operativa",
+        "appMessage": "Habilitada",
+        "normalized": "abierta",
+        "normalizedEn": "open"
+      },
+      "transferLines": [
+        "l1"
+      ],
+      "lastUpdated": "2025-08-22T19:19:51.587Z",
+      "combinacion": "L1"
+    }
+  },
+  "network": {
+    "status": "operational",
+    "timestamp": "2025-08-22T19:19:51.583Z"
+  },
+  "version": "202508221519",
+  "lastUpdated": "2025-08-22T19:19:51.581Z",
+  "isFallback": false,
+  "metadata": {
+    "loadDuration": 5.521562000008998,
+    "sources": {
+      "stations": "database",
+      "lines": "database",
+      "trains": "disabled",
+      "intermodal": "MetroDB/intermodal_stations & intermodal_buses"
+    },
+    "lastUpdated": "2025-08-22T19:19:51.581Z"
+  },
+  "_storedAt": "2025-08-22T19:19:51.642Z",
+  "_cacheVersion": "1.0.0-1755890146555"
 }

@@ -24,7 +24,7 @@ async function translateApiData(apiData, dbService) {
 
         const stationsDataLookup = {};
         for (const station of stationsData) {
-            stationsDataLookup[normalizeStationName(station.station_name)] = station;
+            stationsDataLookup[station.station_code.toUpperCase()] = station;
         }
 
         for (const lineId in apiData.lineas) {
@@ -40,8 +40,7 @@ async function translateApiData(apiData, dbService) {
             for (const station of line.estaciones) {
                 const stationId = `${station.codigo}_${lineId}`;
                 const stationName = station.nombre;
-                const normalizedStationName = normalizeStationName(stationName);
-                const extraData = stationsDataLookup[normalizedStationName];
+                const extraData = stationsDataLookup[station.codigo.toUpperCase()];
 
                 const accessibility = accessibilityCache
                     .filter(item => item.station_code === station.codigo)
