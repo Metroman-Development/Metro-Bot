@@ -136,48 +136,37 @@ class DatabaseService {
 
             // 3. Bulk insert/update stations
             if (stationsToInsert.length > 0) {
-                const stationQuery = `
-                    INSERT INTO metro_stations (
-                        line_id, station_code, station_name, display_name, display_order,
-                        commune, address, latitude, longitude, location,
-                        transports, services, accessibility, commerce, amenities, image_url, access_details,
-                        opened_date, last_renovation_date, combinacion
-                    )
-                    VALUES ${stationsToInsert.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',')}
-                    ON DUPLICATE KEY UPDATE
-                        station_name = VALUES(station_name),
-                        display_name = VALUES(display_name),
-                        commune = VALUES(commune),
-                        address = VALUES(address),
-                        latitude = VALUES(latitude),
-                        longitude = VALUES(longitude),
-                        location = VALUES(location),
-                        transports = VALUES(transports),
-                        services = VALUES(services),
-                        accessibility = VALUES(accessibility),
-                        commerce = VALUES(commerce),
-                        amenities = VALUES(amenities),
-                        image_url = VALUES(image_url),
-                        access_details = VALUES(access_details),
-                        opened_date = VALUES(opened_date),
-                        last_renovation_date = VALUES(last_renovation_date),
-                        combinacion = VALUES(combinacion)
-                `;
-                const stationParams = stationsToInsert.flatMap(s => {
+                for (const s of stationsToInsert) {
                     const longitude = parseFloat(s.longitude);
                     const latitude = parseFloat(s.latitude);
                     const validPoint = !isNaN(longitude) && !isNaN(latitude);
-                    return [
-                        s.line, s.id, s.name, s.displayName, s.display_order || null,
-                        s.commune || null, s.address || null, s.latitude || null, s.longitude || null,
-                        validPoint ? longitude : 0, validPoint ? latitude : 0,
-                        s.transports || null, s.services || null, s.accessibility || null,
-                        s.commerce || null, s.amenities || null, s.image_url || null,
-                        s.access_details ? JSON.stringify(s.access_details) : null,
-                        s.opened_date || null, s.last_renovation_date || null, s.combinacion || null
-                    ];
-                });
-                await connection.query(stationQuery, stationParams);
+
+                    const stationData = {
+                        line_id: s.line,
+                        station_code: s.id,
+                        station_name: s.name,
+                        display_name: s.displayName,
+                        display_order: s.display_order || null,
+                        commune: s.commune || null,
+                        address: s.address || null,
+                        latitude: s.latitude || null,
+                        longitude: s.longitude || null,
+                        location: validPoint ? `POINT(${longitude} ${latitude})` : null,
+                        transports: s.transports || null,
+                        services: s.services || null,
+                        accessibility: s.accessibility || null,
+                        commerce: s.commerce || null,
+                        amenities: s.amenities || null,
+                        image_url: s.image_url || null,
+                        access_details: s.access_details ? JSON.stringify(s.access_details) : null,
+                        opened_date: s.opened_date || null,
+                        last_renovation_date: s.last_renovation_date || null,
+                        combinacion: s.combinacion || null
+                    };
+
+                    const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
+                    await connection.query(query, params);
+                }
             }
 
             // 4. Bulk update station statuses
@@ -230,6 +219,36 @@ class DatabaseService {
         }
     }
 
+    _buildDynamicUpdateQuery(tableName, data, primaryKey) {
+        const insertData = { ...data };
+        const updateData = { ...data };
+        delete updateData[primaryKey];
+
+        const insertColumns = Object.keys(insertData).join(', ');
+        const insertPlaceholders = Object.keys(insertData).map(() => '?').join(', ');
+        const insertValues = Object.values(insertData);
+
+        const updateClauses = Object.keys(updateData)
+            .filter(key => updateData[key] !== null && updateData[key] !== undefined)
+            .map(key => `${key} = VALUES(${key})`)
+            .join(', ');
+
+        if (updateClauses.length === 0) {
+            return {
+                query: `INSERT IGNORE INTO ${tableName} (${insertColumns}) VALUES (${insertPlaceholders})`,
+                params: insertValues
+            };
+        }
+
+        const query = `
+            INSERT INTO ${tableName} (${insertColumns})
+            VALUES (${insertPlaceholders})
+            ON DUPLICATE KEY UPDATE ${updateClauses}
+        `;
+
+        return { query, params: insertValues };
+    }
+
     async updateStation(station) {
         // 1. Validate data
         if (!station.commune || !station.estado) {
@@ -238,47 +257,35 @@ class DatabaseService {
         }
 
         // 2. Update metro_stations table
-        const stationQuery = `
-            INSERT INTO metro_stations (
-                line_id, station_code, station_name, display_name, display_order,
-                commune, address, latitude, longitude, location,
-                transports, services, accessibility, commerce, amenities, image_url, access_details,
-                opened_date, last_renovation_date, combinacion
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE
-                station_name = VALUES(station_name),
-                display_name = VALUES(display_name),
-                display_order = VALUES(display_order),
-                commune = VALUES(commune),
-                address = VALUES(address),
-                latitude = VALUES(latitude),
-                longitude = VALUES(longitude),
-                location = VALUES(location),
-                transports = VALUES(transports),
-                services = VALUES(services),
-                accessibility = VALUES(accessibility),
-                commerce = VALUES(commerce),
-                amenities = VALUES(amenities),
-                image_url = VALUES(image_url),
-                access_details = VALUES(access_details),
-                opened_date = VALUES(opened_date),
-                last_renovation_date = VALUES(last_renovation_date),
-                combinacion = VALUES(combinacion)
-        `;
-
         const longitude = parseFloat(station.longitude);
         const latitude = parseFloat(station.latitude);
         const validPoint = !isNaN(longitude) && !isNaN(latitude);
 
-        await this.db.query(stationQuery, [
-            station.line_id, station.station_code, station.station_name, station.display_name, station.display_order,
-            station.commune, station.address, station.latitude, station.longitude,
-            validPoint ? longitude : 0, validPoint ? latitude : 0,
-            station.transports, station.services, station.accessibility, station.commerce, station.amenities, station.image_url,
-            station.access_details ? JSON.stringify(station.access_details) : null,
-            station.opened_date, station.last_renovation_date, station.combinacion
-        ]);
+        const stationData = {
+            line_id: station.line_id,
+            station_code: station.station_code,
+            station_name: station.station_name,
+            display_name: station.display_name,
+            display_order: station.display_order,
+            commune: station.commune,
+            address: station.address,
+            latitude: station.latitude,
+            longitude: station.longitude,
+            location: validPoint ? `POINT(${longitude} ${latitude})` : null,
+            transports: station.transports,
+            services: station.services,
+            accessibility: station.accessibility,
+            commerce: station.commerce,
+            amenities: station.amenities,
+            image_url: station.image_url,
+            access_details: station.access_details ? JSON.stringify(station.access_details) : null,
+            opened_date: station.opened_date,
+            last_renovation_date: station.last_renovation_date,
+            combinacion: station.combinacion
+        };
+
+        const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
+        await this.db.query(query, params);
 
         // 3. Update station_status table
         await this.updateStationStatus(
@@ -506,49 +513,35 @@ class DatabaseService {
     }
 
     async _insertStationInTransaction(connection, station) {
-        const stationQuery = `
-            INSERT INTO metro_stations (
-                line_id, station_code, station_name, display_name, display_order,
-                commune, address, latitude, longitude, location,
-                transports, services, accessibility, commerce, amenities, image_url, access_details,
-                opened_date, last_renovation_date, combinacion
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE
-                station_name = VALUES(station_name),
-                display_name = VALUES(display_name),
-                commune = VALUES(commune),
-                address = VALUES(address),
-                latitude = VALUES(latitude),
-                longitude = VALUES(longitude),
-                location = VALUES(location),
-                transports = VALUES(transports),
-                services = VALUES(services),
-                accessibility = VALUES(accessibility),
-                commerce = VALUES(commerce),
-                amenities = VALUES(amenities),
-                image_url = VALUES(image_url),
-                access_details = VALUES(access_details),
-                opened_date = VALUES(opened_date),
-                last_renovation_date = VALUES(last_renovation_date),
-                combinacion = VALUES(combinacion)
-        `;
-
         const longitude = parseFloat(station.longitude);
         const latitude = parseFloat(station.latitude);
         const validPoint = !isNaN(longitude) && !isNaN(latitude);
 
-        const params = [
-            station.line, station.id, station.name, station.displayName, station.display_order || null,
-            station.commune || null, station.address || null, station.latitude || null, station.longitude || null,
-            validPoint ? longitude : 0, validPoint ? latitude : 0,
-            station.transports || null, station.services || null, station.accessibility || null,
-            station.commerce || null, station.amenities || null, station.image_url || null,
-            station.access_details ? JSON.stringify(station.access_details) : null,
-            station.opened_date || null, station.last_renovation_date || null, station.combinacion || null
-        ];
+        const stationData = {
+            line_id: station.line,
+            station_code: station.id,
+            station_name: station.name,
+            display_name: station.displayName,
+            display_order: station.display_order || null,
+            commune: station.commune || null,
+            address: station.address || null,
+            latitude: station.latitude || null,
+            longitude: station.longitude || null,
+            location: validPoint ? `POINT(${longitude} ${latitude})` : null,
+            transports: station.transports || null,
+            services: station.services || null,
+            accessibility: station.accessibility || null,
+            commerce: station.commerce || null,
+            amenities: station.amenities || null,
+            image_url: station.image_url || null,
+            access_details: station.access_details ? JSON.stringify(station.access_details) : null,
+            opened_date: station.opened_date || null,
+            last_renovation_date: station.last_renovation_date || null,
+            combinacion: station.combinacion || null
+        };
 
-        await connection.query(stationQuery, params);
+        const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
+        await connection.query(query, params);
     }
 
     async updateStationStatus(stationCode, lineId, jsCode, statusDescription, statusMessage) {
