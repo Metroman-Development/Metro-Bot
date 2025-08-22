@@ -1,4 +1,3 @@
-const fs = require('fs').promises;
 const path = require('path');
 
 function normalizeStationName(name) {
@@ -12,23 +11,19 @@ function normalizeStationName(name) {
         .trim();
 }
 
-async function translateApiData(apiData) {
+async function translateApiData(apiData, dbService) {
     try {
-        const stationsDataPath = path.join(__dirname, '..', '..', '..', 'data', 'stationsData.json');
-        const accessibilityCachePath = path.join(__dirname, '..', '..', '..', 'data', 'accessibilityCache.json');
-
-        const stationsDataFile = await fs.readFile(stationsDataPath, 'utf8');
-        const accessibilityCacheFile = await fs.readFile(accessibilityCachePath, 'utf8');
-
-        const stationsData = JSON.parse(stationsDataFile).stationsData;
-        const accessibilityCache = JSON.parse(accessibilityCacheFile);
+        const [stationsData, accessibilityCache] = await Promise.all([
+            dbService.getAllStationsStatusAsRaw(),
+            dbService.getAccessibilityStatus()
+        ]);
 
         const unifiedStations = {};
         const unifiedLines = {};
 
         const stationsDataLookup = {};
-        for (const key in stationsData) {
-            stationsDataLookup[normalizeStationName(key)] = stationsData[key];
+        for (const station of stationsData) {
+            stationsDataLookup[normalizeStationName(station.station_name)] = station;
         }
 
         for (const lineId in apiData.lineas) {
@@ -47,36 +42,39 @@ async function translateApiData(apiData) {
                 const normalizedStationName = normalizeStationName(stationName);
                 const extraData = stationsDataLookup[normalizedStationName];
 
-                const accessibility = Object.entries(accessibilityCache)
-                    .filter(([id, item]) => item.estacion === station.codigo)
-                    .map(([id, item]) => ({ id, ...item }));
+                const accessibility = accessibilityCache
+                    .filter(item => item.station_code === station.codigo)
+                    .map(item => ({ ...item }));
 
                 const aliases = [];
                 if(extraData){
                     aliases.push(stationName.toLowerCase())
                 }
 
-                unifiedStations[stationId] = {
+                const station_data = {
+                    ...station,
                     id: stationId,
                     name: stationName,
                     displayName: stationName,
                     line: lineId,
                     code: station.codigo,
-                    status: station.estado === '1' ? 'operational' : 'closed',
+                    status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
                     combination: station.combinacion,
                     aliases: aliases,
-                    transports: extraData ? extraData[0] : 'None',
-                    services: extraData ? extraData[1] : 'None',
-                    commerce: extraData ? extraData[3] : 'None',
-                    amenities: extraData ? extraData[4] : 'None',
-                    imageUrl: extraData ? extraData[5] : null,
-                    commune: extraData ? extraData[6] : null,
+                    transports: extraData ? extraData.transports : 'None',
+                    services: extraData ? extraData.services : 'None',
+                    commerce: extraData ? extraData.commerce : 'None',
+                    amenities: extraData ? extraData.amenities : 'None',
+                    imageUrl: extraData ? extraData.image_url : null,
+                    commune: extraData ? extraData.commune : null,
                     accessibility: {
                         status: accessibility.length > 0 ? 'available' : 'unavailable',
                         details: accessibility,
                     },
                     _raw: { ...station, ...extraData },
                 };
+
+                unifiedStations[stationId] = station_data;
                 unifiedLines[lineId].stations.push(stationId);
             }
         }
@@ -85,7 +83,8 @@ async function translateApiData(apiData) {
 
     } catch (error) {
         console.error('Error translating API data:', error);
-        throw error;
+        // Return a default structure in case of an error to avoid breaking the calling code.
+        return { stations: {}, lines: {}, ...apiData };
     }
 }
 

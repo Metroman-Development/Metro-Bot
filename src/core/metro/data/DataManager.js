@@ -1,17 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-function normalizeStationName(name) {
-    if (!name) return '';
-    return name
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\./g, '')
-        .replace(/l\d[ab]?$/, '')
-        .trim();
-}
-
 class DataManager {
     constructor() {
         this.stations = null;
@@ -108,60 +97,4 @@ class DataManager {
     }
 }
 
-async function translateApiData(apiData) {
-    try {
-        const unifiedStations = {};
-        const unifiedLines = {};
-
-        for (const lineId in apiData.lineas) {
-            const line = apiData.lineas[lineId];
-            unifiedLines[lineId] = {
-                id: lineId,
-                name: line.nombre || `Línea ${lineId.toUpperCase()}`,
-                status: line.estado === '1' ? 'operational' : 'closed',
-                message: line.mensaje_app,
-                stations: []
-            };
-
-            for (const station of line.estaciones) {
-                const stationId = `${station.codigo}_${lineId}`;
-                const stationName = station.nombre;
-
-                const station_data = {
-                    ...station,
-                    id: stationId,
-                    name: stationName,
-                    displayName: stationName,
-                    line: lineId,
-                    code: station.codigo,
-                    status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
-                    combination: station.combinacion,
-                    aliases: [stationName.toLowerCase()],
-                    transports: station.transports || 'None',
-                    services: station.services || 'None',
-                    commerce: station.commerce || 'None',
-                    amenities: station.amenities || 'None',
-                    imageUrl: station.image_url || null,
-                    commune: station.commune || null,
-                    accessibility: {
-                        status: station.access_details && station.access_details.length > 0 ? 'available' : 'unavailable',
-                        details: station.access_details || [],
-                    },
-                    _raw: { ...station },
-                };
-
-                unifiedStations[stationId] = station_data;
-                unifiedLines[lineId].stations.push(stationId);
-            }
-        }
-
-        return { stations: unifiedStations, lines: unifiedLines, ...apiData };
-
-    } catch (error) {
-        console.error('Error translating API data:', error);
-        // Return a default structure in case of an error to avoid breaking the calling code.
-        return { stations: {}, lines: {}, ...apiData };
-    }
-}
-
-module.exports = { DataManager, translateApiData };
+module.exports = { DataManager };

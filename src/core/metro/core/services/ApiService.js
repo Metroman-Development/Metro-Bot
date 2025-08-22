@@ -14,7 +14,7 @@ const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
-const { translateApiData } = require('../../data/DataManager');
+const { translateApiData } = require('../../data/DataTranslator');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}, dataEngine) {
@@ -610,7 +610,7 @@ async activateEventOverrides(eventDetails) {
 
     async _processData(rawData) {
         logger.detailed('[ApiService] Starting data processing', rawData);
-        const translatedData = await translateApiData(rawData);
+        const translatedData = await translateApiData(rawData, this.dbService);
         logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
