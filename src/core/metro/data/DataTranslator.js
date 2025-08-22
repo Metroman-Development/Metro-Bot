@@ -18,6 +18,10 @@ async function translateApiData(apiData, dbService) {
             dbService.getAccessibilityStatus()
         ]);
 
+        console.log("SJDDIDKDKD")
+
+        console.log(stationsData);
+
         const unifiedStations = {};
         const unifiedLines = {};
 
