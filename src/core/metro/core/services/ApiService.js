@@ -463,11 +463,11 @@ async activateEventOverrides(eventDetails) {
                 try {
                     // PHASE 2a: Fetch raw data from API/cache
                     rawData = await this.estadoRedService.fetchStatus();
-                    logger.detailed('[ApiService] Fetched raw data from estadoRedService', rawData);
+                    //logger.detailed('[ApiService] Fetched raw data from estadoRedService', rawData);
 
                     // Enrich with DB data
                     rawData = await this._enrichApiData(rawData);
-                    logger.detailed('[ApiService] Enriched raw data with DB details', rawData);
+                    //logger.detailed('[ApiService] Enriched raw data with DB details', rawData);
 
                     fromPrimarySource = true;
                     logger.info('[ApiService] Successfully fetched and enriched data from API.');
@@ -489,7 +489,7 @@ async activateEventOverrides(eventDetails) {
             const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
             logger.detailed('[ApiService] Active overrides', overrides);
             const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
-            logger.detailed('[ApiService] Raw data after applying overrides', rawDataWithOverrides);
+            //logger.detailed('[ApiService] Raw data after applying overrides', rawDataWithOverrides);
             const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
             logger.detailed('[ApiService] Data after randomizing statuses', randomizedData);
 
@@ -611,7 +611,7 @@ async activateEventOverrides(eventDetails) {
     async _processData(rawData) {
         logger.detailed('[ApiService] Starting data processing', rawData);
         const translatedData = await translateApiData(rawData, this.dbService);
-        logger.detailed('[ApiService] Translated data', translatedData);
+        //logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
             : this._basicProcessData(translatedData);
