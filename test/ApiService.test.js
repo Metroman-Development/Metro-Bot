@@ -32,6 +32,7 @@ describe('ApiService', () => {
             updateNetworkStatusSummary: jest.fn(),
             getAllLinesStatus: jest.fn().mockResolvedValue([]),
             getAllStationsStatusAsRaw: jest.fn().mockResolvedValue([]),
+            getAccessibilityStatus: jest.fn().mockResolvedValue([]),
             updateLineStatus: jest.fn(),
             updateStationStatus: jest.fn(),
             updateAllData: jest.fn(),
@@ -227,7 +228,7 @@ describe('ApiService', () => {
             };
 
             apiService.dbService.getAllLinesStatus.mockResolvedValue([{ line_id: 'l1', line_name: 'Linea 1', status_code: '1', status_message: '', app_message: '' }]);
-            apiService.dbService.getAllStationsStatusAsRaw.mockResolvedValue(mockStations);
+            apiService.dbService.getAllStationsStatusAsRaw.mockResolvedValue(Object.values(mockStations));
             apiService.dbService.getAccessibilityStatus = jest.fn().mockResolvedValue([]);
             apiService.dbService.getAllIncidents = jest.fn().mockResolvedValue([]);
             apiService.dbService.getAllIncidentTypes = jest.fn().mockResolvedValue([]);
