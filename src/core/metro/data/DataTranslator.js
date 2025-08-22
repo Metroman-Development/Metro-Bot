@@ -18,9 +18,6 @@ async function translateApiData(apiData, dbService) {
             dbService.getAccessibilityStatus()
         ]);
 
-        console.log("SJDDIDKDKD")
-
-        console.log(stationsData);
 
         const unifiedStations = {};
         const unifiedLines = {};
@@ -56,7 +53,9 @@ async function translateApiData(apiData, dbService) {
                 }
 
                 const station_data = {
+                    ...extraData,
                     ...station,
+                    ...(extraData?.status_data || {}),
                     id: stationId,
                     name: stationName,
                     displayName: stationName,
@@ -65,12 +64,6 @@ async function translateApiData(apiData, dbService) {
                     status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
                     combination: station.combinacion,
                     aliases: aliases,
-                    transports: extraData ? extraData.transports : 'None',
-                    services: extraData ? extraData.services : 'None',
-                    commerce: extraData ? extraData.commerce : 'None',
-                    amenities: extraData ? extraData.amenities : 'None',
-                    imageUrl: extraData ? extraData.image_url : null,
-                    commune: extraData ? extraData.commune : null,
                     accessibility: {
                         status: accessibility.length > 0 ? 'available' : 'unavailable',
                         details: accessibility,
