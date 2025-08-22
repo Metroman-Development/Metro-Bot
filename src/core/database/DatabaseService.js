@@ -136,43 +136,52 @@ class DatabaseService {
 
             // 3. Bulk insert/update stations
             if (stationsToInsert.length > 0) {
-                for (const s of stationsToInsert) {
+                const stationDataList = stationsToInsert.map(s => {
                     const longitude = parseFloat(s.longitude);
                     const latitude = parseFloat(s.latitude);
                     const validPoint = !isNaN(longitude) && !isNaN(latitude);
-
-
-                    console.log("LOOK FOR ME: ", s)
                     
-                    const stationData = {
-                        line_id: s.line,
-                        station_code: s.code,
-                        station_name: s.name,
-                        display_name: s.displayName,
-                        display_order: s.display_order || null,
-                        commune: s.commune || null,
-                        address: s.address || null,
-                        latitude: s.latitude || null,
-                        longitude: s.longitude || null,
-                        location: validPoint ? `POINT(${longitude} ${latitude})` : null,
-                        transports: s.transports || null,
-                        services: s.services || null,
-                        accessibility: s.accessibility || null,
-                        commerce: s.commerce || null,
-                        amenities: s.amenities || null,
-                        image_url: s.image_url || null,
-                        access_details: s.access_details ? JSON.stringify(s.access_details) : null,
-                        opened_date: s.opened_date || null,
-                        last_renovation_date: s.last_renovation_date || null,
-                        combinacion: s.combinacion || null
-                    };
+                    // Ensure that all fields are present, even if null
+                    return [
+                        s.line || null,
+                        s.code || null,
+                        s.name || null,
+                        s.displayName || null,
+                        s.display_order || null,
+                        s.commune || null,
+                        s.address || null,
+                        s.latitude || null,
+                        s.longitude || null,
+                        validPoint ? `POINT(${longitude} ${latitude})` : 'POINT(0 0)', // Default to POINT(0 0)
+                        s.transports || null,
+                        s.services || null,
+                        s.accessibility || null,
+                        s.commerce || null,
+                        s.amenities || null,
+                        s.image_url || null,
+                        s.access_details ? JSON.stringify(s.access_details) : null,
+                        s.opened_date || null,
+                        s.last_renovation_date || null,
+                        s.combinacion || null
+                    ];
+                });
 
-                    const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
+                const columns = [
+                    'line_id', 'station_code', 'station_name', 'display_name', 'display_order',
+                    'commune', 'address', 'latitude', 'longitude', 'location',
+                    'transports', 'services', 'accessibility', 'commerce', 'amenities',
+                    'image_url', 'access_details', 'opened_date', 'last_renovation_date', 'combinacion'
+                ];
 
-                    console.log("SECONDLY: ", params);
-                    
-                    await connection.query(query, params);
-                }
+                const query = `
+                    INSERT INTO metro_stations (${columns.join(', ')})
+                    VALUES ?
+                    ON DUPLICATE KEY UPDATE
+                        ${columns.filter(c => c !== 'station_code' && c !== 'location').map(c => `${c} = VALUES(${c})`).join(', ')},
+                        location = ST_GeomFromText(VALUES(location))
+                `;
+
+                await connection.query(query, [stationDataList]);
             }
 
             // 4. Bulk update station statuses

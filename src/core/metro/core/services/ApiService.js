@@ -1200,7 +1200,7 @@ async activateEventOverrides(eventDetails) {
             }, {});
 
             const stationsByCode = dbStations.reduce((acc, station) => {
-                const key = `${station.station_code.toUpperCase()}_${station.line_id}`;
+                const key = station.station_code.toUpperCase();
                 acc[key] = station;
                 return acc;
             }, {});
