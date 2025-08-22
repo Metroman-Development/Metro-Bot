@@ -133,14 +133,13 @@ class StatusProcessor {
 
         // Prepare station queries
         for (const station of Object.values(data.stations)) {
-          const fullStationData = this.metro.getStationManager().getByCode(station.id);
+          const fullStationData = this.metro.getStationManager().getByCode(station.code);
 
           if (!fullStationData) {
-            logger.warn(`[StatusProcessor] Could not find full station data for ${station.id}, skipping database update for this station.`);
-            continue;
+            logger.warn(`[StatusProcessor] No static data for ${station.code}. Proceeding with available live data.`);
           }
 
-          const stationResult = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
+          const stationResult = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.code]);
           const stationRow = stationResult && stationResult[0] ? stationResult[0] : null;
           let station_id;
 
@@ -185,7 +184,7 @@ class StatusProcessor {
                VALUES (?, ?, ?, ?, POINT(?,?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
               [
                 station.line,
-                station.id,
+                station.code,
                 station.name,
                 station.displayName,
                 fullStationData?.longitude || 0,
@@ -323,7 +322,7 @@ class StatusProcessor {
 
           const statusInfo = this._getStatusInfo(stationStatusCode, 'station', station.codigo);
           const stationEntry = {
-            id: stationId,
+            code: stationId,
             name: station.nombre,
             line: lineId,
             status: statusInfo.es,
@@ -378,9 +377,9 @@ class StatusProcessor {
           line: lineId,
           status: statusInfo.es,
           statusEn: statusInfo.en,
-          stations: segment.stations.map(s => s.id.toUpperCase()),
-          firstStation: segment.firstStation.id.toUpperCase(),
-          lastStation: segment.lastStation.id.toUpperCase(),
+          stations: segment.stations.map(s => s.code.toUpperCase()),
+          firstStation: segment.firstStation.code.toUpperCase(),
+          lastStation: segment.lastStation.code.toUpperCase(),
           count: segment.count,
           severity: this._calculateLineSeverity(lineId, statusCode),
           code: statusCode
@@ -750,7 +749,7 @@ _transformStation(station, lineId) {
       : [];
 
     return {
-      id: station.codigo.toUpperCase(),
+      code: station.codigo.toUpperCase(),
       name: station.nombre,
       displayName: station.nombre,
       line: lineId,
