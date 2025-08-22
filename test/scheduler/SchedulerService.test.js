@@ -6,6 +6,7 @@ jest.mock('../../src/events/logger', () => ({
     info: jest.fn(),
     error: jest.fn(),
     debug: jest.fn(),
+    warn: jest.fn(),
 }));
 
 describe('SchedulerService', () => {
@@ -107,5 +108,34 @@ describe('SchedulerService', () => {
         // Now that the first task has finished, the next one should be scheduled and run
         jest.advanceTimersByTime(1000);
         expect(longRunningTask).toHaveBeenCalledTimes(2);
+    });
+
+    it('should not schedule duplicate timers if start() is called multiple times', async () => {
+        const task = jest.fn();
+        const job = { name: 'test-job', interval: 1000, task };
+        scheduler.addJob(job);
+
+        // Call start, which runs the job immediately
+        scheduler.start();
+        expect(task).toHaveBeenCalledTimes(1);
+
+        // Calling start again should not start the job again immediately,
+        // but it would, in the buggy version, schedule a second timer.
+        scheduler.start();
+        expect(task).toHaveBeenCalledTimes(1);
+
+        // A warning should be logged for the second start() call because the job is running.
+        expect(logger.warn).toHaveBeenCalledWith('[SchedulerService] Job "test-job" is already running. Skipping this execution.');
+
+        // Fast-forward time by 1 second
+        await jest.advanceTimersByTimeAsync(1000);
+
+        // The task should have been called again only once.
+        // If the bug existed, it would be called twice in quick succession.
+        expect(task).toHaveBeenCalledTimes(2);
+
+        // Fast-forward time by another second
+        await jest.advanceTimersByTimeAsync(1000);
+        expect(task).toHaveBeenCalledTimes(3);
     });
 });
