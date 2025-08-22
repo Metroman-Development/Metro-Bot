@@ -185,35 +185,43 @@ class StatusProcessor {
                 stationQueries.push({ sql, params });
             }
           } else {
-            const [result] = await connection.query(
-              `INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,
-                                        transports, services, accessibility, commerce, amenities, image_url, access_details,
-                                        display_order, commune, address, latitude, longitude, opened_date, last_renovation_date, combinacion)
-               VALUES (?, ?, ?, ?, POINT(?,?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-              [
-                station.line,
-                station.code,
-                station.name,
-                station.displayName,
-                fullStationData?.longitude || 0,
-                fullStationData?.latitude || 0,
-                fullStationData?.transports,
-                fullStationData?.services,
-                fullStationData?.accessibility,
-                fullStationData?.commerce,
-                fullStationData?.amenities,
-                fullStationData?.image,
-                JSON.stringify(fullStationData?.accessDetails),
-                fullStationData?.display_order,
-                fullStationData?.commune,
-                fullStationData?.address,
-                fullStationData?.latitude,
-                fullStationData?.longitude,
-                fullStationData?.opened_date,
-                fullStationData?.last_renovation_date,
-                fullStationData?.combinacion
-              ]
-            );
+            const stationInsertData = {
+              line_id: station.line,
+              station_code: station.code,
+              station_name: station.name,
+              display_name: station.displayName,
+              transports: fullStationData?.transports,
+              services: fullStationData?.services,
+              accessibility: fullStationData?.accessibility,
+              commerce: fullStationData?.commerce,
+              amenities: fullStationData?.amenities,
+              image_url: fullStationData?.image,
+              access_details: fullStationData?.accessDetails ? JSON.stringify(fullStationData.accessDetails) : null,
+              display_order: fullStationData?.display_order,
+              commune: fullStationData?.commune,
+              address: fullStationData?.address,
+              latitude: fullStationData?.latitude,
+              longitude: fullStationData?.longitude,
+              opened_date: fullStationData?.opened_date,
+              last_renovation_date: fullStationData?.last_renovation_date,
+              combinacion: fullStationData?.combinacion,
+            };
+
+            const validInsertData = Object.entries(stationInsertData)
+              .filter(([, value]) => value !== null && value !== undefined);
+
+            const columns = validInsertData.map(([key]) => `\`${key}\``).join(', ');
+            const placeholders = validInsertData.map(() => '?').join(', ');
+            let values = validInsertData.map(([, value]) => value);
+
+            let sql;
+            if (fullStationData?.longitude && fullStationData?.latitude) {
+              sql = `INSERT INTO metro_stations (${columns}, \`location\`) VALUES (${placeholders}, POINT(?,?))`;
+              values.push(fullStationData.longitude, fullStationData.latitude);
+            } else {
+              sql = `INSERT INTO metro_stations (${columns}) VALUES (${placeholders})`;
+            }
+            const [result] = await connection.query(sql, values);
             station_id = result.insertId;
           }
 
