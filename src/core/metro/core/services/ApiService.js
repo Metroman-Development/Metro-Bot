@@ -1200,7 +1200,8 @@ async activateEventOverrides(eventDetails) {
             }, {});
 
             const stationsByCode = dbStations.reduce((acc, station) => {
-                acc[station.station_code.toUpperCase()] = station;
+                const key = `${station.station_code.toUpperCase()}_${station.line_id}`;
+                acc[key] = station;
                 return acc;
             }, {});
 
@@ -1209,7 +1210,8 @@ async activateEventOverrides(eventDetails) {
                 if (line.estaciones && Array.isArray(line.estaciones)) {
                     for (const apiStation of line.estaciones) {
                         const stationCode = apiStation.codigo.toUpperCase();
-                        const dbStation = stationsByCode[stationCode];
+                        const key = `${stationCode}_${lineId}`;
+                        const dbStation = stationsByCode[key];
 
                         if (dbStation) {
                             const cleanDbStation = Object.fromEntries(
