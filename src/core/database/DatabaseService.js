@@ -141,6 +141,9 @@ class DatabaseService {
                     const latitude = parseFloat(s.latitude);
                     const validPoint = !isNaN(longitude) && !isNaN(latitude);
 
+
+                    console.log("LOOK FOR ME: ", s)
+                    
                     const stationData = {
                         line_id: s.line,
                         station_code: s.code,
@@ -231,7 +234,9 @@ class DatabaseService {
         const updateClauses = Object.keys(updateData)
             .filter(key => updateData[key] !== null && updateData[key] !== undefined)
             .map(key => `${key} = VALUES(${key})`)
-            .join(', ');
+            .join(', ')
+
+        
 
         if (updateClauses.length === 0) {
             return {
