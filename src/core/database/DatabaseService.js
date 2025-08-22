@@ -69,7 +69,7 @@ class DatabaseService {
 
     async updateAllData(currentData) {
         const data = await currentData;
-        logger.info('[DatabaseService] Starting full database update from processed data...');
+        logger.info('[DatabaseService] Starting bulk database update from processed data...');
 
         if (!data || !data.lines || typeof data.lines !== 'object' || Object.keys(data.lines).length === 0) {
             logger.warn('[DatabaseService] updateAllData called with invalid or empty data.');
@@ -80,9 +80,14 @@ class DatabaseService {
         try {
             await connection.beginTransaction();
 
+            // 1. Prepare data for bulk operations
+            const linesToUpdate = [];
+            const stationsToInsert = [];
+            const stationStatusesToUpdate = [];
+
             for (const lineId in data.lines) {
                 const line = data.lines[lineId];
-                await this.updateLineStatus(connection, {
+                linesToUpdate.push({
                     lineId: line.id,
                     statusCode: line.status.code,
                     statusMessage: line.status.message,
@@ -93,27 +98,132 @@ class DatabaseService {
                     for (const stationId of line.stations) {
                         const station = data.stations[stationId.toUpperCase()];
                         if (station) {
-                            await this._insertStationInTransaction(connection, station);
+                            stationsToInsert.push(station);
                             if (station.status && station.status.code) {
-                                await this._updateStationStatusInTransaction(connection, {
+                                stationStatusesToUpdate.push({
                                     stationCode: station.id,
                                     lineId: station.line,
                                     statusCode: station.status.code,
                                     statusDescription: station.status.message,
                                     appDescription: station.status.appMessage
                                 });
-                            } else {
-                                logger.warn(`[DatabaseService] Station ${station.id} has no status code, skipping status update.`);
                             }
                         }
                     }
                 }
             }
 
+            // 2. Bulk insert/update lines
+            if (linesToUpdate.length > 0) {
+                const lineQuery = `
+                    INSERT INTO metro_lines (line_id, line_name, status_code, status_message, app_message)
+                    VALUES ${linesToUpdate.map(() => '(?, ?, ?, ?, ?)').join(',')}
+                    ON DUPLICATE KEY UPDATE
+                        line_name = VALUES(line_name),
+                        status_code = VALUES(status_code),
+                        status_message = VALUES(status_message),
+                        app_message = VALUES(app_message)
+                `;
+                const lineParams = linesToUpdate.flatMap(l => [
+                    l.lineId,
+                    data.lines[l.lineId].name || `Línea ${l.lineId.toUpperCase().replace('L', '')}`,
+                    l.statusCode,
+                    l.statusMessage,
+                    l.appMessage
+                ]);
+                await connection.query(lineQuery, lineParams);
+            }
+
+            // 3. Bulk insert/update stations
+            if (stationsToInsert.length > 0) {
+                const stationQuery = `
+                    INSERT INTO metro_stations (
+                        line_id, station_code, station_name, display_name, display_order,
+                        commune, address, latitude, longitude, location,
+                        transports, services, accessibility, commerce, amenities, image_url, access_details,
+                        opened_date, last_renovation_date, combinacion
+                    )
+                    VALUES ${stationsToInsert.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(',')}
+                    ON DUPLICATE KEY UPDATE
+                        station_name = VALUES(station_name),
+                        display_name = VALUES(display_name),
+                        commune = VALUES(commune),
+                        address = VALUES(address),
+                        latitude = VALUES(latitude),
+                        longitude = VALUES(longitude),
+                        location = VALUES(location),
+                        transports = VALUES(transports),
+                        services = VALUES(services),
+                        accessibility = VALUES(accessibility),
+                        commerce = VALUES(commerce),
+                        amenities = VALUES(amenities),
+                        image_url = VALUES(image_url),
+                        access_details = VALUES(access_details),
+                        opened_date = VALUES(opened_date),
+                        last_renovation_date = VALUES(last_renovation_date),
+                        combinacion = VALUES(combinacion)
+                `;
+                const stationParams = stationsToInsert.flatMap(s => {
+                    const longitude = parseFloat(s.longitude);
+                    const latitude = parseFloat(s.latitude);
+                    const validPoint = !isNaN(longitude) && !isNaN(latitude);
+                    return [
+                        s.line, s.id, s.name, s.displayName, s.display_order || null,
+                        s.commune || null, s.address || null, s.latitude || null, s.longitude || null,
+                        validPoint ? longitude : 0, validPoint ? latitude : 0,
+                        s.transports || null, s.services || null, s.accessibility || null,
+                        s.commerce || null, s.amenities || null, s.image_url || null,
+                        s.access_details ? JSON.stringify(s.access_details) : null,
+                        s.opened_date || null, s.last_renovation_date || null, s.combinacion || null
+                    ];
+                });
+                await connection.query(stationQuery, stationParams);
+            }
+
+            // 4. Bulk update station statuses
+            if (stationStatusesToUpdate.length > 0) {
+                // We need station_id and status_type_id for this. We can fetch them in bulk.
+                const stationCodes = stationStatusesToUpdate.map(s => s.stationCode);
+                const jsCodes = stationStatusesToUpdate.map(s => s.statusCode);
+
+                const stationIdResults = await connection.query(
+                    `SELECT station_id, station_code, line_id FROM metro_stations WHERE station_code IN (?)`,
+                    [stationCodes]
+                );
+                const stationIdMap = new Map(stationIdResults.map(r => [`${r.station_code}-${r.line_id}`, r.station_id]));
+
+                const statusTypeIdResults = await connection.query(
+                    `SELECT status_type_id, js_code FROM js_status_mapping WHERE js_code IN (?)`,
+                    [jsCodes]
+                );
+                const statusTypeIdMap = new Map(statusTypeIdResults.map(r => [r.js_code, r.status_type_id]));
+
+                const statusValues = stationStatusesToUpdate.map(s => {
+                    const stationId = stationIdMap.get(`${s.stationCode}-${s.lineId}`);
+                    const statusTypeId = statusTypeIdMap.get(s.statusCode);
+                    if (!stationId || !statusTypeId) return null;
+                    return [stationId, statusTypeId, s.statusDescription, s.appDescription];
+                }).filter(Boolean);
+
+                if (statusValues.length > 0) {
+                    const statusQuery = `
+                        INSERT INTO station_status (station_id, status_type_id, status_description, status_message)
+                        VALUES ${statusValues.map(() => '(?, ?, ?, ?)').join(',')}
+                        ON DUPLICATE KEY UPDATE
+                            status_type_id = VALUES(status_type_id),
+                            status_description = VALUES(status_description),
+                            status_message = VALUES(status_message)
+                    `;
+                    const statusParams = statusValues.flat();
+                    await connection.query(statusQuery, statusParams);
+                }
+            }
+
             await connection.commit();
+            logger.info('[DatabaseService] Bulk database update completed successfully.');
         } catch (error) {
             await connection.rollback();
-            logger.error('[DatabaseService] Full data update failed:', { error });
+            logger.error('[DatabaseService] Bulk data update failed:', { error });
             throw error;
         } finally {
             connection.release();
