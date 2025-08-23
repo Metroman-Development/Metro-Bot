@@ -485,7 +485,11 @@ async activateEventOverrides(eventDetails) {
                                                 };
                                                 Object.assign(station, dbStation);
                                                 Object.assign(station, apiStatus);
+
+                                                console.log(station)
                                             }
+
+                                            
                                         }
                                     }
                                 }
