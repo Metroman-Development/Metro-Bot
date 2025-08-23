@@ -7,28 +7,32 @@ const { getClient, getTelegramBot } = require('../../../utils/clientManager');
 class AnnouncementService {
     constructor() {
         this.timeHelpers = new TimeHelpers();
-        this.discordClient = getClient();
-        this.telegramBot = getTelegramBot();
     }
 
     async _sendDiscordEmbed(embed) {
-        if (!this.discordClient) return;
         try {
-            const channel = await this.discordClient.channels.fetch(announcementStrings.discord.channelId);
+            const discordClient = getClient();
+            if (!discordClient) return;
+            const channel = await discordClient.channels.fetch(announcementStrings.discord.channelId);
             if (channel && channel.isTextBased()) {
                 await channel.send({ embeds: [embed] });
             }
         } catch (error) {
-            console.error('Failed to send Discord announcement:', error);
+            if (error.message !== 'Client has not been initialized. Call setClient() first.') {
+                console.error('Failed to send Discord announcement:', error);
+            }
         }
     }
 
     async _sendTelegramMessage(message) {
-        if (!this.telegramBot) return;
         try {
-            await this.telegramBot.sendMessage(announcementStrings.telegram.chatId, message, { parse_mode: 'Markdown' });
+            const telegramBot = getTelegramBot();
+            if (!telegramBot) return;
+            await telegramBot.sendMessage(announcementStrings.telegram.chatId, message, { parse_mode: 'Markdown' });
         } catch (error) {
-            console.error('Failed to send Telegram announcement:', error);
+            if (error.message !== 'Telegram bot has not been initialized. Call setTelegramBot() first.') {
+                console.error('Failed to send Telegram announcement:', error);
+            }
         }
     }
 
