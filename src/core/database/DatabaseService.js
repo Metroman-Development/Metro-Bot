@@ -26,6 +26,31 @@ class DatabaseService {
         return this.#instance;
     }
 
+    static formatDate(dateString) {
+        if (!dateString) return null;
+        try {
+            // Check if it's already in YYYY-MM-DD format
+            if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+                return dateString;
+            }
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return null;
+            return date.toISOString().slice(0, 10);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    static formatDates(obj, dateFields = ['opened_date', 'last_renovation_date']) {
+        const newObj = { ...obj };
+        for (const field of dateFields) {
+            if (newObj[field]) {
+                newObj[field] = this.formatDate(newObj[field]);
+            }
+        }
+        return newObj;
+    }
+
     async updateChanges(changes) {
         logger.info(`[DatabaseService] Starting partial database update with ${changes.length} changes...`);
         if (!changes || changes.length === 0) {
@@ -150,17 +175,6 @@ class DatabaseService {
                     return `(${ph.join(',')})`;
                 }).join(',');
 
-                const formatDate = (dateString) => {
-                    if (!dateString) return null;
-                    try {
-                        const date = new Date(dateString);
-                        if (isNaN(date.getTime())) return null;
-                        return date.toISOString().slice(0, 10);
-                    } catch (e) {
-                        return null;
-                    }
-                };
-
                 const stationDataParams = stationsToInsert.flatMap(s => {
                     const longitude = parseFloat(s.longitude);
                     const latitude = parseFloat(s.latitude);
@@ -184,8 +198,8 @@ class DatabaseService {
                         s.amenities || null,
                         s.image_url || null,
                         s.access_details ? JSON.stringify(s.access_details) : null,
-                        formatDate(s.opened_date),
-                        formatDate(s.last_renovation_date),
+                        DatabaseService.formatDate(s.opened_date),
+                        DatabaseService.formatDate(s.last_renovation_date),
                         s.combinacion || null
                     ];
                 });

@@ -93,7 +93,6 @@ class MetroCore extends EventEmitter {
 
         this._subsystems.dataLoader = new DataLoader({ dbManager: this.dbManager });
         this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
-        this._subsystems.statusProcessor = new StatusProcessor(this, this.dbManager);
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
         this._subsystems.metroInfoProvider = require('../../../utils/MetroInfoProvider');
 
@@ -205,6 +204,7 @@ class MetroCore extends EventEmitter {
             const DatabaseService = require('../../../core/database/DatabaseService');
             this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
             const databaseService = this._subsystems.dbService; // for local use
+            this._subsystems.statusProcessor = new StatusProcessor(this, dbManager, databaseService);
             this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
             this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, databaseService);
