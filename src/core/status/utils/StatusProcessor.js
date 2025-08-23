@@ -22,7 +22,7 @@ class StatusProcessor {
   async processRawAPIData(rawData, user = 'system') {
     
 
-    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING ");
+    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA; ", rawData);
     
     try {
       if (!rawData || typeof rawData !== 'object') {
