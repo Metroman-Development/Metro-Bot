@@ -38,7 +38,7 @@ async function translateApiData(apiData, dbService) {
             };
 
             for (const station of line.estaciones) {
-                const stationId = `${station.codigo}_${lineId}`;
+                const stationId = `${station.codigo}`;
                 const stationName = station.nombre;
                 const extraData = stationsDataLookup[station.codigo.toUpperCase()];
 
