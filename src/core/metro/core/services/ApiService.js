@@ -430,123 +430,42 @@ async activateEventOverrides(eventDetails) {
             return;
         }
         this.isFetching = true;
-
-        if (this.isFirstTime) {
-            logger.info('[ApiService] First run detected. Forcing API fetch to populate database.');
-            // Force fetch from API and populate DB, then proceed
-            await this.forceApiFetchAndPopulateDb();
-        }
-
-        // PHASE 1: Ensure static data freshness
-        await this._ensureStaticDataFreshness();
-
-        // PHASE 2: Execute network fetch
         const requestId = crypto.randomUUID();
         this._activeRequests.add(requestId);
         this.metrics.totalRequests++;
         const startTime = performance.now();
 
-        if ((this.checkCount - 1) / 15 === 1 || this.checkCount - 1 === 0) {
-            // This will be handled by the SchedulerService
-        }
-
-        if (this.metrics.totalRequests > 1) {
-            this.checkCount++
-        }
-
         try {
-            let rawData;
-            let fromPrimarySource = false;
-
+            let currentData;
             if (this.timeHelpers.isWithinOperatingHours()) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
                 try {
-                    // PHASE 2a: Fetch raw data from API/cache
-                    rawData = await this.estadoRedService.fetchStatus();
-                    //logger.detailed('[ApiService] Fetched raw data from estadoRedService', rawData);
-
-                    // Enrich with DB data
-                    rawData = await this._enrichApiData(rawData);
-                    //logger.detailed('[ApiService] Enriched raw data with DB details', rawData);
-
-                    fromPrimarySource = true;
-                    logger.info('[ApiService] Successfully fetched and enriched data from API.');
+                    currentData = await this.estadoRedService.fetchStatus();
+                    logger.info('[ApiService] Successfully fetched data from API.');
                 } catch (fetchError) {
                     logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
-                    rawData = await this.getDbRawData();
-                    if (!rawData || !rawData.lineas || Object.keys(rawData.lineas).length === 0) {
+                    currentData = await this.getDbRawData();
+                    if (!currentData || !currentData.lines || Object.keys(currentData.lines).length === 0) {
                         throw new Error("All data sources failed, including database fallback.");
                     }
-                    logger.info("[ApiService] Successfully loaded data from database fallback.");
                 }
             } else {
                 logger.info('[ApiService] Outside of operating hours. Generating off-hours data.');
-                rawData = await this._generateOffHoursData();
+                currentData = await this._generateOffHoursData();
             }
 
+            const finalData = await this.dataEngine.handleRawData(currentData);
 
-            // PHASE 2c: Process data
-            const overrides = await this.metro._subsystems.statusOverrideService.getActiveOverrides();
-            logger.detailed('[ApiService] Active overrides', overrides);
-            const rawDataWithOverrides = this.metro._subsystems.statusOverrideService.applyOverrides(rawData, overrides);
-            //logger.detailed('[ApiService] Raw data after applying overrides', rawDataWithOverrides);
-            const randomizedData = this._randomizeStatuses(rawDataWithOverrides);
-            logger.detailed('[ApiService] Data after randomizing statuses', randomizedData);
-
-            const currentData = await this._processData(randomizedData);
-
-            // Log summary for station 'CH'
-            if (currentData && currentData.stations && currentData.stations['CH']) {
-                const chStation = currentData.stations['CH'];
-                const summary = {};
-                for (const key in chStation) {
-                    if (Array.isArray(chStation[key])) {
-                        summary[key] = `${chStation[key].length} items`;
-                    } else {
-                        summary[key] = '1 item';
-                    }
-                }
-                logger.info(`[ApiService] Quantity of items per field for station CH: ${JSON.stringify(summary)}`);
+            if (finalData) {
+                this.lastRawData = currentData; // Store the original raw data
+                this.lastCurrentData = finalData;
+                this._updateState(finalData);
+                await this._storeCurrentData(finalData);
+                this.metrics.lastSuccess = new Date();
             }
             
-            const summary = this.generateNetworkSummary(currentData);
-            await this.dbService.updateNetworkStatusSummary(summary);
+            return finalData;
 
-
-            // console.log(currentData)
-
-            // PHASE 2d: Update data state
-            this.lastRawData = rawData;
-
-            // Run DataEngine to combine data, update managers, and emit events.
-            const combinedData = await this.dataEngine.handleRawData(currentData);
-
-            this.lastCurrentData = combinedData;
-
-            //this._updateCurrentData(currentData);
-            this._updateState(combinedData);
-
-            // PHASE 2e: Handle changes
-            if (!this.isFirstTime) {
-                const dbRawData = await this.getDbRawData();
-                await this._handleDataChanges(randomizedData, currentData, dbRawData);
-            }
-            if (fromPrimarySource) {
-                // The old partial update is replaced by the new comprehensive one.
-                // await this.dbService.updateAllData(currentData);
-            }
-
-
-            // PHASE 2f: Persist data
-            await this._storeCurrentData(combinedData);
-
-            this.metrics.lastSuccess = new Date();
-
-            // console.log(this.lastCurrentData)
-
-
-
-            return combinedData;
         } catch (error) {
             logger.error(`[ApiService] Fetch failed`, {
                 error: error.message,
@@ -580,126 +499,6 @@ async activateEventOverrides(eventDetails) {
         });
     }
 
-    async _ensureStaticDataFreshness() {
-        try {
-            if (!this.timeHelpers.isWithinOperatingHours()) {
-                logger.info('[ApiService] Outside of operating hours. Skipping static data freshness check.');
-                return;
-            }
-
-            const maxAge = config.api.minStaticDataFreshness || 300000;  // 5 minutes during operations
-
-            const refreshed = await this.metro.refreshStaticData({
-                maxAge,
-                silent: !this.debug,
-                force: this.isFirstTime
-            });
-
-            if (refreshed) {
-                this.metrics.staticDataRefreshes++;
-            } else {
-                this.metrics.refreshSkipped++;
-            }
-        } catch (error) {
-            logger.warn('[ApiService] Static data refresh failed, proceeding with existing data:', { error });
-        }
-    }
-
-    async _processData(rawData) {
-
-    // console.log("BEFORE TRANSLATE: ", rawData)
-        //logger.detailed('[ApiService] Starting data processing', rawData);
-        const translatedData = await translateApiData(rawData, this.dbService);
-        
-        //console.log("AFTER TRANSLATE: ", translatedData);
-        //logger.detailed('[ApiService] Translated data', translatedData);
-        return this.statusProcessor
-            ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
-            : this._basicProcessData(translatedData);
-    }
-
-    _generateNetworkStatus(lines) {
-        if (!lines || Object.keys(lines).length === 0) {
-            return { status: 'outage', lastUpdated: new Date().toISOString() };
-        }
-
-        const lineStatuses = Object.values(lines).map(line => line.status);
-        const operationalLines = lineStatuses.filter(s => s === '1').length;
-        const totalLines = lineStatuses.length;
-        const degradedLines = totalLines - operationalLines;
-
-        let overallStatus = 'operational';
-        if (degradedLines > 0 && operationalLines === 0) {
-            overallStatus = 'outage';
-        } else if (degradedLines > 0) {
-            overallStatus = 'degraded';
-        }
-
-        return {
-            status: overallStatus,
-            lastUpdated: new Date().toISOString()
-        };
-    }
-
-    _basicProcessData(rawData) {
-
-
-        logger.info("Processing Data without Status Processor")
-        
-        const lines = Object.fromEntries(
-            Object.entries(rawData.lineas || {})
-                .filter(([k, lineData]) => k.toLowerCase().startsWith('l') && lineData.nombre)
-                .map(([lineId, lineData]) => {
-                    const lowerLineId = lineId.toLowerCase();
-                    return [
-                        lowerLineId,
-                        {
-                            id: lowerLineId,
-                            displayName: lineData.nombre,
-                            status: lineData.estado,
-                            message: lineData.mensaje,
-                            message_app: lineData.mensaje_app,
-                            stations: lineData.estaciones?.filter(s => s.codigo && s.nombre).map(station => ({
-                                ...station,
-                                id: station.codigo.toUpperCase(),
-                                linea: lowerLineId,
-                                name: station.nombre,
-                                status: station.estado,
-                                description: station.descripcion,
-                                description_app: station.descripcion_app,
-                                transfer: station.combinacion || ''
-                            })) || []
-                        }
-                    ];
-                })
-        );
-
-        const networkStatus = this._generateNetworkStatus(lines);
-
-        const currentData = {
-            lines,
-            network: networkStatus,
-            stations: {},
-            version: this._dataVersion,
-            lastUpdated: new Date().toISOString(),
-            _metadata: {
-                source: 'generated',
-                timestamp: new Date(),
-                generation: 'basic'
-            }
-        };
-
-        currentData.stations = Object.values(currentData.lines)
-            .flatMap(line => line.stations)
-            .reduce((acc, station) => {
-                acc[station.station_code] = station;
-                return acc;
-            }, {});
-
-        // Store the processed data immediately
-        this._updateCurrentData(currentData);
-        return currentData;
-    }
 
     async _generateOffHoursData() {
         const dbData = await this.getDbRawData();
@@ -728,72 +527,6 @@ async activateEventOverrides(eventDetails) {
         return offHoursData;
     }
 
-    async _handleDataChanges(rawData, currentData, previousRawData) {
-        const rawDataWithTimestamp = { ...rawData, timestamp: new Date().toISOString() };
-        const changeResult = await this.changeDetector.analyze(rawDataWithTimestamp, previousRawData, currentData);
-        logger.detailed('[ApiService] Change detection result', changeResult);
-        if (this.isFirstTime) {
-            await this.dbService.updateAllData(currentData, 'MetroApp');
-        } else if (changeResult.changes?.length > 0) {
-            await this.dbService.updateChanges(changeResult.changes, 'MetroApp');
-        }
-        if (changeResult.changes?.length > 0) {
-            this.changeHistory.unshift(...changeResult.changes);
-            this.metrics.changeEvents += changeResult.changes.length;
-            this._emitChanges(changeResult, currentData);
-
-            const apiChangesPath = path.join(this.cacheDir, 'apiChanges.json');
-            let apiChanges = [];
-            try {
-                const data = await fsp.readFile(apiChangesPath, 'utf8');
-                apiChanges = JSON.parse(data);
-            } catch (error) {
-                if (error.code !== 'ENOENT') {
-                    logger.error('[ApiService] Failed to read apiChanges.json', { error });
-                }
-            }
-
-            apiChanges.unshift(rawDataWithTimestamp);
-            if (apiChanges.length > 10) {
-                apiChanges = apiChanges.slice(0, 10);
-            }
-
-            try {
-                await fsp.writeFile(apiChangesPath, JSON.stringify(apiChanges, null, 2), 'utf8');
-            } catch (error) {
-                logger.error('[ApiService] Failed to write apiChanges.json', { error });
-            }
-
-            const changeLogPath = path.join(this.cacheDir, 'change_log.json');
-            let changeLog = [];
-            try {
-                const data = await fsp.readFile(changeLogPath, 'utf8');
-                changeLog = JSON.parse(data);
-            } catch (error) {
-                if (error.code !== 'ENOENT') {
-                    logger.error('[ApiService] Failed to read change_log.json', { error });
-                }
-            }
-
-            changeLog.unshift(...changeResult.changes);
-            if (changeLog.length > 100) { // Keep the last 100 changes
-                changeLog = changeLog.slice(0, 100);
-            }
-
-            try {
-                await fsp.writeFile(changeLogPath, JSON.stringify(changeLog, null, 2), 'utf8');
-            } catch (error) {
-                logger.error('[ApiService] Failed to write change_log.json', { error });
-            }
-
-            try {
-                const estadoRedPath = path.join(this.cacheDir, 'estadoRed.json');
-                await fsp.writeFile(estadoRedPath, JSON.stringify(rawData, null, 2), 'utf8');
-            } catch (error) {
-                logger.error('[ApiService] Failed to write estadoRed.json', { error });
-            }
-        }
-    }
 
     _updateState(newData) {
         logger.debug('[ApiService] Updating service state');
@@ -1181,96 +914,6 @@ async activateEventOverrides(eventDetails) {
         return dbRawData;
     }
 
-    async _enrichApiData(apiData) {
-        if (!apiData || !apiData.lineas) {
-            logger.warn('[ApiService] Cannot enrich data: invalid apiData input.');
-            return apiData;
-        }
-
-        try {
-            logger.debug('[ApiService] Starting data enrichment from database.');
-
-            const [dbStations, accessibilityStatus] = await Promise.all([
-                this.dbService.getAllStationsStatusAsRaw(),
-                this.dbService.getAccessibilityStatus()
-            ]);
-
-            // WORKS console.log(dbStations);
-
-            const accessibilityByStation = accessibilityStatus.reduce((acc, item) => {
-                const stationCode = item.station_code.toUpperCase();
-                if (!acc[stationCode]) {
-                    acc[stationCode] = [];
-                }
-                acc[stationCode].push(item);
-                return acc;
-            }, {});
-
-            const stationsByCode = dbStations.reduce((acc, station) => {
-                const key = station.station_code.toUpperCase();
-                acc[key] = station;
-                return acc;
-            }, {});
-
-            //WORKS console.log(stationsByCode)
-
-            for (const lineId in apiData.lineas) {
-                const line = apiData.lineas[lineId];
-                if (line.estaciones && Array.isArray(line.estaciones)) {
-                    for (const apiStation of line.estaciones) {
-                        const stationCode = apiStation.codigo.toUpperCase();
-                        const key = stationCode;
-                        const dbStation = stationsByCode[key];
-
-                        if (dbStation) {
-                            /*const cleanDbStation = Object.fromEntries(
-                                Object.entries(dbStation).filter(([, value]) => value !== null)
-                            );*/
-
-                            const finalStation = {
-                                ...dbStation,
-                                ...apiStation,
-                                access_details: accessibilityByStation[stationCode] || []
-                            };
-
-                            
-
-                            Object.assign(apiStation, finalStation);
-                        }
-                    }
-                }
-            }
-
-            logger.debug('[ApiService] Data enrichment complete.');
-
-            //console.log(apiData);
-            
-            return apiData;
-
-        } catch (error) {
-            logger.error('[ApiService] Failed to enrich API data from database', { error });
-            // Return original data if enrichment fails to prevent full crash
-            return apiData;
-        }
-    }
-
-    async forceApiFetchAndPopulateDb() {
-        try {
-            logger.info('[ApiService] Forcing API fetch to populate database...');
-            let rawData = await this.estadoRedService.fetchStatus();
-            rawData = await this._enrichApiData(rawData);
-            const currentData = await this._processData(rawData);
-
-            
-            // Call the new comprehensive update method
-            await this.dbService.updateAllData(currentData);
-            logger.info('[ApiService] Database populated with initial data from API.');
-        } catch (error) {
-            logger.error('[ApiService] Failed to force fetch and populate database:', { error });
-            // In a real scenario, we might want to throw this error
-            // to prevent the application from starting in a bad state.
-        }
-    }
 }
 
 module.exports = ApiService;
