@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -11,66 +11,66 @@ module.exports = {
         try {
             await interaction.deferReply();
             
-            const infoProvider = new MetroInfoProvider(metro);
-            const metroInfo = infoProvider.data.system;
+            const infoProvider = MetroInfoProvider;
+            const metroInfo = infoProvider.getFullData();
+            const metroGeneral = metroInfo.system;
             
             
             console.log(metroInfo)
             // Build the embed with system information
             const embed = new EmbedBuilder()
-                .setTitle(`🚇 ${metroInfo.name}`)
+                .setTitle(`🚇 ${metroGeneral.name}`)
                 .setColor('#005BA6') // Metro's blue color
-                .setDescription(`**Sistema:** ${metroInfo.system}`)
+                .setDescription(`**Sistema:** ${metroGeneral.system}`)
                 .addFields(
                     {
                         name: '📅 Inauguración',
-                        value: metroInfo.inauguration,
+                        value: metroGeneral.inauguration,
                         inline: true
                     },
                     {
                         name: '📏 Longitud total',
-                        value: metroInfo.technicalCharacteristics.length,
+                        value: metroGeneral.technicalCharacteristics.length,
                         inline: true
                     },
                     {
                         name: '🚉 Estaciones',
-                        value: metroInfo.technicalCharacteristics.stations.toString(),
+                        value: metroGeneral.technicalCharacteristics.stations.toString(),
                         inline: true
                     },
                     {
                         name: '🚈 Líneas en operación',
-                        value: metroInfo.operation.lines.toString(),
+                        value: metroGeneral.operation.lines.toString(),
                         inline: true
                     },
                     {
                         name: '🚄 Trenes en flota',
-                        value: metroInfo.operation.fleet,
+                        value: metroGeneral.operation.fleet,
                         inline: true
                     },
                     {
                         name: '👥 Pasajeros diarios',
-                        value: metroInfo.operation.passengers.toLocaleString(),
+                        value: metroGeneral.operation.passengers.toLocaleString(),
                         inline: true
                     },
                     {
                         name: '⚡ Electrificación',
-                        value: metroInfo.technicalCharacteristics.electrification,
+                        value: metroGeneral.technicalCharacteristics.electrification,
                         inline: false
                     },
                     {
                         name: '🏃 Velocidad máxima',
-                        value: metroInfo.technicalCharacteristics.maxSpeed,
+                        value: metroGeneral.technicalCharacteristics.maxSpeed,
                         inline: true
                     },
                     {
                         name: '🐢 Velocidad promedio',
-                        value: metroInfo.operation.averageSpeed,
+                        value: metroGeneral.operation.averageSpeed,
                         inline: true
                     }
                 )
                 .setFooter({ 
-                    text: 'Metro de Santiago • Última actualización', 
-                   // iconURL: 'https://i.imgur.com/7kM4Yfn.png' 
+                    text: `Metro de Santiago • Última actualización: ${new Date(metroInfo.last_updated).toLocaleString()}`
                 })
                 .setTimestamp();
 

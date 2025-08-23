@@ -57,7 +57,6 @@ class MetroCore extends EventEmitter {
         }
         this.styles = {};
         
-        this._initDataStores();
         this._initEngines();
     }
 
@@ -103,23 +102,6 @@ class MetroCore extends EventEmitter {
                 other: Object.keys(this._subsystems).filter(k => !['utils', 'managers'].includes(k))
             });
         }
-    }
-
-    /**
-     * @private
-     * Initializes the data stores for status, details, and combined data.
-     */
-    _initDataStores() {
-        this._statusData = {};
-        this._detailsData = {};
-        this._combinedData = {
-            version: '0.0.0',
-            lastUpdated: new Date(0),
-            lines: {},
-            stations: {},
-            network: { status: 'initializing' }
-        };
-        this._dataVersion = '0.0.0';
     }
 
     /**
@@ -233,15 +215,15 @@ class MetroCore extends EventEmitter {
             this._setupEventListeners();
             
             // Phase 5: Load status data
-            this._statusData = await this._subsystems.dataLoader.load();
-            this._dataVersion = this._statusData.version || `1.0.0-${Date.now()}`;
-            
+            const initialData = await this._subsystems.dataLoader.load();
+            this._subsystems.metroInfoProvider.updateData(initialData);
+
             // Phase 6: Initialize data managers
             await this._subsystems.managers.stations.updateData(
-                this._statusData.stations || {}
+                initialData.stations || {}
             );
             await this._subsystems.managers.lines.updateData(
-                this._statusData.lines || {}
+                initialData.lines || {}
             );
             
             // Phase 7: Fetch initial network status
@@ -268,18 +250,19 @@ class MetroCore extends EventEmitter {
      * @returns {object} An object containing the system status.
      */
     getSystemStatus() {
+        const data = this._subsystems.metroInfoProvider.getFullData();
         return {
-            version: this._dataVersion,
-            status: this._combinedData.network,
-            lastUpdated: this._combinedData.lastUpdated,
+            version: data.version,
+            status: data.network,
+            lastUpdated: data.last_updated,
             lines: {
-                total: Object.keys(this._combinedData.lines).length,
-                operational: Object.values(this._combinedData.lines)
+                total: Object.keys(data.lines).length,
+                operational: Object.values(data.lines)
                     .filter(line => line.status.code === '1').length
             },
             stations: {
-                total: Object.keys(this._combinedData.stations).length,
-                operational: Object.values(this._combinedData.stations)
+                total: Object.keys(data.stations).length,
+                operational: Object.values(data.stations)
                     .filter(station => station.status.code === '1').length
             },
             changes: this.api.changes.history().stats
@@ -389,9 +372,7 @@ class MetroCore extends EventEmitter {
                 throw new Error('Loaded data is invalid or empty.');
             }
 
-            this._statusData = newStatusData;
-            this._dataVersion = newStatusData.version || `1.0.0-${Date.now()}`;
-            this._combinedData.lastUpdated = new Date();
+            this._subsystems.metroInfoProvider.updateData(newStatusData);
 
             await Promise.all([
                 this._subsystems.managers.stations.updateData(
@@ -408,7 +389,7 @@ class MetroCore extends EventEmitter {
             logger.error('[MetroCore] Status data refresh failed:', error);
             this._emitError('refreshStatusData', error);
 
-            if (error.message.includes('invalid') || !this._statusData) {
+            if (error.message.includes('invalid') || !this._subsystems.metroInfoProvider.getFullData()) {
                 await this._enterSafeMode();
             }
             throw error;

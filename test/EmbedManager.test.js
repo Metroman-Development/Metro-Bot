@@ -1,12 +1,18 @@
 const EmbedManager = require('../src/core/status/embeds/EmbedManager');
 const logger = require('../src/events/logger');
 
+const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
+
 // Mock the logger to prevent console output during tests
 jest.mock('../src/events/logger', () => ({
     warn: jest.fn(),
     debug: jest.fn(),
     info: jest.fn(),
     error: jest.fn(),
+}));
+
+jest.mock('../src/utils/MetroInfoProvider', () => ({
+    getFullData: jest.fn(),
 }));
 
 describe('EmbedManager', () => {
@@ -101,7 +107,7 @@ describe('EmbedManager', () => {
         });
 
         it('should log an error and not proceed if no data is provided', async () => {
-            mockStatusUpdater.metroCore.getCurrentData.mockResolvedValue(null);
+            MetroInfoProvider.getFullData.mockReturnValue(null);
             await embedManager.updateAllEmbeds(null);
 
             expect(logger.error).toHaveBeenCalledWith('[EmbedManager] Failed to get processed data. Aborting update.');

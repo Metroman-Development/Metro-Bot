@@ -6,13 +6,13 @@ const TimeHelpers = require('../../chronos/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
-const MetroInfoProvider = require('../../metro/providers/MetroInfoProvider');
+const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
 
 class EmbedManager {
     constructor(statusUpdater, metroCore) {
         this.parent = statusUpdater;
         this.metroCore = metroCore;
-        this.infoProvider = new MetroInfoProvider(metroCore);
+        this.infoProvider = MetroInfoProvider;
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;
@@ -110,7 +110,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         let currentData = data;
         if (!currentData) {
             logger.debug('[EmbedManager] No data provided, fetching fresh data...');
-            currentData = this.infoProvider.data;
+            currentData = this.infoProvider.getFullData();
         }
 
         if (!currentData) {
@@ -410,7 +410,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async refreshAllEmbeds() {
     try {
         logger.debug('[EmbedManager] Starting full refresh');
-        const currentData = this.infoProvider.data;
+        const currentData = this.infoProvider.getFullData();
         
         // Bypass normal queue for time-critical updates
         if (this._updateLock) {

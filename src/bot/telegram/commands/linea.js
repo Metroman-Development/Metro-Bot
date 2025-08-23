@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../../../core/metro/providers/MetroInfoProvider');
+const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
 
 module.exports = {
     name: 'linea',
@@ -10,7 +10,7 @@ module.exports = {
         }
 
         const lineId = args[0].toLowerCase();
-        const infoProvider = new MetroInfoProvider(metro);
+        const infoProvider = MetroInfoProvider;
         const lineInfo = infoProvider.getLineData(lineId);
 
         if (!lineInfo) {
