@@ -10,15 +10,13 @@ const StatusEngine = require('./internal/StatusEngine');
 const ScheduleEngine = require('./internal/ScheduleEngine');
 
 const DataLoader = require('./DataLoader');
-const ApiService = require('./services/ApiService');
-const StatusOverrideService = require('./services/StatusOverrideService');
+const ApiService =require('./services/ApiService');
 const SchedulerService = require('../../chronos/SchedulerService');
 const TimeService = require('./services/TimeService');
 const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
 const StatusProcessor = require('../../status/utils/StatusProcessor');
 const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
-const OverrideManager = require('./services/OverrideManager');
 
 /**
  * @class MetroCore
@@ -186,8 +184,6 @@ class MetroCore extends EventEmitter {
             this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
             const databaseService = this._subsystems.dbService; // for local use
             this._subsystems.statusProcessor = new StatusProcessor(this, dbManager, databaseService);
-            this._subsystems.statusOverrideService = new StatusOverrideService(dbManager);
-            this._subsystems.overrideManager = new OverrideManager(this, dbManager);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, databaseService);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
             this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
