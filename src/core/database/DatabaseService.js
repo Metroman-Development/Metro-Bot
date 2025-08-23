@@ -837,6 +837,8 @@ class DatabaseService {
                     await connection.rollback();
                     return;
                 }
+            } else if (type === 'system') {
+                lineId = null;
             } else {
                 lineId = id;
             }
