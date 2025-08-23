@@ -88,7 +88,7 @@ class MetroCore extends EventEmitter {
         }
 
         this._subsystems.dataLoader = new DataLoader({ dbManager: this.dbManager });
-        this._subsystems.scheduleHelpers = require('../../chronos/utils/scheduleHelpers');
+        this._subsystems.scheduleHelpers = require('../../status/utils/scheduleHelpers');
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
         this._subsystems.metroInfoProvider = require('../../../utils/MetroInfoProvider');
 
