@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
 const { createEmbed, createErrorEmbed } = require('../../../../../utils/embedFactory');
 const { processImageForDiscord } = require('../../../../../utils/imageUtils');
+const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'linea',
@@ -28,7 +29,8 @@ module.exports = {
             await interaction.deferReply();
 
             const lineKey = interaction.options.getString('linea');
-            const lineInfo = metro?._staticData.lines[lineKey];
+            const infoProvider = new MetroInfoProvider(metro);
+            const lineInfo = infoProvider.getLineData(lineKey);
 
             if (!lineInfo) {
                 const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
@@ -41,7 +43,7 @@ module.exports = {
 
             const lineImage = await processImageForDiscord(githubImageUrl, {
                 filename: `${lineKey}_map.png`,
-                description: `Mapa de ${lineInfo.displayName}`,
+                description: `Mapa de ${lineInfo.nombre}`,
                 backgroundColor: '#FFFFFF',
                 resize: {
                     width: 800,

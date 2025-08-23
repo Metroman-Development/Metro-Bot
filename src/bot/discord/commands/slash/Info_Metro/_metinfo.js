@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -10,7 +11,8 @@ module.exports = {
         try {
             await interaction.deferReply();
             
-            const metroInfo = metro._staticData.system;
+            const infoProvider = new MetroInfoProvider(metro);
+            const metroInfo = infoProvider.data.system;
             
             
             console.log(metroInfo)
