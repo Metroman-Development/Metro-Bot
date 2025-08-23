@@ -645,6 +645,10 @@ async activateEventOverrides(eventDetails) {
     }
 
     _basicProcessData(rawData) {
+
+
+        logger.info("Processing Data without Status Processor")
+        
         const lines = Object.fromEntries(
             Object.entries(rawData.lineas || {})
                 .filter(([k, lineData]) => k.toLowerCase().startsWith('l') && lineData.nombre)
@@ -691,7 +695,7 @@ async activateEventOverrides(eventDetails) {
         currentData.stations = Object.values(currentData.lines)
             .flatMap(line => line.stations)
             .reduce((acc, station) => {
-                acc[station.id] = station;
+                acc[station.station_code] = station;
                 return acc;
             }, {});
 
