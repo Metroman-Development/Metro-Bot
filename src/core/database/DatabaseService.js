@@ -136,12 +136,25 @@ class DatabaseService {
 
             // 3. Bulk insert/update stations
             if (stationsToInsert.length > 0) {
-                const stationDataList = stationsToInsert.map(s => {
+                const columns = [
+                    'line_id', 'station_code', 'station_name', 'display_name', 'display_order',
+                    'commune', 'address', 'latitude', 'longitude', 'location',
+                    'transports', 'services', 'accessibility', 'commerce', 'amenities',
+                    'image_url', 'access_details', 'opened_date', 'last_renovation_date', 'combinacion'
+                ];
+                const locationIndex = columns.indexOf('location');
+
+                const valuePlaceholders = stationsToInsert.map(() => {
+                    const ph = columns.map(() => '?');
+                    ph[locationIndex] = 'ST_GeomFromText(?)';
+                    return `(${ph.join(',')})`;
+                }).join(',');
+
+                const stationDataParams = stationsToInsert.flatMap(s => {
                     const longitude = parseFloat(s.longitude);
                     const latitude = parseFloat(s.latitude);
                     const validPoint = !isNaN(longitude) && !isNaN(latitude);
                     
-                    // Ensure that all fields are present, even if null
                     return [
                         s.line || null,
                         s.code || null,
@@ -152,7 +165,7 @@ class DatabaseService {
                         s.address || null,
                         s.latitude || null,
                         s.longitude || null,
-                        validPoint ? `POINT(${longitude} ${latitude})` : 'POINT(0 0)', // Default to POINT(0 0)
+                        validPoint ? `POINT(${longitude} ${latitude})` : 'POINT(0 0)',
                         s.transports || null,
                         s.services || null,
                         s.accessibility || null,
@@ -166,22 +179,20 @@ class DatabaseService {
                     ];
                 });
 
-                const columns = [
-                    'line_id', 'station_code', 'station_name', 'display_name', 'display_order',
-                    'commune', 'address', 'latitude', 'longitude', 'location',
-                    'transports', 'services', 'accessibility', 'commerce', 'amenities',
-                    'image_url', 'access_details', 'opened_date', 'last_renovation_date', 'combinacion'
-                ];
+                const updateClauses = columns
+                    .filter(c => c !== 'station_code' && c !== 'line_id' && c !== 'location')
+                    .map(c => `${c} = COALESCE(VALUES(${c}), ${c})`)
+                    .join(', ');
 
                 const query = `
                     INSERT INTO metro_stations (${columns.join(', ')})
-                    VALUES ?
+                    VALUES ${valuePlaceholders}
                     ON DUPLICATE KEY UPDATE
-                        ${columns.filter(c => c !== 'station_code' && c !== 'location').map(c => `${c} = VALUES(${c})`).join(', ')},
-                        location = ST_GeomFromText(VALUES(location))
+                        ${updateClauses},
+                        location = VALUES(location)
                 `;
 
-                await connection.query(query, [stationDataList]);
+                await connection.query(query, stationDataParams);
             }
 
             // 4. Bulk update station statuses
