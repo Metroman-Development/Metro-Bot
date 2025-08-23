@@ -610,11 +610,11 @@ async activateEventOverrides(eventDetails) {
 
     async _processData(rawData) {
 
-        console.log("BEFORE TRANSLATE: ", rawData)
+    // console.log("BEFORE TRANSLATE: ", rawData)
         //logger.detailed('[ApiService] Starting data processing', rawData);
         const translatedData = await translateApiData(rawData, this.dbService);
         
-        console.log("AFTER TRANSLATE: ", translatedData);
+        //console.log("AFTER TRANSLATE: ", translatedData);
         //logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
