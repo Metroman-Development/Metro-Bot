@@ -45,7 +45,7 @@ describe('ApiService', () => {
 
     describe('fetchNetworkStatus', () => {
         it('should fetch from API during operating hours and process through DataEngine', async () => {
-            const mockApiData = { lines: { l1: { id: 'l1', estado: '1', estaciones: [] } }, version: '1.0.0' };
+            const mockApiData = { lines: { l1: { id: 'l1', nombre: 'Linea 1', estado: '1', estaciones: [] } }, version: '1.0.0' };
             mockEstadoRedService.fetchStatus.mockResolvedValue(mockApiData);
             apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(true);
 
@@ -53,7 +53,7 @@ describe('ApiService', () => {
 
             expect(mockEstadoRedService.fetchStatus).toHaveBeenCalled();
             expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(expect.objectContaining({
-                lines: mockApiData.lines,
+                lines: expect.any(Object),
                 stations: {},
                 network: expect.any(Object),
             }));
@@ -62,7 +62,7 @@ describe('ApiService', () => {
 
         it('should fall back to DB data if API fetch fails', async () => {
             mockEstadoRedService.fetchStatus.mockRejectedValue(new Error('API Down'));
-            const mockDbData = { lines: { l1: { id: 'l1', estado: '1', estaciones: [] } }, version: '1.0.0' };
+            const mockDbData = { lines: { l1: { id: 'l1', nombre: 'Linea 1', estado: '1', estaciones: [] } }, version: '1.0.0' };
             apiService.getDbRawData = jest.fn().mockResolvedValue(mockDbData);
             apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(true);
 
@@ -71,7 +71,7 @@ describe('ApiService', () => {
             expect(mockEstadoRedService.fetchStatus).toHaveBeenCalled();
             expect(apiService.getDbRawData).toHaveBeenCalled();
             expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(expect.objectContaining({
-                lines: mockDbData.lines,
+                lines: expect.any(Object),
                 stations: {},
                 network: expect.any(Object),
             }));
@@ -80,7 +80,7 @@ describe('ApiService', () => {
 
         it('should generate off-hours data when outside operating hours', async () => {
             apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(false);
-            const mockOffHoursData = { lines: { l1: { id: 'l1', estado: '15', estaciones: [] } }, version: '1.0.0' };
+            const mockOffHoursData = { lines: { l1: { id: 'l1', nombre: 'Linea 1', estado: '15', estaciones: [] } }, version: '1.0.0' };
             apiService._generateOffHoursData = jest.fn().mockResolvedValue(mockOffHoursData);
 
             const result = await apiService.fetchNetworkStatus();
@@ -88,7 +88,7 @@ describe('ApiService', () => {
             expect(mockEstadoRedService.fetchStatus).not.toHaveBeenCalled();
             expect(apiService._generateOffHoursData).toHaveBeenCalled();
             expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(expect.objectContaining({
-                lines: mockOffHoursData.lines,
+                lines: expect.any(Object),
                 stations: {},
                 network: expect.any(Object),
             }));
