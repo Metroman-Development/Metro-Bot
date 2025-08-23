@@ -6,10 +6,13 @@ const TimeHelpers = require('../../chronos/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
+const MetroInfoProvider = require('../../metro/providers/MetroInfoProvider');
 
 class EmbedManager {
-    constructor(statusUpdater) {
+    constructor(statusUpdater, metroCore) {
         this.parent = statusUpdater;
+        this.metroCore = metroCore;
+        this.infoProvider = new MetroInfoProvider(metroCore);
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;
@@ -107,7 +110,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         let currentData = data;
         if (!currentData) {
             logger.debug('[EmbedManager] No data provided, fetching fresh data...');
-            currentData = await this.parent.metroCore.getCurrentData();
+            currentData = this.infoProvider.data;
         }
 
         if (!currentData) {
@@ -253,10 +256,10 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async _fetchEmbedChannel() {
         try {
             logger.debug('[EmbedManager] Fetching embed channel', {
-                channelId: this.parent.metroCore.config.embedsChannelId
+                channelId: this.metroCore.config.embedsChannelId
             });
             return await this.parent.client.channels.fetch(
-                this.parent.metroCore.config.embedsChannelId
+                this.metroCore.config.embedsChannelId
             );
         } catch (error) {
             logger.error('[EmbedManager] Channel fetch failed', error);
@@ -265,7 +268,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     }
 
     async _fetchAllEmbedMessages(channel) {
-        const fetchPromises = Object.entries(this.parent.metroCore.config.embedMessageIds).map(
+        const fetchPromises = Object.entries(this.metroCore.config.embedMessageIds).map(
             async ([embedName, messageId]) => {
                 try {
                     const message = await channel.messages.fetch(messageId);
@@ -407,7 +410,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async refreshAllEmbeds() {
     try {
         logger.debug('[EmbedManager] Starting full refresh');
-        const currentData = await this.parent.metroCore.getCurrentData();
+        const currentData = this.infoProvider.data;
         
         // Bypass normal queue for time-critical updates
         if (this._updateLock) {

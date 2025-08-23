@@ -1,3 +1,5 @@
+const MetroInfoProvider = require('../../../core/metro/providers/MetroInfoProvider');
+
 module.exports = {
     name: 'linea',
     description: 'Muestra información de una línea del Metro de Santiago.',
@@ -8,19 +10,20 @@ module.exports = {
         }
 
         const lineId = args[0].toLowerCase();
-        const lineInfo = await metro.db.getLineInfo(lineId);
+        const infoProvider = new MetroInfoProvider(metro);
+        const lineInfo = infoProvider.getLineData(lineId);
 
         if (!lineInfo) {
             return ctx.reply('No se encontró información para esta línea.');
         }
 
-        let response = `*Información de la ${lineInfo.display_name}*\n\n`;
-        response += `*Nombre:* ${lineInfo.line_name}\n`;
-        response += `*Color:* ${lineInfo.line_color}\n`;
-        response += `*Estado:* ${lineInfo.status_message}\n`;
-        response += `*Total de estaciones:* ${lineInfo.total_stations}\n`;
-        response += `*Longitud total:* ${lineInfo.total_length_km} km\n`;
-        response += `*Horario de operación:* ${lineInfo.operating_hours_start} - ${lineInfo.operating_hours_end}\n`;
+        let response = `*Información de la ${lineInfo.nombre}*\n\n`;
+        response += `*Nombre:* ${lineInfo.nombre}\n`;
+        response += `*Color:* ${lineInfo.color}\n`;
+        response += `*Estado:* ${lineInfo.mensaje_app}\n`;
+        response += `*Total de estaciones:* ${lineInfo.data['N° estaciones']}\n`;
+        response += `*Longitud total:* ${lineInfo.data.Longitud}\n`;
+        response += `*Comunas:* ${lineInfo.data.Comunas.join(', ')}\n`;
 
         return ctx.replyWithMarkdown(response);
     }
