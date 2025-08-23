@@ -454,6 +454,9 @@ async activateEventOverrides(eventDetails) {
                 currentData = await this._generateOffHoursData();
             }
 
+            currentData.version = this._dataVersion;
+            currentData.network = this.generateNetworkSummary(currentData);
+
             const finalData = await this.dataEngine.handleRawData(currentData);
 
             if (finalData) {
@@ -523,6 +526,11 @@ async activateEventOverrides(eventDetails) {
                 }
             }
         }
+
+        offHoursData.network = {
+            status: 'closed',
+            timestamp: new Date().toISOString()
+        };
 
         return offHoursData;
     }
