@@ -1,4 +1,5 @@
 require('dotenv').config();
+console.log('DB_HOST from bootstrap:', process.env.DB_HOST);
 const fs = require('fs');
 const path = require('path');
 const logger = require('../events/logger');

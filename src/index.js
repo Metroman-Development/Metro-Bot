@@ -6,6 +6,7 @@ BigInt.prototype.toJSON = function() {
 const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+console.log('Hello from index.js');
 const logger = require('./events/logger');
 const DatabaseManager = require('./core/database/DatabaseManager');
 

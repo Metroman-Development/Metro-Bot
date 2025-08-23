@@ -36,7 +36,7 @@ class DatabaseManager extends EventEmitter {
             user: this.config.user,
             password: this.config.password,
             database: this.config.database,
-            port: this.config.port || process.env.DB_PORT || 3306,
+            port: this.config.port || 3306,
             connectionLimit: 50,
             connectTimeout: 10000, // 10 seconds
             timezone: 'Z',
