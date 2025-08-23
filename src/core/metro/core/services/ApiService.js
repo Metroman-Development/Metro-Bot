@@ -984,6 +984,8 @@ async activateEventOverrides(eventDetails) {
             networkStatus
         };
 
+        
+
         for (const line of dbLines) {
             const lineId = line.line_id.toLowerCase();
             dbRawData.lines[lineId] = {
@@ -998,6 +1000,9 @@ async activateEventOverrides(eventDetails) {
         const stationsArray = Array.isArray(dbStationsStatus) ? dbStationsStatus : Object.values(dbStationsStatus);
         
         for (const station of stationsArray) {
+
+            console.log(station);
+            
             const lineId = station.line_id.toLowerCase();
             if (dbRawData.lines[lineId]) {
                 const stationCode = station.station_code.toUpperCase();
