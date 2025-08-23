@@ -143,7 +143,6 @@ class MetroCore extends EventEmitter {
      */
     _bindEngineMethods() {
         this._safeEmit = this._engines.events.safeEmit.bind(this._engines.events);
-        this._combineData = this._engines.data.combine.bind(this._engines.data);
         this._emitError = this._engines.events.emitError.bind(this._engines.events);
         this._handleRawData = this._engines.data.handleRawData.bind(this._engines.data);
         this._enterSafeMode = this._engines.status.enterSafeMode.bind(this._engines.status);
@@ -402,8 +401,6 @@ class MetroCore extends EventEmitter {
                     newStaticData.lines || {}
                 )
             ]);
-
-            await this._combineData();
 
             logger.debug('[MetroCore] Static data refresh completed.');
 
