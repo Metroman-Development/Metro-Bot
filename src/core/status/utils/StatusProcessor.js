@@ -22,7 +22,7 @@ class StatusProcessor {
   async processRawAPIData(rawData, user = 'system') {
     
 
-    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA: ", rawData);
+    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING ");
     
     try {
       if (!rawData || typeof rawData !== 'object') {
@@ -759,6 +759,9 @@ _transformLine(lineId, lineData) {
 
 // In the _transformStation method:
 _transformStation(station, lineId) {
+
+    console.log(station);
+  
     const estado = station.estado;
     const statusCode = estado != null ? estado.toString() : 'unknown';
     const statusInfo = this._getStatusInfo(statusCode, 'station', station.codigo);
