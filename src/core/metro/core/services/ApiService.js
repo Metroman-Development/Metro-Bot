@@ -807,14 +807,44 @@ async activateEventOverrides(eventDetails) {
     extractLineAndStationData(currentData) {
         const lines = currentData.lines || currentData.lineas || {};
         const stations = {};
-        for (const line of Object.values(lines)) {
-            if (line.estaciones) {
-                for (const station of line.estaciones) {
-                    stations[station.codigo] = station;
-                }
+        const sanitizedLines = {};
+
+        for (const [lineId, line] of Object.entries(lines)) {
+            // Basic validation for a line object
+            if (!line || typeof line !== 'object' || !line.nombre) {
+                logger.warn(`[ApiService] Skipping invalid or incomplete line object with id: ${lineId}`, { line });
+                continue;
             }
+
+            const sanitizedLine = {
+                ...line,
+                id: lineId,
+                displayName: line.nombre,
+                status: line.estado, // map estado to status
+            };
+
+            if (Array.isArray(line.estaciones)) {
+                sanitizedLine.estaciones = line.estaciones.map(station => {
+                    if (!station || typeof station !== 'object' || !station.codigo || !station.nombre) {
+                        logger.warn(`[ApiService] Skipping invalid or incomplete station object in line ${lineId}`, { station });
+                        return null; // This will be filtered out later
+                    }
+                    const sanitizedStation = {
+                        ...station,
+                        id: station.codigo,
+                        name: station.nombre,
+                        status: station.estado // map estado to status
+                    };
+                    stations[sanitizedStation.id] = sanitizedStation;
+                    return sanitizedStation;
+                }).filter(Boolean); // remove nulls
+            } else {
+                sanitizedLine.estaciones = [];
+            }
+
+            sanitizedLines[lineId] = sanitizedLine;
         }
-        return { lines, stations };
+        return { lines: sanitizedLines, stations };
     }
 
     generateNetworkSummary(lines) {
