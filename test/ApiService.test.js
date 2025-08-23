@@ -1,5 +1,4 @@
 const ApiService = require('../src/core/metro/core/services/ApiService');
-const EventRegistry = require('../src/core/EventRegistry');
 
 // Mock dependencies
 jest.mock('../src/events/logger', () => ({
@@ -13,8 +12,14 @@ jest.mock('../src/events/logger', () => ({
 describe('ApiService', () => {
     let apiService;
     let mockMetro;
+    let mockDataEngine;
+    let mockEstadoRedService;
 
     beforeEach(() => {
+        mockDataEngine = {
+            handleRawData: jest.fn(data => Promise.resolve(data)),
+        };
+
         mockMetro = {
             _subsystems: {
                 statusOverrideService: {
@@ -22,237 +27,71 @@ describe('ApiService', () => {
                     applyOverrides: jest.fn((data) => data),
                 },
             },
-            refreshStaticData: jest.fn(),
-            api: {
-                getDataFreshness: jest.fn().mockReturnValue({ lastRefresh: null }),
-            }
         };
 
         const mockDbService = {
-            updateNetworkStatusSummary: jest.fn(),
-            getAllLinesStatus: jest.fn().mockResolvedValue([]),
-            getAllStationsStatusAsRaw: jest.fn().mockResolvedValue([]),
-            getAccessibilityStatus: jest.fn().mockResolvedValue([]),
-            updateLineStatus: jest.fn(),
-            updateStationStatus: jest.fn(),
-            updateAllData: jest.fn(),
-            updateChanges: jest.fn(),
+            updateAllData: jest.fn().mockResolvedValue(true),
+            getDbRawData: jest.fn().mockResolvedValue({ lines: {} }),
         };
 
-        apiService = new ApiService(mockMetro, { dbService: mockDbService });
-    });
+        apiService = new ApiService(mockMetro, { dbService: mockDbService }, mockDataEngine);
 
-    describe('_processData', () => {
-        it('should translate raw data before processing', async () => {
-            const rawData = {
-                lineas: {
-                    l1: {
-                        estado: '1',
-                        estaciones: [
-                            { estado: '1', nombre: 'San Pablo', codigo: 'SP' },
-                            { estado: '2', nombre: 'Neptuno', codigo: 'NE' },
-                        ]
-                    },
-                    l2: {
-                        estado: '2',
-                        estaciones: [
-                            { estado: '3', nombre: 'Pajaritos', codigo: 'PA' },
-                        ]
-                    }
-                }
-            };
-
-            const mockStatusProcessor = {
-                processRawAPIData: jest.fn(data => data)
-            };
-            apiService.statusProcessor = mockStatusProcessor;
-
-            await apiService._processData(rawData);
-
-            expect(mockStatusProcessor.processRawAPIData).toHaveBeenCalledWith(
-                expect.objectContaining({
-                    lineas: {
-                        l1: {
-                            estado: '1',
-                            estaciones: [
-                                { estado: '1', nombre: 'San Pablo', codigo: 'SP' },
-                                { estado: '2', nombre: 'Neptuno', codigo: 'NE' },
-                            ]
-                        },
-                        l2: {
-                            estado: '2',
-                            estaciones: [
-                                { estado: '3', nombre: 'Pajaritos', codigo: 'PA' },
-                            ]
-                        }
-                    }
-                }),
-                'MetroApp'
-            );
-        });
-    });
-
-    it('should add a version to raw data if it is missing', () => {
-        const rawData = {
-            lines: { l1: { id: 'l1', status: '1' } },
-            stations: { s1: { id: 's1', name: 'Station 1' } },
-            network: { status: 'operational' },
-            lastUpdated: new Date().toISOString()
+        // Mock the internal EstadoRedService instance
+        mockEstadoRedService = {
+            fetchStatus: jest.fn(),
         };
-
-        apiService.emit = jest.fn();
-
-        apiService._emitRawData(rawData, false);
-
-        expect(apiService.emit).toHaveBeenCalledWith(EventRegistry.RAW_DATA_FETCHED, expect.any(Object));
-
-        const emittedPayload = apiService.emit.mock.calls[0][1];
-        expect(emittedPayload.data).toHaveProperty('version');
-        expect(typeof emittedPayload.data.version).toBe('string');
-        expect(emittedPayload.data.version.length).toBeGreaterThanOrEqual(10);
+        apiService.estadoRedService = mockEstadoRedService;
     });
 
-    it('should not overwrite an existing version on raw data', () => {
-        const rawData = {
-            lines: {},
-            stations: {},
-            network: { status: 'operational' },
-            version: 'existing-version-123',
-        };
+    describe('fetchNetworkStatus', () => {
+        it('should fetch from API during operating hours and process through DataEngine', async () => {
+            const mockApiData = { lines: { l1: { status: 'operational' } } };
+            mockEstadoRedService.fetchStatus.mockResolvedValue(mockApiData);
+            apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(true);
 
-        apiService.emit = jest.fn();
+            const result = await apiService.fetchNetworkStatus();
 
-        apiService._emitRawData(rawData, false);
-
-        const emittedPayload = apiService.emit.mock.calls[0][1];
-        expect(emittedPayload.data.version).toBe('existing-version-123');
-    });
-
-    describe('_handleDataChanges', () => {
-        it('should save the last 10 api changes to apiChanges.json', async () => {
-            const fsp = require('fs').promises;
-            fsp.readFile = jest.fn().mockResolvedValue(JSON.stringify(new Array(10).fill({})));
-            fsp.writeFile = jest.fn();
-
-            apiService.changeDetector = {
-                analyze: jest.fn().mockReturnValue({ changes: [{ id: 'l1', to: '2' }] })
-            };
-
-            await apiService._handleDataChanges({}, {}, {});
-
-            expect(fsp.writeFile).toHaveBeenCalledWith(
-                expect.any(String),
-                expect.any(String),
-                'utf8'
-            );
-
-            const writtenData = JSON.parse(fsp.writeFile.mock.calls[0][1]);
-            expect(writtenData.length).toBe(10);
+            expect(mockEstadoRedService.fetchStatus).toHaveBeenCalled();
+            expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(mockApiData);
+            expect(result).toEqual(mockApiData);
         });
-    });
 
-    describe('_basicProcessData', () => {
-        it('should add linea and other properties to stations', () => {
-            const rawData = {
-                lineas: {
-                    l1: {
-                        nombre: 'Linea 1',
-                        estado: '1',
-                        mensaje: '',
-                        mensaje_app: '',
-                        estaciones: [
-                            {
-                                codigo: 'SP',
-                                nombre: 'San Pablo',
-                                estado: '1',
-                                descripcion: 'Operativa',
-                                descripcion_app: 'Operational',
-                                extra_field: 'extra_value'
-                            }
-                        ]
-                    }
-                }
-            };
-
-            const processedData = apiService._basicProcessData(rawData);
-
-            const station = processedData.stations['SP'];
-            expect(station).toBeDefined();
-            expect(station.linea).toBe('l1');
-            expect(station.id).toBe('SP');
-            expect(station.name).toBe('San Pablo');
-            expect(station.extra_field).toBe('extra_value');
-        });
-    });
-
-    describe('getCurrentData', () => {
-        it('should return processed data from the database', async () => {
-            const mockDbData = {
-                lineas: {
-                    l1: {
-                        nombre: 'Linea 1',
-                        estado: '1',
-                        mensaje: '',
-                        mensaje_app: '',
-                        estaciones: [{
-                            codigo: 'SP',
-                            nombre: 'San Pablo',
-                            estado: '1',
-                            descripcion: 'Operativa',
-                            descripcion_app: 'Operational',
-                        }]
-                    }
-                }
-            };
+        it('should fall back to DB data if API fetch fails', async () => {
+            mockEstadoRedService.fetchStatus.mockRejectedValue(new Error('API Down'));
+            const mockDbData = { lines: { l1: { status: 'from_db' } } };
             apiService.getDbRawData = jest.fn().mockResolvedValue(mockDbData);
+            apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(true);
 
-            const processedData = await apiService.getCurrentData();
+            const result = await apiService.fetchNetworkStatus();
 
+            expect(mockEstadoRedService.fetchStatus).toHaveBeenCalled();
             expect(apiService.getDbRawData).toHaveBeenCalled();
-            expect(processedData).toHaveProperty('lines');
-            expect(processedData).toHaveProperty('stations');
-            expect(processedData.lines.l1.displayName).toBe('Linea 1');
-            expect(processedData.stations.SP.name).toBe('San Pablo');
+            expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(mockDbData);
+            expect(result).toEqual(mockDbData);
         });
 
-        it('should correctly process data when dbStations is an object', async () => {
-            const mockStations = {
-                'SP': {
-                    line_id: 'l1',
-                    station_code: 'SP',
-                    station_name: 'San Pablo',
-                    estado: '1',
-                    descripcion: 'Operativa',
-                    descripcion_app: 'Operational',
-                }
-            };
+        it('should generate off-hours data when outside operating hours', async () => {
+            apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(false);
+            const mockOffHoursData = { lines: { l1: { status: 'closed' } } };
+            apiService._generateOffHoursData = jest.fn().mockResolvedValue(mockOffHoursData);
 
-            apiService.dbService.getAllLinesStatus.mockResolvedValue([{ line_id: 'l1', line_name: 'Linea 1', status_code: '1', status_message: '', app_message: '' }]);
-            apiService.dbService.getAllStationsStatusAsRaw.mockResolvedValue(Object.values(mockStations));
-            apiService.dbService.getAccessibilityStatus = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllIncidents = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllIncidentTypes = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllTrainModels = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllLineFleet = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllStatusOverrides = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllScheduledStatusOverrides = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllJsStatusMapping = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllOperationalStatusTypes = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllStationStatusHistory = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllStatusChangeLog = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getSystemInfo = jest.fn().mockResolvedValue({});
-            apiService.dbService.getIntermodalStations = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getAllIntermodalBuses = jest.fn().mockResolvedValue([]);
-            apiService.dbService.getNetworkStatus = jest.fn().mockResolvedValue({});
+            const result = await apiService.fetchNetworkStatus();
 
-            const processedData = await apiService.getCurrentData();
-
-            expect(processedData).toHaveProperty('lines');
-            expect(processedData).toHaveProperty('stations');
-            expect(processedData.lines.l1.displayName).toBe('Linea 1');
-            expect(processedData.stations.SP.name).toBe('San Pablo');
-            expect(Array.isArray(processedData.lines.l1.stations)).toBe(true);
+            expect(mockEstadoRedService.fetchStatus).not.toHaveBeenCalled();
+            expect(apiService._generateOffHoursData).toHaveBeenCalled();
+            expect(mockDataEngine.handleRawData).toHaveBeenCalledWith(mockOffHoursData);
+            expect(result).toEqual(mockOffHoursData);
         });
 
+        it('should return null and log an error if all data sources fail', async () => {
+            mockEstadoRedService.fetchStatus.mockRejectedValue(new Error('API Down'));
+            apiService.getDbRawData = jest.fn().mockRejectedValue(new Error('DB Down'));
+            apiService.timeHelpers.isWithinOperatingHours = jest.fn().mockReturnValue(true);
+
+            const result = await apiService.fetchNetworkStatus();
+
+            expect(result).toBeNull();
+            expect(apiService.metrics.failedRequests).toBe(1);
+        });
     });
 });
