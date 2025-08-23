@@ -74,7 +74,7 @@ async function startDiscordBot() {
         await connectToDiscord(discordClient);
         await metroCore.setClient(discordClient);
 
-        const SchedulerService = require('./core/chronos/SchedulerService');
+        const SchedulerService = require('./core/SchedulerService');
         const discordScheduler = new SchedulerService();
 
         let lastEmbedUpdate = null;
