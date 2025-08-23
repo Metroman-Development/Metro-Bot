@@ -41,39 +41,33 @@ describe('DataEngine', () => {
         expect(mockMetro._emitError).not.toHaveBeenCalled();
     });
 
-    it('should return null and log a warning if data is missing network field', async () => {
+    it('should throw an error if data is missing network field', async () => {
         const currentData = {
             version: '3.0.0',
             lines: {},
             stations: {}
         };
 
-        const result = await dataEngine.handleRawData(currentData);
-
-        expect(result).toBeNull();
+        await expect(dataEngine.handleRawData(currentData)).rejects.toThrow('Incoming data is missing network or version fields.');
         expect(mockMetro._subsystems.managers.stations.updateData).not.toHaveBeenCalled();
         expect(mockMetro._safeEmit).not.toHaveBeenCalled();
     });
 
-    it('should return null and log a warning if data is missing version field', async () => {
+    it('should throw an error if data is missing version field', async () => {
         const currentData = {
             network: { status: 'operational' },
             lines: {},
             stations: {}
         };
 
-        const result = await dataEngine.handleRawData(currentData);
-
-        expect(result).toBeNull();
+        await expect(dataEngine.handleRawData(currentData)).rejects.toThrow('Incoming data is missing network or version fields.');
         expect(mockMetro._subsystems.managers.stations.updateData).not.toHaveBeenCalled();
         expect(mockMetro._safeEmit).not.toHaveBeenCalled();
     });
 
-    it('should return null for invalid data and emit an error', async () => {
-        const result = await dataEngine.handleRawData(null);
-
-        expect(result).toBeNull();
-        expect(mockMetro._emitError).toHaveBeenCalledWith('handleRawData', expect.any(Error), { rawData: null });
+    it('should throw an error for invalid data', async () => {
+        await expect(dataEngine.handleRawData(null)).rejects.toThrow('Invalid currentData received');
+        expect(mockMetro._emitError).not.toHaveBeenCalled();
     });
 
     it('should correctly expose the last processed data via getLastCombinedData', async () => {
