@@ -1207,12 +1207,14 @@ async activateEventOverrides(eventDetails) {
                 return acc;
             }, {});
 
+            console.log(stationsByCode)
+
             for (const lineId in apiData.lineas) {
                 const line = apiData.lineas[lineId];
                 if (line.estaciones && Array.isArray(line.estaciones)) {
                     for (const apiStation of line.estaciones) {
                         const stationCode = apiStation.codigo.toUpperCase();
-                        const key = `${stationCode}`;
+                        const key = stationCode7;
                         const dbStation = stationsByCode[key];
 
                         if (dbStation) {
