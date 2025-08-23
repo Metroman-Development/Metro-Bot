@@ -7,23 +7,24 @@ module.exports = class DataEngine {
     }
 
     async handleRawData(currentData) {
-        try {
-            if (!currentData || typeof currentData !== 'object') {
-                throw new Error('Invalid currentData received');
-            }
+        // Basic validation for critical fields
+        if (!currentData || typeof currentData !== 'object') {
+            throw new Error('Invalid currentData received');
+        }
 
+        if (!currentData.network || !currentData.version) {
+            // An error is thrown to stop the execution chain
+            const error = new Error('Incoming data is missing network or version fields.');
+            logger.error(`[DataEngine] ${error.message}`, {
+                hasNetwork: !!currentData.network,
+                hasVersion: !!currentData.version,
+            });
+            throw error;
+        }
+
+        try {
             // Data is already processed by ApiService, no need for combining.
             // The new data structure is self-contained.
-
-            // Basic validation for critical fields
-            if (!currentData.network || !currentData.version) {
-                logger.warn('[DataEngine] Incoming data is missing network or version fields.', {
-                    hasNetwork: !!currentData.network,
-                    hasVersion: !!currentData.version,
-                });
-                // Do not proceed if the data is fundamentally flawed.
-                return null;
-            }
 
             // Update managers with the new, complete data
             this._updateManagers(currentData);
