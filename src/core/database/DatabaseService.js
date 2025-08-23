@@ -119,6 +119,8 @@ class DatabaseService {
                     appMessage: line.status.appMessage
                 });
 
+                console.log("DATA: ", data)
+
                 if (line.stations) {
                     for (const stationId of line.stations) {
                         const station = data.stations[stationId.toUpperCase()];
