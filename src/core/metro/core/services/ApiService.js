@@ -425,15 +425,14 @@ async activateEventOverrides(eventDetails) {
     }
 
     async getCurrentData() {
-        // This function now fetches data directly from the database, processes it, and returns it.
-        // It ensures that the embed manager always has the most up-to-date information from the database.
-        logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
-        const dbRawData = await this.getDbRawData();
-        
-        const currentData = await this._processData(dbRawData);
-        
-        this._updateCurrentData(currentData);
-        return currentData;
+        // This function now gets data directly from the MetroInfoProvider.
+        // It ensures that the embed manager always has the most up-to-date information.
+        logger.debug('[ApiService] getCurrentData called. Fetching fresh data from MetroInfoProvider.');
+        if (this.metro && this.metro._subsystems && this.metro._subsystems.metroInfoProvider) {
+            return this.metro._subsystems.metroInfoProvider.getFullData();
+        }
+        logger.warn('[ApiService] MetroInfoProvider not available. Returning last known data.');
+        return this.lastCurrentData;
     }
 
     async fetchNetworkStatus() {
@@ -604,6 +603,9 @@ async activateEventOverrides(eventDetails) {
     _updateState(newData) {
         logger.debug('[ApiService] Updating service state');
         this.cachedData = newData;
+        if (this.metro && this.metro._subsystems && this.metro._subsystems.metroInfoProvider) {
+            this.metro._subsystems.metroInfoProvider.updateData(newData);
+        }
         this.emit('data', newData);
         this._emitRawData(newData, false);
     }
