@@ -66,7 +66,7 @@ class StatusProcessor {
         isFallback: false
       };
 
-      console.log(stations)
+      //console.log(stations)
 
       return currentData;
     } catch (error) {
