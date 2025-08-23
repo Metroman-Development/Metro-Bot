@@ -453,6 +453,7 @@ async activateEventOverrides(eventDetails) {
 
         try {
             let currentData;
+            const dbRawData = await this.getDbRawData();
             if (this.timeHelpers.isWithinOperatingHours()) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
                 try {
@@ -468,6 +469,25 @@ async activateEventOverrides(eventDetails) {
                                 if (lineName) {
                                     line.nombre = lineName;
                                     logger.debug(`[ApiService] Enriched line ${lineId} with name "${lineName}"`);
+                                }
+                            }
+                            if (line && line.estaciones) {
+                                for (const station of line.estaciones) {
+                                    if (dbRawData.lines) {
+                                        const dbLine = dbRawData.lines[lineId.toLowerCase()];
+                                        if (dbLine && dbLine.estaciones) {
+                                            const dbStation = dbLine.estaciones.find(s => s.codigo.toUpperCase() === station.codigo.toUpperCase());
+                                            if (dbStation) {
+                                                const apiStatus = {
+                                                    estado: station.estado,
+                                                    descripcion: station.descripcion,
+                                                    descripcion_app: station.descripcion_app
+                                                };
+                                                Object.assign(station, dbStation);
+                                                Object.assign(station, apiStatus);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
