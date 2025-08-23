@@ -760,7 +760,7 @@ _transformLine(lineId, lineData) {
 // In the _transformStation method:
 _transformStation(station, lineId) {
 
-    console.log(station);
+     // console.log(station);
   
     const estado = station.estado;
     const statusCode = estado != null ? estado.toString() : 'unknown';
