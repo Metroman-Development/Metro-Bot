@@ -609,8 +609,12 @@ async activateEventOverrides(eventDetails) {
     }
 
     async _processData(rawData) {
-        logger.detailed('[ApiService] Starting data processing', rawData);
+
+        console.log("BEFORE TRANSLATE: ", rawData)
+        //logger.detailed('[ApiService] Starting data processing', rawData);
         const translatedData = await translateApiData(rawData, this.dbService);
+        
+        console.log("AFTER TRANSLATE: ", translatedData);
         //logger.detailed('[ApiService] Translated data', translatedData);
         return this.statusProcessor
             ? this.statusProcessor.processRawAPIData(translatedData, 'MetroApp')
@@ -1238,7 +1242,7 @@ async activateEventOverrides(eventDetails) {
 
             logger.debug('[ApiService] Data enrichment complete.');
 
-            console.log(apiData);
+            //console.log(apiData);
             
             return apiData;
 
@@ -1255,6 +1259,8 @@ async activateEventOverrides(eventDetails) {
             let rawData = await this.estadoRedService.fetchStatus();
             rawData = await this._enrichApiData(rawData);
             const currentData = await this._processData(rawData);
+
+            
             // Call the new comprehensive update method
             await this.dbService.updateAllData(currentData);
             logger.info('[ApiService] Database populated with initial data from API.');
