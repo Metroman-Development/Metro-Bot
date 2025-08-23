@@ -1,10 +1,12 @@
 const logger = require('./events/logger');
 const initialize = require('./core/bootstrap');
 const SchedulerService = require('./core/SchedulerService');
-const timeHelpers = require('./utils/timeHelpers');
+const TimeHelpers = require('./utils/timeHelpers');
 const ApiService = require('./core/metro/core/services/ApiService');
 const MetroInfoProvider = require('./utils/MetroInfoProvider');
 const moment = require('moment-timezone');
+const AnnouncementService = require('./core/metro/announcers/AnnouncementService');
+const chronosConfig = require('./config/chronosConfig');
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
@@ -12,11 +14,10 @@ async function startScheduler() {
 
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
-    let lastFarePeriod = null;
-    let lastServiceStatus = null;
+    const announcementService = new AnnouncementService();
+    const timeHelpers = new TimeHelpers();
 
     const scheduler = new SchedulerService(metroCore, db);
-    const chronosConfig = require('./config/chronosConfig');
 
     // API fetching job
     scheduler.addJob({
@@ -26,58 +27,6 @@ async function startScheduler() {
             if (timeHelpers.isWithinOperatingHours()) {
                 const apiData = await apiService.fetchNetworkStatus();
                 MetroInfoProvider.updateFromApi(apiData);
-            }
-        }
-    });
-
-    // Check Service Status job
-    scheduler.addJob({
-        name: 'check-service-status',
-        interval: 10000, // Every 10 seconds
-        task: async () => {
-            const isOperating = timeHelpers.isWithinOperatingHours();
-
-            if (lastServiceStatus !== isOperating) {
-                if (isOperating) {
-                    logger.info('[SCHEDULER] Metro service has started.');
-                } else {
-                    logger.info('[SCHEDULER] Metro service has ended.');
-                    await dbService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
-                }
-                lastServiceStatus = isOperating;
-            }
-        }
-    });
-
-    // Check Fare Period job
-    scheduler.addJob({
-        name: 'check-fare-period',
-        interval: 10000, // Every 10 seconds
-        task: async () => {
-            const now = timeHelpers.currentTime;
-            let currentFarePeriod = 'NOCHE'; // Default when not operating
-
-            if (timeHelpers.isWithinOperatingHours(now)) {
-                const dayType = timeHelpers.getDayType(now);
-
-                if (dayType === 'weekday') {
-                    currentFarePeriod = 'BAJO'; // Default for weekday operating hours
-
-                    if (chronosConfig.farePeriods.PUNTA.some(p => timeHelpers.isTimeBetween(now, p.start, p.end))) {
-                        currentFarePeriod = 'PUNTA';
-                    } else if (chronosConfig.farePeriods.VALLE.some(p => timeHelpers.isTimeBetween(now, p.start, p.end))) {
-                        currentFarePeriod = 'VALLE';
-                    }
-                } else {
-                    // Saturday, Sunday, Festive
-                    currentFarePeriod = 'BAJO';
-                }
-            }
-
-            if (lastFarePeriod !== currentFarePeriod) {
-                logger.info(`[SCHEDULER] Fare period changed from ${lastFarePeriod} to ${currentFarePeriod}`);
-                lastFarePeriod = currentFarePeriod;
-                await dbService.updateFarePeriod(currentFarePeriod);
             }
         }
     });
@@ -180,11 +129,32 @@ async function startScheduler() {
     // Load jobs from chronosConfig
     if (chronosConfig.jobs && Array.isArray(chronosConfig.jobs)) {
         chronosConfig.jobs.forEach(jobConfig => {
-            const taskFunction = async () => {
-                await scheduler.checkAndScheduleEvents();
-                // The logic to call tasks from chronosConfig has been removed
-                // as TimeService is no longer in use.
-            };
+            const [service, method] = jobConfig.task.split('.');
+            let taskFunction;
+
+            if (service === 'announcementService') {
+                taskFunction = async () => {
+                    logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
+                    const operatingHours = timeHelpers.getOperatingHours();
+                    const periodInfo = timeHelpers.getFarePeriod();
+
+                    switch (method) {
+                        case 'announceServiceStart':
+                            await announcementService.announceServiceTransition('start', operatingHours);
+                            break;
+                        case 'announceServiceEnd':
+                            await announcementService.announceServiceTransition('end', operatingHours);
+                            break;
+                        case 'announceFarePeriodChange':
+                            await announcementService.announceFarePeriodChange(periodInfo.type, periodInfo);
+                            break;
+                    }
+                };
+            } else {
+                taskFunction = async () => {
+                    await scheduler.checkAndScheduleEvents();
+                };
+            }
 
             scheduler.addJob({
                 name: jobConfig.name,

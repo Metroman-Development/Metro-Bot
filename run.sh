@@ -9,12 +9,12 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-# # Export environment variables from .env file
-# if [ -f .env ]; then
-#     set -a
-#     source .env
-#     set +a
-# fi
+# Export environment variables from .env file
+if [ -f .env ]; then
+    set -a
+    source .env
+    set +a
+fi
 
 # --- Initial Setup ---
 if [ -f .env ] && grep -q "^SKIPGITPULL=true" .env; then
