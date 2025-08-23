@@ -10,12 +10,12 @@ const chronosConfig = require('./config/chronosConfig');
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroCore, db } = await initialize('SCHEDULER');
+    const { metroCore } = await initialize('SCHEDULER');
+    const db = metroCore.dbManager;
 
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
-    const timeHelpers = new TimeHelpers();
 
     const scheduler = new SchedulerService(metroCore, db);
 
@@ -24,7 +24,7 @@ async function startScheduler() {
         name: 'api-fetch',
         interval: 60000, // Every minute
         task: async () => {
-            if (timeHelpers.isWithinOperatingHours()) {
+            if (TimeHelpers.isWithinOperatingHours()) {
                 const apiData = await apiService.fetchNetworkStatus();
                 MetroInfoProvider.updateFromApi(apiData);
             }
@@ -41,7 +41,7 @@ async function startScheduler() {
                 let activeEvent = null;
                 if (result && result.length > 0 && result[0].events) {
                     const events = JSON.parse(result[0].events);
-                    const now = timeHelpers.currentTime;
+                    const now = TimeHelpers.currentTime;
 
                     for (const event of events) {
                         const startTime = moment.tz(event.startTime, chronosConfig.timezone);
@@ -106,7 +106,7 @@ async function startScheduler() {
 
                 data.network_status = {
                     status: networkStatus,
-                    timestamp: timeHelpers.currentTime.toISOString()
+                    timestamp: TimeHelpers.currentTime.toISOString()
                 };
                 MetroInfoProvider.updateData(data);
                 logger.info('[SCHEDULER] Calculating network status...');
@@ -135,8 +135,8 @@ async function startScheduler() {
             if (service === 'announcementService') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
-                    const operatingHours = timeHelpers.getOperatingHours();
-                    const periodInfo = timeHelpers.getFarePeriod();
+                    const operatingHours = TimeHelpers.getOperatingHours();
+                    const periodInfo = TimeHelpers.getFarePeriod();
 
                     switch (method) {
                         case 'announceServiceStart':

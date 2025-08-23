@@ -140,7 +140,7 @@ start_service() {
 
     echo "Starting service '$service_name'..."
     rotate_log "$log_file"
-    nohup node "$service_script" > "$log_file" 2>&1 &
+    nohup env DB_HOST=localhost DB_USER=metroapi DB_PASSWORD=Metro256 METRODB_NAME=MetroDB node "$service_script" > "$log_file" 2>&1 &
     local pid=$!
     echo "$pid" > "$pid_file"
     echo "Service '$service_name' started with PID $pid. Log: $log_file"
