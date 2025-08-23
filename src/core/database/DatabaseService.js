@@ -217,6 +217,11 @@ class DatabaseService {
                         location = VALUES(location)
                 `;
 
+                
+                console.log(query);
+                console.log(stationDataParams);
+                
+
                 await connection.query(query, stationDataParams);
             }
 
@@ -254,7 +259,13 @@ class DatabaseService {
                             status_description = VALUES(status_description),
                             status_message = VALUES(status_message)
                     `;
+
+                    
                     const statusParams = statusValues.flat();
+                    
+
+                    
+                    
                     await connection.query(statusQuery, statusParams);
                 }
             }
