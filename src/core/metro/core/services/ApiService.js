@@ -1223,7 +1223,7 @@ async activateEventOverrides(eventDetails) {
                             );*/
 
                             const finalStation = {
-                                ...cleanDbStation,
+                                ...dbStation,
                                 ...apiStation,
                                 access_details: accessibilityByStation[stationCode] || []
                             };
