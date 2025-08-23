@@ -11,7 +11,6 @@ const ScheduleEngine = require('./internal/ScheduleEngine');
 
 const DataLoader = require('./DataLoader');
 const ApiService =require('./services/ApiService');
-const SchedulerService = require('../../chronos/SchedulerService');
 const TimeService = require('./services/TimeService');
 const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
