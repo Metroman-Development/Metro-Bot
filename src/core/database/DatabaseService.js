@@ -947,8 +947,16 @@ class DatabaseService {
         try {
             await connection.beginTransaction();
 
-            for (const lineId in apiData.lines) {
-                const line = apiData.lines[lineId];
+            const lines = apiData.lines || apiData;
+
+            for (const lineId in lines) {
+                const line = lines[lineId];
+
+                if (typeof line !== 'object' || !line.hasOwnProperty('estado')) {
+                    logger.warn(`[DatabaseService] Skipping invalid line object in API data for lineId: ${lineId}`);
+                    continue;
+                }
+
                 await this.updateLineStatus(connection, {
                     lineId: lineId,
                     statusCode: line.estado,
@@ -958,6 +966,12 @@ class DatabaseService {
 
                 if (line.estaciones) {
                     for (const station of line.estaciones) {
+
+                        if (typeof station !== 'object' || !station.codigo || !station.estado) {
+                            logger.warn(`[DatabaseService] Skipping invalid station object in API data for lineId: ${lineId}`, { station });
+                            continue;
+                        }
+
                         await this._updateStationStatusInTransaction(connection, {
                             stationCode: station.codigo,
                             lineId: lineId,
