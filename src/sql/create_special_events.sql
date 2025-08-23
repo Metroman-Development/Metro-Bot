@@ -7,5 +7,8 @@ CREATE TABLE IF NOT EXISTS `special_events` (
   `is_active` tinyint(1) DEFAULT 0,
   `in_stations` text DEFAULT NULL,
   `out_stations` text DEFAULT NULL,
+  `processed` tinyint(1) DEFAULT 0,
+  `job_id_start` varchar(255) DEFAULT NULL,
+  `job_id_end` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`event_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
