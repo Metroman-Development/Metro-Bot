@@ -455,9 +455,17 @@ async activateEventOverrides(eventDetails) {
             }
 
             currentData.version = this._dataVersion;
-            currentData.network = this.generateNetworkSummary(currentData);
 
-            const finalData = await this.dataEngine.handleRawData(currentData);
+            // This is the new data transformation logic
+            const { lines, stations } = this.extractLineAndStationData(currentData);
+            const networkSummary = this.generateNetworkSummary(lines);
+
+            const finalData = await this.dataEngine.handleRawData({
+                ...currentData,
+                lines,
+                stations,
+                network: networkSummary,
+            });
 
             if (finalData) {
                 this.lastRawData = currentData; // Store the original raw data
@@ -505,15 +513,15 @@ async activateEventOverrides(eventDetails) {
 
     async _generateOffHoursData() {
         const dbData = await this.getDbRawData();
-        if (!dbData || !dbData.lineas) {
+        if (!dbData || !dbData.lines) {
             logger.error('[ApiService] Cannot generate off-hours data: no data from database.');
-            return { lineas: {} };
+            return { lines: {} };
         }
 
         const offHoursData = JSON.parse(JSON.stringify(dbData));
 
-        for (const lineId in offHoursData.lineas) {
-            const line = offHoursData.lineas[lineId];
+        for (const lineId in offHoursData.lines) {
+            const line = offHoursData.lines[lineId];
             line.estado = '15';
             line.mensaje = 'Fuera de Horario Operativo';
             line.mensaje_app = 'Fuera de Horario Operativo';
@@ -796,27 +804,53 @@ async activateEventOverrides(eventDetails) {
         return simulatedChange;
     }
 
-    generateNetworkSummary(currentData) {
-        if (!currentData || !currentData.lines) {
+    extractLineAndStationData(currentData) {
+        const lines = currentData.lines || currentData.lineas || {};
+        const stations = {};
+        for (const line of Object.values(lines)) {
+            if (line.estaciones) {
+                for (const station of line.estaciones) {
+                    stations[station.codigo] = station;
+                }
+            }
+        }
+        return { lines, stations };
+    }
+
+    generateNetworkSummary(lines) {
+        if (!lines) {
             return {
+                status: 'outage',
                 lines: { total: 0, operational: 0, with_issues: [] },
                 stations: { total: 0, operational: 0, with_issues: [] },
                 timestamp: new Date().toISOString()
             };
         }
-        const lines = Object.values(currentData.lines);
-        const stations = lines.flatMap(line => line.stations || []);
+        const linesArray = Object.values(lines);
+        const stations = linesArray.flatMap(line => line.estaciones || []);
+        const operationalLines = linesArray.filter(line => line.estado === '1' || line.estado === 1).length;
+        const withIssues = linesArray.filter(line => line.estado !== '1' && line.estado !== 1).map(line => line.id);
+
+        let status = 'operational';
+        if (withIssues.length > 0) {
+            status = 'degraded';
+        }
+        if (operationalLines === 0 && linesArray.length > 0) {
+            status = 'outage';
+        }
+
 
         return {
+            status,
             lines: {
-                total: lines.length,
-                operational: lines.filter(line => line.status === '1').length,
-                with_issues: lines.filter(line => line.status !== '1').map(line => line.id),
+                total: linesArray.length,
+                operational: operationalLines,
+                with_issues: withIssues,
             },
             stations: {
                 total: stations.length,
-                operational: stations.filter(station => station.status === '1').length,
-                with_issues: stations.filter(station => station.status !== '1').map(station => station.id),
+                operational: stations.filter(station => station.estado === '1' || station.estado === 1).length,
+                with_issues: stations.filter(station => station.estado !== '1' && station.estado !== 1).map(station => station.id),
             },
             timestamp: new Date().toISOString()
         };
@@ -871,7 +905,7 @@ async activateEventOverrides(eventDetails) {
         }
 
         const dbRawData = {
-            lineas: {},
+            lines: {},
             incidents,
             incidentTypes,
             trainModels,
@@ -890,7 +924,7 @@ async activateEventOverrides(eventDetails) {
 
         for (const line of dbLines) {
             const lineId = line.line_id.toLowerCase();
-            dbRawData.lineas[lineId] = {
+            dbRawData.lines[lineId] = {
                 nombre: line.line_name,
                 estado: line.status_code,
                 mensaje: line.status_message,
@@ -903,11 +937,11 @@ async activateEventOverrides(eventDetails) {
         
         for (const station of stationsArray) {
             const lineId = station.line_id.toLowerCase();
-            if (dbRawData.lineas[lineId]) {
+            if (dbRawData.lines[lineId]) {
                 const stationCode = station.station_code.toUpperCase();
                 // The new mapping ensures all data from metro_stations is preserved,
                 // and the status data is correctly assigned.
-                dbRawData.lineas[lineId].estaciones.push({
+                dbRawData.lines[lineId].estaciones.push({
                     ...station, // Preserves all fields from metro_stations
                     codigo: stationCode,
                     nombre: station.station_name, // Use station_name directly
