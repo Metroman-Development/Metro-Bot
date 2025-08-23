@@ -1,4 +1,4 @@
-const SchedulerService = require('../../src/core/chronos/SchedulerService');
+const SchedulerService = require('../../src/core/SchedulerService');
 const logger = require('../../src/events/logger');
 
 // Mock the logger to prevent console output during tests

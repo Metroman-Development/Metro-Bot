@@ -1,7 +1,7 @@
 // core/EventPayload.js
 
 const EventValidator = require('./EventValidator');
-const TimeHelpers = require('./chronos/timeHelpers');
+const TimeHelpers = require('../utils/timeHelpers');
 
 class EventPayload {
     /**

@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 
 class AccessCore {
     constructor() {

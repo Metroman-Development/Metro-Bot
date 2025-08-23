@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { EmbedBuilder } = require('discord.js');
-const TimeHelpers = require('../core/chronos/timeHelpers');
+const TimeHelpers = require('../utils/timeHelpers');
 const loadJsonFile = require('../utils/jsonLoader');
 
 module.exports = class NewsWatcher {

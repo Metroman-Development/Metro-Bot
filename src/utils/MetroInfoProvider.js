@@ -33,9 +33,8 @@ class MetroInfoProvider {
     /**
      * Updates the data from the API.
      * @param {object} apiData - The data fetched from the API.
-     * @param {object} timeHelpers - The time helpers instance.
      */
-    updateFromApi(apiData, timeHelpers) {
+    updateFromApi(apiData) {
         const currentData = JSON.parse(JSON.stringify(this.getFullData()));
         const apiLastChange = new Date(apiData.lastSuccessfulFetch);
         const dbLastChange = new Date(currentData.last_updated);
@@ -50,9 +49,8 @@ class MetroInfoProvider {
     /**
      * Updates the data from the database.
      * @param {object} dbData - The data fetched from the database.
-     * @param {object} timeHelpers - The time helpers instance.
      */
-    updateFromDb(dbData, timeHelpers) {
+    updateFromDb(dbData) {
         const currentData = JSON.parse(JSON.stringify(this.getFullData()));
 
         for (const stationId in dbData.stations) {
@@ -69,7 +67,6 @@ class MetroInfoProvider {
             Object.assign(currentData.lines[lineId], dbData.lines[lineId]);
         }
 
-        currentData.last_updated = timeHelpers.currentTime;
         this.updateData(currentData);
     }
 

@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
-const config = require('../../config/chronosConfig');
-const logger = require('../../events/logger');
+const config = require('../config/chronosConfig');
+const logger = require('../events/logger');
 
 class TimeHelpers {
     static #DEFAULT_SCHEDULE = {

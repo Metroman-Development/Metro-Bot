@@ -1,16 +1,12 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
-const TimeService = require('../src/core/chronos/TimeService');
-
 describe('MetroInfoProvider', () => {
     let provider;
-    let timeHelpers;
 
     beforeEach(() => {
         provider = require('../src/utils/MetroInfoProvider');
         provider.updateData(null); // Reset data
-        timeHelpers = sinon.createStubInstance(TimeService);
     });
 
     it('should be a singleton', () => {
@@ -45,7 +41,7 @@ describe('MetroInfoProvider', () => {
             network: { status: 'operational' },
             lastSuccessfulFetch: new Date()
         };
-        provider.updateFromApi(apiData, timeHelpers);
+        provider.updateFromApi(apiData);
         const fullData = provider.getFullData();
         assert.deepStrictEqual(fullData.lines, apiData.lineas);
         assert.deepStrictEqual(fullData.network_status, apiData.network);
@@ -55,11 +51,8 @@ describe('MetroInfoProvider', () => {
         const dbData = {
             stations: { s1: { id: 'S1' } }
         };
-        const currentTime = new Date();
-        timeHelpers.currentTime = currentTime;
-        provider.updateFromDb(dbData, timeHelpers);
+        provider.updateFromDb(dbData);
         const fullData = provider.getFullData();
         assert.deepStrictEqual(fullData.stations, dbData.stations);
-        assert.deepStrictEqual(fullData.last_updated, currentTime);
     });
 });

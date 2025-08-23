@@ -68,7 +68,7 @@ class MetroCore extends EventEmitter {
         this._subsystems.utils = {
             string: stringUtils,
             config: this.config,
-            time: require('../../chronos/timeHelpers'),
+            time: require('../../../utils/timeHelpers'),
             getSafe: (obj, path, def = null) => {
                 try {
                     return path.split('.').reduce((o, p) => o && o[p], obj) || def;

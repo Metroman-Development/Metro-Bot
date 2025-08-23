@@ -1,5 +1,5 @@
 const metroConfig = require('../../../config/metro/metroConfig');
-const TimeHelpers = require('../../../core/chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 
 module.exports = {
     name: 'tarifa',

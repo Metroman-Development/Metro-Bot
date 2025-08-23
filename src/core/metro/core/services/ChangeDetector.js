@@ -7,7 +7,7 @@ const path = require('path');
 const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
-const { getTimestamp } = require('../../../chronos/timeHelpers');
+const { getTimestamp } = require('../../../../utils/timeHelpers');
 const baseline = {}
 
 class ChangeDetector {

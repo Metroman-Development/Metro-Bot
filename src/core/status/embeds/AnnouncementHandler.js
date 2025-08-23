@@ -2,7 +2,7 @@ const logger = require('../../../events/logger');
 const AnnouncementManager = require('./AnnouncementManager');
 const { EmbedBuilder } = require('discord.js');
 const EventRegistry = require('../../../core/EventRegistry');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const moment = require('moment-timezone');
 
 class AnnouncementHandler {
