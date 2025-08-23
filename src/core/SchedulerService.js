@@ -1,10 +1,9 @@
-const logger = require('../../events/logger');
+const logger = require('../events/logger');
 const schedule = require('node-schedule');
 
 class SchedulerService {
-    constructor(metroCore, timeService, db) {
+    constructor(metroCore, db) {
         this.metroCore = metroCore;
-        this.timeService = timeService;
         this.db = db;
         this.jobs = new Map();
         this.running = new Set();
@@ -53,11 +52,7 @@ class SchedulerService {
                     // Restore status from backup
                     const backups = await this.db.query('SELECT * FROM station_status_backup WHERE event_id = ?', [event.event_id]);
                     for (const backup of backups) {
-                        if (this.timeService.isWithinOperatingHours()) {
-                            await this.db.query('UPDATE station_status SET status_type_id = ?, status_description = ?, status_message = ? WHERE station_id = ?', [backup.status_type_id, backup.status_description, backup.status_message, backup.station_id]);
-                        } else {
-                            await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = ?', ['fuera de servicio', backup.station_id]);
-                        }
+                        await this.db.query('UPDATE station_status SET status_type_id = ?, status_description = ?, status_message = ? WHERE station_id = ?', [backup.status_type_id, backup.status_description, backup.status_message, backup.station_id]);
                     }
 
                     // Clean up backup and event

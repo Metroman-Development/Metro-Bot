@@ -1,7 +1,7 @@
 const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
 const statusConfig = require('../../../config/metro/statusConfig');
 const DatabaseManager = require('../../database/DatabaseManager');

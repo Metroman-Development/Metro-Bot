@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const chronosConfig = require('../../../../../config/chronosConfig');
 const metroConfig = require('../../../../../config/metro/metroConfig');
-const TimeHelpers = require('../../../../../core/chronos/timeHelpers.js');
+const TimeHelpers = require('../../../../../utils/timeHelpers.js');
 
 module.exports = {
     parentCommand: "tarifa",

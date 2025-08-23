@@ -2,7 +2,7 @@
 const { EmbedBuilder } = require('discord.js');
 const logger = require('../../../events/logger');
 const StatusEmbeds = require('../../../config/statusEmbeds');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');

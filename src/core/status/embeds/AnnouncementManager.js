@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../config/metro/metroConfig');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const moment = require('moment-timezone');
 const logger = require('../../../events/logger');
 

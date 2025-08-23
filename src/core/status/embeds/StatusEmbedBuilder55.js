@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js');
 const config = require('../config/statusConfig');
 const metroConfig = require('../../../config/metro/metroConfig');
 const { decorateStation } = require('../../metro/utils/stringHandlers/decorators');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const logger = require('../../../events/logger');
 
 class StatusEmbedBuilder {
