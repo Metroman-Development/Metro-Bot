@@ -126,69 +126,79 @@ function formatLog(level, message, metadata = {}) {
 // Logger functions
 const logger = {
     silly: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🤪", formatLog(LOG_LEVELS.SILLY, message, metadata));
         }
     },
 
     trace: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.trace("🔍", formatLog(LOG_LEVELS.TRACE, message, metadata));
         }
     },
 
     system: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🔩", formatLog(LOG_LEVELS.INFO, message, metadata));
         }
     },
     
     debug: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🐛", formatLog(LOG_LEVELS.INFO, message, metadata));
         }
     },
 
     info: (message, metadata = {}) => {
-        console.log("ℹ️", formatLog(LOG_LEVELS.INFO, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.log("ℹ️", formatLog(LOG_LEVELS.INFO, message, metadata));
+        }
     },
     
     success: (message, metadata = {}) => {
-        console.log("🎉", formatLog(LOG_LEVELS.INFO, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.log("🎉", formatLog(LOG_LEVELS.INFO, message, metadata));
+        }
     },
     
     warn: (message, metadata = {}) => {
-        console.warn("⚠️", formatLog(LOG_LEVELS.WARN, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.warn("⚠️", formatLog(LOG_LEVELS.WARN, message, metadata));
+        }
     },
 
     error: (message, metadata = {}) => {
-        console.error("❌", formatLog(LOG_LEVELS.ERROR, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.error("❌", formatLog(LOG_LEVELS.ERROR, message, metadata));
+        }
 
         // If the message is an Error object, send it as an embed
         if (message instanceof Error) {
-            sendErrorEmbed(message, metadata);
+            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(message, metadata);
         } else {
             // If the message is a string, wrap it in an Error object
             const error = new Error(message);
-            sendErrorEmbed(error, metadata);
+            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(error, metadata);
         }
     },
 
     fatal: (message, metadata = {}) => {
-        console.error("💀", formatLog(LOG_LEVELS.FATAL, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.error("💀", formatLog(LOG_LEVELS.FATAL, message, metadata));
+        }
 
         // If the message is an Error object, send it as an embed
         if (message instanceof Error) {
-            sendErrorEmbed(message, metadata);
+            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(message, metadata);
         } else {
             // If the message is a string, wrap it in an Error object
             const error = new Error(message);
-            sendErrorEmbed(error, metadata);
+            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(error, metadata);
         }
     },
 
     detailed: (message, data = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             const truncatedData = truncate(data);
             console.log("📝", formatLog(LOG_LEVELS.DETAILED, message, truncatedData));
         }
