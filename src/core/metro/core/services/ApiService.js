@@ -1190,6 +1190,8 @@ async activateEventOverrides(eventDetails) {
                 this.dbService.getAccessibilityStatus()
             ]);
 
+            console.log(dbStations);
+
             const accessibilityByStation = accessibilityStatus.reduce((acc, item) => {
                 const stationCode = item.station_code.toUpperCase();
                 if (!acc[stationCode]) {
@@ -1210,7 +1212,7 @@ async activateEventOverrides(eventDetails) {
                 if (line.estaciones && Array.isArray(line.estaciones)) {
                     for (const apiStation of line.estaciones) {
                         const stationCode = apiStation.codigo.toUpperCase();
-                        const key = `${stationCode}_${lineId}`;
+                        const key = `${stationCode}`;
                         const dbStation = stationsByCode[key];
 
                         if (dbStation) {
