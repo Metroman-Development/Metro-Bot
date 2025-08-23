@@ -22,7 +22,7 @@ class StatusProcessor {
   async processRawAPIData(rawData, user = 'system') {
     
 
-    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA; ", rawData);
+    //logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA; ", rawData);
     
     try {
       if (!rawData || typeof rawData !== 'object') {
@@ -65,6 +65,8 @@ class StatusProcessor {
         lastUpdated: timestamp.toISOString(),
         isFallback: false
       };
+
+      console.log(stations)
 
       return currentData;
     } catch (error) {
