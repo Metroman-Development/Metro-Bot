@@ -107,11 +107,11 @@ class MetroCore extends EventEmitter {
 
     /**
      * @private
-     * Initializes the data stores for static, dynamic, and combined data.
+     * Initializes the data stores for status, details, and combined data.
      */
     _initDataStores() {
-        this._staticData = {};
-        this._dynamicData = {};
+        this._statusData = {};
+        this._detailsData = {};
         this._combinedData = {
             version: '0.0.0',
             lastUpdated: new Date(0),
@@ -232,16 +232,16 @@ class MetroCore extends EventEmitter {
             // Phase 4: Set up event listeners
             this._setupEventListeners();
             
-            // Phase 5: Load static data
-            this._staticData = await this._subsystems.dataLoader.load();
-            this._dataVersion = this._staticData.version || `1.0.0-${Date.now()}`;
+            // Phase 5: Load status data
+            this._statusData = await this._subsystems.dataLoader.load();
+            this._dataVersion = this._statusData.version || `1.0.0-${Date.now()}`;
             
             // Phase 6: Initialize data managers
             await this._subsystems.managers.stations.updateData(
-                this._staticData.stations || {}
+                this._statusData.stations || {}
             );
             await this._subsystems.managers.lines.updateData(
-                this._staticData.lines || {}
+                this._statusData.lines || {}
             );
             
             // Phase 7: Fetch initial network status
@@ -372,43 +372,43 @@ class MetroCore extends EventEmitter {
     }
 
     /**
-     * Refreshes static data from source files and and updates all dependent subsystems.
+     * Refreshes status data from source files and and updates all dependent subsystems.
      * @returns {Promise<void>} Resolves when the refresh is complete, or rejects on error.
      */
-    async refreshStaticData() {
+    async refreshStatusData() {
         if (!this._subsystems?.dataLoader) {
             throw new Error('Cannot refresh data: DataLoader subsystem is not initialized.');
         }
 
         try {
-            logger.debug('[MetroCore] Refreshing static data...');
+            logger.debug('[MetroCore] Refreshing status data...');
 
-            const newStaticData = await this._subsystems.dataLoader.load();
+            const newStatusData = await this._subsystems.dataLoader.load();
 
-            if (!newStaticData || typeof newStaticData !== 'object') {
+            if (!newStatusData || typeof newStatusData !== 'object') {
                 throw new Error('Loaded data is invalid or empty.');
             }
 
-            this._staticData = newStaticData;
-            this._dataVersion = newStaticData.version || `1.0.0-${Date.now()}`;
+            this._statusData = newStatusData;
+            this._dataVersion = newStatusData.version || `1.0.0-${Date.now()}`;
             this._combinedData.lastUpdated = new Date();
 
             await Promise.all([
                 this._subsystems.managers.stations.updateData(
-                    newStaticData.stations || {}
+                    newStatusData.stations || {}
                 ),
                 this._subsystems.managers.lines.updateData(
-                    newStaticData.lines || {}
+                    newStatusData.lines || {}
                 )
             ]);
 
-            logger.debug('[MetroCore] Static data refresh completed.');
+            logger.debug('[MetroCore] Status data refresh completed.');
 
         } catch (error) {
-            logger.error('[MetroCore] Static data refresh failed:', error);
-            this._emitError('refreshStaticData', error);
+            logger.error('[MetroCore] Status data refresh failed:', error);
+            this._emitError('refreshStatusData', error);
 
-            if (error.message.includes('invalid') || !this._staticData) {
+            if (error.message.includes('invalid') || !this._statusData) {
                 await this._enterSafeMode();
             }
             throw error;
