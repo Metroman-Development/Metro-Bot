@@ -1214,7 +1214,7 @@ async activateEventOverrides(eventDetails) {
                 if (line.estaciones && Array.isArray(line.estaciones)) {
                     for (const apiStation of line.estaciones) {
                         const stationCode = apiStation.codigo.toUpperCase();
-                        const key = stationCode7;
+                        const key = stationCode;
                         const dbStation = stationsByCode[key];
 
                         if (dbStation) {
