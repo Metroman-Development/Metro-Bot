@@ -1,5 +1,4 @@
 // modules/metro/core/services/ApiService.js// modules/metro/core/services/ApiService.js
-// modules/metro/core/services/ApiService.js
 const EventEmitter = require('events');
 const { fetch } = require('undici');
 const crypto = require('crypto');
@@ -430,6 +429,7 @@ async activateEventOverrides(eventDetails) {
         // It ensures that the embed manager always has the most up-to-date information from the database.
         logger.debug('[ApiService] getCurrentData called. Fetching fresh data from database.');
         const dbRawData = await this.getDbRawData();
+        
         const currentData = await this._processData(dbRawData);
         
         this._updateCurrentData(currentData);
@@ -454,6 +454,7 @@ async activateEventOverrides(eventDetails) {
         try {
             let currentData;
             const dbRawData = await this.getDbRawData();
+            console.log(dbRawData);
             if (this.timeHelpers.isWithinOperatingHours()) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
                 try {
