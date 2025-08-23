@@ -975,9 +975,9 @@ async activateEventOverrides(eventDetails) {
                     ...station, // Preserves all fields from metro_stations
                     codigo: stationCode,
                     nombre: station.station_name, // Use station_name directly
-                    estado: station.estado, // from the alias
-                    descripcion: station.descripcion, // from the alias
-                    descripcion_app: station.descripcion_app, // from the alias
+                    estado: station.status_data?.js_code || null,
+                    descripcion: station.status_data?.status_description || null,
+                    descripcion_app: station.status_data?.status_message || null,
                     access_details: accessibilityByStation[stationCode] || []
                 });
             }
