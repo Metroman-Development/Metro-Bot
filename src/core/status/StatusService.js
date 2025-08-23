@@ -322,7 +322,7 @@ getLineStatus(lineId) {
       logger.info(`[StatusService] Cleared forced status for line ${lineId}`);
       
       // Revert to current API status
-      const currentApiStatus = this.metro._dynamicData?.lines[lineId]?.status;
+      const currentApiStatus = this.metro._detailsData?.lines[lineId]?.status;
       if (currentApiStatus) {
         this._handleLineChange(lineId, currentApiStatus);
       }

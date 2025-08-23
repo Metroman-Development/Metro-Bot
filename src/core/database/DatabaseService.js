@@ -936,6 +936,49 @@ class DatabaseService {
             connection.release();
         }
     }
+    async getLatestStatusChange() {
+        const results = await this.db.query('SELECT * FROM status_change_log ORDER BY changed_at DESC LIMIT 1');
+        return results.length > 0 ? results[0] : null;
+    }
+
+    async updateStatusFromApi(apiData) {
+        logger.info('[DatabaseService] Updating database from API data...');
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            for (const lineId in apiData.lines) {
+                const line = apiData.lines[lineId];
+                await this.updateLineStatus(connection, {
+                    lineId: lineId,
+                    statusCode: line.estado,
+                    statusMessage: line.mensaje,
+                    appMessage: line.mensaje_app
+                });
+
+                if (line.estaciones) {
+                    for (const station of line.estaciones) {
+                        await this._updateStationStatusInTransaction(connection, {
+                            stationCode: station.codigo,
+                            lineId: lineId,
+                            statusCode: station.estado,
+                            statusDescription: station.descripcion,
+                            appDescription: station.descripcion_app
+                        });
+                    }
+                }
+            }
+
+            await connection.commit();
+            logger.info('[DatabaseService] Successfully updated database from API data.');
+        } catch (error) {
+            await connection.rollback();
+            logger.error('[DatabaseService] Failed to update database from API data:', { error });
+            throw error;
+        } finally {
+            connection.release();
+        }
+    }
 }
 
 module.exports = DatabaseService;
