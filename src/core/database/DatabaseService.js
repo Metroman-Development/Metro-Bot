@@ -150,6 +150,17 @@ class DatabaseService {
                     return `(${ph.join(',')})`;
                 }).join(',');
 
+                const formatDate = (dateString) => {
+                    if (!dateString) return null;
+                    try {
+                        const date = new Date(dateString);
+                        if (isNaN(date.getTime())) return null;
+                        return date.toISOString().slice(0, 10);
+                    } catch (e) {
+                        return null;
+                    }
+                };
+
                 const stationDataParams = stationsToInsert.flatMap(s => {
                     const longitude = parseFloat(s.longitude);
                     const latitude = parseFloat(s.latitude);
@@ -173,8 +184,8 @@ class DatabaseService {
                         s.amenities || null,
                         s.image_url || null,
                         s.access_details ? JSON.stringify(s.access_details) : null,
-                        s.opened_date || null,
-                        s.last_renovation_date || null,
+                        formatDate(s.opened_date),
+                        formatDate(s.last_renovation_date),
                         s.combinacion || null
                     ];
                 });
