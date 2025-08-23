@@ -11,7 +11,6 @@ const logger = require('../../../../events/logger');
 const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
-const StatusOverrideService = require('./StatusOverrideService');
 const EstadoRedService = require('./EstadoRedService');
 const { translateApiData } = require('../../data/DataTranslator');
 
@@ -64,7 +63,6 @@ class ApiService extends EventEmitter {
 
         // Service dependencies
         this.timeHelpers = TimeHelpers;
-        this.override = this.metro._subsystems.statusOverrideService;
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
         this.estadoRedService = new EstadoRedService({ timeHelpers: this.timeHelpers, config: config });
@@ -97,8 +95,6 @@ class ApiService extends EventEmitter {
             getCurrentData: this.getCurrentData.bind(this),
             getCachedData: () => Object.freeze({...this.cachedData}),
             
-            prepareEventOverrides: async (eventDetails) => await this.prepareEventOverrides(eventDetails), 
-            
             // Status information
             status: this.getSystemStatus.bind(this),
             metrics: this.getMetrics.bind(this),
@@ -111,16 +107,6 @@ class ApiService extends EventEmitter {
                 subscribe: (listener) => this.on(EventRegistry.CHANGES_DETECTED, listener),
                 unsubscribe: (listener) => this.off(EventRegistry.CHANGES_DETECTED, listener)
             }),
-            
-            // Configuration
-            reloadOverrides: async () => {
-                const result = await this.override.loadOverrides();
-                return { 
-                    success: result, 
-                    timestamp: new Date(),
-                    overrides: this.override.getOverrides()
-                };
-            },
             
             // Control methods
             startPolling: this.startPolling.bind(this),
@@ -152,265 +138,6 @@ class ApiService extends EventEmitter {
                 
            
       }
-   
-    // Add to ApiService class
-
-/**
- * Gets the override service instance
- * @returns {ApiServiceOverride} The override service instance
- */
-getOverridesService() {
-    if (!this.override) {
-        throw new Error('Override service not initialized');
-    }
-    return this.override;
-}
-
-/**
- * Updates overrides and persists them to disk
- * @param {object} updates - The updates to apply
- * @param {object} updates.lines - Line overrides to update
- * @param {object} updates.stations - Station overrides to update
- * @returns {Promise<boolean>} True if successful
- */
-async updateOverrides(updates = {}) {
-    try {
-        const overrideService = this.getOverridesService();
-        
-        // Apply updates
-        if (updates.lines) {
-            Object.assign(overrideService.overrides.lines, updates.lines);
-        }
-        if (updates.stations) {
-            Object.assign(overrideService.overrides.stations, updates.stations);
-        }
-        
-        // Persist to disk
-        await fsp.writeFile(
-            overrideService.overrideFile,
-            JSON.stringify(overrideService.overrides, null, 2),
-            'utf8'
-        );
-        
-        // Update lastModified
-        const stats = await fsp.stat(overrideService.overrideFile);
-        overrideService.lastModified = stats.mtimeMs;
-        
-        logger.debug('[ApiService] Overrides updated successfully');
-        return true;
-    } catch (error) {
-        logger.error('[ApiService] Failed to update overrides', { error });
-        return false;
-    }
-}
-
-    
-/**
- * Removes overrides and persists changes to disk
- * @param {object} removals - The removals to apply
- * @param {string[]} removals.lines - Line IDs to remove
- * @param {string[]} removals.stations - Station codes to remove
- * @returns {Promise<boolean>} True if successful
- */
-async removeOverrides(removals = {}) {
-    try {
-        const overrideService = this.getOverridesService();
-        
-        // Apply removals
-        if (removals.lines) {
-            removals.lines.forEach(lineId => {
-                delete overrideService.overrides.lines[lineId];
-            });
-        }
-        if (removals.stations) {
-            removals.stations.forEach(stationCode => {
-                delete overrideService.overrides.stations[stationCode];
-            });
-        }
-        
-        // Persist to disk
-        await fsp.writeFile(
-            overrideService.overrideFile,
-            JSON.stringify(overrideService.overrides, null, 2),
-            'utf8'
-        );
-        
-        // Update lastModified
-        const stats = await fsp.stat(overrideService.overrideFile);
-        overrideService.lastModified = stats.mtimeMs;
-        
-        logger.debug('[ApiService] Overrides removed successfully');
-        return true;
-    } catch (error) {
-        logger.error('[ApiService] Failed to remove overrides', { error });
-        return false;
-    }
-}
-    
-    // In ApiService class
-
-/**
- * Prepares event overrides (disabled by default)
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if successful
- */
-   async prepareEventOverrides(eventDetails) {
-    logger.info("Preparando Overrides", { eventDetails });
-
-    if (!eventDetails?.closedStations && !eventDetails?.operationalStations) return false;
-
-    const overrideService = this.getOverridesService();
-    const lineOverrides = {};
-    const stationOverrides = {};
-
-    // Get current data (either last fetched or generated closed state)
-    const currentData = this.lastRawData || {};
-
-    // Prepare line overrides (disabled by default)
-    const allAffectedLines = new Set([
-        ...Object.keys(eventDetails.closedStations || {}),
-        ...Object.keys(eventDetails.operationalStations || {})
-    ]);
-
-    allAffectedLines.forEach(lineId => {
-        lineOverrides[lineId.toLowerCase()] = { // Standardize to lowercase
-            estado: 5,
-            mensaje: `Servicio afectado por Evento: ${eventDetails.name}`,
-            mensaje_app: `Servicio afectado por Evento`,
-            enabled: false // Disabled by default
-        };
-    });
-
-    // Process closed stations (exact name match)
-    if (eventDetails.closedStations) {
-        Object.entries(eventDetails.closedStations).forEach(([lineId, stationNames]) => {
-            const lineKey = lineId.toLowerCase(); // Standardize to lowercase
-            const lineData = currentData[lineKey];
-
-            if (lineData && lineData.estaciones) {
-                stationNames.forEach(stationName => {
-                    const station = lineData.estaciones.find(s =>
-                        s.nombre.includes(stationName) // Exact match
-                    );
-
-                    if (station) {
-                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
-                            estado: 5,
-                            descripcion: "Servicio Extendido Únicamente para Salida",
-                            descripcion_app: "Horario Extendido por Evento",
-                            enabled: false
-                        };
-                    } else {
-                        logger.warn(`Closed station "${stationName}" not found in line ${lineKey}`);
-                    }
-                });
-            } else {
-                logger.warn(`Line ${lineKey} not found in current data for closed stations`);
-            }
-        });
-    }
-
-    // Process operational stations (search across all lines)
-    if (eventDetails.operationalStations) {
-        eventDetails.operationalStations.forEach(stationName => {
-            let found = false;
-
-            // Search through all lines
-            for (const [lineKey, lineData] of Object.entries(currentData)) {
-                if (lineKey.startsWith('l') && lineData.estaciones) {
-                    const station = lineData.estaciones.find(s =>
-                        s.nombre === stationName
-                    );
-
-                    if (station) {
-                        stationOverrides[station.codigo.toUpperCase()] = { // Standardize to uppercase
-                            estado: 5,
-                            descripcion: "Servicio Extendido Únicamente para Entrada",
-                            descripcion_app: "Horario Extendido por Evento",
-                            enabled: false
-                        };
-                        found = true;
-                        break; // Stop searching once found
-                    }
-                }
-            }
-
-            if (!found) {
-                logger.warn(`Operational station "${stationName}" not found in any line`);
-            }
-        });
-    }
-  
-    
-    
-    logger.info("Generated station overrides:", { stationOverrides });
-    return this.updateOverrides({
-        lines: lineOverrides,
-        stations: stationOverrides
-    });
-}
-    
-    
-/**
- * Cleans up event overrides if not event day
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if cleaned or no cleanup needed
- */
-async cleanupEventOverridesIfNeeded(eventDetails) {
-    const now = new Date();
-    const eventDate = new Date(eventDetails?.date);
-    
-    // Only clean up if it's not the event day
-    if (eventDetails && now.toDateString() === eventDate.toDateString()) {
-        return false;
-    }
-
-    const overrideService = this.getOverridesService();
-    const removals = {
-        lines: Object.keys(overrideService.overrides.lines)
-            .filter(lineId => overrideService.overrides.lines[lineId].enabled === false),
-        stations: Object.keys(overrideService.overrides.stations)
-            .filter(stationId => overrideService.overrides.stations[stationId].enabled === false)
-    };
-
-    if (removals.lines.length > 0 || removals.stations.length > 0) {
-        return this.removeOverrides(removals);
-    }
-    return true;
-}
-
-/**
- * Activates prepared event overrides
- * @param {object} eventDetails - The event details
- * @returns {Promise<boolean>} True if successful
- */
-async activateEventOverrides(eventDetails) {
-    if (!eventDetails?.closedStations) return false;
-
-    const overrideService = this.getOverridesService();
-    const updates = {
-        lines: {},
-        stations: {}
-    };
-
-    // Enable line overrides
-    Object.keys(eventDetails.closedStations).forEach(lineId => {
-        if (overrideService.overrides.lines[lineId]) {
-            updates.lines[lineId] = { enabled: true };
-        }
-    });
-
-    // Enable station overrides
-    Object.entries(eventDetails.closedStations).forEach(([lineId, stations]) => {
-        stations.forEach(stationId => {
-            if (overrideService.overrides.stations[stationId]) {
-                updates.stations[stationId] = { enabled: true };
-            }
-        });
-    });
-
-    return this.updateOverrides(updates);
-}
 
     async _initializeLineMetadata() {
         try {

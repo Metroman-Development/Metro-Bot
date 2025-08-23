@@ -10,18 +10,14 @@ async function startScheduler() {
     const { metroCore, db } = await initialize('SCHEDULER');
 
     const timeService = new TimeService(metroCore);
-    const apiService = new ApiService({
-        timeHelpers: timeService,
-        config: metroCore.config,
-        db: db
-    });
+    const apiService = metroCore._subsystems.api;
 
     timeService.on('serviceEnd', async () => {
         logger.info('[SCHEDULER] Service has ended. Setting all stations to "Fuera de servicio".');
         await metroCore._subsystems.api.dbService.setAllStationsStatus('Fuera de servicio', 'Cierre por horario');
     });
 
-    const scheduler = new SchedulerService(metroCore, timeService);
+    const scheduler = new SchedulerService(metroCore, timeService, db);
     const chronosConfig = require('./config/chronosConfig');
 
     // API fetching job
@@ -30,15 +26,8 @@ async function startScheduler() {
         interval: 60000, // Every minute
         task: async () => {
             await timeService.checkTime();
-            const specialEvents = await db.query('SELECT * FROM special_events WHERE is_active = 1');
-            if (specialEvents.length > 0) {
-                // Handle special events
-                logger.info('[SCHEDULER] Special event is active, skipping normal data flow.');
-                return;
-            }
-
             if (timeService.isWithinOperatingHours()) {
-                const apiData = await apiService.fetchStatus();
+                const apiData = await apiService.fetchNetworkStatus();
                 MetroInfoProvider.updateFromApi(apiData, timeService);
             }
         }
@@ -49,11 +38,6 @@ async function startScheduler() {
         name: 'database-fetch',
         interval: 30000, // Every 30 seconds
         task: async () => {
-            const specialEvents = await db.query('SELECT * FROM special_events WHERE is_active = 1');
-            if (specialEvents.length > 0) {
-                // Handle special events
-                return;
-            }
             // This is a placeholder for the database fetching logic
             const dbData = {
                 stations: {
@@ -116,7 +100,8 @@ async function startScheduler() {
     // Load jobs from chronosConfig
     if (chronosConfig.jobs && Array.isArray(chronosConfig.jobs)) {
         chronosConfig.jobs.forEach(jobConfig => {
-            const taskFunction = () => {
+            const taskFunction = async () => {
+                await scheduler.checkAndScheduleEvents();
                 const [service, method] = jobConfig.task.split('.');
                 if (service === 'timeService' && typeof scheduler.timeService[method] === 'function') {
                     return scheduler.timeService[method]();
