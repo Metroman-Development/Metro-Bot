@@ -14,10 +14,13 @@ const stationGrouper = require('../../../templates/utils/stationGrouper');
 const statusConfig = require('../../../config/metro/statusConfig');
 const DatabaseManager = require('../../database/DatabaseManager');
 
+const DatabaseService = require('../../database/DatabaseService');
+
 class StatusProcessor {
-  constructor(metroCore, dbManager) {
+  constructor(metroCore, dbManager, dbService) {
     this.metro = metroCore;
     this.db = dbManager;
+    this.dbService = dbService;
     this.timeHelpers = TimeHelpers;
     this.lineWeights = statusConfig.lineWeights;
     this.statusMap = statusConfig.statusMap;
@@ -166,7 +169,9 @@ class StatusProcessor {
                 combinacion: fullStationData?.combinacion
             };
 
-            const validUpdates = Object.entries(fieldsToUpdate)
+            const formattedFields = DatabaseService.formatDates(fieldsToUpdate);
+
+            const validUpdates = Object.entries(formattedFields)
                 .filter(([, value]) => value !== null && value !== undefined);
 
             if (validUpdates.length > 0) {
@@ -185,7 +190,7 @@ class StatusProcessor {
                 stationQueries.push({ sql, params });
             }
           } else {
-            const stationInsertData = {
+            let stationInsertData = {
               line_id: station.line,
               station_code: station.code,
               station_name: station.name,
@@ -206,6 +211,8 @@ class StatusProcessor {
               last_renovation_date: fullStationData?.last_renovation_date,
               combinacion: fullStationData?.combinacion,
             };
+
+            stationInsertData = DatabaseService.formatDates(stationInsertData);
 
             const validInsertData = Object.entries(stationInsertData)
               .filter(([, value]) => value !== null && value !== undefined);
