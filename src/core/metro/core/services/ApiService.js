@@ -61,6 +61,7 @@ class ApiService extends EventEmitter {
         this._backoffDelay = 0;
         this.isFirstTime = true;
         this._dataVersion = `1.0.0-${Date.now()}`;
+        this.lineInfoMap = new Map();
 
         // Service dependencies
         this.timeHelpers = TimeHelpers;
@@ -412,6 +413,18 @@ async activateEventOverrides(eventDetails) {
     return this.updateOverrides(updates);
 }
 
+    async _initializeLineMetadata() {
+        try {
+            const dbLines = await this.dbService.getAllLinesStatus();
+            for (const line of dbLines) {
+                this.lineInfoMap.set(line.line_id.toLowerCase(), line.line_name);
+            }
+            logger.info('[ApiService] Line metadata initialized successfully.');
+        } catch (error) {
+            logger.error('[ApiService] Failed to initialize line metadata', { error });
+        }
+    }
+
     async getCurrentData() {
         // This function now fetches data directly from the database, processes it, and returns it.
         // It ensures that the embed manager always has the most up-to-date information from the database.
@@ -424,6 +437,9 @@ async activateEventOverrides(eventDetails) {
     }
 
     async fetchNetworkStatus() {
+        if (this.lineInfoMap.size === 0) {
+            await this._initializeLineMetadata();
+        }
         logger.detailed('[ApiService] Starting fetchNetworkStatus');
         if (this.isFetching) {
             logger.warn('[ApiService] Fetch already in progress. Skipping.');
@@ -441,6 +457,22 @@ async activateEventOverrides(eventDetails) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
                 try {
                     currentData = await this.estadoRedService.fetchStatus();
+
+                    // Enrich line data with names from DB
+                    if (currentData && (currentData.lines || currentData.lineas)) {
+                        const lines = currentData.lines || currentData.lineas;
+                        for (const lineId in lines) {
+                            const line = lines[lineId];
+                            if (line && !line.nombre) {
+                                const lineName = this.lineInfoMap.get(lineId.toLowerCase());
+                                if (lineName) {
+                                    line.nombre = lineName;
+                                    logger.debug(`[ApiService] Enriched line ${lineId} with name "${lineName}"`);
+                                }
+                            }
+                        }
+                    }
+
                     logger.info('[ApiService] Successfully fetched data from API.');
                 } catch (fetchError) {
                     logger.warn(`[ApiService] Primary fetch failed: ${fetchError.message}. Falling back to database.`);
@@ -811,7 +843,7 @@ async activateEventOverrides(eventDetails) {
 
         for (const [lineId, line] of Object.entries(lines)) {
             // Basic validation for a line object
-            if (!line || typeof line !== 'object' || !line.nombre) {
+            if (!line || typeof line !== 'object') {
                 logger.warn(`[ApiService] Skipping invalid or incomplete line object with id: ${lineId}`, { line });
                 continue;
             }
@@ -819,7 +851,7 @@ async activateEventOverrides(eventDetails) {
             const sanitizedLine = {
                 ...line,
                 id: lineId,
-                displayName: line.nombre,
+                displayName: line.nombre || this.lineInfoMap.get(lineId.toLowerCase()) || `Línea ${lineId.replace(/l|a/g, '')}`,
                 status: line.estado, // map estado to status
             };
 
