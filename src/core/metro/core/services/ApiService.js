@@ -1190,7 +1190,7 @@ async activateEventOverrides(eventDetails) {
                 this.dbService.getAccessibilityStatus()
             ]);
 
-            console.log(dbStations);
+            // WORKS console.log(dbStations);
 
             const accessibilityByStation = accessibilityStatus.reduce((acc, item) => {
                 const stationCode = item.station_code.toUpperCase();
@@ -1207,7 +1207,7 @@ async activateEventOverrides(eventDetails) {
                 return acc;
             }, {});
 
-            console.log(stationsByCode)
+            //WORKS console.log(stationsByCode)
 
             for (const lineId in apiData.lineas) {
                 const line = apiData.lineas[lineId];
@@ -1218,15 +1218,17 @@ async activateEventOverrides(eventDetails) {
                         const dbStation = stationsByCode[key];
 
                         if (dbStation) {
-                            const cleanDbStation = Object.fromEntries(
+                            /*const cleanDbStation = Object.fromEntries(
                                 Object.entries(dbStation).filter(([, value]) => value !== null)
-                            );
+                            );*/
 
                             const finalStation = {
                                 ...cleanDbStation,
                                 ...apiStation,
                                 access_details: accessibilityByStation[stationCode] || []
                             };
+
+                            
 
                             Object.assign(apiStation, finalStation);
                         }
@@ -1235,6 +1237,9 @@ async activateEventOverrides(eventDetails) {
             }
 
             logger.debug('[ApiService] Data enrichment complete.');
+
+            console.log(apiData);
+            
             return apiData;
 
         } catch (error) {
