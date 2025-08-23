@@ -1,11 +1,3 @@
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
-// modules/embeds/StatusEmbedBuilder.js
-// modules/status/utils/StatusProcessor.js
-
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
 const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
@@ -28,6 +20,10 @@ class StatusProcessor {
   }
 
   async processRawAPIData(rawData, user = 'system') {
+    
+
+    logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA: ", rawData);
+    
     try {
       if (!rawData || typeof rawData !== 'object') {
         throw new Error('Invalid rawData received');
