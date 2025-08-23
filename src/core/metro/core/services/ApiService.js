@@ -521,9 +521,6 @@ async activateEventOverrides(eventDetails) {
             // Run DataEngine to combine data, update managers, and emit events.
             const combinedData = await this.dataEngine.handleRawData(currentData);
 
-            // Now that managers are updated, update the database.
-            await this.statusProcessor._updateDatabase(currentData, 'MetroApp');
-
             this.lastCurrentData = combinedData;
 
             //this._updateCurrentData(currentData);
