@@ -17,10 +17,14 @@ set -e
 # fi
 
 # --- Initial Setup ---
-echo "Pulling latest changes from git..."
-git pull
-echo "Installing/updating npm dependencies..."
-npm install
+if [ -f .env ] && grep -q "^SKIPGITPULL=true" .env; then
+    echo "INFO: SKIPGITPULL is true in .env, skipping git pull and npm install."
+else
+    echo "Pulling latest changes from git..."
+    git pull
+    echo "Installing/updating npm dependencies..."
+    npm install
+fi
 
 
 # --- Configuration ---

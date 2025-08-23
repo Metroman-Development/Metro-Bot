@@ -112,7 +112,7 @@ class StatusUpdater extends EventEmitter {
 
         // Initialize components
         this.listener = new UpdateListener(this);
-        this.embeds = new EmbedManager(this);
+        this.embeds = new EmbedManager(this, this.metroCore);
         this.processor = new UpdateProcessor(this);
         this.announcer = new AnnouncementHandler(this);
         

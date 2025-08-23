@@ -36,7 +36,7 @@ class MetroInfoProvider {
      * @param {object} timeHelpers - The time helpers instance.
      */
     updateFromApi(apiData, timeHelpers) {
-        const currentData = this.getFullData();
+        const currentData = JSON.parse(JSON.stringify(this.getFullData()));
         const apiLastChange = new Date(apiData.lastSuccessfulFetch);
         const dbLastChange = new Date(currentData.last_updated);
 
@@ -53,7 +53,7 @@ class MetroInfoProvider {
      * @param {object} timeHelpers - The time helpers instance.
      */
     updateFromDb(dbData, timeHelpers) {
-        const currentData = this.getFullData();
+        const currentData = JSON.parse(JSON.stringify(this.getFullData()));
 
         for (const stationId in dbData.stations) {
             if (!currentData.stations[stationId]) {

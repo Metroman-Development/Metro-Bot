@@ -1,7 +1,9 @@
 const logger = require('./events/logger');
 const initialize = require('./core/bootstrap');
 const SchedulerService = require('./core/chronos/SchedulerService');
+const timeHelpers = require('./core/chronos/timeHelpers');
 const TimeService = require('./core/chronos/TimeService');
+const timeHelpers = require('./core/chronos/timeHelpers');
 const ApiService = require('./core/metro/core/services/ApiService');
 const MetroInfoProvider = require('./utils/MetroInfoProvider');
 
@@ -26,7 +28,7 @@ async function startScheduler() {
         interval: 60000, // Every minute
         task: async () => {
             await timeService.checkTime();
-            if (timeService.isWithinOperatingHours()) {
+            if (timeHelpers.isWithinOperatingHours()) {
                 const apiData = await apiService.fetchNetworkStatus();
                 MetroInfoProvider.updateFromApi(apiData, timeService);
             }
@@ -77,7 +79,7 @@ async function startScheduler() {
 
                 data.network_status = {
                     status: networkStatus,
-                    timestamp: timeService.currentTime.toISOString()
+                    timestamp: timeHelpers.currentTime.toISOString()
                 };
                 MetroInfoProvider.updateData(data);
                 logger.info('[SCHEDULER] Calculating network status...');
