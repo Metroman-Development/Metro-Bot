@@ -2,6 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
 const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -14,7 +15,7 @@ module.exports = {
             
             await interaction.deferReply();
             // Get and validate raw data
-            const allData = await metro.getCurrentData();
+            const allData = MetroInfoProvider.getFullData();
             
             if (!allData || !allData.network) {
                 throw new Error('No se pudo obtener datos del Metro');
