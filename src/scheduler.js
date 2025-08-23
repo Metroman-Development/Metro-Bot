@@ -2,12 +2,19 @@ const logger = require('./events/logger');
 const initialize = require('./core/bootstrap');
 const SchedulerService = require('./core/chronos/SchedulerService');
 const TimeService = require('./core/chronos/TimeService');
+const ApiService = require('./core/metro/core/services/ApiService');
+const MetroInfoProvider = require('./utils/MetroInfoProvider');
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroCore } = await initialize('SCHEDULER');
+    const { metroCore, db } = await initialize('SCHEDULER');
 
     const timeService = new TimeService(metroCore);
+    const apiService = new ApiService({
+        timeHelpers: timeService,
+        config: metroCore.config,
+        db: db
+    });
 
     timeService.on('serviceEnd', async () => {
         logger.info('[SCHEDULER] Service has ended. Setting all stations to "Fuera de servicio".');
@@ -17,17 +24,81 @@ async function startScheduler() {
     const scheduler = new SchedulerService(metroCore, timeService);
     const chronosConfig = require('./config/chronosConfig');
 
-    // Combined task for jobs that run every minute
-    const everyMinuteTasks = async () => {
-        await scheduler.metroCore._subsystems.api.fetchNetworkStatus();
-        await scheduler.timeService.checkTime();
-        await scheduler.metroCore._subsystems.overrideManager.checkScheduledOverrides();
-    };
-
+    // API fetching job
     scheduler.addJob({
-        name: 'every-minute-tasks',
+        name: 'api-fetch',
         interval: 60000, // Every minute
-        task: everyMinuteTasks
+        task: async () => {
+            await timeService.checkTime();
+            const specialEvents = await db.query('SELECT * FROM special_events WHERE is_active = 1');
+            if (specialEvents.length > 0) {
+                // Handle special events
+                logger.info('[SCHEDULER] Special event is active, skipping normal data flow.');
+                return;
+            }
+
+            if (timeService.isWithinOperatingHours()) {
+                const apiData = await apiService.fetchStatus();
+                MetroInfoProvider.updateFromApi(apiData, timeService);
+            }
+        }
+    });
+
+    // Database fetching job
+    scheduler.addJob({
+        name: 'database-fetch',
+        interval: 30000, // Every 30 seconds
+        task: async () => {
+            const specialEvents = await db.query('SELECT * FROM special_events WHERE is_active = 1');
+            if (specialEvents.length > 0) {
+                // Handle special events
+                return;
+            }
+            // This is a placeholder for the database fetching logic
+            const dbData = {
+                stations: {
+                    // Mock data
+                    'L1_SP': { id: 'L1_SP', name: 'San Pablo', line: 'L1', status: 'operational' }
+                }
+            };
+            MetroInfoProvider.updateFromDb(dbData, timeService);
+            logger.info('[SCHEDULER] Fetching data from database...');
+        }
+    });
+
+    // Network status calculation job
+    scheduler.addJob({
+        name: 'network-status-calculation',
+        interval: 30000, // Every 30 seconds
+        task: async () => {
+            setTimeout(async () => {
+                const data = MetroInfoProvider.getFullData();
+                const lineStatus = data.lines;
+                let operationalLines = 0;
+                let totalLines = 0;
+                for (const lineId in lineStatus) {
+                    const line = lineStatus[lineId];
+                    if (line.status_type_id === 10) {
+                        operationalLines++;
+                    }
+                    totalLines++;
+                }
+
+                let networkStatus = 'operational';
+                if (operationalLines === 0) {
+                    networkStatus = 'suspended';
+                } else if (operationalLines < totalLines) {
+                    networkStatus = 'partial';
+                }
+
+                data.network_status = {
+                    status: networkStatus,
+                    timestamp: timeService.currentTime.toISOString()
+                };
+                MetroInfoProvider.updateData(data);
+                logger.info('[SCHEDULER] Calculating network status...');
+            }, 2000); // 2-second delay
+        }
     });
 
     scheduler.addJob({
