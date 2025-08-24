@@ -20,7 +20,7 @@ async function handleCommandError(error, interaction) {
     };
 
     if (interaction.deferred || interaction.replied) {
-        await interaction.editReply(errorMessage);
+        await interaction.followUp(errorMessage);
     } else {
         await interaction.reply(errorMessage);
     }

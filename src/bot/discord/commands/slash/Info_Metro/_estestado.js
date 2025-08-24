@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
-const SearchCore = require('../../../../../core/metro/search/SearchCore');
 
 module.exports = {
     parentCommand: 'estacion',
@@ -14,19 +12,19 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction, metroInfoProvider) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
-        
         try {
-            const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(await metro.getCurrentData());
-
-            const stationResults = await stationSearcher.search(focusedValue, { maxResults: 25 });
+            const stations = Object.values(metroInfoProvider.getStations());
+            const filteredStations = stations.filter(station =>
+                station.name.toLowerCase().includes(focusedValue) ||
+                station.id.toLowerCase().includes(focusedValue)
+            ).slice(0, 25);
 
             await interaction.respond(
-                stationResults.map(result => ({
-                    name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
-                    value: result.id
+                filteredStations.map(station => ({
+                    name: `Estación ${station.name} (L${station.line.toUpperCase()})`,
+                    value: station.id
                 }))
             );
         } catch (error) {
@@ -35,11 +33,10 @@ module.exports = {
         }
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             const stationId = interaction.options.getString('estacion');
-            const infoProvider = new MetroInfoProvider(metro);
-            const station = infoProvider.getStationById(stationId);
+            const station = metroInfoProvider.getStationById(stationId);
 
             if (!station) {
                 return await interaction.editReply({ 

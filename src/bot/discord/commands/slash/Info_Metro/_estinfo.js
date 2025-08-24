@@ -1,8 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { searchStations } = require('../../../../../utils/metroUtils');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
 const { createErrorEmbed } = require('../../../../../utils/embedFactory');
-const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 
 module.exports = {
@@ -16,14 +14,19 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    async autocomplete(interaction, metro) {
-        const focusedValue = interaction.options.getFocused();
+    async autocomplete(interaction, metroInfoProvider) {
+        const focusedValue = interaction.options.getFocused().toLowerCase();
         try {
-            const stationResults = await searchStations(metro, focusedValue);
+            const stations = Object.values(metroInfoProvider.getStations());
+            const filteredStations = stations.filter(station =>
+                station.name.toLowerCase().includes(focusedValue) ||
+                station.id.toLowerCase().includes(focusedValue)
+            ).slice(0, 25);
+
             await interaction.respond(
-                stationResults.map(result => ({
-                    name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
-                    value: result.id
+                filteredStations.map(station => ({
+                    name: `Estación ${station.name} (L${station.line.toUpperCase()})`,
+                    value: station.id
                 }))
             );
         } catch (error) {
@@ -32,11 +35,10 @@ module.exports = {
         }
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             const stationId = interaction.options.getString('estacion');
-            const infoProvider = new MetroInfoProvider(metro);
-            const station = infoProvider.getStationById(stationId);
+            const station = metroInfoProvider.getStationById(stationId);
 
             if (!station) {
                 const errorEmbed = await createErrorEmbed('No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.');
@@ -44,7 +46,7 @@ module.exports = {
             }
 
             const formatter = new DiscordMessageFormatter();
-            const message = await formatter.formatStationInfo(station, metro, interaction.user.id);
+            const message = await formatter.formatStationInfo(station, metroInfoProvider, interaction.user.id);
             
             await interaction.editReply(message);
 
