@@ -37,8 +37,6 @@ module.exports = {
 
     async execute(interaction, metro) {
         try {
-            await interaction.deferReply();
-
             const stationId = interaction.options.getString('estacion');
             const infoProvider = new MetroInfoProvider(metro);
             const station = infoProvider.getStationById(stationId);
