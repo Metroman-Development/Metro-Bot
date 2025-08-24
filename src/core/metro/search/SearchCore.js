@@ -3,7 +3,7 @@ const PartialSearch = require('./strategies/PartialSearch');
 const SimilaritySearch = require('./strategies/SimilaritySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
-const DataManager = require('../data/DataManager.js');
+const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
 const logger = require('../../../events/logger');
 const Normalizer = require('../utils/stringHandlers/normalization');
 
@@ -13,7 +13,6 @@ class SearchCore {
     this.defaultThreshold = options.similarityThreshold || 0.6;
     this.phoneticWeight = options.phoneticWeight || 0.4;
     this.cache = new Map();
-    this.dataManager = new DataManager();
     this.dataSource = null;
     this.normalize = options?.normalize || Normalizer.normalize;
     this.cacheTTL = options.cacheTTL || 300000; // 5 minutes
@@ -53,10 +52,9 @@ class SearchCore {
   }
 
   async init() {
-      await this.dataManager.loadData();
       this.dataSource = {
-          stations: this.dataManager.getStations(),
-          lines: this.dataManager.getLines()
+          stations: MetroInfoProvider.getStations(),
+          lines: MetroInfoProvider.getLines()
       }
   }
 

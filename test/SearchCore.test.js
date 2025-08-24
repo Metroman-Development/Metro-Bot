@@ -1,17 +1,14 @@
 const SearchCore = require('../src/core/metro/search/SearchCore');
-const DataManager = require('../src/core/metro/data/DataManager');
+const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
 
-jest.mock('../src/core/metro/data/DataManager', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            loadData: jest.fn().mockResolvedValue(undefined),
-            getStations: jest.fn().mockReturnValue({
-                'SBA': { id: 'SBA', name: 'San Alberto Hurtado', line: 'l1' },
-                'PDA': { id: 'PDA', name: 'Plaza de Armas', line: 'l5' },
-            }),
-            getLines: jest.fn().mockReturnValue({}),
-        };
-    });
+jest.mock('../src/utils/MetroInfoProvider', () => {
+    return {
+        getStations: jest.fn().mockReturnValue({
+            'SBA': { id: 'SBA', name: 'San Alberto Hurtado', line: 'l1' },
+            'PDA': { id: 'PDA', name: 'Plaza de Armas', line: 'l5' },
+        }),
+        getLines: jest.fn().mockReturnValue({}),
+    };
 });
 
 describe('SearchCore', () => {
