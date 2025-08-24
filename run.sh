@@ -85,17 +85,15 @@ rotate_log() {
     fi
 }
 
-# Check if a service is running
+# Check if a service is running using pgrep
 is_running() {
     local service_name="$1"
-    local pid_file="$RUN_DIR/$service_name.pid"
-    if [ -f "$pid_file" ]; then
-        local pid=$(cat "$pid_file")
-        if ps -p "$pid" > /dev/null; then
-            return 0 # Service is running
-        fi
+    local service_script="${app_services[$service_name]}"
+    if pgrep -f "node $service_script" > /dev/null; then
+        return 0 # Service is running
+    else
+        return 1 # Service is not running
     fi
-    return 1 # Service is not running
 }
 
 # Start a service
@@ -115,7 +113,6 @@ start_service() {
     fi
 
     local service_script="${app_services[$service_name]}"
-    local pid_file="$RUN_DIR/$service_name.pid"
     local log_file="$LOG_DIR/$service_name.log"
 
     if is_running "$service_name"; then
@@ -141,8 +138,8 @@ start_service() {
     echo "Starting service '$service_name'..."
     rotate_log "$log_file"
     nohup env DB_HOST=localhost DB_USER=metroapi DB_PASSWORD=Metro256 METRODB_NAME=MetroDB node "$service_script" > "$log_file" 2>&1 &
-    local pid=$!
-    echo "$pid" > "$pid_file"
+    sleep 1 # Give the process a moment to start
+    local pid=$(pgrep -f "node $service_script" | tail -n 1)
     echo "Service '$service_name' started with PID $pid. Log: $log_file"
 }
 
@@ -150,13 +147,12 @@ start_service() {
 stop_service() {
     local service_name="$1"
 
-    # Core modules don't run as separate processes, so they can't be stopped.
     if [ -n "${core_modules[$service_name]}" ]; then
         echo "INFO: Core module '$service_name' cannot be stopped as it is not a running process."
         return
     fi
 
-    local pid_file="$RUN_DIR/$service_name.pid"
+    local service_script="${app_services[$service_name]}"
 
     if ! is_running "$service_name"; then
         echo "Service '$service_name' is not running."
@@ -164,9 +160,7 @@ stop_service() {
     fi
 
     echo "Stopping service '$service_name'..."
-    local pid=$(cat "$pid_file")
-    kill "$pid"
-    rm -f "$pid_file"
+    pkill -f "node $service_script"
     echo "Service '$service_name' stopped."
 }
 
@@ -175,9 +169,10 @@ show_status() {
     echo "--- Service Status ---"
     echo "Application Services:"
     for service_name in "${!app_services[@]}"; do
+        local service_script="${app_services[$service_name]}"
         if is_running "$service_name"; then
-            local pid=$(cat "$RUN_DIR/$service_name.pid")
-            echo "  [RUNNING] $service_name (PID: $pid)"
+            local pids=$(pgrep -f "node $service_script" | tr '\n' ' ')
+            echo "  [RUNNING] $service_name (PIDs: $pids)"
         else
             echo "  [STOPPED] $service_name"
         fi
