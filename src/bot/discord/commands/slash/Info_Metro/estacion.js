@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getMetroCore } = require('../../../../../utils/metroUtils');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 const estado = require('./_estestado');
 const info = require('./_estinfo');
 
@@ -26,15 +26,13 @@ module.exports = {
         
         try {
             await interaction.deferReply({ ephemeral: true });
-            // Ensure MetroCore is available before executing any subcommand.
-            const metro = await getMetroCore(interaction);
             
             // Route to the appropriate subcommand handler.
             switch(subcommand) {
                 case 'estado':
-                    return estado.execute(interaction, metro); 
+                    return estado.execute(interaction, MetroInfoProvider);
                 case 'info':
-                    return info.execute(interaction, metro);
+                    return info.execute(interaction, MetroInfoProvider);
                 default:
                     return interaction.editReply({
                         content: '⚠️ Subcomando no reconocido. Por favor, elige una de las opciones disponibles.',

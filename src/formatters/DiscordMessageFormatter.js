@@ -71,19 +71,15 @@ class DiscordMessageFormatter {
         };
     }
 
-    _enrichStationData(station, metro) {
-        const staticData = metro?._staticData?.stations?.[station.displayName] ||
-            metro?._staticData?.stations?.[station.id] || {};
-
+    _enrichStationData(station) {
         return {
-            ...staticData,
             ...station,
             id: station.id,
             displayName: station.displayName || 'Unknown Station',
             line: station.line || 'L0',
             transferLines: station.transferLines || [],
-            color: station.color || staticData.color || getLineColor(station.line),
-            image: station.image || staticData.image || getLineImage(station.line)
+            color: station.color || getLineColor(station.line),
+            image: station.imageUrl || getLineImage(station.line)
         };
     }
 
@@ -125,13 +121,13 @@ class DiscordMessageFormatter {
         }
     }
 
-    async formatStationInfo(station, metro, userId) {
+    async formatStationInfo(station, metroInfoProvider, userId) {
         try {
             if (!station?.id) throw new Error('Invalid station data');
 
             const cacheKey = this._getCacheKey(station.id, userId);
-            const metroData = (await metro?.getCurrentData()) || {};
-            const enrichedStation = this._enrichStationData(station, metro);
+            const metroData = metroInfoProvider.getFullData();
+            const enrichedStation = this._enrichStationData(station);
 
             const cacheData = {
                 station: enrichedStation,
