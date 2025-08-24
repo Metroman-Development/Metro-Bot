@@ -85,15 +85,23 @@ rotate_log() {
     fi
 }
 
-# Check if a service is running using pgrep
+# Check if a service is running by looking for its PID file
 is_running() {
     local service_name="$1"
-    local service_script="${app_services[$service_name]}"
-    if pgrep -f "node $service_script" > /dev/null; then
-        return 0 # Service is running
-    else
-        return 1 # Service is not running
+    local pid_file="$RUN_DIR/$service_name.pid"
+
+    if [ -f "$pid_file" ]; then
+        local pid=$(cat "$pid_file")
+        if ps -p "$pid" > /dev/null; then
+            return 0 # Service is running
+        else
+            # The process is not running, but the PID file exists. Clean it up.
+            echo "Warning: Stale PID file found for '$service_name'. Removing it."
+            rm -f "$pid_file"
+            return 1 # Service is not running
+        fi
     fi
+    return 1 # Service is not running
 }
 
 # Start a service
@@ -114,9 +122,11 @@ start_service() {
 
     local service_script="${app_services[$service_name]}"
     local log_file="$LOG_DIR/$service_name.log"
+    local pid_file="$RUN_DIR/$service_name.pid"
 
     if is_running "$service_name"; then
-        echo "Service '$service_name' is already running."
+        local pid=$(cat "$pid_file")
+        echo "Service '$service_name' is already running with PID $pid."
         return
     fi
 
@@ -137,9 +147,28 @@ start_service() {
 
     echo "Starting service '$service_name'..."
     rotate_log "$log_file"
-    nohup env DB_HOST=localhost DB_USER=metroapi DB_PASSWORD=Metro256 METRODB_NAME=MetroDB node "$service_script" > "$log_file" 2>&1 &
-    sleep 1 # Give the process a moment to start
-    local pid=$(pgrep -f "node $service_script" | tail -n 1)
+
+    # Start the service in the background and get its PID
+    nohup env \
+      DB_HOST=localhost \
+      DB_USER=metroapi \
+      DB_PASSWORD=Metro256 \
+      METRODB_NAME=MetroDB \
+      node "$service_script" > "$log_file" 2>&1 &
+    local pid=$!
+
+    # Save the PID to a file
+    echo "$pid" > "$pid_file"
+
+    sleep 1 # Give the process a moment to stabilize
+
+    # Verify that the process started correctly
+    if ! is_running "$service_name"; then
+        echo "Error: Failed to start service '$service_name'. Check the log for details: $log_file"
+        rm -f "$pid_file" # Clean up the PID file
+        exit 1
+    fi
+
     echo "Service '$service_name' started with PID $pid. Log: $log_file"
 }
 
@@ -152,15 +181,38 @@ stop_service() {
         return
     fi
 
-    local service_script="${app_services[$service_name]}"
+    local pid_file="$RUN_DIR/$service_name.pid"
 
     if ! is_running "$service_name"; then
         echo "Service '$service_name' is not running."
+        # Attempt to kill any lingering processes that may have escaped PID tracking
+        local service_script="${app_services[$service_name]}"
+        if pgrep -f "node $service_script" > /dev/null; then
+            echo "Warning: Found lingering processes for '$service_name' without a PID file. Attempting to stop them..."
+            pkill -f "node $service_script"
+        fi
         return
     fi
 
-    echo "Stopping service '$service_name'..."
-    pkill -f "node $service_script"
+    local pid=$(cat "$pid_file")
+    echo "Stopping service '$service_name' (PID: $pid)..."
+
+    # Try to gracefully terminate the process
+    kill "$pid"
+
+    # Wait for the process to stop
+    local counter=0
+    while ps -p "$pid" > /dev/null; do
+        sleep 1
+        counter=$((counter + 1))
+        if [ "$counter" -ge 10 ]; then
+            echo "Service '$service_name' did not stop gracefully. Forcing termination..."
+            kill -9 "$pid"
+            break
+        fi
+    done
+
+    rm -f "$pid_file"
     echo "Service '$service_name' stopped."
 }
 
@@ -169,10 +221,10 @@ show_status() {
     echo "--- Service Status ---"
     echo "Application Services:"
     for service_name in "${!app_services[@]}"; do
-        local service_script="${app_services[$service_name]}"
+        local pid_file="$RUN_DIR/$service_name.pid"
         if is_running "$service_name"; then
-            local pids=$(pgrep -f "node $service_script" | tr '\n' ' ')
-            echo "  [RUNNING] $service_name (PIDs: $pids)"
+            local pid=$(cat "$pid_file")
+            echo "  [RUNNING] $service_name (PID: $pid)"
         else
             echo "  [STOPPED] $service_name"
         fi
