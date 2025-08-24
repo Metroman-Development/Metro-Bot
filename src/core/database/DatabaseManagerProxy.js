@@ -108,9 +108,11 @@ class DatabaseManagerProxy extends EventEmitter {
             return result;
         } catch (error) {
             // 4. Rollback
-            this._sendTxLifecycleMessage(txId, 'db-transaction-rollback').catch(rbError => {
+            try {
+                await this._sendTxLifecycleMessage(txId, 'db-transaction-rollback');
+            } catch (rbError) {
                 console.error(`[DBProxy] CRITICAL: Failed to send rollback command for txId ${txId}`, rbError);
-            });
+            }
             throw error; // Re-throw the original error that caused the rollback
         }
     }
