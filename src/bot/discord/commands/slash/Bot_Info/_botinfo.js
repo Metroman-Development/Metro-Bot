@@ -16,6 +16,7 @@ module.exports = {
      * @param {import('discord.js').Interaction} interaction The interaction object.
      */
     async execute(interaction) {
+        await interaction.deferReply();
         const { client, guild } = interaction;
         
         const uptime = this.formatUptime(process.uptime());
@@ -51,7 +52,7 @@ module.exports = {
             components.push(row);
         }
 
-        await interaction.reply({ 
+        await interaction.editReply({
             embeds: [embed],
             components: components
         });
