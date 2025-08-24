@@ -1,24 +1,23 @@
-const path = require('path'); // Import the path module
-const fs = require('fs'); // Import the file system module
+const path = require('path');
+const fs = require('fs');
+const moment = require('moment-timezone');
 const { createEmbed } = require('../utils/embeds');
-const { getClient } = require('../utils/clientManager'); // Import clientManager to get the client
-const { truncate } = require('../utils/logUtils'); // Import the truncate utility
+const { getClient } = require('../utils/clientManager');
+const { truncate } = require('../utils/logUtils');
+const chronosConfig = require('../config/chronosConfig');
 
-const ERROR_CHANNEL_ID = '1350243847271092295'; // Channel ID for error summaries
-const ERROR_LOG_DIR = './errors_new'; // Directory for error logs
+const ERROR_CHANNEL_ID = '1350243847271092295';
+const ERROR_LOG_DIR = './errors_new';
 
-// Ensure the errors directory exists
 if (!fs.existsSync(ERROR_LOG_DIR)) {
     fs.mkdirSync(ERROR_LOG_DIR, { recursive: true });
 }
 
-// Initialize debugMode
 let debugMode = true;
 
-// Function to log error to file
 function logErrorToFile(error, metadata = {}) {
     try {
-        const timestamp = new Date().toISOString();
+        const timestamp = moment().tz(chronosConfig.timezone).format();
         const logFileName = path.join(ERROR_LOG_DIR, 'error.log');
         const oldLogFileName = path.join(ERROR_LOG_DIR, 'error.log.old');
 
@@ -113,7 +112,7 @@ function getCallerInfo() {
 
 // Format the log message
 function formatLog(level, message, metadata = {}) {
-    const timestamp = new Date().toISOString();
+    const timestamp = moment().tz(chronosConfig.timezone).format();
     let callerInfo = '';
     if (debugMode) {
         const { fileName, lineNumber, functionName } = getCallerInfo();
