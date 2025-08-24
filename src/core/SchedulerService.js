@@ -1,5 +1,6 @@
 const logger = require('../events/logger');
 const schedule = require('node-schedule');
+const chronosConfig = require('../config/chronosConfig');
 
 class SchedulerService {
     constructor(metroCore, db) {
@@ -109,7 +110,17 @@ class SchedulerService {
             }
         };
 
-        const scheduledJob = schedule.scheduleJob(job.schedule, jobWrapper);
+        const rule = new schedule.RecurrenceRule();
+        const scheduleParts = job.schedule.split(' ');
+
+        rule.minute = scheduleParts[0];
+        rule.hour = scheduleParts[1];
+        rule.date = scheduleParts[2];
+        rule.month = scheduleParts[3];
+        rule.dayOfWeek = scheduleParts[4];
+        rule.tz = chronosConfig.timezone;
+
+        const scheduledJob = schedule.scheduleJob(rule, jobWrapper);
         job.timer = scheduledJob; // Store the scheduled job instance
         this.jobs.set(jobName, job);
     }
