@@ -15,49 +15,47 @@ module.exports = {
     async execute(interaction) {
         const { client } = interaction;
 
-        try {
-            if (interaction.isCommand()) {
-                const command = client.commands.get(interaction.commandName);
-                if (!command) {
-                    logger.warn(`No command matching ${interaction.commandName} was found.`);
-                    return;
-                }
+        if (interaction.isCommand()) {
+            const command = client.commands.get(interaction.commandName);
+            if (!command) {
+                logger.warn(`No command matching ${interaction.commandName} was found.`);
+                return;
+            }
+            try {
                 await command.execute(interaction);
-            } else if (interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit()) {
-                // New interaction handling system based on customId prefixes
-                const { customId } = interaction;
-                if (!customId) {
-                    logger.warn('Interaction has no customId:', interaction);
+            } catch (error) {
+                logger.error('Error executing command:', {
+                    commandName: interaction.commandName,
+                    user: interaction.user.tag,
+                    error: error.message,
+                    stack: error.stack,
+                });
+                // Optional: add a generic error reply here if commands don't handle their own errors
+            }
+        } else if (interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit()) {
+            const { customId } = interaction;
+            if (!customId) {
+                logger.warn('Interaction has no customId:', interaction);
+                return;
+            }
+
+            for (const [prefix, handler] of client.interactionHandlers.entries()) {
+                if (customId.startsWith(prefix)) {
+                    try {
+                        await handler.execute(interaction);
+                    } catch (error) {
+                        logger.error(`Error executing interaction handler for prefix "${prefix}":`, {
+                            customId: interaction.customId,
+                            user: interaction.user.tag,
+                            error: error.message,
+                            stack: error.stack,
+                        });
+                    }
                     return;
                 }
-
-                // Find the handler whose prefix matches the start of the customId
-                for (const [prefix, handler] of client.interactionHandlers.entries()) {
-                    if (customId.startsWith(prefix)) {
-                        return handler.execute(interaction);
-                    }
-                }
-
-                logger.warn(`No interaction handler found for customId: ${customId}`);
             }
-        } catch (error) {
-            logger.error('Error executing interaction:', {
-                commandName: interaction.commandName,
-                user: interaction.user.tag,
-                error: error.message,
-                stack: error.stack,
-            });
 
-            const response = {
-                content: 'There was an error while executing this command!',
-                ephemeral: true
-            };
-
-            if (interaction.replied || interaction.deferred) {
-                await interaction.followUp(response);
-            } else {
-                await interaction.reply(response);
-            }
+            logger.warn(`No interaction handler found for customId: ${customId}`);
         }
     },
 };
