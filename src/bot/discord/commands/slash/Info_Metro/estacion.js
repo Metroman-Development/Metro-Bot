@@ -25,6 +25,7 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand();
         
         try {
+            await interaction.deferReply({ ephemeral: true });
             // Ensure MetroCore is available before executing any subcommand.
             const metro = await getMetroCore(interaction);
             
