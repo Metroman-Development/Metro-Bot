@@ -98,7 +98,7 @@ module.exports = {
             : `${statusConfig.emoji || '❓'} ${lineData.status.message || statusConfig.description || 'Estado desconocido'}`;
 
         const stationObjects = (lineData.stations || [])
-            .map(stationId => stations[stationId.toUpperCase()])
+            .map(stationId => stations[stationId])
             .filter(Boolean);
 
         const stationLines = stationObjects.map(station => {
@@ -111,9 +111,11 @@ module.exports = {
             const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
 
             let combinacionEmoji = '';
-            if (station.transferLines && station.transferLines.length > 0) {
-                combinacionEmoji = station.transferLines
-                    .map(lineId => metroConfig.linesEmojis?.[lineId.toLowerCase()] || '')
+            const transferLines = station.transferLines || (station.transfer ? (Array.isArray(station.transfer) ? station.transfer : [station.transfer]) : []);
+
+            if (transferLines.length > 0) {
+                combinacionEmoji = transferLines
+                    .map(lineId => metroConfig.linesEmojis?.[String(lineId).toLowerCase()] || '')
                     .join(' ');
             }
 
