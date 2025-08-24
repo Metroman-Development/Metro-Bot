@@ -25,6 +25,7 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand();
         
         try {
+            await interaction.deferReply({ ephemeral: true });
             // Ensure MetroCore is available before executing any subcommand.
             const metro = await getMetroCore(interaction);
             
@@ -35,7 +36,7 @@ module.exports = {
                 case 'info':
                     return info.execute(interaction, metro);
                 default:
-                    return interaction.reply({ 
+                    return interaction.editReply({
                         content: '⚠️ Subcomando no reconocido. Por favor, elige una de las opciones disponibles.',
                         ephemeral: true 
                     });
