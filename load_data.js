@@ -13,22 +13,52 @@ const pool = mariadb.createPool({
     connectionLimit: 5
 });
 
-async function loadLines(conn, lines) {
+function calculateTerminalStations(line, allStations) {
+    const lineStations = allStations.filter(s => s.line_id.toLowerCase() === line.id.toLowerCase());
+    if (lineStations.length === 0) {
+        return { platform1: null, platform2: null };
+    }
+
+    // Assuming lineStations are ordered by their position on the line
+    const firstStation = lineStations[0];
+    const lastStation = lineStations[lineStations.length - 1];
+
+    if (line.estado === '10') { // 10 is 'operativa'
+        return {
+            platform1: { terminal: firstStation.nombre, status: 'operational' },
+            platform2: { terminal: lastStation.nombre, status: 'operational' }
+        };
+    } else {
+        // This is a simplified logic. A more complex implementation would be needed to handle all partial service scenarios.
+        // For now, we'll just return the first and last stations of the line, even if it's in partial service.
+        return {
+            platform1: { terminal: firstStation.nombre, status: 'operational' },
+            platform2: { terminal: lastStation.nombre, status: 'operational' }
+        };
+    }
+}
+
+async function loadLines(conn, lines, allStations) {
     logger.detailed('Processing lines data for insertion', lines);
     console.log('Upserting lines...');
     for (const lineId in lines) {
         const line = lines[lineId];
         const lowerLineId = lineId.toLowerCase();
+        const platformDetails = calculateTerminalStations({ id: lowerLineId, ...line }, allStations);
+        const expressStatus = line.express ? 'active' : 'inactive';
+
         const query = `
-            INSERT INTO metro_lines (line_id, line_name, line_description, opening_date, total_stations, total_length_km, fleet_data)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO metro_lines (line_id, line_name, line_description, opening_date, total_stations, total_length_km, fleet_data, platform_details, express_status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 line_name = VALUES(line_name),
                 line_description = VALUES(line_description),
                 opening_date = VALUES(opening_date),
                 total_stations = VALUES(total_stations),
                 total_length_km = VALUES(total_length_km),
-                fleet_data = VALUES(fleet_data)
+                fleet_data = VALUES(fleet_data),
+                platform_details = VALUES(platform_details),
+                express_status = VALUES(express_status)
         `;
         await conn.query(query, [
             lowerLineId,
@@ -37,7 +67,9 @@ async function loadLines(conn, lines) {
             `${line['Estreno']}-01-01`,
             parseInt(line['N° estaciones']),
             parseFloat(line['Longitud']),
-            '[]'
+            '[]',
+            JSON.stringify(platformDetails),
+            expressStatus
         ]);
         console.log(`Upserted line ${lineId}`);
     }
@@ -65,9 +97,15 @@ async function loadStations(conn, estadoRed, stationsData) {
     for (const station of allStations) {
         const stationNameKey = normalizer.normalize(station.nombre);
         const extraData = stationDataMap.get(stationNameKey) || [];
+        const connections = extraData[0] ? extraData[0].split(',').map(c => c.trim()) : [];
+        const platforms = [
+            { direction: 'Direction 1', status: 'operational' },
+            { direction: 'Direction 2', status: 'operational' }
+        ];
+
         const query = `
-            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url, combinacion, display_name, access_details, opened_date, last_renovation_date)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url, combinacion, display_name, access_details, opened_date, last_renovation_date, connections, platforms)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 station_name = VALUES(station_name),
                 display_order = VALUES(display_order),
@@ -108,7 +146,9 @@ async function loadStations(conn, estadoRed, stationsData) {
             station.nombre, // display_name
             null, // access_details
             null, // opened_date
-            null // last_renovation_date
+            null, // last_renovation_date
+            JSON.stringify(connections),
+            JSON.stringify(platforms)
         ]);
         console.log(`Upserted station ${station.nombre} with ID ${stationIdCounter}`);
         stationIdCounter++;
@@ -367,9 +407,18 @@ async function main() {
 
         const linesData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/linesData.json'), 'utf8'));
         logger.detailed('Loaded linesData.json', linesData);
-        await loadLines(conn, linesData);
-
         const estadoRed = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/estadoRed.json'), 'utf8'));
+        const allStations = [];
+        const lineOrder = ['L1', 'L2', 'L3', 'L4', 'L4A', 'L5', 'L6']; // Explicitly define line order
+        for (const lineId of lineOrder) {
+            const lowerLineId = lineId.toLowerCase();
+            if (estadoRed[lowerLineId] && estadoRed[lowerLineId].estaciones) {
+                estadoRed[lowerLineId].estaciones.forEach(station => {
+                    allStations.push({ ...station, line_id: lineId });
+                });
+            }
+        }
+        await loadLines(conn, linesData, allStations);
         logger.detailed('Loaded estadoRed.json', estadoRed);
         const stationsData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stationsData.json'), 'utf8'));
         logger.detailed('Loaded stationsData.json', stationsData);

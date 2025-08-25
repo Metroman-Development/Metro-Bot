@@ -106,11 +106,28 @@ function processAccessibilityText(accessibilityText) {
     });
 }
 
-function decorateStation(station) {
+function decorateStation(station, decorations = []) {
     const stationName = station.nombre || station.name || '';
     const statusCode = station.estado || '1';
     const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
-    return `${statusConfig.emoji || '❓'} ${stationName}`;
+
+    let decoratedName = `${statusConfig.emoji || '❓'} ${stationName}`;
+
+    if (decorations.includes('connections') && station.connections) {
+        const connectionIcons = station.connections.map(conn => metroConfig.connectionEmojis[conn] || '').join(' ');
+        if (connectionIcons) {
+            decoratedName += ` ${connectionIcons}`;
+        }
+    }
+
+    if (decorations.includes('platforms') && station.platforms) {
+        const platformIcons = station.platforms.map(p => metroConfig.platformStatusIcons[p.status] || '').join(' ');
+        if (platformIcons) {
+            decoratedName += ` ${platformIcons}`;
+        }
+    }
+
+    return decoratedName;
 }
 
 module.exports = {
