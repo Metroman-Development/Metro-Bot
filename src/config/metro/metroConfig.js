@@ -13,6 +13,9 @@ module.exports = {
         'EFE': '🚆',           // Train emoji
         'EIM': '🔄',           // Intermodal station emoji
         'Terminal de Buses': '🚏', // Bus terminal emoji
+        'Buses': '🚌',
+        'Aeropuerto': '✈️',
+        'Tren': '🚆',
 
         // Bike connection emojis
         'Línea Cero': '<:lineaCero:1362490490850771064>',
@@ -53,6 +56,11 @@ embedMessageIds: {
         l8:'<:l8:1362492438974959616>',
         l9:'<:l9:1362492398487474407>',
         la:  '<:lA:1379150815696261120>'
+    },
+
+    platformStatusIcons: {
+        'operational': '✅',
+        'closed': '❌',
     },
 
     statusTypes: {

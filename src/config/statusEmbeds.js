@@ -109,7 +109,7 @@ module.exports = {
 
         const stationObjects = lineData.estaciones || [];
         const stationLines = stationObjects.map(station => {
-            const decoratedStation = decorateStation(station);
+            const decoratedStation = decorateStation(station, ['connections', 'platforms']);
             const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
             const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
 
@@ -127,6 +127,11 @@ module.exports = {
 
             return stationText;
         });
+
+        if (lineData.express_status) {
+            const expressStatus = lineData.express_status === 'active' ? 'Activo' : 'Inactivo';
+            description += `\n**Ruta Expresa:** ${expressStatus}`;
+        }
 
         let stationListString = stationLines.join('\n');
         const maxChars = 1024;
