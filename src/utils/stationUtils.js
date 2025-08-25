@@ -106,10 +106,18 @@ function processAccessibilityText(accessibilityText) {
     });
 }
 
+function decorateStation(station) {
+    const stationName = station.nombre || station.name || '';
+    const statusCode = station.estado || '1';
+    const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
+    return `${statusConfig.emoji || '❓'} ${stationName}`;
+}
+
 module.exports = {
     normalizeStationData,
     getPrimaryImage,
     getLineImage,
     processCommerceText,
     processAccessibilityText,
+    decorateStation,
 };
