@@ -338,7 +338,7 @@ CREATE TABLE `metro_stations` (
   `connections` json DEFAULT NULL,
   `platforms` json DEFAULT NULL,
   `express_state` varchar(20) DEFAULT NULL COMMENT 'Express service state, it can be Operational or Only one Direction or Non operatioal',
-  `route_color` enum('V','R','C') DEFAULT NULL COMMENT 'Route color: V=Verde, R=Roja, C=Común',
+  `route_color` enum('V','R','C','N') DEFAULT NULL COMMENT 'Route color: V=Verde, R=Roja, C=Común, N=None',
   PRIMARY KEY (`station_id`),
   UNIQUE KEY `line_id` (`line_id`,`station_code`),
   KEY `station_name` (`station_name`),

@@ -104,7 +104,16 @@ async function loadStations(conn, estadoRed, stationsData, stations) {
         ];
 
         const stationInfo = stations[station.line_id.toLowerCase()] && stations[station.line_id.toLowerCase()][station.nombre];
-        const routeColor = stationInfo && stationInfo.ruta ? stationInfo.ruta.charAt(5).toUpperCase() : 'C'; // R, V, or C
+        let routeColor = 'N'; // Default to 'N'
+        if (stationInfo && stationInfo.ruta) {
+            if (stationInfo.ruta.includes('Roja')) {
+                routeColor = 'R';
+            } else if (stationInfo.ruta.includes('Verde')) {
+                routeColor = 'V';
+            } else if (stationInfo.ruta.includes('Común')) {
+                routeColor = 'C';
+            }
+        }
         const expressState = stationInfo && stationInfo.ruta ? 'Operational' : 'Non operational';
 
         const query = `

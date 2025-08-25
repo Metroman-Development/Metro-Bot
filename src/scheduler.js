@@ -6,6 +6,7 @@ const ApiService = require('./core/metro/core/services/ApiService');
 const MetroInfoProvider = require('./utils/MetroInfoProvider');
 const moment = require('moment-timezone');
 const AnnouncementService = require('./core/metro/announcers/AnnouncementService');
+const StatusManager = require('./core/status/StatusManager');
 const chronosConfig = require('./config/chronosConfig');
 
 async function startScheduler() {
@@ -16,6 +17,7 @@ async function startScheduler() {
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
+    const statusManager = new StatusManager(db);
 
     const scheduler = new SchedulerService(metroCore, db);
 
@@ -150,6 +152,18 @@ async function startScheduler() {
                             break;
                         case 'announceFarePeriodChange':
                             await announcementService.announceFarePeriodChange(periodInfo.type, periodInfo);
+                            break;
+                    }
+                };
+            } else if (service === 'statusManager') {
+                taskFunction = async () => {
+                    logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
+                    switch (method) {
+                        case 'activateExpressService':
+                            await statusManager.activateExpressService();
+                            break;
+                        case 'deactivateExpressService':
+                            await statusManager.deactivateExpressService();
                             break;
                     }
                 };
