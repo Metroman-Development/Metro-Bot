@@ -18,8 +18,8 @@ function hexToInt(hex) {
 }
 
 module.exports = {
-    overviewEmbed: (network, lines, timestamp) => {
-        if (!network || !lines || typeof lines !== 'object') {
+    overviewEmbed: (data, timestamp) => {
+        if (!data || !data.lines || typeof data.lines !== 'object') {
             return {
                 title: '🚇 Estado General de la Red Metro',
                 description: '⚠️ No se pudo obtener la información del Metro.',
@@ -31,6 +31,8 @@ module.exports = {
             };
         }
 
+        const { lines, systemMetadata } = data;
+
         const statusMessages = {
             operational: '✅ **Toda la Red Operativa**',
             degraded: '⚠️ **Red no Operativa al 100%**',
@@ -39,7 +41,8 @@ module.exports = {
             default: '❓ **Estado Desconocido**'
         };
 
-        const description = statusMessages[network.status] || statusMessages.default;
+        const networkStatus = systemMetadata?.status || 'default';
+        const description = statusMessages[networkStatus] || statusMessages.default;
 
         const fields = Object.values(lines).map(line => {
             const lineKey = line.id.toLowerCase();

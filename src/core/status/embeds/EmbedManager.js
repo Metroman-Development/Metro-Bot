@@ -158,8 +158,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async updateOverviewEmbed(data, changes = null) {
         try {
             const embedData = StatusEmbeds.overviewEmbed(
-                data.network,
-                data.lines,
+                data,
                 TimeHelpers.currentTime.format('HH:mm')
             );
             const embed = new EmbedBuilder(embedData);
@@ -286,15 +285,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         );
 
         await Promise.all(fetchPromises);
-    }
-
-    _prepareData(data) {
-        return {
-            network: data.network || {},
-            lines: data.lines || {},
-            stations: data.stations || {},
-            lastUpdated: data.lastUpdated || TimeHelpers.currentTime.toISOString()
-        };
     }
 
     async _executeBatchUpdate(data, changes) {

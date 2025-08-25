@@ -78,6 +78,9 @@ describe('EmbedManager', () => {
                 lines: {
                     l1: { id: 'L1', status: 1, message: 'Normal', stations: [] },
                 },
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
             embedManager.areEmbedsReady = true;
 
@@ -98,12 +101,29 @@ describe('EmbedManager', () => {
             const data = {
                 lines: { l1: { id: 'L1' } },
                 stations: {},
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
 
             await embedManager.updateAllEmbeds(data);
 
             expect(embedManager.updateOverviewEmbed).toHaveBeenCalledWith(data, null);
             expect(embedManager.updateAllLineEmbeds).toHaveBeenCalledWith(data);
+        });
+
+        it('should use systemMetadata for network status', async () => {
+            const data = {
+                lines: { l1: { id: 'L1' } },
+                stations: {},
+                systemMetadata: {
+                    status: 'degraded'
+                }
+            };
+
+            await embedManager.updateAllEmbeds(data);
+
+            expect(embedManager.updateOverviewEmbed).toHaveBeenCalledWith(data, null);
         });
 
         it('should log an error and not proceed if no data is provided', async () => {
