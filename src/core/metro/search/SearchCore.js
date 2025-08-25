@@ -1,11 +1,11 @@
 const ExactSearch = require('./strategies/ExactSearch');
-const PartialSearch = require('./strategies/PartialSearch');
-const SimilaritySearch = require('./strategies/SimilaritySearch');
+const FuzzySearch = require('./strategies/FuzzySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
 const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
 const logger = require('../../../events/logger');
 const Normalizer = require('../utils/stringHandlers/normalization');
+const SearchIndexer = require('./SearchIndexer');
 
 class SearchCore {
   constructor(type = 'station', options = {}) {
@@ -19,14 +19,13 @@ class SearchCore {
     this.cacheTimers = new Map();
     this.disambiguationStyle = options.disambiguationStyle || 'auto';
     this.disambiguationTimeout = options.disambiguationTimeout || 120000;
+    this.indexer = null;
 
     this.strategies = [
       new ExactSearch(),
-      new PartialSearch({ minLength: 3 }),
-      new SimilaritySearch({
-        threshold: this.defaultThreshold,
+      new FuzzySearch({
         phoneticWeight: this.phoneticWeight,
-        normalize: this.normalize
+        minLength: 3
       })
     ];
 
@@ -48,14 +47,18 @@ class SearchCore {
         stations: data.stations || {},
         lines: data.lines || {}
     };
-    logger.debug('[SearchCore] External data source has been set.');
+    this.indexer = new SearchIndexer(this.dataSource);
+    this.indexer.buildIndex();
+    logger.debug('[SearchCore] External data source has been set and indexed.');
   }
 
   async init() {
       this.dataSource = {
           stations: MetroInfoProvider.getStations(),
           lines: MetroInfoProvider.getLines()
-      }
+      };
+      this.indexer = new SearchIndexer(this.dataSource);
+      this.indexer.buildIndex();
   }
 
   async getById(id) {
@@ -125,47 +128,41 @@ class SearchCore {
 
 
 
-async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
-  const searchData = this.dataSource;
-  const normalizedQuery = this.normalize(query.trim());
+async _performSearch(query, options, cacheKey) {
+    const searchData = this.indexer.getIndex();
+    const normalizedQuery = this.normalize(query.trim());
 
-  // Check for exact ID match first
-  if (this.type === 'station' && searchData.stations[normalizedQuery]) {
-    const exactMatch = this._createMatchObject(searchData.stations[normalizedQuery], 'exact');
-    this._setCache(cacheKey, [exactMatch]); // Now cacheKey is defined
-    return [exactMatch];
-  }
-
-  
-    
-    // Check for exact alias match
-    if (this.type === 'station') {
-      const aliasMatch = this._findExactAliasMatch(normalizedQuery, searchData.stations);
-      if (aliasMatch) {
-        this._setCache(cacheKey, [aliasMatch]);
-        return [aliasMatch];
-      }
+    if (this.type === 'station' && searchData.stations[normalizedQuery]) {
+        const exactMatch = this._createMatchObject(searchData.stations[normalizedQuery], 'exact');
+        this._setCache(cacheKey, [exactMatch]);
+        return [exactMatch];
     }
 
-    const searchTarget = this.type === 'station' 
-      ? Object.values(searchData.stations)
-      : Object.values(searchData.lines);
+    if (this.type === 'station') {
+        const aliasMatch = this._findExactAliasMatch(normalizedQuery, searchData.stations);
+        if (aliasMatch) {
+            this._setCache(cacheKey, [aliasMatch]);
+            return [aliasMatch];
+        }
+    }
 
-    // Check for exact name match
+    const searchTarget = this.type === 'station'
+        ? Object.values(searchData.stations)
+        : Object.values(searchData.lines);
+
     const exactNameMatch = this._findExactNameMatch(normalizedQuery, searchTarget);
     if (exactNameMatch) {
-      this._setCache(cacheKey, [exactNameMatch]);
-      return [exactNameMatch];
+        this._setCache(cacheKey, [exactNameMatch]);
+        return [exactNameMatch];
     }
 
-    // Execute search strategies
     const strategyResults = await Promise.all(
-      this.strategies.map(strategy => 
-        strategy.execute(normalizedQuery, searchTarget, {
-          ...options,
-          normalize: this.normalize
-        })
-      )
+        this.strategies.map(strategy =>
+            strategy.execute(normalizedQuery, searchTarget, {
+                ...options,
+                normalize: this.normalize
+            })
+        )
     );
 
     const matches = strategyResults.flat().filter(match => match !== null);
@@ -173,17 +170,17 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
     const dedupedMatches = this._deduplicate(filteredMatches);
 
     const result = await this._resolveOutput(dedupedMatches, {
-      needsOneMatch: options.needsOneMatch,
-      interaction: options.interaction,
-      query: normalizedQuery,
-      maxResults: options.maxResults || 10,
-      disambiguationStyle: this.disambiguationStyle,
-      timeout: this.disambiguationTimeout
+        needsOneMatch: options.needsOneMatch,
+        interaction: options.interaction,
+        query: normalizedQuery,
+        maxResults: options.maxResults || 10,
+        disambiguationStyle: this.disambiguationStyle,
+        timeout: this.disambiguationTimeout
     });
 
     this._setCache(cacheKey, result);
     return result;
-  }
+}
 
   _findExactAliasMatch(query, stations) {
     for (const [id, station] of Object.entries(stations)) {
@@ -242,20 +239,16 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
   }
 
   _deduplicate(matches) {
-    const unique = new Map();
+    const uniqueMatches = new Map();
     matches.forEach(match => {
-      if (!match) return;
-      
-      const key = this.type === 'station' 
-        ? `${match.id}|${match.line}`
-        : match.id;
-      
-      if (!unique.has(key) || unique.get(key).score < match.score) {
-        unique.set(key, match);
-      }
+        if (!match) return;
+        const key = this.type === 'station' ? `${match.id}|${match.line}` : match.id;
+        if (!uniqueMatches.has(key) || uniqueMatches.get(key).score < match.score) {
+            uniqueMatches.set(key, match);
+        }
     });
-    return Array.from(unique.values());
-  }
+    return Array.from(uniqueMatches.values());
+}
 
   async _resolveOutput(matches, options) {
     if (matches.length === 0) {
