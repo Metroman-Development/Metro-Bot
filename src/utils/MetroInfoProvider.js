@@ -43,7 +43,7 @@ class MetroInfoProvider {
             last_updated: null
         };
 
-        console.log("Updated metro data with: ", newData);
+        console.log("Updated metro data with: ", newData.lines);
     }
 
     /**
