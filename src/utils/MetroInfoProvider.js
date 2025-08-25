@@ -43,7 +43,9 @@ class MetroInfoProvider {
             last_updated: null
         };
 
-        console.log("Updated metro data with: ", newData.lines);
+        if (newData && newData.lines) {
+            console.log("Updated metro data with: ", newData.lines);
+        }
     }
 
     /**
@@ -58,10 +60,18 @@ class MetroInfoProvider {
         if (apiLastChange > dbLastChange) {
             currentData.lines = apiData.lineas;
             currentData.network_status = apiData.network;
-            // Hotfix: ensure lines have station ids, not station objects
-            for (const lineId in currentData.lines) {
-                if (currentData.lines[lineId].estaciones) {
-                    currentData.lines[lineId].stations = currentData.lines[lineId].estaciones.map(s => s.id_estacion);
+
+            // Store stations in memory
+            for (const lineId in apiData.lineas) {
+                if (apiData.lineas[lineId].estaciones) {
+                    for (const station of apiData.lineas[lineId].estaciones) {
+                        const stationId = station.id_estacion.toUpperCase();
+                        if (!currentData.stations[stationId]) {
+                            currentData.stations[stationId] = {};
+                        }
+                        Object.assign(currentData.stations[stationId], station);
+                    }
+                    currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones.map(s => s.id_estacion);
                     delete currentData.lines[lineId].estaciones;
                 }
             }
@@ -196,10 +206,10 @@ class MetroInfoProvider {
 
         const isOperational = (lineStatus === 'Operativa' || lineStatus === 'Disponible') && (stationStatus === 'Operativa' || stationStatus === 'Disponible');
 
-        const platforms = station.platforms.map(p => ({
+        const platforms = station.platforms ? station.platforms.map(p => ({
             ...p,
             status: isOperational ? 'operational' : 'non-operational'
-        }));
+        })) : [];
 
         const intermodal = this.getIntermodalBuses(station.station_name);
 
@@ -222,6 +232,12 @@ class MetroInfoProvider {
             status: {
                 code: station.status?.code || '0',
                 message: station.status?.message || '',
+                nombre: station.nombre,
+                codigo: station.codigo,
+                estado: station.estado,
+                descripcion: station.descripcion,
+                descripcion_app: station.descripcion_app,
+                status_data: station.status_data
             },
         };
     }

@@ -79,82 +79,74 @@ class EmbedManager {
  * @returns {Promise<void>}
  */
 async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false } = {}) {
-    // 1. Check if we should queue or proceed
-    if (!this.areEmbedsReady && !force) {
-        logger.debug('[EmbedManager] Embeds not ready, queuing update');
-        this._queueUpdate('full', { data, changes });
-        return;
-    }
-
-
-    console.log("UPDATE ALL EMBEDS: ", data);
-
-    if (this._updateLock && !bypassQueue) {
-        logger.debug('[EmbedManager] Update in progress, queuing');
-        this._queueUpdate('full', { data, changes });
-        return;
-    }
-
-    // 2. Lock and prepare for update
-    this._updateLock = true;
-    const startTime = Date.now();
-    
-    try {
-        logger.debug('[EmbedManager] Starting full embed update', {
-            forceUpdate: force,
-            bypassQueue: bypassQueue,
-            hasChanges: !!changes
-        });
-
-        this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATING);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
-
-        // 3. Always get fresh data for time-based updates
-        let currentData = data;
-
-        console.log("Embed Manager: ", currentData)
-        
-        if (!currentData) { 
-            logger.debug('[EmbedManager] No data provided, fetching fresh data...');
-            currentData = this.infoProvider.getFullData();
-        }
-
-        if (!currentData) {
-            logger.error('[EmbedManager] Failed to get processed data. Aborting update.');
-            this._updateLock = false;
+        if (!this.areEmbedsReady && !force) {
+            logger.debug('[EmbedManager] Embeds not ready, queuing update');
+            this._queueUpdate('full', { data, changes });
             return;
         }
 
-        // 4. Execute the full update cycle
-        await this._executeBatchUpdate(currentData, changes);
+        if (this._updateLock && !bypassQueue) {
+            logger.debug('[EmbedManager] Update in progress, queuing');
+            this._queueUpdate('full', { data, changes });
+            return;
+        }
 
-        // 5. Emit completion events
-        this._emitEvent(EventRegistry.EMBEDS_UPDATED);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_COMPLETED, {
-            durationMs: Date.now() - startTime
-        });
-        this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATED);
+        this._updateLock = true;
+        const startTime = Date.now();
 
-        logger.info('[EmbedManager] Full embed update completed', {
-            durationMs: Date.now() - startTime
-        });
+        try {
+            logger.debug('[EmbedManager] Starting full embed update', {
+                forceUpdate: force,
+                bypassQueue: bypassQueue,
+                hasChanges: !!changes
+            });
 
-    } catch (error) {
-        logger.error('[EmbedManager] Full update failed', error);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_FAILED, { 
-            error: error.message 
-        });
-        this._emitStatusUpdate(
-            this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'all')
-        );
-    } finally {
-        // 6. Release lock and process any queued updates
-        this._updateLock = false;
-        if (bypassQueue) {
-            await this._processQueuedUpdates();
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATING);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
+
+            let currentData = data;
+            if (!currentData) {
+                logger.debug('[EmbedManager] No data provided, fetching fresh data from MetroInfoProvider.');
+                currentData = this.infoProvider.getFullData();
+            }
+
+            if (!currentData || !currentData.lines || !currentData.stations) {
+                logger.error('[EmbedManager] Failed to get processed data or data is incomplete. Aborting update.', {
+                hasData: !!currentData,
+                hasLines: !!currentData?.lines,
+                hasStations: !!currentData?.stations
+                });
+                this._updateLock = false;
+                return;
+            }
+
+            await this._executeBatchUpdate(currentData, changes);
+
+            this._emitEvent(EventRegistry.EMBEDS_UPDATED);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_COMPLETED, {
+                durationMs: Date.now() - startTime
+            });
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATED);
+
+            logger.info('[EmbedManager] Full embed update completed', {
+                durationMs: Date.now() - startTime
+            });
+
+        } catch (error) {
+            logger.error('[EmbedManager] Full update failed', error);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_FAILED, {
+                error: error.message
+            });
+            this._emitStatusUpdate(
+                this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'all')
+            );
+        } finally {
+            this._updateLock = false;
+            if (bypassQueue) {
+                await this._processQueuedUpdates();
+            }
         }
     }
-}
 
 // Add these to EventRegistry if not already present:
 // EMBED_REFRESH_STARTED: 'embed:refresh_started',
@@ -226,10 +218,11 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async updateLineEmbed(lineData, stations) {
         try {
             const lineKey = lineData.id.toLowerCase();
+            const allStations = this.infoProvider.getStations();
 
             const embedData = StatusEmbeds.lineEmbed(
                 lineData,
-                stations,
+                allStations,
                 TimeHelpers.currentTime.format('HH:mm')
             );
             const embed = new EmbedBuilder(embedData);
