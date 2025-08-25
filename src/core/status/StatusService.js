@@ -337,6 +337,19 @@ getLineStatus(lineId) {
     this.state.changeHistory = [];
     logger.debug('[StatusService] Cleared change history');
   }
+
+  async setSystemToOutOfService() {
+    logger.info('[StatusService] Setting system to out of service due to non-operating hours.');
+    const data = this.metro._subsystems.metroInfoProvider.getFullData();
+
+    for (const lineId in data.lines) {
+      this._handleLineChange(lineId, { code: 15 });
+    }
+
+    for (const stationId in data.stations) {
+      this._handleStationChange(stationId, { code: 15 });
+    }
+  }
 }
 
 module.exports = StatusService;
