@@ -75,84 +75,87 @@ module.exports = {
     },
 
     lineEmbed: (lineData, stations, timestamp) => {
-        logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
-        if (!lineData) {
-            return {
-                title: '🚇 Estado de la Línea',
-                description: '⚠️ No se pudo obtener la información de la línea.',
-                color: hexToInt(styles.defaultTheme?.primaryColor),
-                footer: {
-                    text: `Actualizado: ${timestamp} • Información proporcionada por Metro de Santiago`,
-                    iconURL: 'https://metro.cl/logo.png'
-                }
-            };
-        }
-
-        const lineKey = lineData.id.toLowerCase();
-        const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
-        const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
-        const lineName = lineData.displayName || lineData.name || '';
-        const displayLineKey = lineName.replace('Línea ', '');
-
-        const statusConfig = metroConfig.statusTypes?.[lineData.status.code] || {};
-        const isClosed = lineData.status.code === '0' || lineData.status.message?.includes('Cierre por Horario');
-        const description = isClosed
-            ? `🌙 Cierre por Horario`
-            : `${statusConfig.emoji || '❓'} ${lineData.status.message || statusConfig.description || 'Estado desconocido'}`;
-
-        const stationObjects = (lineData.stations || [])
-            .map(stationId => stations[stationId])
-            .filter(Boolean);
-
-        const stationLines = stationObjects.map(station => {
-            const stationName = station.name.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim();
-            const isStationClosed = station.status.code === '0';
-            const stationIcon = metroConfig.statusTypes[station.status.code]?.emoji || '❓';
-            const stationStatusIcon = isStationClosed ? `🌙 ${stationIcon}` : stationIcon;
-
-            const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
-            const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
-
-            let combinacionEmoji = '';
-            const transferLines = station.transferLines || (station.transfer ? (Array.isArray(station.transfer) ? station.transfer : [station.transfer]) : []);
-
-            if (transferLines.length > 0) {
-                combinacionEmoji = transferLines
-                    .map(lineId => metroConfig.linesEmojis?.[String(lineId).toLowerCase()] || '')
-                    .join(' ');
-            }
-
-            let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
-            if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
-
-            return stationText;
-        });
-
-        let stationListString = stationLines.join('\n');
-        const maxChars = 1024;
-        let stationFields = [];
-
-        if (stationListString.length > 0) {
-            if (stationListString.length > maxChars) {
-                let truncatedString = stationListString.substring(0, maxChars);
-                const lastNewlineIndex = truncatedString.lastIndexOf('\n');
-                if (lastNewlineIndex > 0) {
-                    truncatedString = truncatedString.substring(0, lastNewlineIndex);
-                }
-                stationListString = truncatedString + '\n...';
-            }
-            stationFields.push({ name: 'Estaciones', value: stationListString, inline: false });
-        }
-
+    logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
+    if (!lineData) {
         return {
-            title: `${lineEmoji} Línea ${displayLineKey}`,
-            description,
-            color: hexToInt(lineColor),
-            fields: stationFields,
+            title: '🚇 Estado de la Línea',
+            description: '⚠️ No se pudo obtener la información de la línea.',
+            color: hexToInt(styles.defaultTheme?.primaryColor),
             footer: {
                 text: `Actualizado: ${timestamp} • Información proporcionada por Metro de Santiago`,
                 iconURL: 'https://metro.cl/logo.png'
             }
         };
     }
+
+    const lineKey = lineData.id.toLowerCase();
+    const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
+    const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
+    const lineName = lineData.nombre || lineData.displayName || '';
+    const displayLineKey = lineName.replace('Línea ', '');
+
+    // Fix status handling
+    const statusCode = lineData.estado || lineData.status;
+    const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
+    const statusMessage = lineData.mensaje_app || lineData.mensaje || statusConfig.description || 'Estado desconocido';
+    
+    const isClosed = statusCode === '0' || statusMessage?.includes('Cierre por Horario');
+    const description = isClosed
+        ? `🌙 Cierre por Horario`
+        : `${statusConfig.emoji || '❓'} ${statusMessage}`;
+
+    // Fix station handling - use estaciones array directly
+    const stationObjects = lineData.estaciones || [];
+    const stationLines = stationObjects.map(station => {
+        const stationName = station.nombre?.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim() || station.name || '';
+        const stationStatusCode = station.estado || station.status;
+        const isStationClosed = stationStatusCode === '0';
+        const stationIcon = metroConfig.statusTypes[stationStatusCode]?.emoji || '❓';
+        const stationStatusIcon = isStationClosed ? `🌙 ${stationIcon}` : stationIcon;
+
+        const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
+        const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
+
+        let combinacionEmoji = '';
+        const transferLines = station.combinacion || station.transferLines || (station.transfer ? (Array.isArray(station.transfer) ? station.transfer : [station.transfer]) : []);
+
+        if (transferLines && transferLines.length > 0) {
+            combinacionEmoji = transferLines
+                .map(lineId => metroConfig.linesEmojis?.[String(lineId).toLowerCase()] || '')
+                .join(' ');
+        }
+
+        let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
+        if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
+
+        return stationText;
+    });
+
+    let stationListString = stationLines.join('\n');
+    const maxChars = 1024;
+    let stationFields = [];
+
+    if (stationListString.length > 0) {
+        if (stationListString.length > maxChars) {
+            let truncatedString = stationListString.substring(0, maxChars);
+            const lastNewlineIndex = truncatedString.lastIndexOf('\n');
+            if (lastNewlineIndex > 0) {
+                truncatedString = truncatedString.substring(0, lastNewlineIndex);
+            }
+            stationListString = truncatedString + '\n...';
+        }
+        stationFields.push({ name: 'Estaciones', value: stationListString, inline: false });
+    }
+
+    return {
+        title: `${lineEmoji} Línea ${displayLineKey}`,
+        description,
+        color: hexToInt(lineColor),
+        fields: stationFields,
+        footer: {
+            text: `Actualizado: ${timestamp} • Información proporcionada por Metro de Santiago`,
+            iconURL: 'https://metro.cl/logo.png'
+        }
+    };
+        }
 };
