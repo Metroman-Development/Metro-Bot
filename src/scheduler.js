@@ -24,9 +24,12 @@ async function startScheduler() {
         name: 'api-fetch',
         interval: 60000, // Every minute
         task: async () => {
+            const statusService = metroCore._subsystems.statusService;
             if (TimeHelpers.isWithinOperatingHours()) {
                 const apiData = await apiService.fetchNetworkStatus();
                 MetroInfoProvider.updateFromApi(apiData);
+            } else {
+                await statusService.setSystemToOutOfService();
             }
         }
     });

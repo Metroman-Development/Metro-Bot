@@ -7,7 +7,6 @@ const EventPayload = require('../../../core/EventPayload');
 const DataEngine = require('./internal/DataEngine');
 const EventEngine = require('./internal/EventEngine');
 const StatusEngine = require('./internal/StatusEngine');
-const ScheduleEngine = require('./internal/ScheduleEngine');
 
 const DataLoader = require('./DataLoader');
 const ApiService =require('./services/ApiService');
@@ -109,8 +108,7 @@ class MetroCore extends EventEmitter {
         this._engines = {
             data: new DataEngine(this),
             events: new EventEngine(this),
-            status: new StatusEngine(this),
-            schedule: new ScheduleEngine(this)
+            status: new StatusEngine(this)
         };
 
         this._bindEngineMethods();
@@ -301,20 +299,6 @@ class MetroCore extends EventEmitter {
         return this._subsystems.managers.lines;
     }
 
-    async _initializeSchedulingSystem() {
-        if (!this._engines.schedule) {
-            logger.warn('[MetroCore] Schedule engine not found.');
-            return;
-        }
-        try {
-            await this._engines.schedule.initialize();
-            logger.info('[MetroCore] Scheduling system initialized.');
-        } catch (error) {
-            logger.error('[MetroCore] Failed to initialize scheduling system:', { error });
-            this._emitError('initializeSchedulingSystem', error);
-        }
-    }
-
     async setClient(client) {
         if (!this.isReady) {
             logger.warn('[MetroCore] setClient called before instance is ready. Waiting...');
@@ -325,7 +309,6 @@ class MetroCore extends EventEmitter {
 
         logger.info('[MetroCore] Initializing client-dependent subsystems.');
         this._subsystems.timeService = new TimeService(this);
-        await this._initializeSchedulingSystem();
         this._subsystems.statusUpdater = new (require('../../status/embeds/StatusUpdater'))(this, this._subsystems.changeDetector);
         await this._subsystems.statusUpdater.initialize();
         this._subsystems.statusUpdater.triggerInitialUpdate();
