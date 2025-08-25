@@ -810,16 +810,29 @@ class DatabaseService {
             await connection.beginTransaction();
 
             const getStatusTypeId = async (statusCode) => {
-                if (!statusCode) return null;
+                if (statusCode === null || statusCode === undefined) return null;
+
+                // First, try to find a mapping in the table for older codes.
                 const result = await connection.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
-                return result.length > 0 ? result[0].status_type_id : null;
+                if (result.length > 0) {
+                    return result[0].status_type_id;
+                }
+
+                // If no mapping, assume modern status where js_code === status_type_id, but verify it exists.
+                const checkResult = await connection.query('SELECT status_type_id FROM operational_status_types WHERE status_type_id = ?', [statusCode]);
+                if (checkResult.length > 0) {
+                    return statusCode; // Use the code itself as the ID
+                }
+
+                // If it's not in the mapping and not a valid ID in the main table, return null.
+                return null;
             };
 
             const oldStatusTypeId = await getStatusTypeId(from?.code);
             const newStatusTypeId = await getStatusTypeId(to.code);
 
-            if (!newStatusTypeId) {
-                logger.warn(`[DatabaseService] No status_type_id found for new status code: ${to.code}`);
+            if (newStatusTypeId === null) {
+                logger.warn(`[DatabaseService] Could not resolve a valid status_type_id for status code: ${to.code}. It's not in js_status_mapping and not a valid direct ID in operational_status_types.`);
                 await connection.rollback();
                 return;
             }
