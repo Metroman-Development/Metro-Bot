@@ -326,6 +326,32 @@ accessCards: {
         'Savory' :'<:Savory:1365369735189102683>'
     },
 
+    lineWeights: {
+      'l1': 7,  // heaviest
+      'l5': 6,
+      'l4': 5,
+      'l2': 4,
+      'l3': 3,
+      'l6': 2,
+      'l4a': 1  // lightest
+    },
 
-
+    severityLabels: {
+      es: [
+        { threshold: 0, label: 'Normal' },
+        { threshold: 50, label: 'Baja' },
+        { threshold: 100, label: 'Moderada' },
+        { threshold: 150, label: 'Alta' },
+        { threshold: 200, label: 'Muy Alta' },
+        { threshold: 300, label: 'Crítica' }
+      ],
+      en: [
+        { threshold: 0, label: 'Normal' },
+        { threshold: 50, label: 'Low' },
+        { threshold: 100, label: 'Moderate' },
+        { threshold: 150, label: 'High' },
+        { threshold: 200, label: 'Very High' },
+        { threshold: 300, label: 'Critical' }
+      ]
+    }
 }

@@ -1,9 +1,9 @@
 const logger = require('../../../events/logger');
-const { statusMap } = require('../../../config/metro/statusConfig');
+const { statusTypes, lineWeights, severityLabels } = require('../../../config/metro/metroConfig');
 
 // Status code to human-readable mapping
 const STATUS_MAP = Object.fromEntries(
-  Object.entries(statusMap).map(([code, { es }]) => [code, es])
+  Object.entries(statusTypes).map(([code, { name }]) => [code, name])
 );
 STATUS_MAP.unknown = 'Status Unknown';
 
@@ -35,9 +35,9 @@ const SEVERITY_LEVELS = {
 
 // Status code to normalized form mapping
 const CODE_NORMALIZATION = Object.fromEntries(
-  Object.entries(statusMap).map(([code, { en }]) => [
+  Object.entries(statusTypes).map(([code, { name }]) => [
     code,
-    en.replace(/-/g, '_'),
+    name.replace(/ /g, '_'),
   ])
 );
 
