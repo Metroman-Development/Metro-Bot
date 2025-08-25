@@ -76,10 +76,22 @@ async function loadLines(conn, lines, allStations) {
     console.log('Lines upserted.');
 }
 
-async function loadStations(conn, estadoRed, stationsData, stations) {
-    logger.detailed('Processing stations data for insertion', { estadoRed, stationsData });
+async function loadStations(conn, estadoRed, stationsData, stations, stationConnections) {
+    logger.detailed('Processing stations data for insertion', { estadoRed, stationsData, stationConnections });
     console.log('Upserting stations...');
     const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
+
+    const stationConnectionsMap = new Map();
+    if (stationConnections) {
+        for (const lineId in stationConnections) {
+            if (stationConnections[lineId].estaciones) {
+                for (const station of stationConnections[lineId].estaciones) {
+                    const stationNameKey = normalizer.normalize(station.nombre);
+                    stationConnectionsMap.set(stationNameKey, station.conexiones);
+                }
+            }
+        }
+    }
 
     // Flatten all stations from estadoRed into a single list to control the insertion order and ID assignment.
     const allStations = [];
@@ -97,8 +109,12 @@ async function loadStations(conn, estadoRed, stationsData, stations) {
     for (const station of allStations) {
         const stationNameKey = normalizer.normalize(station.nombre);
         const extraData = stationDataMap.get(stationNameKey) || [];
-        const connections = station.combinacion ? station.combinacion.split(',').map(c => c.trim().toLowerCase()) : [];
-        console.log(`Station: ${station.nombre}, Connections: ${JSON.stringify(connections)}`);
+
+        const transfers = station.combinacion ? station.combinacion.split(',').map(c => c.trim().toLowerCase()) : [];
+        const extraConexiones = stationConnectionsMap.get(stationNameKey) || [];
+        const allConnections = [...new Set([...transfers, ...extraConexiones.map(c => c.toLowerCase())])];
+
+        console.log(`Station: ${station.nombre}, Connections: ${JSON.stringify(allConnections)}`);
         const platformsQuery = 'SELECT via_number, status FROM line_platforms WHERE line_id = ?';
         const platformRows = await conn.query(platformsQuery, [station.line_id.toLowerCase()]);
 
@@ -142,6 +158,7 @@ async function loadStations(conn, estadoRed, stationsData, stations) {
                 access_details = VALUES(access_details),
                 opened_date = VALUES(opened_date),
                 last_renovation_date = VALUES(last_renovation_date),
+                connections = VALUES(connections),
                 express_state = VALUES(express_state),
                 route_color = VALUES(route_color)
         `;
@@ -161,12 +178,12 @@ async function loadStations(conn, estadoRed, stationsData, stations) {
             extraData[3] || null, // commerce
             extraData[4] || null, // amenities
             extraData[5] || null, // image_url
-            null, // combinacion
+            station.combinacion || null, // combinacion
             station.nombre, // display_name
             null, // access_details
             null, // opened_date
             null, // last_renovation_date
-            JSON.stringify(connections),
+            JSON.stringify(allConnections),
             JSON.stringify(platforms),
             expressState,
             routeColor
@@ -510,7 +527,9 @@ async function main() {
         logger.detailed('Loaded stationsData.json', stationsData);
         const stations = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stations.json'), 'utf8'));
         logger.detailed('Loaded stations.json', stations);
-        await loadStations(conn, estadoRed, stationsData, stations);
+        const stationConnections = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stationConnections.json'), 'utf8'));
+        logger.detailed('Loaded stationConnections.json', stationConnections);
+        await loadStations(conn, estadoRed, stationsData, stations, stationConnections);
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
         logger.detailed('Loaded trainInfo.json', trainInfo);

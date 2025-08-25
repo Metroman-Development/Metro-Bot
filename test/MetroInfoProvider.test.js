@@ -62,4 +62,37 @@ describe('MetroInfoProvider', () => {
         const fullData = provider.getFullData();
         assert.deepStrictEqual(fullData.stations, dbData.stations);
     });
+
+    describe('getStationDetails', () => {
+        it('should return station details with connections', () => {
+            const stationName = 'Test Station';
+            const stationData = {
+                'test-station': {
+                    station_id: 'test-station',
+                    station_name: stationName,
+                    line_id: 'l1',
+                    route_color: 'R',
+                    express_state: 'Operational',
+                    combinacion: 'l2',
+                    connections: ['l2', 'bus'],
+                    access_details: 'some details',
+                    services: 'some services',
+                    accessibility: 'accessible',
+                    amenities: 'some amenities',
+                    commune: 'Test Commune',
+                    platforms: [],
+                    status: {
+                        code: '1',
+                        message: 'Operativa'
+                    }
+                }
+            };
+
+            provider.updateData({ stations: stationData, lines: { l1: {} }, intermodal: { buses: {} } });
+
+            const details = provider.getStationDetails(stationName);
+
+            assert.deepStrictEqual(details.connections, ['l2', 'bus']);
+        });
+    });
 });

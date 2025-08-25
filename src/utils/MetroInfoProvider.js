@@ -207,6 +207,7 @@ class MetroInfoProvider {
             route: station.route_color,
             express_state: station.express_state,
             transfer: station.combinacion ? `L${station.combinacion}` : null,
+            connections: station.connections || [],
             details: {
                 schematics: station.access_details,
                 services: station.services,
