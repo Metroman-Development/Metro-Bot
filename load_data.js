@@ -76,7 +76,7 @@ async function loadLines(conn, lines, allStations) {
     console.log('Lines upserted.');
 }
 
-async function loadStations(conn, estadoRed, stationsData) {
+async function loadStations(conn, estadoRed, stationsData, stations) {
     logger.detailed('Processing stations data for insertion', { estadoRed, stationsData });
     console.log('Upserting stations...');
     const stationDataMap = new Map(Object.entries(stationsData.stationsData).map(([key, value]) => [normalizer.normalize(key), value]));
@@ -103,9 +103,13 @@ async function loadStations(conn, estadoRed, stationsData) {
             { direction: 'Direction 2', status: 'operational' }
         ];
 
+        const stationInfo = stations[station.line_id.toLowerCase()] && stations[station.line_id.toLowerCase()][station.nombre];
+        const routeColor = stationInfo && stationInfo.ruta ? stationInfo.ruta.charAt(5).toUpperCase() : 'C'; // R, V, or C
+        const expressState = stationInfo && stationInfo.ruta ? 'Operational' : 'Non operational';
+
         const query = `
-            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url, combinacion, display_name, access_details, opened_date, last_renovation_date, connections, platforms)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO metro_stations (station_id, line_id, station_code, station_name, display_order, commune, address, latitude, longitude, location, transports, services, accessibility, commerce, amenities, image_url, combinacion, display_name, access_details, opened_date, last_renovation_date, connections, platforms, express_state, route_color)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, POINT(0, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 station_name = VALUES(station_name),
                 display_order = VALUES(display_order),
@@ -124,7 +128,9 @@ async function loadStations(conn, estadoRed, stationsData) {
                 display_name = VALUES(display_name),
                 access_details = VALUES(access_details),
                 opened_date = VALUES(opened_date),
-                last_renovation_date = VALUES(last_renovation_date)
+                last_renovation_date = VALUES(last_renovation_date),
+                express_state = VALUES(express_state),
+                route_color = VALUES(route_color)
         `;
         await conn.query(query, [
             stationIdCounter,
@@ -148,7 +154,9 @@ async function loadStations(conn, estadoRed, stationsData) {
             null, // opened_date
             null, // last_renovation_date
             JSON.stringify(connections),
-            JSON.stringify(platforms)
+            JSON.stringify(platforms),
+            expressState,
+            routeColor
         ]);
         console.log(`Upserted station ${station.nombre} with ID ${stationIdCounter}`);
         stationIdCounter++;
@@ -422,7 +430,9 @@ async function main() {
         logger.detailed('Loaded estadoRed.json', estadoRed);
         const stationsData = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stationsData.json'), 'utf8'));
         logger.detailed('Loaded stationsData.json', stationsData);
-        await loadStations(conn, estadoRed, stationsData);
+        const stations = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/stations.json'), 'utf8'));
+        logger.detailed('Loaded stations.json', stations);
+        await loadStations(conn, estadoRed, stationsData, stations);
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
         logger.detailed('Loaded trainInfo.json', trainInfo);
