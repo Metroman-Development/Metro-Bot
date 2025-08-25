@@ -42,10 +42,6 @@ class MetroInfoProvider {
             network_status: {},
             last_updated: null
         };
-
-        if (newData && newData.lines) {
-            console.log("Updated metro data with: ", newData.lines);
-        }
     }
 
     /**

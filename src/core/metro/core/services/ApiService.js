@@ -180,7 +180,6 @@ class ApiService extends EventEmitter {
         try {
             let currentData;
             const dbRawData = await this.getDbRawData();
-            console.log(dbRawData);
             if (this.timeHelpers.isWithinOperatingHours()) {
                 logger.info('[ApiService] Within operating hours. Fetching from API.');
                 try {
@@ -212,11 +211,7 @@ class ApiService extends EventEmitter {
                                                 };
                                                 Object.assign(station, dbStation);
                                                 Object.assign(station, apiStatus);
-
-                                                console.log(station)
                                             }
-
-                                            
                                         }
                                     }
                                 }
@@ -243,12 +238,15 @@ class ApiService extends EventEmitter {
             const { lines, stations } = this.extractLineAndStationData(currentData);
             const networkSummary = this.generateNetworkSummary(lines);
 
-            const finalData = await this.dataEngine.handleRawData({
+            const processedData = {
                 ...currentData,
                 lines,
                 stations,
                 network: networkSummary,
-            });
+            };
+            delete processedData.lineas;
+
+            const finalData = await this.dataEngine.handleRawData(processedData);
 
             if (finalData) {
                 this.lastRawData = currentData; // Store the original raw data
