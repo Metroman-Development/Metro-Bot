@@ -119,7 +119,7 @@ module.exports = {
             }
 
             let combinacionEmoji = '';
-            const transferLines = station.combinacion || station.transferLines || [];
+            const transferLines = Array.isArray(station.combinacion) ? station.combinacion : (station.transferLines || []);
 
             if (transferLines.length > 0) {
                 combinacionEmoji = transferLines

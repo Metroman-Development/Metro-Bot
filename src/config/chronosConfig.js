@@ -101,7 +101,13 @@ const config = {
         { name: 'fare-period-to-valle-morning', schedule: '0 9 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
         { name: 'fare-period-to-punta-evening', schedule: '0 18 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
         { name: 'fare-period-to-valle-evening', schedule: '0 20 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
-        { name: 'fare-period-to-bajo-evening', schedule: '45 20 * * 1-5', task: 'announcementService.announceFarePeriodChange' }
+        { name: 'fare-period-to-bajo-evening', schedule: '45 20 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
+
+        // Express service transitions (weekday)
+        { name: 'express-morning-start', schedule: '0 6 * * 1-5', task: 'statusManager.activateExpressService' },
+        { name: 'express-morning-end', schedule: '0 9 * * 1-5', task: 'statusManager.deactivateExpressService' },
+        { name: 'express-evening-start', schedule: '0 18 * * 1-5', task: 'statusManager.activateExpressService' },
+        { name: 'express-evening-end', schedule: '0 21 * * 1-5', task: 'statusManager.deactivateExpressService' }
     ]
 };
 
