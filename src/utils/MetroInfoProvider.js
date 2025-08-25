@@ -132,7 +132,13 @@ class MetroInfoProvider {
      * @returns {object} The full metro data object.
      */
     getFullData() {
-        return this.metroData;
+        const data = { ...this.metroData };
+
+        if (!data.network_status) {
+            data.network_status = { status: 'unknown' };
+        }
+
+        return data;
     }
 
     getStationById(stationId) {
