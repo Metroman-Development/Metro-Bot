@@ -122,6 +122,7 @@ DROP TABLE IF EXISTS `train_models`;
 CREATE TABLE `train_models` (
   `model_id` varchar(50) NOT NULL,
   `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
+  `image_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`model_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -204,6 +205,28 @@ LOCK TABLES `line_status` WRITE;
 /*!40000 ALTER TABLE `line_status` DISABLE KEYS */;
 /*!40000 ALTER TABLE `line_status` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `future_lines`
+--
+
+DROP TABLE IF EXISTS `future_lines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `future_lines` (
+  `line_id` varchar(10) NOT NULL,
+  `communes` text DEFAULT NULL,
+  `inauguration_year` int(4) DEFAULT NULL,
+  `length_km` decimal(5,2) DEFAULT NULL,
+  `stations_count` int(11) DEFAULT NULL,
+  `electrification` varchar(255) DEFAULT NULL,
+  `characteristics` text DEFAULT NULL,
+  `fleet` varchar(255) DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
+  `interconnections` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`interconnections`)),
+  PRIMARY KEY (`line_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `loader_raw_data`

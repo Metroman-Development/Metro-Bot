@@ -235,20 +235,23 @@ async function truncateTables(conn) {
     console.log('Tables truncated.');
 }
 
-async function loadTrainModels(conn, trainInfo) {
+async function loadTrainModels(conn, trainInfo, trainImages) {
     logger.detailed('Processing train models data for insertion', trainInfo);
     console.log('Upserting train models...');
     for (const modelId in trainInfo.modelos) {
         const modelData = trainInfo.modelos[modelId];
+        const imageUrl = trainImages[modelId] ? trainImages[modelId].exterior : null;
         const query = `
-            INSERT INTO train_models (model_id, model_data)
-            VALUES (?, ?)
+            INSERT INTO train_models (model_id, model_data, image_url)
+            VALUES (?, ?, ?)
             ON DUPLICATE KEY UPDATE
-                model_data = VALUES(model_data)
+                model_data = VALUES(model_data),
+                image_url = VALUES(image_url)
         `;
         await conn.query(query, [
             modelId,
-            JSON.stringify(modelData)
+            JSON.stringify(modelData),
+            imageUrl
         ]);
         console.log(`Upserted train model ${modelId}`);
     }
@@ -274,6 +277,72 @@ async function loadLineFleet(conn, linesData) {
         }
     }
     console.log('Line fleet upserted.');
+}
+
+async function loadAccessibilityStatus(conn, accessibilityData) {
+    logger.detailed('Processing accessibility status data for insertion', accessibilityData);
+    console.log('Upserting accessibility status...');
+    for (const equipmentId in accessibilityData) {
+        const item = accessibilityData[equipmentId];
+        const query = `
+            INSERT INTO accessibility_status (equipment_id, station_code, line_id, status, type, text, last_updated)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                station_code = VALUES(station_code),
+                line_id = VALUES(line_id),
+                status = VALUES(status),
+                type = VALUES(type),
+                text = VALUES(text),
+                last_updated = VALUES(last_updated)
+        `;
+        await conn.query(query, [
+            equipmentId,
+            item.estacion,
+            item.linea || '', // Assuming linea can be missing
+            item.estado,
+            item.tipo,
+            item.texto,
+            new Date(item.time)
+        ]);
+        console.log(`Upserted accessibility status for ${equipmentId}`);
+    }
+    console.log('Accessibility status upserted.');
+}
+
+async function loadFutureLines(conn, futureLinesData) {
+    logger.detailed('Processing future lines data for insertion', futureLinesData);
+    console.log('Upserting future lines...');
+    for (const lineId in futureLinesData) {
+        const line = futureLinesData[lineId];
+        const query = `
+            INSERT INTO future_lines (line_id, communes, inauguration_year, length_km, stations_count, electrification, characteristics, fleet, color, interconnections)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+                communes = VALUES(communes),
+                inauguration_year = VALUES(inauguration_year),
+                length_km = VALUES(length_km),
+                stations_count = VALUES(stations_count),
+                electrification = VALUES(electrification),
+                characteristics = VALUES(characteristics),
+                fleet = VALUES(fleet),
+                color = VALUES(color),
+                interconnections = VALUES(interconnections)
+        `;
+        await conn.query(query, [
+            lineId,
+            line.Comunas.join(', '),
+            parseInt(line.Estreno.match(/\d{4}/)[0]),
+            parseFloat(line.Longitud),
+            parseInt(line['N° estaciones']),
+            line.Electrificación,
+            line.Características,
+            line.Flota.join(', '),
+            line.Color,
+            JSON.stringify(line.Interconexiones)
+        ]);
+        console.log(`Upserted future line ${lineId}`);
+    }
+    console.log('Future lines upserted.');
 }
 
 async function main() {
@@ -308,9 +377,19 @@ async function main() {
 
         const trainInfo = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainInfo.json'), 'utf8'));
         logger.detailed('Loaded trainInfo.json', trainInfo);
-        await loadTrainModels(conn, trainInfo);
+        const trainImages = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/trainImages.json'), 'utf8'));
+        logger.detailed('Loaded trainImages.json', trainImages);
+        await loadTrainModels(conn, trainInfo, trainImages);
 
         await loadLineFleet(conn, linesData);
+
+        const accessibilityCache = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/accessibilityCache.json'), 'utf8'));
+        logger.detailed('Loaded accessibilityCache.json', accessibilityCache);
+        await loadAccessibilityStatus(conn, accessibilityCache);
+
+        const lineasproyectoMetro = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/lineasproyectoMetro.json'), 'utf8'));
+        logger.detailed('Loaded lineasproyectoMetro.json', lineasproyectoMetro);
+        await loadFutureLines(conn, lineasproyectoMetro);
 
     } catch (err) {
         console.error(err);

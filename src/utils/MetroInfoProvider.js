@@ -4,8 +4,15 @@ class MetroInfoProvider {
     constructor() {
         this.metroData = {
             lines: {},
-            network_status: {},
             stations: {},
+            trains: {},
+            intermodal: {
+                stations: {},
+                buses: {}
+            },
+            futureLines: {},
+            accessibility: {},
+            network_status: {},
             last_updated: null
         };
     }
@@ -24,8 +31,15 @@ class MetroInfoProvider {
     updateData(newData) {
         this.metroData = newData || {
             lines: {},
-            network_status: {},
             stations: {},
+            trains: {},
+            intermodal: {
+                stations: {},
+                buses: {}
+            },
+            futureLines: {},
+            accessibility: {},
+            network_status: {},
             last_updated: null
         };
     }
@@ -76,6 +90,26 @@ class MetroInfoProvider {
      */
     getLines() {
         return this.metroData.lines;
+    }
+
+    getFutureLines() {
+        return this.metroData.futureLines;
+    }
+
+    getTrainInfo(modelId) {
+        return this.metroData.trains[modelId];
+    }
+
+    getAccessibilityStatus(stationCode) {
+        return this.metroData.accessibility[stationCode];
+    }
+
+    getIntermodalStations() {
+        return this.metroData.intermodal.stations;
+    }
+
+    getIntermodalBuses(stationName) {
+        return this.metroData.intermodal.buses[stationName];
     }
 
     /**
