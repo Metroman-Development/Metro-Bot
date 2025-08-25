@@ -210,9 +210,9 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
 
     return {
       id: item.id || 'unknown',
-      name: item.name || item.displayName || 'Unknown',
-      displayName: item.displayName || item.name || 'Unknown',
-      line: item.line ? item.line.toLowerCase() : 'unknown',
+      name: item.original || item.name || item.displayName || 'Unknown',
+      displayName: item.displayName || item.original || item.name || 'Unknown',
+      line: item.linea ? item.linea.toLowerCase() : (item.line ? item.line.toLowerCase() : 'unknown'),
       status: item.status?.code || 'operational',
       score: 1.0,
       matchType,
@@ -262,8 +262,11 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
       return options.needsOneMatch ? null : [];
     }
 
-    // Return top match if no interaction or single result needed
-    if (options.needsOneMatch || !options.interaction) {
+    // If we need one match and there are multiple matches with the same top score,
+    // we need to disambiguate.
+    if (options.needsOneMatch && matches.length > 1 && matches[0].score === matches[1].score) {
+        // continue to disambiguation
+    } else if (options.needsOneMatch || !options.interaction) {
       return [matches[0]];
     }
 
