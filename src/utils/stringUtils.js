@@ -354,14 +354,6 @@ function getConnectionEmojiList(stationName, lineKey) {
  * @param {string} lineKey - The line key (e.g., 'l1')
  * @returns {string} Emoji string of connections
  */
-// Add to module.exports at the bottom:
-/*
-module.exports = {
-  // ... keep all existing exports ...
-  getConnectionEmojiList // Add this new function
-};
-
-// ===== EXPORTS ===== //
 module.exports = {
   // Core utilities
   normalize,
@@ -390,7 +382,7 @@ module.exports = {
   formatEmbedTimestamp,
   getLineEmoji,
   formatLineString,
-    getConnectionEmojiList,
+  getConnectionEmojiList,
 
   // Legacy functions
   decorateStationName: (name, line, route) => {
@@ -406,4 +398,4 @@ module.exports = {
     }
     return decorated;
   }
-};*/
+};
