@@ -3,7 +3,7 @@ const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
 const TimeHelpers = require('../../../utils/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
-const statusConfig = require('../../../config/metro/statusConfig');
+const statusConfig = require('../../../config/metro/metroConfig');
 const DatabaseManager = require('../../database/DatabaseManager');
 
 const DatabaseService = require('../../database/DatabaseService');
@@ -15,7 +15,7 @@ class StatusProcessor {
     this.dbService = dbService;
     this.timeHelpers = TimeHelpers;
     this.lineWeights = statusConfig.lineWeights;
-    this.statusMap = statusConfig.statusMap;
+    this.statusMap = statusConfig.statusTypes;
     this.severityLabels = statusConfig.severityLabels;
   }
 
@@ -361,11 +361,11 @@ class StatusProcessor {
 
   _calculateLineSeverity(lineId, statusCode) {
     const code = statusCode.toString();
-    if (!this.statusMap[code] || typeof this.statusMap[code].lineSeverityImpact === 'undefined') {
+    if (!this.statusMap[code] || typeof this.statusMap[code].severity === 'undefined') {
       logger.warn(`[StatusProcessor] Unknown or invalid line status code '${code}' for line ${lineId}. Treating as 0 severity.`);
       return 0;
     }
-    return this.lineWeights[lineId] * this.statusMap[code].lineSeverityImpact;
+    return this.lineWeights[lineId] * this.statusMap[code].severity;
   }
 
   _calculateStationSeverity(station, lineId) {

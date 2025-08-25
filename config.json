@@ -1,2 +1,7 @@
 {
+    "DB_HOST": "localhost",
+    "DB_USER": "metroapi",
+    "DB_PASSWORD": "Metro256",
+    "METRODB_NAME": "MetroDB",
+    "DB_PORT": 3306
 }
