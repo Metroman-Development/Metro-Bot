@@ -121,8 +121,21 @@ DROP TABLE IF EXISTS `train_models`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `train_models` (
   `model_id` varchar(50) NOT NULL,
-  `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
+  `model_name` varchar(100) DEFAULT NULL,
+  `manufacturer` varchar(100) DEFAULT NULL,
   `image_url` varchar(255) DEFAULT NULL,
+  `construction_years` varchar(50) DEFAULT NULL,
+  `in_service_years` varchar(50) DEFAULT NULL,
+  `total_produced` int(11) DEFAULT NULL,
+  `in_service_count` int(11) DEFAULT NULL,
+  `formation` varchar(100) DEFAULT NULL,
+  `length_m` decimal(5,2) DEFAULT NULL,
+  `width_m` decimal(5,2) DEFAULT NULL,
+  `height_m` decimal(5,2) DEFAULT NULL,
+  `weight_ton` decimal(5,2) DEFAULT NULL,
+  `max_speed_kmh` int(11) DEFAULT NULL,
+  `traction_system` varchar(100) DEFAULT NULL,
+  `power_supply` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`model_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -163,6 +176,25 @@ LOCK TABLES `line_fleet` WRITE;
 /*!40000 ALTER TABLE `line_fleet` DISABLE KEYS */;
 /*!40000 ALTER TABLE `line_fleet` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `line_platforms`
+--
+
+DROP TABLE IF EXISTS `line_platforms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `line_platforms` (
+  `platform_id` int(11) NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(10) NOT NULL,
+  `via_number` tinyint(1) NOT NULL COMMENT 'Vía number: 1 or 2',
+  `direction_id` tinyint(1) NOT NULL COMMENT 'Direction identifier: 1 or 2',
+  `terminal_station` varchar(100) NOT NULL,
+  `status` tinyint(1) DEFAULT 1 COMMENT '1=active, 0=inactive',
+  PRIMARY KEY (`platform_id`),
+  UNIQUE KEY `unique_line_via` (`line_id`,`via_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `line_status`

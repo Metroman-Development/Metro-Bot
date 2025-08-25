@@ -97,11 +97,15 @@ async function loadStations(conn, estadoRed, stationsData, stations) {
     for (const station of allStations) {
         const stationNameKey = normalizer.normalize(station.nombre);
         const extraData = stationDataMap.get(stationNameKey) || [];
-        const connections = extraData[0] ? extraData[0].split(',').map(c => c.trim()) : [];
-        const platforms = [
-            { direction: 'Direction 1', status: 'operational' },
-            { direction: 'Direction 2', status: 'operational' }
-        ];
+        const connections = station.combinacion ? station.combinacion.split(',').map(c => c.trim().toLowerCase()) : [];
+        console.log(`Station: ${station.nombre}, Connections: ${JSON.stringify(connections)}`);
+        const platformsQuery = 'SELECT via_number, status FROM line_platforms WHERE line_id = ?';
+        const platformRows = await conn.query(platformsQuery, [station.line_id.toLowerCase()]);
+
+        const platforms = {};
+        for (const row of platformRows) {
+            platforms[row.via_number] = row.status;
+        }
 
         const stationInfo = stations[station.line_id.toLowerCase()] && stations[station.line_id.toLowerCase()][station.nombre];
         let routeColor = 'N'; // Default to 'N'
@@ -288,6 +292,7 @@ async function truncateTables(conn) {
     await conn.query('TRUNCATE TABLE train_models;');
     await conn.query('TRUNCATE TABLE metro_stations;');
     await conn.query('TRUNCATE TABLE metro_lines;');
+    await conn.query('TRUNCATE TABLE line_platforms;');
     await conn.query('SET FOREIGN_KEY_CHECKS = 1;');
     console.log('Tables truncated.');
 }
@@ -298,17 +303,77 @@ async function loadTrainModels(conn, trainInfo, trainImages) {
     for (const modelId in trainInfo.modelos) {
         const modelData = trainInfo.modelos[modelId];
         const imageUrl = trainImages[modelId] ? trainImages[modelId].exterior : null;
+
+        const datosGenerales = modelData.datos_generales || {};
+        const caracteristicas = modelData.caracteristicas_tecnicas || {};
+        const dimensiones = caracteristicas.dimensiones || {};
+        const peso = caracteristicas.peso || {};
+        const motores = caracteristicas.motores_electricos || {};
+
+        const totalProduced = datosGenerales.unidades_fabricadas ? datosGenerales.unidades_fabricadas.trenes : null;
+        const inServiceCount = datosGenerales.unidades_fabricadas && datosGenerales.unidades_fabricadas.en_servicio ? datosGenerales.unidades_fabricadas.en_servicio.trenes : null;
+
+        let length = null;
+        if (typeof dimensiones.longitud === 'string') {
+            length = parseFloat(dimensiones.longitud.replace(' m', ''));
+        } else if (typeof dimensiones.longitud === 'object' && dimensiones.longitud !== null) {
+            length = parseFloat(Object.values(dimensiones.longitud)[0].replace(' m', ''));
+        }
+
+        let weight = null;
+        if (typeof peso === 'string') {
+            weight = parseFloat(peso.replace(' t', ''));
+        } else if (typeof peso === 'object' && peso !== null) {
+            // It seems weight is not always an object with a clear value, so we'll handle it carefully.
+            const firstValue = Object.values(peso)[0];
+            if (typeof firstValue === 'string') {
+                weight = parseFloat(firstValue.replace(' t', ''));
+            }
+        }
+
         const query = `
-            INSERT INTO train_models (model_id, model_data, image_url)
-            VALUES (?, ?, ?)
+            INSERT INTO train_models (
+                model_id, model_name, manufacturer, image_url, construction_years,
+                in_service_years, total_produced, in_service_count, formation,
+                length_m, width_m, height_m, weight_ton, max_speed_kmh,
+                traction_system, power_supply
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
-                model_data = VALUES(model_data),
-                image_url = VALUES(image_url)
+                model_name = VALUES(model_name),
+                manufacturer = VALUES(manufacturer),
+                image_url = VALUES(image_url),
+                construction_years = VALUES(construction_years),
+                in_service_years = VALUES(in_service_years),
+                total_produced = VALUES(total_produced),
+                in_service_count = VALUES(in_service_count),
+                formation = VALUES(formation),
+                length_m = VALUES(length_m),
+                width_m = VALUES(width_m),
+                height_m = VALUES(height_m),
+                weight_ton = VALUES(weight_ton),
+                max_speed_kmh = VALUES(max_speed_kmh),
+                traction_system = VALUES(traction_system),
+                power_supply = VALUES(power_supply)
         `;
+
         await conn.query(query, [
             modelId,
-            JSON.stringify(modelData),
-            imageUrl
+            modelId, // model_name
+            datosGenerales.fabricante,
+            imageUrl,
+            datosGenerales.año_fabricacion,
+            datosGenerales.año_fabricacion, // in_service_years
+            totalProduced,
+            inServiceCount,
+            Array.isArray(caracteristicas.composicion) ? caracteristicas.composicion.join('; ') : caracteristicas.composicion,
+            length,
+            dimensiones.anchura ? parseFloat(dimensiones.anchura.replace(' m', '')) : null,
+            dimensiones.altura ? parseFloat(dimensiones.altura.replace(' m (sin pantógrafo)','').replace(' m','')) : null,
+            weight,
+            caracteristicas.velocidad_maxima ? parseInt(caracteristicas.velocidad_maxima.replace(' km/h', '')) : null,
+            motores.tipo,
+            motores.alimentacion
         ]);
         console.log(`Upserted train model ${modelId}`);
     }
@@ -408,7 +473,11 @@ async function main() {
         conn = await pool.getConnection();
         console.log('Connected to the database.');
 
-        // await truncateTables(conn);
+        await truncateTables(conn);
+
+        const seedLinePlatformsSql = await fs.readFile(path.join(__dirname, 'seed_line_platforms.sql'), 'utf8');
+        await conn.query(seedLinePlatformsSql);
+        console.log('Seeded line_platforms table.');
 
         const metroGeneral = JSON.parse(await fs.readFile(path.join(__dirname, 'src/data/metroGeneral.json'), 'utf8'));
         logger.detailed('Loaded metroGeneral.json', metroGeneral);
