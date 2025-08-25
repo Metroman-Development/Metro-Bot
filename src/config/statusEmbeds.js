@@ -1,46 +1,15 @@
 const metroConfig = require('./metro/metroConfig.js');
 const logger = require('../events/logger');
-
 const styles = require('./styles.json');
-
-const stations = {}; // Import stations.json
+const TimeHelpers = require('../utils/timeHelpers.js');
+const { decorateStation } = require('../utils/stationUtils.js');
 
 // Utility function to convert hex color to integer
-
 function hexToInt(hex) {
-
     if (!hex || typeof hex !== 'string') return 0xFFFFFF;
-
     const cleanedHex = hex.startsWith('#') ? hex.slice(1) : hex;
-
     return parseInt(cleanedHex, 16) || 0xFFFFFF;
-
 }
-
-// TimeHelpers functions - COMMENTED: Not available in current structure
-/*
-const TimeHelpers = {
-    formatForEmbed: () => new Date().toLocaleTimeString('es-CL', {
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZone: 'America/Santiago'
-    }),
-    getServiceStatus: () => ({
-        operatingHours: { opening: '06:00', closing: '23:00' }
-    }),
-    getNextTransition: () => ({ time: '23:00', message: 'Cierre' })
-};
-*/
-
-// decorateStation function - COMMENTED: Not available in current structure
-/*
-function decorateStation(station) {
-    const stationName = station.nombre || station.name || '';
-    const statusCode = station.estado || '1';
-    const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
-    return `${statusConfig.emoji || '❓'} ${stationName}`;
-}
-*/
 
 module.exports = {
     overviewEmbed: (data, timestamp) => {
@@ -73,7 +42,6 @@ module.exports = {
             const lineKey = line.id.toLowerCase();
             const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
 
-            // FIX: Use correct status property from data structure
             const statusCode = line.estado || line.status || '1';
             const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
 
@@ -90,17 +58,14 @@ module.exports = {
             };
         });
 
-        // COMMENTED: Service status information not available in current data
-        /*
-        const serviceStatus = TimeHelpers.getServiceStatus();
+        const serviceStatus = TimeHelpers.getOperatingHours();
         if (serviceStatus) {
             fields.push({
                 name: '🕒 Horario de Servicio',
-                value: `${serviceStatus.operatingHours.opening} - ${serviceStatus.operatingHours.closing}`,
+                value: `${serviceStatus.opening} - ${serviceStatus.closing}`,
                 inline: false
             });
         }
-        */
 
         return {
             title: '🚇 Estado General de la Red Metro',
@@ -132,11 +97,9 @@ module.exports = {
         const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
         const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
 
-        // FIX: Use correct name property from data structure
         const lineName = lineData.nombre || lineData.displayName || '';
         const displayLineKey = lineName.replace('Línea ', '');
 
-        // FIX: Use correct status properties from data structure
         const statusCode = lineData.estado || lineData.status || '1';
         const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
         const isClosed = statusCode === '0' || lineData.mensaje_app?.includes('Cierre por Horario');
@@ -144,20 +107,13 @@ module.exports = {
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`;
 
-        // FIX: Use estaciones array directly from lineData
         const stationObjects = lineData.estaciones || [];
         const stationLines = stationObjects.map(station => {
-            const stationName = station.nombre?.replace(/\s*L\d+[A-Za-z]*\s*$/, '').trim() || station.name || '';
-            const stationStatusCode = station.estado || station.status || '1';
-            const isStationClosed = stationStatusCode === '0';
-            const stationIcon = metroConfig.statusTypes[stationStatusCode]?.emoji || '❓';
-            const stationStatusIcon = isStationClosed ? `🌙 ${stationIcon}` : stationIcon;
-
+            const decoratedStation = decorateStation(station);
             const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
             const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
 
             let combinacionEmoji = '';
-            // FIX: Use combinacion property from data structure
             const transferLines = station.combinacion || station.transferLines || [];
 
             if (transferLines.length > 0) {
@@ -166,7 +122,7 @@ module.exports = {
                     .join(' ');
             }
 
-            let stationText = `${stationStatusIcon} ${rutaIcon} ${stationName}`;
+            let stationText = `${decoratedStation} ${rutaIcon}`;
             if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
 
             return stationText;
@@ -188,8 +144,6 @@ module.exports = {
             stationFields.push({ name: 'Estaciones', value: stationListString, inline: false });
         }
 
-        // COMMENTED: Next transition information not available
-        /*
         const nextTransition = TimeHelpers.getNextTransition();
         if (nextTransition) {
             stationFields.push({
@@ -198,7 +152,6 @@ module.exports = {
                 inline: true
             });
         }
-        */
 
         return {
             title: `${lineEmoji} Línea ${displayLineKey}`,
