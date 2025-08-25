@@ -20,7 +20,14 @@ describe('MetroInfoProvider', () => {
             lines: {},
             network_status: {},
             stations: {},
-            last_updated: null
+            last_updated: null,
+            accessibility: {},
+            futureLines: {},
+            intermodal: {
+                buses: {},
+                stations: {}
+            },
+            trains: {}
         });
     });
 

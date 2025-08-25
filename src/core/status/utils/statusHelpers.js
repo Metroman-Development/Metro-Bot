@@ -1,65 +1,45 @@
-// modules/status/utils/statusHelpers.js
-// modules/status/utils/statusHelpers.js
-
 const logger = require('../../../events/logger');
+const { statusMap } = require('../../../config/metro/statusConfig');
 
 // Status code to human-readable mapping
-
-const STATUS_MAP = {
-
-  '0': 'System Closed',
-
-  '1': 'Operational',
-
-  '2': 'Delayed',
-
-  '3': 'Partial Outage',
-
-  '4': 'Major Outage',
-
-  '5': 'Extended Service',
-
-  'unknown': 'Status Unknown'
-
-};
+const STATUS_MAP = Object.fromEntries(
+  Object.entries(statusMap).map(([code, { es }]) => [code, es])
+);
+STATUS_MAP.unknown = 'Status Unknown';
 
 // Status to severity level mapping
-
 const SEVERITY_LEVELS = {
-
-  'operational': 'low',
-
-  'delayed': 'medium',
-
-  'partial_outage': 'high',
-
-  'major_outage': 'critical',
-
-  'extended_service': 'medium',
-
-  'outage': 'critical',
-
-  'unknown': 'low'
-
+  operational: 'low',
+  delayed: 'medium',
+  partial_outage: 'high',
+  major_outage: 'critical',
+  extended_service: 'medium',
+  outage: 'critical',
+  unknown: 'low',
+  open: 'low',
+  transfer: 'low',
+  'controlled_access': 'medium',
+  'partial_access': 'medium',
+  closed: 'high',
+  containment: 'high',
+  'extended_service_(entry_only)': 'medium',
+  'extended_service_(exit_only)': 'medium',
+  slow: 'medium',
+  delays: 'high',
+  partial: 'high',
+  suspended: 'critical',
+  'off-service': 'low',
+  'with_delays': 'high',
+  'partial_service': 'high',
 };
 
 // Status code to normalized form mapping
-
-const CODE_NORMALIZATION = {
-
-  '0': 'outage',
-
-  '1': 'operational',
-
-  '2': 'delayed',
-
-  '3': 'partial_outage',
-
-  '4': 'major_outage',
-
-  '5': 'extended_service'
-
-};
+const CODE_NORMALIZATION = Object.fromEntries(
+  Object.entries(statusMap).map(([code, { en }]) => [
+    code,
+    en.replace(/-/g, '_'),
+  ])
+);
 
 /**
 
