@@ -86,6 +86,9 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         return;
     }
 
+
+    console.log("UPDATE ALL EMBEDS: ", data);
+
     if (this._updateLock && !bypassQueue) {
         logger.debug('[EmbedManager] Update in progress, queuing');
         this._queueUpdate('full', { data, changes });
