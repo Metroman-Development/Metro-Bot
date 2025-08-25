@@ -71,8 +71,8 @@ class MetroInfoProvider {
                         }
                         Object.assign(currentData.stations[stationId], station);
                     }
-                    currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones.map(s => s.id_estacion);
-                    delete currentData.lines[lineId].estaciones;
+                    // Mantener la lista de estaciones completa en el objeto de la línea
+                    currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
                 }
             }
             this.updateData(currentData);
