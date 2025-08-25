@@ -31,7 +31,7 @@ module.exports = {
             };
         }
 
-        const { lines, systemMetadata } = data;
+        const { lines, network_status } = data;
 
         const statusMessages = {
             operational: '✅ **Toda la Red Operativa**',
@@ -41,7 +41,7 @@ module.exports = {
             default: '❓ **Estado Desconocido**'
         };
 
-        const networkStatus = systemMetadata?.status || 'default';
+        const networkStatus = network_status?.status || 'default';
         const description = statusMessages[networkStatus] || statusMessages.default;
 
         const fields = Object.values(lines).map(line => {

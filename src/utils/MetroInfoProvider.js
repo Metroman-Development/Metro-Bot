@@ -56,6 +56,13 @@ class MetroInfoProvider {
         if (apiLastChange > dbLastChange) {
             currentData.lines = apiData.lineas;
             currentData.network_status = apiData.network;
+            // Hotfix: ensure lines have station ids, not station objects
+            for (const lineId in currentData.lines) {
+                if (currentData.lines[lineId].estaciones) {
+                    currentData.lines[lineId].stations = currentData.lines[lineId].estaciones.map(s => s.id_estacion);
+                    delete currentData.lines[lineId].estaciones;
+                }
+            }
             this.updateData(currentData);
         }
     }
@@ -188,7 +195,7 @@ class MetroInfoProvider {
 
     getStationsForLine(lineKey) {
         return Object.values(this.metroData.stations)
-            .filter(station => station.linea === lineKey)
+            .filter(station => station.line === lineKey)
             .sort((a, b) => a.orden - b.orden);
     }
 
@@ -347,7 +354,7 @@ class MetroInfoProvider {
             data: {
                 Estreno: lineInfo.Estreno || lineDataFromJSON?.Estreno || 'No disponible',
                 Longitud: lineInfo.Longitud || lineDataFromJSON?.Longitud || 'No disponible',
-                'N° estaciones': lineInfo.estaciones?.length || lineDataFromJSON?.['N° estaciones'] || 0,
+                'N° estaciones': lineInfo.stations?.length || lineDataFromJSON?.['N° estaciones'] || 0,
                 Comunas: lineInfo.Comunas || lineDataFromJSON?.Comunas || ['No disponible'],
                 Electrificación: lineInfo.Electrificación || lineDataFromJSON?.Electrificación || 'No disponible',
                 Flota: lineInfo.Flota || lineDataFromJSON?.Flota || ['No disponible'],
