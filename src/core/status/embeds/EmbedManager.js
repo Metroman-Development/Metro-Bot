@@ -108,7 +108,10 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
         // 3. Always get fresh data for time-based updates
         let currentData = data;
-        if (!currentData) {
+
+        console.log("Embed Manager: ", currentData)
+        
+        if (!currentData) { 
             logger.debug('[EmbedManager] No data provided, fetching fresh data...');
             currentData = this.infoProvider.getFullData();
         }
