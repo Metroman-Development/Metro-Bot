@@ -142,7 +142,14 @@ class MetroInfoProvider {
     }
 
     getStationById(stationId) {
-        return Object.values(this.metroData.stations).find(s => s.id === stationId);
+        if (typeof stationId === 'number') {
+            return this.metroData.stations[stationId];
+        }
+        if (typeof stationId === 'string') {
+            const normalizedId = normalize(stationId);
+            return Object.values(this.metroData.stations).find(s => normalize(s.station_name) === normalizedId);
+        }
+        return null;
     }
 
     findStationInfo(identifier) {
@@ -163,14 +170,14 @@ class MetroInfoProvider {
 
     getStationsOnRoute(route) {
         const stations = this.metroData.stations;
-        const filteredStations = Object.values(stations).filter(s => s.route === route);
+        const filteredStations = Object.values(stations).filter(s => s.route_color === route);
         if (!filteredStations || filteredStations.length === 0) {
             return [];
         }
         return filteredStations.map(station => ({
-            name: station.original,
-            line: station.line,
-            route: station.route,
+            name: station.station_name,
+            line: station.line_id,
+            route: station.route_color,
             status: station.status?.message || 'No status information',
         }));
     }
@@ -180,18 +187,35 @@ class MetroInfoProvider {
         if (!station) {
             return null;
         }
+
+        const line = this.metroData.lines[station.line_id];
+        const lineStatus = line ? line.status_message : 'No disponible';
+        const stationStatus = station.status ? station.status.message : 'No disponible';
+
+        const isOperational = (lineStatus === 'Operativa' || lineStatus === 'Disponible') && (stationStatus === 'Operativa' || stationStatus === 'Disponible');
+
+        const platforms = station.platforms.map(p => ({
+            ...p,
+            status: isOperational ? 'operational' : 'non-operational'
+        }));
+
+        const intermodal = this.getIntermodalBuses(station.station_name);
+
         return {
-            name: station.original,
-            line: station.line,
-            route: station.route,
-            transfer: station.transfer ? `L${station.transfer}` : null,
+            name: station.station_name,
+            line: station.line_id,
+            route: station.route_color,
+            express_state: station.express_state,
+            transfer: station.combinacion ? `L${station.combinacion}` : null,
             details: {
-                schematics: station.details.schematics,
-                services: station.details.services,
-                accessibility: station.details.accessibility,
-                amenities: station.details.amenities,
-                municipality: station.details.municipality,
+                schematics: station.access_details,
+                services: station.services,
+                accessibility: station.accessibility,
+                amenities: station.amenities,
+                municipality: station.commune,
             },
+            platforms: platforms,
+            intermodal: intermodal,
             status: {
                 code: station.status?.code || '0',
                 message: station.status?.message || '',
@@ -216,12 +240,12 @@ class MetroInfoProvider {
 
         if (routeType) {
             lineStations = lineStations.filter(station => {
-                const stationRoute = station.route.toLowerCase();
+                const stationRoute = station.route_color.toLowerCase();
                 return routeType === 'comun'
-                    ? !stationRoute.includes('roja') && !stationRoute.includes('verde')
+                    ? stationRoute === 'c'
                     : routeType === 'roja'
-                        ? stationRoute.includes('roja')
-                        : stationRoute.includes('verde');
+                        ? stationRoute === 'r'
+                        : stationRoute === 'v';
             });
         }
 
@@ -254,19 +278,19 @@ class MetroInfoProvider {
 
         if (!start || !end) return 'comun';
 
-        if (start.route && end.route) {
-            const startRoute = start.route.toLowerCase();
-            const endRoute = end.route.toLowerCase();
+        if (start.route_color && end.route_color) {
+            const startRoute = start.route_color.toLowerCase();
+            const endRoute = end.route_color.toLowerCase();
 
-            if (startRoute.includes('roja') && endRoute.includes('roja')) return 'roja';
-            if (startRoute.includes('verde') && endRoute.includes('verde')) return 'verde';
+            if (startRoute === 'r' && endRoute === 'r') return 'roja';
+            if (startRoute === 'v' && endRoute === 'v') return 'verde';
         }
 
-        if (start.route?.toLowerCase().includes('roja') || end.route?.toLowerCase().includes('roja')) {
+        if (start.route_color?.toLowerCase() === 'r' || end.route_color?.toLowerCase() === 'r') {
             return 'roja';
         }
-        if (start.route?.toLowerCase().includes('verde') || end.route?.toLowerCase().includes('verde')) {
-            return ' verde';
+        if (start.route_color?.toLowerCase() === 'v' || end.route_color?.toLowerCase() === 'v') {
+            return 'verde';
         }
 
         return 'comun';
@@ -285,12 +309,12 @@ class MetroInfoProvider {
 
         if (routeType) {
             lineStations = lineStations.filter(station => {
-                const stationRoute = station.route.toLowerCase();
+                const stationRoute = station.route_color.toLowerCase();
                 return routeType === 'comun'
-                    ? !stationRoute.includes('roja') && !stationRoute.includes('verde')
+                    ? stationRoute === 'c'
                     : routeType === 'roja'
-                        ? stationRoute.includes('roja')
-                        : stationRoute.includes('verde');
+                        ? stationRoute === 'r'
+                        : stationRoute === 'v';
             });
         }
 
@@ -312,8 +336,7 @@ class MetroInfoProvider {
         const lineNumber = line.replace('l', '').toLowerCase();
         return Object.values(allStations).some(station =>
             station.line === lineNumber &&
-            (station.route?.toLowerCase().includes('roja') ||
-                station.route?.toLowerCase().includes('verde'))
+            (station.route_color === 'R' || station.route_color === 'V')
         );
     }
 
@@ -329,9 +352,9 @@ class MetroInfoProvider {
 
         if (!station) return 'comun';
 
-        const route = station.route?.toLowerCase();
-        if (route?.includes('roja')) return 'roja';
-        if (route?.includes('verde')) return 'verde';
+        const route = station.route_color?.toLowerCase();
+        if (route === 'r') return 'roja';
+        if (route === 'v') return 'verde';
         return 'comun';
     }
 

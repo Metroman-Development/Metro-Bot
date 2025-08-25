@@ -110,8 +110,13 @@ module.exports = {
         const stationObjects = lineData.estaciones || [];
         const stationLines = stationObjects.map(station => {
             const decoratedStation = decorateStation(station, ['connections', 'platforms']);
-            const rutaKey = station.route?.replace('Ruta ', '').toLowerCase().replace('común', 'comun') || '';
-            const rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
+
+            let rutaIcon = '';
+            if (station.express_state === 'Operational') {
+                const routeColorMap = { 'R': 'roja', 'V': 'verde', 'C': 'comun' };
+                const rutaKey = routeColorMap[station.route_color] || 'comun';
+                rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
+            }
 
             let combinacionEmoji = '';
             const transferLines = station.combinacion || station.transferLines || [];
