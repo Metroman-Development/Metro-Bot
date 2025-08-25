@@ -28,8 +28,7 @@ async function startScheduler() {
         task: async () => {
             const statusService = metroCore._subsystems.statusService;
             if (TimeHelpers.isWithinOperatingHours()) {
-                const apiData = await apiService.fetchNetworkStatus();
-                MetroInfoProvider.updateFromApi(apiData);
+                await apiService.fetchNetworkStatus();
             } else {
                 await statusService.setSystemToOutOfService();
             }
@@ -72,15 +71,9 @@ async function startScheduler() {
         name: 'database-fetch',
         interval: 30000, // Every 30 seconds
         task: async () => {
-            // This is a placeholder for the database fetching logic
-            const dbData = {
-                stations: {
-                    // Mock data
-                    'L1_SP': { id: 'L1_SP', name: 'San Pablo', line: 'L1', status: 'operational' }
-                }
-            };
-            MetroInfoProvider.updateFromDb(dbData);
             logger.info('[SCHEDULER] Fetching data from database...');
+            const dbData = await apiService.getDbRawData();
+            MetroInfoProvider.updateFromDb(dbData);
         }
     });
 
