@@ -1,3 +1,4 @@
+const { initialize } = require('./core/bootstrap');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
 const { join } = require('path');
@@ -5,7 +6,6 @@ const loadEvents = require('./events');
 const { setClient } = require('./utils/clientManager');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const logger = require('./events/logger');
-const initialize = require('./core/bootstrap');
 const DatabaseManager = require('./core/database/DatabaseManager');
 
 async function startDiscordBot() {
