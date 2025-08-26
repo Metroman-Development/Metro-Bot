@@ -71,17 +71,39 @@ const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
 
 describe('MetroInfoProvider', () => {
     let provider;
+    let MetroInfoProviderModule;
+    let mockDbService;
+    let mockMetro;
 
     beforeEach(() => {
-        // Now, we can safely require the module
-        provider = require('../src/utils/MetroInfoProvider');
-        provider.updateData(null); // Reset data
+        // Since we modified MetroInfoProvider to be a singleton that needs initialization,
+        // we need to handle it differently in tests.
+        jest.resetModules(); // Reset modules to ensure we get a fresh instance for each test
+
+        // Mock dependencies again as they are reset
+        jest.mock('../src/core/database/DatabaseService');
+
+        MetroInfoProviderModule = require('../src/utils/MetroInfoProvider');
+        const DatabaseService = require('../src/core/database/DatabaseService');
+
+        mockDbService = new DatabaseService();
+        mockMetro = {
+            _subsystems: {
+                metroInfoProvider: {
+                    updateData: jest.fn(),
+                    getFullData: jest.fn()
+                }
+            }
+        };
+
+        // Initialize the provider before each test
+        provider = MetroInfoProviderModule.initialize(mockMetro, mockDbService);
         jest.clearAllMocks();
     });
 
     it('should be a singleton', () => {
-        const instance1 = require('../src/utils/MetroInfoProvider');
-        const instance2 = require('../src/utils/MetroInfoProvider');
+        const instance1 = MetroInfoProviderModule.getInstance();
+        const instance2 = MetroInfoProviderModule.getInstance();
         assert.strictEqual(instance1, instance2);
     });
 
