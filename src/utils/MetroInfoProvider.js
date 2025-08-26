@@ -72,18 +72,23 @@ class MetroInfoProvider {
     transformDbData(dbData) {
         const currentData = this.getFullData();
 
-        for (const stationId in dbData.stations) {
-            if (!currentData.stations[stationId]) {
-                currentData.stations[stationId] = {};
-            }
-            Object.assign(currentData.stations[stationId], dbData.stations[stationId]);
-        }
+        if (dbData.lines) {
+            for (const lineId in dbData.lines) {
+                if (!currentData.lines[lineId]) {
+                    currentData.lines[lineId] = {};
+                }
+                Object.assign(currentData.lines[lineId], dbData.lines[lineId]);
 
-        for (const lineId in dbData.lines) {
-            if (!currentData.lines[lineId]) {
-                currentData.lines[lineId] = {};
+                if (dbData.lines[lineId].estaciones) {
+                    for (const station of dbData.lines[lineId].estaciones) {
+                        const stationId = station.codigo.toUpperCase();
+                        if (!currentData.stations[stationId]) {
+                            currentData.stations[stationId] = {};
+                        }
+                        Object.assign(currentData.stations[stationId], station);
+                    }
+                }
             }
-            Object.assign(currentData.lines[lineId], dbData.lines[lineId]);
         }
 
         return currentData;
