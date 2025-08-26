@@ -80,6 +80,9 @@ module.exports = {
     },
 
     lineEmbed: (lineData, stations, timestamp) => {
+        
+        console.log(stations)
+        
         logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
         if (!lineData) {
             return {
