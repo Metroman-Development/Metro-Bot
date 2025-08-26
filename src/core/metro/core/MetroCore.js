@@ -89,7 +89,6 @@ class MetroCore extends EventEmitter {
         this._subsystems.dataLoader = new DataLoader({ dbManager: this.dbManager });
         this._subsystems.scheduleHelpers = require('../../status/utils/scheduleUtils');
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
-        this._subsystems.metroInfoProvider = require('../../../utils/MetroInfoProvider');
 
         if (this._debug) {
             logger.debug('[MetroCore] Subsystems initialized:', {
@@ -180,6 +179,10 @@ class MetroCore extends EventEmitter {
             const DatabaseService = require('../../../core/database/DatabaseService');
             this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
             const databaseService = this._subsystems.dbService; // for local use
+
+            const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+            this._subsystems.metroInfoProvider = MetroInfoProvider.initialize(this, databaseService);
+
             this._subsystems.statusProcessor = new StatusProcessor(this, dbManager, databaseService);
             this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, databaseService);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);

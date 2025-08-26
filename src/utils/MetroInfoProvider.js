@@ -2,13 +2,20 @@ const { normalize } = require('./stringUtils');
 const ApiChangeDetector = require('../core/metro/core/services/changeDetectors/ApiChangeDetector');
 const DbChangeDetector = require('../core/metro/core/services/changeDetectors/DbChangeDetector');
 const ApiService = require('../core/metro/core/services/ApiService');
-const DatabaseService = require('../core/database/DatabaseService');
-const DatabaseManager = require('../core/database/DatabaseManager');
 const ChangeDetector = require('../core/status/ChangeDetector');
 const ChangeAnnouncer = require('../core/status/ChangeAnnouncer');
 
+let instance = null;
+
 class MetroInfoProvider {
-    constructor() {
+    constructor(metro, dbService) {
+        if (!dbService) {
+            throw new Error('[MetroInfoProvider] A dbService instance is required.');
+        }
+        if (!metro) {
+            throw new Error('[MetroInfoProvider] A metro instance is required.');
+        }
+
         this.metroData = {
             lines: {},
             stations: {},
@@ -23,21 +30,13 @@ class MetroInfoProvider {
             last_updated: null
         };
 
-        const dbManager = new DatabaseManager();
-        const databaseService = new DatabaseService(dbManager);
-        const apiService = new ApiService(this);
+        // Pass null for dataEngine, as this ApiService instance is for data access, not processing.
+        const apiService = new ApiService(metro, { dbService: dbService }, null);
 
-        this.dbChangeDetector = new DbChangeDetector(databaseService);
+        this.dbChangeDetector = new DbChangeDetector(dbService);
         this.apiChangeDetector = new ApiChangeDetector(apiService);
         this.changeDetector = new ChangeDetector();
         this.changeAnnouncer = new ChangeAnnouncer();
-    }
-
-    static getInstance() {
-        if (!MetroInfoProvider.instance) {
-            MetroInfoProvider.instance = new MetroInfoProvider();
-        }
-        return MetroInfoProvider.instance;
     }
 
     /**
@@ -71,11 +70,9 @@ class MetroInfoProvider {
         const dbTimestamp = await this.dbChangeDetector.getLatestChangeTimestamp();
 
         if (apiTimestamp > dbTimestamp) {
-            // API data is newer, update provider and then the DB
             this.updateFromApi(apiData);
             await this.dbChangeDetector.databaseService.updateStatusFromApi(apiData);
         } else {
-            // DB data is newer or same, update provider from DB
             this.updateFromDb(dbData);
         }
 
@@ -83,9 +80,7 @@ class MetroInfoProvider {
         const changes = this.changeDetector.detect(oldData, newData);
 
         if (changes.length > 0) {
-            console.log('Detected changes:', changes);
             const messages = await this.changeAnnouncer.generateMessages(changes, newData);
-            console.log('Generated messages:', messages);
         }
     }
 
@@ -94,7 +89,6 @@ class MetroInfoProvider {
         currentData.lines = apiData.lineas;
         currentData.network_status = apiData.network;
 
-        // Store stations in memory
         for (const lineId in apiData.lineas) {
             if (apiData.lineas[lineId].estaciones) {
                 for (const station of apiData.lineas[lineId].estaciones) {
@@ -104,7 +98,6 @@ class MetroInfoProvider {
                     }
                     Object.assign(currentData.stations[stationId], station);
                 }
-                // Mantener la lista de estaciones completa en el objeto de la línea
                 currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
             }
         }
@@ -131,10 +124,6 @@ class MetroInfoProvider {
         this.updateData(currentData);
     }
 
-    /**
-     * Gets all line data.
-     * @returns {object} A map of line data.
-     */
     getLines() {
         return this.metroData.lines;
     }
@@ -159,18 +148,10 @@ class MetroInfoProvider {
         return this.metroData.intermodal.buses[stationName];
     }
 
-    /**
-     * Gets all station data.
-     * @returns {object} A map of station data.
-     */
     getStations() {
         return this.metroData.stations;
     }
 
-    /**
-     * Gets the full dataset.
-     * @returns {object} The full metro data object.
-     */
     getFullData() {
         const data = { ...this.metroData };
 
@@ -443,4 +424,17 @@ class MetroInfoProvider {
     }
 }
 
-module.exports = MetroInfoProvider.getInstance();
+module.exports = {
+  initialize: (metro, dbService) => {
+    if (!instance) {
+      instance = new MetroInfoProvider(metro, dbService);
+    }
+    return instance;
+  },
+  getInstance: () => {
+    if (!instance) {
+      throw new Error('MetroInfoProvider has not been initialized. Call initialize() first.');
+    }
+    return instance;
+  }
+};
