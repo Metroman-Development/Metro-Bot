@@ -643,7 +643,7 @@ class DatabaseService {
                 commune, address, latitude, longitude, location,
                 opened_date, last_renovation_date, created_at, updated_at,
                 display_name, transports, services, accessibility, commerce,
-                amenities, image_url, access_details, combinacion
+                amenities, image_url, access_details, combinacion, express_state, route_color
             FROM metro_stations 
             ORDER BY line_id, display_order
         `;
