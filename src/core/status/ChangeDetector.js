@@ -1,6 +1,6 @@
 // src/core/status/ChangeDetector.js
 
-class ChangeDetector {
+class MyChangeDetector {
     detect(oldData, newData) {
         const changes = [];
 
@@ -43,4 +43,4 @@ class ChangeDetector {
     }
 }
 
-module.exports = ChangeDetector;
+module.exports = MyChangeDetector;
