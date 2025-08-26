@@ -12,7 +12,7 @@ class EmbedManager {
     constructor(statusUpdater, metroCore) {
         this.parent = statusUpdater;
         this.metroCore = metroCore;
-        this.infoProvider = MetroInfoProvider;
+        this.infoProvider = MetroInfoProvider.getInstance();
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;

@@ -11,9 +11,15 @@ jest.mock('../src/events/logger', () => ({
     error: jest.fn(),
 }));
 
-jest.mock('../src/utils/MetroInfoProvider', () => ({
-    getFullData: jest.fn(),
-}));
+jest.mock('../src/utils/MetroInfoProvider', () => {
+    const mockInstance = {
+        getStations: jest.fn().mockReturnValue({}),
+        getFullData: jest.fn().mockReturnValue({ lines: {}, stations: {} }),
+    };
+    return {
+        getInstance: jest.fn().mockReturnValue(mockInstance),
+    };
+});
 
 describe('EmbedManager', () => {
     let embedManager;
@@ -23,6 +29,8 @@ describe('EmbedManager', () => {
         // Reset mocks before each test
         logger.warn.mockClear();
         logger.debug.mockClear();
+        MetroInfoProvider.getInstance().getFullData.mockClear();
+        MetroInfoProvider.getInstance().getStations.mockClear();
 
         mockStatusUpdater = {
             metroCore: {
@@ -127,7 +135,7 @@ describe('EmbedManager', () => {
         });
 
         it('should log an error and not proceed if no data is provided', async () => {
-            MetroInfoProvider.getFullData.mockReturnValue(null);
+            MetroInfoProvider.getInstance().getFullData.mockReturnValue(null);
             await embedManager.updateAllEmbeds(null);
 
             expect(logger.error.mock.calls[0][0]).toBe('[EmbedManager] Failed to get processed data or data is incomplete. Aborting update.');

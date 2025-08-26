@@ -190,6 +190,10 @@ class MetroInfoProvider {
         return this.data.stations?.[stationId] || null;
     }
 
+    getStations() {
+        return this.data.stations;
+    }
+
     getStationById(stationId) {
         if (typeof stationId === 'number') {
             return this.data.stations[stationId];
