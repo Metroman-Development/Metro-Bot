@@ -1,4 +1,11 @@
 const { normalize } = require('./stringUtils');
+const ApiChangeDetector = require('../core/metro/core/services/changeDetectors/ApiChangeDetector');
+const DbChangeDetector = require('../core/metro/core/services/changeDetectors/DbChangeDetector');
+const ApiService = require('../core/metro/core/services/ApiService');
+const DatabaseService = require('../core/database/DatabaseService');
+const DatabaseManager = require('../core/database/DatabaseManager');
+const ChangeDetector = require('../core/status/ChangeDetector');
+const ChangeAnnouncer = require('../core/status/ChangeAnnouncer');
 
 class MetroInfoProvider {
     constructor() {
@@ -15,6 +22,15 @@ class MetroInfoProvider {
             network_status: {},
             last_updated: null
         };
+
+        const dbManager = new DatabaseManager();
+        const databaseService = new DatabaseService(dbManager);
+        const apiService = new ApiService(this);
+
+        this.dbChangeDetector = new DbChangeDetector(databaseService);
+        this.apiChangeDetector = new ApiChangeDetector(apiService);
+        this.changeDetector = new ChangeDetector();
+        this.changeAnnouncer = new ChangeAnnouncer();
     }
 
     static getInstance() {
@@ -29,56 +45,72 @@ class MetroInfoProvider {
      * @param {object} newData - The new, full, processed metro data object.
      */
     updateData(newData) {
-        this.metroData = newData || {
-            lines: {},
-            stations: {},
-            trains: {},
-            intermodal: {
+        if (newData) {
+            this.metroData = { ...this.metroData, ...newData };
+        } else {
+            this.metroData = {
+                lines: {},
                 stations: {},
-                buses: {}
-            },
-            futureLines: {},
-            accessibility: {},
-            network_status: {},
-            last_updated: null
-        };
-    }
-
-    /**
-     * Updates the data from the API.
-     * @param {object} apiData - The data fetched from the API.
-     */
-    updateFromApi(apiData) {
-        const currentData = JSON.parse(JSON.stringify(this.getFullData()));
-        const apiLastChange = new Date(apiData.lastSuccessfulFetch);
-        const dbLastChange = new Date(currentData.last_updated);
-
-        if (apiLastChange > dbLastChange) {
-            currentData.lines = apiData.lineas;
-            currentData.network_status = apiData.network;
-
-            // Store stations in memory
-            for (const lineId in apiData.lineas) {
-                if (apiData.lineas[lineId].estaciones) {
-                    for (const station of apiData.lineas[lineId].estaciones) {
-                        const stationId = station.id_estacion.toUpperCase();
-                        if (!currentData.stations[stationId]) {
-                            currentData.stations[stationId] = {};
-                        }
-                        Object.assign(currentData.stations[stationId], station);
-                    }
-                    // Mantener la lista de estaciones completa en el objeto de la línea
-                    currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
-                }
-            }
-            this.updateData(currentData);
+                trains: {},
+                intermodal: {
+                    stations: {},
+                    buses: {}
+                },
+                futureLines: {},
+                accessibility: {},
+                network_status: {},
+                last_updated: null
+            };
         }
     }
 
-    /**
-     * Updates the data from the database.
-     * @param {object} dbData - The data fetched from the database.
-     */
+    async compareAndSyncData(apiData, dbData) {
+        const oldData = JSON.parse(JSON.stringify(this.getFullData()));
+
+        const apiTimestamp = await this.apiChangeDetector.getLatestChangeTimestamp();
+        const dbTimestamp = await this.dbChangeDetector.getLatestChangeTimestamp();
+
+        if (apiTimestamp > dbTimestamp) {
+            // API data is newer, update provider and then the DB
+            this.updateFromApi(apiData);
+            await this.dbChangeDetector.databaseService.updateStatusFromApi(apiData);
+        } else {
+            // DB data is newer or same, update provider from DB
+            this.updateFromDb(dbData);
+        }
+
+        const newData = this.getFullData();
+        const changes = this.changeDetector.detect(oldData, newData);
+
+        if (changes.length > 0) {
+            console.log('Detected changes:', changes);
+            const messages = await this.changeAnnouncer.generateMessages(changes, newData);
+            console.log('Generated messages:', messages);
+        }
+    }
+
+    updateFromApi(apiData) {
+        const currentData = JSON.parse(JSON.stringify(this.getFullData()));
+        currentData.lines = apiData.lineas;
+        currentData.network_status = apiData.network;
+
+        // Store stations in memory
+        for (const lineId in apiData.lineas) {
+            if (apiData.lineas[lineId].estaciones) {
+                for (const station of apiData.lineas[lineId].estaciones) {
+                    const stationId = station.id_estacion.toUpperCase();
+                    if (!currentData.stations[stationId]) {
+                        currentData.stations[stationId] = {};
+                    }
+                    Object.assign(currentData.stations[stationId], station);
+                }
+                // Mantener la lista de estaciones completa en el objeto de la línea
+                currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
+            }
+        }
+        this.updateData(currentData);
+    }
+
     updateFromDb(dbData) {
         const currentData = JSON.parse(JSON.stringify(this.getFullData()));
 
