@@ -107,7 +107,7 @@ module.exports = {
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`;
 
-        const stationObjects = (lineData.stations || []).map(stationId => stations[stationId]).filter(Boolean);
+        const stationObjects = (lineData.stations || []);
         const stationLines = stationObjects.map(station => {
             const decoratedStation = decorateStation(station, ['connections', 'platforms']);
 
