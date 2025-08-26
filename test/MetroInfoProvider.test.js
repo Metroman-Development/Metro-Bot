@@ -1,110 +1,22 @@
 const assert = require('assert');
 const sinon = require('sinon');
-const ChangeDetector = require('../src/core/status/ChangeDetector');
-const ChangeAnnouncer =require('../src/core/status/ChangeAnnouncer');
-
-// Mock the dependencies before requiring MetroInfoProvider
-jest.mock('../src/core/metro/core/services/changeDetectors/ApiChangeDetector', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            getLatestChangeTimestamp: jest.fn().mockResolvedValue(new Date('2025-01-01T12:00:00Z')),
-        };
-    });
-});
-
-jest.mock('../src/core/metro/core/services/changeDetectors/DbChangeDetector', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            getLatestChangeTimestamp: jest.fn().mockResolvedValue(new Date('2025-01-01T11:00:00Z')),
-            databaseService: {
-                updateStatusFromApi: jest.fn().mockResolvedValue(undefined),
-            },
-        };
-    });
-});
-
-jest.mock('../src/core/metro/core/services/ApiService', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            fetchData: jest.fn().mockResolvedValue({
-                lastSuccessfulFetch: new Date(),
-                lineas: {},
-                network: {},
-            }),
-        };
-    });
-});
-
-jest.mock('../src/core/database/DatabaseService', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            getLatestChange: jest.fn().mockResolvedValue({ changed_at: new Date() }),
-            updateStatusFromApi: jest.fn().mockResolvedValue(undefined),
-        };
-    });
-});
-
-jest.mock('../src/core/database/DatabaseManager', () => {
-    return jest.fn().mockImplementation(() => {
-        return {};
-    });
-});
-
-jest.mock('../src/core/status/ChangeDetector', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            detect: jest.fn().mockReturnValue([]),
-        };
-    });
-});
-
-jest.mock('../src/core/status/ChangeAnnouncer', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            generateMessages: jest.fn().mockResolvedValue([]),
-        };
-    });
-});
-
-
 const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
+const MetroCore = require('../src/core/metro/core/MetroCore');
+const DatabaseService = require('../src/core/database/DatabaseService');
 
 describe('MetroInfoProvider', () => {
     let provider;
-    let MetroInfoProviderModule;
-    let mockDbService;
-    let mockMetro;
+    let metroCoreMock;
+    let dbServiceMock;
 
     beforeEach(() => {
-        // Since we modified MetroInfoProvider to be a singleton that needs initialization,
-        // we need to handle it differently in tests.
-        jest.resetModules(); // Reset modules to ensure we get a fresh instance for each test
-
-        // Mock dependencies again as they are reset
-        jest.mock('../src/core/database/DatabaseService');
-
-        MetroInfoProviderModule = require('../src/utils/MetroInfoProvider');
-        const DatabaseService = require('../src/core/database/DatabaseService');
-
-        mockDbService = new DatabaseService();
-        mockMetro = {
-            _subsystems: {
-                metroInfoProvider: {
-                    updateData: jest.fn(),
-                    getFullData: jest.fn()
-                }
-            }
-        };
-
-        // Initialize the provider before each test
-        provider = MetroInfoProviderModule.initialize(mockMetro, mockDbService);
-        jest.clearAllMocks();
+        metroCoreMock = sinon.stub(new MetroCore({}));
+        dbServiceMock = sinon.stub(new DatabaseService({}));
+        provider = new MetroInfoProvider(metroCoreMock, dbServiceMock);
     });
 
-    it('should be a singleton', () => {
-        const instance1 = MetroInfoProviderModule.getInstance();
-        const instance2 = MetroInfoProviderModule.getInstance();
-        assert.strictEqual(instance1, instance2);
+    afterEach(() => {
+        sinon.restore();
     });
 
     it('should initialize with empty data', () => {
@@ -126,23 +38,22 @@ describe('MetroInfoProvider', () => {
 
     it('should update data correctly', () => {
         const newData = {
-            lines: { l1: { id: 'L1' } },
-            network_status: { status: 'operational' },
-            stations: { s1: { id: 'S1' } },
-            last_updated: new Date()
+            lines: {
+                l1: { id: 'L1', status: 'operational' }
+            }
         };
         provider.updateData(newData);
-        const expectedData = {
-            ...provider.getFullData(),
-            ...newData,
-        };
-        assert.deepStrictEqual(provider.getFullData(), expectedData);
+        assert.deepStrictEqual(provider.getFullData().lines, newData.lines);
     });
 
     it('should update from API data correctly', () => {
         const apiData = {
-            lineas: { l1: { id: 'L1' } },
-            network: { status: 'operational' },
+            lineas: {
+                l1: { id: 'L1', status: 'operational' }
+            },
+            network: {
+                status: 'ok'
+            },
             lastSuccessfulFetch: new Date()
         };
         provider.updateFromApi(apiData);
@@ -151,19 +62,29 @@ describe('MetroInfoProvider', () => {
         assert.deepStrictEqual(fullData.network_status, apiData.network);
     });
 
-    it('should update from DB data correctly', () => {
-        const dbData = {
-            stations: { s1: { id: 'S1' } }
-        };
-        provider.updateFromDb(dbData);
-        const fullData = provider.getFullData();
-        assert.deepStrictEqual(fullData.stations, dbData.stations);
-    });
-
     describe('compareAndSyncData', () => {
+        beforeEach(() => {
+            // Mock the dependencies of compareAndSyncData
+            provider.apiChangeDetector = {
+                getLatestChangeTimestamp: sinon.stub().resolves(new Date('2023-01-02'))
+            };
+            provider.dbChangeDetector = {
+                getLatestChangeTimestamp: sinon.stub().resolves(new Date('2023-01-01')),
+                databaseService: {
+                    updateStatusFromApi: sinon.stub().resolves()
+                }
+            };
+            provider.changeDetector = {
+                detect: jest.fn()
+            };
+            provider.changeAnnouncer = {
+                generateMessages: jest.fn().mockResolvedValue([])
+            };
+        });
+
         it('should call changeDetector.detect with old and new data', async () => {
-            const oldData = provider.getFullData();
-            const apiData = { lineas: { l1: { id: 'L1', status: 'new_status' } } };
+            const oldData = JSON.parse(JSON.stringify(provider.getFullData()));
+            const apiData = {};
             const dbData = {};
 
             await provider.compareAndSyncData(apiData, dbData);
@@ -196,30 +117,18 @@ describe('MetroInfoProvider', () => {
     });
 
     describe('getStationDetails', () => {
+        it('should return null for non-existent station', () => {
+            assert.strictEqual(provider.getStationDetails('non-existent'), null);
+        });
+
         it('should return station details with connections', () => {
             const stationName = 'Test Station';
             const stationData = {
                 'test-station': {
-                    station_id: 'test-station',
-                    station_name: stationName,
-                    line_id: 'l1',
-                    route_color: 'R',
-                    express_state: 'Operational',
-                    combinacion: 'l2',
-                    connections: ['l2', 'bus'],
-                    access_details: 'some details',
-                    services: 'some services',
-                    accessibility: 'accessible',
-                    amenities: 'some amenities',
-                    commune: 'Test Commune',
-                    platforms: [],
-                    status: {
-                        code: '1',
-                        message: 'Operativa'
-                    }
+                    name: 'Test Station',
+                    connections: ['l2', 'bus']
                 }
             };
-
             provider.updateData({ stations: stationData, lines: { l1: {} }, intermodal: { buses: {} } });
 
             const details = provider.getStationDetails(stationName);

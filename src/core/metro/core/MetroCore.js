@@ -15,6 +15,7 @@ const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
 const StatusProcessor = require('../../status/utils/StatusProcessor');
 const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
+const MyChangeDetector = require('../../status/ChangeDetector');
 
 /**
  * @class MetroCore
@@ -184,7 +185,7 @@ class MetroCore extends EventEmitter {
             this._subsystems.metroInfoProvider = MetroInfoProvider.initialize(this, databaseService);
 
             this._subsystems.statusProcessor = new StatusProcessor(this, dbManager, databaseService);
-            this._subsystems.changeDetector = new (require('./services/ChangeDetector'))(this, databaseService);
+            this._subsystems.changeDetector = new MyChangeDetector(this, databaseService);
             this._subsystems.statusService = new (require('../../status/StatusService'))(this);
             this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
             await this._subsystems.accessibilityService.initialize();

@@ -1,8 +1,7 @@
 const logger = require('./events/logger');
-const initialize = require('./core/bootstrap');
+const bootstrap = require('./core/bootstrap');
 const SchedulerService = require('./core/SchedulerService');
 const TimeHelpers = require('./utils/timeHelpers');
-const ApiService = require('./core/metro/core/services/ApiService');
 const MetroInfoProvider = require('./utils/MetroInfoProvider');
 const moment = require('moment-timezone');
 const AnnouncementService = require('./core/metro/announcers/AnnouncementService');
@@ -11,13 +10,14 @@ const chronosConfig = require('./config/chronosConfig');
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroCore } = await initialize('SCHEDULER');
-    const db = metroCore.dbManager;
+    const { metroCore, databaseManager } = await bootstrap.initialize('SCHEDULER');
+    const db = databaseManager;
 
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
     const statusManager = new StatusManager(db);
+    const metroInfoProvider = MetroInfoProvider.getInstance();
 
     const scheduler = new SchedulerService(metroCore, db);
 
@@ -73,7 +73,7 @@ async function startScheduler() {
         task: async () => {
             logger.info('[SCHEDULER] Fetching data from database...');
             const dbData = await apiService.getDbRawData();
-            MetroInfoProvider.updateFromDb(dbData);
+            metroInfoProvider.updateFromDb(dbData);
         }
     });
 
@@ -83,7 +83,8 @@ async function startScheduler() {
         interval: 30000, // Every 30 seconds
         task: async () => {
             setTimeout(async () => {
-                const data = MetroInfoProvider.getFullData();
+                const data = metroInfoProvider.getFullData();
+                if (!data || !data.lines) return;
                 const lineStatus = data.lines;
                 let operationalLines = 0;
                 let totalLines = 0;
@@ -106,7 +107,7 @@ async function startScheduler() {
                     status: networkStatus,
                     timestamp: TimeHelpers.currentTime.toISOString()
                 };
-                MetroInfoProvider.updateData(data);
+                metroInfoProvider.updateData(data);
                 logger.info('[SCHEDULER] Calculating network status...');
             }, 2000); // 2-second delay
         }
