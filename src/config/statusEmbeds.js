@@ -114,21 +114,7 @@ module.exports = {
             .filter(station => station.line_id === lineData.id);
 
         const stationLines = stationObjects.map(station => {
-            const decoratedStation = decorateStation(station, ['connections', 'platforms']);
-
-            let combinacionEmoji = '';
-            const transferLines = Array.isArray(station.combinacion) ? station.combinacion : (station.transferLines || []);
-
-            if (transferLines.length > 0) {
-                combinacionEmoji = transferLines
-                    .map(lineId => metroConfig.linesEmojis?.[String(lineId).toLowerCase()] || '')
-                    .join(' ');
-            }
-
-            let stationText = decoratedStation;
-            if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
-
-            return stationText;
+            return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms']);
         });
 
         if (lineData.express_status) {
