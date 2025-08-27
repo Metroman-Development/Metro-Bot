@@ -111,7 +111,14 @@ function decorateStation(station, decorations = []) {
     const statusCode = station.estado || '1';
     const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
 
-    let decoratedName = `${statusConfig.emoji || '❓'} ${stationName}`;
+    let rutaIcon = '';
+    if (station.express_state === 'Operational' && station.route_color) {
+        const routeColorMap = { 'R': 'roja', 'V': 'verde', 'C': 'comun' };
+        const rutaKey = routeColorMap[station.route_color] || 'comun';
+        rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
+    }
+
+    let decoratedName = `${statusConfig.emoji || '❓'} ${rutaIcon} ${stationName}`.trim();
 
     if (decorations.includes('connections') && station.connections) {
         const connectionIcons = station.connections.map(conn => metroConfig.connectionEmojis[conn] || '').join(' ');
