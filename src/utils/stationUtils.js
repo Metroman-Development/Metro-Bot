@@ -148,15 +148,19 @@ function decorateStation(station, decorations = []) {
 
         if (allConnections.length > 0) {
             
-            console.log(allConnections)
-            console.log(normalizedConnectionEmojis)
+            //console.log(allConnections)
+            //console.log(normalizedConnectionEmojis)
             
             const connectionIcons = allConnections.map(conn => {
                 
                 const normalizedConn = conn.toLowerCase().normalize("NFD");
-                console.log(normalizedConn)
+               // console.log(normalizedConn)
                 return normalizedConnectionEmojis[normalizedConn] || '';
             }).join(' ');
+
+
+            console.log(connectionIcons);
+            
             if (connectionIcons) {
                 decoratedName += ` ${connectionIcons}`;
             }
