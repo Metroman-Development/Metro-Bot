@@ -18,6 +18,8 @@ function normalizeStationData(station) {
         bikes: []
     };
 
+    console.log(station.connections);
+
     if (station.connections && Array.isArray(station.connections)) {
         for (const conn of station.connections) {
             
