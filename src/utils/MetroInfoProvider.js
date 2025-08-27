@@ -5,6 +5,7 @@ const DbChangeDetector = require('../core/metro/core/services/changeDetectors/Db
 const ApiChangeDetector = require('../core/metro/core/services/changeDetectors/ApiChangeDetector');
 const MyChangeDetector = require('../core/status/ChangeDetector');
 const ChangeAnnouncer = require('../core/status/ChangeAnnouncer');
+const { normalizeStationData } = require('./stationUtils.js');
 
 class MetroInfoProvider {
     static instance = null;
@@ -111,7 +112,8 @@ class MetroInfoProvider {
                             currentData.stations[stationId] = {};
                         }
                         station.line_id = lineId;
-                        Object.assign(currentData.stations[stationId], station);
+                        const normalizedStation = normalizeStationData(station);
+                        Object.assign(currentData.stations[stationId], normalizedStation);
                     }
                 }
             }

@@ -12,9 +12,49 @@ const normalizedConnectionEmojis = Object.keys(metroConfig.connectionEmojis || {
 }, {});
 
 function normalizeStationData(station) {
+    const connections = {
+        lines: [],
+        other: [],
+        bikes: []
+    };
+
+    if (station.combinacion) {
+        if (Array.isArray(station.combinacion)) {
+            connections.lines.push(...station.combinacion);
+        } else if (typeof station.combinacion === 'string') {
+            connections.lines.push(station.combinacion);
+        }
+    }
+
+    if (station.transports && typeof station.transports === 'string' && station.transports !== 'None') {
+        const transportList = station.transports.split(',').map(item => item.trim());
+        transportList.forEach(transport => {
+            if (transport.toLowerCase().includes('bicicletero') || transport.toLowerCase().includes('lineacero')) {
+                connections.bikes.push(transport);
+            } else {
+                connections.other.push(transport);
+            }
+        });
+    } else if (station.transports && Array.isArray(station.transports)) {
+        station.transports.forEach(transport => {
+            if (transport.toLowerCase().includes('bicicletero') || transport.toLowerCase().includes('lineacero')) {
+                connections.bikes.push(transport);
+            } else {
+                connections.other.push(transport);
+            }
+        });
+    }
+
+    if (station.amenities && typeof station.amenities === 'string' && station.amenities !== 'None') {
+        const amenitiesList = station.amenities.split(',').map(item => item.trim());
+        connections.other.push(...amenitiesList);
+    } else if (station.amenities && Array.isArray(station.amenities)) {
+        connections.other.push(...station.amenities);
+    }
+
     return {
         ...station,
-        transferLines: station.transferLines || (station.combination ? [station.combination] : []),
+        connections: connections,
         accessibility: station.accessibility === 'None' ? null : station.accessibility,
         commerce: station.commerce === 'None' ? null : station.commerce,
         amenities: station.amenities === 'None' ? null : station.amenities
@@ -126,49 +166,28 @@ function decorateStation(station, decorations = []) {
 
     let decoratedName = `${statusConfig.emoji || '❓'} ${rutaIcon} ${stationName}`.trim();
 
-    if (decorations.includes('connections')) {
-        let allConnections = [];
-        if (station.connections && Array.isArray(station.connections)) {
-            allConnections = [...station.connections];
+    if (decorations.includes('line_connections') && station.connections?.lines?.length > 0) {
+        const connectionIcons = station.connections.lines.map(conn => {
+            const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            return normalizedConnectionEmojis[normalizedConn] || '';
+        }).join(' ');
+        if (connectionIcons) {
+            decoratedName += ` 🔄 ${connectionIcons}`;
         }
+    }
 
-        if (station.combinacion) {
-            allConnections.push(station.combinacion);
+    if (decorations.includes('other_connections') && station.connections?.other?.length > 0) {
+        const connectionIcons = station.connections.other.map(conn => {
+            const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            return normalizedConnectionEmojis[normalizedConn] || '';
+        }).join(' ');
+        if (connectionIcons) {
+            decoratedName += ` ${connectionIcons}`;
         }
-        if (station.amenities && typeof station.amenities === 'string') {
-            const amenitiesList = station.amenities.split(',').map(item => item.trim());
-            allConnections = [...allConnections, ...amenitiesList];
-        } else if (station.amenities && Array.isArray(station.amenities)) {
-            allConnections = [...allConnections, ...station.amenities];
-        }
+    }
 
-        if (station.transports && typeof station.transports === 'string' && station.transports !== 'None') {
-
-            const transportList = station.transports.split(',').map(item => item.trim());
-            allConnections = [...allConnections, ...transportList];
-        } else if (station.transports && Array.isArray(station.transports)) {
-            allConnections = [...allConnections, ...station.transports];
-        }
-
-        if (allConnections.length > 0) {
-            
-            //console.log(allConnections)
-            //console.log(normalizedConnectionEmojis)
-            
-            const connectionIcons = allConnections.map(conn => {
-                
-                const normalizedConn = conn.toLowerCase().normalize("NFD");
-               // console.log(normalizedConn)
-                return normalizedConnectionEmojis[normalizedConn] || '';
-            }).join(' ');
-
-
-            console.log(connectionIcons);
-            
-            if (connectionIcons) {
-                decoratedName += ` ${connectionIcons}`;
-            }
-        }
+    if (decorations.includes('bike_connections') && station.connections?.bikes?.length > 0) {
+        decoratedName += ` 🚲`;
     }
 
     if (decorations.includes('platforms') && station.platforms) {
