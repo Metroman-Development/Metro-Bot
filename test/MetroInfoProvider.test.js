@@ -31,6 +31,7 @@ describe('MetroInfoProvider', () => {
             futureLines: {},
             accessibility: {},
             network_status: {},
+            events: {},
             last_updated: null
         };
         assert.deepStrictEqual(provider.getFullData(), expectedData);

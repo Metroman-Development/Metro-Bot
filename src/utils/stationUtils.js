@@ -132,6 +132,13 @@ function decorateStation(station, decorations = []) {
             allConnections = [...allConnections, ...station.amenities];
         }
 
+        if (station.transports && typeof station.transports === 'string' && station.transports !== 'None') {
+            const transportList = station.transports.split(',').map(item => item.trim());
+            allConnections = [...allConnections, ...transportList];
+        } else if (station.transports && Array.isArray(station.transports)) {
+            allConnections = [...allConnections, ...station.transports];
+        }
+
         if (allConnections.length > 0) {
             const connectionIcons = allConnections.map(conn => metroConfig.connectionEmojis[conn] || '').join(' ');
             if (connectionIcons) {
