@@ -136,20 +136,33 @@ module.exports = {
             description += `\n**Ruta Expresa:** ${expressStatus}`;
         }
 
-        let stationListString = stationLines.join('\n');
         const maxChars = 1024;
         let stationFields = [];
 
-        if (stationListString.length > 0) {
-            if (stationListString.length > maxChars) {
-                let truncatedString = stationListString.substring(0, maxChars);
-                const lastNewlineIndex = truncatedString.lastIndexOf('\n');
-                if (lastNewlineIndex > 0) {
-                    truncatedString = truncatedString.substring(0, lastNewlineIndex);
+        if (stationLines.length > 0) {
+            let currentFieldValue = "";
+            let isFirstField = true;
+
+            for (const stationLine of stationLines) {
+                if (currentFieldValue.length + stationLine.length + 1 > maxChars) {
+                    stationFields.push({
+                        name: isFirstField ? 'Estaciones' : '\u200B',
+                        value: currentFieldValue,
+                        inline: false
+                    });
+                    currentFieldValue = "";
+                    isFirstField = false;
                 }
-                stationListString = truncatedString + '\n...';
+                currentFieldValue += stationLine + '\n';
             }
-            stationFields.push({ name: 'Estaciones', value: stationListString, inline: false });
+
+            if (currentFieldValue.length > 0) {
+                stationFields.push({
+                    name: isFirstField ? 'Estaciones' : '\u200B',
+                    value: currentFieldValue,
+                    inline: false
+                });
+            }
         }
 
         const nextTransition = TimeHelpers.getNextTransition();
