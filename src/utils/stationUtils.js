@@ -6,7 +6,7 @@
 const metroConfig = require('../config/metro/metroConfig');
 
 const normalizedConnectionEmojis = Object.keys(metroConfig.connectionEmojis || {}).reduce((acc, key) => {
-    const normalizedKey = key.toLowerCase();
+    const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     acc[normalizedKey] = metroConfig.connectionEmojis[key];
     return acc;
 }, {});
@@ -130,6 +130,10 @@ function decorateStation(station, decorations = []) {
         let allConnections = [];
         if (station.connections && Array.isArray(station.connections)) {
             allConnections = [...station.connections];
+        }
+
+        if (station.combinacion) {
+            allConnections.push(station.combinacion);
         }
         if (station.amenities && typeof station.amenities === 'string') {
             const amenitiesList = station.amenities.split(',').map(item => item.trim());
