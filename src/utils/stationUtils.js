@@ -120,10 +120,23 @@ function decorateStation(station, decorations = []) {
 
     let decoratedName = `${statusConfig.emoji || '❓'} ${rutaIcon} ${stationName}`.trim();
 
-    if (decorations.includes('connections') && station.connections) {
-        const connectionIcons = station.connections.map(conn => metroConfig.connectionEmojis[conn] || '').join(' ');
-        if (connectionIcons) {
-            decoratedName += ` ${connectionIcons}`;
+    if (decorations.includes('connections')) {
+        let allConnections = [];
+        if (station.connections && Array.isArray(station.connections)) {
+            allConnections = [...station.connections];
+        }
+        if (station.amenities && typeof station.amenities === 'string') {
+            const amenitiesList = station.amenities.split(',').map(item => item.trim());
+            allConnections = [...allConnections, ...amenitiesList];
+        } else if (station.amenities && Array.isArray(station.amenities)) {
+            allConnections = [...allConnections, ...station.amenities];
+        }
+
+        if (allConnections.length > 0) {
+            const connectionIcons = allConnections.map(conn => metroConfig.connectionEmojis[conn] || '').join(' ');
+            if (connectionIcons) {
+                decoratedName += ` ${connectionIcons}`;
+            }
         }
     }
 
