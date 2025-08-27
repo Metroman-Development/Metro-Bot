@@ -27,6 +27,7 @@ class DbStationLoader {
                     ms.opened_date,
                     ms.last_renovation_date,
                     ms.combinacion,
+                    ms.connections,
                     ss.status_description,
                     ss.status_message,
                     ss.is_planned,
@@ -45,6 +46,7 @@ class DbStationLoader {
 
             const stationData = {};
             for (const station of stations) {
+                console.log(`Processing station: ${station.station_code}, connections: ${station.connections}`);
                 const stationId = station.station_code.toUpperCase();
                 stationData[stationId] = {
                     id: stationId,
@@ -62,6 +64,7 @@ class DbStationLoader {
                     openedDate: station.opened_date,
                     lastRenovationDate: station.last_renovation_date,
                     combinacion: station.combinacion,
+                    connections: station.connections || [],
                     status: {
                         code: station.status_code || 'operational',
                         description: station.status_description,

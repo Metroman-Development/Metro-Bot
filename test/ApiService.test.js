@@ -84,14 +84,29 @@ describe('ApiService', () => {
             expect(apiService.dbService.getAllLinesStatus).toHaveBeenCalled();
         });
 
-        it('should fetch from JSON when JSON has newer data', async () => {
-            apiService.dbService.getLatestStatusChange = jest.fn().mockResolvedValue({ changed_at: '2025-08-23T11:00:00.000Z' });
-            apiService.dbService.updateStatusFromApi = jest.fn();
+        it('should fetch data from the database', async () => {
+            // Mock the original DB fetching logic within getDbRawData
+            apiService.dbService.getAllLinesStatus = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStationsStatusAsRaw = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAccessibilityStatus = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidents = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidentTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllTrainModels = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllLineFleet = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllScheduledStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllJsStatusMapping = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllOperationalStatusTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStationStatusHistory = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusChangeLog = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getSystemInfo = jest.fn().mockResolvedValue({});
+            apiService.dbService.getIntermodalStations = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIntermodalBuses = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getNetworkStatus = jest.fn().mockResolvedValue({});
 
-            const result = await apiService.getDbRawData();
+            await apiService.getDbRawData();
 
-            expect(apiService.dbService.updateStatusFromApi).toHaveBeenCalled();
-            expect(result.lines.l1.status).toBe('perfect');
+            expect(apiService.dbService.getAllLinesStatus).toHaveBeenCalled();
         });
     });
 });

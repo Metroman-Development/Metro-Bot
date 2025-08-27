@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
 const { createEmbed, createErrorEmbed } = require('../../../../../utils/embedFactory');
 const { processImageForDiscord } = require('../../../../../utils/imageUtils');
-const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'linea',

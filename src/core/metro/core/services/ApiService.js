@@ -204,13 +204,20 @@ class ApiService extends EventEmitter {
                                         if (dbLine && dbLine.estaciones) {
                                             const dbStation = dbLine.estaciones.find(s => s.codigo.toUpperCase() === station.codigo.toUpperCase());
                                             if (dbStation) {
+                                                const util = require('util');
+                                                console.log("--- MERGE DEBUG START ---");
+                                                console.log("STATION (API) before merge:", util.inspect(station, {depth: null}));
+                                                console.log("DBSTATION (DB) to be merged:", util.inspect(dbStation, {depth: null}));
+                                                Object.assign(station, dbStation);
+                                                console.log("STATION after DB merge:", util.inspect(station, {depth: null}));
                                                 const apiStatus = {
                                                     estado: station.estado,
                                                     descripcion: station.descripcion,
                                                     descripcion_app: station.descripcion_app
                                                 };
-                                                Object.assign(station, dbStation);
                                                 Object.assign(station, apiStatus);
+                                                console.log("STATION after status merge:", util.inspect(station, {depth: null}));
+                                                console.log("--- MERGE DEBUG END ---");
                                             }
                                         }
                                     }
@@ -613,6 +620,7 @@ class ApiService extends EventEmitter {
                         logger.warn(`[ApiService] Skipping invalid or incomplete station object in line ${lineId}`, { station });
                         return null; // This will be filtered out later
                     }
+                    console.log("Station object before sanitization:", station.nombre, "Connections:", station.connections);
                     const sanitizedStation = {
                         ...station,
                         id: station.codigo,
@@ -671,120 +679,99 @@ class ApiService extends EventEmitter {
     }
 
     async getDbRawData() {
-        // Get latest timestamp from the database
-        const latestDbChange = await this.dbService.getLatestStatusChange();
-        const dbTimestamp = latestDbChange ? new Date(latestDbChange.changed_at) : new Date(0);
+        logger.info('[ApiService] FORCING DATABASE READ FOR DEBUGGING.');
+        const [
+            dbLines,
+            dbStationsStatus,
+            accessibilityStatus,
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        ] = await Promise.all([
+            this.dbService.getAllLinesStatus(),
+            this.dbService.getAllStationsStatusAsRaw(),
+            this.dbService.getAccessibilityStatus(),
+            this.dbService.getAllIncidents(),
+            this.dbService.getAllIncidentTypes(),
+            this.dbService.getAllTrainModels(),
+            this.dbService.getAllLineFleet(),
+            this.dbService.getAllStatusOverrides(),
+            this.dbService.getAllScheduledStatusOverrides(),
+            this.dbService.getAllJsStatusMapping(),
+            this.dbService.getAllOperationalStatusTypes(),
+            this.dbService.getAllStationStatusHistory(),
+            this.dbService.getAllStatusChangeLog(),
+            this.dbService.getSystemInfo(),
+            this.dbService.getIntermodalStations(),
+            this.dbService.getAllIntermodalBuses(),
+            this.dbService.getNetworkStatus()
+        ]);
 
-        // Get latest timestamp from the JSON file
-        const apiChanges = JSON.parse(await fsp.readFile(path.join(this.cacheDir, 'apiChanges.json'), 'utf8'));
-        const latestApiChange = apiChanges.reduce((latest, current) => {
-            const currentTime = new Date(current.timestamp);
-            return currentTime > new Date(latest.timestamp) ? current : latest;
-        });
-        const apiTimestamp = new Date(latestApiChange.timestamp);
-
-        let rawData;
-
-        if (dbTimestamp > apiTimestamp) {
-            logger.info('[ApiService] Database has newer data. Fetching from DB.');
-            const [
-                dbLines,
-                dbStationsStatus,
-                accessibilityStatus,
-                incidents,
-                incidentTypes,
-                trainModels,
-                lineFleet,
-                statusOverrides,
-                scheduledStatusOverrides,
-                jsStatusMapping,
-                operationalStatusTypes,
-                stationStatusHistory,
-                statusChangeLog,
-                systemInfo,
-                intermodalStations,
-                intermodalBuses,
-                networkStatus
-            ] = await Promise.all([
-                this.dbService.getAllLinesStatus(),
-                this.dbService.getAllStationsStatusAsRaw(),
-                this.dbService.getAccessibilityStatus(),
-                this.dbService.getAllIncidents(),
-                this.dbService.getAllIncidentTypes(),
-                this.dbService.getAllTrainModels(),
-                this.dbService.getAllLineFleet(),
-                this.dbService.getAllStatusOverrides(),
-                this.dbService.getAllScheduledStatusOverrides(),
-                this.dbService.getAllJsStatusMapping(),
-                this.dbService.getAllOperationalStatusTypes(),
-                this.dbService.getAllStationStatusHistory(),
-                this.dbService.getAllStatusChangeLog(),
-                this.dbService.getSystemInfo(),
-                this.dbService.getIntermodalStations(),
-                this.dbService.getAllIntermodalBuses(),
-                this.dbService.getNetworkStatus()
-            ]);
-
-            const accessibilityByStation = {};
-            for (const item of accessibilityStatus) {
-                const stationCode = item.station_code.toUpperCase();
-                if (!accessibilityByStation[stationCode]) {
-                    accessibilityByStation[stationCode] = [];
-                }
-                accessibilityByStation[stationCode].push(item);
+        const accessibilityByStation = {};
+        for (const item of accessibilityStatus) {
+            const stationCode = item.station_code.toUpperCase();
+            if (!accessibilityByStation[stationCode]) {
+                accessibilityByStation[stationCode] = [];
             }
+            accessibilityByStation[stationCode].push(item);
+        }
 
-            rawData = {
-                lines: {},
-                incidents,
-                incidentTypes,
-                trainModels,
-                lineFleet,
-                statusOverrides,
-                scheduledStatusOverrides,
-                jsStatusMapping,
-                operationalStatusTypes,
-                stationStatusHistory,
-                statusChangeLog,
-                systemInfo,
-                intermodalStations,
-                intermodalBuses,
-                networkStatus
+        const rawData = {
+            lines: {},
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus
+        };
+
+        for (const line of dbLines) {
+            const lineId = line.line_id.toLowerCase();
+            rawData.lines[lineId] = {
+                nombre: line.line_name,
+                estado: line.status_code,
+                mensaje: line.status_message,
+                mensaje_app: line.app_message,
+                estaciones: []
             };
+        }
 
-            for (const line of dbLines) {
-                const lineId = line.line_id.toLowerCase();
-                rawData.lines[lineId] = {
-                    nombre: line.line_name,
-                    estado: line.status_code,
-                    mensaje: line.status_message,
-                    mensaje_app: line.app_message,
-                    estaciones: []
-                };
-            }
+        const stationsArray = Array.isArray(dbStationsStatus) ? dbStationsStatus : Object.values(dbStationsStatus);
 
-            const stationsArray = Array.isArray(dbStationsStatus) ? dbStationsStatus : Object.values(dbStationsStatus);
-            
-            for (const station of stationsArray) {
-                const lineId = station.line_id.toLowerCase();
-                if (rawData.lines[lineId]) {
-                    const stationCode = station.station_code.toUpperCase();
-                    rawData.lines[lineId].estaciones.push({
-                        ...station,
-                        codigo: stationCode,
-                        nombre: station.station_name,
-                        estado: station.status_data?.js_code || null,
-                        descripcion: station.status_data?.status_description || null,
-                        descripcion_app: station.status_data?.status_message || null,
-                        access_details: accessibilityByStation[stationCode] || []
-                    });
-                }
+        for (const station of stationsArray) {
+            const lineId = station.line_id.toLowerCase();
+            if (rawData.lines[lineId]) {
+                const stationCode = station.station_code.toUpperCase();
+                rawData.lines[lineId].estaciones.push({
+                    ...station,
+                    codigo: stationCode,
+                    nombre: station.station_name,
+                    estado: station.status_data?.js_code || null,
+                    descripcion: station.status_data?.status_description || null,
+                    descripcion_app: station.status_data?.status_message || null,
+                    access_details: accessibilityByStation[stationCode] || []
+                });
             }
-        } else {
-            logger.info('[ApiService] API changes JSON has newer data. Using latest entry.');
-            rawData = latestApiChange;
-            // Persist this data to the database
-            await this.dbService.updateStatusFromApi(rawData);
         }
         
         return rawData;

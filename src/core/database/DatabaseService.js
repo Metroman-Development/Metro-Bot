@@ -283,7 +283,8 @@ class DatabaseService {
             access_details: station.access_details ? JSON.stringify(station.access_details) : null,
             opened_date: station.opened_date,
             last_renovation_date: station.last_renovation_date,
-            combinacion: station.combinacion
+            combinacion: station.combinacion,
+            connections: station.connections ? JSON.stringify(station.connections) : null
         };
 
         const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
@@ -539,7 +540,8 @@ class DatabaseService {
             access_details: station.access_details ? JSON.stringify(station.access_details) : null,
             opened_date: station.opened_date || null,
             last_renovation_date: station.last_renovation_date || null,
-            combinacion: station.combinacion || null
+            combinacion: station.combinacion || null,
+            connections: station.connections ? JSON.stringify(station.connections) : null
         };
 
         const { query, params } = this._buildDynamicUpdateQuery('metro_stations', stationData, 'station_code');
@@ -643,7 +645,7 @@ class DatabaseService {
                 commune, address, latitude, longitude, location,
                 opened_date, last_renovation_date, created_at, updated_at,
                 display_name, transports, services, accessibility, commerce,
-                amenities, image_url, access_details, combinacion, express_state, route_color
+                amenities, image_url, access_details, combinacion, connections, express_state, route_color
             FROM metro_stations 
             ORDER BY line_id, display_order
         `;

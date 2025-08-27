@@ -1,4 +1,5 @@
 const { initialize } = require('./core/bootstrap');
+require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
 const { join } = require('path');
