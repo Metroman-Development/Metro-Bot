@@ -154,6 +154,7 @@ function decorateStation(station, decorations = []) {
             const connectionIcons = allConnections.map(conn => {
                 
                 const normalizedConn = conn.toLowerCase().normalize("NFD");
+                console.log(normalizedConn)
                 return normalizedConnectionEmojis[normalizedConn] || '';
             }).join(' ');
             if (connectionIcons) {
