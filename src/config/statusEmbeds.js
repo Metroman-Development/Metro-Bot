@@ -110,16 +110,11 @@ module.exports = {
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`;
 
-        const stationObjects = (stations ? Object.values(stations) : []);
+        const stationObjects = (stations ? Object.values(stations) : [])
+            .filter(station => station.line_id === lineData.id);
+
         const stationLines = stationObjects.map(station => {
             const decoratedStation = decorateStation(station, ['connections', 'platforms']);
-
-            let rutaIcon = '';
-            if (station.express_state === 'Operational') {
-                const routeColorMap = { 'R': 'roja', 'V': 'verde', 'C': 'comun' };
-                const rutaKey = routeColorMap[station.route_color] || 'comun';
-                rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
-            }
 
             let combinacionEmoji = '';
             const transferLines = Array.isArray(station.combinacion) ? station.combinacion : (station.transferLines || []);
@@ -130,7 +125,7 @@ module.exports = {
                     .join(' ');
             }
 
-            let stationText = `${decoratedStation} ${rutaIcon}`;
+            let stationText = decoratedStation;
             if (combinacionEmoji) stationText += ` 🔄 ${combinacionEmoji}`;
 
             return stationText;

@@ -85,6 +85,7 @@ class MetroInfoProvider {
                         if (!currentData.stations[stationId]) {
                             currentData.stations[stationId] = {};
                         }
+                        station.line_id = lineId;
                         Object.assign(currentData.stations[stationId], station);
                     }
                 }
@@ -106,6 +107,7 @@ class MetroInfoProvider {
                     if (!currentData.stations[stationId]) {
                         currentData.stations[stationId] = {};
                     }
+                    station.line_id = lineId;
                     Object.assign(currentData.stations[stationId], station);
                 }
                 currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
