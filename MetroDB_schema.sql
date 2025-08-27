@@ -829,4 +829,53 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Table for storing metro events
+CREATE TABLE metro_events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_name VARCHAR(255) NOT NULL,
+    event_date DATE NOT NULL,
+    start_time TIME,
+    end_time TIME,
+    description TEXT,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_event_date (event_date),
+    INDEX idx_is_active (is_active)
+);
+
+-- Table for event details and restrictions
+CREATE TABLE event_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    detail_type ENUM('ingress', 'egress', 'combination', 'transfer', 'closure', 'delay', 'note') NOT NULL,
+    station_code VARCHAR(10),
+    line_code VARCHAR(3),
+    start_time TIME,
+    end_time TIME,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES metro_events(id) ON DELETE CASCADE,
+    INDEX idx_event_id (event_id),
+    INDEX idx_station_code (station_code),
+    INDEX idx_line_code (line_code),
+    INDEX idx_detail_type (detail_type)
+);
+
+-- Table for station status during specific events
+CREATE TABLE event_station_status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    station_code VARCHAR(10) NOT NULL,
+    status ENUM('normal', 'closed', 'ingress_only', 'egress_only', 'no_combination', 'delayed', 'special_hours') NOT NULL DEFAULT 'normal',
+    special_notes TEXT,
+    start_time TIME,
+    end_time TIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES metro_events(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_event_station (event_id, station_code),
+    INDEX idx_event_station (event_id, station_code),
+    INDEX idx_status (status)
+);
+
 -- Dump completed on 2025-08-13 20:13:32
