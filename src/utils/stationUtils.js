@@ -139,6 +139,7 @@ function decorateStation(station, decorations = []) {
         }
 
         if (station.transports && typeof station.transports === 'string' && station.transports !== 'None') {
+
             const transportList = station.transports.split(',').map(item => item.trim());
             allConnections = [...allConnections, ...transportList];
         } else if (station.transports && Array.isArray(station.transports)) {
@@ -146,7 +147,12 @@ function decorateStation(station, decorations = []) {
         }
 
         if (allConnections.length > 0) {
+            
+            console.log(allConnections)
+            console.log(normalizedConnectionEmojis)
+            
             const connectionIcons = allConnections.map(conn => {
+                
                 const normalizedConn = conn.toLowerCase();
                 return normalizedConnectionEmojis[normalizedConn] || '';
             }).join(' ');
