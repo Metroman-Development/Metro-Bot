@@ -18,7 +18,7 @@ module.exports = {
         'Tren': '🚆',
 
         // Bike connection emojis
-        'Línea Cero': '<:lineaCero:1362490490850771064>',
+        'Linea Cero': '<:lineaCero:1362490490850771064>',
         'BiciMetro': '<:biciMetro:1362491413794652210>',
         'U Invertida': '<:uinvertida:1354232925511487651>'  // Lock emoji for bike racks
     },
