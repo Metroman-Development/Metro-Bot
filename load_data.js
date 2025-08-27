@@ -114,7 +114,6 @@ async function loadStations(conn, estadoRed, stationsData, stations, stationConn
         const extraConexiones = stationConnectionsMap.get(stationNameKey) || [];
         const allConnections = [...new Set([...transfers, ...extraConexiones.map(c => c.toLowerCase())])];
 
-        console.log(`Station: ${station.nombre}, Connections: ${JSON.stringify(allConnections)}`);
         const platformsQuery = 'SELECT via_number, status FROM line_platforms WHERE line_id = ?';
         const platformRows = await conn.query(platformsQuery, [station.line_id.toLowerCase()]);
 

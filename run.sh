@@ -39,7 +39,7 @@ mkdir -p "$LOG_DIR"
 declare -A core_modules
 core_modules=(
     [metrocore]="./src/core/metro/MetroCore.js"
-    [metro-info-provider]="./src/core/metro/providers/MetroInfoProvider.js"
+    [metro-info-provider]="./src/utils/MetroInfoProvider.js"
 )
 
 # Application services that run as standalone processes

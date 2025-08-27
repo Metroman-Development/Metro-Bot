@@ -18,6 +18,18 @@ function normalizeStationData(station) {
         bikes: []
     };
 
+    if (station.connections && Array.isArray(station.connections)) {
+        for (const conn of station.connections) {
+            if (conn.startsWith('l')) {
+                connections.lines.push(conn);
+            } else if (conn === 'Línea Cero' || conn === 'BiciMetro') {
+                connections.bikes.push(conn);
+            } else {
+                connections.other.push(conn);
+            }
+        }
+    }
+
     if (station.combinacion) {
         if (Array.isArray(station.combinacion)) {
             connections.lines.push(...station.combinacion);
@@ -51,6 +63,11 @@ function normalizeStationData(station) {
     } else if (station.amenities && Array.isArray(station.amenities)) {
         connections.other.push(...station.amenities);
     }
+
+    // remove duplicates
+    connections.lines = [...new Set(connections.lines)];
+    connections.other = [...new Set(connections.other)];
+    connections.bikes = [...new Set(connections.bikes)];
 
     return {
         ...station,
