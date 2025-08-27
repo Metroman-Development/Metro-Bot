@@ -2,6 +2,16 @@ const logger = require('../events/logger');
 const schedule = require('node-schedule');
 const chronosConfig = require('../config/chronosConfig');
 
+const statusMapping = {
+    'normal': 'normal',
+    'closed': 'cerrada',
+    'ingress_only': 'servicio extendido solo entrada',
+    'egress_only': 'servicio extendido solo salida',
+    'no_combination': 'sin combinacion',
+    'delayed': 'con retraso',
+    'special_hours': 'horario especial'
+};
+
 class SchedulerService {
     constructor(metroCore, db) {
         this.metroCore = metroCore;
@@ -11,59 +21,84 @@ class SchedulerService {
     }
 
     async checkAndScheduleEvents() {
-        const events = await this.db.query('SELECT * FROM special_events WHERE processed = 0');
-        for (const event of events) {
-            // Schedule job to start the event
-            const startJobName = `event-start-${event.event_id}`;
-            this.addJob({
-                name: startJobName,
-                schedule: new Date(event.start_time),
-                task: async () => {
-                    await this.db.query('UPDATE special_events SET is_active = 1 WHERE event_id = ?', [event.event_id]);
-                    const inStations = JSON.parse(event.in_stations || '[]');
-                    const outStations = JSON.parse(event.out_stations || '[]');
+        const metroInfoProvider = this.metroCore.metroInfoProvider;
+        if (!metroInfoProvider) {
+            logger.warn('[SchedulerService] MetroInfoProvider not available.');
+            return;
+        }
 
-                    // Backup current status
-                    const allStations = [...new Set([...inStations, ...outStations])];
-                    for (const stationCode of allStations) {
-                        const station = await this.db.query('SELECT * FROM station_status WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [stationCode]);
-                        if (station.length > 0) {
-                            await this.db.query('INSERT INTO station_status_backup (event_id, station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?, ?)', [event.event_id, station[0].station_id, station[0].status_type_id, station[0].status_description, station[0].status_message]);
+        const eventsData = metroInfoProvider.getFullData().events;
+        if (!eventsData || !eventsData.upcomingEvents) {
+            return;
+        }
+
+        for (const eventData of eventsData.upcomingEvents) {
+            const { event, details, stationStatus } = eventData;
+            const now = new Date();
+            const startTime = new Date(event.start_time);
+            const endTime = new Date(event.end_time);
+
+            if (now >= startTime && now < endTime) {
+                // Event is currently active, apply status immediately
+                await this.db.query('UPDATE metro_events SET is_active = 1 WHERE id = ?', [event.id]);
+                // Backup current status
+                for (const status of stationStatus) {
+                    const station = await this.db.query('SELECT * FROM station_status WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [status.station_code]);
+                    if (station.length > 0) {
+                        await this.db.query('INSERT INTO event_station_status_backup (event_id, station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?, ?)', [event.id, station[0].station_id, station[0].status_type_id, station[0].status_description, station[0].status_message]);
+                    }
+                }
+                // Apply event status
+                for (const status of stationStatus) {
+                    const fullStatus = statusMapping[status.status];
+                    await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [fullStatus, status.station_code]);
+                }
+            } else if (now < startTime) {
+                // Schedule job to start the event
+                const startJobName = `event-start-${event.id}`;
+                this.addJob({
+                    name: startJobName,
+                    schedule: startTime,
+                    task: async () => {
+                        await this.db.query('UPDATE metro_events SET is_active = 1 WHERE id = ?', [event.id]);
+
+                        // Backup current status
+                        for (const status of stationStatus) {
+                            const station = await this.db.query('SELECT * FROM station_status WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [status.station_code]);
+                            if (station.length > 0) {
+                                await this.db.query('INSERT INTO event_station_status_backup (event_id, station_id, status_type_id, status_description, status_message) VALUES (?, ?, ?, ?, ?)', [event.id, station[0].station_id, station[0].status_type_id, station[0].status_description, station[0].status_message]);
+                            }
+                        }
+
+                        // Apply event status
+                        for (const status of stationStatus) {
+                            const fullStatus = statusMapping[status.status];
+                            await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [fullStatus, status.station_code]);
                         }
                     }
-
-                    // Apply event status
-                    for (const stationCode of inStations) {
-                        await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', ['servicio extendido solo entrada', stationCode]);
-                    }
-                    for (const stationCode of outStations) {
-                        await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', ['servicio extendido solo salida', stationCode]);
-                    }
-                }
-            });
+                });
+            }
 
             // Schedule job to end the event
-            const endJobName = `event-end-${event.event_id}`;
-            this.addJob({
-                name: endJobName,
-                schedule: new Date(event.end_time),
-                task: async () => {
-                    await this.db.query('UPDATE special_events SET is_active = 0 WHERE event_id = ?', [event.event_id]);
+            if (now < endTime) {
+                const endJobName = `event-end-${event.id}`;
+                this.addJob({
+                    name: endJobName,
+                    schedule: endTime,
+                    task: async () => {
+                        await this.db.query('UPDATE metro_events SET is_active = 0 WHERE id = ?', [event.id]);
 
-                    // Restore status from backup
-                    const backups = await this.db.query('SELECT * FROM station_status_backup WHERE event_id = ?', [event.event_id]);
-                    for (const backup of backups) {
-                        await this.db.query('UPDATE station_status SET status_type_id = ?, status_description = ?, status_message = ? WHERE station_id = ?', [backup.status_type_id, backup.status_description, backup.status_message, backup.station_id]);
+                        // Restore status from backup
+                        const backups = await this.db.query('SELECT * FROM event_station_status_backup WHERE event_id = ?', [event.id]);
+                        for (const backup of backups) {
+                            await this.db.query('UPDATE station_status SET status_type_id = ?, status_description = ?, status_message = ? WHERE station_id = ?', [backup.status_type_id, backup.status_description, backup.status_message, backup.station_id]);
+                        }
+
+                        // Clean up backup
+                        await this.db.query('DELETE FROM event_station_status_backup WHERE event_id = ?', [event.id]);
                     }
-
-                    // Clean up backup and event
-                    await this.db.query('DELETE FROM station_status_backup WHERE event_id = ?', [event.event_id]);
-                    await this.db.query('DELETE FROM special_events WHERE event_id = ?', [event.event_id]);
-                }
-            });
-
-            // Mark event as processed
-            await this.db.query('UPDATE special_events SET processed = 1, job_id_start = ?, job_id_end = ? WHERE event_id = ?', [startJobName, endJobName, event.event_id]);
+                });
+            }
         }
     }
 

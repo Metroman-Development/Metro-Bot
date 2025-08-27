@@ -40,29 +40,7 @@ async function startScheduler() {
         name: 'check-events',
         interval: 60000, // Every minute
         task: async () => {
-            try {
-                const result = await db.query('SELECT events FROM system_info WHERE id = ?', [1]);
-                let activeEvent = null;
-                if (result && result.length > 0 && result[0].events) {
-                    const events = JSON.parse(result[0].events);
-                    const now = TimeHelpers.currentTime;
-
-                    for (const event of events) {
-                        const startTime = moment.tz(event.startTime, chronosConfig.timezone);
-                        const endTime = moment.tz(event.endTime, chronosConfig.timezone);
-
-                        if (now.isBetween(startTime, endTime)) {
-                            activeEvent = event;
-                            break;
-                        }
-                    }
-                }
-                await dbService.updateActiveEvent(activeEvent);
-            } catch (error) {
-                if (error.code !== 'ER_BAD_FIELD_ERROR' && (!error.message || !error.message.includes("Cannot read property 'events' of undefined"))) {
-                     logger.error('[SCHEDULER] Error checking for events:', error);
-                }
-            }
+            await scheduler.checkAndScheduleEvents();
         }
     });
 
