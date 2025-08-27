@@ -20,6 +20,9 @@ function normalizeStationData(station) {
 
     if (station.connections && Array.isArray(station.connections)) {
         for (const conn of station.connections) {
+            
+            console.log(conn)
+            
             if (conn.startsWith('l')) {
                 connections.lines.push(conn);
             } else if (conn === 'Línea Cero' || conn === 'BiciMetro') {
