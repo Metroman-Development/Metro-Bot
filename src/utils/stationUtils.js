@@ -18,8 +18,17 @@ function normalizeStationData(station) {
         bikes: []
     };
 
-    if (station.connections && Array.isArray(station.connections)) {
-        for (const conn of station.connections) {
+    let stationConnections = station.connections;
+    if (typeof stationConnections === 'string') {
+        try {
+            stationConnections = JSON.parse(stationConnections);
+        } catch (e) {
+            stationConnections = null;
+        }
+    }
+
+    if (stationConnections && Array.isArray(stationConnections)) {
+        for (const conn of stationConnections) {
             if (conn.startsWith('l')) {
                 connections.lines.push(conn);
             } else if (conn === 'Línea Cero' || conn === 'BiciMetro' || conn === 'U Invertida') {
