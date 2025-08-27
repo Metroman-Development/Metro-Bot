@@ -26,6 +26,7 @@ class MetroInfoProvider {
             futureLines: {},
             accessibility: {},
             network_status: {},
+            events: {},
             last_updated: null
         };
         this.isInitialized = true;
@@ -63,10 +64,34 @@ class MetroInfoProvider {
         logger.debug('[MetroInfoProvider] Data updated.', { keys: Object.keys(newData) });
     }
 
-    updateFromDb(dbData) {
+    async fetchAndSetEventData() {
+        try {
+            const events = await this.databaseService.query('SELECT * FROM metro_events WHERE is_active = 0 AND event_date >= CURDATE()');
+            if (events && events.length > 0) {
+                const upcomingEvents = [];
+                for (const event of events) {
+                    const eventDetails = await this.databaseService.query('SELECT * FROM event_details WHERE event_id = ?', [event.id]);
+                    const stationStatus = await this.databaseService.query('SELECT * FROM event_station_status WHERE event_id = ?', [event.id]);
+                    upcomingEvents.push({
+                        event,
+                        details: eventDetails,
+                        stationStatus: stationStatus
+                    });
+                }
+                this.updateData({ events: { upcomingEvents } });
+            } else {
+                this.updateData({ events: {} });
+            }
+        } catch (error) {
+            logger.error('[MetroInfoProvider] Error fetching event data:', error);
+        }
+    }
+
+    async updateFromDb(dbData) {
         if (!dbData) return;
         const transformedData = this.transformDbData(dbData);
         this.updateData(transformedData);
+        await this.fetchAndSetEventData();
     }
 
     transformDbData(dbData) {

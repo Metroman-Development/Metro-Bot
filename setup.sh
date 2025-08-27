@@ -54,12 +54,12 @@ else
 fi
 
 # Install npm dependencies
-info "Installing npm dependencies..."
-if ! npm install; then
-    error "npm install failed."
-    exit 1
-fi
-success "✅ npm dependencies installed successfully."
+# info "Installing npm dependencies..."
+# if ! npm install; then
+#     error "npm install failed."
+#     exit 1
+# fi
+# success "✅ npm dependencies installed successfully."
 
 # Database setup
 info "Attempting to import database schema..."
