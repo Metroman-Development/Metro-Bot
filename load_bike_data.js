@@ -30,7 +30,23 @@ async function main() {
                         const rows = await conn.query(selectQuery, [stationName]);
 
                         if (rows.length > 0) {
-                            const existingConnections = JSON.parse(rows[0].connections || '[]');
+                            const connectionsValue = rows[0].connections;
+                            let existingConnections = [];
+                            if (connectionsValue) {
+                                try {
+                                    const parsed = JSON.parse(connectionsValue);
+                                    if (Array.isArray(parsed)) {
+                                        existingConnections = parsed;
+                                    } else if (typeof parsed === 'string') {
+                                        existingConnections = parsed.split(',').map(s => s.trim());
+                                    }
+                                } catch (e) {
+                                    if (typeof connectionsValue === 'string') {
+                                        existingConnections = connectionsValue.split(',').map(s => s.trim());
+                                    }
+                                }
+                            }
+
                             const allConnections = [...new Set([...existingConnections, ...bikeConnections.map(c => c.toLowerCase())])];
 
                             const updateQuery = 'UPDATE metro_stations SET connections = ? WHERE station_name = ?';
