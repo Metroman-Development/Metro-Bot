@@ -18,16 +18,11 @@ function normalizeStationData(station) {
         bikes: []
     };
 
-    console.log(station.connections);
-
     if (station.connections && Array.isArray(station.connections)) {
         for (const conn of station.connections) {
-            
-            console.log(conn)
-            
             if (conn.startsWith('l')) {
                 connections.lines.push(conn);
-            } else if (conn === 'Línea Cero' || conn === 'BiciMetro') {
+            } else if (conn === 'Línea Cero' || conn === 'BiciMetro' || conn === 'U Invertida') {
                 connections.bikes.push(conn);
             } else {
                 connections.other.push(conn);
@@ -41,25 +36,6 @@ function normalizeStationData(station) {
         } else if (typeof station.combinacion === 'string') {
             connections.lines.push(station.combinacion);
         }
-    }
-
-    if (station.transports && typeof station.transports === 'string' && station.transports !== 'None') {
-        const transportList = station.transports.split(',').map(item => item.trim());
-        transportList.forEach(transport => {
-            if (transport.toLowerCase().includes('bicicletero') || transport.toLowerCase().includes('lineacero')) {
-                connections.bikes.push(transport);
-            } else {
-                connections.other.push(transport);
-            }
-        });
-    } else if (station.transports && Array.isArray(station.transports)) {
-        station.transports.forEach(transport => {
-            if (transport.toLowerCase().includes('bicicletero') || transport.toLowerCase().includes('lineacero')) {
-                connections.bikes.push(transport);
-            } else {
-                connections.other.push(transport);
-            }
-        });
     }
 
     if (station.amenities && typeof station.amenities === 'string' && station.amenities !== 'None') {
