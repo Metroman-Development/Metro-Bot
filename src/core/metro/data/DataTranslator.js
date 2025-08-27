@@ -52,8 +52,8 @@ async function translateApiData(apiData, dbService) {
                 }
 
                 const station_data = {
-                    ...extraData,
                     ...station,
+                    ...extraData,
                     ...(extraData?.status_data || {}),
                     id: stationId,
                     name: stationName,
@@ -61,7 +61,6 @@ async function translateApiData(apiData, dbService) {
                     line: lineId,
                     code: station.codigo,
                     status: { code: station.estado, message: station.descripcion, appMessage: station.descripcion_app },
-                    combination: station.combinacion,
                     aliases: aliases,
                     accessibility: {
                         status: accessibility.length > 0 ? 'available' : 'unavailable',
