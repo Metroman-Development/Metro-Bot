@@ -166,15 +166,35 @@ async sendToChannel(message, options = {}) {
     process.on('message', async (message) => {
         const { type, payload } = message;
         if (type === 'send-message') {
-            const { channelId, topicId, message } = payload;
-            await this.bot.telegram.sendMessage(
-                channelId,
-                message,
-                {
+            const { type: payloadType, channelId, topicId, message, link, photo } = payload;
+
+            if (payloadType === 'announcement') {
+                const options = {
+                    message_thread_id: topicId,
+                    parse_mode: 'Markdown',
+                };
+
+                if (link) {
+                    options.reply_markup = {
+                        inline_keyboard: [[{ text: 'More Info', url: link }]]
+                    };
+                }
+
+                if (photo) {
+                    await this.bot.telegram.sendPhoto(channelId, photo, {
+                        ...options,
+                        caption: message,
+                    });
+                } else {
+                    await this.bot.telegram.sendMessage(channelId, message, options);
+                }
+            } else {
+                // Default behavior for other message types
+                await this.bot.telegram.sendMessage(channelId, message, {
                     parse_mode: 'markdown',
                     message_thread_id: topicId,
-                }
-            );
+                });
+            }
         }
     });
     return;

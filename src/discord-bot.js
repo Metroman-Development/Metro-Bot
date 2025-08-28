@@ -78,9 +78,28 @@ async function startDiscordBot() {
         process.on('message', async (message) => {
             const { type, payload } = message;
             if (type === 'send-message') {
-                const { channelId, message } = payload;
+                const { type: payloadType, channelId, message, link, photo } = payload;
+
                 const channel = await discordClient.channels.fetch(channelId);
-                if (channel) {
+                if (!channel) {
+                    logger.warn(`[DISCORD] Channel ${channelId} not found.`);
+                    return;
+                }
+
+                if (payloadType === 'announcement') {
+                    if (link || photo) {
+                        const { EmbedBuilder } = require('discord.js');
+                        const embed = new EmbedBuilder()
+                            .setColor(0x0099FF)
+                            .setDescription(message)
+                            .setURL(link)
+                            .setImage(photo);
+                        await channel.send({ embeds: [embed] });
+                    } else {
+                        await channel.send(message);
+                    }
+                } else {
+                    // Default behavior for other message types (e.g., network-info)
                     await channel.send(message);
                 }
             }
