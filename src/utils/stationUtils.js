@@ -176,18 +176,14 @@ function decorateStation(station, decorations = []) {
 
     let decoratedName = `${statusConfig.emoji || '❓'} ${rutaIcon} ${stationName}`.trim();
 
-    if (decorations.includes('line_connections') && station.connections?.lines?.length > 0) {
-        const connectionIcons = station.connections.lines.map(conn => {
-            const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            return normalizedConnectionEmojis[normalizedConn] || '';
-        }).join(' ');
-        if (connectionIcons) {
-            decoratedName += ` 🔄 ${connectionIcons}`;
-        }
+    if (decorations.includes('line_connections') && station.combinacion) {
+       
+            decoratedName += ` 🔄 ${metroConfig.linesEmojis[station.combinacion.toLowerCase()]}`;
+        
     }
 
-    if (decorations.includes('other_connections') && station.connections?.other?.length > 0) {
-        const connectionIcons = station.connections.other.map(conn => {
+    if (decorations.includes('other_connections') && station.connections?.length > 0) {
+        const connectionIcons = station.connections.map(conn => {
             const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             return normalizedConnectionEmojis[normalizedConn] || '';
         }).join(' ');
