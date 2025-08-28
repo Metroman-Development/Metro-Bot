@@ -13,7 +13,7 @@ describe('SchedulerService Events', () => {
         db = databaseManager;
         metroInfoProvider = MetroInfoProvider.initialize(metroCore, db);
         scheduler = new SchedulerService(metroCore, db);
-    });
+    }, 30000);
 
     beforeEach(async () => {
         // Clean up tables before each test

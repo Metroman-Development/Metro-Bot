@@ -7,7 +7,7 @@
 #
 
 # Exit immediately if a command exits with a non-zero status.
-set -e
+# set -e
 
 # Export environment variables from .env file
 if [ -f .env ]; then

@@ -75,6 +75,17 @@ async function startDiscordBot() {
         await connectToDiscord(discordClient);
         await metroCore.setClient(discordClient);
 
+        process.on('message', async (message) => {
+            const { type, payload } = message;
+            if (type === 'send-message') {
+                const { channelId, message } = payload;
+                const channel = await discordClient.channels.fetch(channelId);
+                if (channel) {
+                    await channel.send(message);
+                }
+            }
+        });
+
         const SchedulerService = require('./core/SchedulerService');
         const discordScheduler = new SchedulerService();
 

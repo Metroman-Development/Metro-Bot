@@ -162,6 +162,21 @@ async sendToChannel(message, options = {}) {
             }
         }
     });
+
+    process.on('message', async (message) => {
+        const { type, payload } = message;
+        if (type === 'send-message') {
+            const { channelId, topicId, message } = payload;
+            await this.bot.telegram.sendMessage(
+                channelId,
+                message,
+                {
+                    parse_mode: 'markdown',
+                    message_thread_id: topicId,
+                }
+            );
+        }
+    });
     return;
   }
 
