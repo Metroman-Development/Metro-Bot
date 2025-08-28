@@ -15,14 +15,24 @@ The API for sending announcements is integrated into the existing bot communicat
 
 The request body must be a JSON object with two main properties: `type` and `data`.
 
-- `type` (string, required): This must be set to `"announcement"`.
-- `data` (object, required): This object contains the content of the announcement.
+- `type` (string, required): Specifies the type of message to send. See "Message Types" below for more details.
+- `data` (object, required): This object contains the content of the message.
+
+### Message Types
+
+The API supports the following message types:
+
+- `announcement`: For general announcements.
+- `network-info`: For information about the network status.
+- `metro-news`: For news related to the metro system.
+
+All message types share the same `data` object structure.
 
 #### `data` Object Properties
 
-- `message` (string, required): The main text of the announcement.
-- `link` (string, optional): A URL to include with the announcement. In Discord, this will be part of the embed. In Telegram, it will be an inline button.
-- `photo` (string, optional): A URL to an image to include with the announcement. In Discord, this will be the main image of the embed. In Telegram, it will be sent as a photo with the message as the caption.
+- `message` (string, required): The main text of the message.
+- `link` (string, optional): A URL to include with the message. In Discord, this will be part of the embed. In Telegram, it will be an inline button.
+- `photo` (string, optional): A URL to an image to include with the message. In Discord, this will be the main image of the embed. In Telegram, it will be sent as a photo with the message as the caption.
 
 ### Example Request Payloads
 

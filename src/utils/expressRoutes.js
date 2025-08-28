@@ -20,26 +20,40 @@ router.post('/bot', (req, res) => {
   }
 
   if (type === 'network-info') {
+    const { message, link, photo } = data;
     // The logic to send messages will be handled by the main process
     req.app.get('sendMessage')('DiscordBot', {
+      type: 'announcement',
       channelId: ids.discord.networkInfoChannel,
-      message: data.message,
+      message,
+      link,
+      photo,
     });
     req.app.get('sendMessage')('TelegramBot', {
+      type: 'announcement',
       channelId: ids.telegram.channel,
       topicId: ids.telegram.networkInfoTopic,
-      message: data.message,
+      message,
+      link,
+      photo,
     });
     res.status(200).send('Data received and sent to bots');
   } else if (type === 'metro-news') {
+    const { message, link, photo } = data;
     req.app.get('sendMessage')('DiscordBot', {
+      type: 'announcement',
       channelId: ids.discord.metroNewsChannel,
-      message: data.message,
+      message,
+      link,
+      photo,
     });
     req.app.get('sendMessage')('TelegramBot', {
+      type: 'announcement',
       channelId: ids.telegram.channel,
       topicId: ids.telegram.metroNewsTopic,
-      message: data.message,
+      message,
+      link,
+      photo,
     });
     res.status(200).send('Data received and sent to bots');
   } else if (type === 'announcement') {
