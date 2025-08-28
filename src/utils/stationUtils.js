@@ -198,7 +198,7 @@ function decorateStation(station, decorations = []) {
 
     if (decorations.includes('other_connections') && station.connections?.length > 0) {
         const connectionIcons = station.connections.map(conn => {
-            const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "");
             return normalizedConnectionEmojis[normalizedConn] || '';
         }).join(' ');
         if (connectionIcons) {
