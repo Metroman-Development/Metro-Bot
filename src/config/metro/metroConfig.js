@@ -1,3 +1,4 @@
+
 module.exports = {
     // Channel IDs
     updatesChannelId: '1347146518943105085', // For new updates/announcements
@@ -31,7 +32,7 @@ module.exports = {
         l4: '1349131675631616093',       // Line 4
         l4a: '1349131677753938056',      // Line 4A
         l5: '1349131680429904024',       // Line 5
-        l6: '1349131682506211330',       // Line 6
+        l6: '1349131682506211330'        // Line 6
     },
 
     linesEmojis: {
@@ -50,7 +51,7 @@ module.exports = {
 
     platformStatusIcons: {
         'operational': '✅',
-        'closed': '❌',
+        'closed': '❌'
     },
 
     statusTypes: {
@@ -77,22 +78,22 @@ module.exports = {
         '18': { name: 'servicio parcial', description: 'Servicio parcial', isOperational: false, severity: 3, color: 0xFFFF00, emoji: '⚠️', discordem: '<:parcial:1348400125005008977>', notification: true },
         '19': { name: 'suspendido', description: 'Suspendido', isOperational: false, severity: 1, color: 0xFF0000, emoji: '❌', discordem: '<:cerrada:1348394347045064766>', notification: true },
         '20': { name: 'servicio extendido', description: 'Servicio extendido', isOperational: true, severity: 0, color: 0x0000FF, emoji: '🔄', discordem: '<:extendida:1354249821829075155>', notification: false },
-        'default': { name: 'desconocido', description: 'Estado desconocido', isOperational: false, severity: 5, color: 0xAAAAAA, emoji: '❓', discordem: '❓', notification: true },
+        'default': { name: 'desconocido', description: 'Estado desconocido', isOperational: false, severity: 5, color: 0xAAAAAA, emoji: '❓', discordem: '❓', notification: true }
     },
 
     // Metro operating hours
     horario: {
         Semana: ["6:00 AM", "11:00 PM"], // Weekdays
         Sábado: ["6:30 AM", "11:00 PM"], // Saturday
-        Domingo: ["7:30 AM", "11:00 PM"], // Sunday
+        Domingo: ["7:30 AM", "11:00 PM"] // Sunday
     },
 
-    expressLines: [ "l2" , "l4" , "l5"],
+    expressLines: ["l2", "l4", "l5"],
 
     routeStyles: {
         'comun': { emoji: '<:comun:1348400171578425404>', message: 'Ruta Común' },
         'roja': { emoji: '<:roja:1348395124627083476>', message: 'Ruta Roja' },
-        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' },
+        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' }
     },
 
     // API endpoint for Metro data
@@ -117,28 +118,28 @@ module.exports = {
     // Express route hours (only on weekdays)
     horarioExpreso: {
         morning: ["6:00", "9:00"], // Morning express
-        evening: ["18:00", "21:00"], // Evening express
+        evening: ["18:00", "21:00"] // Evening express
     },
 
     // Fare periods (PUNTA, VALLE, BAJO)
     horarioPeriodos: {
         PUNTA: [
             { inicio: "07:00:00", fin: "09:00:00" }, // Morning peak
-            { inicio: "18:00:00", fin: "20:00:00" }, // Evening peak
+            { inicio: "18:00:00", fin: "20:00:00" } // Evening peak
         ],
         VALLE: [
             { inicio: "09:00:00", fin: "18:00:00" }, // Midday
-            { inicio: "20:00:00", fin: "20:45:00" }, // Late evening
+            { inicio: "20:00:00", fin: "20:45:00" } // Late evening
         ],
         BAJO: [
             { inicio: "06:00:00", fin: "07:00:00" }, // Early morning
-            { inicio: "20:45:00", fin: "23:00:00" }, // Late night
+            { inicio: "20:45:00", fin: "23:00:00" } // Late night
         ],
         SERVICEHOURS: [
             { inicio: "06:00:00", fin: "23:00:00" }, // Weekdays
             { inicio: "06:30:00", fin: "23:00:00" }, // Saturday
-            { inicio: "07:30:00", fin: "23:00:00" }, // Sunday
-        ],
+            { inicio: "07:30:00", fin: "23:00:00" } // Sunday
+        ]
     },
 
     // Fare prices (in CLP)
@@ -161,7 +162,7 @@ module.exports = {
         t_nos_punta: "870", // NOS peak fare
         t_nos_valle: "790", // NOS midday fare
         t_nos_bajo: "710", // NOS off-peak fare
-        t_transantiago: "770", // Transantiago fare
+        t_transantiago: "770" // Transantiago fare
     },
 
     // Festive days (public holidays in Chile for 2025)
@@ -180,7 +181,7 @@ module.exports = {
         "2025-10-31", // Reformation Day
         "2025-11-01", // All Saints' Day
         "2025-12-08", // Immaculate Conception
-        "2025-12-25", // Christmas Day
+        "2025-12-25" // Christmas Day
     ],
 
     // Special events (loaded from events.json)
@@ -189,7 +190,7 @@ module.exports = {
     metroLogo: {
         principal: "https://media.discordapp.net/attachments/1326594661003034635/1352599491387195443/logo_metro_versiones-01.jpg?ex=67de99f0&is=67dd4870&hm=12e6ce0d9fe27d2f6e13094dd2330a99ae99b75552f92a875d90399afaf9254e&",
         v4: "https://cdn.discordapp.com/attachments/1326594661003034635/1352598809888161842/logo_metro_versiones-04.jpg?ex=67de994e&is=67dd47ce&hm=a1b60983ea95a1f85f590c3774d63aafb95a31fa84913f806d0c9a7d61a8b56d&",
-        logoColores: "https://media.discordapp.net/attachments/1326594661003034635/1352600266343579780/elementosLogo.png?ex=67de9aa9&is=67dd4929&hm=9291375ec3675184e5e62b8896ecbf0d02b123f91688d1eb852cdbf49324010b&",
+        logoColores: "https://media.discordapp.net/attachments/1326594661003034635/1352600266343579780/elementosLogo.png?ex=67de9aa9&is=67dd4929&hm=9291375ec3675184e5e62b8896ecbf0d02b123f91688d1eb852cdbf49324010b&"
     },
 
     emoji: {
@@ -212,7 +213,7 @@ module.exports = {
     services: {
         redbanc: "<:Redbanc:1365263970478460989>",
         telefono: "<:telefonos:1365275231987433492>",
-        selfservice: "<:Autoservicio:1365412640389726238>",
+        selfservice: "<:Autoservicio:1365412640389726238>"
     },
 
     accessibility: {
@@ -299,162 +300,6 @@ module.exports = {
         5: { emoji: '<:extendida:1354249821829075155>', message: 'Ruta Extendida' }, // Added extended status
         'comun': { emoji: '<:comun:1348400171578425404>', message: 'Ruta Común' },
         'roja': { emoji: '<:roja:1348395124627083476>', message: 'Ruta Roja' },
-        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' },
+        'verde': { emoji: '<:verde:1348394381928828993>', message: 'Ruta Verde' }
     }
-} // Use the events loaded from the JSON file
-
-    metroLogo: {
-
-        principal: "https://media.discordapp.net/attachments/1326594661003034635/1352599491387195443/logo_metro_versiones-01.jpg?ex=67de99f0&is=67dd4870&hm=12e6ce0d9fe27d2f6e13094dd2330a99ae99b75552f92a875d90399afaf9254e&",
-
-        v4: "https://cdn.discordapp.com/attachments/1326594661003034635/1352598809888161842/logo_metro_versiones-04.jpg?ex=67de994e&is=67dd47ce&hm=a1b60983ea95a1f85f590c3774d63aafb95a31fa84913f806d0c9a7d61a8b56d&",
-
-        logoColores: "https://media.discordapp.net/attachments/1326594661003034635/1352600266343579780/elementosLogo.png?ex=67de9aa9&is=67dd4929&hm=9291375ec3675184e5e62b8896ecbf0d02b123f91688d1eb852cdbf49324010b&",
-
-},
-
-
-    emoji: {
-
-        rendimiento: '⚡',
-
-        equipamiento: '🔧',
-
-        tecnico: '📐',
-
-        tren: '🚄',
-
-        fabricante: '🏭',
-
-        años: '📅'
-
-    },
-
-
-
-
-
-// Access cards emojis
-
-accessCards: {
-
-    bip: '<:bip:1362491247033454592>',
-
-
-    tne: '<:tne:1362491852770639953>',
-
-    bipAdultoMayor: '<:bipAM:1362491794407031091>',
-
-    tarjetaAdultoMayor: '<:tam:1362491662085128456>'
-
-},
-
-
-
-     services: {
-
-         redbanc: "<:Redbanc:1365263970478460989>",
-
-         telefono: "<:telefonos:1365275231987433492>",
-
-         selfservice: "<:Autoservicio:1365412640389726238>" ,
-
-
-        },
-
-
-    accessibility: {
-
-        ascensor: "<:Ascensor:1365310145990754425>",
-
-        escaleras: "<:Scalators:1367116647525257237>",
-
-        logo: "<:access:1365270122725376111>",
-
-        estado: {
-
-            ope:"<:ticketverde:1365268540969713725>",
-            fes:"<:xroja:1365268321049772062>"
-           },
-
-        salida: "📤"
-
-
-
-
-
-       },
-
-
-    culture: {
-
-        bibliometro: "<:Bibliometro:1365265373481533450>"
-
-   },
-
-    // Add this new section for commerce emojis
-
-
-    commerce: {
-    'Xs Market': '<:Xs:1365363619839082589>',
-    'Castaño': '<:Castano:1365363632027865293>',
-    'Piwen': '<:Piwen:1365363652479291503>',
-    'Kino': '<:Kino:1365363666840715474>',
-    'Cruz Verde': '<:Cruzverde:1365363676298608700>',
-    'Correos de Chile': '<:Correoschile:1365363684867834017>',
-    'Oxxo': '<:Oxxo:1365363699174604841>',
-    'Subway': '<:Subway:1365363712868880495>',
-    'San Camilo': '<:SanCamilo:1365363719743340586>',
-    'Costanera Norte': '<:Costaneranorte:1365363748021211166>',
-    'Chilexpress': '<:Chilexpress:1365363734054309900>',
-    'Parque del Recuerdo': '<:ParquedelRecuerdo:1365363758314033195>',
-    'Equifax': '<:Equifax:1365363770213535815>',
-    'Bellota': '<:Bellota:1365363781357797447>',
-    'Multiservice': '<:Multiservice:1365363788164894842>',
-    // New additions
-    'McDonald\'s': '<:McDonalds:1365366675981074553>',
-    'KFC': '<:KFC:1365366643709968384>',
-    'Ok Market' :'<:1000130840:1365367132182937752>',
-
-        'Dr. Simi' : '<:DrSimi:1365368423797887096>',
-
-        'Maxi-K' : '<:DrSimi:1365368423797887096>',
-
-'Máquinas de Vending': '<:Vending:1365369184669929693>',
-
-        'Turbus' : '<:Turbus:1365369966982987856>',
-
-        'Servipag' : '<:Servipag:1365369941288681695>',
-
-        'Savory' :'<:Savory:1365369735189102683>'
-    },
-
-    lineWeights: {
-      'l1': 7,  // heaviest
-      'l5': 6,
-      'l4': 5,
-      'l2': 4,
-      'l3': 3,
-      'l6': 2,
-      'l4a': 1  // lightest
-    },
-
-    severityLabels: {
-      es: [
-        { threshold: 0, label: 'Normal' },
-        { threshold: 50, label: 'Baja' },
-        { threshold: 100, label: 'Moderada' },
-        { threshold: 150, label: 'Alta' },
-        { threshold: 200, label: 'Muy Alta' },
-        { threshold: 300, label: 'Crítica' }
-      ],
-      en: [
-        { threshold: 0, label: 'Normal' },
-        { threshold: 50, label: 'Low' },
-        { threshold: 100, label: 'Moderate' },
-        { threshold: 150, label: 'High' },
-        { threshold: 200, label: 'Very High' },
-        { threshold: 300, label: 'Critical' }
-      ]
-    }
-}
+};
