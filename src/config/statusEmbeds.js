@@ -114,7 +114,7 @@ module.exports = {
             .filter(station => station.line_id === lineData.id);
 
         const stationLines = stationObjects.map(station => {
-            return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms']);
+            return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms', 'transports']);
         });
 
         if (lineData.express_status) {
