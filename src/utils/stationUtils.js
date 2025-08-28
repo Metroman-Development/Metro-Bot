@@ -174,7 +174,7 @@ function decorateStation(station, decorations = []) {
         rutaIcon = metroConfig.routeStyles[rutaKey]?.emoji || '';
     }
 
-    let decoratedName = `${statusConfig.emoji || '❓'} ${rutaIcon} ${stationName}`.trim();
+    let decoratedName = `${statusConfig.discordem || '❓'} ${rutaIcon} ${stationName}`.trim();
 
     if (decorations.includes('line_connections') && station.combinacion) {
        
