@@ -48,6 +48,7 @@ app_services=(
     [discord]="./src/discord-bot.js"
     [telegram]="./src/telegram-bot.js"
     [scheduler]="./src/scheduler.js"
+    [api]="./api.js"
 )
 
 # Define all services for easier lookup
@@ -58,6 +59,7 @@ all_services=(
     ["discord"]=2
     ["telegram"]=2
     ["scheduler"]=2
+    ["api"]=2
 )
 
 
