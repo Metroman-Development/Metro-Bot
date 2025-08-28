@@ -44,6 +44,27 @@ async function main() {
     const dbManager = await DatabaseManager.getInstance(dbConfig, { componentName: 'Master' });
     logger.info('[Master] ✅ DatabaseManager initialized successfully.');
 
+    const express = require('express');
+    const botRoutes = require('./utils/expressRoutes');
+
+    const app = express();
+    const port = 3000;
+
+    const sendMessage = (target, payload) => {
+        const targetProcess = childProcesses.get(target);
+        if (targetProcess) {
+            targetProcess.send({ type: 'send-message', payload });
+        }
+    };
+
+    app.set('sendMessage', sendMessage);
+
+    app.use('/', botRoutes);
+
+    app.listen(port, () => {
+        logger.info(`API server listening on port ${port}`);
+    });
+
     const components = [
         { name: 'DiscordBot', path: './discord-bot.js' },
         { name: 'TelegramBot', path: './telegram-bot.js' },
@@ -64,7 +85,7 @@ async function main() {
 
         // IPC Handler
         childProcess.on('message', async (message) => {
-            const { type, queryId, txId, sql, params } = message;
+            const { type, queryId, txId, sql, params, target, payload } = message;
             let connection;
 
             try {
@@ -107,6 +128,13 @@ async function main() {
                         activeTransactions.delete(txId);
                         if (connection) connection.release();
                         childProcess.send({ type: 'db-transaction-rolled-back', txId });
+                        break;
+
+                    case 'send-message':
+                        const targetProcess = childProcesses.get(target);
+                        if (targetProcess) {
+                            targetProcess.send({ type: 'send-message', payload });
+                        }
                         break;
                 }
             } catch (error) {
