@@ -182,6 +182,18 @@ function decorateStation(station, decorations = []) {
         
     }
 
+    if (decorations.includes('transports') && station.transports !== '') {
+
+        const connectionIcons = station.transports.map(trans => {
+            const normalizedConn = trans.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            return normalizedConnectionEmojis[normalizedConn] || '';
+        }).join(' ');
+        if (connectionIcons) {
+            decoratedName += ` ${connectionIcons}`;
+        }
+        
+    }
+
     if (decorations.includes('other_connections') && station.connections?.length > 0) {
         const connectionIcons = station.connections.map(conn => {
             const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
