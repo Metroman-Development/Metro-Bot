@@ -42,6 +42,27 @@ router.post('/bot', (req, res) => {
       message: data.message,
     });
     res.status(200).send('Data received and sent to bots');
+  } else if (type === 'announcement') {
+    const { message, link, photo } = data;
+    if (!message) {
+      return res.status(400).send('Missing message in data for announcement');
+    }
+    req.app.get('sendMessage')('DiscordBot', {
+      type: 'announcement',
+      channelId: ids.discord.announcements.channel,
+      message,
+      link,
+      photo,
+    });
+    req.app.get('sendMessage')('TelegramBot', {
+      type: 'announcement',
+      channelId: ids.telegram.announcements.channel,
+      topicId: ids.telegram.announcements.topic,
+      message,
+      link,
+      photo,
+    });
+    res.status(200).send('Announcement sent to bots');
   } else {
     res.status(400).send('Invalid type');
   }
