@@ -160,6 +160,9 @@ function processAccessibilityText(accessibilityText) {
 }
 
 function decorateStation(station, decorations = []) {
+
+    console.log(station)
+    
     const stationName = station.nombre || station.name || '';
     const statusCode = station.estado || '1';
     const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
