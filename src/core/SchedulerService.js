@@ -51,7 +51,20 @@ class SchedulerService {
                 // Apply event status
                 for (const status of stationStatus) {
                     const fullStatus = statusMapping[status.status];
-                    await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [fullStatus, status.station_code]);
+                    const stationResult = await this.db.query('SELECT station_id FROM metro_stations WHERE station_code = ?', [status.station_code]);
+                    if (stationResult.length > 0) {
+                        const stationId = stationResult[0].station_id;
+                        const statusTypeIdResult = await this.db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [fullStatus]);
+                        if (statusTypeIdResult.length > 0) {
+                            const statusTypeId = statusTypeIdResult[0].status_type_id;
+                            const existingStatus = await this.db.query('SELECT * FROM station_status WHERE station_id = ?', [stationId]);
+                            if (existingStatus.length > 0) {
+                                await this.db.query('UPDATE station_status SET status_type_id = ? WHERE station_id = ?', [statusTypeId, stationId]);
+                            } else {
+                                await this.db.query('INSERT INTO station_status (station_id, status_type_id) VALUES (?, ?)', [stationId, statusTypeId]);
+                            }
+                        }
+                    }
                 }
             } else if (now < startTime) {
                 // Schedule job to start the event
@@ -73,7 +86,20 @@ class SchedulerService {
                         // Apply event status
                         for (const status of stationStatus) {
                             const fullStatus = statusMapping[status.status];
-                            await this.db.query('UPDATE station_status SET status_type_id = (SELECT status_type_id FROM operational_status_types WHERE status_name = ?) WHERE station_id = (SELECT station_id FROM metro_stations WHERE station_code = ?)', [fullStatus, status.station_code]);
+                            const stationResult = await this.db.query('SELECT station_id FROM metro_stations WHERE station_code = ?', [status.station_code]);
+                            if (stationResult.length > 0) {
+                                const stationId = stationResult[0].station_id;
+                                const statusTypeIdResult = await this.db.query('SELECT status_type_id FROM operational_status_types WHERE status_name = ?', [fullStatus]);
+                                if (statusTypeIdResult.length > 0) {
+                                    const statusTypeId = statusTypeIdResult[0].status_type_id;
+                                    const existingStatus = await this.db.query('SELECT * FROM station_status WHERE station_id = ?', [stationId]);
+                                    if (existingStatus.length > 0) {
+                                        await this.db.query('UPDATE station_status SET status_type_id = ? WHERE station_id = ?', [statusTypeId, stationId]);
+                                    } else {
+                                        await this.db.query('INSERT INTO station_status (station_id, status_type_id) VALUES (?, ?)', [stationId, statusTypeId]);
+                                    }
+                                }
+                            }
                         }
                     }
                 });

@@ -20,6 +20,19 @@ describe('SchedulerService Events', () => {
         await db.query('DELETE FROM event_station_status');
         await db.query('DELETE FROM event_details');
         await db.query('DELETE FROM metro_events');
+        await db.query('DELETE FROM station_status_history');
+
+        const esnStation = await db.query("SELECT station_id FROM metro_stations WHERE station_code = 'ESN'");
+        const normalStatus = await db.query("SELECT status_type_id FROM operational_status_types WHERE status_name = 'normal'");
+
+        if (esnStation.length > 0 && normalStatus.length > 0) {
+            const stationId = esnStation[0].station_id;
+            const statusId = normalStatus[0].status_type_id;
+
+            // Ensure ESN station has a clean default status
+            await db.query('DELETE FROM station_status WHERE station_id = ?', [stationId]);
+            await db.query('INSERT INTO station_status (station_id, status_type_id) VALUES (?, ?)', [stationId, statusId]);
+        }
     });
 
     it('should schedule and apply event status correctly', async () => {
