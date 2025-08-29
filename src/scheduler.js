@@ -51,7 +51,7 @@ async function startScheduler() {
         task: async () => {
             logger.info('[SCHEDULER] Fetching data from database...');
             const dbData = await apiService.getDbRawData();
-            metroInfoProvider.updateFromDb(dbData);
+            await metroInfoProvider.compareAndSyncData(dbData);
         }
     });
 

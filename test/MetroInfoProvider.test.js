@@ -85,10 +85,13 @@ describe('MetroInfoProvider', () => {
 
         it('should call changeDetector.detect with old and new data', async () => {
             const oldData = JSON.parse(JSON.stringify(provider.getFullData()));
-            const apiData = {};
             const dbData = {};
 
-            await provider.compareAndSyncData(apiData, dbData);
+            provider.apiService = {
+                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'operational' } }, network: { status: 'ok' } }
+            };
+
+            await provider.compareAndSyncData(dbData);
 
             expect(provider.changeDetector.detect).toHaveBeenCalledWith(oldData, provider.getFullData());
         });
@@ -96,22 +99,26 @@ describe('MetroInfoProvider', () => {
         it('should call changeAnnouncer.generateMessages when changes are detected', async () => {
             const changes = [{ type: 'line', id: 'l1', from: null, to: 'new_status' }];
             provider.changeDetector.detect.mockReturnValue(changes);
-
-            const apiData = { lineas: { l1: { id: 'L1', status: 'new_status' } } };
             const dbData = {};
 
-            await provider.compareAndSyncData(apiData, dbData);
+            provider.apiService = {
+                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'new_status' } } }
+            };
+
+            await provider.compareAndSyncData(dbData);
 
             expect(provider.changeAnnouncer.generateMessages).toHaveBeenCalledWith(changes, provider.getFullData());
         });
 
         it('should not call changeAnnouncer.generateMessages when no changes are detected', async () => {
             provider.changeDetector.detect.mockReturnValue([]);
-
-            const apiData = { lineas: { l1: { id: 'L1', status: 'new_status' } } };
             const dbData = {};
 
-            await provider.compareAndSyncData(apiData, dbData);
+            provider.apiService = {
+                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'new_status' } } }
+            };
+
+            await provider.compareAndSyncData(dbData);
 
             expect(provider.changeAnnouncer.generateMessages).not.toHaveBeenCalled();
         });

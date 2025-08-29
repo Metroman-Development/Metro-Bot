@@ -1165,10 +1165,10 @@
         {
           "nombre": "Franklin L6",
           "codigo": "FRA",
-          "estado": "1",
+          "estado": "2",
           "combinacion": "L2",
-          "descripcion": "Estación Operativa",
-          "descripcion_app": "Habilitada"
+          "descripcion": "Estación Temporalmente Cerrada",
+          "descripcion_app": "Cierre temporal"
         },
         {
           "nombre": "Bío Bío",

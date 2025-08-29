@@ -6,8 +6,7 @@ class ApiChangeDetector {
     }
 
     async getLatestChangeTimestamp() {
-        const apiData = await this.apiService.fetchData();
-        return new Date(apiData.lastSuccessfulFetch);
+        return new Date(this.apiService.metrics.lastSuccess);
     }
 }
 
