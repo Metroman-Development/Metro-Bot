@@ -17,20 +17,20 @@
         {
           "nombre": "Neptuno",
           "codigo": "NP",
-          "estado": "1",
+          "estado": "5",
           "combinacion": "",
-          "descripcion": "Estación Operativa",
-          "descripcion_app": "Habilitada",
-          "mensaje": ""
+          "descripcion": "Estación Cerrada",
+          "descripcion_app": "No Habilitada",
+          "mensaje": "Estacion Cerrada por falla"
         },
         {
           "nombre": "Pajaritos",
           "codigo": "PJ",
-          "estado": "1",
+          "estado": "5",
           "combinacion": "",
-          "descripcion": "Estación Operativa",
-          "descripcion_app": "Habilitada",
-          "mensaje": ""
+          "descripcion": "Estación Cerrada",
+          "descripcion_app": "No Habilitada",
+          "mensaje": "Estacion Cerrada por falla"
         },
         {
           "nombre": "Las Rejas",

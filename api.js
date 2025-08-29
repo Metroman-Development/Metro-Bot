@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 // Patch BigInt serialization
 BigInt.prototype.toJSON = function() {
     return this.toString();

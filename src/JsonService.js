@@ -37,7 +37,7 @@ const requestListener = function (req, res) {
 };
 
 const server = http.createServer(requestListener);
-const port = 3000;
+const port = 3001;
 server.listen(port);
 
 console.log(`JsonService running at http://localhost:${port}`);
