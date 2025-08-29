@@ -12,7 +12,7 @@ const corsOptions = {
 router.use(cors(corsOptions));
 router.use(express.json());
 
-router.post('/bot', (req, res) => {
+router.post('/bot/', (req, res) => {
   const { type, data } = req.body;
 
   if (!type || !data) {
