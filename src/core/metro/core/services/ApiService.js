@@ -204,20 +204,19 @@ class ApiService extends EventEmitter {
                                         if (dbLine && dbLine.estaciones) {
                                             const dbStation = dbLine.estaciones.find(s => s.codigo.toUpperCase() === station.codigo.toUpperCase());
                                             if (dbStation) {
-                                                const util = require('util');
-                                                console.log("--- MERGE DEBUG START ---");
-                                                console.log("STATION (API) before merge:", util.inspect(station, {depth: null}));
-                                                console.log("DBSTATION (DB) to be merged:", util.inspect(dbStation, {depth: null}));
+                                                // Preserve the authoritative status from the API response.
+                                                const apiStatus = station.estado;
+                                                const apiDescripcion = station.descripcion;
+                                                const apiDescripcionApp = station.descripcion_app;
+
+                                                // Merge the richer data model from the database.
+                                                // This might temporarily overwrite the status with stale data.
                                                 Object.assign(station, dbStation);
-                                                console.log("STATION after DB merge:", util.inspect(station, {depth: null}));
-                                                const apiStatus = {
-                                                    estado: station.estado,
-                                                    descripcion: station.descripcion,
-                                                    descripcion_app: station.descripcion_app
-                                                };
-                                                Object.assign(station, apiStatus);
-                                                console.log("STATION after status merge:", util.inspect(station, {depth: null}));
-                                                console.log("--- MERGE DEBUG END ---");
+
+                                                // Restore the authoritative status from the API, ensuring it's not overwritten.
+                                                station.estado = apiStatus;
+                                                station.descripcion = apiDescripcion;
+                                                station.descripcion_app = apiDescripcionApp;
                                             }
                                         }
                                     }
