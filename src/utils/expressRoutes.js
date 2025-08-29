@@ -2,39 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const ids = require('../config/ids');
 
-const router = express.Router({ strict: false }); // Allow trailing slashes
+const router = express.Router();
 
-// CORS configuration - allow multiple origins
+// CORS configuration
 const corsOptions = {
   origin: ['https://api.metroman.me', 'https://cct.metroman.me', 'http://localhost:3000'],
   optionsSuccessStatus: 200,
-  credentials: true
 };
 
-// Middleware
 router.use(cors(corsOptions));
 router.use(express.json({ limit: '10mb' }));
-router.use(express.urlencoded({ extended: true }));
-
-// Debug middleware to see incoming requests
-router.use((req, res, next) => {
-  console.log('=== EXPRESS REQUEST ===');
-  console.log('Method:', req.method);
-  console.log('Path:', req.path);
-  console.log('Original URL:', req.originalUrl);
-  console.log('Base URL:', req.baseUrl);
-  console.log('Headers:', req.headers);
-  console.log('=======================');
-  next();
-});
 
 // Health check endpoint
 router.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
     message: 'Metro Bot API server is running',
-    timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -44,15 +28,12 @@ router.get('/', (req, res) => {
     message: 'Metro Bot API',
     endpoints: {
       health: '/health',
-      bot: '/bot',
-      networkInfo: 'POST /bot with type: network-info',
-      metroNews: 'POST /bot with type: metro-news',
-      announcements: 'POST /bot with type: announcement'
+      bot: '/bot'
     }
   });
 });
 
-// Main bot endpoint - handles all bot-related posts
+// Main bot endpoint
 router.post('/bot', (req, res) => {
   console.log('Received bot request:', req.body);
   
@@ -97,8 +78,7 @@ router.post('/bot', (req, res) => {
 
       res.status(200).json({ 
         success: true,
-        message: 'Network info sent to bots successfully',
-        data: { message, link, photo }
+        message: 'Network info sent to bots successfully'
       });
 
     } else if (type === 'metro-news') {
@@ -130,8 +110,7 @@ router.post('/bot', (req, res) => {
 
       res.status(200).json({ 
         success: true,
-        message: 'Metro news sent to bots successfully',
-        data: { message, link, photo }
+        message: 'Metro news sent to bots successfully'
       });
 
     } else if (type === 'announcement') {
@@ -163,15 +142,13 @@ router.post('/bot', (req, res) => {
 
       res.status(200).json({ 
         success: true,
-        message: 'Announcement sent to bots successfully',
-        data: { message, link, photo }
+        message: 'Announcement sent to bots successfully'
       });
 
     } else {
       res.status(400).json({ 
         error: 'Invalid type',
-        details: 'Type must be one of: network-info, metro-news, announcement',
-        receivedType: type
+        details: 'Type must be one of: network-info, metro-news, announcement'
       });
     }
   } catch (error) {
@@ -181,25 +158,6 @@ router.post('/bot', (req, res) => {
       details: error.message 
     });
   }
-});
-
-// Error handling middleware
-router.use((err, req, res, next) => {
-  console.error('Express error:', err);
-  res.status(500).json({ 
-    error: 'Internal server error',
-    message: err.message 
-  });
-});
-
-// 404 handler for undefined routes
-router.use('*', (req, res) => {
-  res.status(404).json({ 
-    error: 'Endpoint not found',
-    path: req.originalUrl,
-    method: req.method,
-    availableEndpoints: ['GET /health', 'GET /', 'POST /bot']
-  });
 });
 
 module.exports = router;
