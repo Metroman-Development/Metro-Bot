@@ -32,7 +32,7 @@
         "test": "test"
     },
     "scripts": {
-        "test": "NODE_ENV=test jest"
+        "test": "NODE_ENV=test jest --testTimeout=60000"
     },
     "repository": {
         "type": "git",

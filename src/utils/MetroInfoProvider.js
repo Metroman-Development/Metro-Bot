@@ -32,9 +32,9 @@ class MetroInfoProvider {
         };
         this.isInitialized = true;
 
-        const apiService = new ApiService(metroCore, { dbService: databaseService }, null);
+        this.apiService = new ApiService(metroCore, { dbService: databaseService }, null);
         this.dbChangeDetector = new DbChangeDetector(databaseService);
-        this.apiChangeDetector = new ApiChangeDetector(apiService);
+        this.apiChangeDetector = new ApiChangeDetector(this.apiService);
         this.changeDetector = new MyChangeDetector();
         this.changeAnnouncer = new ChangeAnnouncer();
 
@@ -141,13 +141,14 @@ class MetroInfoProvider {
         this.updateData(currentData);
     }
 
-    async compareAndSyncData(apiData, dbData) {
+    async compareAndSyncData(dbData) {
         const oldData = JSON.parse(JSON.stringify(this.getFullData()));
 
         const apiTimestamp = await this.apiChangeDetector.getLatestChangeTimestamp();
         const dbTimestamp = await this.dbChangeDetector.getLatestChangeTimestamp();
 
         if (apiTimestamp > dbTimestamp) {
+            const apiData = this.apiService.lastCurrentData;
             this.updateFromApi(apiData);
             await this.dbChangeDetector.databaseService.updateStatusFromApi(apiData);
         } else {
