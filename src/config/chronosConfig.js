@@ -1,7 +1,6 @@
 
 
 // config/chronosConfig.js
-const logger = require('../events/logger');
 
 const config = {
     // Core Configuration
