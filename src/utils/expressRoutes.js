@@ -29,7 +29,7 @@ router.use((req, res, next) => {
 });
 
 // Health check endpoint
-router.get('/health/?', (req, res) => {
+router.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
     message: 'Metro Bot API server is running',
@@ -39,7 +39,7 @@ router.get('/health/?', (req, res) => {
 });
 
 // Root endpoint
-router.get('/?', (req, res) => {
+router.get('/', (req, res) => {
   res.status(200).json({ 
     message: 'Metro Bot API',
     endpoints: {
@@ -53,7 +53,7 @@ router.get('/?', (req, res) => {
 });
 
 // Main bot endpoint - handles all bot-related posts
-router.post('/bot/?', (req, res) => {
+router.post('/bot/', (req, res) => {
   console.log('Received bot request:', req.body);
   
   const { type, data } = req.body;
