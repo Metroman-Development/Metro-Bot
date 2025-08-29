@@ -53,7 +53,7 @@ router.get('/', (req, res) => {
 });
 
 // Main bot endpoint - handles all bot-related posts
-router.post('/bot/', (req, res) => {
+router.post('/bot', (req, res) => {
   console.log('Received bot request:', req.body);
   
   const { type, data } = req.body;
