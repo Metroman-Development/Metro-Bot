@@ -54,6 +54,7 @@ async function main() {
     // Setup Express app
     const app = express();
     const port = process.env.API_PORT || 3000;
+    const host = process.env.API_HOST || '0.0.0.0';
 
     // Middleware to handle JSON payloads
     app.use(express.json());
@@ -69,8 +70,8 @@ async function main() {
     app.use('/bot', botRoutes);
 
     // Start server
-    app.listen(port, () => {
-        logger.info(`[API] ✅ API server listening on port ${port}`);
+    app.listen(port, host, () => {
+        logger.info(`[API] ✅ API server listening on http://${host}:${port}`);
     });
 }
 
