@@ -645,7 +645,7 @@ class DatabaseService {
                 commune, address, latitude, longitude, location,
                 opened_date, last_renovation_date, created_at, updated_at,
                 display_name, transports, services, accessibility, commerce,
-                amenities, image_url, access_details, combinacion, connections, express_state, route_color
+                amenities, image_url, access_details, combinacion
             FROM metro_stations 
             ORDER BY line_id, display_order
         `;

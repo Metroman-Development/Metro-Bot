@@ -1,63 +1,43 @@
-// get_metro_info.js
-
-// Import the MetroInfoProvider directly
+const DatabaseManager = require('./src/core/database/DatabaseManager');
 const MetroInfoProvider = require('./src/utils/MetroInfoProvider');
+const ApiService = require('./src/core/metro/core/services/ApiService');
+const config = require('./src/config/metro/metroConfig');
 
-// Main function to run the script
-function main() {
+async function main() {
   try {
-    // Get the full dataset from the MetroInfoProvider
-    const metroData = MetroInfoProvider.getFullData();
+    const dbConfig = {
+      host: process.env.DB_HOST || '127.0.0.1',
+      user: process.env.DB_USER || 'metroapi',
+      password: process.env.DB_PASSWORD || 'Metro256',
+      database: process.env.METRODB_NAME || 'MetroDB',
+    };
 
-    // Parse command-line arguments
-    const args = process.argv.slice(2);
-    const command = args[0];
+    const dbManager = await DatabaseManager.getInstance(dbConfig);
+    const databaseService = await require('./src/core/database/DatabaseService').getInstance(dbManager);
 
-    if (!command) {
-      // If no command is provided, print a summary of the data
-      console.log('No command provided. Printing summary of the data.');
-      console.log(JSON.stringify({
-        lines: Object.keys(metroData.lines).length,
-        stations: Object.keys(metroData.stations).length,
-        intermodal_stations: Object.keys(metroData.intermodal.stations).length,
-        last_updated: metroData.last_updated,
-        network_status: metroData.network_status,
-      }, null, 2));
-      return;
-    }
+    const metroCore = {
+      _subsystems: {
+        databaseService: databaseService,
+      }
+    };
 
-    switch (command) {
-      case 'lines':
-        console.log(JSON.stringify(metroData.lines, null, 2));
-        break;
-      case 'stations':
-        console.log(JSON.stringify(metroData.stations, null, 2));
-        break;
-      case 'intermodal':
-        console.log(JSON.stringify(metroData.intermodal, null, 2));
-        break;
-      case 'find':
-        const type = args[1];
-        const name = args[2];
-        if (type === 'station') {
-          const station = MetroInfoProvider.getStationById(name);
-          if (station) {
-            console.log(JSON.stringify(station, null, 2));
-          } else {
-            console.log(`Station "${name}" not found.`);
-          }
-        } else {
-          console.log('Invalid find command. Usage: find station <name>');
-        }
-        break;
-      default:
-        console.log(`Unknown command: ${command}`);
-        console.log('Available commands: lines, stations, intermodal, find station <name>');
-    }
+    const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseService);
+    metroCore._subsystems.metroInfoProvider = metroInfoProvider;
+
+    const apiService = new ApiService(metroCore, { dbService: databaseService, config: config }, {
+        handleRawData: (data) => data,
+    });
+
+    const data = await apiService.fetchNetworkStatus();
+
+    console.log(JSON.stringify(data, null, 2));
+
   } catch (error) {
     console.error('An error occurred:', error);
+  } finally {
+    // We need to exit the process because the database manager is holding it open.
+    process.exit();
   }
 }
 
-// Run the main function
 main();
