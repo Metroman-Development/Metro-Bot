@@ -29,4 +29,5 @@ fi
 # --- Run with Nodemon ---
 # We use npx to run the local version of nodemon installed from package.json.
 # We watch only the 'src' directory for changes.
+export ESTADO_RED='http://localhost:3000/estadoRed'
 npx nodemon --watch src/ src/index.js > app_output.log 2>&1

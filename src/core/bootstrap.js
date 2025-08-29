@@ -15,9 +15,9 @@ async function performInitialization(source = 'unknown') {
 
     const dbConfig = {
         host: dbHost,
-        user: process.env.NODE_ENV === 'test' ? 'testuser' : process.env.DB_USER || 'metroapi',
-        password: process.env.NODE_ENV === 'test' ? 'testpassword' : process.env.DB_PASSWORD || 'Metro256',
-        database: process.env.NODE_ENV === 'test' ? 'metro_db' : process.env.DB_DATABASE || 'MetroDB',
+        user: process.env.DB_USER || 'metroapi',
+        password: process.env.DB_PASSWORD || 'Metro256',
+        database: process.env.METRODB_NAME || 'MetroDB',
         port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : undefined,
     };
 
