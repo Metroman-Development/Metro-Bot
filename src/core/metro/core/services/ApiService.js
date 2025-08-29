@@ -555,6 +555,58 @@ class ApiService extends EventEmitter {
         this._activeRequests.clear();
         this.changeHistory = [];
     }
+
+    async setServiceStatus(status) {
+        logger.info(`[ApiService] Setting service status to ${status}`);
+        let data;
+        if (status === 'open') {
+            data = await this.fetchNetworkStatus();
+        } else if (status === 'closed') {
+            const offHoursData = await this._generateOffHoursData();
+            const { lines, stations } = this.extractLineAndStationData(offHoursData);
+            const networkSummary = this.generateNetworkSummary(lines);
+
+            data = {
+                ...offHoursData,
+                lines,
+                stations,
+                network: networkSummary,
+            };
+            delete data.lineas;
+        }
+
+        if (data) {
+            this._updateState(data);
+            await this._storeCurrentData(data);
+        }
+
+        // Trigger embed update
+        if (this.metro && this.metro._subsystems && this.metro._subsystems.statusUpdater && this.metro._subsystems.statusUpdater.embeds) {
+            await this.metro._subsystems.statusUpdater.embeds.updateAllEmbeds(data);
+        }
+    }
+
+    async activateExpressService() {
+        logger.info('[ApiService] Activating express service...');
+        const expressLines = config.expressLines;
+        for (const lineId of expressLines) {
+            const query = `UPDATE metro_lines SET express_status = 'active' WHERE line_id = ?`;
+            await this.dbService.query(query, [lineId.toLowerCase()]);
+            logger.info(`[ApiService] Express service activated for line ${lineId}`);
+        }
+        await this.fetchNetworkStatus();
+    }
+
+    async deactivateExpressService() {
+        logger.info('[ApiService] Deactivating express service...');
+        const expressLines = config.expressLines;
+        for (const lineId of expressLines) {
+            const query = `UPDATE metro_lines SET express_status = 'inactive' WHERE line_id = ?`;
+            await this.dbService.query(query, [lineId.toLowerCase()]);
+            logger.info(`[ApiService] Express service deactivated for line ${lineId}`);
+        }
+        await this.fetchNetworkStatus();
+    }
     
     async _storeCurrentData(data) {
         try {

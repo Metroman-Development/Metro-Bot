@@ -8,6 +8,8 @@ const AnnouncementService = require('./core/metro/announcers/AnnouncementService
 const StatusManager = require('./core/status/StatusManager');
 const chronosConfig = require('./config/chronosConfig');
 
+let statusManager;
+
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
     const { metroCore, databaseManager } = await bootstrap.initialize('SCHEDULER');
@@ -16,7 +18,7 @@ async function startScheduler() {
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
-    const statusManager = new StatusManager(db);
+    statusManager = new StatusManager(db, apiService, announcementService);
     const metroInfoProvider = MetroInfoProvider.getInstance();
 
     const scheduler = new SchedulerService(metroCore, db);
@@ -26,11 +28,8 @@ async function startScheduler() {
         name: 'api-fetch',
         interval: 60000, // Every minute
         task: async () => {
-            const statusService = metroCore._subsystems.statusService;
             if (TimeHelpers.isWithinOperatingHours()) {
                 await apiService.fetchNetworkStatus();
-            } else {
-                await statusService.setSystemToOutOfService();
             }
         }
     });
@@ -109,33 +108,33 @@ async function startScheduler() {
             const [service, method] = jobConfig.task.split('.');
             let taskFunction;
 
-            if (service === 'announcementService') {
+            if (service === 'statusManager') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     const operatingHours = TimeHelpers.getOperatingHours();
                     const periodInfo = TimeHelpers.getCurrentPeriod();
 
                     switch (method) {
-                        case 'announceServiceStart':
-                            await announcementService.announceServiceTransition('start', operatingHours);
+                        case 'handleServiceStart':
+                            await statusManager.handleServiceStart(operatingHours);
                             break;
-                        case 'announceServiceEnd':
-                            await announcementService.announceServiceTransition('end', operatingHours);
+                        case 'handleServiceEnd':
+                            await statusManager.handleServiceEnd(operatingHours);
                             break;
-                        case 'announceFarePeriodChange':
-                            await announcementService.announceFarePeriodChange(periodInfo.type, periodInfo);
+                        case 'handleFarePeriodChange':
+                            await statusManager.handleFarePeriodChange(periodInfo);
                             break;
                     }
                 };
-            } else if (service === 'statusManager') {
+            } else if (service === 'apiService') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     switch (method) {
                         case 'activateExpressService':
-                            await statusManager.activateExpressService();
+                            await apiService.activateExpressService();
                             break;
                         case 'deactivateExpressService':
-                            await statusManager.deactivateExpressService();
+                            await apiService.deactivateExpressService();
                             break;
                     }
                 };
@@ -157,7 +156,10 @@ async function startScheduler() {
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');
 }
 
-startScheduler();
+if (require.main === module) {
+    startScheduler();
+}
+
 
 process.on('SIGINT', () => {
     logger.info('[SCHEDULER] Shutting down...');
@@ -165,3 +167,8 @@ process.on('SIGINT', () => {
     logger.info('[SCHEDULER] ✅ Scheduler shut down successfully.');
     process.exit(0);
 });
+
+module.exports = {
+    startScheduler,
+    getStatusManager: () => statusManager
+};
