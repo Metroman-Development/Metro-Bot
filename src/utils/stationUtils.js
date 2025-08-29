@@ -211,7 +211,7 @@ function decorateStation(station, decorations = []) {
     }
 
     if (decorations.includes('platforms') && station.platforms) {
-        const platformIcons = station.platforms.map(p => metroConfig.platformStatusIcons[p.status] || '').join(' ');
+        const platformIcons = Object.values(station.platforms).map(status => metroConfig.platformStatusIcons[status] || '').join(' ');
         if (platformIcons) {
             decoratedName += ` ${platformIcons}`;
         }
