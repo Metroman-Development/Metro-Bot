@@ -163,6 +163,21 @@ class MetroInfoProvider {
         }
     }
 
+    getRouteColorName(routeColor) {
+        switch (routeColor) {
+            case 'V':
+                return 'Verde';
+            case 'R':
+                return 'Roja';
+            case 'C':
+                return 'Común';
+            case 'N':
+                return 'Ninguno';
+            default:
+                return routeColor;
+        }
+    }
+
     getStationDetails(stationName) {
         const station = this.getStationById(stationName);
         if (!station) {
@@ -173,11 +188,9 @@ class MetroInfoProvider {
         const lineStatus = line ? line.status_message : 'No disponible';
         const stationStatus = station.status ? station.status.message : 'No disponible';
 
-        const isOperational = (lineStatus === 'Operativa' || lineStatus === 'Disponible') && (stationStatus === 'Operativa' || stationStatus === 'Disponible');
-
-        const platforms = station.platforms ? station.platforms.map(p => ({
-            ...p,
-            status: isOperational ? 'operational' : 'non-operational'
+        const platforms = station.platforms ? Object.entries(station.platforms).map(([platform, status]) => ({
+            platform: parseInt(platform, 10),
+            status: status === 1 ? 'active' : 'inactive'
         })) : [];
 
         const intermodal = this.getIntermodalBuses(station.station_name);
@@ -185,7 +198,7 @@ class MetroInfoProvider {
         return {
             name: station.station_name,
             line: station.line_id,
-            route: station.route_color,
+            route: this.getRouteColorName(station.route_color),
             express_state: station.express_state,
             transfer: station.combinacion ? `L${station.combinacion}` : null,
             connections: station.connections || [],
@@ -233,7 +246,7 @@ class MetroInfoProvider {
         }
         if (typeof stationId === 'string') {
             const normalizedId = stationId.toLowerCase();
-            return Object.values(this.data.stations).find(s => (s.name || s.nombre || '').toLowerCase() === normalizedId);
+            return Object.values(this.data.stations).find(s => (s.name || s.nombre || s.station_name || '').toLowerCase() === normalizedId);
         }
         return null;
     }
