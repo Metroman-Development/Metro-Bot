@@ -67,6 +67,24 @@ module.exports = {
             });
         }
 
+        const currentPeriod = TimeHelpers.getCurrentPeriod();
+        if (currentPeriod) {
+            fields.push({
+                name: '💲 Periodo Tarifario',
+                value: currentPeriod.name,
+                inline: true
+            });
+        }
+
+        const nextTransition = TimeHelpers.getNextTransition();
+        if (nextTransition) {
+            fields.push({
+                name: '⏭️ Próximo Cambio',
+                value: `${nextTransition.time}: ${nextTransition.message}`,
+                inline: true
+            });
+        }
+
         return {
             title: '🚇 Estado General de la Red Metro',
             description,
@@ -149,15 +167,6 @@ module.exports = {
                     inline: false
                 });
             }
-        }
-
-        const nextTransition = TimeHelpers.getNextTransition();
-        if (nextTransition) {
-            stationFields.push({
-                name: '⏭️ Próximo Cambio',
-                value: `${nextTransition.time}: ${nextTransition.message}`,
-                inline: true
-            });
         }
 
         return {
