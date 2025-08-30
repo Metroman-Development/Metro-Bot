@@ -6,7 +6,9 @@ const MetroInfoProvider = require('./utils/MetroInfoProvider');
 const moment = require('moment-timezone');
 const AnnouncementService = require('./core/metro/announcers/AnnouncementService');
 const StatusManager = require('./core/status/StatusManager');
+const StatusEmbedManager = require('./core/status/StatusEmbedManager');
 const chronosConfig = require('./config/chronosConfig');
+const metroConfig = require('./config/metro/metroConfig');
 
 let statusManager;
 
@@ -18,7 +20,18 @@ async function startScheduler() {
     const apiService = metroCore._subsystems.api;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
-    statusManager = new StatusManager(db, apiService, announcementService);
+
+    const statusEmbedManager = new StatusEmbedManager(metroCore.client);
+    const lineMessageIds = { ...metroConfig.embedMessageIds };
+    delete lineMessageIds.overview;
+
+    await statusEmbedManager.initialize(
+        metroConfig.embedsChannelId,
+        metroConfig.embedMessageIds.overview,
+        lineMessageIds
+    );
+
+    statusManager = new StatusManager(db, apiService, announcementService, statusEmbedManager);
     const metroInfoProvider = MetroInfoProvider.getInstance();
 
     const scheduler = new SchedulerService(metroCore, db);
