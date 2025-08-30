@@ -5,17 +5,19 @@ const DbChangeDetector = require('../core/metro/core/services/changeDetectors/Db
 const ApiChangeDetector = require('../core/metro/core/services/changeDetectors/ApiChangeDetector');
 const MyChangeDetector = require('../core/status/ChangeDetector');
 const ChangeAnnouncer = require('../core/status/ChangeAnnouncer');
+const StatusEmbedManager = require('../core/status/StatusEmbedManager');
 const { normalizeStationData } = require('./stationUtils.js');
 
 class MetroInfoProvider {
     static instance = null;
 
-    constructor(metroCore, databaseService) {
+    constructor(metroCore, databaseService, statusEmbedManager) {
         if (!metroCore || !databaseService) {
             throw new Error("MetroInfoProvider requires a metroCore and databaseService instance.");
         }
         this.metroCore = metroCore;
         this.databaseService = databaseService;
+        this.statusEmbedManager = statusEmbedManager;
         this.data = {
             lines: {},
             stations: {},
@@ -41,9 +43,9 @@ class MetroInfoProvider {
         logger.info('[MetroInfoProvider] MetroInfoProvider initialized.');
     }
 
-    static initialize(metroCore, databaseService) {
+    static initialize(metroCore, databaseService, statusEmbedManager) {
         if (!MetroInfoProvider.instance) {
-            MetroInfoProvider.instance = new MetroInfoProvider(metroCore, databaseService);
+            MetroInfoProvider.instance = new MetroInfoProvider(metroCore, databaseService, statusEmbedManager);
         }
         return MetroInfoProvider.instance;
     }
@@ -159,7 +161,11 @@ class MetroInfoProvider {
         const changes = this.changeDetector.detect(oldData, newData);
 
         if (changes && changes.length > 0) {
-            const messages = await this.changeAnnouncer.generateMessages(changes, newData);
+            await this.changeAnnouncer.generateMessages(changes, newData);
+        }
+
+        if (this.statusEmbedManager) {
+            await this.statusEmbedManager.updateAllEmbeds(newData);
         }
     }
 
