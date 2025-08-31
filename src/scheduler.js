@@ -37,7 +37,7 @@ async function startScheduler() {
     const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseManager, statusEmbedManager);
     metroCore.metroInfoProvider = metroInfoProvider;
 
-    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager, metroInfoProvider);
+    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
 
     // API fetching job
     scheduler.addJob({

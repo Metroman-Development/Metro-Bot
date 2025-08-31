@@ -1,6 +1,5 @@
 const logger = require('../events/logger');
 const schedule = require('node-schedule');
-const chronosConfig = require('../config/chronosConfig');
 
 const statusMapping = {
     'normal': 'normal',
@@ -13,7 +12,7 @@ const statusMapping = {
 };
 
 class SchedulerService {
-    constructor(metroCore, db, changeAnnouncer, statusEmbedManager, metroInfoProvider) {
+    constructor(metroCore, db, changeAnnouncer, statusEmbedManager, metroInfoProvider, timezone) {
         this.metroCore = metroCore;
         this.db = db;
         this.changeAnnouncer = changeAnnouncer;
@@ -21,6 +20,7 @@ class SchedulerService {
         this.metroInfoProvider = metroInfoProvider;
         this.jobs = new Map();
         this.running = new Set();
+        this.timezone = timezone;
     }
 
     async scheduleExtensionOfService(lineId, startTime, endTime, affectedStations) {
@@ -271,7 +271,7 @@ class SchedulerService {
         rule.date = scheduleParts[2];
         rule.month = scheduleParts[3];
         rule.dayOfWeek = scheduleParts[4];
-        rule.tz = chronosConfig.timezone;
+        rule.tz = this.timezone;
 
         const scheduledJob = schedule.scheduleJob(rule, jobWrapper);
         job.timer = scheduledJob; // Store the scheduled job instance
