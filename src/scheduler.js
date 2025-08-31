@@ -34,7 +34,7 @@ async function startScheduler() {
     statusManager = new StatusManager(db, apiService, announcementService, statusEmbedManager);
     const metroInfoProvider = MetroInfoProvider.getInstance();
 
-    const scheduler = new SchedulerService(metroCore, db);
+    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager);
 
     // API fetching job
     scheduler.addJob({

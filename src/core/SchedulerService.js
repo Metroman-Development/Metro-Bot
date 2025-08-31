@@ -13,11 +13,48 @@ const statusMapping = {
 };
 
 class SchedulerService {
-    constructor(metroCore, db) {
+    constructor(metroCore, db, changeAnnouncer, statusEmbedManager) {
         this.metroCore = metroCore;
         this.db = db;
+        this.changeAnnouncer = changeAnnouncer;
+        this.statusEmbedManager = statusEmbedManager;
         this.jobs = new Map();
         this.running = new Set();
+    }
+
+    async scheduleExtensionOfService(lineId, endTime, affectedStations) {
+        logger.info(`[SchedulerService] Scheduling extension of service for line ${lineId}`);
+        const startTime = new Date();
+
+        const eventDate = new Date();
+        const eventResult = await this.db.query(
+            'INSERT INTO metro_events (event_name, event_date, description, start_time, end_time, is_active) VALUES (?, ?, ?, ?, ?, ?)',
+            ['extension', eventDate, `Extension of service for line ${lineId}`, startTime, endTime, false]
+        );
+        const eventId = eventResult.insertId;
+
+        await this.db.query(
+            'INSERT INTO event_details (event_id, line_code, detail_type, description) VALUES (?, ?, ?, ?)',
+            [eventId, lineId, 'note', `Service extension for line ${lineId}`]
+        );
+
+        for (const station of affectedStations) {
+            await this.db.query(
+                'INSERT INTO event_station_status (event_id, station_code, status) VALUES (?, ?, ?)',
+                [eventId, station.station_code, station.status]
+            );
+        }
+
+        await this.checkAndScheduleEvents();
+
+        if (this.changeAnnouncer) {
+            const eventInfo = {
+                name: `Extension for line ${lineId}`,
+                endTime: endTime.toLocaleTimeString(),
+                affectedLines: [lineId]
+            };
+            await this.changeAnnouncer.announceExtendedService('start', eventInfo);
+        }
     }
 
     async checkAndScheduleEvents() {
@@ -101,6 +138,11 @@ class SchedulerService {
                                 }
                             }
                         }
+
+                        if (this.statusEmbedManager) {
+                            const data = this.metroCore.metroInfoProvider.getFullData();
+                            await this.statusEmbedManager.updateAllEmbeds(data);
+                        }
                     }
                 });
             }
@@ -122,6 +164,20 @@ class SchedulerService {
 
                         // Clean up backup
                         await this.db.query('DELETE FROM event_station_status_backup WHERE event_id = ?', [event.id]);
+
+                        if (this.changeAnnouncer && event.event_name === 'extension') {
+                            const eventInfo = {
+                                name: event.description,
+                                endTime: new Date(event.end_time).toLocaleTimeString(),
+                                affectedLines: details ? [details.line_code] : []
+                            };
+                            await this.changeAnnouncer.announceExtendedService('end', eventInfo);
+                        }
+
+                        if (this.statusEmbedManager) {
+                            const data = this.metroCore.metroInfoProvider.getFullData();
+                            await this.statusEmbedManager.updateAllEmbeds(data);
+                        }
                     }
                 });
             }

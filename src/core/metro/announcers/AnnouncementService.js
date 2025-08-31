@@ -6,7 +6,6 @@ const { getClient, getTelegramBot } = require('../../../utils/clientManager');
 
 class AnnouncementService {
     constructor() {
-        this.timeHelpers = new TimeHelpers();
     }
 
     async _sendDiscordEmbed(embed) {
@@ -58,7 +57,7 @@ class AnnouncementService {
                     name: 'Próximo Horario',
                     value: isStart
                         ? `Cierre programado: ${operatingHours.closing}`
-                        : `Apertura programada: ${this.timeHelpers.getNextServiceTransition().format('HH:mm')} (mañana)`,
+                        : `Apertura programada: ${TimeHelpers.getNextServiceTransition().format('HH:mm')} (mañana)`,
                     inline: true
                 }
             )
@@ -89,7 +88,7 @@ class AnnouncementService {
             .addFields(
                 {
                     name: 'Duración',
-                    value: `Hasta: ${periodInfo.end || this.timeHelpers.getNextTransition().time}`,
+                    value: `Hasta: ${periodInfo.end || TimeHelpers.getNextTransition().time}`,
                     inline: true
                 }
             )
@@ -119,7 +118,7 @@ class AnnouncementService {
                     name: 'Horario',
                     value: isStart
                         ? `De ${timeRange.start} a ${timeRange.end}`
-                        : `Servicio regular hasta ${this.timeHelpers.getOperatingHours().closing}`,
+                        : `Servicio regular hasta ${TimeHelpers.getOperatingHours().closing}`,
                     inline: true
                 },
                 {
@@ -159,7 +158,7 @@ class AnnouncementService {
                     name: 'Horario',
                     value: isStart
                         ? `Hasta: ${eventInfo.endTime}`
-                        : `Próximo cierre: ${this.timeHelpers.getOperatingHours().closing}`,
+                        : `Próximo cierre: ${TimeHelpers.getOperatingHours().closing}`,
                     inline: true
                 }
             )
@@ -210,7 +209,7 @@ class AnnouncementService {
     }
 
     _getFooterText() {
-        return `Metro Santiago • ${this.timeHelpers.currentTime.format('DD/MM/YYYY HH:mm')}`;
+        return `Metro Santiago • ${TimeHelpers.currentTime.format('DD/MM/YYYY HH:mm')}`;
     }
 }
 
