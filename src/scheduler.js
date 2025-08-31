@@ -128,7 +128,7 @@ async function startScheduler() {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     const operatingHours = TimeHelpers.getOperatingHours();
-                    const periodInfo = TimeHelpers.getCurrentPeriod();
+                    const periodInfo = jobConfig.period ? { type: jobConfig.period } : TimeHelpers.getCurrentPeriod();
 
                     switch (method) {
                         case 'handleServiceStart':

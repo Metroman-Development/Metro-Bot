@@ -23,7 +23,7 @@ describe('Scheduler Period Change Jobs', () => {
 
     it('should have jobs for fare period change', () => {
         const jobs = chronosConfig.jobs.filter(j => j.task === 'statusManager.handleFarePeriodChange');
-        expect(jobs.length).toBe(5);
+        expect(jobs.length).toBe(7);
     });
 
     it('should have jobs for express service', () => {

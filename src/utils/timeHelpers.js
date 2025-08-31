@@ -109,18 +109,32 @@ class TimeHelpers {
 
             const timeStr = time.format('HH:mm');
             const dayType = this.getDayType(time.toDate());
-            const schedule = this.getScheduleConfig()[dayType];
 
             if (this.isSpecialEventActive(time.toDate())) {
                 return { type: 'EVENT', name: 'Evento Especial' };
             }
 
-            const isPeak = schedule.peak.some(period =>
-                timeStr >= period.start && timeStr < period.end
-            );
+            if (dayType === 'saturday' || dayType === 'sunday' || dayType === 'festive') {
+                return { type: 'VALLE', name: 'Horario Normal' };
+            }
 
-            if (isPeak) return { type: 'PUNTA', name: 'Hora Punta' };
-            return { type: 'VALLE', name: 'Horario Normal' };
+            for (const periodType in config.farePeriods) {
+                if (config.farePeriods.hasOwnProperty(periodType)) {
+                    const isCurrentPeriod = config.farePeriods[periodType].some(period =>
+                        this.isTimeBetween(time, period.start, period.end)
+                    );
+                    if (isCurrentPeriod) {
+                        let name = 'Desconocido';
+                        if (periodType === 'PUNTA') name = 'Hora Punta';
+                        if (periodType === 'VALLE') name = 'Horario Normal';
+                        if (periodType === 'BAJO') name = 'Horario Bajo';
+                        if (periodType === 'NOCHE') name = 'Horario Nocturno';
+                        return { type: periodType, name: name };
+                    }
+                }
+            }
+
+            return { type: 'VALLE', name: 'Horario Normal' }; // Default for weekdays if no other period matches
         } catch (error) {
             logger.error('Failed to get current period:', error);
             return { type: 'UNKNOWN', name: 'Desconocido' };

@@ -94,11 +94,13 @@ const config = {
         { name: 'Service End Sunday/Festive', schedule: '0 23 * * 0,7', task: 'statusManager.handleServiceEnd' },
 
         // Fare period transitions (weekday)
-        { name: 'Fare Period to Punta (Morning)', schedule: '0 7 * * 1-5', task: 'statusManager.handleFarePeriodChange' },
-        { name: 'Fare Period to Valle (Morning)', schedule: '0 9 * * 1-5', task: 'statusManager.handleFarePeriodChange' },
-        { name: 'Fare Period to Punta (Evening)', schedule: '0 18 * * 1-5', task: 'statusManager.handleFarePeriodChange' },
-        { name: 'Fare Period to Valle (Evening)', schedule: '0 20 * * 1-5', task: 'statusManager.handleFarePeriodChange' },
-        { name: 'Fare Period to Bajo (Evening)', schedule: '45 20 * * 1-5', task: 'statusManager.handleFarePeriodChange' },
+        { name: 'Fare Period to Valle (Morning Start)', schedule: '0 6 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Morning)', schedule: '0 7 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Morning End)', schedule: '0 9 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Evening)', schedule: '0 18 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Evening)', schedule: '0 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Bajo (Evening)', schedule: '45 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'BAJO' },
+        { name: 'Fare Period to Noche (End of Service)', schedule: '0 23 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'NOCHE' },
 
         // Express service transitions (weekday)
         { name: 'Express Service Morning Start', schedule: '0 6 * * 1-5', task: 'apiService.activateExpressService' },
