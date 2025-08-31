@@ -230,17 +230,17 @@ class ChangeAnnouncer {
 
         return group.stationChanges.some(change => {
 
-            const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
+            const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
 
-            return statusCode === 2 || statusCode === 'closed';
+            return statusCode === '2' || statusCode === 'closed';
 
         }) || (lineData.stations || []).some(stationId => {
 
             const station = allStations.stations?.[stationId];
 
-            const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
+            const statusCode = String(typeof station?.status === 'object' ? station.status.code : station?.status);
 
-            return statusCode === 2 || statusCode === 'closed';
+            return statusCode === '2' || statusCode === 'closed';
 
         });
 
@@ -250,7 +250,7 @@ class ChangeAnnouncer {
 
         const victoryMsg = statusInfo.victoryMessage ? statusInfo.victoryMessage(previousStatus) : '';
 
-        embed.setDescription(`🎉 **${statusInfo.changeTitle(false)}** 🎉\n${victoryMsg}`);
+        embed.setDescription(`${statusInfo.victoryEmoji || '🎉'} **${statusInfo.changeTitle(false)}** ${statusInfo.victoryEmoji || '🎉'}\n${victoryMsg}`);
 
     }
 
@@ -440,8 +440,8 @@ class ChangeAnnouncer {
         const change = segment.changes.find(c => c.id === id) || {};
         
         // Get current and previous status info
-        const currentStatus = station.status || change.to || 'operational';
-        const previousStatus = change.from || station.status || 'operational';
+        const currentStatus = change.to ?? station.status ?? 'operational';
+        const previousStatus = change.from ?? station.status ?? 'operational';
         
         const statusInfo = this._getStatusInfo(currentStatus, true);
         const prevStatusInfo = this._getStatusInfo(previousStatus, true);
@@ -730,8 +730,9 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     
                     const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
                     const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' está ';
-                    if (lineChange.to === '0') {
+                    const lineChangeTo = String(lineChange.to);
+                    let muleta = lineChangeTo === '4' || lineChangeTo === '3' ? ' está con ' : ' está ';
+                    if (lineChangeTo === '0') {
                         muleta = ' se encuentra ';
 
                     }
@@ -757,9 +758,9 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                 
                 // Process station changes (only include closed stations - status 2 or 3)
                 const closedStations = group.stationChanges.filter(change => {
-                    const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
+                    const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
                     return (statusCode === '2' || statusCode === '3') && 
-                           !((typeof change.from === 'object' && change.from.code === '0') || change.from === '0');
+                           !((typeof change.from === 'object' && String(change.from.code) === '0') || String(change.from) === '0');
                 });
                 
                 if (closedStations.length > 0) {
@@ -768,7 +769,7 @@ async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} 
                     
                     // Group by status
                     const groupedByStatus = closedStations.reduce((acc, change) => {
-                        const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
+                        const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
                         const statusKey = statusCode === '2' ? 'closed' : 'partial';
                         
                         acc[statusKey] = acc[statusKey] || [];
