@@ -21,8 +21,23 @@ class StatusManager {
         }
     }
 
-    async handleServiceEnd(operatingHours) {
+    async handleServiceEnd(operatingHours, now = new Date()) {
         logger.info('[StatusManager] Handling service end...');
+
+        // Check for active or upcoming service extensions
+        const oneHourFromNow = new Date(now.getTime() + 60 * 60 * 1000);
+
+        const upcomingExtensions = await this.dbManager.query(
+            'SELECT * FROM metro_events WHERE event_end_datetime > ? AND event_start_datetime < ? AND is_active = 1',
+            [now, oneHourFromNow]
+        );
+
+        if (upcomingExtensions.length > 0) {
+            logger.info('[StatusManager] Service extension detected. Skipping standard service end procedure.');
+            await this.announcementService.announceServiceTransition('end', operatingHours, 'with extensions');
+            return;
+        }
+
         await this.apiService.setServiceStatus('closed');
         await this.announcementService.announceServiceTransition('end', operatingHours);
         if (this.statusEmbedManager) {

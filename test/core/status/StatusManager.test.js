@@ -12,7 +12,7 @@ describe('StatusManager', () => {
 
     beforeEach(() => {
         dbManagerMock = {
-            query: sinon.stub().resolves()
+            query: sinon.stub().resolves([])
         };
         apiServiceMock = {
             setServiceStatus: sinon.stub().resolves()
@@ -48,6 +48,19 @@ describe('StatusManager', () => {
         sinon.assert.calledWith(apiServiceMock.setServiceStatus, 'closed');
         sinon.assert.calledWith(announcementServiceMock.announceServiceTransition, 'end', {});
         sinon.assert.calledOnce(statusEmbedManagerMock.updateAllEmbeds);
+    });
+
+    it('should skip closing stations if an extension is active', async () => {
+        // Arrange
+        const fakeExtension = [{ id: 1, event_name: 'Test Extension' }];
+        dbManagerMock.query.resolves(fakeExtension);
+
+        // Act
+        await statusManager.handleServiceEnd({});
+
+        // Assert
+        sinon.assert.notCalled(apiServiceMock.setServiceStatus);
+        sinon.assert.calledWith(announcementServiceMock.announceServiceTransition, 'end', {}, 'with extensions');
     });
 
     it('should call updateAllEmbeds on handleFarePeriodChange', async () => {

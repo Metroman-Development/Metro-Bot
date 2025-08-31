@@ -23,14 +23,12 @@ class SchedulerService {
         this.running = new Set();
     }
 
-    async scheduleExtensionOfService(lineId, endTime, affectedStations) {
+    async scheduleExtensionOfService(lineId, startTime, endTime, affectedStations) {
         logger.info(`[SchedulerService] Scheduling extension of service for line ${lineId}`);
-        const startTime = new Date();
 
-        const eventDate = new Date();
         const eventResult = await this.db.query(
-            'INSERT INTO metro_events (event_name, event_date, description, start_time, end_time, is_active) VALUES (?, ?, ?, ?, ?, ?)',
-            ['extension', eventDate, `Extension of service for line ${lineId}`, startTime, endTime, false]
+            'INSERT INTO metro_events (event_name, description, event_start_datetime, event_end_datetime, is_active) VALUES (?, ?, ?, ?, ?)',
+            ['extension', `Extension of service for line ${lineId}`, startTime, endTime, false]
         );
         const eventId = eventResult.insertId;
 
@@ -73,8 +71,8 @@ class SchedulerService {
         for (const eventData of eventsData.upcomingEvents) {
             const { event, details, stationStatus } = eventData;
             const now = new Date();
-            const startTime = new Date(event.start_time);
-            const endTime = new Date(event.end_time);
+            const startTime = new Date(event.event_start_datetime);
+            const endTime = new Date(event.event_end_datetime);
 
             if (now >= startTime && now < endTime) {
                 // Event is currently active, apply status immediately
@@ -140,6 +138,10 @@ class SchedulerService {
                             }
                         }
 
+                        // Force a refresh of the data provider to ensure consistency
+                        const dbData = await this.metroCore._subsystems.api.getDbRawData();
+                        await this.metroInfoProvider.compareAndSyncData(dbData);
+
                         if (this.statusEmbedManager) {
                             const data = this.metroInfoProvider.getFullData();
                             await this.statusEmbedManager.updateAllEmbeds(data);
@@ -169,11 +171,15 @@ class SchedulerService {
                         if (this.changeAnnouncer && event.event_name === 'extension') {
                             const eventInfo = {
                                 name: event.description,
-                                endTime: new Date(event.end_time).toLocaleTimeString(),
+                                endTime: new Date(event.event_end_datetime).toLocaleTimeString(),
                                 affectedLines: details ? [details.line_code] : []
                             };
                             await this.changeAnnouncer.announceExtendedService('end', eventInfo);
                         }
+
+                        // Force a refresh of the data provider to ensure consistency
+                        const dbData = await this.metroCore._subsystems.api.getDbRawData();
+                        await this.metroInfoProvider.compareAndSyncData(dbData);
 
                         if (this.statusEmbedManager) {
                             const data = this.metroInfoProvider.getFullData();
@@ -191,9 +197,38 @@ class SchedulerService {
         }
         if (this.jobs.has(job.name)) {
             logger.warn(`[SchedulerService] Job "${job.name}" already exists. It will be overwritten.`);
+            const oldJob = this.jobs.get(job.name);
+            if(oldJob && oldJob.timer) {
+                oldJob.timer.cancel();
+            }
         }
-        this.jobs.set(job.name, { ...job, timer: null });
-        logger.info(`[SchedulerService] Job added: ${job.name}`);
+
+        if (job.schedule && job.schedule instanceof Date) {
+            const jobWrapper = async () => {
+                if (this.running.has(job.name)) {
+                    logger.warn(`[SchedulerService] Job "${job.name}" is already running. Skipping this execution.`);
+                    return;
+                }
+                try {
+                    this.running.add(job.name);
+                    logger.info(`[SchedulerService] Starting job: ${job.name}`);
+                    await job.task();
+                    logger.info(`[SchedulerService] Finished job: ${job.name}`);
+                } catch (error) {
+                    logger.error(`[SchedulerService] Error in job ${job.name}:`, error);
+                } finally {
+                    this.running.delete(job.name);
+                    this.jobs.delete(job.name);
+                }
+            };
+            const scheduledJob = schedule.scheduleJob(job.schedule, jobWrapper);
+            job.timer = scheduledJob;
+            this.jobs.set(job.name, job);
+            logger.info(`[SchedulerService] Job dynamically scheduled: ${job.name} at ${job.schedule}`);
+        } else {
+            this.jobs.set(job.name, { ...job, timer: null });
+            logger.info(`[SchedulerService] Job added: ${job.name}`);
+        }
     }
 
     start() {
