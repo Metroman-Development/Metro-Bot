@@ -66,4 +66,17 @@ function getClient() {
 
 }
 
-module.exports = { setClient, getClient };
+let telegramBot = null;
+
+function setTelegramBot(bot) {
+    telegramBot = bot;
+}
+
+function getTelegramBot() {
+    if (!telegramBot) {
+        throw new Error('Telegram bot has not been initialized. Call setTelegramBot() first.');
+    }
+    return telegramBot;
+}
+
+module.exports = { setClient, getClient, setTelegramBot, getTelegramBot };

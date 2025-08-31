@@ -10,7 +10,7 @@ let dbManagerInstance = null;
 async function performInitialization(source = 'unknown') {
     logger.info(`[${source}] Initializing...`);
 
-    const dbHost = getDbHost();
+    const dbHost = '127.0.0.1';
     console.log(`DB_HOST from bootstrap: ${dbHost}`);
 
     const dbConfig = {
