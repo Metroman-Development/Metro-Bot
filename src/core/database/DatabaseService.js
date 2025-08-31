@@ -51,6 +51,10 @@ class DatabaseService {
         return newObj;
     }
 
+    async query(sql, params) {
+        return this.db.query(sql, params);
+    }
+
     async updateChanges(changes) {
         logger.info(`[DatabaseService] Starting partial database update with ${changes.length} changes...`);
         if (!changes || changes.length === 0) {
