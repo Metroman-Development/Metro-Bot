@@ -1,3 +1,4 @@
+console.log('Scheduler process started');
 const logger = require('./events/logger');
 const bootstrap = require('./core/bootstrap');
 const SchedulerService = require('./core/SchedulerService');
@@ -32,9 +33,11 @@ async function startScheduler() {
     );
 
     statusManager = new StatusManager(db, apiService, announcementService, statusEmbedManager);
-    const metroInfoProvider = MetroInfoProvider.getInstance();
 
-    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager);
+    const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseManager, statusEmbedManager);
+    metroCore.metroInfoProvider = metroInfoProvider;
+
+    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager, metroInfoProvider);
 
     // API fetching job
     scheduler.addJob({

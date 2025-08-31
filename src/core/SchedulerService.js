@@ -13,11 +13,12 @@ const statusMapping = {
 };
 
 class SchedulerService {
-    constructor(metroCore, db, changeAnnouncer, statusEmbedManager) {
+    constructor(metroCore, db, changeAnnouncer, statusEmbedManager, metroInfoProvider) {
         this.metroCore = metroCore;
         this.db = db;
         this.changeAnnouncer = changeAnnouncer;
         this.statusEmbedManager = statusEmbedManager;
+        this.metroInfoProvider = metroInfoProvider;
         this.jobs = new Map();
         this.running = new Set();
     }
@@ -58,13 +59,13 @@ class SchedulerService {
     }
 
     async checkAndScheduleEvents() {
-        const metroInfoProvider = this.metroCore.metroInfoProvider;
-        if (!metroInfoProvider) {
+        const metroInfoProvider = this.metroInfoProvider;
+        if (!this.metroInfoProvider) {
             logger.warn('[SchedulerService] MetroInfoProvider not available.');
             return;
         }
 
-        const eventsData = metroInfoProvider.getFullData().events;
+        const eventsData = this.metroInfoProvider.getFullData().events;
         if (!eventsData || !eventsData.upcomingEvents) {
             return;
         }
@@ -140,7 +141,7 @@ class SchedulerService {
                         }
 
                         if (this.statusEmbedManager) {
-                            const data = this.metroCore.metroInfoProvider.getFullData();
+                            const data = this.metroInfoProvider.getFullData();
                             await this.statusEmbedManager.updateAllEmbeds(data);
                         }
                     }
@@ -175,7 +176,7 @@ class SchedulerService {
                         }
 
                         if (this.statusEmbedManager) {
-                            const data = this.metroCore.metroInfoProvider.getFullData();
+                            const data = this.metroInfoProvider.getFullData();
                             await this.statusEmbedManager.updateAllEmbeds(data);
                         }
                     }
