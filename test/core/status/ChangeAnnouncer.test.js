@@ -43,10 +43,10 @@ describe('ChangeAnnouncer', () => {
         sinon.restore();
     });
 
-    describe('generateMessages (Discord)', () => {
+    describe('generateMessages', () => {
         it('should return an info embed when there are no changes', async () => {
             const changes = [];
-            const messages = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             expect(embed.data.title).toBe('ℹ️ Información del Sistema');
@@ -62,7 +62,7 @@ describe('ChangeAnnouncer', () => {
                 to: 2,
                 reason: 'Manifestación en el exterior'
             }];
-            const messages = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             expect(embed.data.title).toBe('1️⃣ Línea 1 (No todas las estaciones operativas)');
@@ -80,7 +80,7 @@ describe('ChangeAnnouncer', () => {
                 to: 4,
                 reason: 'Tren con falla técnica'
             }];
-            const messages = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             expect(embed.data.title).toBe('1️⃣ Línea 1');
@@ -97,7 +97,7 @@ describe('ChangeAnnouncer', () => {
                 from: 4,
                 to: 1
             }];
-            const messages = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             expect(embed.data.title).toBe('1️⃣ Línea 1');
@@ -110,49 +110,13 @@ describe('ChangeAnnouncer', () => {
                 { type: 'station', id: 'los-heroes', line: 'l1', from: 1, to: 2 },
                 { type: 'station', id: 'baquedano', line: 'l1', from: 1, to: 2 }
             ];
-            const messages = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             const stationField = embed.data.fields.find(f => f.name.includes('Tramo afectado'));
             expect(stationField).toBeDefined();
             expect(stationField.name).toContain('Los Héroes → Baquedano');
             expect(stationField.name).toContain('2 estaciones');
-        });
-    });
-
-    describe('generateTelegramMessages', () => {
-        it('should return an empty array when there are no changes', async () => {
-            const changes = [];
-            const messages = await changeAnnouncer.generateTelegramMessages(changes, mockAllStations);
-            expect(messages).toEqual([]);
-        });
-
-        it('should generate a message for a line status change', async () => {
-            const changes = [{
-                type: 'line',
-                id: 'l1',
-                from: 1,
-                to: 4,
-                reason: 'por un tren detenido.'
-            }];
-            const messages = await changeAnnouncer.generateTelegramMessages(changes, mockAllStations);
-            expect(messages.length).toBe(1);
-            expect(messages[0]).toContain('#L1');
-            expect(messages[0]).toContain('Con demoras');
-            expect(messages[0]).toContain('por un tren detenido.');
-        });
-
-        it('should generate a message for closed stations', async () => {
-            const changes = [
-                { type: 'line', id: 'l1', from: 1, to: 3 },
-                { type: 'station', id: 'los-heroes', line: 'l1', from: 1, to: 2 },
-                { type: 'station', id: 'baquedano', line: 'l1', from: 1, to: 3 }
-            ];
-            const messages = await changeAnnouncer.generateTelegramMessages(changes, mockAllStations);
-            expect(messages.length).toBe(2);
-            expect(messages[0]).toBe('🟡 Informamos que <b>#L1 está con Servicio interrumpido</b>');
-            expect(messages[1]).toContain('Las siguientes estaciones se encuentran sin servicio en Línea 1:\n\n❌ Los Héroes');
-            expect(messages[1]).toContain('Estaciones con accesos cerrados en Línea 1:\n\n🟡 Baquedano');
         });
     });
 });

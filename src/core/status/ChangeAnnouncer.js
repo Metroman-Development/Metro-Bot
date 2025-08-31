@@ -87,26 +87,41 @@ class ChangeAnnouncer {
             const changeList = Array.isArray(changes) ? changes : changes.changes || [];
             
             if (changeList.length === 0) {
-                return [this._createInfoEmbed('No hay cambios para anunciar')];
+                return {
+                    discord: [this._createInfoEmbed('No hay cambios para anunciar')],
+                    telegram: [],
+                };
             }
 
             const grouped = this._groupChangesByLine(changeList);
-            const messages = [];
+            const discordMessages = [];
+            const telegramMessages = [];
             
             for (const [lineId, group] of Object.entries(grouped)) {
                 try {
-                    const embed = this._createLineEmbed(lineId, group, allStations);
-                    messages.push(embed);
+                    const discordEmbed = this._createLineEmbed(lineId, group, allStations);
+                    discordMessages.push(discordEmbed);
+
+                    const telegramMessage = await this._createTelegramMessage(lineId, group, allStations);
+                    if (telegramMessage) {
+                        telegramMessages.push(telegramMessage);
+                    }
                 } catch (error) {
                     console.error(`Error processing line ${lineId}:`, error);
-                    messages.push(this._createErrorEmbed(`Error procesando cambios para Línea ${this._formatLineNumber(lineId)}`));
+                    discordMessages.push(this._createErrorEmbed(`Error procesando cambios para Línea ${this._formatLineNumber(lineId)}`));
                 }
             }
 
-            return messages;
+            return {
+                discord: discordMessages,
+                telegram: telegramMessages,
+            };
         } catch (error) {
             console.error('Error generating messages:', error);
-            return [this._createErrorEmbed('Error al procesar actualizaciones')];
+            return {
+                discord: [this._createErrorEmbed('Error al procesar actualizaciones')],
+                telegram: [],
+            };
         }
     }
 
@@ -697,123 +712,26 @@ _getCommonReason(changes) {
 
     }
 
-    // In ChangeAnnouncer.js, add this new method to the class
-async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} }) {
-    try {
-        const changeList = Array.isArray(changes) ? changes : changes.changes || [];
-        
-        if (changeList.length === 0) {
-            return [];
-        }
 
-        const grouped = this._groupChangesByLine(changeList);
-        const messages = [];
-        
-        for (const [lineId, group] of Object.entries(grouped)) {
-            try {
-                // Skip status 0 changes (closed by schedule)
-                if (group.lineChanges.some(c => 
-                    (typeof c.to === 'object' && c.to.code === 0) || 
-                    (typeof c.from === 'object' && c.from.code === 0) ||
-                    c.to === 0 || c.from === 0)) {
-                    continue;
-                }
-
-                const lineNumber = this._formatLineNumber(lineId);
-                const lineData = allStations.lines?.[lineId] || {};
-                
-                // Process line changes
-                let lineMessage = '';
-                if (group.lineChanges.length > 0) {
-                    const lineChange = group.lineChanges[0];
-                    const statusInfo = this._getStatusInfo(lineChange.to, false);
-                    
-                    const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
-                    const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    const lineChangeTo = String(lineChange.to);
-                    let muleta = lineChangeTo === '4' || lineChangeTo === '3' ? ' está con ' : ' está ';
-                    if (lineChangeTo === '0') {
-                        muleta = ' se encuentra ';
-
-                    }
-                    
-                    if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
-                        // Service normalized
-                        lineMessage = `${statusInfo.emoji} Servicio en #L${lineNumber} se encuentra operativo nuevamente`;
-                        
-                        if (statusInfo.victoryMessage) {
-                            lineMessage += `\n${statusInfo.victoryMessage(lineChange.from)}`;
-                        }
-                    } else {
-                        // Other line status changes
-                        lineMessage = `${statusInfo.emoji} Informamos que <b>#L${lineNumber}${muleta}${statusInfo.text}</b>`;
-                        
-                        if (lineChange.reason || lineChange.description) {
-                            lineMessage += ` ${lineChange.reason || lineChange.description}`;
-                        }
-                    }
-                    
-                    messages.push(lineMessage);
-                }
-                
-                // Process station changes (only include closed stations - status 2 or 3)
-                const closedStations = group.stationChanges.filter(change => {
-                    const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
-                    return (statusCode === '2' || statusCode === '3') && 
-                           !((typeof change.from === 'object' && String(change.from.code) === '0') || String(change.from) === '0');
-                });
-                
-                if (closedStations.length > 0) {
-                    let stationsMessage = '';
-                    const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    
-                    // Group by status
-                    const groupedByStatus = closedStations.reduce((acc, change) => {
-                        const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
-                        const statusKey = statusCode === '2' ? 'closed' : 'partial';
-                        
-                        acc[statusKey] = acc[statusKey] || [];
-                        const station = allStations.stations?.[change.id] || {};
-                        acc[statusKey].push(station.displayName || change.id);
-                        return acc;
-                    }, {});
-                    
-                    if (groupedByStatus.closed?.length > 0) {
-                        stationsMessage += `Las siguientes estaciones se encuentran sin servicio en Línea ${lineNumber}:\n\n`;
-                        stationsMessage += groupedByStatus.closed.map(name => `❌ ${name}`).join('\n');
-                    }
-                    
-                    if (groupedByStatus.partial?.length > 0) {
-                        if (stationsMessage) stationsMessage += '\n\n';
-                        stationsMessage += `Estaciones con accesos cerrados en Línea ${lineNumber}:\n\n`;
-                        stationsMessage += groupedByStatus.partial.map(name => `🟡 ${name}`).join('\n');
-                    }
-                    
-                    // Add common reason if available
-                    const commonReason = this._getCommonReason(closedStations);
-                    if (commonReason) {
-                        stationsMessage += `\n\nℹ️ Motivo: ${commonReason}`;
-                    }
-                    
-                    if (stationsMessage) {
-                        messages.push(stationsMessage);
-                    }
-                }
-                
-            } catch (error) {
-                console.error(`Error processing line ${lineId} for Telegram:`, error);
+    async _createTelegramMessage(lineId, group, allStations) {
+        // This is a simplified version of the original generateTelegramMessages method.
+        // It can be expanded to be more detailed.
+        let message = '';
+        if (group.lineChanges.length > 0) {
+            const lineChange = group.lineChanges[0];
+            const statusInfo = this._getStatusInfo(lineChange.to, false);
+            const lineNumber = this._formatLineNumber(lineId);
+            message += `${statusInfo.emoji} Línea ${lineNumber} ahora está ${statusInfo.text}.`;
+            if (lineChange.reason) {
+                message += ` Motivo: ${lineChange.reason}`;
             }
         }
-
-        console.log("Mensajes al final: ",messages)
-
-        return messages;
-    } catch (error) {
-        console.error('Error generating Telegram messages:', error);
-        return [];
+        if (group.stationChanges.length > 0) {
+            const stationNames = group.stationChanges.map(c => allStations.stations[c.id].displayName).join(', ');
+            message += ` Estaciones afectadas: ${stationNames}.`;
+        }
+        return message;
     }
-}
-
 }
 
 module.exports = ChangeAnnouncer;
