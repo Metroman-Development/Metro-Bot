@@ -415,7 +415,8 @@ this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
             EventRegistry.FARE_PERIOD_ADVANCE,
             EventRegistry.EXPRESS_START,
             EventRegistry.EXPRESS_END,
-            EventRegistry.EMBED_REFRESH_STARTED
+            EventRegistry.EMBED_REFRESH_STARTED,
+            EventRegistry.STATUS_REPORT
         ];
         
         metroEvents.forEach(event => {
