@@ -1,4 +1,5 @@
 const SchedulerService = require('../../src/core/SchedulerService');
+const schedule = require('node-schedule');
 const logger = require('../../src/events/logger');
 
 // Mock the logger to prevent console output during tests
@@ -11,15 +12,30 @@ jest.mock('../../src/events/logger', () => ({
 
 describe('SchedulerService', () => {
     let scheduler;
+    let mockMetroCore, mockDb, mockChangeAnnouncer, mockStatusEmbedManager, mockMetroInfoProvider;
 
     beforeEach(() => {
-        scheduler = new SchedulerService();
+        mockMetroCore = {};
+        mockDb = {};
+        mockChangeAnnouncer = {};
+        mockStatusEmbedManager = {};
+        mockMetroInfoProvider = {};
+
+        scheduler = new SchedulerService(
+            mockMetroCore,
+            mockDb,
+            mockChangeAnnouncer,
+            mockStatusEmbedManager,
+            mockMetroInfoProvider,
+            'America/Santiago'
+        );
         jest.useFakeTimers();
     });
 
     afterEach(() => {
         scheduler.stop();
         jest.useRealTimers();
+        jest.restoreAllMocks();
     });
 
     it('should add a job to the jobs map', () => {
@@ -137,5 +153,21 @@ describe('SchedulerService', () => {
         // Fast-forward time by another second
         await jest.advanceTimersByTimeAsync(1000);
         expect(task).toHaveBeenCalledTimes(3);
+    });
+
+    it('should schedule a cron job with the correct timezone', () => {
+        const scheduleJobSpy = jest.spyOn(schedule, 'scheduleJob');
+        const task = jest.fn();
+        const job = { name: 'cron-job', schedule: '* * * * *', task };
+
+        scheduler.addJob(job);
+        scheduler.start();
+
+        expect(scheduleJobSpy).toHaveBeenCalled();
+
+        const firstCallArgs = scheduleJobSpy.mock.calls[0];
+        const rule = firstCallArgs[0];
+
+        expect(rule.tz).toBe('America/Santiago');
     });
 });
