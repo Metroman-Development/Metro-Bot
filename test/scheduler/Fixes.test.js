@@ -1,8 +1,20 @@
 const SchedulerService = require('../../src/core/SchedulerService');
 const StatusManager = require('../../src/core/status/StatusManager');
 const MetroInfoProvider = require('../../src/utils/MetroInfoProvider');
-const bootstrap = require('../../src/core/bootstrap');
 const chronosConfig = require('../../src/config/chronosConfig');
+
+jest.mock('../../src/core/bootstrap', () => ({
+    initialize: jest.fn().mockResolvedValue({
+        metroCore: {
+            statusManager: {},
+        },
+        databaseManager: {
+            query: jest.fn().mockResolvedValue([]),
+        },
+    }),
+}));
+
+const bootstrap = require('../../src/core/bootstrap');
 
 describe('Scheduler and Status Fixes', () => {
     let scheduler;
@@ -15,7 +27,11 @@ describe('Scheduler and Status Fixes', () => {
         const { metroCore: mCore, databaseManager } = await bootstrap.initialize('TEST');
         metroCore = mCore;
         db = databaseManager;
-        metroInfoProvider = MetroInfoProvider.getInstance();
+
+        // Since bootstrap is mocked, we need to manually create and set instances
+        metroInfoProvider = new MetroInfoProvider(metroCore, db);
+        MetroInfoProvider.instance = metroInfoProvider;
+
 
         // Mocking services that are not under test
         const announcementService = {
@@ -51,10 +67,13 @@ describe('Scheduler and Status Fixes', () => {
         const extensionEndTime = new Date('2025-08-31T01:00:00.000Z');
 
         // 1. Create a service extension event in the database
-        await db.query(
-            "INSERT INTO metro_events (event_name, description, event_start_datetime, event_end_datetime, is_active) VALUES (?, ?, ?, ?, ?)",
-            ['Test Extension', 'Test Extension Event', serviceEndTime, extensionEndTime, true]
-        );
+        db.query.mockResolvedValueOnce([{
+            event_name: 'Test Extension',
+            description: 'Test Extension Event',
+            event_start_datetime: serviceEndTime,
+            event_end_datetime: extensionEndTime,
+            is_active: 1
+        }]);
 
         // 2. Trigger the handleServiceEnd job, passing the specific time
         await statusManager.handleServiceEnd({ closing: '23:00' }, serviceEndTime);

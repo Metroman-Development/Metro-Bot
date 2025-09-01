@@ -752,6 +752,66 @@ class DatabaseService {
         return results.length > 0 ? results[0] : null;
     }
 
+    async getAllData() {
+        const [
+            lines,
+            stations,
+            accessibilityStatus,
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus,
+        ] = await Promise.all([
+            this.getAllLinesStatus(),
+            this.getAllStationsStatusAsRaw(),
+            this.getAccessibilityStatus(),
+            this.getAllIncidents(),
+            this.getAllIncidentTypes(),
+            this.getAllTrainModels(),
+            this.getAllLineFleet(),
+            this.getAllStatusOverrides(),
+            this.getAllScheduledStatusOverrides(),
+            this.getAllJsStatusMapping(),
+            this.getAllOperationalStatusTypes(),
+            this.getAllStationStatusHistory(),
+            this.getAllStatusChangeLog(),
+            this.getSystemInfo(),
+            this.getIntermodalStations(),
+            this.getAllIntermodalBuses(),
+            this.getNetworkStatus(),
+        ]);
+
+        return {
+            lines,
+            stations,
+            accessibilityStatus,
+            incidents,
+            incidentTypes,
+            trainModels,
+            lineFleet,
+            statusOverrides,
+            scheduledStatusOverrides,
+            jsStatusMapping,
+            operationalStatusTypes,
+            stationStatusHistory,
+            statusChangeLog,
+            systemInfo,
+            intermodalStations,
+            intermodalBuses,
+            networkStatus,
+        };
+    }
+
     // New methods for fetching data from all tables
 
     async getAllIncidents() {

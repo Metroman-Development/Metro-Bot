@@ -130,6 +130,7 @@ class MetroInfoProvider {
 
     mergeData(apiData, dbData) {
         const mergedData = { ...this.data };
+        const apiTimestamp = new Date(apiData.network.timestamp);
 
         // Merge lines
         for (const lineId in apiData.lineas) {
@@ -139,10 +140,13 @@ class MetroInfoProvider {
             Object.assign(mergedData.lines[lineId], apiData.lineas[lineId]);
         }
         for (const line of dbData.lines) {
-            if (!mergedData.lines[line.id]) {
-                mergedData.lines[line.id] = {};
+            const dbTimestamp = new Date(line.last_updated);
+            if (!mergedData.lines[line.id] || dbTimestamp > apiTimestamp) {
+                if (!mergedData.lines[line.id]) {
+                    mergedData.lines[line.id] = {};
+                }
+                Object.assign(mergedData.lines[line.id], line);
             }
-            Object.assign(mergedData.lines[line.id], line);
         }
 
         // Merge stations
@@ -159,10 +163,16 @@ class MetroInfoProvider {
             }
         }
         for (const station of dbData.stations) {
-            if (!mergedData.stations[station.id]) {
-                mergedData.stations[station.id] = {};
+            if (station.status_data) {
+                const dbTimestamp = new Date(station.status_data.last_updated);
+                const stationId = station.station_code.toUpperCase();
+                if (!mergedData.stations[stationId] || dbTimestamp > apiTimestamp) {
+                    if (!mergedData.stations[stationId]) {
+                        mergedData.stations[stationId] = {};
+                    }
+                    Object.assign(mergedData.stations[stationId], station);
+                }
             }
-            Object.assign(mergedData.stations[station.id], station);
         }
 
         // Merge network status
