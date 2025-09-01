@@ -185,5 +185,41 @@ describe('MetroInfoProvider', () => {
             const merged = provider.mergeData(apiData, dbData);
             assert.strictEqual(merged.stations.ST1.estado, 'api_station_status');
         });
+
+        it('should preserve API status when merging with richer DB data', () => {
+            const apiTimestamp = new Date('2025-01-01T12:00:00Z');
+            const dbTimestamp = new Date('2025-01-01T11:00:00Z');
+
+            const apiData = {
+                network: { timestamp: apiTimestamp.toISOString() },
+                lineas: {
+                    l1: {
+                        estaciones: [{
+                            id_estacion: 'st1',
+                            estado: 'api_station_status',
+                            descripcion: 'API Description',
+                            descripcion_app: 'API App Description'
+                        }]
+                    }
+                }
+            };
+            const dbData = {
+                lines: [],
+                stations: [{
+                    station_code: 'st1',
+                    station_name: 'Station One',
+                    commune: 'Test Commune',
+                    status_data: { last_updated: dbTimestamp.toISOString() },
+                    estado: 'db_station_status'
+                }]
+            };
+
+            const merged = provider.mergeData(apiData, dbData);
+
+            assert.strictEqual(merged.stations.ST1.estado, 'api_station_status', 'API status should be preserved');
+            assert.strictEqual(merged.stations.ST1.station_name, 'Station One', 'DB station name should be preserved');
+            assert.strictEqual(merged.stations.ST1.commune, 'Test Commune', 'DB commune should be preserved');
+            assert.strictEqual(merged.stations.ST1.descripcion, 'API Description', 'API description should be preserved');
+        });
     });
 });
