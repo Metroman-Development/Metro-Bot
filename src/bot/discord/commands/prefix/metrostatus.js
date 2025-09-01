@@ -199,10 +199,10 @@ module.exports = {
             .setDescription('Direct subsystem health checks')
             .addFields(
                 { 
-                    name: 'API', 
-                    value: metroCore._subsystems.api.lastData ? 
-                        '✅ `Connected`\n*(api.lastData exists)*' : 
-                        '❌ `Disconnected`\n*(no API data)*', 
+                    name: 'DataManager',
+                    value: metroCore._subsystems.dataManager.lastCurrentData ?
+                        '✅ `Connected`\n*(dataManager.lastCurrentData exists)*' :
+                        '❌ `Disconnected`\n*(no data)*',
                     inline: true 
                 },
                 { 

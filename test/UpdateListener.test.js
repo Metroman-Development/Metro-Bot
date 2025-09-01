@@ -15,7 +15,7 @@ describe('UpdateListener', () => {
             removeAllListeners: emitter.removeAllListeners.bind(emitter),
             eventNames: emitter.eventNames.bind(emitter),
             _subsystems: {
-                api: {
+                dataManager: {
                     on: jest.fn(),
                     removeAllListeners: jest.fn(),
                     eventNames: jest.fn().mockReturnValue([]),

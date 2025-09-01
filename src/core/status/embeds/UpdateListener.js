@@ -101,7 +101,7 @@ class UpdateListener extends EventEmitter {
         this._cleanupEventListeners();
         
         this._setupMetroCoreListeners();
-        this._setupApiServiceListeners();
+        this._setupDataManagerListeners();
         this._setupSystemListeners();
         this._setupTimeEventListeners();
         this._setupEmbedListeners();
@@ -189,8 +189,8 @@ class UpdateListener extends EventEmitter {
         });
     }
 
-    _setupApiServiceListeners() {
-        this.parent.metroCore._subsystems.api.on(EventRegistry.CHANGES_DETECTED, async (payload) => {
+    _setupDataManagerListeners() {
+        this.parent.metroCore._subsystems.dataManager.on(EventRegistry.CHANGES_DETECTED, async (payload) => {
             await this._trackEventTiming('CHANGES_DETECTED', async () => {
                 if (!this._validatePayload(payload, EventRegistry.CHANGES_DETECTED)) return;
                 
@@ -204,7 +204,7 @@ class UpdateListener extends EventEmitter {
             });
         });
 
-        this.parent.metroCore._subsystems.api.on(EventRegistry.API_HEALTH_UPDATE, (status) => {
+        this.parent.metroCore._subsystems.dataManager.on(EventRegistry.API_HEALTH_UPDATE, (status) => {
             this._handleApiHealthChange(status);
         });
     }
@@ -423,9 +423,9 @@ this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
             this.parent.metroCore.removeAllListeners(event);
         });
 
-        // API Service listeners
-        this.parent.metroCore._subsystems.api.removeAllListeners(EventRegistry.CHANGES_DETECTED);
-        this.parent.metroCore._subsystems.api.removeAllListeners(EventRegistry.API_HEALTH_UPDATE);
+        // DataManager Service listeners
+        this.parent.metroCore._subsystems.dataManager.removeAllListeners(EventRegistry.CHANGES_DETECTED);
+        this.parent.metroCore._subsystems.dataManager.removeAllListeners(EventRegistry.API_HEALTH_UPDATE);
         
         // System listeners
         this.parent.removeAllListeners(EventRegistry.ERROR);
@@ -546,7 +546,7 @@ this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
     _countActiveListeners() {
         return {
             metroCore: this.parent.metroCore.eventNames().length,
-            apiService: this.parent.metroCore._subsystems.api.eventNames().length,
+            dataManager: this.parent.metroCore._subsystems.dataManager.eventNames().length,
             internal: this.eventNames().length
         };
     }

@@ -18,7 +18,7 @@ async function startScheduler() {
     const { metroCore, databaseManager } = await bootstrap.initialize('SCHEDULER');
     const db = databaseManager;
 
-    const apiService = metroCore._subsystems.api;
+    const dataManager = metroCore._subsystems.dataManager;
     const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
 
@@ -32,7 +32,7 @@ async function startScheduler() {
         lineMessageIds
     );
 
-    statusManager = new StatusManager(db, apiService, announcementService, statusEmbedManager);
+    statusManager = new StatusManager(db, dataManager, announcementService, statusEmbedManager);
 
     const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseManager, statusEmbedManager);
     metroCore.metroInfoProvider = metroInfoProvider;
@@ -149,15 +149,15 @@ async function startScheduler() {
                             break;
                     }
                 };
-            } else if (service === 'apiService') {
+            } else if (service === 'dataManager') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     switch (method) {
                         case 'activateExpressService':
-                            await apiService.activateExpressService();
+                            await dataManager.activateExpressService();
                             break;
                         case 'deactivateExpressService':
-                            await apiService.deactivateExpressService();
+                            await dataManager.deactivateExpressService();
                             break;
                     }
                 };

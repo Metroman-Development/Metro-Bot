@@ -9,7 +9,7 @@ const EventEngine = require('./internal/EventEngine');
 const StatusEngine = require('./internal/StatusEngine');
 
 const DataLoader = require('./DataLoader');
-const ApiService =require('./services/ApiService');
+const DataManager =require('./services/DataManager');
 const TimeService = require('./services/TimeService');
 const AccessibilityService = require('./services/AccessibilityService');
 const stringUtils = require('../utils/stringHandlers');
@@ -190,8 +190,8 @@ class MetroCore extends EventEmitter {
             this._subsystems.accessibilityService = new AccessibilityService({ timeHelpers: this._subsystems.utils.time, config: this.config }, databaseService);
             await this._subsystems.accessibilityService.initialize();
 
-            // Phase 2: Initialize the API service
-            this._subsystems.api = new ApiService(this, {
+            // Phase 2: Initialize the DataManager service
+            this._subsystems.dataManager = new DataManager(this, {
                 statusProcessor: this._subsystems.statusProcessor,
                 changeDetector: this._subsystems.changeDetector,
                 dbService: databaseService,
@@ -199,13 +199,13 @@ class MetroCore extends EventEmitter {
             
             // Phase 3: Set up the public API
             this.api = {
-                changes: this._subsystems.api.api.changes,
-                metrics: this._subsystems.api.api.metrics,
-                getCacheState: this._subsystems.api.api.getCacheState,
-                getOverridesService: () => this._subsystems.api.api.getOverridesService(),
-                prepareEventOverrides: async (eventDetails) => await this._subsystems.api.api.prepareEventOverrides(eventDetails),
+                changes: this._subsystems.dataManager.api.changes,
+                metrics: this._subsystems.dataManager.api.metrics,
+                getCacheState: this._subsystems.dataManager.api.getCacheState,
+                getOverridesService: () => this._subsystems.dataManager.api.getOverridesService(),
+                prepareEventOverrides: async (eventDetails) => await this._subsystems.dataManager.api.prepareEventOverrides(eventDetails),
                 status: this.getSystemStatus.bind(this),
-                getCurrentData: this._subsystems.api.api.getCurrentData
+                getCurrentData: this._subsystems.dataManager.api.getCurrentData
             };
             
             // Phase 4: Set up event listeners
@@ -224,7 +224,7 @@ class MetroCore extends EventEmitter {
             );
             
             // Phase 7: Fetch initial network status
-            await this._subsystems.api.fetchNetworkStatus();
+            await this._subsystems.dataManager.fetchNetworkStatus();
 
             logger.debug('[MetroCore] Initialization complete.');
             
@@ -330,8 +330,8 @@ class MetroCore extends EventEmitter {
      * Cleans up resources used by the MetroCore instance.
      */
     cleanup() {
-        if (this._subsystems.api) {
-            this._subsystems.api.cleanup();
+        if (this._subsystems.dataManager) {
+            this._subsystems.dataManager.cleanup();
         }
         this._removeAllListeners();
     }

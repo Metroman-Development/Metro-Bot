@@ -3,14 +3,14 @@ const fs = require('fs').promises;
 const path = require('path');
 
 class ApiChangeDetector {
-    constructor(apiService) {
-        this.apiService = apiService;
+    constructor(dataManager) {
+        this.dataManager = dataManager;
         this.apiChangesFilePath = path.join(__dirname, '../../../../../data/apiChanges.json');
     }
 
 
     async fetchData() {
-        return this.apiService.getCurrentData();
+        return this.dataManager.getCurrentData();
     }
 
     detectChanges(oldData, newData) {

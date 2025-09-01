@@ -38,11 +38,11 @@ describe('Scheduler and Status Fixes', () => {
             announceServiceTransition: jest.fn(),
             announceFarePeriodChange: jest.fn(),
         };
-        const apiService = {
+        const dataManager = {
             setServiceStatus: jest.fn(),
         };
 
-        statusManager = new StatusManager(db, apiService, announcementService, null);
+        statusManager = new StatusManager(db, dataManager, announcementService, null);
         scheduler = new SchedulerService(metroCore, db, announcementService, null, metroInfoProvider);
 
         // Replace the real statusManager in the scheduler with our test instance
@@ -79,7 +79,7 @@ describe('Scheduler and Status Fixes', () => {
         await statusManager.handleServiceEnd({ closing: '23:00' }, serviceEndTime);
 
         // 3. Verify that setServiceStatus('closed') was NOT called because of the extension
-        expect(statusManager.apiService.setServiceStatus).not.toHaveBeenCalledWith('closed');
+        expect(statusManager.dataManager.setServiceStatus).not.toHaveBeenCalledWith('closed');
     });
 
     test('should trigger fare period change jobs correctly', async () => {
