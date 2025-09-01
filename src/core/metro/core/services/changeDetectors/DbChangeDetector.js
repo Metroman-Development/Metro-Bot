@@ -1,16 +1,17 @@
-// src/core/metro/core/services/changeDetectors/DbChangeDetector.js
+const { diff } = require('deep-diff');
 
 class DbChangeDetector {
     constructor(databaseService) {
         this.databaseService = databaseService;
     }
 
-    async getLatestChangeTimestamp() {
-        const latestChange = await this.databaseService.getLatestChange();
-        if (latestChange) {
-            return new Date(latestChange.changed_at);
-        }
-        return null;
+
+    async fetchData() {
+        return this.databaseService.getAllData();
+    }
+
+    detectChanges(oldData, newData) {
+        return diff(oldData, newData);
     }
 }
 

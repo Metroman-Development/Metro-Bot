@@ -67,60 +67,38 @@ describe('MetroInfoProvider', () => {
         beforeEach(() => {
             // Mock the dependencies of compareAndSyncData
             provider.apiChangeDetector = {
-                getLatestChangeTimestamp: sinon.stub().resolves(new Date('2023-01-02'))
+                fetchData: sinon.stub().resolves({ lineas: {}, network: {} })
             };
             provider.dbChangeDetector = {
-                getLatestChangeTimestamp: sinon.stub().resolves(new Date('2023-01-01')),
-                databaseService: {
-                    updateStatusFromApi: sinon.stub().resolves()
-                }
+                fetchData: sinon.stub().resolves({ lines: [], stations: [] })
             };
             provider.changeDetector = {
-                detect: jest.fn()
+                detect: sinon.stub().returns([])
             };
             provider.changeAnnouncer = {
-                generateMessages: jest.fn().mockResolvedValue([])
+                generateMessages: sinon.stub().resolves()
+            };
+            provider.statusEmbedManager = {
+                updateAllEmbeds: sinon.stub().resolves()
             };
         });
 
-        it('should call changeDetector.detect with old and new data', async () => {
-            const oldData = JSON.parse(JSON.stringify(provider.getFullData()));
-            const dbData = {};
+        it('should merge data correctly', async () => {
+            const apiData = { lineas: { l1: { id: 'L1', status: 'api_status', estaciones: [] } }, network: { status: 'api_status' } };
+            const dbData = { lines: [{ id: 'l2', status: 'db_status' }], stations: [{ id: 'st1', name: 'station1' }] };
+            provider.apiChangeDetector.fetchData.resolves(apiData);
+            provider.dbChangeDetector.fetchData.resolves(dbData);
+            provider.changeDetector.detect.returns([{ type: 'line', id: 'l1', from: null, to: 'api_status' }]);
 
-            provider.apiService = {
-                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'operational' } }, network: { status: 'ok' } }
-            };
+            await provider.compareAndSyncData();
 
-            await provider.compareAndSyncData(dbData);
-
-            expect(provider.changeDetector.detect).toHaveBeenCalledWith(oldData, provider.getFullData());
-        });
-
-        it('should call changeAnnouncer.generateMessages when changes are detected', async () => {
-            const changes = [{ type: 'line', id: 'l1', from: null, to: 'new_status' }];
-            provider.changeDetector.detect.mockReturnValue(changes);
-            const dbData = {};
-
-            provider.apiService = {
-                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'new_status' } } }
-            };
-
-            await provider.compareAndSyncData(dbData);
-
-            expect(provider.changeAnnouncer.generateMessages).toHaveBeenCalledWith(changes, provider.getFullData());
-        });
-
-        it('should not call changeAnnouncer.generateMessages when no changes are detected', async () => {
-            provider.changeDetector.detect.mockReturnValue([]);
-            const dbData = {};
-
-            provider.apiService = {
-                lastCurrentData: { lineas: { l1: { id: 'L1', status: 'new_status' } } }
-            };
-
-            await provider.compareAndSyncData(dbData);
-
-            expect(provider.changeAnnouncer.generateMessages).not.toHaveBeenCalled();
+            const mergedData = provider.getFullData();
+            assert.deepStrictEqual(mergedData.lines.l1, { id: 'L1', status: 'api_status', estaciones: [] });
+            assert.deepStrictEqual(mergedData.lines.l2, { id: 'l2', status: 'db_status' });
+            assert.deepStrictEqual(mergedData.stations.st1, { id: 'st1', name: 'station1' });
+            assert.deepStrictEqual(mergedData.network_status, { status: 'api_status' });
+            assert(provider.changeAnnouncer.generateMessages.calledOnce);
+            assert(provider.statusEmbedManager.updateAllEmbeds.calledOnce);
         });
     });
 
