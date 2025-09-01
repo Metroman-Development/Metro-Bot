@@ -132,50 +132,65 @@ class MetroInfoProvider {
         const mergedData = { ...this.data };
         const apiTimestamp = new Date(apiData.network.timestamp);
 
-        // Merge lines
-        for (const lineId in apiData.lineas) {
-            if (!mergedData.lines[lineId]) {
-                mergedData.lines[lineId] = {};
-            }
-            Object.assign(mergedData.lines[lineId], apiData.lineas[lineId]);
-        }
+        // 1. Index DB data for easy lookup
+        const dbLines = {};
         for (const line of dbData.lines) {
-            const dbTimestamp = new Date(line.last_updated);
-            if (!mergedData.lines[line.id] || dbTimestamp > apiTimestamp) {
-                if (!mergedData.lines[line.id]) {
-                    mergedData.lines[line.id] = {};
-                }
-                Object.assign(mergedData.lines[line.id], line);
-            }
+            dbLines[line.id] = line;
         }
-
-        // Merge stations
-        for (const lineId in apiData.lineas) {
-            if (apiData.lineas[lineId].estaciones) {
-                for (const station of apiData.lineas[lineId].estaciones) {
-                    const stationId = station.id_estacion.toUpperCase();
-                    if (!mergedData.stations[stationId]) {
-                        mergedData.stations[stationId] = {};
-                    }
-                    station.line_id = lineId;
-                    Object.assign(mergedData.stations[stationId], station);
-                }
-            }
-        }
+        const dbStations = {};
         for (const station of dbData.stations) {
-            if (station.status_data) {
-                const dbTimestamp = new Date(station.status_data.last_updated);
-                const stationId = station.station_code.toUpperCase();
-                if (!mergedData.stations[stationId] || dbTimestamp > apiTimestamp) {
-                    if (!mergedData.stations[stationId]) {
-                        mergedData.stations[stationId] = {};
+            dbStations[station.station_code.toUpperCase()] = station;
+        }
+
+        // 2. Merge API data into mergedData, enriching with DB data
+        for (const lineId in apiData.lineas) {
+            const apiLine = apiData.lineas[lineId];
+            const dbLine = dbLines[lineId] || {};
+
+            mergedData.lines[lineId] = { ...dbLine, ...apiLine };
+
+            if (apiLine.estaciones) {
+                for (const apiStation of apiLine.estaciones) {
+                    const stationId = apiStation.id_estacion.toUpperCase();
+                    const dbStation = dbStations[stationId] || {};
+                    const dbTimestamp = dbStation.status_data ? new Date(dbStation.status_data.last_updated) : new Date(0);
+
+                    const mergedStation = { ...dbStation, ...apiStation, line_id: lineId };
+
+                    if (apiTimestamp < dbTimestamp) {
+                        // DB is newer, so use its status
+                        mergedStation.estado = dbStation.estado;
+                        mergedStation.descripcion = dbStation.descripcion;
+                        mergedStation.descripcion_app = dbStation.descripcion_app;
+                        mergedStation.mensaje = dbStation.mensaje;
+                    } else {
+                        // API is newer or same, so use its status
+                        mergedStation.estado = apiStation.estado;
+                        mergedStation.descripcion = apiStation.descripcion;
+                        mergedStation.descripcion_app = apiStation.descripcion_app;
+                        mergedStation.mensaje = apiStation.mensaje;
                     }
-                    Object.assign(mergedData.stations[stationId], station);
+
+                    mergedData.stations[stationId] = mergedStation;
                 }
             }
         }
 
-        // Merge network status
+        // 3. Add any stations from DB that were not in the API response
+        for (const stationId in dbStations) {
+            if (!mergedData.stations[stationId]) {
+                mergedData.stations[stationId] = dbStations[stationId];
+            }
+        }
+
+        // 4. Add any lines from DB that were not in the API response
+        for (const lineId in dbLines) {
+            if (!mergedData.lines[lineId]) {
+                mergedData.lines[lineId] = dbLines[lineId];
+            }
+        }
+
+        // 5. Set network status from API
         Object.assign(mergedData.network_status, apiData.network);
 
         return mergedData;
