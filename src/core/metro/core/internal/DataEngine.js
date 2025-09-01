@@ -6,7 +6,7 @@ module.exports = class DataEngine {
         this.metro = metro;
     }
 
-    async handleRawData(currentData) {
+    async handleRawData(currentData, changeHistory) {
         // Basic validation for critical fields
         if (!currentData || typeof currentData !== 'object') {
             throw new Error('Invalid currentData received');
