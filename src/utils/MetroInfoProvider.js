@@ -1,6 +1,6 @@
 const logger = require('../events/logger');
 const { diff } = require('deep-diff');
-const ApiService = require('../core/metro/core/services/ApiService');
+const DataManager = require('../core/metro/core/services/DataManager');
 const DbChangeDetector = require('../core/metro/core/services/changeDetectors/DbChangeDetector');
 const ApiChangeDetector = require('../core/metro/core/services/changeDetectors/ApiChangeDetector');
 const MyChangeDetector = require('../core/status/ChangeDetector');
@@ -34,9 +34,9 @@ class MetroInfoProvider {
         };
         this.isInitialized = true;
 
-        this.apiService = new ApiService(metroCore, { dbService: databaseService }, null);
+        this.dataManager = new DataManager(metroCore, { dbService: databaseService }, null);
         this.dbChangeDetector = new DbChangeDetector(databaseService);
-        this.apiChangeDetector = new ApiChangeDetector(this.apiService);
+        this.dataManagerChangeDetector = new ApiChangeDetector(this.dataManager);
         this.changeDetector = new MyChangeDetector();
         this.changeAnnouncer = new ChangeAnnouncer();
 

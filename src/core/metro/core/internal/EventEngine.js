@@ -13,8 +13,8 @@ class EventEngine {
     setupListeners() {
         this.metro._removeAllListeners();
 
-    // API Service Events (primary source of changes)
-    this.metro._subsystems.api
+    // DataManager Service Events (primary source of changes)
+    this.metro._subsystems.dataManager
         .on(EventRegistry.RAW_DATA_FETCHED, (payload) => { // Renamed to payload
             if (!payload || !payload.data) {
                 this.emitError('RAW_DATA_FETCHED', new Error('Invalid or empty payload received'));
@@ -70,7 +70,7 @@ removeAllListeners() {
     const removalStats = {
         core: 0,
         subsystems: {
-            api: 0,
+                dataManager: 0,
             statusService: 0,
             scheduler: 0
         },
@@ -81,9 +81,9 @@ removeAllListeners() {
         removalStats.core = this.metro.eventNames().length;
         this.metro.removeAllListeners();
         
-        if (this.metro._subsystems?.api) {
-            removalStats.subsystems.api = this.metro._subsystems.api.eventNames().length;
-            this.metro._subsystems.api.removeAllListeners();
+        if (this.metro._subsystems?.dataManager) {
+            removalStats.subsystems.dataManager = this.metro._subsystems.dataManager.eventNames().length;
+            this.metro._subsystems.dataManager.removeAllListeners();
         }
 
         if (this.metro._subsystems?.statusService) {

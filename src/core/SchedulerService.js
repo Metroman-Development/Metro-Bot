@@ -139,7 +139,7 @@ class SchedulerService {
                         }
 
                         // Force a refresh of the data provider to ensure consistency
-                        const dbData = await this.metroCore._subsystems.api.getDbRawData();
+                        const dbData = await this.metroCore._subsystems.dataManager.dbDataManager.getDbRawData();
                         await this.metroInfoProvider.compareAndSyncData(dbData);
 
                         if (this.statusEmbedManager) {
@@ -178,7 +178,7 @@ class SchedulerService {
                         }
 
                         // Force a refresh of the data provider to ensure consistency
-                        const dbData = await this.metroCore._subsystems.api.getDbRawData();
+                        const dbData = await this.metroCore._subsystems.dataManager.dbDataManager.getDbRawData();
                         await this.metroInfoProvider.compareAndSyncData(dbData);
 
                         if (this.statusEmbedManager) {

@@ -1,6 +1,6 @@
 const DatabaseManager = require('./src/core/database/DatabaseManager');
 const MetroInfoProvider = require('./src/utils/MetroInfoProvider');
-const ApiService = require('./src/core/metro/core/services/ApiService');
+const DataManager = require('./src/core/metro/core/services/DataManager');
 const config = require('./src/config/metro/metroConfig');
 
 async function main() {
@@ -24,11 +24,11 @@ async function main() {
     const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseService);
     metroCore._subsystems.metroInfoProvider = metroInfoProvider;
 
-    const apiService = new ApiService(metroCore, { dbService: databaseService, config: config }, {
+    const dataManager = new DataManager(metroCore, { dbService: databaseService, config: config }, {
         handleRawData: (data) => data,
     });
 
-    const data = await apiService.fetchNetworkStatus();
+    const data = await dataManager.fetchNetworkStatus();
 
     console.log(JSON.stringify(data, null, 2));
 
