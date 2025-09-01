@@ -92,80 +92,100 @@ class MetroInfoProvider {
 
     async updateFromDb(dbData) {
         if (!dbData) return;
-        const transformedData = this.transformDbData(dbData);
-        this.updateData(transformedData);
+        const { lines, stations } = this.data;
+        for (const line of dbData.lines) {
+            if (!lines[line.id]) {
+                lines[line.id] = {};
+            }
+            Object.assign(lines[line.id], line);
+        }
+        for (const station of dbData.stations) {
+            if (!stations[station.id]) {
+                stations[station.id] = {};
+            }
+            Object.assign(stations[station.id], station);
+        }
+        this.updateData({ lines, stations });
         await this.fetchAndSetEventData();
     }
 
-    transformDbData(dbData) {
-        const currentData = this.getFullData();
-
-        if (dbData.stations) {
-            for (const stationId in dbData.stations) {
-                if (!currentData.stations[stationId]) {
-                    currentData.stations[stationId] = {};
-                }
-                const normalizedStation = normalizeStationData(dbData.stations[stationId]);
-                Object.assign(currentData.stations[stationId], normalizedStation);
-            }
-        }
-
-        if (dbData.lines) {
-            for (const lineId in dbData.lines) {
-                if (!currentData.lines[lineId]) {
-                    currentData.lines[lineId] = {};
-                }
-                Object.assign(currentData.lines[lineId], dbData.lines[lineId]);
-            }
-        }
-
-        return currentData;
-    }
-
     updateFromApi(apiData) {
-        const currentData = this.getFullData();
-        currentData.lines = apiData.lineas;
-        currentData.network_status = apiData.network;
-
+        const { lines, stations, network_status } = this.data;
+        Object.assign(lines, apiData.lineas);
+        Object.assign(network_status, apiData.network);
         for (const lineId in apiData.lineas) {
             if (apiData.lineas[lineId].estaciones) {
                 for (const station of apiData.lineas[lineId].estaciones) {
                     const stationId = station.id_estacion.toUpperCase();
-                    if (!currentData.stations[stationId]) {
-                        currentData.stations[stationId] = {};
+                    if (!stations[stationId]) {
+                        stations[stationId] = {};
                     }
                     station.line_id = lineId;
-                    Object.assign(currentData.stations[stationId], station);
+                    Object.assign(stations[stationId], station);
                 }
-                currentData.lines[lineId].stations = apiData.lineas[lineId].estaciones;
             }
         }
-        this.updateData(currentData);
+        this.updateData({ lines, stations, network_status });
     }
 
-    async compareAndSyncData(dbData) {
-        const oldData = JSON.parse(JSON.stringify(this.getFullData()));
+    mergeData(apiData, dbData) {
+        const mergedData = { ...this.data };
 
-        const apiTimestamp = await this.apiChangeDetector.getLatestChangeTimestamp();
-        const dbTimestamp = await this.dbChangeDetector.getLatestChangeTimestamp();
-
-        if (apiTimestamp > dbTimestamp) {
-            const apiData = this.apiService.lastCurrentData;
-            this.updateFromApi(apiData);
-            await this.dbChangeDetector.databaseService.updateStatusFromApi(apiData);
-        } else {
-            this.updateFromDb(dbData);
+        // Merge lines
+        for (const lineId in apiData.lineas) {
+            if (!mergedData.lines[lineId]) {
+                mergedData.lines[lineId] = {};
+            }
+            Object.assign(mergedData.lines[lineId], apiData.lineas[lineId]);
+        }
+        for (const line of dbData.lines) {
+            if (!mergedData.lines[line.id]) {
+                mergedData.lines[line.id] = {};
+            }
+            Object.assign(mergedData.lines[line.id], line);
         }
 
-        const newData = this.getFullData();
+        // Merge stations
+        for (const lineId in apiData.lineas) {
+            if (apiData.lineas[lineId].estaciones) {
+                for (const station of apiData.lineas[lineId].estaciones) {
+                    const stationId = station.id_estacion.toUpperCase();
+                    if (!mergedData.stations[stationId]) {
+                        mergedData.stations[stationId] = {};
+                    }
+                    station.line_id = lineId;
+                    Object.assign(mergedData.stations[stationId], station);
+                }
+            }
+        }
+        for (const station of dbData.stations) {
+            if (!mergedData.stations[station.id]) {
+                mergedData.stations[station.id] = {};
+            }
+            Object.assign(mergedData.stations[station.id], station);
+        }
+
+        // Merge network status
+        Object.assign(mergedData.network_status, apiData.network);
+
+        return mergedData;
+    }
+
+    async compareAndSyncData() {
+        const oldData = JSON.parse(JSON.stringify(this.getFullData()));
+
+        const apiData = await this.apiChangeDetector.fetchData();
+        const dbData = await this.dbChangeDetector.fetchData();
+
+        const newData = this.mergeData(apiData, dbData);
         const changes = this.changeDetector.detect(oldData, newData);
 
         if (changes && changes.length > 0) {
+            this.updateData(newData);
             await this.changeAnnouncer.generateMessages(changes, newData);
-        }
-
-        if (this.statusEmbedManager) {
-            await this.statusEmbedManager.updateAllEmbeds(newData);
+            if (this.statusEmbedManager) {
+                await this.statusEmbedManager.updateAllEmbeds(newData);
+            }
         }
     }
 
