@@ -1,6 +1,6 @@
 // commands/intermodal.js
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { MetroCore } = require('../../../../core/metro/MetroCore.js');
+const MetroInfoProvider = require('../../../../utils/MetroInfoProvider.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,15 +15,14 @@ module.exports = {
     category: "Metro Info",
     
     async autocomplete(interaction) {
-        const metro = new MetroCore();
-        await metro.initialize();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         
         const focusedValue = interaction.options.getFocused();
-        const stations = metro.stations.getAll()
-            .filter(s => s.connections.length > 0)
+        const stations = Object.values(metroInfoProvider.getStations())
+            .filter(s => s.connections && s.connections.length > 0)
             .map(s => ({
-                name: s.displayName,
-                value: s.id
+                name: s.station_name,
+                value: s.station_id
             }));
 
         const filtered = stations.filter(station => 
@@ -35,16 +34,15 @@ module.exports = {
 
     async execute(interaction) {
         const stationId = interaction.options.getString('estacion');
-        const metro = new MetroCore();
-        await metro.initialize();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         
-        const station = metro.stations.get(stationId);
+        const station = metroInfoProvider.getStationById(stationId);
         if (!station) return interaction.reply({ content: '❌ Estación no encontrada', ephemeral: true });
 
         // Embed con conexiones
         const embed = new EmbedBuilder()
-            .setTitle(`🔀 ${station.displayName} - Conexiones`)
-            .setDescription(`**Línea:** ${station.line.toUpperCase()}`)
+            .setTitle(`🔀 ${station.station_name} - Conexiones`)
+            .setDescription(`**Línea:** ${station.line_id.toUpperCase()}`)
             .addFields(
                 {
                     name: 'Transporte Público',

@@ -22,13 +22,12 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
             
             const stationName = interaction.options.getString('estacion');
-            const normalizedId = stationName.toLowerCase().replace(/\s+/g, '_');
-            const stationInfo = metro._staticData.intermodal?.[normalizedId];
+            const stationInfo = metroInfoProvider.getIntermodalBuses(stationName);
 
             if (!stationInfo) {
                 return interaction.editReply({
@@ -39,7 +38,7 @@ module.exports = {
 
             // Add the station name to the info object for the embed builder
             stationInfo.name = stationName;
-            stationInfo.id = normalizedId;
+            stationInfo.id = stationName.toLowerCase().replace(/\s+/g, '_');
 
             const response = await intermodalButtonsHandler.build(interaction, stationInfo);
             await interaction.editReply(response);
