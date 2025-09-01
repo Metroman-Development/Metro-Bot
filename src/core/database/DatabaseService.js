@@ -868,6 +868,16 @@ class DatabaseService {
         return results.length > 0 ? results[0] : null;
     }
 
+    async getChangeHistory() {
+        const query = `
+            SELECT *
+            FROM vw_station_status_history
+            WHERE last_updated >= NOW() - INTERVAL 1 DAY
+            ORDER BY last_updated DESC;
+        `;
+        return this.db.query(query);
+    }
+
     async logStatusChange(changeRecord) {
         const { type, id, from, to, timestamp } = changeRecord;
 

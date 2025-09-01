@@ -321,7 +321,7 @@ class ApiService extends EventEmitter {
             };
             delete processedData.lineas;
 
-            const finalData = await this.dataEngine.handleRawData(processedData);
+            const finalData = await this.dataEngine.handleRawData(processedData, dbRawData.changeHistory);
 
             if (finalData) {
                 this.lastRawData = currentData; // Store the original raw data
@@ -730,8 +730,7 @@ class ApiService extends EventEmitter {
             scheduledStatusOverrides,
             jsStatusMapping,
             operationalStatusTypes,
-            stationStatusHistory,
-            statusChangeLog,
+            changeHistory,
             systemInfo,
             intermodalStations,
             intermodalBuses,
@@ -748,8 +747,7 @@ class ApiService extends EventEmitter {
             this.dbService.getAllScheduledStatusOverrides(),
             this.dbService.getAllJsStatusMapping(),
             this.dbService.getAllOperationalStatusTypes(),
-            this.dbService.getAllStationStatusHistory(),
-            this.dbService.getAllStatusChangeLog(),
+            this.dbService.getChangeHistory(),
             this.dbService.getSystemInfo(),
             this.dbService.getIntermodalStations(),
             this.dbService.getAllIntermodalBuses(),
@@ -775,8 +773,7 @@ class ApiService extends EventEmitter {
             scheduledStatusOverrides,
             jsStatusMapping,
             operationalStatusTypes,
-            stationStatusHistory,
-            statusChangeLog,
+            changeHistory,
             systemInfo,
             intermodalStations,
             intermodalBuses,
