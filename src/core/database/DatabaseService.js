@@ -778,6 +778,66 @@ class DatabaseService {
         return this.db.query('SELECT * FROM metro_stations');
     }
 
+    async getLinesWithStatus() {
+        const query = `
+            SELECT
+                ml.*,
+                ls.status_description,
+                ls.status_message,
+                ost.status_name,
+                ost.is_operational
+            FROM metro_lines ml
+            LEFT JOIN line_status ls ON ml.line_id = ls.line_id
+            LEFT JOIN operational_status_types ost ON ls.status_type_id = ost.status_type_id
+        `;
+        return this.db.query(query);
+    }
+
+    async getStationsWithStatus() {
+        const query = `
+            SELECT
+                ms.*,
+                ss.status_description,
+                ss.status_message,
+                ost.status_name,
+                ost.is_operational
+            FROM metro_stations ms
+            LEFT JOIN station_status ss ON ms.station_id = ss.station_id
+            LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
+        `;
+        return this.db.query(query);
+    }
+
+    async getLinesWithStatus() {
+        const query = `
+            SELECT
+                ml.*,
+                ls.status_description,
+                ls.status_message,
+                ost.status_name,
+                ost.is_operational
+            FROM metro_lines ml
+            LEFT JOIN line_status ls ON ml.line_id = ls.line_id
+            LEFT JOIN operational_status_types ost ON ls.status_type_id = ost.status_type_id
+        `;
+        return this.db.query(query);
+    }
+
+    async getStationsWithStatus() {
+        const query = `
+            SELECT
+                ms.*,
+                ss.status_description,
+                ss.status_message,
+                ost.status_name,
+                ost.is_operational
+            FROM metro_stations ms
+            LEFT JOIN station_status ss ON ms.station_id = ss.station_id
+            LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
+        `;
+        return this.db.query(query);
+    }
+
     async getBotVersion() {
         const results = await this.db.query('SELECT version, release_date, changelog FROM bot_versions ORDER BY created_at DESC LIMIT 1');
         return results.length > 0 ? results[0] : null;
