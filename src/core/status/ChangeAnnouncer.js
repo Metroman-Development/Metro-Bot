@@ -241,25 +241,6 @@ class ChangeAnnouncer {
 
     }
 
- _checkClosedStations(group, lineData, allStations) {
-
-        return group.stationChanges.some(change => {
-
-            const statusCode = String(typeof change.to === 'object' ? change.to.code : change.to);
-
-            return statusCode === '2' || statusCode === 'closed';
-
-        }) || (lineData.stations || []).some(stationId => {
-
-            const station = allStations.stations?.[stationId];
-
-            const statusCode = String(typeof station?.status === 'object' ? station.status.code : station?.status);
-
-            return statusCode === '2' || statusCode === 'closed';
-
-        });
-
-    }
 
     _addVictoryMessage(embed, statusInfo, previousStatus) {
 
@@ -328,15 +309,17 @@ class ChangeAnnouncer {
     }
     
     _checkClosedStations(group, lineData, allStations) {
-    return group.stationChanges.some(change => {
-        const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-        return statusCode === 2 || statusCode === 'closed';
-    }) || (lineData.stations || []).some(stationId => {
-        const station = allStations.stations?.[stationId];
-        const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
-        return statusCode === 2 || statusCode === 'closed';
-    });
-}
+        return group.stationChanges.some(change => {
+            if (!change.to) return false;
+            const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
+            return statusCode === 2 || statusCode === 'closed';
+        }) || (lineData.stations || []).some(stationId => {
+            const station = allStations.stations?.[stationId];
+            if (!station || !station.status) return false;
+            const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
+            return statusCode === 2 || statusCode === 'closed';
+        });
+    }
 
     _addUnaffectedStationsInfo(embed, lineId, changedStations, allStations) {
 
@@ -541,47 +524,32 @@ _getCommonReason(changes) {
 }
 
     _groupChangesByLine(changes) {
-
         const groups = {};
 
-        
-
         changes.forEach(change => {
-
             let lineId = change.type === 'line' ? `${change.id}` : `${change.line || change.lineId}`;
+
+            if (!lineId || lineId === 'undefined') {
+                console.error('Change object without lineId:', change);
+                return;
+            }
 
             lineId = this._normalizeLineId(lineId);
 
-            
-
             groups[lineId] = groups[lineId] || { lineChanges: [], stationChanges: [] };
 
-            
-
             if (change.type === 'line') {
-
                 groups[lineId].lineChanges.push(change);
-
             } else {
-
                 groups[lineId].stationChanges.push({
-
                     ...change,
-
                     from: change.from,
-
                     to: change.to
-
                 });
-
             }
-
         });
 
-        
-
         return groups;
-
     }
 
     _findConsecutiveStations(lineId, stationChanges, allStations) {
