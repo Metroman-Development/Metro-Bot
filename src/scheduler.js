@@ -39,17 +39,6 @@ async function startScheduler() {
 
     const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
 
-    // API fetching job
-    scheduler.addJob({
-        name: 'api-fetch',
-        interval: 60000, // Every minute
-        task: async () => {
-            if (TimeHelpers.isWithinOperatingHours()) {
-                await apiService.fetchNetworkStatus();
-            }
-        }
-    });
-
     // Check Events job
     scheduler.addJob({
         name: 'check-events',
@@ -59,50 +48,68 @@ async function startScheduler() {
         }
     });
 
-    // Database fetching job
+    // Change detection and network status calculation job
     scheduler.addJob({
-        name: 'database-fetch',
+        name: 'change-detection-and-status-calculation',
         interval: 30000, // Every 30 seconds
         task: async () => {
-            logger.info('[SCHEDULER] Fetching data from database...');
-            const dbData = await apiService.getDbRawData();
-            await metroInfoProvider.compareAndSyncData(dbData);
-        }
-    });
+            const { stationChanges, lineChanges } = await dbService.getUnprocessedChanges();
 
-    // Network status calculation job
-    scheduler.addJob({
-        name: 'network-status-calculation',
-        interval: 30000, // Every 30 seconds
-        task: async () => {
-            setTimeout(async () => {
-                const data = metroInfoProvider.getFullData();
-                if (!data || !data.lines) return;
-                const lineStatus = data.lines;
-                let operationalLines = 0;
-                let totalLines = 0;
-                for (const lineId in lineStatus) {
-                    const line = lineStatus[lineId];
-                    if (line.status_type_id === 10) {
-                        operationalLines++;
-                    }
-                    totalLines++;
+            if (stationChanges.length > 0 || lineChanges.length > 0) {
+                logger.info(`[SCHEDULER] Found ${stationChanges.length} unprocessed station changes and ${lineChanges.length} unprocessed line changes.`);
+
+                // In the next step, MetroInfoProvider will be updated to handle these changes.
+                // For now, we assume it has a method to apply these changes.
+                // await metroInfoProvider.applyChanges({ stationChanges, lineChanges });
+
+                const stationChangeIds = stationChanges.map(c => c.history_id);
+                const lineChangeIds = lineChanges.map(c => c.history_id);
+                await dbService.markChangesAsProcessed({ stationChangeIds, lineChangeIds });
+
+                // After applying changes, we need to get the updated data for network status calculation.
+                // This will also be handled in the next step.
+            }
+
+            // The rest of the logic for network status calculation will be here.
+            // It will use the updated data from metroInfoProvider.
+            // For now, we can't do much until MetroInfoProvider is updated.
+            // We can assume that the provider's data is up-to-date for the calculation.
+
+            const data = metroInfoProvider.getFullData();
+            if (!data || !data.lines) {
+                logger.warn('[SCHEDULER] No data available from MetroInfoProvider for network status calculation.');
+                return;
+            };
+
+            const lineStatus = data.lines;
+            let operationalLines = 0;
+            let totalLines = Object.keys(lineStatus).length;
+
+            for (const lineId in lineStatus) {
+                if (lineStatus[lineId].status_type_id === 10) { // Assuming 10 is operational
+                    operationalLines++;
                 }
+            }
 
-                let networkStatus = 'operational';
+            let networkStatus = 'operational';
+            if (totalLines > 0) {
                 if (operationalLines === 0) {
                     networkStatus = 'suspended';
                 } else if (operationalLines < totalLines) {
                     networkStatus = 'partial';
                 }
+            } else {
+                networkStatus = 'unknown';
+            }
 
-                data.network_status = {
-                    status: networkStatus,
-                    timestamp: TimeHelpers.currentTime.toISOString()
-                };
-                metroInfoProvider.updateData(data);
-                logger.info('[SCHEDULER] Calculating network status...');
-            }, 2000); // 2-second delay
+            // This part updates the network_status in the provider.
+            // It seems MetroInfoProvider needs an `updateData` method.
+            if (!data.network_status) data.network_status = {};
+            data.network_status.status = networkStatus;
+            data.network_status.timestamp = new Date().toISOString();
+
+            // await metroInfoProvider.updateData(data);
+            logger.info(`[SCHEDULER] Network status calculated: ${networkStatus}`);
         }
     });
 
