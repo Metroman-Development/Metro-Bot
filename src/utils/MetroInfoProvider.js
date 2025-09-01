@@ -30,79 +30,16 @@ class MetroInfoProvider {
             accessibility: {},
             network_status: {},
             events: {},
-            last_updated: null
+            last_updated: null,
+            lineFleet: [],
+            statusOverrides: [],
+            scheduledStatusOverrides: [],
+            jsStatusMapping: {},
+            operationalStatusTypes: [],
+            changeHistory: [],
+            systemInfo: {}
         };
-        this.isInitialized = false;
-
-        this.dataManager = new DataManager(metroCore, { dbService: databaseService }, null);
-        this.dbChangeDetector = new DbChangeDetector(databaseService);
-        this.dataManagerChangeDetector = new ApiChangeDetector(this.dataManager);
-        this.changeDetector = new MyChangeDetector();
-        this.changeAnnouncer = new ChangeAnnouncer();
-
-        this.#fetchDataFromDB().then(() => {
-            this.isInitialized = true;
-            logger.info('[MetroInfoProvider] MetroInfoProvider initialized and data loaded from DB.');
-        }).catch(error => {
-            logger.error('[MetroInfoProvider] Failed to initialize MetroInfoProvider:', error);
-        });
-    }
-
-    async #fetchDataFromDB() {
-        logger.info('[MetroInfoProvider] Fetching data from database...');
-        try {
-            const linesQuery = `
-                SELECT
-                    ml.*,
-                    ls.status_description,
-                    ost.status_name,
-                    ost.is_operational
-                FROM metro_lines ml
-                LEFT JOIN line_status ls ON ml.line_id = ls.line_id
-                LEFT JOIN operational_status_types ost ON ls.status_type_id = ost.status_type_id
-            `;
-            const stationsQuery = `
-                SELECT
-                    ms.*,
-                    ss.status_description,
-                    ost.status_name,
-                    ost.is_operational
-                FROM metro_stations ms
-                LEFT JOIN station_status ss ON ms.station_id = ss.station_id
-                LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
-            `;
-
-            const [linesData, stationsData] = await Promise.all([
-                this.databaseService.query(linesQuery),
-                this.databaseService.query(stationsQuery)
-            ]);
-
-            const lines = {};
-            for (const line of linesData) {
-                lines[line.line_id] = line;
-            }
-
-            const stations = {};
-            for (const station of stationsData) {
-                const stationName = (station.station_name || '').toLowerCase();
-                // Parse connections if they are in JSON string format
-                if (typeof station.connections === 'string') {
-                    try {
-                        station.connections = JSON.parse(station.connections);
-                    } catch (e) {
-                        logger.warn(`[MetroInfoProvider] Could not parse connections JSON for station ${station.station_code}: ${station.connections}`);
-                        station.connections = [];
-                    }
-                }
-                stations[stationName] = station;
-            }
-
-            this.updateData({ lines, stations, last_updated: new Date() });
-            logger.info(`[MetroInfoProvider] Successfully fetched and processed data for ${linesData.length} lines and ${stationsData.length} stations.`);
-        } catch (error) {
-            logger.error('[MetroInfoProvider] Error fetching data from DB:', error);
-            throw error;
-        }
+        this.isInitialized = true;
     }
 
     static initialize(metroCore, databaseService, statusEmbedManager) {

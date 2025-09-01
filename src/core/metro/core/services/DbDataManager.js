@@ -124,9 +124,7 @@ class DbDataManager {
 
         const rawData = {
             lines: {},
-            incidents,
-            incidentTypes,
-            trainModels,
+            trains: trainModels,
             lineFleet,
             statusOverrides,
             scheduledStatusOverrides,
@@ -134,19 +132,27 @@ class DbDataManager {
             operationalStatusTypes,
             changeHistory,
             systemInfo,
-            intermodalStations,
-            intermodalBuses,
-            networkStatus
+            intermodal: {
+                stations: intermodalStations,
+                buses: intermodalBuses,
+            },
+            network_status: networkStatus,
+            accessibility: accessibilityStatus,
+            events: {
+                incidents: incidents,
+                incidentTypes: incidentTypes,
+            },
         };
 
         for (const line of dbLines) {
             const lineId = line.line_id.toLowerCase();
             rawData.lines[lineId] = {
+                ...line,
                 nombre: line.line_name,
                 estado: line.status_code,
                 mensaje: line.status_message,
                 mensaje_app: line.app_message,
-                estaciones: []
+                estaciones: [],
             };
         }
 
