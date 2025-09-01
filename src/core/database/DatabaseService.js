@@ -808,36 +808,6 @@ class DatabaseService {
         return this.db.query(query);
     }
 
-    async getLinesWithStatus() {
-        const query = `
-            SELECT
-                ml.*,
-                ls.status_description,
-                ls.status_message,
-                ost.status_name,
-                ost.is_operational
-            FROM metro_lines ml
-            LEFT JOIN line_status ls ON ml.line_id = ls.line_id
-            LEFT JOIN operational_status_types ost ON ls.status_type_id = ost.status_type_id
-        `;
-        return this.db.query(query);
-    }
-
-    async getStationsWithStatus() {
-        const query = `
-            SELECT
-                ms.*,
-                ss.status_description,
-                ss.status_message,
-                ost.status_name,
-                ost.is_operational
-            FROM metro_stations ms
-            LEFT JOIN station_status ss ON ms.station_id = ss.station_id
-            LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
-        `;
-        return this.db.query(query);
-    }
-
     async getBotVersion() {
         const results = await this.db.query('SELECT version, release_date, changelog FROM bot_versions ORDER BY created_at DESC LIMIT 1');
         return results.length > 0 ? results[0] : null;
@@ -961,10 +931,28 @@ class DatabaseService {
 
     async getChangeHistory() {
         const query = `
-            SELECT *
-            FROM vw_station_status_history
-            WHERE last_updated >= NOW() - INTERVAL 1 DAY
-            ORDER BY last_updated DESC;
+            SELECT
+                h.history_id,
+                h.last_updated,
+                s.station_name,
+                s.station_code,
+                l.line_id,
+                l.line_name,
+                ot.status_name,
+                h.status_description,
+                h.status_message
+            FROM
+                station_status_history h
+            JOIN
+                metro_stations s ON h.station_id = s.station_id
+            JOIN
+                metro_lines l ON s.line_id = l.line_id
+            JOIN
+                operational_status_types ot ON h.status_type_id = ot.status_type_id
+            WHERE
+                h.last_updated >= NOW() - INTERVAL 1 DAY
+            ORDER BY
+                h.last_updated DESC;
         `;
         return this.db.query(query);
     }

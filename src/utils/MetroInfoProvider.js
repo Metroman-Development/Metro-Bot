@@ -32,7 +32,7 @@ class MetroInfoProvider {
             events: {},
             last_updated: null
         };
-        this.isInitialized = true;
+        this.isInitialized = false;
 
         this.dataManager = new DataManager(metroCore, { dbService: databaseService }, null);
         this.dbChangeDetector = new DbChangeDetector(databaseService);
@@ -40,7 +40,69 @@ class MetroInfoProvider {
         this.changeDetector = new MyChangeDetector();
         this.changeAnnouncer = new ChangeAnnouncer();
 
-        logger.info('[MetroInfoProvider] MetroInfoProvider initialized.');
+        this.#fetchDataFromDB().then(() => {
+            this.isInitialized = true;
+            logger.info('[MetroInfoProvider] MetroInfoProvider initialized and data loaded from DB.');
+        }).catch(error => {
+            logger.error('[MetroInfoProvider] Failed to initialize MetroInfoProvider:', error);
+        });
+    }
+
+    async #fetchDataFromDB() {
+        logger.info('[MetroInfoProvider] Fetching data from database...');
+        try {
+            const linesQuery = `
+                SELECT
+                    ml.*,
+                    ls.status_description,
+                    ost.status_name,
+                    ost.is_operational
+                FROM metro_lines ml
+                LEFT JOIN line_status ls ON ml.line_id = ls.line_id
+                LEFT JOIN operational_status_types ost ON ls.status_type_id = ost.status_type_id
+            `;
+            const stationsQuery = `
+                SELECT
+                    ms.*,
+                    ss.status_description,
+                    ost.status_name,
+                    ost.is_operational
+                FROM metro_stations ms
+                LEFT JOIN station_status ss ON ms.station_id = ss.station_id
+                LEFT JOIN operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            `;
+
+            const [linesData, stationsData] = await Promise.all([
+                this.databaseService.query(linesQuery),
+                this.databaseService.query(stationsQuery)
+            ]);
+
+            const lines = {};
+            for (const line of linesData) {
+                lines[line.line_id] = line;
+            }
+
+            const stations = {};
+            for (const station of stationsData) {
+                const stationName = (station.station_name || '').toLowerCase();
+                // Parse connections if they are in JSON string format
+                if (typeof station.connections === 'string') {
+                    try {
+                        station.connections = JSON.parse(station.connections);
+                    } catch (e) {
+                        logger.warn(`[MetroInfoProvider] Could not parse connections JSON for station ${station.station_code}: ${station.connections}`);
+                        station.connections = [];
+                    }
+                }
+                stations[stationName] = station;
+            }
+
+            this.updateData({ lines, stations, last_updated: new Date() });
+            logger.info(`[MetroInfoProvider] Successfully fetched and processed data for ${linesData.length} lines and ${stationsData.length} stations.`);
+        } catch (error) {
+            logger.error('[MetroInfoProvider] Error fetching data from DB:', error);
+            throw error;
+        }
     }
 
     static initialize(metroCore, databaseService, statusEmbedManager) {
@@ -126,105 +188,6 @@ class MetroInfoProvider {
         }
 
         await this.fetchAndSetEventData();
-    }
-
-    updateFromApi(apiData) {
-        const { lines, stations, network_status } = this.data;
-        Object.assign(lines, apiData.lineas);
-        Object.assign(network_status, apiData.network);
-        for (const lineId in apiData.lineas) {
-            if (apiData.lineas[lineId].estaciones) {
-                for (const station of apiData.lineas[lineId].estaciones) {
-                    const stationId = station.id_estacion.toUpperCase();
-                    if (!stations[stationId]) {
-                        stations[stationId] = {};
-                    }
-                    station.line_id = lineId;
-                    Object.assign(stations[stationId], station);
-                }
-            }
-        }
-        this.updateData({ lines, stations, network_status });
-    }
-
-    mergeData(apiData, dbData) {
-        const mergedData = { ...this.data };
-        const apiTimestamp = new Date(apiData.network.timestamp);
-
-        // 1. Index DB data for easy lookup
-        const dbLines = {};
-        for (const line of dbData.lines) {
-            dbLines[line.id] = line;
-        }
-        const dbStations = {};
-        for (const station of dbData.stations) {
-            dbStations[station.station_code.toUpperCase()] = station;
-        }
-
-        // 2. Merge API data into mergedData, enriching with DB data
-        for (const lineId in apiData.lineas) {
-            const apiLine = apiData.lineas[lineId];
-            const dbLine = dbLines[lineId] || {};
-
-            mergedData.lines[lineId] = { ...dbLine, ...apiLine };
-
-            if (apiLine.estaciones) {
-                for (const apiStation of apiLine.estaciones) {
-                    const stationId = apiStation.id_estacion.toUpperCase();
-                    const dbStation = dbStations[stationId] || {};
-                    const dbTimestamp = dbStation.status_data ? new Date(dbStation.status_data.last_updated) : new Date(0);
-
-                    const mergedStation = { ...dbStation, ...apiStation, line_id: lineId };
-
-                    if (apiTimestamp < dbTimestamp) {
-                        // DB is newer, so use its status
-                        mergedStation.estado = dbStation.estado;
-                        mergedStation.descripcion = dbStation.descripcion;
-                        mergedStation.descripcion_app = dbStation.descripcion_app;
-                        mergedStation.mensaje = dbStation.mensaje;
-                    } else {
-                        // API is newer or same, so use its status
-                        mergedStation.estado = apiStation.estado;
-                        mergedStation.descripcion = apiStation.descripcion;
-                        mergedStation.descripcion_app = apiStation.descripcion_app;
-                        mergedStation.mensaje = apiStation.mensaje;
-                    }
-
-                    mergedData.stations[stationId] = mergedStation;
-                }
-            }
-        }
-
-        // 3. Add any stations from DB that were not in the API response
-        for (const stationId in dbStations) {
-            if (!mergedData.stations[stationId]) {
-                mergedData.stations[stationId] = dbStations[stationId];
-            }
-        }
-
-        // 4. Add any lines from DB that were not in the API response
-        for (const lineId in dbLines) {
-            if (!mergedData.lines[lineId]) {
-                mergedData.lines[lineId] = dbLines[lineId];
-            }
-        }
-
-        // 5. Set network status from API
-        Object.assign(mergedData.network_status, apiData.network);
-
-        return mergedData;
-    }
-
-    async applyChanges({ stationChanges, lineChanges }) {
-        if (stationChanges.length > 0 || lineChanges.length > 0) {
-            logger.info(`Applying ${stationChanges.length} station changes and ${lineChanges.length} line changes.`);
-            // TODO: Implement the logic to apply these changes to the internal data model.
-            // This will likely involve fetching the full data from the database and then applying the changes.
-            // For now, we just log that we received the changes.
-            // A full data refresh might be easier to implement first.
-            const fullData = await this.databaseService.getAllData();
-            this.updateData(fullData);
-        }
     }
 
     getRouteColorName(routeColor) {
