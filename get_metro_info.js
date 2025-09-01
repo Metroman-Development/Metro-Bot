@@ -5,6 +5,10 @@ const config = require('./src/config/metro/metroConfig');
 
 async function main() {
   try {
+    console.log('Waiting for database to be ready...');
+    // Wait for the database to be ready
+    await new Promise(resolve => setTimeout(resolve, 30000));
+    console.log('Attempting to connect to the database...');
     const dbConfig = {
       host: process.env.DB_HOST || '127.0.0.1',
       user: process.env.DB_USER || 'metroapi',
@@ -13,6 +17,7 @@ async function main() {
     };
 
     const dbManager = await DatabaseManager.getInstance(dbConfig);
+    console.log('Database manager instance created.');
     const databaseService = await require('./src/core/database/DatabaseService').getInstance(dbManager);
 
     const metroCore = {
@@ -30,7 +35,7 @@ async function main() {
 
     const data = await dataManager.fetchNetworkStatus();
 
-    console.log(JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(metroInfoProvider.getFullData(), null, 2));
 
   } catch (error) {
     console.error('An error occurred:', error);
