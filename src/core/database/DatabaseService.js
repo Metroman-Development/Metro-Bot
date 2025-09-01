@@ -817,69 +817,101 @@ class DatabaseService {
 
             const getStatusTypeId = async (statusCode) => {
                 if (statusCode === null || statusCode === undefined) return null;
-
-                // First, try to find a mapping in the table for older codes.
                 const result = await connection.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
-                if (result.length > 0) {
-                    return result[0].status_type_id;
-                }
-
-                // If no mapping, assume modern status where js_code === status_type_id, but verify it exists.
+                if (result.length > 0) return result[0].status_type_id;
                 const checkResult = await connection.query('SELECT status_type_id FROM operational_status_types WHERE status_type_id = ?', [statusCode]);
-                if (checkResult.length > 0) {
-                    return statusCode; // Use the code itself as the ID
-                }
-
-                // If it's not in the mapping and not a valid ID in the main table, return null.
+                if (checkResult.length > 0) return statusCode;
                 return null;
             };
 
-            const oldStatusTypeId = await getStatusTypeId(from?.code);
-            const newStatusTypeId = await getStatusTypeId(to.code);
-
-            if (newStatusTypeId === null) {
-                logger.warn(`[DatabaseService] Could not resolve a valid status_type_id for status code: ${to.code}. It's not in js_status_mapping and not a valid direct ID in operational_status_types.`);
-                await connection.rollback();
-                return;
-            }
-
-            let stationId = null;
-            let lineId = null;
-
             if (type === 'station') {
-                const stationResult = await connection.query('SELECT station_id, line_id FROM metro_stations WHERE station_code = ?', [id]);
-                if (stationResult.length > 0) {
-                    stationId = stationResult[0].station_id;
-                    lineId = stationResult[0].line_id;
-                } else {
+                const statusTypeId = await getStatusTypeId(to.code);
+
+                if (statusTypeId === null) {
+                    logger.warn(`[DatabaseService] Could not resolve a valid status_type_id for status code: ${to.code}.`);
+                    await connection.rollback();
+                    return;
+                }
+
+                const stationResult = await connection.query('SELECT station_id FROM metro_stations WHERE station_code = ?', [id]);
+                if (stationResult.length === 0) {
                     logger.warn(`[DatabaseService] Station not found for code: ${id}`);
                     await connection.rollback();
                     return;
                 }
-            } else if (type === 'system') {
-                lineId = null;
-            } else {
-                lineId = id;
+                const stationId = stationResult[0].station_id;
+
+            const statusResult = await connection.query('SELECT status_id FROM station_status WHERE station_id = ?', [stationId]);
+            if (statusResult.length === 0) {
+                // This can happen if the station has no status entry yet.
+                // We can either log a warning and return, or insert a default status.
+                // For now, let's log and return to avoid side-effects.
+                logger.warn(`[DatabaseService] Status not found for station_id: ${stationId}, cannot log to history.`);
+                await connection.rollback();
+                return;
             }
+            const statusId = statusResult[0].status_id;
 
-            const query = `
-                INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, is_planned, expected_duration_minutes, changed_by, changed_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            `;
+                const query = `
+                    INSERT INTO station_status_history
+                    (status_id, station_id, status_type_id, status_description, status_message, expected_resolution_time, is_planned, impact_level, last_updated, updated_by)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                `;
 
-            const description = `Status changed from ${from?.code || 'none'} to ${to.code}`;
+                const params = [
+                    statusId,
+                    stationId,
+                    statusTypeId,
+                    to.message,
+                    to.appMessage,
+                    null, // expected_resolution_time
+                    0, // is_planned
+                    to.severity || 'none',
+                    timestamp,
+                    'system' // updated_by
+                ];
 
-            await connection.query(query, [
-                stationId,
-                lineId,
-                oldStatusTypeId,
-                newStatusTypeId,
-                description,
-                0, // is_planned
-                null, // expected_duration_minutes
-                'system', // changed_by
-                timestamp
-            ]);
+                await connection.query(query, params);
+
+            } else {
+                // For line and system changes, log to the old table status_change_log
+                const oldStatusTypeId = await getStatusTypeId(from?.code);
+                const newStatusTypeId = await getStatusTypeId(to.code);
+
+                if (newStatusTypeId === null) {
+                    logger.warn(`[DatabaseService] Could not resolve a valid status_type_id for status code: ${to.code}.`);
+                    await connection.rollback();
+                    return;
+                }
+
+                let stationId = null;
+                let lineId = null;
+
+                if (type === 'system') {
+                    lineId = null;
+                } else {
+                    lineId = id;
+                }
+
+                const query = `
+                    INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, is_planned, expected_duration_minutes, changed_by, changed_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                `;
+
+                const description = `Status changed from ${from?.code || 'none'} to ${to.code}`;
+
+                await connection.query(query, [
+                    stationId,
+                    lineId,
+                    oldStatusTypeId,
+                    newStatusTypeId,
+                    description,
+                    0, // is_planned
+                    null, // expected_duration_minutes
+                    'system', // changed_by
+                    timestamp
+                ]);
+            }
 
             await connection.commit();
         } catch (error) {
