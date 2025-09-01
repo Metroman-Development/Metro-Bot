@@ -96,6 +96,37 @@ class DatabaseService {
         }
     }
 
+    async getUnprocessedChanges() {
+        const stationChanges = await this.db.query('SELECT * FROM station_status_history WHERE is_processed = 0');
+        const lineChanges = await this.db.query('SELECT * FROM line_status_history WHERE is_processed = 0');
+        return { stationChanges, lineChanges };
+    }
+
+    async markChangesAsProcessed(changeIds) {
+        const { stationChangeIds, lineChangeIds } = changeIds;
+        if ((!stationChangeIds || stationChangeIds.length === 0) && (!lineChangeIds || lineChangeIds.length === 0)) {
+            return;
+        }
+
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+            if (stationChangeIds && stationChangeIds.length > 0) {
+                await connection.query('UPDATE station_status_history SET is_processed = 1 WHERE history_id IN (?)', [stationChangeIds]);
+            }
+            if (lineChangeIds && lineChangeIds.length > 0) {
+                await connection.query('UPDATE line_status_history SET is_processed = 1 WHERE history_id IN (?)', [lineChangeIds]);
+            }
+            await connection.commit();
+        } catch (error) {
+            await connection.rollback();
+            logger.error('[DatabaseService] Failed to mark changes as processed:', { error });
+            throw error;
+        } finally {
+            connection.release();
+        }
+    }
+
     async updateAllData(currentData) {
         const data = await currentData;
         logger.info('[DatabaseService] Starting bulk database update from processed data...');
@@ -876,6 +907,64 @@ class DatabaseService {
             ORDER BY last_updated DESC;
         `;
         return this.db.query(query);
+    }
+
+    async addLineStatusHistory(changeRecord) {
+        const { id, to, timestamp } = changeRecord;
+        const connection = await this.db.pool.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            const getStatusTypeId = async (statusCode) => {
+                if (statusCode === null || statusCode === undefined) return null;
+                const result = await connection.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
+                if (result.length > 0) return result[0].status_type_id;
+                const checkResult = await connection.query('SELECT status_type_id FROM operational_status_types WHERE status_type_id = ?', [statusCode]);
+                if (checkResult.length > 0) return statusCode;
+                return null;
+            };
+
+            const newStatusTypeId = await getStatusTypeId(to.code);
+
+            if (newStatusTypeId === null) {
+                logger.warn(`[DatabaseService] Could not resolve a valid status_type_id for status code: ${to.code}.`);
+                await connection.rollback();
+                return;
+            }
+
+            const lineStatusResult = await connection.query('SELECT status_id FROM line_status WHERE line_id = ?', [id]);
+            if (lineStatusResult.length === 0) {
+                 logger.warn(`[DatabaseService] No existing status found for line_id: ${id}. Cannot log history.`);
+                 await connection.rollback();
+                 return;
+            }
+            const statusId = lineStatusResult[0].status_id;
+
+            const query = `
+                INSERT INTO line_status_history
+                (status_id, line_id, status_type_id, status_description, status_message, last_updated, updated_by)
+                VALUES (?, ?, ?, ?, ?, ?, ?);
+            `;
+
+            const params = [
+                statusId,
+                id, // line_id
+                newStatusTypeId,
+                to.message,
+                to.appMessage,
+                timestamp,
+                'system' // updated_by
+            ];
+
+            await connection.query(query, params);
+            await connection.commit();
+        } catch (error) {
+            await connection.rollback();
+            logger.error('[DatabaseService] Failed to log line status change:', { error, changeRecord });
+            throw error;
+        } finally {
+            connection.release();
+        }
     }
 
     async logStatusChange(changeRecord) {

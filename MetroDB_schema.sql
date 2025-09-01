@@ -477,6 +477,7 @@ CREATE TABLE `station_status_history` (
   `impact_level` enum('none','low','medium','high','critical') DEFAULT 'none',
   `last_updated` timestamp NOT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
+  `is_processed` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`history_id`),
   KEY `station_id` (`station_id`),
   KEY `status_type_id` (`status_type_id`),
@@ -492,6 +493,40 @@ CREATE TABLE `station_status_history` (
 LOCK TABLES `station_status_history` WRITE;
 /*!40000 ALTER TABLE `station_status_history` DISABLE KEYS */;
 /*!40000 ALTER TABLE `station_status_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `line_status_history`
+--
+
+DROP TABLE IF EXISTS `line_status_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `line_status_history` (
+  `history_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status_id` int(11) NOT NULL,
+  `line_id` varchar(10) NOT NULL,
+  `status_type_id` int(11) NOT NULL,
+  `status_description` varchar(255) DEFAULT NULL,
+  `status_message` varchar(500) DEFAULT NULL,
+  `last_updated` timestamp NOT NULL,
+  `updated_by` varchar(50) DEFAULT NULL,
+  `is_processed` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`history_id`),
+  KEY `line_id` (`line_id`),
+  KEY `status_type_id` (`status_type_id`),
+  CONSTRAINT `line_status_history_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`),
+  CONSTRAINT `line_status_history_ibfk_2` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `line_status_history`
+--
+
+LOCK TABLES `line_status_history` WRITE;
+/*!40000 ALTER TABLE `line_status_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `line_status_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

@@ -196,21 +196,15 @@ class MetroInfoProvider {
         return mergedData;
     }
 
-    async compareAndSyncData() {
-        const oldData = JSON.parse(JSON.stringify(this.getFullData()));
-
-        const apiData = await this.apiChangeDetector.fetchData();
-        const dbData = await this.dbChangeDetector.fetchData();
-
-        const newData = this.mergeData(apiData, dbData);
-        const changes = this.changeDetector.detect(oldData, newData);
-
-        if (changes && changes.length > 0) {
-            this.updateData(newData);
-            await this.changeAnnouncer.generateMessages(changes, newData);
-            if (this.statusEmbedManager) {
-                await this.statusEmbedManager.updateAllEmbeds(newData);
-            }
+    async applyChanges({ stationChanges, lineChanges }) {
+        if (stationChanges.length > 0 || lineChanges.length > 0) {
+            logger.info(`Applying ${stationChanges.length} station changes and ${lineChanges.length} line changes.`);
+            // TODO: Implement the logic to apply these changes to the internal data model.
+            // This will likely involve fetching the full data from the database and then applying the changes.
+            // For now, we just log that we received the changes.
+            // A full data refresh might be easier to implement first.
+            const fullData = await this.databaseService.getAllData();
+            this.updateData(fullData);
         }
     }
 

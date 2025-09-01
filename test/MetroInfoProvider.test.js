@@ -63,44 +63,31 @@ describe('MetroInfoProvider', () => {
         assert.deepStrictEqual(fullData.network_status, apiData.network);
     });
 
-    describe('compareAndSyncData', () => {
-        beforeEach(() => {
-            // Mock the dependencies of compareAndSyncData
-            provider.apiChangeDetector = {
-                fetchData: sinon.stub().resolves({ lineas: {}, network: {} })
-            };
-            provider.dbChangeDetector = {
-                fetchData: sinon.stub().resolves({ lines: [], stations: [] })
-            };
-            provider.changeDetector = {
-                detect: sinon.stub().returns([])
-            };
-            provider.changeAnnouncer = {
-                generateMessages: sinon.stub().resolves()
-            };
-            provider.statusEmbedManager = {
-                updateAllEmbeds: sinon.stub().resolves()
-            };
+    describe('applyChanges', () => {
+        it('should fetch all data from database when changes are detected', async () => {
+            const stationChanges = [{ history_id: 1 }];
+            const lineChanges = [];
+            const fullData = { lines: { l1: { id: 'L1' } }, stations: { s1: { id: 'S1' } } };
+
+            provider.databaseService.getAllData = sinon.stub().resolves(fullData);
+
+            await provider.applyChanges({ stationChanges, lineChanges });
+
+            assert(provider.databaseService.getAllData.calledOnce);
+            assert.deepStrictEqual(provider.getFullData().lines, fullData.lines);
+            assert.deepStrictEqual(provider.getFullData().stations, fullData.stations);
         });
 
-        it('should merge data correctly', async () => {
-            const apiData = { lineas: { l1: { id: 'L1', status: 'api_status', estaciones: [] } }, network: { status: 'api_status' } };
-            const dbData = { lines: [{ id: 'l2', status: 'db_status' }], stations: [{ station_code: 'st1', name: 'station1', status_data: { last_updated: '2025-01-01T10:00:00Z' } }] };
-            provider.apiChangeDetector.fetchData.resolves(apiData);
-            provider.dbChangeDetector.fetchData.resolves(dbData);
-            provider.changeDetector.detect.returns([{ type: 'line', id: 'l1', from: null, to: 'api_status' }]);
+        it('should not do anything if there are no changes', async () => {
+            const stationChanges = [];
+            const lineChanges = [];
 
-            await provider.compareAndSyncData();
+            provider.databaseService.getAllData = sinon.stub().resolves({});
 
-            const mergedData = provider.getFullData();
-            assert.deepStrictEqual(mergedData.lines.l1, { id: 'L1', status: 'api_status', estaciones: [] });
-            assert.deepStrictEqual(mergedData.lines.l2, { id: 'l2', status: 'db_status' });
-            assert.deepStrictEqual(mergedData.stations.ST1, { station_code: 'st1', name: 'station1', status_data: { last_updated: '2025-01-01T10:00:00Z' } });
-            assert.deepStrictEqual(mergedData.network_status, { status: 'api_status' });
-            assert(provider.changeAnnouncer.generateMessages.calledOnce);
-            assert(provider.statusEmbedManager.updateAllEmbeds.calledOnce);
+            await provider.applyChanges({ stationChanges, lineChanges });
+
+            assert(provider.databaseService.getAllData.notCalled);
         });
-
     });
 
     describe('getStationDetails', () => {
