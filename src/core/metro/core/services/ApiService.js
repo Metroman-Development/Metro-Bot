@@ -12,7 +12,7 @@ const EventRegistry = require('../../../../core/EventRegistry');
 const EventPayload = require('../../../../core/EventPayload');
 const config = require('../../../../config/metro/metroConfig');
 const EstadoRedService = require('./EstadoRedService');
-const { translateApiData } = require('../../data/DataTranslator');
+const { translateApiData, translateStatus } = require('../../data/DataTranslator');
 
 class ApiService extends EventEmitter {
     constructor(metro, options = {}, dataEngine) {
@@ -240,13 +240,82 @@ class ApiService extends EventEmitter {
 
             currentData.version = this._dataVersion;
 
-            // This is the new data transformation logic
-            const { lines, stations } = this.extractLineAndStationData(currentData);
-            const networkSummary = this.generateNetworkSummary(lines);
+            const jsStatusMapping = await this.dbService.getAllJsStatusMapping();
+            const statusMapping = jsStatusMapping.reduce((acc, item) => {
+                acc[item.js_code] = item;
+                return acc;
+            }, {});
+
+            const lines = currentData.lines || currentData.lineas || {};
+            const stations = {};
+            const sanitizedLines = {};
+
+            for (const [lineId, line] of Object.entries(lines)) {
+                if (!line || typeof line !== 'object') {
+                    logger.warn(`[ApiService] Skipping invalid or incomplete line object with id: ${lineId}`, { line });
+                    continue;
+                }
+
+                const translatedLine = translateStatus(line, statusMapping);
+
+                const sanitizedLine = {
+                    ...translatedLine,
+                    id: lineId,
+                    displayName: line.nombre || this.lineInfoMap.get(lineId.toLowerCase()) || `Línea ${lineId.replace(/l|a/g, '')}`,
+                };
+
+                if (Array.isArray(line.estaciones)) {
+                    sanitizedLine.estaciones = line.estaciones.map(station => {
+                        if (!station || typeof station !== 'object' || !station.codigo || !station.nombre) {
+                            logger.warn(`[ApiService] Skipping invalid or incomplete station object in line ${lineId}`, { station });
+                            return null;
+                        }
+
+                        const translatedStation = translateStatus(station, statusMapping);
+
+                        const sanitizedStation = {
+                            ...translatedStation,
+                            id: station.codigo,
+                            name: station.nombre,
+                        };
+                        stations[sanitizedStation.id] = sanitizedStation;
+                        return sanitizedStation;
+                    }).filter(Boolean);
+                } else {
+                    sanitizedLine.estaciones = [];
+                }
+
+                sanitizedLines[lineId] = sanitizedLine;
+            }
+
+            const operationalLines = Object.values(sanitizedLines).filter(line => line.status === 15).length;
+            const withIssues = Object.values(sanitizedLines).filter(line => line.status !== 15).map(line => line.id);
+            let networkStatus = 'operational';
+            if (withIssues.length > 0) {
+                networkStatus = 'degraded';
+            }
+            if (operationalLines === 0 && Object.values(sanitizedLines).length > 0) {
+                networkStatus = 'outage';
+            }
+
+            const networkSummary = {
+                status: networkStatus,
+                lines: {
+                    total: Object.values(sanitizedLines).length,
+                    operational: operationalLines,
+                    with_issues: withIssues,
+                },
+                stations: {
+                    total: Object.values(stations).length,
+                    operational: Object.values(stations).filter(station => station.status === 15).length,
+                    with_issues: Object.values(stations).filter(station => station.status !== 15).map(station => station.id),
+                },
+                timestamp: new Date().toISOString()
+            };
 
             const processedData = {
                 ...currentData,
-                lines,
+                lines: sanitizedLines,
                 stations,
                 network: networkSummary,
             };
@@ -646,88 +715,6 @@ class ApiService extends EventEmitter {
         return simulatedChange;
     }
 
-    extractLineAndStationData(currentData) {
-        const lines = currentData.lines || currentData.lineas || {};
-        const stations = {};
-        const sanitizedLines = {};
-
-        for (const [lineId, line] of Object.entries(lines)) {
-            // Basic validation for a line object
-            if (!line || typeof line !== 'object') {
-                logger.warn(`[ApiService] Skipping invalid or incomplete line object with id: ${lineId}`, { line });
-                continue;
-            }
-
-            const sanitizedLine = {
-                ...line,
-                id: lineId,
-                displayName: line.nombre || this.lineInfoMap.get(lineId.toLowerCase()) || `Línea ${lineId.replace(/l|a/g, '')}`,
-                status: line.estado, // map estado to status
-            };
-
-            if (Array.isArray(line.estaciones)) {
-                sanitizedLine.estaciones = line.estaciones.map(station => {
-                    if (!station || typeof station !== 'object' || !station.codigo || !station.nombre) {
-                        logger.warn(`[ApiService] Skipping invalid or incomplete station object in line ${lineId}`, { station });
-                        return null; // This will be filtered out later
-                    }
-                    console.log("Station object before sanitization:", station.nombre, "Connections:", station.connections);
-                    const sanitizedStation = {
-                        ...station,
-                        id: station.codigo,
-                        name: station.nombre,
-                        status: station.estado // map estado to status
-                    };
-                    stations[sanitizedStation.id] = sanitizedStation;
-                    return sanitizedStation;
-                }).filter(Boolean); // remove nulls
-            } else {
-                sanitizedLine.estaciones = [];
-            }
-
-            sanitizedLines[lineId] = sanitizedLine;
-        }
-        return { lines: sanitizedLines, stations };
-    }
-
-    generateNetworkSummary(lines) {
-        if (!lines) {
-            return {
-                status: 'outage',
-                lines: { total: 0, operational: 0, with_issues: [] },
-                stations: { total: 0, operational: 0, with_issues: [] },
-                timestamp: new Date().toISOString()
-            };
-        }
-        const linesArray = Object.values(lines);
-        const stations = linesArray.flatMap(line => line.estaciones || []);
-        const operationalLines = linesArray.filter(line => line.estado === '1' || line.estado === 1).length;
-        const withIssues = linesArray.filter(line => line.estado !== '1' && line.estado !== 1).map(line => line.id);
-
-        let status = 'operational';
-        if (withIssues.length > 0) {
-            status = 'degraded';
-        }
-        if (operationalLines === 0 && linesArray.length > 0) {
-            status = 'outage';
-        }
-
-
-        return {
-            status,
-            lines: {
-                total: linesArray.length,
-                operational: operationalLines,
-                with_issues: withIssues,
-            },
-            stations: {
-                total: stations.length,
-                operational: stations.filter(station => station.estado === '1' || station.estado === 1).length,
-                with_issues: stations.filter(station => station.estado !== '1' && station.estado !== 1).map(station => station.id),
-            },
-            timestamp: new Date().toISOString()
-        };
-    }
 
     async getDbRawData() {
         logger.info('[ApiService] FORCING DATABASE READ FOR DEBUGGING.');

@@ -109,4 +109,52 @@ describe('ApiService', () => {
             expect(apiService.dbService.getAllLinesStatus).toHaveBeenCalled();
         });
     });
+
+    describe('Status Translation', () => {
+        it('should correctly translate line and station statuses based on js_status_mapping', async () => {
+            const mockApiData = {
+                lineas: {
+                    L1: {
+                        estado: '1',
+                        nombre: 'Línea 1',
+                        mensaje_app: 'Operational',
+                        estaciones: [
+                            { codigo: 'SP', nombre: 'San Pablo', estado: '1', descripcion: 'Operativa', descripcion_app: 'Habilitada' },
+                            { codigo: 'LP', nombre: 'Los Dominicos', estado: '2', descripcion: 'Con demoras', descripcion_app: 'Con demoras' }
+                        ]
+                    }
+                }
+            };
+            const mockStatusMapping = [
+                { js_code: '1', status_type_id: 1, severity_level: 0, station_t: 10, line_t: 100 },
+                { js_code: '2', status_type_id: 2, severity_level: 1, station_t: 20, line_t: 200 }
+            ];
+
+            mockEstadoRedService.fetchStatus.mockResolvedValue(mockApiData);
+            apiService.dbService.getAllJsStatusMapping = jest.fn().mockResolvedValue(mockStatusMapping);
+            apiService.dbService.getAllLinesStatus = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStationsStatusAsRaw = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAccessibilityStatus = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidents = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIncidentTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllTrainModels = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllLineFleet = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllScheduledStatusOverrides = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllOperationalStatusTypes = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStationStatusHistory = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllStatusChangeLog = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getSystemInfo = jest.fn().mockResolvedValue({});
+            apiService.dbService.getIntermodalStations = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getAllIntermodalBuses = jest.fn().mockResolvedValue([]);
+            apiService.dbService.getNetworkStatus = jest.fn().mockResolvedValue({});
+
+
+            const result = await apiService.fetchNetworkStatus();
+
+            expect(result.lines.L1.status).toBe(100);
+            expect(result.stations.SP.status).toBe(10);
+            expect(result.stations.LP.status).toBe(20);
+        });
+    });
 });

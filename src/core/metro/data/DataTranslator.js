@@ -11,13 +11,26 @@ function normalizeStationName(name) {
         .trim();
 }
 
-async function translateApiData(apiData, dbService) {
+function translateStatus(item, statusMapping) {
+    const status = statusMapping[item.estado];
+    if (status) {
+        item.status_type_id = status.status_type_id;
+        item.severity_level = status.severity_level;
+        if (item.estaciones) { // It's a line
+            item.status = status.line_t;
+        } else { // It's a station
+            item.status = status.station_t;
+        }
+    }
+    return item;
+}
+
+async function unifyApiAndDbData(apiData, dbService) {
     try {
         const [stationsData, accessibilityCache] = await Promise.all([
             dbService.getAllStationsStatusAsRaw(),
             dbService.getAccessibilityStatus()
         ]);
-
 
         const unifiedStations = {};
         const unifiedLines = {};
@@ -77,10 +90,10 @@ async function translateApiData(apiData, dbService) {
         return { stations: unifiedStations, lines: unifiedLines, ...apiData };
 
     } catch (error) {
-        console.error('Error translating API data:', error);
+        console.error('Error unifying API and DB data:', error);
         // Return a default structure in case of an error to avoid breaking the calling code.
         return { stations: {}, lines: {}, ...apiData };
     }
 }
 
-module.exports = { translateApiData };
+module.exports = { unifyApiAndDbData, translateStatus };
