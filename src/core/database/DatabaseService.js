@@ -901,16 +901,23 @@ class DatabaseService {
                 }
                 const stationId = stationResult[0].station_id;
 
+            let statusId;
             const statusResult = await connection.query('SELECT status_id FROM station_status WHERE station_id = ?', [stationId]);
             if (statusResult.length === 0) {
-                // This can happen if the station has no status entry yet.
-                // We can either log a warning and return, or insert a default status.
-                // For now, let's log and return to avoid side-effects.
-                logger.warn(`[DatabaseService] Status not found for station_id: ${stationId}, cannot log to history.`);
-                await connection.rollback();
-                return;
+                logger.info(`[DatabaseService] No existing status found for station_id: ${stationId}. Creating a new entry.`);
+                const insertResult = await connection.query(
+                    'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, updated_by) VALUES (?, ?, ?, ?, ?)',
+                    [stationId, statusTypeId, to.message, to.appMessage, 'system']
+                );
+                statusId = insertResult.insertId;
+                if (!statusId) {
+                    logger.error(`[DatabaseService] Failed to create new status entry for station_id: ${stationId}.`);
+                    await connection.rollback();
+                    return;
+                }
+            } else {
+                statusId = statusResult[0].status_id;
             }
-            const statusId = statusResult[0].status_id;
 
                 const query = `
                     INSERT INTO station_status_history

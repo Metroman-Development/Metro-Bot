@@ -100,6 +100,7 @@ describe('MetroInfoProvider', () => {
             assert(provider.changeAnnouncer.generateMessages.calledOnce);
             assert(provider.statusEmbedManager.updateAllEmbeds.calledOnce);
         });
+
     });
 
     describe('getStationDetails', () => {
