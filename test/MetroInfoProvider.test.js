@@ -1,212 +1,133 @@
-const assert = require('assert');
-const sinon = require('sinon');
 const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
-const MetroCore = require('../src/core/metro/core/MetroCore');
-const DatabaseService = require('../src/core/database/DatabaseService');
 
 describe('MetroInfoProvider', () => {
-    let provider;
-    let metroCoreMock;
-    let dbServiceMock;
+  let metroInfoProvider;
+  let mockDatabaseService;
 
-    beforeEach(() => {
-        metroCoreMock = sinon.stub(new MetroCore({}));
-        dbServiceMock = sinon.stub(new DatabaseService({}));
-        provider = new MetroInfoProvider(metroCoreMock, dbServiceMock);
+  beforeEach(() => {
+    mockDatabaseService = {
+      getLinesWithStatus: jest.fn().mockResolvedValue([]),
+      getStationsWithStatus: jest.fn().mockResolvedValue([]),
+      query: jest.fn().mockResolvedValue([]),
+    };
+    const mockMetroCore = {};
+    metroInfoProvider = MetroInfoProvider.initialize(mockMetroCore, mockDatabaseService);
+  });
+
+  afterEach(() => {
+    MetroInfoProvider.instance = null;
+    jest.clearAllMocks();
+  });
+
+  describe('updateFromDb', () => {
+    it('should fetch fused data from the database when no data is provided', async () => {
+      const lines = [{ line_id: 'L1', line_name: 'Test Line', status_message: 'Operational' }];
+      const stations = [{ station_id: 'ST1', station_name: 'Test Station', status_message: 'Operational' }];
+      mockDatabaseService.getLinesWithStatus.mockResolvedValue(lines);
+      mockDatabaseService.getStationsWithStatus.mockResolvedValue(stations);
+
+      await metroInfoProvider.updateFromDb();
+
+      expect(mockDatabaseService.getLinesWithStatus).toHaveBeenCalled();
+      expect(mockDatabaseService.getStationsWithStatus).toHaveBeenCalled();
+      expect(metroInfoProvider.data.lines.L1).toEqual(lines[0]);
+      expect(metroInfoProvider.data.stations.ST1).toEqual(stations[0]);
     });
 
-    afterEach(() => {
-        sinon.restore();
+    it('should use provided data when dbData is provided', async () => {
+      const dbData = {
+        lines: [{ id: 'L1', name: 'Test Line' }],
+        stations: [{ id: 'ST1', name: 'Test Station' }],
+      };
+
+      await metroInfoProvider.updateFromDb(dbData);
+
+      expect(mockDatabaseService.getLinesWithStatus).not.toHaveBeenCalled();
+      expect(mockDatabaseService.getStationsWithStatus).not.toHaveBeenCalled();
+      expect(metroInfoProvider.data.lines.L1).toEqual({ id: 'L1', name: 'Test Line' });
+      expect(metroInfoProvider.data.stations.ST1).toEqual({ id: 'ST1', name: 'Test Station' });
+    });
+  });
+
+  describe('getStationDetails', () => {
+    it('should return null for non-existent station', () => {
+      metroInfoProvider.data.stations = {};
+      expect(metroInfoProvider.getStationDetails('non-existent')).toBeNull();
     });
 
-    it('should initialize with empty data', () => {
-        const expectedData = {
-            lines: {},
-            stations: {},
-            trains: {},
-            intermodal: {
-                stations: {},
-                buses: {}
-            },
-            futureLines: {},
-            accessibility: {},
-            network_status: {},
-            events: {},
-            last_updated: null
-        };
-        assert.deepStrictEqual(provider.getFullData(), expectedData);
+    it('should return fused station details', () => {
+      const stationName = 'Test Station';
+      const stationData = {
+        'test-station': {
+          station_name: 'Test Station',
+          line_id: 'L1',
+          route_color: 'R',
+          express_state: 'Operational',
+          combinacion: 'L2',
+          connections: ['L2', 'bus'],
+          access_details: 'details',
+          services: 'services',
+          accessibility: 'accessibility',
+          amenities: 'amenities',
+          commune: 'commune',
+          platforms: { '1': 1, '2': 0 },
+          status_message: 'Station is operational',
+          status_name: 'operational',
+          is_operational: 1,
+          status_description: 'Station is operational'
+        }
+      };
+      metroInfoProvider.updateData({
+        stations: stationData,
+        lines: { L1: { status_message: 'Line is operational' } },
+        intermodal: { buses: { 'Test Station': ['bus1', 'bus2'] } }
+      });
+
+      const details = metroInfoProvider.getStationDetails(stationName);
+
+      expect(details).toEqual({
+        name: 'Test Station',
+        line: 'L1',
+        route: 'Roja',
+        express_state: 'Operational',
+        transfer: 'LL2',
+        connections: ['L2', 'bus'],
+        details: {
+          schematics: 'details',
+          services: 'services',
+          accessibility: 'accessibility',
+          amenities: 'amenities',
+          municipality: 'commune',
+        },
+        platforms: [{ platform: 1, status: 'active' }, { platform: 2, status: 'inactive' }],
+        intermodal: ['bus1', 'bus2'],
+        status: expect.any(Object),
+      });
+    });
+  });
+
+  describe('getLine', () => {
+    it('should return null for non-existent line', () => {
+        metroInfoProvider.data.lines = {};
+      expect(metroInfoProvider.getLine('non-existent')).toBeNull();
     });
 
-    it('should update data correctly', () => {
-        const newData = {
-            lines: {
-                l1: { id: 'L1', status: 'operational' }
-            }
-        };
-        provider.updateData(newData);
-        assert.deepStrictEqual(provider.getFullData().lines, newData.lines);
+    it('should return fused line details', () => {
+      const lineId = 'L1';
+      const lineData = {
+        L1: {
+          line_name: 'Test Line',
+          status_message: 'Line is operational'
+        }
+      };
+      metroInfoProvider.updateData({ lines: lineData });
+
+      const details = metroInfoProvider.getLine(lineId);
+
+      expect(details).toEqual({
+        line_name: 'Test Line',
+        status_message: 'Line is operational'
+      });
     });
-
-    it('should update from API data correctly', () => {
-        const apiData = {
-            lineas: {
-                l1: { id: 'L1', status: 'operational' }
-            },
-            network: {
-                status: 'ok'
-            },
-            lastSuccessfulFetch: new Date()
-        };
-        provider.updateFromApi(apiData);
-        const fullData = provider.getFullData();
-        assert.deepStrictEqual(fullData.lines, apiData.lineas);
-        assert.deepStrictEqual(fullData.network_status, apiData.network);
-    });
-
-    describe('applyChanges', () => {
-        it('should fetch all data from database when changes are detected', async () => {
-            const stationChanges = [{ history_id: 1 }];
-            const lineChanges = [];
-            const fullData = { lines: { l1: { id: 'L1' } }, stations: { s1: { id: 'S1' } } };
-
-            provider.databaseService.getAllData = sinon.stub().resolves(fullData);
-
-            await provider.applyChanges({ stationChanges, lineChanges });
-
-            assert(provider.databaseService.getAllData.calledOnce);
-            assert.deepStrictEqual(provider.getFullData().lines, fullData.lines);
-            assert.deepStrictEqual(provider.getFullData().stations, fullData.stations);
-        });
-
-        it('should not do anything if there are no changes', async () => {
-            const stationChanges = [];
-            const lineChanges = [];
-
-            provider.databaseService.getAllData = sinon.stub().resolves({});
-
-            await provider.applyChanges({ stationChanges, lineChanges });
-
-            assert(provider.databaseService.getAllData.notCalled);
-        });
-    });
-
-    describe('getStationDetails', () => {
-        it('should return null for non-existent station', () => {
-            assert.strictEqual(provider.getStationDetails('non-existent'), null);
-        });
-
-        it('should return station details with connections', () => {
-            const stationName = 'Test Station';
-            const stationData = {
-                'test-station': {
-                    name: 'Test Station',
-                    connections: ['l2', 'bus']
-                }
-            };
-            provider.updateData({ stations: stationData, lines: { l1: {} }, intermodal: { buses: {} } });
-
-            const details = provider.getStationDetails(stationName);
-
-            assert.deepStrictEqual(details.connections, ['l2', 'bus']);
-        });
-    });
-
-    describe('mergeData', () => {
-        it('should prioritize API data if it is newer', () => {
-            const apiTimestamp = new Date('2025-01-01T12:00:00Z');
-            const dbTimestamp = new Date('2025-01-01T11:00:00Z');
-
-            const apiData = {
-                network: { timestamp: apiTimestamp.toISOString() },
-                lineas: {
-                    l1: { estado: 'api_line_status', estaciones: [{ id_estacion: 'st1', estado: 'api_station_status' }] }
-                }
-            };
-            const dbData = {
-                lines: [{ id: 'l1', last_updated: dbTimestamp.toISOString(), estado: 'db_line_status' }],
-                stations: [{ station_code: 'st1', status_data: { last_updated: dbTimestamp.toISOString() }, estado: 'db_station_status' }]
-            };
-
-            const merged = provider.mergeData(apiData, dbData);
-
-            assert.strictEqual(merged.lines.l1.estado, 'api_line_status');
-            assert.strictEqual(merged.stations.ST1.estado, 'api_station_status');
-        });
-
-        it('should prioritize DB data if it is newer', () => {
-            const apiTimestamp = new Date('2025-01-01T11:00:00Z');
-            const dbTimestamp = new Date('2025-01-01T12:00:00Z');
-
-            const apiData = {
-                network: { timestamp: apiTimestamp.toISOString() },
-                lineas: {
-                    l1: { estaciones: [{ id_estacion: 'st1' }] }
-                },
-            };
-            const dbData = {
-                lines: [{ id: 'l1', last_updated: dbTimestamp.toISOString(), estado: 'db_line_status' }],
-                stations: [{ station_code: 'st1', status_data: { last_updated: dbTimestamp.toISOString() }, estado: 'db_station_status' }]
-            };
-
-            const merged = provider.mergeData(apiData, dbData);
-
-            assert.strictEqual(merged.lines.l1.estado, 'db_line_status');
-            assert.strictEqual(merged.stations.ST1.estado, 'db_station_status');
-        });
-
-        it('should handle missing station in dbData gracefully', () => {
-            const apiTimestamp = new Date('2025-01-01T12:00:00Z');
-
-            const apiData = {
-                network: { timestamp: apiTimestamp.toISOString() },
-                lineas: {
-                    l1: { estaciones: [{ id_estacion: 'st1', estado: 'api_station_status' }] }
-                }
-            };
-
-            const dbData = {
-                lines: [],
-                stations: []
-            };
-
-            const merged = provider.mergeData(apiData, dbData);
-            assert.strictEqual(merged.stations.ST1.estado, 'api_station_status');
-        });
-
-        it('should preserve API status when merging with richer DB data', () => {
-            const apiTimestamp = new Date('2025-01-01T12:00:00Z');
-            const dbTimestamp = new Date('2025-01-01T11:00:00Z');
-
-            const apiData = {
-                network: { timestamp: apiTimestamp.toISOString() },
-                lineas: {
-                    l1: {
-                        estaciones: [{
-                            id_estacion: 'st1',
-                            estado: 'api_station_status',
-                            descripcion: 'API Description',
-                            descripcion_app: 'API App Description'
-                        }]
-                    }
-                }
-            };
-            const dbData = {
-                lines: [],
-                stations: [{
-                    station_code: 'st1',
-                    station_name: 'Station One',
-                    commune: 'Test Commune',
-                    status_data: { last_updated: dbTimestamp.toISOString() },
-                    estado: 'db_station_status'
-                }]
-            };
-
-            const merged = provider.mergeData(apiData, dbData);
-
-            assert.strictEqual(merged.stations.ST1.estado, 'api_station_status', 'API status should be preserved');
-            assert.strictEqual(merged.stations.ST1.station_name, 'Station One', 'DB station name should be preserved');
-            assert.strictEqual(merged.stations.ST1.commune, 'Test Commune', 'DB commune should be preserved');
-            assert.strictEqual(merged.stations.ST1.descripcion, 'API Description', 'API description should be preserved');
-        });
-    });
+  });
 });

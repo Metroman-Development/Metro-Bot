@@ -91,21 +91,40 @@ class MetroInfoProvider {
     }
 
     async updateFromDb(dbData) {
-        if (!dbData) return;
-        const { lines, stations } = this.data;
-        for (const line of dbData.lines) {
-            if (!lines[line.id]) {
-                lines[line.id] = {};
+        if (dbData) {
+            const { lines, stations } = this.data;
+            for (const line of dbData.lines) {
+                if (!lines[line.id]) {
+                    lines[line.id] = {};
+                }
+                Object.assign(lines[line.id], line);
             }
-            Object.assign(lines[line.id], line);
-        }
-        for (const station of dbData.stations) {
-            if (!stations[station.id]) {
-                stations[station.id] = {};
+            for (const station of dbData.stations) {
+                if (!stations[station.id]) {
+                    stations[station.id] = {};
+                }
+                Object.assign(stations[station.id], station);
             }
-            Object.assign(stations[station.id], station);
+            this.updateData({ lines, stations });
+        } else {
+            const [lines, stations] = await Promise.all([
+                this.databaseService.getLinesWithStatus(),
+                this.databaseService.getStationsWithStatus()
+            ]);
+
+            const linesById = {};
+            for (const line of lines) {
+                linesById[line.line_id] = line;
+            }
+
+            const stationsById = {};
+            for (const station of stations) {
+                stationsById[station.station_id] = station;
+            }
+
+            this.updateData({ lines: linesById, stations: stationsById });
         }
-        this.updateData({ lines, stations });
+
         await this.fetchAndSetEventData();
     }
 
@@ -231,7 +250,7 @@ class MetroInfoProvider {
 
         const line = this.data.lines[station.line_id];
         const lineStatus = line ? line.status_message : 'No disponible';
-        const stationStatus = station.status ? station.status.message : 'No disponible';
+        const stationStatus = station.status_message || 'No disponible';
 
         const platforms = station.platforms ? Object.entries(station.platforms).map(([platform, status]) => ({
             platform: parseInt(platform, 10),
@@ -257,13 +276,13 @@ class MetroInfoProvider {
             platforms: platforms,
             intermodal: intermodal,
             status: {
-                code: station.status?.code || '0',
-                message: station.status?.message || '',
-                nombre: station.nombre,
-                codigo: station.codigo,
-                estado: station.estado,
-                descripcion: station.descripcion,
-                descripcion_app: station.descripcion_app,
+                code: station.status_name || '0',
+                message: stationStatus,
+                nombre: station.station_name,
+                codigo: station.station_code,
+                estado: station.is_operational ? 'operational' : 'closed',
+                descripcion: station.status_description,
+                descripcion_app: station.status_message,
                 status_data: station.status_data
             },
         };
