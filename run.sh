@@ -38,7 +38,6 @@ mkdir -p "$LOG_DIR"
 # Core modules that are foundational but not runnable as standalone services
 declare -A core_modules
 core_modules=(
-    [metrocore]="./src/core/metro/MetroCore.js"
     [metro-info-provider]="./src/utils/MetroInfoProvider.js"
 )
 
@@ -54,7 +53,6 @@ app_services=(
 # Define all services for easier lookup
 declare -A all_services
 all_services=(
-    ["metrocore"]=1
     ["metro-info-provider"]=1
     ["discord"]=2
     ["telegram"]=2
@@ -65,9 +63,8 @@ all_services=(
 
 declare -A service_dependencies
 service_dependencies=(
-    [discord]="scheduler metrocore"
-    [telegram]="scheduler metrocore"
-    [metrocore]="metro-info-provider"
+    [discord]="scheduler"
+    [telegram]="scheduler"
 )
 
 # --- Helper Functions ---

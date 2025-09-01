@@ -1,6 +1,7 @@
 // intermodalidad.js
 const { SlashCommandBuilder } = require('discord.js');
 const intermodal = require('./_intintermodal');
+const MetroInfoProvider = require('../../../../utils/MetroInfoProvider');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,12 +15,12 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand();
         
         try {
-            // Get MetroCore instance if needed (similar to metro.js)
-            const metro = await this.getMetroCore(interaction);
+            // Get MetroInfoProvider instance
+            const metroInfoProvider = this.getMetroInfoProvider(interaction);
             
             switch(subcommand) {
                 case 'intermodal':
-                    return intermodal.execute(interaction, metro);
+                    return intermodal.execute(interaction, metroInfoProvider);
                 default:
                     return interaction.reply({ 
                         content: '⚠️ Subcomando no reconocido', 
@@ -35,17 +36,11 @@ module.exports = {
         }
     },
 
-    async getMetroCore(interaction) {
+    getMetroInfoProvider(interaction) {
         try {
-            if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-                const MetroCore = require('../../../../../core/metro/MetroCore.js');
-                interaction.client.metroCore = await MetroCore.getInstance({ 
-                    client: interaction.client 
-                });
-            }
-            return interaction.client.metroCore;
+            return MetroInfoProvider.getInstance();
         } catch (error) {
-            console.error('Failed to get MetroCore instance:', error);
+            console.error('Failed to get MetroInfoProvider instance:', error);
             throw new Error('El sistema de transporte no está disponible');
         }
     }
