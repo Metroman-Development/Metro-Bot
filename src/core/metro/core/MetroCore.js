@@ -8,7 +8,6 @@ const DataEngine = require('./internal/DataEngine');
 const EventEngine = require('./internal/EventEngine');
 const StatusEngine = require('./internal/StatusEngine');
 
-const DataLoader = require('./DataLoader');
 const DataManager =require('./services/DataManager');
 const TimeService = require('./services/TimeService');
 const AccessibilityService = require('./services/AccessibilityService');
@@ -87,7 +86,6 @@ class MetroCore extends EventEmitter {
             throw new Error(`Failed to initialize managers: ${managerError.message}`);
         }
 
-        this._subsystems.dataLoader = new DataLoader({ dbManager: this.dbManager });
         this._subsystems.scheduleHelpers = require('../../status/utils/scheduleUtils');
         this._subsystems.changeAnnouncer = new ChangeAnnouncer();
 
@@ -212,7 +210,21 @@ class MetroCore extends EventEmitter {
             this._setupEventListeners();
             
             // Phase 5: Load status data
-            const initialData = await this._subsystems.dataLoader.load();
+            const [system, lines, stations, intermodal] = await Promise.all([
+                this._subsystems.metroInfoProvider.loadMetroFromDb(),
+                this._subsystems.metroInfoProvider.loadLinesFromDb(),
+                this._subsystems.metroInfoProvider.loadStationsFromDb(),
+                this._subsystems.metroInfoProvider.loadIntermodalFromDb(),
+            ]);
+
+            const initialData = {
+                system,
+                lines,
+                stations,
+                intermodal,
+                trains: {},
+                version: `1.0.0-${Date.now()}`,
+            };
             this._subsystems.metroInfoProvider.updateData(initialData);
 
             // Phase 6: Initialize data managers
@@ -341,14 +353,24 @@ class MetroCore extends EventEmitter {
      * @returns {Promise<void>} Resolves when the refresh is complete, or rejects on error.
      */
     async refreshStatusData() {
-        if (!this._subsystems?.dataLoader) {
-            throw new Error('Cannot refresh data: DataLoader subsystem is not initialized.');
-        }
-
         try {
             logger.debug('[MetroCore] Refreshing status data...');
 
-            const newStatusData = await this._subsystems.dataLoader.load();
+            const [system, lines, stations, intermodal] = await Promise.all([
+                this._subsystems.metroInfoProvider.loadMetroFromDb(),
+                this._subsystems.metroInfoProvider.loadLinesFromDb(),
+                this._subsystems.metroInfoProvider.loadStationsFromDb(),
+                this._subsystems.metroInfoProvider.loadIntermodalFromDb(),
+            ]);
+
+            const newStatusData = {
+                system,
+                lines,
+                stations,
+                intermodal,
+                trains: {},
+                version: `1.0.0-${Date.now()}`,
+            };
 
             if (!newStatusData || typeof newStatusData !== 'object') {
                 throw new Error('Loaded data is invalid or empty.');
