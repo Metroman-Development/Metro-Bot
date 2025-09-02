@@ -112,7 +112,10 @@ class MetroInfoProvider {
 
             const linesById = {};
             for (const line of lines) {
-                linesById[line.line_id] = line;
+                if (line.line_id) {
+                    line.id = line.line_id;
+                    linesById[line.line_id] = line;
+                }
             }
 
             const stationsById = {};
