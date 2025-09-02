@@ -1,20 +1,38 @@
-[Master] Initializing master process...
-[DB] Creating new DatabaseManager instance
-[DB] Initializing new DatabaseManager instance
-[DB] Starting initialization...
-[DB] Creating new connection pool with config: {
-  host: undefined,
-  user: undefined,
-  password: undefined,
-  database: undefined,
-  port: undefined
-}
-{
-  host: undefined,
-  user: undefined,
-  password: undefined,
-  database: undefined,
-  port: undefined
-}
-[DB] Connection pool created, testing connection...
-[DB] Acquiring connection for health check...
+Pulling latest changes from git...
+Already up to date.
+Installing/updating npm dependencies...
+
+up to date, audited 636 packages in 2s
+
+108 packages are looking for funding
+  run `npm fund` for details
+
+1 critical severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+INFO: Loaded configuration from config.json
+Starting all application services...
+Dependency 'scheduler' for service 'telegram' is not running. Starting it now...
+Starting service 'scheduler'...
+Service 'scheduler' started with PID 4508. Log: logs/scheduler.log
+Waiting for dependency 'scheduler' to start...
+Starting service 'telegram'...
+Service 'telegram' started with PID 4520. Log: logs/telegram.log
+Service 'scheduler' is already running with PID 4508.
+Starting service 'api'...
+Service 'api' started with PID 4533. Log: logs/api.log
+Starting service 'discord'...
+Service 'discord' started with PID 4545. Log: logs/discord.log
+--- Service Status ---
+Application Services:
+  [RUNNING] telegram (PID: 4520)
+  [RUNNING] scheduler (PID: 4508)
+  [RUNNING] api (PID: 4533)
+  [RUNNING] discord (PID: 4545)
+
+Core Modules:
+  [LOADED]  metro-info-provider (as a foundational component)
+----------------------

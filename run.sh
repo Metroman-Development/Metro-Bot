@@ -148,12 +148,7 @@ start_service() {
     rotate_log "$log_file"
 
     # Start the service in the background and get its PID
-    nohup env \
-      DB_HOST=localhost \
-      DB_USER=metroapi \
-      DB_PASSWORD=Metro256 \
-      METRODB_NAME=MetroDB \
-      node "$service_script" > "$log_file" 2>&1 &
+    nohup node "$service_script" > "$log_file" 2>&1 &
     local pid=$!
 
     # Save the PID to a file
