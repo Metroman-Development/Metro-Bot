@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
 const logger = require('../logger');
+const MetroInfoProvider = require('../../utils/MetroInfoProvider');
 
 /**
  * @typedef {import('discord.js').Interaction} Interaction
@@ -14,15 +15,29 @@ module.exports = {
      */
     async execute(interaction) {
         const { client } = interaction;
+        const metroInfoProvider = MetroInfoProvider.getInstance();
 
-        if (interaction.isCommand()) {
+        if (interaction.isAutocomplete()) {
+            const command = client.commands.get(interaction.commandName);
+            if (!command || !command.autocomplete) return;
+
+            try {
+                await command.autocomplete(interaction, metroInfoProvider);
+            } catch (error) {
+                logger.error('Error handling autocomplete:', {
+                    commandName: interaction.commandName,
+                    user: interaction.user.tag,
+                    error: error.message,
+                });
+            }
+        } else if (interaction.isCommand()) {
             const command = client.commands.get(interaction.commandName);
             if (!command) {
                 logger.warn(`No command matching ${interaction.commandName} was found.`);
                 return;
             }
             try {
-                await command.execute(interaction);
+                await command.execute(interaction, metroInfoProvider);
             } catch (error) {
                 logger.error('Error executing command:', {
                     commandName: interaction.commandName,
@@ -42,7 +57,7 @@ module.exports = {
             for (const [prefix, handler] of client.interactionHandlers.entries()) {
                 if (customId.startsWith(prefix)) {
                     try {
-                        await handler.execute(interaction);
+                        await handler.execute(interaction, metroInfoProvider);
                     } catch (error) {
                         logger.error(`Error executing interaction handler for prefix "${prefix}":`, {
                             customId: interaction.customId,
