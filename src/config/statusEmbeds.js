@@ -126,7 +126,7 @@ module.exports = {
         const statusCode = lineData.estado || lineData.status || '1';
         const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
         const isClosed = statusCode === '0' || lineData.mensaje_app?.includes('Cierre por Horario');
-        const description = isClosed
+        let description = isClosed
             ? `🌙 Cierre por Horario`
             : `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`;
 
