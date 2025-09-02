@@ -268,44 +268,12 @@ class MetroInfoProvider {
         }
     }
 
-    async updateFromDb(dbData) {
-        if (dbData) {
-            const { lines, stations } = this.data;
-            for (const line of dbData.lines) {
-                if (!lines[line.id]) {
-                    lines[line.id] = {};
-                }
-                Object.assign(lines[line.id], line);
-            }
-            for (const station of dbData.stations) {
-                if (!stations[station.id]) {
-                    stations[station.id] = {};
-                }
-                Object.assign(stations[station.id], station);
-            }
-            this.updateData({ lines, stations });
-        } else {
-            const [lines, stations] = await Promise.all([
-                this.databaseService.getLinesWithStatus(),
-                this.databaseService.getStationsWithStatus()
-            ]);
-
-            const linesById = {};
-            for (const line of lines) {
-                if (line.line_id) {
-                    line.id = line.line_id;
-                    linesById[line.line_id] = line;
-                }
-            }
-
-            const stationsById = {};
-            for (const station of stations) {
-                stationsById[station.station_id] = station;
-            }
-
-            this.updateData({ lines: linesById, stations: stationsById });
-        }
-
+    async updateFromDb() {
+        const [lines, stations] = await Promise.all([
+            this.loadLinesFromDb(),
+            this.loadStationsFromDb(),
+        ]);
+        this.updateData({ lines, stations });
         await this.fetchAndSetEventData();
     }
 
