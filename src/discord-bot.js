@@ -120,16 +120,16 @@ async function startDiscordBot() {
                         const lastUpdated = new Date(result[0].last_updated);
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
-                            if (metroInfoProvider.statusEmbedManager && typeof metroInfoProvider.statusEmbedManager.updateEmbeds === 'function') {
+                            if (metroInfoProvider.statusEmbedManager && typeof metroInfoProvider.statusEmbedManager.updateAllEmbeds === 'function') {
                                 const data = await metroInfoProvider.getFullData();
                                 if (data) {
-                                    await metroInfoProvider.statusEmbedManager.updateEmbeds(data);
+                                    await metroInfoProvider.statusEmbedManager.updateAllEmbeds(data);
                                     lastEmbedUpdate = lastUpdated;
                                 } else {
                                     logger.warn('[DISCORD] No data available from getFullData, skipping embed update.');
                                 }
                             } else {
-                                logger.warn('[DISCORD] statusEmbedManager or updateEmbeds method not available.');
+                                logger.warn('[DISCORD] statusEmbedManager or updateAllEmbeds method not available.');
                             }
                         }
                     }
