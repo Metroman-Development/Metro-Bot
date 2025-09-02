@@ -18,7 +18,7 @@ const {
 const {
   decorateStation,
   decorateLine
-} = require('../utils/stringHandlers/decorators');
+} = require('../../../utils/stringUtils');
 const {
   isValidLine,
   isTransferStation
@@ -340,7 +340,7 @@ class SearchProcessor {
           line: result.item.line,
           status: result.item.status,
           transfer: decorated.isTransfer
-        });
+        }, this.metroCore);
       case 'lines':
         return `${decorated.name} ${decorateLine(result.item.id)}`;
       case 'trains':

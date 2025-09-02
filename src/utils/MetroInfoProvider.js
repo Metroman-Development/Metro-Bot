@@ -1,4 +1,5 @@
 const logger = require('../events/logger');
+const metroConfig = require('../config/metro/metroConfig');
 const { diff } = require('deep-diff');
 const DataManager = require('../core/metro/core/services/DataManager');
 const DbChangeDetector = require('../core/metro/core/services/changeDetectors/DbChangeDetector');
@@ -48,6 +49,7 @@ class MetroInfoProvider {
         }
         this.databaseService = databaseService;
         this.statusEmbedManager = statusEmbedManager || null;
+        this.config = metroConfig;
         this.data = {
             lines: {},
             stations: {},
@@ -370,6 +372,10 @@ class MetroInfoProvider {
     async compareAndSyncData(dbData) {
         // For now, just update from db
         await this.updateFromDb(dbData);
+    }
+
+    getConfig() {
+        return this.config;
     }
 }
 

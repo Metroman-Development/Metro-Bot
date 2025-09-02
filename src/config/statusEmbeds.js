@@ -1,4 +1,3 @@
-const metroConfig = require('./metro/metroConfig.js');
 const logger = require('../events/logger');
 const styles = require('./styles.json');
 const TimeHelpers = require('../utils/timeHelpers.js');
@@ -12,7 +11,8 @@ function hexToInt(hex) {
 }
 
 module.exports = {
-    overviewEmbed: (data, timestamp) => {
+    overviewEmbed: (metroInfoProvider, timestamp) => {
+        const data = metroInfoProvider.getFullData();
         if (!data || !data.lines || typeof data.lines !== 'object') {
             return {
                 title: '🚇 Estado General de la Red Metro',
@@ -26,6 +26,7 @@ module.exports = {
         }
 
         const { lines, network_status } = data;
+        const metroConfig = metroInfoProvider.getConfig();
 
         const statusMessages = {
             operational: '✅ **Toda la Red Operativa**',
@@ -99,9 +100,10 @@ module.exports = {
         };
     },
 
-    lineEmbed: (lineData, stations, timestamp) => {
-        
-        //console.log(stations)
+    lineEmbed: (lineId, metroInfoProvider, timestamp) => {
+        const lineData = metroInfoProvider.getLine(lineId);
+        const stations = metroInfoProvider.getStations();
+        const metroConfig = metroInfoProvider.getConfig();
         
         logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
         if (!lineData) {
@@ -134,7 +136,7 @@ module.exports = {
             .filter(station => station.line_id === lineData.id);
 
         const stationLines = stationObjects.map(station => {
-            return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms', 'transports']);
+            return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms', 'transports'], metroInfoProvider);
         });
 
         if (lineData.express_status) {

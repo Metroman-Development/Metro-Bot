@@ -143,7 +143,7 @@ describe('EmbedManager', () => {
             MetroInfoProvider.getInstance().getFullData.mockReturnValue(null);
             await embedManager.updateAllEmbeds(null);
 
-            expect(logger.error.mock.calls[0][0]).toBe('[EmbedManager] Failed to get processed data or data is incomplete. Aborting update.');
+            expect(logger.error.mock.calls[0][0]).toBe('[EmbedManager] Overview update failed');
             expect(embedManager.updateOverviewEmbed).not.toHaveBeenCalled();
             expect(embedManager.updateAllLineEmbeds).not.toHaveBeenCalled();
         });

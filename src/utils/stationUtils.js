@@ -3,9 +3,7 @@
  * @description Utilities for handling station data.
  */
 
-const metroConfig = require('../config/metro/metroConfig');
-
-const normalizedConnectionEmojis = Object.keys(metroConfig.connectionEmojis || {}).reduce((acc, key) => {
+const normalizedConnectionEmojis = (metroConfig) => Object.keys(metroConfig.connectionEmojis || {}).reduce((acc, key) => {
     const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     acc[normalizedKey] = metroConfig.connectionEmojis[key];
     return acc;
@@ -82,7 +80,7 @@ function getLineImage(line) {
     return `https://www.metro.cl/images/lines/line-${line}.png`;
 }
 
-function processCommerceText(commerceText) {
+function processCommerceText(commerceText, metroConfig) {
     if (!commerceText) return 'No disponible';
 
     const commerceList = commerceText.split(',').map(item => item.trim());
@@ -109,7 +107,7 @@ function processCommerceText(commerceText) {
     }).join(', ');
 }
 
-function processAccessibilityText(accessibilityText) {
+function processAccessibilityText(accessibilityText, metroConfig) {
     if (!accessibilityText) return ["No hay información de accesibilidad"];
 
     const accessibilityLines = accessibilityText.split('\n');
@@ -159,7 +157,11 @@ function processAccessibilityText(accessibilityText) {
     });
 }
 
-function decorateStation(station, decorations = []) {
+function decorateStation(station, decorations = [], metroInfoProvider) {
+    if (!metroInfoProvider) {
+        throw new Error("decorateStation requires a metroInfoProvider instance.");
+    }
+    const metroConfig = metroInfoProvider.getConfig();
     const stationName = station.display_name || station.nombre || station.name || '';
     let statusConfig = metroConfig.statusTypes?.['default']; // Default status
 
@@ -216,7 +218,7 @@ function decorateStation(station, decorations = []) {
 
         const connectionIcons = transportsArray.map(trans => {
             const normalizedConn = trans.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            return normalizedConnectionEmojis[normalizedConn] || '';
+            return normalizedConnectionEmojis(metroConfig)[normalizedConn] || '';
         }).join(' ');
         if (connectionIcons) {
             decoratedName += ` ${connectionIcons}`;
@@ -227,7 +229,7 @@ function decorateStation(station, decorations = []) {
     if (decorations.includes('other_connections') && station.connections?.length > 0) {
         const connectionIcons = station.connections.map(conn => {
             const normalizedConn = conn.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(" ", "");
-            return normalizedConnectionEmojis[normalizedConn] || '';
+            return normalizedConnectionEmojis(metroConfig)[normalizedConn] || '';
         }).join(' ');
         if (connectionIcons) {
             decoratedName += ` ${connectionIcons}`;
