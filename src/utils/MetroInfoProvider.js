@@ -39,6 +39,186 @@ class MetroInfoProvider {
             systemInfo: {}
         };
         this.isInitialized = true;
+        this.source = 'database';
+    }
+
+    async loadIntermodalFromDb() {
+        try {
+            const stations = await this.databaseService.query("SELECT * FROM intermodal_stations");
+            const buses = await this.databaseService.query("SELECT * FROM intermodal_buses");
+            return this._transformIntermodal(stations, buses);
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    _transformIntermodal(stations, buses) {
+        const busMap = buses.reduce((acc, bus) => {
+            if (!acc[bus.station_id]) {
+                acc[bus.station_id] = [];
+            }
+            acc[bus.station_id].push({
+                'Tipo Servicio': bus.type,
+                'Recorrido/Operador': bus.route,
+                'Destino': bus.destination
+            });
+            return acc;
+        }, {});
+
+        return stations.reduce((acc, station) => {
+          const normalizedName = this._normalizeName(station.name);
+          acc[normalizedName] = {
+            id: normalizedName,
+            services: JSON.parse(station.services),
+            buses: busMap[station.id] || [],
+            location: station.location,
+            comuna: station.commune,
+            inauguration: station.inauguration,
+            platforms: station.platforms,
+            operator: station.operator
+          };
+          return acc;
+        }, {});
+    }
+
+    _normalizeName(name) {
+        return name.toLowerCase().replace(/\s+/g, '_');
+    }
+
+    async loadMetroFromDb() {
+        try {
+            const rows = await this.databaseService.query("SELECT * FROM system_info LIMIT 1");
+            return this._transformMetro(rows[0]);
+        } catch (err) {
+            // Rethrow the error to be handled by the caller
+            throw err;
+        }
+    }
+
+    _transformMetro(data){
+        if (!data) return {};
+        return {
+            name: data.name,
+            system: data.system,
+            inauguration: data.inauguration,
+            technicalCharacteristics: {
+                length: data.length,
+                stations: data.stations,
+                trackGauge: data.track_gauge,
+                electrification: data.electrification,
+                maxSpeed: data.max_speed
+            },
+            operation: {
+                status: data.status,
+                lines: data.lines,
+                cars: data.cars,
+                passengers: data.passengers,
+                fleet: data.fleet,
+                averageSpeed: data.average_speed,
+                operator: data.operator
+            },
+            mapUrl: data.map_url
+        };
+    }
+
+    async loadLinesFromDb() {
+        try {
+            const lines = await this.databaseService.query('SELECT * FROM metro_lines');
+
+            const lineData = {};
+            for (const line of lines) {
+                const lineId = line.line_id.toLowerCase();
+                lineData[lineId] = {
+                    id: lineId,
+                    displayName: line.line_name,
+                    color: line.line_color,
+                    status: {
+                        message: line.status_message,
+                        code: line.status_code
+                    },
+                };
+            }
+
+            return lineData;
+        } catch (error) {
+            console.error('Error loading line data from database:', error);
+            throw error;
+        }
+    }
+
+    async loadStationsFromDb() {
+        try {
+            const query = `
+                SELECT
+                    ms.station_code,
+                    ms.station_name,
+                    ms.display_name,
+                    ms.line_id,
+                    ms.commune,
+                    ms.transports,
+                    ms.services,
+                    ms.commerce,
+                    ms.amenities,
+                    ms.image_url,
+                    ms.accessibility,
+                    ms.access_details,
+                    ms.opened_date,
+                    ms.last_renovation_date,
+                    ms.combinacion,
+                    ms.connections,
+                    ss.status_description,
+                    ss.status_message,
+                    ss.is_planned,
+                    ss.impact_level,
+                    ost.status_name as status_code,
+                    ost.is_operational
+                FROM
+                    metro_stations ms
+                LEFT JOIN
+                    station_status ss ON ms.station_id = ss.station_id
+                LEFT JOIN
+                    operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            `;
+
+            const stations = await this.databaseService.query(query);
+
+            const stationData = {};
+            for (const station of stations) {
+                console.log(`Processing station: ${station.station_code}, connections: ${station.connections}`);
+                const stationId = station.station_code.toUpperCase();
+                stationData[stationId] = {
+                    id: stationId,
+                    name: station.station_name,
+                    displayName: station.display_name || station.station_name,
+                    line: station.line_id.toLowerCase(),
+                    commune: station.commune,
+                    transports: station.transports,
+                    services: station.services,
+                    commerce: station.commerce,
+                    amenities: station.amenities,
+                    image: station.image_url,
+                    accessibility: station.accessibility,
+                    accessDetails: station.access_details,
+                    openedDate: station.opened_date,
+                    lastRenovationDate: station.last_renovation_date,
+                    combinacion: station.combinacion,
+                    connections: station.connections || [],
+                    status: {
+                        code: station.status_code || 'operational',
+                        description: station.status_description,
+                        message: station.status_message,
+                        isPlanned: station.is_planned,
+                        impactLevel: station.impact_level,
+                        isOperational: station.is_operational !== 0,
+                    }
+                };
+            }
+
+            return stationData;
+        } catch (error) {
+            console.error('Error loading station data from database:', error);
+            throw error;
+        }
     }
 
     static initialize(databaseService, statusEmbedManager) {

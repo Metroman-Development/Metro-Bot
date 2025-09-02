@@ -10,8 +10,7 @@ describe('MetroInfoProvider', () => {
       getStationsWithStatus: jest.fn().mockResolvedValue([]),
       query: jest.fn().mockResolvedValue([]),
     };
-    const mockMetroCore = {};
-    metroInfoProvider = MetroInfoProvider.initialize(mockMetroCore, mockDatabaseService);
+    metroInfoProvider = new MetroInfoProvider(mockDatabaseService);
   });
 
   afterEach(() => {
