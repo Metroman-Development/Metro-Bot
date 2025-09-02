@@ -132,6 +132,7 @@ async function startDiscordBot() {
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
                             if (metroInfoProvider.statusEmbedManager && typeof metroInfoProvider.statusEmbedManager.updateAllEmbeds === 'function') {
+                                await metroInfoProvider.updateFromDb();
                                 await metroInfoProvider.statusEmbedManager.updateAllEmbeds(metroInfoProvider);
                                 lastEmbedUpdate = lastUpdated;
                             } else {
