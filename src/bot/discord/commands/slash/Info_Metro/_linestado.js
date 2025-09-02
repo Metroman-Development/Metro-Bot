@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const StatusEmbeds = require('../../../../../config/statusEmbeds');
 const TimeHelpers = require('../../../../../utils/timeHelpers');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     

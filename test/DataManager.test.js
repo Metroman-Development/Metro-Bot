@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../src/utils/MetroInfoProvider');
 const DataManager = require('../src/core/metro/core/services/DataManager');
 const DbDataManager = require('../src/core/metro/core/services/DbDataManager');
 const TimeHelpers = require('../src/utils/timeHelpers');

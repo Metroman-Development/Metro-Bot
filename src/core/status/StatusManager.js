@@ -1,6 +1,6 @@
 const logger = require('../../events/logger');
 const chronosConfig = require('../../config/chronosConfig');
-const MetroInfoProvider = require('../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../utils/MetroInfoProvider');
 
 class StatusManager {
     constructor(dbManager, dataManager, announcementService, statusEmbedManager) {

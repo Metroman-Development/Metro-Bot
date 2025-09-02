@@ -179,7 +179,7 @@ class MetroCore extends EventEmitter {
             this._subsystems.dbService = await DatabaseService.getInstance(dbManager);
             const databaseService = this._subsystems.dbService; // for local use
 
-            const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+            const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
             this._subsystems.metroInfoProvider = MetroInfoProvider.initialize(this, databaseService);
 
             this._subsystems.statusProcessor = new StatusProcessor(this, dbManager, databaseService);
@@ -313,6 +313,10 @@ class MetroCore extends EventEmitter {
      */
     getLineManager() {
         return this._subsystems.managers.lines;
+    }
+
+    getMetroInfoProvider() {
+        return this._subsystems.metroInfoProvider;
     }
 
     async setClient(client) {

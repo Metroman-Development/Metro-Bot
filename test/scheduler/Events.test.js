@@ -1,6 +1,6 @@
 const assert = require('assert');
 const SchedulerService = require('../../src/core/SchedulerService');
-const MetroInfoProvider = require('../../src/utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../src/utils/MetroInfoProvider');
 const bootstrap = require('../../src/core/bootstrap');
 
 describe.skip('SchedulerService Events', () => {

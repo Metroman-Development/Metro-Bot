@@ -2,7 +2,8 @@ const ExactSearch = require('./strategies/ExactSearch');
 const FuzzySearch = require('./strategies/FuzzySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
-const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
+const DatabaseManager = require('../../database/DatabaseManager');
 const logger = require('../../../events/logger');
 const Normalizer = require('../utils/stringHandlers/normalization');
 const SearchIndexer = require('./SearchIndexer');
@@ -53,12 +54,7 @@ class SearchCore {
   }
 
   async init() {
-      this.dataSource = {
-          stations: MetroInfoProvider.getStations(),
-          lines: MetroInfoProvider.getLines()
-      };
-      this.indexer = new SearchIndexer(this.dataSource);
-      this.indexer.buildIndex();
+    // Data source is now set externally
   }
 
   async getById(id) {

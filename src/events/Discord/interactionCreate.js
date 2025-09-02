@@ -1,6 +1,6 @@
 const { Events } = require('discord.js');
 const logger = require('../logger');
-const MetroInfoProvider = require('../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../utils/MetroInfoProvider');
 
 /**
  * @typedef {import('discord.js').Interaction} Interaction

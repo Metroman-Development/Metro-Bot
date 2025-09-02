@@ -6,7 +6,7 @@ const TimeHelpers = require('../../../utils/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
-const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 
 class EmbedManager {
     constructor(statusUpdater, metroCore) {

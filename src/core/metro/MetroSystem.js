@@ -25,6 +25,10 @@ class MetroSystem {
     if (!this.metro) {
       this.metro = await MetroCore.getInstance({ client: this.client });
     }
+    const metroInfoProvider = this.metro.getMetroInfoProvider();
+    const data = metroInfoProvider.getFullData();
+    this.search.setDataSource(data);
+    this.searcher.setDataSource(data);
     await this.searcher.init();
     return this.metro;
   }

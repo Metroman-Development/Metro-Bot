@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
 const estado = require('./_estestado');
 const info = require('./_estinfo');

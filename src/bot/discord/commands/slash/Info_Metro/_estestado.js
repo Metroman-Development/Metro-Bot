@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'estacion',

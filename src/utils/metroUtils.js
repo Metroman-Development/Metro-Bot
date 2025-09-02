@@ -4,7 +4,6 @@
  */
 
 const MetroCore = require('../core/metro/core/MetroCore');
-const SearchCore = require('../core/metro/search/SearchCore');
 
 /**
  * Retrieves or initializes the MetroCore instance.

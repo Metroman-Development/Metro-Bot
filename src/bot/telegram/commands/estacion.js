@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 const TelegramMessageFormatter = require('../../../formatters/TelegramMessageFormatter');
 const SearchCore = require('../../../core/metro/search/SearchCore');
 
