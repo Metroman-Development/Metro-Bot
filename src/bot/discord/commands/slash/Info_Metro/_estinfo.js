@@ -18,10 +18,12 @@ module.exports = {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         try {
             const stations = Object.values(metroInfoProvider.getStations());
-            const filteredStations = stations.filter(station =>
-                station.original.toLowerCase().includes(focusedValue) ||
-                station.id.toLowerCase().includes(focusedValue)
-            ).slice(0, 25);
+            const filteredStations = stations.filter(station => {
+                const stationName = station.original || '';
+                const stationId = station.id || '';
+                return stationName.toLowerCase().includes(focusedValue) ||
+                       stationId.toLowerCase().includes(focusedValue);
+            }).slice(0, 25);
 
             await interaction.respond(
                 filteredStations.map(station => ({
