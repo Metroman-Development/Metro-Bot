@@ -116,7 +116,7 @@ class DataManager extends EventEmitter {
 
     async getCurrentData() {
         // This is a circular dependency. It should be removed.
-        const MetroInfoProvider = require('../../../../utils/MetroInfoProvider');
+        const { MetroInfoProvider } = require('../../../../utils/MetroInfoProvider');
         const metroInfoProvider = MetroInfoProvider.getInstance();
         if (metroInfoProvider) {
             return metroInfoProvider.getFullData();
@@ -291,7 +291,7 @@ class DataManager extends EventEmitter {
     _updateState(newData) {
         logger.debug('[DataManager] Updating service state');
         this.cachedData = newData;
-        const MetroInfoProvider = require('../../../../utils/MetroInfoProvider');
+        const { MetroInfoProvider } = require('../../../../utils/MetroInfoProvider');
         const metroInfoProvider = MetroInfoProvider.getInstance();
         if (metroInfoProvider) {
             metroInfoProvider.updateData(newData);

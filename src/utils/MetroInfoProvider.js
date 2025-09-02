@@ -8,6 +8,37 @@ const ChangeAnnouncer = require('../core/status/ChangeAnnouncer');
 const StatusEmbedManager = require('../core/status/StatusEmbedManager');
 const { normalizeStationData } = require('./stationUtils.js');
 
+const STATIONS_QUERY = `
+                SELECT
+                    ms.station_code,
+                    ms.station_name,
+                    ms.display_name,
+                    ms.line_id,
+                    ms.commune,
+                    ms.transports,
+                    ms.services,
+                    ms.commerce,
+                    ms.amenities,
+                    ms.image_url,
+                    ms.accessibility,
+                    ms.access_details,
+                    ms.opened_date,
+                    ms.last_renovation_date,
+                    ms.combinacion,
+                    ss.status_description,
+                    ss.status_message,
+                    ss.is_planned,
+                    ss.impact_level,
+                    ost.status_name as status_code,
+                    ost.is_operational
+                FROM
+                    metro_stations ms
+                LEFT JOIN
+                    station_status ss ON ms.station_id = ss.station_id
+                LEFT JOIN
+                    operational_status_types ost ON ss.status_type_id = ost.status_type_id
+            `;
+
 class MetroInfoProvider {
     static instance = null;
 
@@ -148,39 +179,7 @@ class MetroInfoProvider {
 
     async loadStationsFromDb() {
         try {
-            const query = `
-                SELECT
-                    ms.station_code,
-                    ms.station_name,
-                    ms.display_name,
-                    ms.line_id,
-                    ms.commune,
-                    ms.transports,
-                    ms.services,
-                    ms.commerce,
-                    ms.amenities,
-                    ms.image_url,
-                    ms.accessibility,
-                    ms.access_details,
-                    ms.opened_date,
-                    ms.last_renovation_date,
-                    ms.combinacion,
-                    ms.connections,
-                    ss.status_description,
-                    ss.status_message,
-                    ss.is_planned,
-                    ss.impact_level,
-                    ost.status_name as status_code,
-                    ost.is_operational
-                FROM
-                    metro_stations ms
-                LEFT JOIN
-                    station_status ss ON ms.station_id = ss.station_id
-                LEFT JOIN
-                    operational_status_types ost ON ss.status_type_id = ost.status_type_id
-            `;
-
-            const stations = await this.databaseService.query(query);
+            const stations = await this.databaseService.query(STATIONS_QUERY);
 
             const stationData = {};
             for (const station of stations) {
@@ -202,7 +201,6 @@ class MetroInfoProvider {
                     openedDate: station.opened_date,
                     lastRenovationDate: station.last_renovation_date,
                     combinacion: station.combinacion,
-                    connections: station.connections || [],
                     status: {
                         code: station.status_code || 'operational',
                         description: station.status_description,
@@ -375,4 +373,4 @@ class MetroInfoProvider {
     }
 }
 
-module.exports = MetroInfoProvider;
+module.exports = { MetroInfoProvider, STATIONS_QUERY };

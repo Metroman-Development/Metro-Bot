@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 const lineLoader = require('../data/loaders/lineLoader.js');
 const stringUtils = require('../utils/stringHandlers');
 

@@ -1,8 +1,6 @@
 const EmbedManager = require('../src/core/status/embeds/EmbedManager');
 const logger = require('../src/events/logger');
 
-const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
-
 // Mock the logger to prevent console output during tests
 jest.mock('../src/events/logger', () => ({
     warn: jest.fn(),
@@ -16,10 +14,17 @@ jest.mock('../src/utils/MetroInfoProvider', () => {
         getStations: jest.fn().mockReturnValue({}),
         getFullData: jest.fn().mockReturnValue({ lines: {}, stations: {} }),
     };
-    return {
+    const mockMetroInfoProvider = {
         getInstance: jest.fn().mockReturnValue(mockInstance),
     };
+    return {
+        MetroInfoProvider: mockMetroInfoProvider,
+        STATIONS_QUERY: 'SELECT * FROM stations'
+    };
 });
+
+const { MetroInfoProvider } = require('../src/utils/MetroInfoProvider');
+
 
 describe('EmbedManager', () => {
     let embedManager;

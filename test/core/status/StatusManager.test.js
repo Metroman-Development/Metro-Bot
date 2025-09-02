@@ -1,6 +1,6 @@
 const StatusManager = require('../../../src/core/status/StatusManager');
 const sinon = require('sinon');
-const MetroInfoProvider = require('../../../src/utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../src/utils/MetroInfoProvider');
 
 describe('StatusManager', () => {
     let statusManager;

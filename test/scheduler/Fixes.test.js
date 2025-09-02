@@ -1,6 +1,6 @@
 const SchedulerService = require('../../src/core/SchedulerService');
 const StatusManager = require('../../src/core/status/StatusManager');
-const MetroInfoProvider = require('../../src/utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../src/utils/MetroInfoProvider');
 const chronosConfig = require('../../src/config/chronosConfig');
 
 jest.mock('../../src/core/bootstrap', () => ({

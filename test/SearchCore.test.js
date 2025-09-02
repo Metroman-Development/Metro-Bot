@@ -1,14 +1,30 @@
 const SearchCore = require('../src/core/metro/search/SearchCore');
-const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../src/utils/MetroInfoProvider');
 
 jest.mock('../src/utils/MetroInfoProvider', () => {
-    return {
+    const mockInstance = {
         getStations: jest.fn().mockReturnValue({
             'SBA': { id: 'SBA', name: 'San Alberto Hurtado', displayName: 'San Alberto Hurtado', line: 'l1' },
             'PDA': { id: 'PDA', name: 'Plaza de Armas', displayName: 'Plaza de Armas', line: 'l5' },
             'UCH': { id: 'UCH', name: 'Universidad de Chile', displayName: 'Universidad de Chile', line: 'l1' },
         }),
         getLines: jest.fn().mockReturnValue({}),
+        getFullData: jest.fn().mockReturnValue({
+            stations: {
+                'SBA': { id: 'SBA', name: 'San Alberto Hurtado', displayName: 'San Alberto Hurtado', line: 'l1' },
+                'PDA': { id: 'PDA', name: 'Plaza de Armas', displayName: 'Plaza de Armas', line: 'l5' },
+                'UCH': { id: 'UCH', name: 'Universidad de Chile', displayName: 'Universidad de Chile', line: 'l1' },
+            },
+            lines: {}
+        })
+    };
+    const mockMetroInfoProvider = {
+        getInstance: jest.fn().mockReturnValue(mockInstance),
+        initialize: jest.fn().mockReturnValue(mockInstance)
+    };
+    return {
+        MetroInfoProvider: mockMetroInfoProvider,
+        STATIONS_QUERY: 'SELECT * FROM stations'
     };
 });
 
@@ -17,6 +33,8 @@ describe('SearchCore', () => {
 
     beforeAll(async () => {
         searchCore = new SearchCore('station');
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        searchCore.setDataSource(metroInfoProvider.getFullData());
         await searchCore.init();
     });
 

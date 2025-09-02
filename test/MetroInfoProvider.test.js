@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
+const { MetroInfoProvider, STATIONS_QUERY } = require('../src/utils/MetroInfoProvider');
 
 describe('MetroInfoProvider', () => {
   let metroInfoProvider;
@@ -19,32 +19,40 @@ describe('MetroInfoProvider', () => {
   });
 
   describe('updateFromDb', () => {
-    it('should fetch fused data from the database when no data is provided', async () => {
-      const lines = [{ line_id: 'L1', line_name: 'Test Line', status_message: 'Operational' }];
-      const stations = [{ station_id: 'ST1', station_name: 'Test Station', status_message: 'Operational' }];
-      mockDatabaseService.getLinesWithStatus.mockResolvedValue(lines);
-      mockDatabaseService.getStationsWithStatus.mockResolvedValue(stations);
+    it('should fetch and transform data from the database', async () => {
+      const mockLines = [
+        { line_id: 'L1', line_name: 'Test Line 1', line_color: '#FF0000', status_message: 'Operational', status_code: 1 }
+      ];
+      const mockStations = [
+        { station_code: 'ST1', station_name: 'Test Station 1', display_name: 'Station 1', line_id: 'L1', commune: 'Test Commune', transports: '["bus"]', services: '[]', commerce: '[]', amenities: '[]', image_url: '', accessibility: '[]', access_details: '[]', opened_date: '', last_renovation_date: '', combinacion: false, status_description: 'Operational', status_message: 'All good', is_planned: false, impact_level: 0, status_code: 'operational', is_operational: 1 }
+      ];
+      const mockEvents = [];
+
+      // Mock the calls to databaseService.query
+      mockDatabaseService.query
+        .mockResolvedValueOnce(mockLines) // for loadLinesFromDb
+        .mockResolvedValueOnce(mockStations) // for loadStationsFromDb
+        .mockResolvedValueOnce(mockEvents); // for fetchAndSetEventData
 
       await metroInfoProvider.updateFromDb();
 
-      expect(mockDatabaseService.getLinesWithStatus).toHaveBeenCalled();
-      expect(mockDatabaseService.getStationsWithStatus).toHaveBeenCalled();
-      expect(metroInfoProvider.data.lines.L1).toEqual(lines[0]);
-      expect(metroInfoProvider.data.stations.ST1).toEqual(stations[0]);
-    });
+      // Check if query was called for lines, stations, and events
+      expect(mockDatabaseService.query).toHaveBeenNthCalledWith(1, 'SELECT * FROM metro_lines');
+      expect(mockDatabaseService.query).toHaveBeenNthCalledWith(2, STATIONS_QUERY);
+      expect(mockDatabaseService.query).toHaveBeenNthCalledWith(3, 'SELECT * FROM metro_events WHERE is_active = 0 AND event_date >= CURDATE()');
 
-    it('should use provided data when dbData is provided', async () => {
-      const dbData = {
-        lines: [{ id: 'L1', name: 'Test Line' }],
-        stations: [{ id: 'ST1', name: 'Test Station' }],
-      };
+      // Check the transformed line data
+      expect(metroInfoProvider.data.lines.l1).toEqual({
+        id: 'l1',
+        displayName: 'Test Line 1',
+        color: '#FF0000',
+        status: { message: 'Operational', code: 1 }
+      });
 
-      await metroInfoProvider.updateFromDb(dbData);
-
-      expect(mockDatabaseService.getLinesWithStatus).not.toHaveBeenCalled();
-      expect(mockDatabaseService.getStationsWithStatus).not.toHaveBeenCalled();
-      expect(metroInfoProvider.data.lines.L1).toEqual({ id: 'L1', name: 'Test Line' });
-      expect(metroInfoProvider.data.stations.ST1).toEqual({ id: 'ST1', name: 'Test Station' });
+      // Check the transformed station data
+      expect(metroInfoProvider.data.stations.ST1).toBeDefined();
+      expect(metroInfoProvider.data.stations.ST1.name).toEqual('Test Station 1');
+      expect(metroInfoProvider.data.stations.ST1.line).toEqual('l1');
     });
   });
 

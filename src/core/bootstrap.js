@@ -1,5 +1,5 @@
 const logger = require('../events/logger');
-const MetroInfoProvider = require('../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../utils/MetroInfoProvider');
 const DatabaseManager = require('./database/DatabaseManager');
 const StatusEmbedManager = require('./status/StatusEmbedManager');
 const { getDbHost } = require('../utils/env');

@@ -1,6 +1,6 @@
 // commands/intermodal.js
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../utils/MetroInfoProvider.js');
+const { MetroInfoProvider } = require('../../../../utils/MetroInfoProvider.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
