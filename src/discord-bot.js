@@ -20,10 +20,10 @@ async function startDiscordBot() {
     });
     setClient(discordClient);
 
-    const { metroCore } = await initialize('DISCORD');
+    const { metroInfoProvider } = await initialize('DISCORD');
 
-    if (!metroCore.isReady) {
-        await new Promise(resolve => metroCore.once('ready', resolve));
+    if (!metroInfoProvider.isInitialized) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for initialization
     }
 
     discordClient.commands = new Collection();
@@ -73,7 +73,7 @@ async function startDiscordBot() {
 
     try {
         await connectToDiscord(discordClient);
-        await metroCore.setClient(discordClient);
+        metroInfoProvider.statusEmbedManager.setClient(discordClient);
 
         process.on('message', async (message) => {
             const { type, payload } = message;
@@ -120,16 +120,16 @@ async function startDiscordBot() {
                         const lastUpdated = new Date(result[0].last_updated);
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
-                            if (metroCore._subsystems.statusUpdater && typeof metroCore._subsystems.statusUpdater.updateEmbeds === 'function') {
-                                const data = await metroCore.getCurrentData();
+                            if (metroInfoProvider.statusEmbedManager && typeof metroInfoProvider.statusEmbedManager.updateEmbeds === 'function') {
+                                const data = await metroInfoProvider.getFullData();
                                 if (data) {
-                                    await metroCore._subsystems.statusUpdater.updateEmbeds(data);
+                                    await metroInfoProvider.statusEmbedManager.updateEmbeds(data);
                                     lastEmbedUpdate = lastUpdated;
                                 } else {
-                                    logger.warn('[DISCORD] No data available from getCurrentData, skipping embed update.');
+                                    logger.warn('[DISCORD] No data available from getFullData, skipping embed update.');
                                 }
                             } else {
-                                logger.warn('[DISCORD] statusUpdater or updateEmbeds method not available.');
+                                logger.warn('[DISCORD] statusEmbedManager or updateEmbeds method not available.');
                             }
                         }
                     }

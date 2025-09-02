@@ -782,8 +782,8 @@ class DatabaseService {
         const query = `
             SELECT
                 ml.*,
-                ls.status_description,
-                ls.status_message,
+                ls.status_description AS line_status_description,
+                ls.status_message AS line_status_message,
                 ost.status_name,
                 ost.is_operational
             FROM metro_lines ml
@@ -797,8 +797,8 @@ class DatabaseService {
         const query = `
             SELECT
                 ms.*,
-                ss.status_description,
-                ss.status_message,
+                ss.status_description AS station_status_description,
+                ss.status_message AS station_status_message,
                 ost.status_name,
                 ost.is_operational
             FROM metro_stations ms

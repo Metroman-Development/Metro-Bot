@@ -11,13 +11,12 @@ const { normalizeStationData } = require('./stationUtils.js');
 class MetroInfoProvider {
     static instance = null;
 
-    constructor(metroCore, databaseService, statusEmbedManager) {
-        if (!metroCore || !databaseService) {
-            throw new Error("MetroInfoProvider requires a metroCore and databaseService instance.");
+    constructor(databaseService, statusEmbedManager) {
+        if (!databaseService) {
+            throw new Error("MetroInfoProvider requires a databaseService instance.");
         }
-        this.metroCore = metroCore;
         this.databaseService = databaseService;
-        this.statusEmbedManager = statusEmbedManager;
+        this.statusEmbedManager = statusEmbedManager || null;
         this.data = {
             lines: {},
             stations: {},
@@ -42,9 +41,9 @@ class MetroInfoProvider {
         this.isInitialized = true;
     }
 
-    static initialize(metroCore, databaseService, statusEmbedManager) {
+    static initialize(databaseService, statusEmbedManager) {
         if (!MetroInfoProvider.instance) {
-            MetroInfoProvider.instance = new MetroInfoProvider(metroCore, databaseService, statusEmbedManager);
+            MetroInfoProvider.instance = new MetroInfoProvider(databaseService, statusEmbedManager);
         }
         return MetroInfoProvider.instance;
     }
@@ -217,6 +216,11 @@ class MetroInfoProvider {
 
     getIntermodalBuses(stationName) {
         return this.data.intermodal.buses[stationName];
+    }
+
+    async compareAndSyncData(dbData) {
+        // For now, just update from db
+        await this.updateFromDb(dbData);
     }
 }
 

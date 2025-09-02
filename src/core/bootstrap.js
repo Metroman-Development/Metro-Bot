@@ -1,10 +1,11 @@
 const logger = require('../events/logger');
-const MetroCore = require('./metro/core/MetroCore');
+const MetroInfoProvider = require('../utils/MetroInfoProvider');
 const DatabaseManager = require('./database/DatabaseManager');
+const StatusEmbedManager = require('./status/StatusEmbedManager');
 const { getDbHost } = require('../utils/env');
 
 let initializationPromise = null;
-let metroCoreInstance = null;
+let metroInfoProviderInstance = null;
 let dbManagerInstance = null;
 
 async function performInitialization(source = 'unknown') {
@@ -30,14 +31,18 @@ async function performInitialization(source = 'unknown') {
 
 
     try {
-        metroCoreInstance = await MetroCore.getInstance({ dbConfig });
+        const DatabaseService = require('./database/DatabaseService');
+        const dbService = await DatabaseService.getInstance(dbManagerInstance);
+        const statusEmbedManager = new StatusEmbedManager();
+        metroInfoProviderInstance = MetroInfoProvider.initialize(dbService, statusEmbedManager);
+        await metroInfoProviderInstance.updateFromDb();
     } catch (error) {
-        logger.error('[BOOTSTRAP] A critical error occurred during MetroCore initialization:', { error });
+        logger.error('[BOOTSTRAP] A critical error occurred during MetroInfoProvider initialization:', { error });
         process.exit(1);
     }
 
-    logger.info(`[${source}] MetroCore and DatabaseManager initialized.`);
-    return { metroCore: metroCoreInstance, databaseManager: dbManagerInstance };
+    logger.info(`[${source}] MetroInfoProvider and DatabaseManager initialized.`);
+    return { metroInfoProvider: metroInfoProviderInstance, databaseManager: dbManagerInstance };
 }
 
 function initialize(source = 'unknown') {
@@ -49,8 +54,8 @@ function initialize(source = 'unknown') {
 
 module.exports = {
     initialize,
-    get metroCore() {
-        return metroCoreInstance;
+    get metroInfoProvider() {
+        return metroInfoProviderInstance;
     },
     get databaseManager() {
         return dbManagerInstance;
