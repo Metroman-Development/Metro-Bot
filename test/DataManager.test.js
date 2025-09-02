@@ -1,3 +1,4 @@
+const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
 const DataManager = require('../src/core/metro/core/services/DataManager');
 const DbDataManager = require('../src/core/metro/core/services/DbDataManager');
 const TimeHelpers = require('../src/utils/timeHelpers');
@@ -23,6 +24,11 @@ describe('DataManager', () => {
 
     beforeEach(() => {
         jest.clearAllMocks(); // Clear mocks before each test
+
+        const mockMIPDbService = { /* empty mock */ };
+        const mockStatusEmbedManager = { /* empty mock */ };
+        MetroInfoProvider.initialize(mockMIPDbService, mockStatusEmbedManager);
+
         mockDataEngine = {
             handleRawData: jest.fn(data => Promise.resolve(data)),
         };
@@ -42,14 +48,20 @@ describe('DataManager', () => {
 
         mockDbDataManager = new DbDataManager(mockDbService);
         mockDbDataManager.dbService = mockDbService;
+        mockDbDataManager._initializeLineMetadata = jest.fn().mockResolvedValue(true);
+        mockDbDataManager.lineInfoMap = new Map([['l1', 'Línea 1']]);
 
-        dataManager = new DataManager(mockMetro, { dbService: mockDbService }, mockDataEngine);
+        dataManager = new DataManager({ dbService: mockDbService }, mockDataEngine);
         dataManager.dbDataManager = mockDbDataManager;
 
         TimeHelpers.isWithinOperatingHours.mockReturnValue(true);
         TimeHelpers.currentTime = {
             toISOString: () => '2025-09-01T22:01:22.287Z'
         };
+    });
+
+    afterEach(() => {
+        MetroInfoProvider.instance = null;
     });
 
     describe('Status Translation', () => {
@@ -73,8 +85,12 @@ describe('DataManager', () => {
                 { js_code: '2', status_type_id: 2, severity_level: 1, station_t: 20, line_t: 200 }
             ];
 
+            const mockDbService = {
+                getAllJsStatusMapping: jest.fn().mockResolvedValue(mockStatusMapping),
+            };
+            dataManager.dbDataManager.dbService = mockDbService;
+
             mockDbDataManager.getDbRawData.mockResolvedValue(mockDbRawData);
-            dataManager.dbDataManager.dbService.getAllJsStatusMapping.mockResolvedValue(mockStatusMapping);
 
             const result = await dataManager.fetchNetworkStatus();
 
