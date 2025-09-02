@@ -61,19 +61,19 @@ class StatusEmbedManager {
         }
     }
 
-    async updateAllEmbeds(data) {
+    async updateAllEmbeds(metroInfoProvider) {
         if (!this.initialized || !this.client) {
             logger.warn('[StatusEmbedManager] Attempted to update embeds before initialization or without a client.');
             return;
         }
         logger.info('[StatusEmbedManager] Updating all embeds...');
-        await this.updateOverviewEmbed(data);
+        await this.updateOverviewEmbed(metroInfoProvider);
         for (const lineId of this.lineMessages.keys()) {
-            await this.updateLineEmbed(lineId, data);
+            await this.updateLineEmbed(lineId, metroInfoProvider);
         }
     }
 
-    async updateLineEmbed(lineId, data) {
+    async updateLineEmbed(lineId, metroInfoProvider) {
         if (!this.initialized || !this.client) return;
         const message = this.lineMessages.get(lineId);
         if (!message) {
@@ -81,13 +81,7 @@ class StatusEmbedManager {
             return;
         }
 
-        const lineData = data.lines[lineId];
-        if (!lineData) {
-            logger.warn(`[StatusEmbedManager] No data found for line: ${lineId}`);
-            return;
-        }
-
-        const embed = statusEmbeds.lineEmbed(lineData, data.stations, new Date().toISOString());
+        const embed = statusEmbeds.lineEmbed(lineId, metroInfoProvider, new Date().toISOString());
         try {
             await message.edit({ embeds: [embed] });
             logger.info(`[StatusEmbedManager] Updated embed for line: ${lineId}`);
@@ -96,14 +90,14 @@ class StatusEmbedManager {
         }
     }
 
-    async updateOverviewEmbed(data) {
+    async updateOverviewEmbed(metroInfoProvider) {
         if (!this.initialized || !this.client) return;
         if (!this.overviewMessage) {
             logger.warn('[StatusEmbedManager] Overview message not available.');
             return;
         }
 
-        const embed = statusEmbeds.overviewEmbed(data, new Date().toISOString());
+        const embed = statusEmbeds.overviewEmbed(metroInfoProvider, new Date().toISOString());
         try {
             await this.overviewMessage.edit({ embeds: [embed] });
             logger.info('[StatusEmbedManager] Updated overview embed.');
