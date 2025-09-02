@@ -13,7 +13,7 @@ module.exports = {
         }
 
         try {
-            const infoProvider = MetroInfoProvider;
+            const infoProvider = MetroInfoProvider.getInstance();
             const searchCore = new SearchCore('station');
             searchCore.setDataSource(infoProvider.getFullData());
             const results = await searchCore.search(stationName);
