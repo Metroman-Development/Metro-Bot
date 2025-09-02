@@ -38,7 +38,9 @@ module.exports = {
         const networkStatus = network_status?.status || 'default';
         const description = statusMessages[networkStatus] || statusMessages.default;
 
-        const fields = Object.values(lines).map(line => {
+        const fields = Object.values(lines)
+            .filter(line => line && typeof line === 'object' && line.id)
+            .map(line => {
             const lineKey = line.id.toLowerCase();
             const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
 
