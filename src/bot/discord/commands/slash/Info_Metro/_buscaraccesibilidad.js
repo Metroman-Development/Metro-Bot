@@ -1,5 +1,5 @@
 // _buscaraccesibilidad.js - Updated to support both old and new formats
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const AccessibilityResultsManager = require('../../../../../events/interactions/buttons/AccessibilityResultsManager');
 const styles = require('../../../../../config/styles.json');
 
@@ -26,13 +26,13 @@ module.exports = {
                     { name: 'Ambos', value: 'ambos' }
                 )),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         await interaction.deferReply();
         const statusQuery = interaction.options.getString('estado');
         const equipmentFilter = interaction.options.getString('equipo');
 
         // Get accessibility data from the database
-        const accessibilityData = await metro.db.getAccessibilityStatus();
+        const accessibilityData = metroInfoProvider.getFullData().accessibility;
 
         if (!accessibilityData || accessibilityData.length === 0) {
             return this.sendNoResultsResponse(interaction, statusQuery, equipmentFilter);
@@ -40,7 +40,7 @@ module.exports = {
 
         // Process the data
         const stationData = {};
-        const staticStations = metro._staticData.stations;
+        const staticStations = metroInfoProvider.getStations();
 
         for (const item of accessibilityData) {
             const stationId = `${item.station_code}-${item.line_id}`;

@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const StatusEmbeds = require('../../../../../config/statusEmbeds');
 const TimeHelpers = require('../../../../../utils/timeHelpers');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     
@@ -24,12 +25,12 @@ module.exports = {
 ),
                 
 
-  async execute(interaction, metro) {
+  async execute(interaction) {
     try {
         await interaction.deferReply();
-        const elementValue = interaction.options.getString('linea');
-        const metroData = await metro.getCurrentData();
-        const line = metroData.lines[elementValue];
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const lineId = interaction.options.getString('linea');
+        const line = metroInfoProvider.getLine(lineId);
 
         if (!line) {
             return await interaction.editReply({
@@ -38,7 +39,7 @@ module.exports = {
             });
         }
         
-        const embedData = StatusEmbeds.lineEmbed(line, metroData.stations, TimeHelpers.currentTime.format('HH:mm'));
+        const embedData = StatusEmbeds.lineEmbed(line, metroInfoProvider.getStations(), TimeHelpers.currentTime.format('HH:mm'));
         const embed = new EmbedBuilder(embedData);
         await interaction.editReply({ embeds: [embed] });
         

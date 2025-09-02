@@ -19,7 +19,7 @@ module.exports = {
         try {
             const stations = Object.values(metroInfoProvider.getStations());
             const filteredStations = stations.filter(station => {
-                const stationName = station.original || '';
+                const stationName = station.name || '';
                 const stationId = station.id || '';
                 return stationName.toLowerCase().includes(focusedValue) ||
                        stationId.toLowerCase().includes(focusedValue);
@@ -27,7 +27,7 @@ module.exports = {
 
             await interaction.respond(
                 filteredStations.map(station => ({
-                    name: `Estación ${station.original} (L${station.linea.toUpperCase()})`,
+                    name: `Estación ${station.name} (L${station.line.toUpperCase()})`,
                     value: station.id
                 }))
             );

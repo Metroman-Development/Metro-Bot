@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -7,12 +6,11 @@ module.exports = {
         .setName('info')
         .setDescription('Muestra información del Metro de Santiago'),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
             
-            const infoProvider = MetroInfoProvider;
-            const metroInfo = infoProvider.getFullData();
+            const metroInfo = metroInfoProvider.getFullData();
             const metroGeneral = metroInfo.system;
             
             

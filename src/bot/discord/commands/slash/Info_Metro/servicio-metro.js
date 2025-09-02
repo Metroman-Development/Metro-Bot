@@ -1,36 +1,37 @@
-
 const { SlashCommandBuilder } = require('discord.js');
-
-// Import subcommands
-//const servicioEstado = require('./_meestado');
-const servicioHorario = require('./_mehorario');
-const servicioPeriodo = require('./_meperiodo');
-const servicioHora = require('./_mehora');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { handleCommandError } = require('../../../../../utils/commandUtils');
+const actual = require('./_mtactual');
+const horarios = require('./_mthorarios');
+const diferenciada = require('./_mtdiferenciada');
+const version = require('./_mtver');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('servicio-metro')
-        .setDescription('Estado del servicio en tiempo real')
-        //.addSubcommand(subcommand => servicioEstado.data(subcommand))
-        .addSubcommand(subcommand => servicioHorario.data(subcommand))
-        .addSubcommand(subcommand => servicioPeriodo.data(subcommand))
-        .addSubcommand(subcommand => servicioHora.data(subcommand)),
+        .setDescription('Información sobre el servicio de Metro')
+        .addSubcommand(subcommand => actual.data(subcommand))
+        .addSubcommand(subcommand => horarios.data(subcommand))
+        .addSubcommand(subcommand => diferenciada.data(subcommand))
+        .addSubcommand(subcommand => version.data(subcommand)),
 
-    category: "Metro Service",
+    category: "Metro Info",
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         
         try {
+            const metroInfoProvider = MetroInfoProvider.getInstance();
+
             switch(subcommand) {
-                case 'estado':
-                    return servicioEstado.execute(interaction);
-                case 'horario':
-                    return servicioHorario.execute(interaction);
-                case 'periodo':
-                    return servicioPeriodo.execute(interaction);
-                case 'hora':
-                    return servicioHora.execute(interaction);
+                case 'actual':
+                    return actual.execute(interaction, metroInfoProvider);
+                case 'horarios':
+                    return horarios.execute(interaction, metroInfoProvider);
+                case 'diferenciada':
+                    return diferenciada.execute(interaction, metroInfoProvider);
+                case 'version':
+                    return version.execute(interaction, metroInfoProvider);
                 default:
                     return interaction.reply({
                         content: '⚠️ Subcomando no reconocido',
@@ -38,12 +39,7 @@ module.exports = {
                     });
             }
         } catch (error) {
-            console.error(`Error en servicio-metro ${subcommand}:`, error);
-            return interaction.reply({
-                content: '❌ Error al obtener estado del servicio',
-                ephemeral: true
-            });
+            await handleCommandError(error, interaction);
         }
     }
 };
-  

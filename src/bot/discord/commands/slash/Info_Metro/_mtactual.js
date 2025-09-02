@@ -1,80 +1,46 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const metroConfig = require('../../../../../config/metro/metroConfig');
-const chronosConfig = require('../../../../../config/chronosConfig');
 const TimeHelpers = require('../../../../../utils/timeHelpers');
+const metroConfig = require('../../../../../config/metro/metroConfig');
+const styles = require('../../../../../config/styles.json');
 
 module.exports = {
-    parentCommand: 'tarifa',
+    parentCommand: 'servicio-metro',
     data: (subcommand) => subcommand
         .setName('actual')
-        .setDescription('Muestra la tarifa actual según el período'),
+        .setDescription('Muestra el estado actual del servicio de Metro'),
 
-    async execute(interaction) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
-            
+
+            const metroData = metroInfoProvider.getFullData();
+            const networkStatus = metroData.network_status;
             const currentPeriod = TimeHelpers.getCurrentPeriod();
-            const nextTransition = TimeHelpers.getNextTransition();
-            
-            // Get all relevant fares with proper emoji assignments
-            const fares = {
-                'Normal (BIP)': {
-                    amount: metroConfig.tarifario[`t_metro_${currentPeriod.type.toLowerCase()}`],
-                    emoji: metroConfig.accessCards.bip
-                },
-                'Estudiante (TNE)': {
-                    amount: metroConfig.tarifario[`t_estudiante_${currentPeriod.type.toLowerCase()}`],
-                    emoji: metroConfig.accessCards.tne
-                },
-                'Adulto Mayor': {
-                    amount: metroConfig.tarifario[`t_adulto_${currentPeriod.type.toLowerCase()}`],
-                    emoji: metroConfig.accessCards.tarjetaAdultoMayor
-                },
-                'BIP Adulto Mayor': {
-                    amount: metroConfig.tarifario[`t_adultobip_${currentPeriod.type.toLowerCase()}`],
-                    emoji: metroConfig.accessCards.bipAdultoMayor
-                },
-                'NOS': {
-                    amount: metroConfig.tarifario[`t_nos_${currentPeriod.type.toLowerCase()}`],
-                    emoji: '🟢'
-                },
-                'Red': {
-                    amount: metroConfig.tarifario['t_transantiago'],
-                    emoji: '🚌'
-                }
-            };
+            const isExpressActive = TimeHelpers.isExpressActive();
+            const operatingHours = TimeHelpers.getOperatingHours();
 
             const embed = new EmbedBuilder()
-                .setTitle('💰 Tarifas Actuales')
-                .setColor(0xFFD700)
-                .setThumbnail(metroConfig.metroLogo.v4)
-                .addFields(
-                    {
-                        name: 'Período Actual',
-                        value: `**${currentPeriod.name}** (${TimeHelpers.formatForEmbed()})`,
-                        inline: false
-                    },
-                    {
-                        name: 'Próximo Cambio',
-                        value: `**${nextTransition.time}**\n${nextTransition.message}`,
-                        inline: false
-                    },
-                    ...Object.entries(fares).filter(([_, data]) => data.amount).map(([name, data]) => ({
-                        name: `${data.emoji} ${name}`,
-                        value: `**$${data.amount}**`,
-                        inline: true
-                    }))
+                .setTitle(`${metroConfig.logoMetroEmoji} Estado Actual del Servicio`)
+                .setColor(styles.defaultTheme.primaryColor)
+                .setDescription(
+                    `**Estado General:** ${networkStatus.status || 'Desconocido'}\n` +
+                    `📝 ${networkStatus.summary?.es?.resumen || 'Sin información adicional'}\n\n` +
+                    `⏰ **Período Tarifario:** ${currentPeriod.name}\n` +
+                    `🚄 **Servicio Expreso:** ${isExpressActive ? 'ACTIVO' : 'No activo'}\n` +
+                    `🕒 **Horario:** ${operatingHours.opening} - ${operatingHours.closing}` +
+                    (operatingHours.isExtended ? ` (Extendido)` : '')
                 )
-                .setFooter({ 
-                    text: 'Tarifas sujetas a cambios', 
-                    iconURL: metroConfig.metroLogo.principal 
+                .setFooter({
+                    text: `Actualizado: ${new Date(networkStatus.timestamp).toLocaleString('es-CL', { timeZone: 'America/Santiago' })}`,
+                    iconURL: 'https://cdn.discordapp.com/emojis/1349494723760492594.webp'
                 });
 
             await interaction.editReply({ embeds: [embed] });
+
         } catch (error) {
-            console.error('Error en /tarifa actual:', error);
+            console.error('Error en comando servicio-metro actual:', error);
             await interaction.editReply({
-                content: '❌ Error al obtener la tarifa actual',
+                content: '❌ Ocurrió un error al obtener el estado actual del servicio',
                 ephemeral: true
             });
         }

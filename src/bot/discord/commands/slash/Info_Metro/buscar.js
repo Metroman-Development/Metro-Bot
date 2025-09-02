@@ -1,6 +1,6 @@
 // buscar.js
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../../../../core/metro/core/MetroCore');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 const comercio = require('./_buscarcomercio');
 const bici = require('./_buscarcicletero');
 const cultura = require('./_buscarcultura');
@@ -17,37 +17,23 @@ module.exports = {
      
     
     category: "Metro Info",
-    
-    async getMetroCore(interaction) {
-        try {
-            if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-                interaction.client.metroCore = await MetroCore.getInstance({ 
-                    client: interaction.client 
-                });
-            }
-            return interaction.client.metroCore;
-        } catch (error) {
-            console.error('Failed to get MetroCore instance:', error);
-            throw new Error('El sistema Metro no está disponible');
-        }
-    },
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
-        const metro = await this.getMetroCore(interaction);
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         
         switch(subcommand) {
             case 'comercio':
-                return comercio.execute(interaction, metro);
+                return comercio.execute(interaction, metroInfoProvider);
                 case 'cicletero':
 
-                return bici.execute(interaction, metro);
+                return bici.execute(interaction, metroInfoProvider);
                 case 'cultura':
 
-                return cultura.execute(interaction, metro);
+                return cultura.execute(interaction, metroInfoProvider);
                 case 'accesibilidad':
 
-                return access.execute(interaction, metro);
+                return access.execute(interaction, metroInfoProvider);
             default:
                 return interaction.reply({ 
                     content: '⚠️ Subcomando no reconocido', 

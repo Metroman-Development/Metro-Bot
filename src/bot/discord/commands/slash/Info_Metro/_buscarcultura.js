@@ -1,6 +1,5 @@
 // _buscaramenities.js
-// _buscaramenities.js
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const AmenitiesResultsManager = require('../../../../../events/interactions/buttons/AmenitiesResultsManager');
 const config = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
@@ -27,10 +26,10 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         await interaction.deferReply();
         const amenityQuery = interaction.options.getString('nombre');
-        const staticData = metro._staticData;
+        const staticData = metroInfoProvider.getFullData();
         const normalizedQuery = this.normalizeString(amenityQuery);
 
         // Find matching stations with enhanced amenities processing

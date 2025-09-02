@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getMetroCore } = require('../../../../../utils/metroUtils');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
 const estado = require('./_linestado');
 const info = require('./_lininfo');
@@ -19,15 +19,15 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand();
         
         try {
-            const metro = await getMetroCore(interaction);
+            const metroInfoProvider = MetroInfoProvider.getInstance();
             
             switch(subcommand) {
                 case 'estado':
-                    return estado.execute(interaction, metro); 
+                    return estado.execute(interaction, metroInfoProvider);
                 case 'info':
-                    return info.execute(interaction, metro);
+                    return info.execute(interaction, metroInfoProvider);
                 case 'proyecto':
-                    return proyecto.execute(interaction, metro);
+                    return proyecto.execute(interaction, metroInfoProvider);
                 default:
                     return interaction.reply({ 
                         content: '⚠️ Subcomando no reconocido', 
