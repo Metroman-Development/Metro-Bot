@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
 const commerceResultsManager = require('../../../../../events/interactions/buttons/commerceResultsManager');
-const metroConfig = require('../../../../../config/metro/metroConfig');
-const styles = require('../../../../../config/styles.json');
 
 module.exports = {
     parentCommand: 'buscar',
@@ -21,9 +19,9 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction, metroInfoProvider) {
         const focusedValue = this.normalizeString(interaction.options.getFocused());
-        const staticData = metro._staticData;
+        const staticData = metroInfoProvider.getFullData();
         
         const commerceTypes = new Set();
         Object.values(staticData.stations).forEach(station => {
@@ -48,10 +46,10 @@ module.exports = {
         );
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         await interaction.deferReply();
         const commerceQuery = interaction.options.getString('nombre');
-        const staticData = metro._staticData;
+        const staticData = metroInfoProvider.getFullData();
         const normalizedQuery = this.normalizeString(commerceQuery);
 
         const allResults = [];

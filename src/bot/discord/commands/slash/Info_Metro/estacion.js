@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { handleCommandError } = require('../../../../../utils/commandUtils');
 const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { handleCommandError } = require('../../../../../utils/commandUtils');
 const estado = require('./_estestado');
 const info = require('./_estinfo');
 
@@ -17,7 +17,8 @@ module.exports = {
 
     category: "Metro Info",
 
-    async autocomplete(interaction, metroInfoProvider) {
+    async autocomplete(interaction) {
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const subcommand = interaction.options.getSubcommand();
         switch(subcommand) {
             case 'info':
@@ -33,11 +34,12 @@ module.exports = {
      * Executes the 'estacion' command.
      * @param {import('discord.js').Interaction} interaction The interaction object.
      */
-    async execute(interaction, metroInfoProvider) {
+    async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         
         try {
             await interaction.deferReply({ ephemeral: true });
+            const metroInfoProvider = MetroInfoProvider.getInstance();
             
             // Route to the appropriate subcommand handler.
             switch(subcommand) {

@@ -1,7 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -36,13 +35,13 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
             
             const model = interaction.options.getString('modelo');
             const viewType = interaction.options.getString('vista') || 'summary';
-            const trainData = MetroInfoProvider.getFullData().trains || {};
+            const trainData = metroInfoProvider.getFullData().trains || {};
             const trainInfo = trainData[model];
 
             if (!trainInfo) {

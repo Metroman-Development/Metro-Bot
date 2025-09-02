@@ -1,9 +1,6 @@
 // _buscarbike.js
-// _buscarbike.js
-// _buscarbike.js
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const BikeResultsManager = require('../../../../../events/interactions/buttons/BikeResultsManager');
-const config = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
 
 module.exports = {
@@ -28,10 +25,10 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         await interaction.deferReply();
         const bikeQuery = interaction.options.getString('tipo');
-        const staticData = metro._staticData;
+        const staticData = metroInfoProvider.getFullData();
         const normalizedQuery = this.normalizeString(bikeQuery);
 
         // Find matching stations

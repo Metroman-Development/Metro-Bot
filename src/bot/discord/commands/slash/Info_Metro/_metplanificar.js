@@ -4,9 +4,6 @@ const RoutePlanner = require('../../../../../core/metro/RoutePlanner');
 const routeButtonsHandler = require('../../../../../events/interactions/buttons/routeButtons');
 const TimeHelpers = require('../../../../../utils/timeHelpers');
 const { Collection } = require('discord.js');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
-
-const cooldowns = new Collection();
 
 module.exports = {
     parentCommand: 'metro',
@@ -37,10 +34,10 @@ module.exports = {
                 .setDescription('Modo discreto (oculta la información de tu ruta)')
                 .setRequired(false)),
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction, metroInfoProvider) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         const stationSearcher = new SearchCore('station');
-        stationSearcher.setDataSource(MetroInfoProvider.getFullData());
+        stationSearcher.setDataSource(metroInfoProvider.getFullData());
 
         const results = await stationSearcher.search(focusedValue, { 
             maxResults: 25,
@@ -55,7 +52,8 @@ module.exports = {
         );
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
+        const cooldowns = new Collection();
         try {
             const userId = interaction.user.id;
             const cooldownAmount = 10_000;
@@ -81,7 +79,7 @@ module.exports = {
             const farePeriod = interaction.options.getString('periodo');
             
             const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(MetroInfoProvider.getFullData());
+            stationSearcher.setDataSource(metroInfoProvider.getFullData());
             
             const [origin, destination] = await Promise.all([
                 this._validateStation(originId, stationSearcher, 'origen'),
@@ -111,8 +109,8 @@ module.exports = {
             
             const context = {
                 route: routeData,
-                metroData: MetroInfoProvider.getFullData(),
-                staticData: MetroInfoProvider.getFullData()
+                metroData: metroInfoProvider.getFullData(),
+                staticData: metroInfoProvider.getFullData()
             };
 
             const message = await routeButtonsHandler.build(interaction, context);

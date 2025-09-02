@@ -2,7 +2,6 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
 const TimeHelpers = require('../../../../../utils/timeHelpers');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'metro',
@@ -10,19 +9,19 @@ module.exports = {
         .setName('estado')
         .setDescription('Muestra el estado del Metro de Santiago'),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             
             await interaction.deferReply();
             // Get and validate raw data
-            const allData = MetroInfoProvider.getFullData();
+            const allData = metroInfoProvider.getFullData();
             
-            if (!allData || !allData.network) {
+            if (!allData || !allData.network_status) {
                 throw new Error('No se pudo obtener datos del Metro');
             }
 
-            const { network, lines = {} } = allData;
-            const { details = {}, summary = {} } = network;
+            const { network_status, lines = {} } = allData;
+            const { details = {}, summary = {} } = network_status;
 
             // Get current fare period and express status
             const currentPeriod = TimeHelpers.getCurrentPeriod();
@@ -45,7 +44,7 @@ module.exports = {
                 .setTitle(`${metroConfig.logoMetroEmoji} Estado del Metro de Santiago`)
                 .setColor(styles.defaultTheme.primaryColor)
                 .setDescription(
-                    `**Estado General:** ${network.status || 'Desconocido'}\n` +
+                    `**Estado General:** ${network_status.status || 'Desconocido'}\n` +
                     `📝 ${summary.es?.resumen || summary.en?.summary || 'Sin información adicional'}\n\n` +
                     `⏰ **Período Tarifario:** ${currentPeriod.name}\n` +
                     `🚄 **Servicio Expreso:** ${isExpressActive ? 'ACTIVO' : 'No activo'}\n` +
@@ -81,7 +80,7 @@ module.exports = {
 
             // Add timestamp
             embed.setFooter({ 
-                text: `Actualizado: ${this.formatTimestamp(network.timestamp)}`,
+                text: `Actualizado: ${this.formatTimestamp(network_status.timestamp)}`,
                 iconURL: 'https://cdn.discordapp.com/emojis/1349494723760492594.webp'
             });
 

@@ -17,10 +17,10 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
-            const messagePayload = await expressButtonsHandler.build(interaction, metro);
+            const messagePayload = await expressButtonsHandler.build(interaction, metroInfoProvider);
             await interaction.editReply(messagePayload);
         } catch (error) {
             console.error('Expreso info command failed:', error);

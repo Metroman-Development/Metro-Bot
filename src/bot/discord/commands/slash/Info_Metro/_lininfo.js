@@ -1,8 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { handleCommandError } = require('../../../../../utils/commandUtils');
-const { createEmbed, createErrorEmbed } = require('../../../../../utils/embedFactory');
-const { processImageForDiscord } = require('../../../../../utils/imageUtils');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { createErrorEmbed } = require('../../../../../utils/embedFactory');
+const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 
 module.exports = {
     parentCommand: 'linea',
@@ -24,45 +23,22 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
+    async execute(interaction, metroInfoProvider) {
         try {
             await interaction.deferReply();
 
-            const lineKey = interaction.options.getString('linea');
-            const infoProvider = new MetroInfoProvider(metro);
-            const lineInfo = infoProvider.getLineData(lineKey);
+            const lineId = interaction.options.getString('linea');
+            const lineInfo = metroInfoProvider.getLineInfo(lineId);
 
             if (!lineInfo) {
                 const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
                 return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
             }
 
-            let lineNumber = lineKey.replace('l', '').toUpperCase();
-            if (lineKey === 'l4a') lineNumber = '4A';
-            const githubImageUrl = `https://raw.githubusercontent.com/MetroManSR/MetroWeb/main/metrobot/assets/L%C3%ADnea_${lineNumber}_del_Metro_de_Santiago.svg.png`;
+            const formatter = new DiscordMessageFormatter();
+            const message = await formatter.formatLineInfo(lineInfo, interaction.user.id);
 
-            const lineImage = await processImageForDiscord(githubImageUrl, {
-                filename: `${lineKey}_map.png`,
-                description: `Mapa de ${lineInfo.nombre}`,
-                backgroundColor: '#FFFFFF',
-                resize: {
-                    width: 800,
-                    height: 300,
-                    fit: 'contain'
-                }
-            });
-
-            if (!lineImage) {
-                const errorEmbed = await createErrorEmbed('Error al cargar el mapa de la línea');
-                return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
-            }
-
-            const embed = await createEmbed('lineaInfo', { lineInfo, lineKey });
-
-            await interaction.editReply({
-                embeds: [embed],
-                files: [lineImage]
-            });
+            await interaction.editReply(message);
 
         } catch (error) {
             await handleCommandError(error, interaction);

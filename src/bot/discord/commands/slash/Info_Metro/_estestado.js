@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
     parentCommand: 'estacion',
@@ -12,9 +13,10 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    async autocomplete(interaction, metroInfoProvider) {
+    async autocomplete(interaction) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         try {
+            const metroInfoProvider = MetroInfoProvider.getInstance();
             const stations = Object.values(metroInfoProvider.getStations());
             const filteredStations = stations.filter(station =>
                 station.name.toLowerCase().includes(focusedValue) ||
@@ -33,8 +35,9 @@ module.exports = {
         }
     },
 
-    async execute(interaction, metroInfoProvider) {
+    async execute(interaction) {
         try {
+            const metroInfoProvider = MetroInfoProvider.getInstance();
             const stationId = interaction.options.getString('estacion');
             const station = metroInfoProvider.getStationById(stationId);
 

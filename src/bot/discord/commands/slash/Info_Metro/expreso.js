@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const MetroCore = require('../../../../../core/metro/core/MetroCore');
+const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
 const info = require('./_expinfo'); 
 const ayuda = require('./_expayuda'); 
 // Subcommand file
@@ -12,30 +12,16 @@ module.exports = {
     .addSubcommand(subcommand => ayuda.data(subcommand)), 
 
     category: "Metro Info",
-    
-    async getMetroCore(interaction) {
-        try {
-            if (!interaction.client.metroCore || !interaction.client.metroCore.api) {
-                interaction.client.metroCore = await MetroCore.getInstance({ 
-                    client: interaction.client 
-                });
-            }
-            return interaction.client.metroCore;
-        } catch (error) {
-            console.error('Failed to get MetroCore instance:', error);
-            throw new Error('El sistema Metro no está disponible');
-        }
-    },
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         
         try {
-            const metro = await this.getMetroCore(interaction);
+            const metroInfoProvider = MetroInfoProvider.getInstance();
             
             switch(subcommand) {
                 case 'info':
-                    return info.execute(interaction, metro);
+                    return info.execute(interaction, metroInfoProvider);
                     case 'ayuda':
 
                     return ayuda.execute(interaction);
