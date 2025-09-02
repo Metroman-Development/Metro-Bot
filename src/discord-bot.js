@@ -8,6 +8,7 @@ const { setClient } = require('./utils/clientManager');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const logger = require('./events/logger');
 const DatabaseManager = require('./core/database/DatabaseManager');
+const metroConfig = require('./config/metro/metroConfig');
 
 async function startDiscordBot() {
     const discordClient = new Client({
@@ -74,6 +75,15 @@ async function startDiscordBot() {
     try {
         await connectToDiscord(discordClient);
         metroInfoProvider.statusEmbedManager.setClient(discordClient);
+
+        const lineMessageIds = { ...metroConfig.embedMessageIds };
+        delete lineMessageIds.overview;
+
+        await metroInfoProvider.statusEmbedManager.initialize(
+            metroConfig.embedsChannelId,
+            metroConfig.embedMessageIds.overview,
+            lineMessageIds
+        );
 
         process.on('message', async (message) => {
             const { type, payload } = message;
