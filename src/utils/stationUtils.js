@@ -160,12 +160,40 @@ function processAccessibilityText(accessibilityText) {
 }
 
 function decorateStation(station, decorations = []) {
+    const stationName = station.display_name || station.nombre || station.name || '';
+    let statusConfig = metroConfig.statusTypes?.['default']; // Default status
 
-    console.log(station)
-    
-    const stationName = station.nombre || station.name || '';
-    const statusCode = station.estado || '1';
-    const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
+    if (typeof station.is_operational !== 'undefined') {
+        if (station.is_operational === 0) { // Not operational
+            if (station.status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && !st.isOperational);
+                if (statusType) {
+                    statusConfig = statusType;
+                } else {
+                    // Fallback to a generic closed status if name doesn't match
+                    statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
+                }
+            } else {
+                statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
+            }
+        } else { // Operational
+             if (station.status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && st.isOperational);
+                if (statusType) {
+                    statusConfig = statusType;
+                } else {
+                    // Fallback to a generic open status if name doesn't match
+                    statusConfig = metroConfig.statusTypes['1']; // 'abierta'
+                }
+            } else {
+                statusConfig = metroConfig.statusTypes['1']; // 'abierta'
+            }
+        }
+    } else {
+        // Fallback to old logic if is_operational is not present
+        const statusCode = station.estado || '1';
+        statusConfig = metroConfig.statusTypes?.[statusCode] || statusConfig;
+    }
 
     let rutaIcon = '';
     if (station.express_state === 'Operational' && station.route_color) {
