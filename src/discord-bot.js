@@ -116,6 +116,7 @@ async function startDiscordBot() {
         });
 
         const SchedulerService = require('./core/SchedulerService');
+        const { updatePresence } = require('./modules/presence/presence.js');
         const discordScheduler = new SchedulerService();
 
         let lastEmbedUpdate = null;
@@ -145,6 +146,16 @@ async function startDiscordBot() {
                     }
                 } catch (error) {
                     logger.error('[DISCORD] Error checking for embed updates:', error);
+                }
+            }
+        });
+
+        discordScheduler.addJob({
+            name: 'update-presence',
+            interval: 60000, // Every minute
+            task: async () => {
+                if (discordClient.isReady()) {
+                    await updatePresence(discordClient, metroInfoProvider);
                 }
             }
         });

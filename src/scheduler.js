@@ -38,22 +38,12 @@ async function startScheduler() {
 
     const scheduler = new SchedulerService(db, dataManager, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
 
-    const { updatePresence } = require('./modules/presence/presence.js');
-    const { getClient } = require('./utils/clientManager.js');
     // Check Events job
     scheduler.addJob({
         name: 'check-events',
         interval: 60000, // Every minute
         task: async () => {
             await scheduler.checkAndScheduleEvents();
-            try {
-                const client = getClient();
-                if (client && client.isReady()) {
-                    await updatePresence(client, metroInfoProvider);
-                }
-            } catch (error) {
-                logger.warn('[SCHEDULER] Discord client not ready, skipping presence update.');
-            }
         }
     });
 
