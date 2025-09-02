@@ -21,17 +21,26 @@ class StatusEmbedManager {
             logger.warn('[StatusEmbedManager] Discord client is not available. Initialization will be partial.');
         }
         try {
-            if (this.client) {
-                this.channel = await this.client.channels.fetch(channelId);
+            if (this.client && this.client.channels) {
+                this.channel = await this.client.channels.fetch(channelId).catch(error => {
+                    logger.warn(`[StatusEmbedManager] Could not fetch channel with ID ${channelId}.`);
+                    return null;
+                });
             } else {
                 this.channel = null;
             }
+
             if (!this.channel) {
-                logger.error(`[StatusEmbedManager] Could not find channel with ID: ${channelId}`);
+                if (this.client) {
+                    logger.warn(`[StatusEmbedManager] Channel with ID ${channelId} not found or client not ready.`);
+                }
                 return;
             }
 
-            this.overviewMessage = await this.channel.messages.fetch(overviewMessageId);
+            this.overviewMessage = await this.channel.messages.fetch(overviewMessageId).catch(error => {
+                logger.warn(`[StatusEmbedManager] Could not fetch overview message with ID ${overviewMessageId}.`);
+                return null;
+            });
             if (!this.overviewMessage) {
                 logger.error(`[StatusEmbedManager] Could not find overview message with ID: ${overviewMessageId}`);
                 return;
