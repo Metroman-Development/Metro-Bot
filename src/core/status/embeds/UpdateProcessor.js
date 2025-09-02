@@ -301,14 +301,8 @@ class UpdateProcessor {
         logger.debug(`[UpdateProcessor] Processing data update ${updateId}`);
         this.parent.emit('updateStarted', updateId);
         
-        const changes = this.parent.changeDetector.getLatest();
-        if (!changes?.changes?.length) {
-            logger.debug('[UpdateProcessor] No changes detected');
-            this.parent.emit('updateSkipped', { updateId });
-            return;
-        }
+        this.parent.changeDetector.processChanges(data);
 
-        await this._processChanges(changes, data);
         this.parent.emit('updateCompleted', updateId);
     }
 

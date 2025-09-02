@@ -2,12 +2,17 @@
 const { diff } = require('deep-diff');
 
 class MyChangeDetector {
-    detect(oldData, newData) {
-        const changes = [];
+  constructor(changeAnnouncer) {
+    this.unprocessedChanges = new Set();
+    this.changeAnnouncer = changeAnnouncer;
+  }
 
-        if (!oldData || !newData) {
-            return [];
-        }
+  detect(oldData, newData) {
+    const changes = [];
+
+    if (!oldData || !newData) {
+      return [];
+    }
 
         // Compare network status
         if (JSON.stringify(oldData.network) !== JSON.stringify(newData.network)) {
@@ -66,7 +71,15 @@ class MyChangeDetector {
             });
         }
 
-        return changes;
+        this.unprocessedChanges = new Set([...this.unprocessedChanges, ...changes]);
+    }
+
+    processChanges(allStations) {
+      if (this.unprocessedChanges.size > 0) {
+        const changesToProcess = [...this.unprocessedChanges];
+        this.unprocessedChanges.clear();
+        this.changeAnnouncer.generateMessages(changesToProcess, allStations);
+      }
     }
 }
 
