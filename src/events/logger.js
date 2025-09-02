@@ -166,33 +166,29 @@ const logger = {
         }
     },
 
-    error: (message, metadata = {}) => {
+    error: async (message, metadata = {}) => {
         if (process.env.NODE_ENV !== 'test') {
             console.error("❌", formatLog(LOG_LEVELS.ERROR, message, metadata));
         }
 
-        // If the message is an Error object, send it as an embed
-        if (message instanceof Error) {
-            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(message, metadata);
-        } else {
-            // If the message is a string, wrap it in an Error object
-            const error = new Error(message);
-            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(error, metadata);
+        try {
+            const error = message instanceof Error ? message : new Error(message);
+            if (process.env.NODE_ENV !== 'test') await sendErrorEmbed(error, metadata);
+        } catch (err) {
+            console.error('Failed to send error embed:', err);
         }
     },
 
-    fatal: (message, metadata = {}) => {
+    fatal: async (message, metadata = {}) => {
         if (process.env.NODE_ENV !== 'test') {
             console.error("💀", formatLog(LOG_LEVELS.FATAL, message, metadata));
         }
 
-        // If the message is an Error object, send it as an embed
-        if (message instanceof Error) {
-            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(message, metadata);
-        } else {
-            // If the message is a string, wrap it in an Error object
-            const error = new Error(message);
-            if (process.env.NODE_ENV !== 'test') sendErrorEmbed(error, metadata);
+        try {
+            const error = message instanceof Error ? message : new Error(message);
+            if (process.env.NODE_ENV !== 'test') await sendErrorEmbed(error, metadata);
+        } catch (err) {
+            console.error('Failed to send fatal error embed:', err);
         }
     },
 

@@ -38,8 +38,8 @@ async function startScheduler() {
 
     const scheduler = new SchedulerService(db, dataManager, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
 
-    const { updatePresence } = require('../modules/presence/presence.js');
-    const { getClient } = require('../utils/clientManager');
+    const { updatePresence } = require('./modules/presence/presence.js');
+    const { getClient } = require('./utils/clientManager.js');
     // Check Events job
     scheduler.addJob({
         name: 'check-events',
