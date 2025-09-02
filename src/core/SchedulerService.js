@@ -12,9 +12,9 @@ const statusMapping = {
 };
 
 class SchedulerService {
-    constructor(metroCore, db, changeAnnouncer, statusEmbedManager, metroInfoProvider, timezone) {
-        this.metroCore = metroCore;
+    constructor(db, dataManager, changeAnnouncer, statusEmbedManager, metroInfoProvider, timezone) {
         this.db = db;
+        this.dataManager = dataManager;
         this.changeAnnouncer = changeAnnouncer;
         this.statusEmbedManager = statusEmbedManager;
         this.metroInfoProvider = metroInfoProvider;
@@ -139,7 +139,7 @@ class SchedulerService {
                         }
 
                         // Force a refresh of the data provider to ensure consistency
-                        const dbData = await this.metroCore._subsystems.dataManager.dbDataManager.getDbRawData();
+                        const dbData = await this.dataManager.dbDataManager.getDbRawData();
                         await this.metroInfoProvider.compareAndSyncData(dbData);
 
                         if (this.statusEmbedManager) {
@@ -178,7 +178,7 @@ class SchedulerService {
                         }
 
                         // Force a refresh of the data provider to ensure consistency
-                        const dbData = await this.metroCore._subsystems.dataManager.dbDataManager.getDbRawData();
+                        const dbData = await this.dataManager.dbDataManager.getDbRawData();
                         await this.metroInfoProvider.compareAndSyncData(dbData);
 
                         if (this.statusEmbedManager) {

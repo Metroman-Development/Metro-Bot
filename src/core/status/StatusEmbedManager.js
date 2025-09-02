@@ -4,21 +4,28 @@ const { overviewEmbed, lineEmbed } = require('../../config/statusEmbeds');
 const statusEmbeds = require('../../config/statusEmbeds');
 
 class StatusEmbedManager {
-    constructor(client) {
-        this.client = client;
+    constructor() {
+        this.client = null;
         this.channel = null;
         this.overviewMessage = null;
         this.lineMessages = new Map();
         this.initialized = false;
     }
 
+    setClient(client) {
+        this.client = client;
+    }
+
     async initialize(channelId, overviewMessageId, lineMessageIds) {
         if (!this.client) {
-            logger.error('[StatusEmbedManager] Discord client is not available.');
-            return;
+            logger.warn('[StatusEmbedManager] Discord client is not available. Initialization will be partial.');
         }
         try {
-            this.channel = await this.client.channels.fetch(channelId);
+            if (this.client) {
+                this.channel = await this.client.channels.fetch(channelId);
+            } else {
+                this.channel = null;
+            }
             if (!this.channel) {
                 logger.error(`[StatusEmbedManager] Could not find channel with ID: ${channelId}`);
                 return;
@@ -46,8 +53,8 @@ class StatusEmbedManager {
     }
 
     async updateAllEmbeds(data) {
-        if (!this.initialized) {
-            logger.warn('[StatusEmbedManager] Attempted to update embeds before initialization.');
+        if (!this.initialized || !this.client) {
+            logger.warn('[StatusEmbedManager] Attempted to update embeds before initialization or without a client.');
             return;
         }
         logger.info('[StatusEmbedManager] Updating all embeds...');
@@ -58,7 +65,7 @@ class StatusEmbedManager {
     }
 
     async updateLineEmbed(lineId, data) {
-        if (!this.initialized) return;
+        if (!this.initialized || !this.client) return;
         const message = this.lineMessages.get(lineId);
         if (!message) {
             logger.warn(`[StatusEmbedManager] No message found for line: ${lineId}`);
@@ -81,7 +88,7 @@ class StatusEmbedManager {
     }
 
     async updateOverviewEmbed(data) {
-        if (!this.initialized) return;
+        if (!this.initialized || !this.client) return;
         if (!this.overviewMessage) {
             logger.warn('[StatusEmbedManager] Overview message not available.');
             return;

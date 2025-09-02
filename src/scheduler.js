@@ -15,14 +15,12 @@ let statusManager;
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroCore, databaseManager } = await bootstrap.initialize('SCHEDULER');
+    const { metroInfoProvider, databaseManager } = await bootstrap.initialize('SCHEDULER');
     const db = databaseManager;
 
-    const dataManager = metroCore._subsystems.dataManager;
-    const dbService = metroCore._subsystems.dbService;
     const announcementService = new AnnouncementService();
 
-    const statusEmbedManager = new StatusEmbedManager(metroCore.client);
+    const statusEmbedManager = new StatusEmbedManager();
     const lineMessageIds = { ...metroConfig.embedMessageIds };
     delete lineMessageIds.overview;
 
@@ -32,12 +30,13 @@ async function startScheduler() {
         lineMessageIds
     );
 
+    const DataManager = require('./core/metro/core/services/DataManager');
+    const DatabaseService = require('./core/database/DatabaseService');
+    const dbService = await DatabaseService.getInstance(db);
+    const dataManager = new DataManager({ dbService: dbService });
     statusManager = new StatusManager(db, dataManager, announcementService, statusEmbedManager);
 
-    const metroInfoProvider = MetroInfoProvider.initialize(metroCore, databaseManager, statusEmbedManager);
-    metroCore.metroInfoProvider = metroInfoProvider;
-
-    const scheduler = new SchedulerService(metroCore, db, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
+    const scheduler = new SchedulerService(db, dataManager, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
 
     // Check Events job
     scheduler.addJob({
@@ -48,82 +47,8 @@ async function startScheduler() {
         }
     });
 
-    // Change detection and network status calculation job
-    scheduler.addJob({
-        name: 'change-detection-and-status-calculation',
-        interval: 30000, // Every 30 seconds
-        task: async () => {
-            const { stationChanges, lineChanges } = await dbService.getUnprocessedChanges();
-
-            if (stationChanges.length > 0 || lineChanges.length > 0) {
-                logger.info(`[SCHEDULER] Found ${stationChanges.length} unprocessed station changes and ${lineChanges.length} unprocessed line changes.`);
-
-                // In the next step, MetroInfoProvider will be updated to handle these changes.
-                // For now, we assume it has a method to apply these changes.
-                // await metroInfoProvider.applyChanges({ stationChanges, lineChanges });
-
-                const stationChangeIds = stationChanges.map(c => c.history_id);
-                const lineChangeIds = lineChanges.map(c => c.history_id);
-                await dbService.markChangesAsProcessed({ stationChangeIds, lineChangeIds });
-
-                // After applying changes, we need to get the updated data for network status calculation.
-                // This will also be handled in the next step.
-            }
-
-            // The rest of the logic for network status calculation will be here.
-            // It will use the updated data from metroInfoProvider.
-            // For now, we can't do much until MetroInfoProvider is updated.
-            // We can assume that the provider's data is up-to-date for the calculation.
-
-            const data = metroInfoProvider.getFullData();
-            if (!data || !data.lines) {
-                logger.warn('[SCHEDULER] No data available from MetroInfoProvider for network status calculation.');
-                return;
-            };
-
-            const lineStatus = data.lines;
-            let operationalLines = 0;
-            let totalLines = Object.keys(lineStatus).length;
-
-            for (const lineId in lineStatus) {
-                if (lineStatus[lineId].status_type_id === 10) { // Assuming 10 is operational
-                    operationalLines++;
-                }
-            }
-
-            let networkStatus = 'operational';
-            if (totalLines > 0) {
-                if (operationalLines === 0) {
-                    networkStatus = 'suspended';
-                } else if (operationalLines < totalLines) {
-                    networkStatus = 'partial';
-                }
-            } else {
-                networkStatus = 'unknown';
-            }
-
-            // This part updates the network_status in the provider.
-            // It seems MetroInfoProvider needs an `updateData` method.
-            if (!data.network_status) data.network_status = {};
-            data.network_status.status = networkStatus;
-            data.network_status.timestamp = new Date().toISOString();
-
-            // await metroInfoProvider.updateData(data);
-            logger.info(`[SCHEDULER] Network status calculated: ${networkStatus}`);
-        }
-    });
-
-    scheduler.addJob({
-        name: 'check-accessibility',
-        interval: 300000, // Every 5 minutes
-        task: () => scheduler.metroCore._subsystems.accessibilityService.checkAccessibility()
-    });
-
-    scheduler.addJob({
-        name: 'send-system-status-report',
-        interval: 3600000, // Every hour
-        task: () => scheduler.metroCore.sendSystemStatusReport()
-    });
+    // The change detection and network status calculation job is now handled by the DataManager.
+    // The DataManager will be started by the main application process.
 
     // Load jobs from chronosConfig
     if (chronosConfig.jobs && Array.isArray(chronosConfig.jobs)) {

@@ -13,11 +13,10 @@ const DbDataManager = require('./DbDataManager');
 const { translateApiData, translateStatus } = require('../../data/DataTranslator');
 
 class DataManager extends EventEmitter {
-    constructor(metro, options = {}, dataEngine) {
+    constructor(options = {}, dataEngine) {
         super();
 
         // Core dependencies
-        this.metro = metro;
         this.dataEngine = dataEngine;
         this.debug = options.debug || false;
         this._cycleCount = 0;
@@ -116,11 +115,11 @@ class DataManager extends EventEmitter {
 
 
     async getCurrentData() {
-        // This function now gets data directly from the MetroInfoProvider.
-        // It ensures that the embed manager always has the most up-to-date information.
-        logger.debug('[DataManager] getCurrentData called. Fetching fresh data from MetroInfoProvider.');
-        if (this.metro && this.metro._subsystems && this.metro._subsystems.metroInfoProvider) {
-            return this.metro._subsystems.metroInfoProvider.getFullData();
+        // This is a circular dependency. It should be removed.
+        const MetroInfoProvider = require('../../../../utils/MetroInfoProvider');
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        if (metroInfoProvider) {
+            return metroInfoProvider.getFullData();
         }
         logger.warn('[DataManager] MetroInfoProvider not available. Returning last known data.');
         return this.lastCurrentData;
@@ -292,8 +291,10 @@ class DataManager extends EventEmitter {
     _updateState(newData) {
         logger.debug('[DataManager] Updating service state');
         this.cachedData = newData;
-        if (this.metro && this.metro._subsystems && this.metro._subsystems.metroInfoProvider) {
-            this.metro._subsystems.metroInfoProvider.updateData(newData);
+        const MetroInfoProvider = require('../../../../utils/MetroInfoProvider');
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        if (metroInfoProvider) {
+            metroInfoProvider.updateData(newData);
         }
         this.emit('data', newData);
         this._emitRawData(newData, false);
@@ -439,7 +440,6 @@ class DataManager extends EventEmitter {
             overridesActive: Object.values(this.override.getOverrides().lines).some(o => o.enabled) ||
                            Object.values(this.override.getOverrides().stations).some(o => o.enabled),
             staticData: {
-                lastRefresh: this.metro.api.getDataFreshness().lastRefresh,
                 refreshCount: this.metrics.staticDataRefreshes
             },
             dataState: {
@@ -515,10 +515,7 @@ class DataManager extends EventEmitter {
             await this._storeCurrentData(data);
         }
 
-        // Trigger embed update
-        if (this.metro && this.metro._subsystems && this.metro._subsystems.statusUpdater && this.metro._subsystems.statusUpdater.embeds) {
-            await this.metro._subsystems.statusUpdater.embeds.updateAllEmbeds(data);
-        }
+        // This is a circular dependency. It should be removed.
     }
 
     async activateExpressService() {
