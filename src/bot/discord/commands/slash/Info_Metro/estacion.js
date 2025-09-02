@@ -16,12 +16,24 @@ module.exports = {
         .addSubcommand(subcommand => info.data(subcommand)),
 
     category: "Metro Info",
+
+    async autocomplete(interaction, metroInfoProvider) {
+        const subcommand = interaction.options.getSubcommand();
+        switch(subcommand) {
+            case 'info':
+                return info.autocomplete(interaction, metroInfoProvider);
+            case 'estado':
+                return estado.autocomplete(interaction, metroInfoProvider);
+            default:
+                break;
+        }
+    },
     
     /**
      * Executes the 'estacion' command.
      * @param {import('discord.js').Interaction} interaction The interaction object.
      */
-    async execute(interaction) {
+    async execute(interaction, metroInfoProvider) {
         const subcommand = interaction.options.getSubcommand();
         
         try {
@@ -30,9 +42,9 @@ module.exports = {
             // Route to the appropriate subcommand handler.
             switch(subcommand) {
                 case 'estado':
-                    return estado.execute(interaction, MetroInfoProvider);
+                    return estado.execute(interaction, metroInfoProvider);
                 case 'info':
-                    return info.execute(interaction, MetroInfoProvider);
+                    return info.execute(interaction, metroInfoProvider);
                 default:
                     return interaction.editReply({
                         content: '⚠️ Subcomando no reconocido. Por favor, elige una de las opciones disponibles.',
