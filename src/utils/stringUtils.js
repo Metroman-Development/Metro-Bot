@@ -221,7 +221,9 @@ async function decorateStation(stationName, options = {}, metroInfoProvider) {
     const transferInfo = combinacion ? await getTransferLines(stationName, line, metroInfoProvider) : '';
     const connectionEmojis = conexiones ? getConnectionEmojiList(stationName, line, metroInfoProvider) : '';
 
-    return `${statusEmoji} ${routeEmoji} ${removeLineSuffix(stationName)}${transferInfo} ${connectionEmojis}`.trim();
+    const parts = [statusEmoji, routeEmoji, removeLineSuffix(stationName), transferInfo, connectionEmojis];
+
+    return parts.filter(Boolean).join(' ');
   } catch (error) {
     console.error(`Error decorating station ${stationName}:`, error);
     return stationName; // Fallback to just the station name
