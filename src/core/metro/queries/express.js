@@ -60,10 +60,12 @@ module.exports = (core) => ({
 
     // Enhanced station counting with filters
     countStationsBetween: (startStation, endStation, lineId, filters = {}) => {
-        const line = core.getLine(lineId);
-        if (!line) return null;
+        const allStations = Object.values(core.getStations());
+        const lineStations = allStations.filter(s => s.line_id === lineId);
 
-        const stations = line.stations
+        if (!lineStations.length) return null;
+
+        const stations = lineStations
             .filter(station => applyStationFilters(station, filters))
             .map(s => s.code);
 
@@ -81,7 +83,7 @@ module.exports = (core) => ({
     getExpressRouteStatus: (lineId) => {
         if (!this.isExpressLine(lineId)) return 'not_express';
         const line = core.getLine(lineId);
-        return line.expressActive ? 'active' : 'inactive';
+        return line.express_status === 'active' ? 'active' : 'inactive';
     }
 });
 
