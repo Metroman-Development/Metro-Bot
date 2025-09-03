@@ -37,11 +37,11 @@ function normalizeStationData(station) {
         }
     }
 
-    if (station.combinacion) {
-        if (Array.isArray(station.combinacion)) {
-            connections.lines.push(...station.combinacion);
-        } else if (typeof station.combinacion === 'string') {
-            connections.lines.push(station.combinacion);
+    if (station.transfer) {
+        if (Array.isArray(station.transfer)) {
+            connections.lines.push(...station.transfer);
+        } else if (typeof station.transfer === 'string') {
+            connections.lines.push(station.transfer);
         }
     }
 
@@ -162,7 +162,7 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
         throw new Error("decorateStation requires a metroInfoProvider instance.");
     }
     const metroConfig = metroInfoProvider.getConfig();
-    const stationName = station.display_name || station.nombre || station.name || '';
+    const stationName = station.display_name || station.name || '';
     let statusConfig = metroConfig.statusTypes?.['default']; // Default status
 
     if (typeof station.is_operational !== 'undefined') {
@@ -193,7 +193,7 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
         }
     } else {
         // Fallback to old logic if is_operational is not present
-        const statusCode = station.estado || '1';
+        const statusCode = station.status || '1';
         statusConfig = metroConfig.statusTypes?.[statusCode] || statusConfig;
     }
 
@@ -206,9 +206,9 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
 
     let decoratedName = `${statusConfig.discordem || '❓'} ${rutaIcon} ${stationName}`.trim();
 
-    if (decorations.includes('line_connections') && station.combinacion) {
+    if (decorations.includes('line_connections') && station.transfer) {
        
-            decoratedName += ` 🔄 ${metroConfig.linesEmojis[station.combinacion.toLowerCase()]}`;
+            decoratedName += ` 🔄 ${metroConfig.linesEmojis[station.transfer.toLowerCase()]}`;
         
     }
 

@@ -195,9 +195,9 @@ async function getTransferLines(stationName, lineKey, metroInfoProvider) {
     if (!stations) return '';
 
     const station = stations[lineKey]?.[stationName];
-    if (!station || !station.combinacion) return '';
+    if (!station || !station.transfer) return '';
 
-    const transferLines = station.combinacion
+    const transferLines = station.transfer
       .map(line => metroConfig.linesEmojis[line.toLowerCase()])
       .filter(Boolean)
       .join(' ');
@@ -214,11 +214,11 @@ async function getTransferLines(stationName, lineKey, metroInfoProvider) {
 // Update decorateStation function
 async function decorateStation(stationName, options = {}, metroInfoProvider) {
   try {
-    const { line, estado, ruta, combinacion, conexiones } = options;
+    const { line, status, ruta, transfer, conexiones } = options;
 
-    const statusEmoji = getStatusEmoji(estado, metroInfoProvider);
+    const statusEmoji = getStatusEmoji(status, metroInfoProvider);
     const routeEmoji = ruta ? getRouteEmoji(line, stationName, metroInfoProvider) : '';
-    const transferInfo = combinacion ? await getTransferLines(stationName, line, metroInfoProvider) : '';
+    const transferInfo = transfer ? await getTransferLines(stationName, line, metroInfoProvider) : '';
     const connectionEmojis = conexiones ? getConnectionEmojiList(stationName, line, metroInfoProvider) : '';
 
     const parts = [statusEmoji, routeEmoji, removeLineSuffix(stationName), transferInfo, connectionEmojis];
@@ -236,9 +236,9 @@ function isTransferStation(stationName, lineKey) {
     console.log(lineKey) ;
   if (!stationName) return false;
 
-  // Check if station has combinacion in data
-  const hasCombinacion = stations[lineKey]?.[stationName]?.combinacion ||
-                        stations[lineKey]?.[stationName]?.combinacion;
+  // Check if station has transfer in data
+  const hasTransfer = stations[lineKey]?.[stationName]?.transfer ||
+                        stations[lineKey]?.[stationName]?.transfer;
 
   // Check if name ends with line suffix
   const hasSuffix = / L\d+[a-zA-Z]*$/i.test(stationName);
@@ -246,11 +246,11 @@ function isTransferStation(stationName, lineKey) {
   logDebug('Transfer station check:', {
     stationName,
     lineKey,
-    hasCombinacion,
+    hasTransfer,
     hasSuffix
   });
 
-  return hasCombinacion || hasSuffix;
+  return hasTransfer || hasSuffix;
 }
 
 function addConnectionSuffix(stationName, lineKey, metroInfoProvider) {

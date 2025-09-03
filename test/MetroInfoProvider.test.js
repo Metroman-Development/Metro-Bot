@@ -78,12 +78,12 @@ describe('MetroInfoProvider', () => {
 
       const station = metroInfoProvider.data.stations.ST1;
       expect(station).toBeDefined();
-      expect(station.nombre).toEqual('Test Station 1');
-      expect(station.codigo).toEqual('ST1');
-      expect(station.estado).toEqual('1');
-      expect(station.combinacion).toEqual('L2');
-      expect(station.descripcion).toEqual('Operational');
-      expect(station.descripcion_app).toEqual('All good');
+      expect(station.name).toEqual('Test Station 1');
+      expect(station.code).toEqual('ST1');
+      expect(station.status).toEqual('1');
+      expect(station.transfer).toEqual('L2');
+      expect(station.description).toEqual('Operational');
+      expect(station.app_description).toEqual('All good');
       expect(station.station_id).toEqual(1);
       expect(station.line_id).toEqual('l1');
       expect(station.commune).toEqual('Test Commune');
@@ -105,7 +105,7 @@ describe('MetroInfoProvider', () => {
       const stationData = {
           name: 'Test Station',
           line_id: 'L1',
-          combinacion: 'L2',
+          transfer: 'L2',
           connections: ['L2', 'bus'],
           access_details: 'details',
           services: 'services',

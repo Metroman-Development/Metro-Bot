@@ -116,9 +116,9 @@ class MetroInfoProvider {
                 acc[bus.station_id] = [];
             }
             acc[bus.station_id].push({
-                'Tipo Servicio': bus.type,
-                'Recorrido/Operador': bus.route,
-                'Destino': bus.destination
+                'serviceType': bus.type,
+                'routeOperator': bus.route,
+                'destination': bus.destination
             });
             return acc;
         }, {});
@@ -224,17 +224,15 @@ class MetroInfoProvider {
                 }
 
                 stationData[stationId] = {
-                    nombre: station.station_name,
-                    codigo: station.station_code,
-                    estado: station.is_operational ? '1' : '0',
-                    combinacion: station.combinacion,
-                    descripcion: station.status_description,
-                    descripcion_app: station.status_message,
-                    mensaje: '',
+                    name: station.station_name,
+                    code: station.station_code,
+                    status: station.is_operational ? '1' : '0',
+                    transfer: station.combinacion,
+                    description: station.status_description,
+                    app_description: station.status_message,
+                    message: '',
                     station_id: station.station_id,
                     line_id: station.line_id.toLowerCase(),
-                    station_code: station.station_code,
-                    station_name: station.station_name,
                     display_order: station.display_order,
                     commune: station.commune,
                     address: station.address,
@@ -269,10 +267,7 @@ class MetroInfoProvider {
                         is_operational: station.is_operational,
                         operational_status_desc: station.operational_status_desc,
                         js_code: station.js_code
-                    },
-                    id: stationId,
-                    name: station.station_name,
-                    status: station.is_operational ? '1' : '0'
+                    }
                 };
             }
 
@@ -360,7 +355,7 @@ class MetroInfoProvider {
             return null;
         }
 
-        const stationStatus = station.status_data.status_message || 'No disponible';
+        const stationStatus = station.status_data.status_message || 'Not available';
 
         const platforms = station.platforms ? Object.entries(station.platforms).map(([platform, status]) => ({
             platform: parseInt(platform, 10),
@@ -374,7 +369,7 @@ class MetroInfoProvider {
         return {
             name: station.name,
             line: station.line_id,
-            transfer: station.combinacion ? `L${String(station.combinacion).replace(/L/g, '')}` : null,
+            transfer: station.transfer ? `L${String(station.transfer).replace(/L/g, '')}` : null,
             connections: station.connections || [],
             details: {
                 schematics: station.access_details,
