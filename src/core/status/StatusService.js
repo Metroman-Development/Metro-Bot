@@ -5,9 +5,8 @@ const logger = require('../../events/logger');
 const { normalizeStatus, STATUS_MAP, SEVERITY_LEVELS } = require('./utils/statusHelpers');
 
 class StatusService extends EventEmitter {
-  constructor(metroCore) {
+  constructor() {
     super();
-    this.metro = metroCore;
     this.state = {
       lines: {},
       stations: {},
@@ -22,21 +21,6 @@ class StatusService extends EventEmitter {
       forcedStatuses: new Map(),
       changeHistory: []
     };
-
-    this._setupEventHandlers();
-    logger.debug('[StatusService] Initialized with MetroCore instance');
-  }
-
-  _setupEventHandlers() {
-    this.metro.on('lineStatusChanged', ({ lineId, status, isForced }) => {
-      this._handleLineChange(lineId, status, isForced);
-    });
-
-    this.metro.on('stationStatusChanged', ({ stationId, status }) => {
-      this._handleStationChange(stationId, status);
-    });
-
-    logger.debug('[StatusService] Event handlers registered');
   }
 
   _handleLineChange(lineId, status, isForced = false) {
@@ -172,12 +156,6 @@ class StatusService extends EventEmitter {
     this.state.changeHistory.push(changeRecord);
     logger.info(`[StatusService] ${type} ${id} changed: ${previousStatus?.code || 'none'} → ${newStatus.code}`);
 
-    if (this.metro._subsystems.dbService) {
-      this.metro._subsystems.dbService.logStatusChange(changeRecord).catch(error => {
-        logger.error('[StatusService] Failed to log status change to database:', error);
-      });
-    }
-
     if (type === 'line') {
       this.emit('lineStatusUpdated', changeRecord);
     } else {
@@ -225,7 +203,7 @@ class StatusService extends EventEmitter {
       stations: this.state.stations,
       lastUpdated: this.state.lastUpdated,
       forcedStatuses: Array.from(this.state.forcedStatuses.entries()),
-      version: this.metro.config?.dataVersion || '1.0.0'
+      version: '1.0.0'
     };
   }
 
@@ -320,12 +298,6 @@ getLineStatus(lineId) {
     if (this.state.forcedStatuses.has(lineId)) {
       this.state.forcedStatuses.delete(lineId);
       logger.info(`[StatusService] Cleared forced status for line ${lineId}`);
-      
-      // Revert to current API status
-      const currentApiStatus = this.metro._detailsData?.lines[lineId]?.status;
-      if (currentApiStatus) {
-        this._handleLineChange(lineId, currentApiStatus);
-      }
     }
   }
 
@@ -340,15 +312,6 @@ getLineStatus(lineId) {
 
   async setSystemToOutOfService() {
     logger.info('[StatusService] Setting system to out of service due to non-operating hours.');
-    const data = this.metro._subsystems.metroInfoProvider.getFullData();
-
-    for (const lineId in data.lines) {
-      this._handleLineChange(lineId, { code: 15 });
-    }
-
-    for (const stationId in data.stations) {
-      this._handleStationChange(stationId, { code: 15 });
-    }
   }
 }
 

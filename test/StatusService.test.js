@@ -3,11 +3,9 @@ const EventEmitter = require('events');
 
 describe('StatusService', () => {
   let statusService;
-  let mockMetroCore;
 
   beforeEach(() => {
-    mockMetroCore = new EventEmitter();
-    statusService = new StatusService(mockMetroCore);
+    statusService = new StatusService();
   });
 
   describe('getLineStatus', () => {

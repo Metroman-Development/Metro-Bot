@@ -21,7 +21,7 @@ async function startDiscordBot() {
     });
     setClient(discordClient);
 
-    const { metroInfoProvider } = await initialize('DISCORD');
+    const { metroInfoProvider, schedulerService } = await initialize('DISCORD');
 
     if (!metroInfoProvider.isInitialized) {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for initialization
@@ -115,12 +115,10 @@ async function startDiscordBot() {
             }
         });
 
-        const SchedulerService = require('./core/SchedulerService');
         const { updatePresence } = require('./modules/presence/presence.js');
-        const discordScheduler = new SchedulerService();
 
         let lastEmbedUpdate = null;
-        discordScheduler.addJob({
+        schedulerService.addJob({
             name: 'update-embeds',
             interval: 10000, // Every 10 seconds
             task: async () => {
@@ -146,7 +144,7 @@ async function startDiscordBot() {
             }
         });
 
-        discordScheduler.addJob({
+        schedulerService.addJob({
             name: 'update-presence',
             interval: 60000, // Every minute
             task: async () => {
@@ -155,8 +153,6 @@ async function startDiscordBot() {
                 }
             }
         });
-
-        discordScheduler.start();
 
     } catch (error) {
         if (error.code === 'TokenInvalid') {

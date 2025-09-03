@@ -103,10 +103,10 @@ const config = {
         { name: 'Fare Period to Noche (End of Service)', schedule: '0 23 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'NOCHE' },
 
         // Express service transitions (weekday)
-        { name: 'Express Service Morning Start', schedule: '0 6 * * 1-5', task: 'dataManager.activateExpressService' },
-        { name: 'Express Service Morning End', schedule: '0 9 * * 1-5', task: 'dataManager.deactivateExpressService' },
-        { name: 'Express Service Afternoon Start', schedule: '0 18 * * 1-5', task: 'dataManager.activateExpressService' },
-        { name: 'Express Service Afternoon End', schedule: '0 21 * * 1-5', task: 'dataManager.deactivateExpressService' }
+        { name: 'Express Service Morning Start', schedule: '0 6 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Morning End', schedule: '0 9 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' },
+        { name: 'Express Service Afternoon Start', schedule: '0 18 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Afternoon End', schedule: '0 21 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' }
     ]
 };
 

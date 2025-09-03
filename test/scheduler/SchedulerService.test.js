@@ -10,20 +10,29 @@ jest.mock('../../src/events/logger', () => ({
     warn: jest.fn(),
 }));
 
+// Mock node-schedule
+jest.mock('node-schedule', () => ({
+    scheduleJob: jest.fn(),
+    RecurrenceRule: jest.fn().mockImplementation(() => ({
+        tz: '',
+    })),
+}));
+
+
 describe('SchedulerService', () => {
     let scheduler;
-    let mockMetroCore, mockDb, mockChangeAnnouncer, mockStatusEmbedManager, mockMetroInfoProvider;
+    let mockDb, mockDataManager, mockChangeAnnouncer, mockStatusEmbedManager, mockMetroInfoProvider;
 
     beforeEach(() => {
-        mockMetroCore = {};
         mockDb = {};
+        mockDataManager = {};
         mockChangeAnnouncer = {};
         mockStatusEmbedManager = {};
         mockMetroInfoProvider = {};
 
         scheduler = new SchedulerService(
-            mockMetroCore,
             mockDb,
+            mockDataManager,
             mockChangeAnnouncer,
             mockStatusEmbedManager,
             mockMetroInfoProvider,
@@ -156,16 +165,15 @@ describe('SchedulerService', () => {
     });
 
     it('should schedule a cron job with the correct timezone', () => {
-        const scheduleJobSpy = jest.spyOn(schedule, 'scheduleJob');
         const task = jest.fn();
         const job = { name: 'cron-job', schedule: '* * * * *', task };
 
         scheduler.addJob(job);
         scheduler.start();
 
-        expect(scheduleJobSpy).toHaveBeenCalled();
+        expect(schedule.scheduleJob).toHaveBeenCalled();
 
-        const firstCallArgs = scheduleJobSpy.mock.calls[0];
+        const firstCallArgs = schedule.scheduleJob.mock.calls[0];
         const rule = firstCallArgs[0];
 
         expect(rule.tz).toBe('America/Santiago');

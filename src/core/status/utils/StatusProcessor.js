@@ -9,8 +9,7 @@ const DatabaseManager = require('../../database/DatabaseManager');
 const DatabaseService = require('../../database/DatabaseService');
 
 class StatusProcessor {
-  constructor(metroCore, dbManager, dbService) {
-    this.metro = metroCore;
+  constructor(dbManager, dbService) {
     this.db = dbManager;
     this.dbService = dbService;
     this.timeHelpers = TimeHelpers;

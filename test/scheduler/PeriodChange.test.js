@@ -27,8 +27,8 @@ describe('Scheduler Period Change Jobs', () => {
     });
 
     it('should have jobs for express service', () => {
-        const activateJobs = chronosConfig.jobs.filter(j => j.task === 'dataManager.activateExpressService');
-        const deactivateJobs = chronosConfig.jobs.filter(j => j.task === 'dataManager.deactivateExpressService');
+        const activateJobs = chronosConfig.jobs.filter(j => j.task === 'metroInfoProvider.activateExpressService');
+        const deactivateJobs = chronosConfig.jobs.filter(j => j.task === 'metroInfoProvider.deactivateExpressService');
         expect(activateJobs.length).toBe(2);
         expect(deactivateJobs.length).toBe(2);
     });

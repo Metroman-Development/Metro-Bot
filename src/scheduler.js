@@ -15,28 +15,10 @@ let statusManager;
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroInfoProvider, databaseManager } = await bootstrap.initialize('SCHEDULER');
-    const db = databaseManager;
+    const { metroInfoProvider, schedulerService, statusService } = await bootstrap.initialize('SCHEDULER');
+    statusManager = statusService;
 
-    const announcementService = new AnnouncementService();
-
-    const statusEmbedManager = new StatusEmbedManager();
-    const lineMessageIds = { ...metroConfig.embedMessageIds };
-    delete lineMessageIds.overview;
-
-    await statusEmbedManager.initialize(
-        metroConfig.embedsChannelId,
-        metroConfig.embedMessageIds.overview,
-        lineMessageIds
-    );
-
-    const DataManager = require('./core/metro/core/services/DataManager');
-    const DatabaseService = require('./core/database/DatabaseService');
-    const dbService = await DatabaseService.getInstance(db);
-    const dataManager = new DataManager({ dbService: dbService });
-    statusManager = new StatusManager(db, dataManager, announcementService, statusEmbedManager);
-
-    const scheduler = new SchedulerService(db, dataManager, announcementService, statusEmbedManager, metroInfoProvider, chronosConfig.timezone);
+    const scheduler = schedulerService;
 
     // Check Events job
     scheduler.addJob({
@@ -74,15 +56,15 @@ async function startScheduler() {
                             break;
                     }
                 };
-            } else if (service === 'dataManager') {
+            } else if (service === 'metroInfoProvider') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     switch (method) {
                         case 'activateExpressService':
-                            await dataManager.activateExpressService();
+                            await metroInfoProvider.activateExpressService();
                             break;
                         case 'deactivateExpressService':
-                            await dataManager.deactivateExpressService();
+                            await metroInfoProvider.deactivateExpressService();
                             break;
                     }
                 };
