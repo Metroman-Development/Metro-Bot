@@ -106,7 +106,7 @@ class MetroInfoProvider {
             services: JSON.parse(station.services),
             buses: busMap[station.id] || [],
             location: station.location,
-            comuna: station.commune,
+            commune: station.commune,
             inauguration: station.inauguration,
             platforms: station.platforms,
             operator: station.operator
@@ -164,11 +164,10 @@ class MetroInfoProvider {
                 const lineId = line.line_id.toLowerCase();
                 lineData[lineId] = {
                     id: lineId,
-                    nombre: line.line_name,
+                    name: line.line_name,
                     displayName: line.display_name,
                     color: line.line_color,
-                    estado: line.status_code,
-                    mensaje_app: line.app_message,
+                    app_message: line.app_message,
                     express_status: line.express_status,
                     status: {
                         message: line.status_message,
@@ -206,7 +205,7 @@ class MetroInfoProvider {
                     accessDetails: station.access_details,
                     openedDate: station.opened_date,
                     lastRenovationDate: station.last_renovation_date,
-                    combinacion: station.combinacion,
+                    transfer: station.combinacion,
                     connections: station.connections,
                     status: {
                         code: station.status_code || 'operational',
@@ -303,26 +302,22 @@ class MetroInfoProvider {
             return null;
         }
 
-        const line = this.data.lines[station.line_id];
-        const lineStatus = line ? line.status_message : 'No disponible';
-        const stationStatus = station.status_message || 'No disponible';
+        const stationStatus = station.status.message || 'No disponible';
 
         const platforms = station.platforms ? Object.entries(station.platforms).map(([platform, status]) => ({
             platform: parseInt(platform, 10),
             status: status === 1 ? 'active' : 'inactive'
         })) : [];
 
-        const intermodal = this.getIntermodalBuses(station.station_name);
+        const intermodal = this.getIntermodalBuses(station.name);
 
         return {
-            name: station.station_name,
-            line: station.line_id,
-            route: this.getRouteColorName(station.route_color),
-            express_state: station.express_state,
-            transfer: station.combinacion ? `L${station.combinacion}` : null,
+            name: station.name,
+            line: station.line,
+            transfer: station.transfer ? `L${String(station.transfer).replace(/L/g, '')}` : null,
             connections: station.connections || [],
             details: {
-                schematics: station.access_details,
+                schematics: station.accessDetails,
                 services: station.services,
                 accessibility: station.accessibility,
                 amenities: station.amenities,
@@ -331,14 +326,10 @@ class MetroInfoProvider {
             platforms: platforms,
             intermodal: intermodal,
             status: {
-                code: station.status_name || '0',
+                code: station.status.code || 'operational',
                 message: stationStatus,
-                nombre: station.station_name,
-                codigo: station.station_code,
-                estado: station.is_operational ? 'operational' : 'closed',
-                descripcion: station.status_description,
-                descripcion_app: station.status_message,
-                status_data: station.status_data
+                state: station.status.isOperational ? 'operational' : 'closed',
+                description: station.status.description
             },
         };
     }
@@ -365,7 +356,7 @@ class MetroInfoProvider {
         }
         if (typeof stationId === 'string') {
             const normalizedId = stationId.toLowerCase();
-            return Object.values(this.data.stations).find(s => (s.name || s.nombre || s.station_name || '').toLowerCase() === normalizedId);
+            return Object.values(this.data.stations).find(s => (s.name || '').toLowerCase() === normalizedId);
         }
         return null;
     }

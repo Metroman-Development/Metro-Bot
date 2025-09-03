@@ -44,11 +44,10 @@ describe('MetroInfoProvider', () => {
       // Check the transformed line data
       expect(metroInfoProvider.data.lines.l1).toEqual({
         id: 'l1',
-        nombre: 'Test Line 1',
+        name: 'Test Line 1',
         displayName: 'Test Line 1',
         color: '#FF0000',
-        estado: 1,
-        mensaje_app: 'App message',
+        app_message: 'App message',
         express_status: 'active',
         status: { message: 'Operational', code: 1 }
       });
@@ -70,27 +69,27 @@ describe('MetroInfoProvider', () => {
       const stationName = 'Test Station';
       const stationData = {
         'test-station': {
-          station_name: 'Test Station',
-          line_id: 'L1',
-          route_color: 'R',
-          express_state: 'Operational',
-          combinacion: 'L2',
+          name: 'Test Station',
+          line: 'L1',
+          transfer: 'L2',
           connections: ['L2', 'bus'],
-          access_details: 'details',
+          accessDetails: 'details',
           services: 'services',
           accessibility: 'accessibility',
           amenities: 'amenities',
           commune: 'commune',
           platforms: { '1': 1, '2': 0 },
-          status_message: 'Station is operational',
-          status_name: 'operational',
-          is_operational: 1,
-          status_description: 'Station is operational'
+          status: {
+            message: 'Station is operational',
+            code: 'operational',
+            isOperational: true,
+            description: 'Station is operational'
+          }
         }
       };
       metroInfoProvider.updateData({
         stations: stationData,
-        lines: { L1: { status_message: 'Line is operational' } },
+        lines: { L1: { status: { message: 'Line is operational' } } },
         intermodal: { buses: { 'Test Station': ['bus1', 'bus2'] } }
       });
 
@@ -99,9 +98,7 @@ describe('MetroInfoProvider', () => {
       expect(details).toEqual({
         name: 'Test Station',
         line: 'L1',
-        route: 'Roja',
-        express_state: 'Operational',
-        transfer: 'LL2',
+        transfer: 'L2',
         connections: ['L2', 'bus'],
         details: {
           schematics: 'details',
@@ -112,7 +109,12 @@ describe('MetroInfoProvider', () => {
         },
         platforms: [{ platform: 1, status: 'active' }, { platform: 2, status: 'inactive' }],
         intermodal: ['bus1', 'bus2'],
-        status: expect.any(Object),
+        status: {
+            code: 'operational',
+            message: 'Station is operational',
+            state: 'operational',
+            description: 'Station is operational'
+        },
       });
     });
   });
