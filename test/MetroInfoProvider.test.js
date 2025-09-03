@@ -21,7 +21,7 @@ describe('MetroInfoProvider', () => {
   describe('updateFromDb', () => {
     it('should fetch and transform data from the database', async () => {
       const mockLines = [
-        { line_id: 'L1', line_name: 'Test Line 1', line_color: '#FF0000', status_message: 'Operational', status_code: 1 }
+        { line_id: 'L1', line_name: 'Test Line 1', display_name: 'Test Line 1', line_color: '#FF0000', status_message: 'Operational', status_code: 1, app_message: 'App message', express_status: 'active' }
       ];
       const mockStations = [
         { station_code: 'ST1', station_name: 'Test Station 1', display_name: 'Station 1', line_id: 'L1', commune: 'Test Commune', transports: '["bus"]', services: '[]', commerce: '[]', amenities: '[]', image_url: '', accessibility: '[]', access_details: '[]', opened_date: '', last_renovation_date: '', combinacion: false, status_description: 'Operational', status_message: 'All good', is_planned: false, impact_level: 0, status_code: 'operational', is_operational: 1 }
@@ -44,8 +44,12 @@ describe('MetroInfoProvider', () => {
       // Check the transformed line data
       expect(metroInfoProvider.data.lines.l1).toEqual({
         id: 'l1',
+        nombre: 'Test Line 1',
         displayName: 'Test Line 1',
         color: '#FF0000',
+        estado: 1,
+        mensaje_app: 'App message',
+        express_status: 'active',
         status: { message: 'Operational', code: 1 }
       });
 
