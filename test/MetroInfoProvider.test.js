@@ -57,6 +57,27 @@ describe('MetroInfoProvider', () => {
       expect(metroInfoProvider.data.stations.ST1.name).toEqual('Test Station 1');
       expect(metroInfoProvider.data.stations.ST1.line).toEqual('l1');
     });
+
+    it('should correctly parse accessibility statuses', async () => {
+      const mockStations = [
+        {
+          station_code: 'ST2',
+          station_name: 'Test Station 2',
+          line_id: 'L2',
+          accessibility_statuses: 'ascensor|Ascensor ABC|1;escalator|Escalator XYZ|0',
+        },
+      ];
+      mockDatabaseService.query.mockResolvedValueOnce([]).mockResolvedValueOnce(mockStations).mockResolvedValueOnce([]);
+
+      await metroInfoProvider.updateFromDb();
+
+      const station = metroInfoProvider.data.stations.ST2;
+      expect(station).toBeDefined();
+      expect(station.accessibility).toEqual([
+        { type: 'ascensor', text: 'Ascensor ABC', status: 1 },
+        { type: 'escalator', text: 'Escalator XYZ', status: 0 },
+      ]);
+    });
   });
 
   describe('getStationDetails', () => {
@@ -65,17 +86,19 @@ describe('MetroInfoProvider', () => {
       expect(metroInfoProvider.getStationDetails('non-existent')).toBeNull();
     });
 
-    it('should return fused station details', () => {
+    it('should return fused station details with formatted accessibility', () => {
       const stationName = 'Test Station';
       const stationData = {
-        'test-station': {
           name: 'Test Station',
           line: 'L1',
           transfer: 'L2',
           connections: ['L2', 'bus'],
           accessDetails: 'details',
           services: 'services',
-          accessibility: 'accessibility',
+          accessibility: [
+            { type: 'ascensor', text: 'Ascensor ABC', status: 1 },
+            { type: 'escalator', text: 'Escalator XYZ', status: 0 },
+          ],
           amenities: 'amenities',
           commune: 'commune',
           platforms: { '1': 1, '2': 0 },
@@ -85,13 +108,11 @@ describe('MetroInfoProvider', () => {
             isOperational: true,
             description: 'Station is operational'
           }
-        }
       };
-      metroInfoProvider.updateData({
-        stations: stationData,
-        lines: { L1: { status: { message: 'Line is operational' } } },
-        intermodal: { buses: { 'Test Station': ['bus1', 'bus2'] } }
-      });
+      // Use a different key for the station data to avoid conflicts with other tests
+      metroInfoProvider.data.stations['test-station-details'] = stationData;
+      metroInfoProvider.data.lines = { L1: { status: { message: 'Line is operational' } } };
+      metroInfoProvider.data.intermodal = { buses: { 'Test Station': ['bus1', 'bus2'] } };
 
       const details = metroInfoProvider.getStationDetails(stationName);
 
@@ -103,7 +124,7 @@ describe('MetroInfoProvider', () => {
         details: {
           schematics: 'details',
           services: 'services',
-          accessibility: 'accessibility',
+          accessibility: 'Ascensor ABC (Disponible)\nEscalator XYZ (No disponible)',
           amenities: 'amenities',
           municipality: 'commune',
         },
