@@ -212,7 +212,7 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
         
     }
 
-    if (decorations.includes('transports') && station.transports !== '') {
+    if (decorations.includes('transports') && station.transports) {
 
         const transportsArray = station.transports.split(', ')
 
