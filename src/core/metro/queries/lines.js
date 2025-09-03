@@ -5,20 +5,20 @@ const EXPRESS_LINES = new Set(metroConfig.expressLines);
 
 module.exports = (core) => ({
     getLineInfo: (lineId) => {
-        const metroData = core.getLine(lineId);
-        const staticData = linesData[lineId] || {};
+        const lineData = core.getLine(lineId);
+        if (!lineData) return null;
 
         return {
             id: lineId,
-            name: `Line ${lineId.replace('l', '').toUpperCase()}`,
-            status: metroData?.status || 'unknown',
-            length: staticData.Longitud || 'N/A',
-            inauguration: staticData.Estreno || 'N/A',
-            stationsCount: metroData?.stations?.length || 0,
-            electrification: staticData.Electrificación || 'N/A',
-            rollingStock: staticData.Flota || [],
-            characteristics: staticData.Características || 'N/A',
-            municipalities: staticData.Comunas || []
+            name: lineData.name,
+            status: lineData.status,
+            length: lineData.total_length_km,
+            inauguration: lineData.opening_date,
+            stationsCount: lineData.total_stations,
+            electrification: lineData.infrastructure?.electrification || 'N/A',
+            rollingStock: lineData.fleet_data,
+            characteristics: lineData.line_description,
+            municipalities: lineData.infrastructure?.communes || []
         };
     },
 

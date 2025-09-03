@@ -181,7 +181,29 @@ class MetroInfoProvider {
 
     async loadLinesFromDb() {
         try {
-            const lines = await this.databaseService.query('SELECT * FROM metro_lines');
+            const query = `
+                SELECT
+                    ml.*,
+                    ls.status_id,
+                    ls.status_type_id,
+                    ls.status_description,
+                    ls.status_message,
+                    ls.expected_resolution_time,
+                    ls.is_planned,
+                    ls.impact_level,
+                    ls.last_updated AS status_last_updated,
+                    ls.updated_by,
+                    ost.status_name,
+                    ost.is_operational,
+                    ost.status_description as operational_status_desc
+                FROM
+                    metro_lines ml
+                LEFT JOIN
+                    line_status ls ON ml.line_id = ls.line_id
+                LEFT JOIN
+                    operational_status_types ost ON ls.status_type_id = ost.status_type_id
+            `;
+            const lines = await this.databaseService.query(query);
 
             const lineData = {};
             for (const line of lines) {
@@ -197,6 +219,32 @@ class MetroInfoProvider {
                         message: line.status_message,
                         code: line.status_code
                     },
+                    line_description: line.line_description,
+                    opening_date: line.opening_date,
+                    total_stations: line.total_stations,
+                    total_length_km: line.total_length_km,
+                    avg_daily_ridership: line.avg_daily_ridership,
+                    operating_hours_start: line.operating_hours_start,
+                    operating_hours_end: line.operating_hours_end,
+                    fleet_data: line.fleet_data,
+                    infrastructure: line.infrastructure,
+                    platform_details: line.platform_details,
+                    created_at: line.created_at,
+                    updated_at: line.updated_at,
+                    status_data: {
+                        status_id: line.status_id,
+                        status_type_id: line.status_type_id,
+                        status_description: line.status_description,
+                        status_message: line.status_message,
+                        expected_resolution_time: line.expected_resolution_time,
+                        is_planned: line.is_planned,
+                        impact_level: line.impact_level,
+                        last_updated: line.status_last_updated,
+                        updated_by: line.updated_by,
+                        status_name: line.status_name,
+                        is_operational: line.is_operational,
+                        operational_status_desc: line.operational_status_desc
+                    }
                 };
             }
 

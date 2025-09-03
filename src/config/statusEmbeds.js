@@ -45,15 +45,15 @@ module.exports = {
             const lineKey = line.id.toLowerCase();
             const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
 
-            const statusCode = line.estado || line.status || '1';
+            const statusCode = line.status_data?.status_name || 'operational';
             const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
 
-            const isClosed = statusCode === '0' || line.mensaje_app?.includes('Cierre por Horario');
+            const isClosed = statusCode === 'closed' || line.app_message?.includes('Cierre por Horario');
             const lineStatus = isClosed
                 ? `🌙 Cierre por Horario`
-                : line.mensaje_app || statusConfig.description || 'Estado desconocido';
+                : line.status_data?.status_description || 'Estado desconocido';
 
-            const lineName = line.nombre || line.displayName || '';
+            const lineName = line.name || line.displayName || '';
             return {
                 name: `${lineEmoji} Línea ${lineName.replace('Línea ', '')}`,
                 value: `${statusConfig.emoji || '❓'} ${lineStatus}`,
@@ -122,15 +122,15 @@ module.exports = {
         const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
         const lineEmoji = metroConfig.linesEmojis?.[lineKey] || '';
 
-        const lineName = lineData.nombre || lineData.displayName || '';
+        const lineName = lineData.name || lineData.displayName || '';
         const displayLineKey = lineName.replace('Línea ', '');
 
-        const statusCode = lineData.estado || lineData.status || '1';
+        const statusCode = lineData.status_data?.status_name || 'operational';
         const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
-        const isClosed = statusCode === '0' || lineData.mensaje_app?.includes('Cierre por Horario');
+        const isClosed = statusCode === 'closed' || lineData.app_message?.includes('Cierre por Horario');
         let description = isClosed
             ? `🌙 Cierre por Horario`
-            : `${statusConfig.emoji || '❓'} ${lineData.mensaje_app || statusConfig.description || 'Estado desconocido'}`;
+            : `${statusConfig.emoji || '❓'} ${lineData.status_data?.status_description || 'Estado desconocido'}`;
 
         const stationObjects = (stations ? Object.values(stations) : [])
             .filter(station => station.line_id === lineData.id);
