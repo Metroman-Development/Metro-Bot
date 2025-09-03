@@ -72,14 +72,34 @@ class DiscordMessageFormatter {
     }
 
     _enrichStationData(station) {
+        let transferLines = [];
+        let connections = station.connections;
+        if (typeof connections === 'string') {
+            try {
+                connections = JSON.parse(connections);
+            } catch (e) {
+                connections = null;
+            }
+        }
+
+        if (Array.isArray(connections)) {
+            transferLines.push(...connections);
+        }
+
+        if (station.transfer) {
+            transferLines.push(station.transfer);
+        }
+
+        const uniqueTransferLines = [...new Set(transferLines)];
+
         return {
             ...station,
             id: station.id,
             displayName: station.displayName || 'Unknown Station',
             line: station.line || 'L0',
-            transferLines: station.transferLines || [],
+            transferLines: uniqueTransferLines,
             color: station.color || getLineColor(station.line),
-            image: station.imageUrl || getLineImage(station.line)
+            image: station.image || getLineImage(station.line)
         };
     }
 
@@ -164,22 +184,24 @@ class DiscordMessageFormatter {
 
     formatStationStatus(station) {
         try {
-            const statusStyle = this._getStatusMapping(station.status.code);
-            const color = this._getColorForStatus(station.status.code);
+            const enrichedStation = this._enrichStationData(station);
+            const statusStyle = this._getStatusMapping(enrichedStation.status.code);
+            const color = this._getColorForStatus(enrichedStation.status.code);
 
             const embed = new EmbedBuilder()
-                .setTitle(`${metroConfig.linesEmojis[station.line]} Estación ${station.name || 'Desconocida'}`)
+                .setTitle(`${metroConfig.linesEmojis[enrichedStation.line]} Estación ${enrichedStation.name || 'Desconocida'}`)
                 .setColor(color)
                 .setDescription(`**Estado:** ${statusStyle.emoji} ${statusStyle.message}`);
 
-            let info = station.status.appMessage || 'No hay información adicional.';
-            if (station.transferLines && station.transferLines.length > 0) {
+            let info = enrichedStation.status.message || 'No hay información adicional.';
+
+            if (enrichedStation.transferLines.length > 0) {
                 // Simplified transfer logic
-                info += `\n**Combinación:** Con Línea(s) ${station.transferLines.join(', ')}`;
+                info += `\n**Combinación:** Con Línea(s) ${enrichedStation.transferLines.join(', ')}`;
             }
             embed.addFields({ name: '📌 Información', value: info });
 
-            embed.setFooter({ text: `Última actualización: ${new Date(station.lastUpdated).toLocaleString()}` });
+            embed.setFooter({ text: `Última actualización: ${new Date(enrichedStation.last_renovation_date).toLocaleString()}` });
 
             return { embeds: [embed] };
         } catch (error) {

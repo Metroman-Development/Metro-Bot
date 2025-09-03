@@ -67,8 +67,8 @@ function normalizeStationData(station) {
 }
 
 function getPrimaryImage(station) {
-    if (station.schematics?.[0]) {
-        return station.schematics[0];
+    if (station.accessDetails?.[0]) {
+        return station.accessDetails[0];
     }
     if (station.image) {
         return station.image;
