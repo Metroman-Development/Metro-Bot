@@ -164,8 +164,12 @@ class MetroInfoProvider {
                 const lineId = line.line_id.toLowerCase();
                 lineData[lineId] = {
                     id: lineId,
-                    displayName: line.line_name,
+                    nombre: line.line_name,
+                    displayName: line.display_name,
                     color: line.line_color,
+                    estado: line.status_code,
+                    mensaje_app: line.app_message,
+                    express_status: line.express_status,
                     status: {
                         message: line.status_message,
                         code: line.status_code
