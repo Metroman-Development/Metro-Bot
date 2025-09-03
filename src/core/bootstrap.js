@@ -56,7 +56,7 @@ async function performInitialization(source = 'unknown') {
         changeDetectorInstance = new MyChangeDetector(statusServiceInstance, dbService);
 
         const StatusUpdater = require('./status/embeds/StatusUpdater');
-        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance);
+        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance, metroInfoProviderInstance);
 
         const UpdateListener = require('./status/embeds/UpdateListener');
         updateListenerInstance = new UpdateListener(statusUpdaterInstance);
