@@ -1,50 +1,34 @@
-const StatusUpdater = require('../../../../core/status/embeds/StatusUpdater'); // Adjust path as needed
-//const  = require('../../../../core/status/embeds/StatusUpdater.js'); // Adjust path as needed
+const StatusUpdater = require('../../../../core/status/embeds/StatusUpdater');
+const { MetroInfoProvider } = require('../../../../utils/MetroInfoProvider');
+const ChangeDetector = require('../../../../core/status/ChangeDetector');
+const ChangeAnnouncer = require('../../../../core/status/ChangeAnnouncer');
 const metroConfig = require('../../../../config/metro/metroConfig');
 const { getClient } = require('../../../../utils/clientManager');
-const metroCore = require('../../../../core/metro/core/MetroCore'); // Adjust path as needed
 const logger = require('../../../../events/logger');
-
-                               
-                              
 
 module.exports = {
     name: 'updateembeds',
     description: '🔧 Manually update status embeds',
     permissions: ['ADMINISTRATOR'],
     usage: '!updateembeds <all|lineID> [--force]',
-    
+
     async execute(message, args) {
         try {
-            // Initialize all required components
             const client = getClient();
             if (!client) throw new Error('Discord client not available');
-            
-            const metro = await message.client.metroCore.getInstance({ 
 
-                    client: client 
-
-                });
-            
-            // console.log(metroCore)
-            
-            console.log(metro._subsystems) ;
-            
-            // Create ChangeDetector instance
-            const changeDetector = metro._subsystems.changeDetector
-       
-           
+            // Initialize new components
+            const metroInfoProvider = MetroInfoProvider.getInstance();
+            if (!metroInfoProvider) {
+                throw new Error('MetroInfoProvider is not initialized.');
+            }
+            const changeAnnouncer = new ChangeAnnouncer();
+            const changeDetector = new ChangeDetector(changeAnnouncer);
             
             // Create StatusUpdater with all required dependencies
-            const statusUpdater = new StatusUpdater({
-                client: client,
-                metroConfig: metroConfig,
-                changeDetector: changeDetector,
-                logger: logger
-            });
+            const statusUpdater = new StatusUpdater(changeDetector, metroInfoProvider, changeAnnouncer);
             
             // Initialize components
-            await changeDetector.initialize();
             await statusUpdater.initialize();
             
             const [target, ...flags] = args;
