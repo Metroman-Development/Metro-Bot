@@ -11,27 +11,45 @@ const { normalizeStationData } = require('./stationUtils.js');
 
 const STATIONS_QUERY = `
     SELECT
+        ms.station_id,
+        ms.line_id,
         ms.station_code,
         ms.station_name,
         ms.display_name,
-        ms.line_id,
+        ms.display_order,
         ms.commune,
+        ms.address,
+        ms.latitude,
+        ms.longitude,
+        ms.location,
+        ms.opened_date,
+        ms.last_renovation_date,
+        ms.created_at,
+        ms.updated_at,
         ms.transports,
         ms.services,
+        ms.accessibility as accessibility_text,
         ms.commerce,
         ms.amenities,
         ms.image_url,
         ms.access_details,
-        ms.opened_date,
-        ms.last_renovation_date,
         ms.combinacion,
         ms.connections,
+        ms.express_state,
+        ms.route_color,
+        ss.status_id,
+        ss.status_type_id,
         ss.status_description,
         ss.status_message,
+        ss.expected_resolution_time,
         ss.is_planned,
         ss.impact_level,
-        ost.status_name as status_code,
+        ss.last_updated,
+        ss.updated_by,
+        ost.status_name,
         ost.is_operational,
+        ost.status_description as operational_status_desc,
+        jsm.js_code,
         GROUP_CONCAT(CONCAT_WS('|', acs.type, acs.text, acs.status) SEPARATOR ';') as accessibility_statuses
     FROM
         metro_stations ms
@@ -40,9 +58,11 @@ const STATIONS_QUERY = `
     LEFT JOIN
         operational_status_types ost ON ss.status_type_id = ost.status_type_id
     LEFT JOIN
+        js_status_mapping jsm ON ost.status_type_id = jsm.status_type_id
+    LEFT JOIN
         accessibility_status acs ON ms.station_code = acs.station_code
     GROUP BY
-        ms.station_id
+        ms.station_id, ss.status_id, ost.status_type_id, jsm.js_code
 `;
 
 class MetroInfoProvider {
@@ -194,38 +214,65 @@ class MetroInfoProvider {
             const stationData = {};
             for (const station of stations) {
                 const stationId = station.station_code.toUpperCase();
-                const accessibility_statuses = station.accessibility_statuses
-                    ? station.accessibility_statuses.split(';').map(status => {
-                        const [type, text, statusValue] = status.split('|');
-                        return { type, text, status: parseInt(statusValue, 10) };
-                    })
-                    : [];
+
+                let accessibility = station.accessibility_text;
+                if (station.accessibility_statuses) {
+                    accessibility = station.accessibility_statuses.split(';').map(status => {
+                        const [, text] = status.split('|');
+                        return text;
+                    }).join('\\n');
+                }
 
                 stationData[stationId] = {
-                    id: stationId,
-                    name: station.station_name,
-                    displayName: station.display_name || station.station_name,
-                    line: station.line_id.toLowerCase(),
+                    nombre: station.station_name,
+                    codigo: station.station_code,
+                    estado: station.is_operational ? '1' : '0',
+                    combinacion: station.combinacion,
+                    descripcion: station.status_description,
+                    descripcion_app: station.status_message,
+                    mensaje: '',
+                    station_id: station.station_id,
+                    line_id: station.line_id.toLowerCase(),
+                    station_code: station.station_code,
+                    station_name: station.station_name,
+                    display_order: station.display_order,
                     commune: station.commune,
+                    address: station.address,
+                    latitude: station.latitude,
+                    longitude: station.longitude,
+                    location: station.location ? { type: 'Point', coordinates: [station.longitude, station.latitude] } : null,
+                    opened_date: station.opened_date,
+                    last_renovation_date: station.last_renovation_date,
+                    created_at: station.created_at,
+                    updated_at: station.updated_at,
+                    display_name: station.display_name || station.station_name,
                     transports: station.transports,
                     services: station.services,
+                    accessibility: accessibility,
                     commerce: station.commerce,
                     amenities: station.amenities,
-                    image: station.image_url,
-                    accessibility: accessibility_statuses,
-                    accessDetails: station.access_details,
-                    openedDate: station.opened_date,
-                    lastRenovationDate: station.last_renovation_date,
-                    transfer: station.combinacion,
-                    connections: station.connections,
-                    status: {
-                        code: station.status_code || 'operational',
-                        description: station.status_description,
-                        message: station.status_message,
-                        isPlanned: station.is_planned,
-                        impactLevel: station.impact_level,
-                        isOperational: station.is_operational !== 0,
-                    }
+                    image_url: station.image_url,
+                    access_details: station.access_details,
+                    express_state: station.express_state,
+                    route_color: station.route_color,
+                    status_data: {
+                        station_id: station.station_id,
+                        status_type_id: station.status_type_id,
+                        status_description: station.status_description,
+                        status_message: station.status_message,
+                        expected_resolution_time: station.expected_resolution_time,
+                        is_planned: station.is_planned,
+                        impact_level: station.impact_level,
+                        last_updated: station.last_updated,
+                        updated_by: station.updated_by,
+                        status_name: station.status_name,
+                        is_operational: station.is_operational,
+                        operational_status_desc: station.operational_status_desc,
+                        js_code: station.js_code
+                    },
+                    id: stationId,
+                    name: station.station_name,
+                    status: station.is_operational ? '1' : '0'
                 };
             }
 
@@ -313,7 +360,7 @@ class MetroInfoProvider {
             return null;
         }
 
-        const stationStatus = station.status.message || 'No disponible';
+        const stationStatus = station.status_data.status_message || 'No disponible';
 
         const platforms = station.platforms ? Object.entries(station.platforms).map(([platform, status]) => ({
             platform: parseInt(platform, 10),
@@ -322,17 +369,15 @@ class MetroInfoProvider {
 
         const intermodal = this.getIntermodalBuses(station.name);
 
-        const accessibilityDetails = Array.isArray(station.accessibility)
-            ? station.accessibility.map(item => `${item.text} (${item.status === 1 ? 'Disponible' : 'No disponible'})`).join('\n')
-            : station.accessibility;
+        const accessibilityDetails = station.accessibility;
 
         return {
             name: station.name,
-            line: station.line,
-            transfer: station.transfer ? `L${String(station.transfer).replace(/L/g, '')}` : null,
+            line: station.line_id,
+            transfer: station.combinacion ? `L${String(station.combinacion).replace(/L/g, '')}` : null,
             connections: station.connections || [],
             details: {
-                schematics: station.accessDetails,
+                schematics: station.access_details,
                 services: station.services,
                 accessibility: accessibilityDetails,
                 amenities: station.amenities,
@@ -341,10 +386,10 @@ class MetroInfoProvider {
             platforms: platforms,
             intermodal: intermodal,
             status: {
-                code: station.status.code || 'operational',
+                code: station.status_data.status_name || 'operational',
                 message: stationStatus,
-                state: station.status.isOperational ? 'operational' : 'closed',
-                description: station.status.description
+                state: station.status_data.is_operational ? 'operational' : 'closed',
+                description: station.status_data.status_description
             },
         };
     }
