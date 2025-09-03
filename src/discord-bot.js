@@ -85,6 +85,8 @@ async function startDiscordBot() {
             lineMessageIds
         );
 
+        await metroInfoProvider.triggerInitialEmbedUpdate();
+
         process.on('message', async (message) => {
             const { type, payload } = message;
             if (type === 'send-message') {
