@@ -389,6 +389,15 @@ class MetroInfoProvider {
         };
     }
 
+    async triggerInitialEmbedUpdate() {
+        if (this.isInitialized && this.statusEmbedManager && this.statusEmbedManager.initialized) {
+            logger.info('[MetroInfoProvider] Triggering initial embed update...');
+            await this.statusEmbedManager.updateAllEmbeds(this);
+        } else {
+            logger.warn('[MetroInfoProvider] Could not trigger initial embed update because dependencies are not ready.');
+        }
+    }
+
     getFullData() {
         return this.data;
     }
