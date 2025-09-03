@@ -1,7 +1,6 @@
 const logger = require('../events/logger');
 const { MetroInfoProvider } = require('../utils/MetroInfoProvider');
 const DatabaseManager = require('./database/DatabaseManager');
-const StatusEmbedManager = require('./status/StatusEmbedManager');
 const { getDbHost } = require('../utils/env');
 
 let initializationPromise = null;
@@ -16,6 +15,9 @@ let timeServiceInstance = null;
 let accessibilityServiceInstance = null;
 let stationManagerInstance = null;
 let lineManagerInstance = null;
+let changeAnnouncerInstance = null;
+let statusEmbedManagerInstance = null;
+let schedulerServiceInstance = null;
 
 async function performInitialization(source = 'unknown') {
     logger.info(`[${source}] Initializing...`);
@@ -42,8 +44,9 @@ async function performInitialization(source = 'unknown') {
     try {
         const DatabaseService = require('./database/DatabaseService');
         const dbService = await DatabaseService.getInstance(dbManagerInstance);
-        const statusEmbedManager = new StatusEmbedManager();
-        metroInfoProviderInstance = MetroInfoProvider.initialize(dbService, statusEmbedManager);
+        const StatusEmbedManager = require('./status/StatusEmbedManager');
+        statusEmbedManagerInstance = new StatusEmbedManager();
+        metroInfoProviderInstance = MetroInfoProvider.initialize(dbService, statusEmbedManagerInstance);
         await metroInfoProviderInstance.updateFromDb();
 
         const DataManager = require('./metro/core/services/DataManager');
@@ -55,8 +58,21 @@ async function performInitialization(source = 'unknown') {
         const MyChangeDetector = require('./status/ChangeDetector');
         changeDetectorInstance = new MyChangeDetector(statusServiceInstance, dbService);
 
+        const ChangeAnnouncer = require('./status/ChangeAnnouncer');
+        changeAnnouncerInstance = new ChangeAnnouncer();
+
+        const SchedulerService = require('./SchedulerService');
+        schedulerServiceInstance = new SchedulerService(
+            dbManagerInstance,
+            dataManagerInstance,
+            changeAnnouncerInstance,
+            statusEmbedManagerInstance,
+            metroInfoProviderInstance,
+            'America/Santiago'
+        );
+
         const StatusUpdater = require('./status/embeds/StatusUpdater');
-        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance, metroInfoProviderInstance);
+        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance, metroInfoProviderInstance, changeAnnouncerInstance);
 
         const UpdateListener = require('./status/embeds/UpdateListener');
         updateListenerInstance = new UpdateListener(statusUpdaterInstance);
@@ -81,7 +97,7 @@ async function performInitialization(source = 'unknown') {
     }
 
     logger.info(`[${source}] MetroInfoProvider and DatabaseManager initialized.`);
-    return { metroInfoProvider: metroInfoProviderInstance, databaseManager: dbManagerInstance, dataManager: dataManagerInstance, statusService: statusServiceInstance, statusUpdater: statusUpdaterInstance, updateListener: updateListenerInstance, timeService: timeServiceInstance, accessibilityService: accessibilityServiceInstance, stationManager: stationManagerInstance, lineManager: lineManagerInstance };
+    return { metroInfoProvider: metroInfoProviderInstance, databaseManager: dbManagerInstance, dataManager: dataManagerInstance, statusService: statusServiceInstance, statusUpdater: statusUpdaterInstance, updateListener: updateListenerInstance, timeService: timeServiceInstance, accessibilityService: accessibilityServiceInstance, stationManager: stationManagerInstance, lineManager: lineManagerInstance, schedulerService: schedulerServiceInstance };
 }
 
 function initialize(source = 'unknown') {
@@ -125,5 +141,11 @@ module.exports = {
     },
     get lineManager() {
         return lineManagerInstance;
+    },
+    get changeAnnouncer() {
+        return changeAnnouncerInstance;
+    },
+    get schedulerService() {
+        return schedulerServiceInstance;
     }
 };

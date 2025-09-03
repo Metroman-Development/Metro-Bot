@@ -88,12 +88,18 @@ const UI_STRINGS = {
 };
 
 class StatusUpdater extends EventEmitter {
-    constructor(changeDetector, metroInfoProvider) {
+    constructor(changeDetector, metroInfoProvider, changeAnnouncer) {
         super();
         
         // Validate dependencies
-        const client = getClient();
-        if (!client || !metroInfoProvider || !changeDetector) {
+        let client;
+        try {
+            client = getClient();
+        } catch (e) {
+            client = null;
+        }
+
+        if (!metroInfoProvider || !changeDetector) {
             const error = new Error(UI_STRINGS.SYSTEM.ERROR.INIT_FAILED);
             logger.fatal('[StatusUpdater] Initialization failed - missing core dependencies', {
                 hasClient: !!client,
@@ -115,7 +121,7 @@ class StatusUpdater extends EventEmitter {
         this.listener = new UpdateListener(this);
         this.embeds = new EmbedManager(this);
         this.processor = new UpdateProcessor(this);
-        this.announcer = new AnnouncementHandler(this);
+        this.announcer = new AnnouncementHandler(this, changeAnnouncer);
         
         this.changeHistory = [] 
 
