@@ -22,21 +22,20 @@ module.exports = class ApiResponseTransformer {
       result.lines[normalizedLineId] = {
         id: normalizedLineId,
         name: `Línea ${lineId.toUpperCase()}`,
-        estado: lineData.estado,
-        status: STATUS_MAP[lineData.estado] || 'unknown',
+        status: STATUS_MAP[lineData.status] || 'unknown',
         stations: []
       };
 
-      lineData.estaciones.forEach(apiStation => {
-        const stationId = apiStation.codigo.toLowerCase();
+      lineData.stations.forEach(apiStation => {
+        const stationId = apiStation.code.toLowerCase();
 
         result.stations[stationId] = {
           id: stationId,
-          code: apiStation.codigo,
-          name: apiStation.nombre,
+          code: apiStation.code,
+          name: apiStation.name,
           line: normalizedLineId,
-          status: STATUS_MAP[apiStation.estado] || apiStation.estado,
-          transfers: this._parseTransfers(apiStation.combinacion),
+          status: STATUS_MAP[apiStation.status] || apiStation.status,
+          transfers: this._parseTransfers(apiStation.transfer),
           details: this._parseDetails(apiStation),
           metadata: {
             source: 'api',
@@ -75,8 +74,8 @@ module.exports = class ApiResponseTransformer {
     }
 
     // Add other raw fields without defaults
-    if (station.descripcion) details.description = station.descripcion;
-    if (station.descripcion_app) details.appDescription = station.descripcion_app;
+    if (station.description) details.description = station.description;
+    if (station.app_description) details.appDescription = station.app_description;
 
     return details;
   }

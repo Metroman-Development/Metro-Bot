@@ -59,7 +59,7 @@ describe('Refactored Code Tests', () => {
                 is_operational: 1,
                 express_state: 'Operational',
                 route_color: 'R',
-                combinacion: 'l2',
+                transfer: 'l2',
                 transports: 'bus'
             };
             const decorations = ['line_connections', 'transports'];
@@ -127,12 +127,12 @@ describe('Refactored Code Tests', () => {
                 stations: {
                     'l1': {
                         'Test Station': {
-                            combinacion: []
+                            transfer: []
                         }
                     }
                 }
             });
-            const decoratedName = await decorateStationStringUtils('Test Station', { line: 'l1', estado: '1' }, metroInfoProvider);
+            const decoratedName = await decorateStationStringUtils('Test Station', { line: 'l1', status: '1' }, metroInfoProvider);
             expect(decoratedName.trim()).toBe('✅ Test Station');
         });
 

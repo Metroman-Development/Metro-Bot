@@ -6,17 +6,15 @@ Each station object will have the following fields:
 
 ```json
 {
-    "nombre": "string",
-    "codigo": "string",
-    "estado": "string ('1' for operational, '0' for not operational)",
-    "combinacion": "string (e.g., 'L2')",
-    "descripcion": "string",
-    "descripcion_app": "string",
-    "mensaje": "string (currently always empty)",
+    "name": "string",
+    "code": "string",
+    "status": "string ('1' for operational, '0' for not operational)",
+    "transfer": "string (e.g., 'L2')",
+    "description": "string",
+    "app_description": "string",
+    "message": "string (currently always empty)",
     "station_id": "number",
     "line_id": "string",
-    "station_code": "string",
-    "station_name": "string",
     "display_order": "number",
     "commune": "string",
     "address": "string",
@@ -54,9 +52,6 @@ Each station object will have the following fields:
         "is_operational": "number (0 or 1)",
         "operational_status_desc": "string",
         "js_code": "string"
-    },
-    "id": "string (same as codigo)",
-    "name": "string (same as nombre)",
-    "status": "string (same as estado)"
+    }
 }
 ```
