@@ -37,7 +37,7 @@ function create(station, metroData) {
         .addFields(
             {
                 name: '📢 Estado',
-                value: stationDyna.status?.appMessage || 'Sin información',
+                value: stationDyna.status?.message || 'Sin información',
                 inline: true
             }
         );
@@ -81,10 +81,10 @@ function create(station, metroData) {
         });
     }
 
-    if (normalizedStation.transferLines?.length > 0) {
+    if (normalizedStation.connections?.lines?.length > 0) {
         embed.addFields({
             name: '🔄 Conecta con',
-            value: normalizedStation.transferLines
+            value: normalizedStation.connections.lines
                 .map(l => `${metroConfig.linesEmojis[l.toLowerCase()] || `Línea ${l}`}`)
                 .join(', '),
             inline: true
