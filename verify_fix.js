@@ -2,19 +2,15 @@ const { initialize } = require('./src/core/bootstrap');
 
 async function main() {
   console.log('Starting verification script...');
-  const { metroCore, databaseManager } = await initialize('VERIFICATION_SCRIPT');
-  console.log('MetroCore and DatabaseManager initialized.');
+  const { metroInfoProvider, databaseManager } = await initialize('VERIFICATION_SCRIPT');
+  console.log('MetroInfoProvider and DatabaseManager initialized.');
 
-  if (!metroCore) {
-    console.error('MetroCore initialization failed.');
+  if (!metroInfoProvider) {
+    console.error('MetroInfoProvider initialization failed.');
     process.exit(1);
   }
 
-  const provider = metroCore._subsystems.metroInfoProvider;
-  if (!provider) {
-      console.error("MetroInfoProvider not found in subsystems.");
-      process.exit(1);
-  }
+  const provider = metroInfoProvider;
 
   const stationName = 'San Pablo L1';
   const stationInfo = provider.getStationById(stationName);

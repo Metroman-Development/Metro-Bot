@@ -9,9 +9,8 @@ const { setTimeout } = require('timers/promises');
 const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 
 class EmbedManager {
-    constructor(statusUpdater, metroCore) {
+    constructor(statusUpdater) {
         this.parent = statusUpdater;
-        this.metroCore = metroCore;
         this.infoProvider = MetroInfoProvider.getInstance();
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
@@ -253,11 +252,12 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
     async _fetchEmbedChannel() {
         try {
+            const config = this.infoProvider.getConfig();
             logger.debug('[EmbedManager] Fetching embed channel', {
-                channelId: this.metroCore.config.embedsChannelId
+                channelId: config.embedsChannelId
             });
             return await this.parent.client.channels.fetch(
-                this.metroCore.config.embedsChannelId
+                config.embedsChannelId
             );
         } catch (error) {
             logger.error('[EmbedManager] Channel fetch failed', error);
@@ -266,7 +266,8 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     }
 
     async _fetchAllEmbedMessages(channel) {
-        const fetchPromises = Object.entries(this.metroCore.config.embedMessageIds).map(
+        const config = this.infoProvider.getConfig();
+        const fetchPromises = Object.entries(config.embedMessageIds).map(
             async ([embedName, messageId]) => {
                 try {
                     const message = await channel.messages.fetch(messageId);

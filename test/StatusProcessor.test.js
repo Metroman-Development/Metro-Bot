@@ -2,11 +2,9 @@ const StatusProcessor = require('../src/core/status/utils/StatusProcessor');
 
 describe('StatusProcessor', () => {
     let statusProcessor;
-    let mockMetroCore;
 
     beforeEach(() => {
-        mockMetroCore = {};
-        statusProcessor = new StatusProcessor(mockMetroCore);
+        statusProcessor = new StatusProcessor();
     });
 
     describe('_transformStation', () => {
