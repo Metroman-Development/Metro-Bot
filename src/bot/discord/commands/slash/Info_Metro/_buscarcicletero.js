@@ -1,12 +1,11 @@
-// _buscarbike.js
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const BikeResultsManager = require('../../../../../events/interactions/buttons/BikeResultsManager');
 const styles = require('../../../../../config/styles.json');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('cicletero')
         .setDescription('Buscar estaciones por disponibilidad de bicicletas')
         .addStringOption(option =>
@@ -26,8 +25,9 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async execute(interaction, metroInfoProvider) {
+    async run(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const bikeQuery = interaction.options.getString('tipo');
 
         const searchCore = new SearchCore('station');
@@ -52,7 +52,6 @@ module.exports = {
             stationData: station
         }));
 
-        // Create and use the manager
         const manager = new BikeResultsManager();
         const messageData = await manager.build(
             bikeQuery,

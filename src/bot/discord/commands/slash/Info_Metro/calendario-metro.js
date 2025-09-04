@@ -3,82 +3,26 @@
 
 
 const { SlashCommandBuilder } = require('discord.js');
-
-// Import subcommands
-
+const BaseCommand = require('../../BaseCommand');
 const calendarioSemana = require('./_mesemana');
-
 const calendarioMes = require('./_memes');
-
 const calendarioEventos = require('./_meeventos');
 
-module.exports = {
+class CalendarioMetroCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('calendario-metro')
+            .setDescription('Información de calendario del Metro')
+        );
+        this.category = "Metro Calendar";
 
-    data: new SlashCommandBuilder()
-
-        .setName('calendario-metro')
-
-        .setDescription('Información de calendario del Metro')
-
-        .addSubcommand(subcommand => calendarioSemana.data(subcommand))
-
-        .addSubcommand(subcommand => calendarioMes.data(subcommand))
-
-        .addSubcommand(subcommand => calendarioEventos.data(subcommand)),
-
-    category: "Metro Calendar",
-
-    async execute(interaction) {
-
-        const subcommand = interaction.options.getSubcommand();
-
-        
-
-        try {
-
-            switch(subcommand) {
-
-                case 'semana':
-
-                    return calendarioSemana.execute(interaction);
-
-                case 'mes':
-
-                    return calendarioMes.execute(interaction);
-
-                case 'eventos':
-
-                    return calendarioEventos.execute(interaction);
-
-                default:
-
-                    return interaction.reply({
-
-                        content: '⚠️ Subcomando no reconocido',
-
-                        ephemeral: true
-
-                    });
-
-            }
-
-        } catch (error) {
-
-            console.error(`Error en calendario-metro ${subcommand}:`, error);
-
-            return interaction.reply({
-
-                content: '❌ Error al obtener datos del calendario',
-
-                ephemeral: true
-
-            });
-
-        }
-
+        this.addSubcommand(calendarioSemana);
+        this.addSubcommand(calendarioMes);
+        this.addSubcommand(calendarioEventos);
     }
+}
 
-};
+module.exports = new CalendarioMetroCommand();
 
 
 

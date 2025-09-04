@@ -1,27 +1,22 @@
-module.exports = {
+const BaseCommand = require('../BaseCommand');
 
-    name: 'restart', // Command name
-
-    description: 'Restarts the bot',
-
-    async execute(message, args) {
-
-        // Check if the user has permission to restart the bot
-
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
-
-            return message.reply('You do not have permission to restart the bot.');
-
-        }
-
-        // Notify that the bot is restarting
-
-        await message.reply('Restarting bot...');
-
-        // Exit the process (use a process manager like pm2 to restart the bot)
-
-        process.exit(0);
-
+class RestartCommand extends BaseCommand {
+    constructor() {
+        super({
+            name: 'restart',
+            description: 'Restarts the bot',
+            permissions: ['ADMINISTRATOR'],
+        });
     }
 
-};
+    async run(message) {
+        if (!message.member.permissions.has('ADMINISTRATOR')) {
+            return message.reply('You do not have permission to restart the bot.');
+        }
+
+        await message.reply('Restarting bot...');
+        process.exit(0);
+    }
+}
+
+module.exports = new RestartCommand();

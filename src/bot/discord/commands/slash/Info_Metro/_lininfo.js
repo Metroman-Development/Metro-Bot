@@ -1,11 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
-const { handleCommandError } = require('../../../../../utils/commandUtils');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const { createErrorEmbed } = require('../../../../../utils/embedFactory');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'linea',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('info')
         .setDescription('Muestra información de lineas del Metro de Santiago')
         .addStringOption(option =>
@@ -23,25 +22,20 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metroInfoProvider) {
-        try {
-            await interaction.deferReply();
+    async run(interaction) {
+        await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const lineId = interaction.options.getString('linea');
+        const lineInfo = metroInfoProvider.getLine(lineId);
 
-            const lineId = interaction.options.getString('linea');
-            const lineInfo = metroInfoProvider.getLine(lineId);
-
-            if (!lineInfo) {
-                const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
-                return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
-            }
-
-            const formatter = new DiscordMessageFormatter();
-            const message = await formatter.formatLineInfo(lineInfo, interaction.user.id);
-
-            await interaction.editReply(message);
-
-        } catch (error) {
-            await handleCommandError(error, interaction);
+        if (!lineInfo) {
+            const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
+            return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
         }
+
+        const formatter = new DiscordMessageFormatter();
+        const message = await formatter.formatLineInfo(lineInfo, interaction.user.id);
+
+        await interaction.editReply(message);
     }
 };

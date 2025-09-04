@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const commerceResultsManager = require('../../../../../events/interactions/buttons/commerceResultsManager');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('comercio')
         .setDescription('Buscar estaciones por tipo de comercio')
         .addStringOption(option =>
@@ -20,10 +20,11 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async autocomplete(interaction, metroInfoProvider) {
+    async autocomplete(interaction) {
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const focusedValue = this.normalizeString(interaction.options.getFocused());
         const staticData = metroInfoProvider.getFullData();
-        
+
         const commerceTypes = new Set();
         Object.values(staticData.stations).forEach(station => {
             if (station.commerce && station.commerce !== 'None') {
@@ -47,8 +48,9 @@ module.exports = {
         );
     },
 
-    async execute(interaction, metroInfoProvider) {
+    async run(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const commerceQuery = interaction.options.getString('nombre');
 
         const searchCore = new SearchCore('station');

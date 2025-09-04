@@ -1,15 +1,13 @@
-const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
 
 module.exports = {
-    parentCommand: 'metro',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('mapa')
         .setDescription('Muestra información del Metro de Santiago'),
 
-    async execute(interaction, metro) {
-        // Create the embed
+    async run(interaction) {
         const embed = new EmbedBuilder()
             .setTitle(`${metroConfig.logoMetroEmoji} Mapa de la Red Metro`)
             .setDescription('🗺️ Aquí tienes el mapa actual de la red Metro de Santiago.')
@@ -17,7 +15,6 @@ module.exports = {
             .setColor(styles.defaultTheme.primaryColor)
             .setFooter({ text: 'Fuente: Metro de Santiago', iconURL: 'https://metro.cl/logo.png' });
 
-        // Create a button with a link
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
@@ -26,7 +23,6 @@ module.exports = {
                     .setStyle(ButtonStyle.Link)
             );
 
-        // Reply with the embed and button
         await interaction.reply({
             embeds: [embed],
             components: [row]

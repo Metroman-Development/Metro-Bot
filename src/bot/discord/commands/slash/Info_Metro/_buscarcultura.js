@@ -1,12 +1,11 @@
-// _buscaramenities.js
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const AmenitiesResultsManager = require('../../../../../events/interactions/buttons/AmenitiesResultsManager');
 const config = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('cultura')
         .setDescription('Buscar estaciones con algun elemento cultural')
         .addStringOption(option =>
@@ -26,13 +25,13 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async execute(interaction, metroInfoProvider) {
+    async run(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const amenityQuery = interaction.options.getString('nombre');
         const staticData = metroInfoProvider.getFullData();
         const normalizedQuery = this.normalizeString(amenityQuery);
 
-        // Find matching stations with enhanced amenities processing
         const allResults = [];
         Object.values(staticData.stations).forEach(station => {
             if (!station.amenities || station.amenities === 'None') return;
@@ -41,23 +40,18 @@ module.exports = {
                 .map(item => item.trim())
                 .filter(item => item);
 
-            const matchingItems = amenityItems.filter(item => 
+            const matchingItems = amenityItems.filter(item =>
                 this.normalizeString(item).includes(normalizedQuery)
             );
 
             if (matchingItems.length > 0) {
-                // Enhanced amenities display processing
                 const processedAmenities = amenityItems.map(item => {
-                    // Try to find exact matches in config
                     if (config.amenities && config.amenities[item]) {
                         return config.amenities[item];
                     }
-                    
-                    // Handle combined names
-                    let combinedMatch = Object.keys(config.amenities || {}).find(name => 
+                    let combinedMatch = Object.keys(config.amenities || {}).find(name =>
                         item.toLowerCase().includes(name.toLowerCase())
                     );
-                    
                     if (combinedMatch) {
                         let result = item;
                         Object.keys(config.amenities).forEach(name => {
@@ -67,8 +61,7 @@ module.exports = {
                         });
                         return result;
                     }
-                    
-                    return item; // Return original if no special formatting
+                    return item;
                 }).join(', ');
 
                 allResults.push({
@@ -89,7 +82,6 @@ module.exports = {
             });
         }
 
-        // Create and use the manager with enhanced options
         const manager = new AmenitiesResultsManager();
         const messageData = await manager.build(
             amenityQuery,

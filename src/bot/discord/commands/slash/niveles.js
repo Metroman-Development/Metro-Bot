@@ -1,13 +1,17 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const bipConfig = require('../../../../config/bipConfig');
+const BaseCommand = require('../BaseCommand');
 const bipcoinUtils = require('../../../../utils/bipcoinUtils');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('niveles')
-        .setDescription('Muestra cuántos Bip!Coins se necesitan para cada nivel'),
-    category: "Bip!Coin",
-    async execute(interaction) {
+class NivelesCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('niveles')
+            .setDescription('Muestra cuántos Bip!Coins se necesitan para cada nivel')
+        );
+        this.category = "Bip!Coin";
+    }
+
+    async run(interaction) {
         const levels = [];
         for (let level = 1; level <= 100; level++) {
             levels.push({
@@ -30,6 +34,8 @@ module.exports = {
             });
         }
 
-        await interaction.followUp({ embeds: [embed] });
+        await interaction.reply({ embeds: [embed] });
     }
-};
+}
+
+module.exports = new NivelesCommand();

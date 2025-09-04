@@ -1,57 +1,42 @@
 const { EmbedBuilder } = require('discord.js');
 const AnnouncementManager = require('../../../../core/status/embeds/AnnouncementManager');
 const TimeHelpers = require('../../../../utils/timeHelpers');
+const BaseCommand = require('../BaseCommand');
+const config = require('../../../../config');
 
-module.exports = {
-    name: 'newstest',
-    description: '🚇 Test the metro announcement system',
-    permissions: ['ADMINISTRATOR'],
-    usage: '!newstest <type> <action> [details]',
-    examples: [
-        '!newstest express start L1 L3',
-        '!newstest service open',
-        '!newstest event end "Maintenance" EST1,EST2'
-    ],
-    
-    async execute(message, args) {
-        const embed = new EmbedBuilder().setColor('#0099ff');
+class NewsTestCommand extends BaseCommand {
+    constructor() {
+        super({
+            name: 'newstest',
+            description: '🚇 Test the metro announcement system',
+            permissions: ['ADMINISTRATOR'],
+            usage: '!newstest <type> <action> [details]',
+        });
+
+        this.subcommands = new Map([
+            ['express', this._handleExpressTest],
+            ['service', this._handleServiceTest],
+            ['event', this._handleEventTest],
+            ['help', this._showHelp],
+        ]);
+    }
+
+    async run(message) {
+        const args = message.content.slice(config.prefix.length).trim().split(/ +/);
+        args.shift();
+
+        const subcommandName = args[0]?.toLowerCase() || 'help';
+        const subArgs = args.slice(1);
+        const subcommand = this.subcommands.get(subcommandName) || this._showHelp;
         const manager = new AnnouncementManager(message.client);
-        
-        try {
-            await manager.initialize();
-            const subcommand = args[0]?.toLowerCase();
-            
-            switch(subcommand) {
-                case 'express':
-                    await this._handleExpressTest(message, manager, args.slice(1));
-                    break;
-                    
-                case 'service':
-                    await this._handleServiceTest(message, manager, args.slice(1));
-                    break;
-                    
-                case 'event':
-                    await this._handleEventTest(message, manager, args.slice(1));
-                    break;
-                    
-                default:
-                    await this._showHelp(message, embed);
-            }
-        } catch (error) {
-            console.error('Announcement test failed:', error);
-            await message.channel.send({ 
-                embeds: [embed
-                    .setColor('#FF0000')
-                    .setDescription('❌ Error: ' + error.message)
-                ] 
-            });
-        }
-    },
+        await manager.initialize();
+
+        await subcommand.call(this, message, manager, subArgs);
+    }
 
     async _handleExpressTest(message, manager, args) {
         const action = args[0]?.toLowerCase() || 'start';
         const lines = args.slice(1).filter(arg => /^L\d+$/i.test(arg)) || ['L1', 'L2'];
-        
         await manager.sendExpressUpdate({
             event: {
                 action: action,
@@ -64,13 +49,11 @@ module.exports = {
                 affectedLines: lines
             }
         });
-        
         await message.reply(`✅ Express service ${action} test complete`);
-    },
+    }
 
     async _handleServiceTest(message, manager, args) {
         const action = args[0]?.toLowerCase() || 'open';
-        
         await manager.sendServiceChange({
             type: action === 'close' ? 'close' : 'open',
             dayType: TimeHelpers.currentDayType.toLowerCase(),
@@ -81,14 +64,12 @@ module.exports = {
                 }
             }
         });
-        
         await message.reply(`✅ Service ${action} test complete`);
-    },
+    }
 
     async _handleEventTest(message, manager, args) {
         const action = args[0]?.toLowerCase() || 'start';
         const eventName = args.slice(1).join(' ') || 'System Test';
-        
         await manager.sendEventAnnouncement({
             event: {
                 action: action,
@@ -104,30 +85,32 @@ module.exports = {
                 passengerEstimate: '5000'
             }
         });
-        
         await message.reply(`✅ Event "${eventName}" ${action} test complete`);
-    },
+    }
 
-    async _showHelp(message, embed) {
-        await message.channel.send({ 
+    async _showHelp(message) {
+        const embed = new EmbedBuilder().setColor('#0099ff');
+        await message.channel.send({
             embeds: [embed
                 .setTitle('🚇 Announcement Test Help')
                 .addFields(
-                    { 
-                        name: 'Express Service', 
-                        value: '`!newstest express <start/end> [L1 L2...]`\nExample: `!newstest express start L1 L3`' 
+                    {
+                        name: 'Express Service',
+                        value: '`!newstest express <start/end> [L1 L2...]`\nExample: `!newstest express start L1 L3`'
                     },
-                    { 
-                        name: 'Service Change', 
-                        value: '`!newstest service <open/close>`\nExample: `!newstest service close`' 
+                    {
+                        name: 'Service Change',
+                        value: '`!newstest service <open/close>`\nExample: `!newstest service close`'
                     },
-                    { 
-                        name: 'Special Event', 
-                        value: '`!newstest event <start/end> [name]`\nExample: `!newstest event start "Maintenance"`' 
+                    {
+                        name: 'Special Event',
+                        value: '`!newstest event <start/end> [name]`\nExample: `!newstest event start "Maintenance"`'
                     }
                 )
                 .setFooter({ text: `Current system time: ${TimeHelpers.formatDateTime(new Date())}` })
-            ] 
+            ]
         });
     }
-};
+}
+
+module.exports = new NewsTestCommand();
