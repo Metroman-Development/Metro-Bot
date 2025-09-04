@@ -74,9 +74,27 @@ describe('Refactored Code Tests', () => {
         });
 
         it('should process accessibility text correctly', () => {
-            const accessibilityText = 'Línea 1: todos los ascensores disponibles';
-            const processedText = processAccessibilityText(accessibilityText, metroInfoProvider.getConfig());
-            expect(processedText).toEqual(['✅ 1️⃣: todos los ascensores disponibles']);
+            const accessibility = [
+                { type: 'ascensor', text: 'Ascensor ABC', status: '1' },
+                { type: 'escalator', text: 'Escalator XYZ', status: '0' }
+            ];
+            metroInfoProvider.getConfig.mockReturnValue({
+                ...metroInfoProvider.getConfig(),
+                accessibility: {
+                    estado: {
+                        ope: '✅',
+                        fes: '⛔'
+                    },
+                    ascensor: '🛗',
+                    escalator: ''
+                }
+            });
+            const processedText = processAccessibilityText(accessibility, metroInfoProvider.getConfig());
+            expect(processedText).toEqual([
+                '⚠️ Algunos equipos de accesibilidad presentan problemas.',
+                '✅ 🛗 Ascensor ABC',
+                '⛔  Escalator XYZ'
+            ]);
         });
     });
 

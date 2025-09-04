@@ -119,7 +119,10 @@ describe('MetroInfoProvider', () => {
       expect(station.station_id).toEqual(1);
       expect(station.line_id).toEqual('l1');
       expect(station.commune).toEqual('Test Commune');
-      expect(station.accessibility).toEqual('Ascensor ABC\\nEscalator XYZ');
+      expect(station.accessibility).toEqual([
+        { type: 'ascensor', text: 'Ascensor ABC', status: '1' },
+        { type: 'escalator', text: 'Escalator XYZ', status: '0' }
+      ]);
       expect(station.status_data).toBeDefined();
       expect(station.status_data.status_name).toEqual('operational');
       expect(station.status_data.is_operational).toEqual(1);
@@ -152,7 +155,10 @@ describe('MetroInfoProvider', () => {
           connections: ['L2', 'bus'],
           access_details: 'details',
           services: 'services',
-          accessibility: 'Ascensor ABC (Disponible)\\nEscalator XYZ (No disponible)',
+          accessibility: [
+            { type: 'ascensor', text: 'Ascensor ABC', status: '1' },
+            { type: 'escalator', text: 'Escalator XYZ', status: '0' }
+          ],
           amenities: 'amenities',
           commune: 'commune',
           platforms: { '1': 1, '2': 0 },
@@ -176,7 +182,10 @@ describe('MetroInfoProvider', () => {
         details: {
           schematics: 'details',
           services: 'services',
-          accessibility: 'Ascensor ABC (Disponible)\\nEscalator XYZ (No disponible)',
+          accessibility: [
+            { type: 'ascensor', text: 'Ascensor ABC', status: '1' },
+            { type: 'escalator', text: 'Escalator XYZ', status: '0' }
+          ],
           amenities: 'amenities',
           municipality: 'commune',
         },

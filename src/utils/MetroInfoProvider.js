@@ -283,12 +283,12 @@ class MetroInfoProvider {
             for (const station of stations) {
                 const stationId = station.station_code.toUpperCase();
 
-                let accessibility = station.accessibility_text;
+                let accessibility = null;
                 if (station.accessibility_statuses) {
                     accessibility = station.accessibility_statuses.split(';').map(status => {
-                        const [, text] = status.split('|');
-                        return text;
-                    }).join('\\n');
+                        const [type, text, status_val] = status.split('|');
+                        return { type, text, status: status_val };
+                    });
                 }
 
                 stationData[stationId] = {
