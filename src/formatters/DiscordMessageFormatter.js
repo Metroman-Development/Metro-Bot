@@ -3,6 +3,7 @@ const cacheManager = require('../utils/cacheManager');
 const metroConfig = require('../config/metro/metroConfig');
 const { createErrorEmbed, createEmbed } = require('../utils/embedFactory');
 const { getLineColor, getLineImage } = require('../utils/metroUtils');
+const { normalizeStationData } = require('../utils/stationUtils');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
 const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
@@ -198,33 +199,128 @@ class DiscordMessageFormatter {
             .setTitle(`♿ Accesibilidad en ${station.name}`)
             .setColor(station.color);
 
-        const operational = '✅ Operativo';
-        const notOperational = '❌ No operativo';
-
         if (!station.accessibility || station.accessibility.length === 0) {
             embed.setDescription('No hay información de accesibilidad disponible para esta estación.');
             return embed;
         }
 
-        const nonOperational = station.accessibility
-            .filter(item => item.status !== 'ok')
-            .map(item => item.type);
+        const accessibility = station.accessibility;
+        const operationalEmoji = metroConfig.accessibility.estado.ope;
+        const notOperationalEmoji = metroConfig.accessibility.estado.fes;
 
-        let summary;
-        if (nonOperational.length > 0) {
-            summary = `❌ **Incidencias:** ${nonOperational.join(', ')}.`;
-        } else {
-            summary = '✅ Todas las instalaciones de accesibilidad están operativas.';
+        const summaryLines = [];
+        const elevators = accessibility.filter(item => item.tipo === 'ascensor');
+        const escalators = accessibility.filter(item => item.tipo === 'escalera');
+        const other = accessibility.filter(item => item.tipo !== 'ascensor' && item.tipo !== 'escalera');
+
+        const nonOperationalElevators = elevators.filter(item => item.estado !== 1);
+        const nonOperationalEscalators = escalators.filter(item => item.estado !== 1);
+        const nonOperationalOther = other.filter(item => item.estado !== 1);
+
+        if (nonOperationalElevators.length > 0) {
+            summaryLines.push(`**${nonOperationalElevators.length}** ascensores con problemas.`);
+        }
+        if (nonOperationalEscalators.length > 0) {
+            summaryLines.push(`**${nonOperationalEscalators.length}** escaleras con problemas.`);
+        }
+        if (nonOperationalOther.length > 0) {
+            summaryLines.push(`**${nonOperationalOther.length}** otros equipos con problemas.`);
         }
 
-        embed.setDescription(summary);
+        if (summaryLines.length === 0) {
+            embed.setDescription('✅ Todos los equipos de accesibilidad se encuentran operativos.');
+        } else {
+            embed.setDescription('⚠️ Se reportan las siguientes incidencias:\n' + summaryLines.join('\n'));
+        }
 
-        // Dropdown will be used for details.
+        const addFieldsFor = (items, typeName) => {
+            if (items.length === 0) {
+                embed.addFields({ name: typeName, value: `✅ No se reportan incidencias en ${typeName.toLowerCase()}.` });
+                return;
+            }
 
+            let description = '';
+            const fieldChunks = [];
+
+            for (const item of items) {
+                const statusEmoji = item.estado === 1 ? operationalEmoji : notOperationalEmoji;
+                const line = `${statusEmoji} ${item.texto}\n`;
+                if (description.length + line.length > 1024) {
+                    fieldChunks.push(description);
+                    description = '';
+                }
+                description += line;
+            }
+            fieldChunks.push(description);
+
+            fieldChunks.forEach((chunk, index) => {
+                embed.addFields({
+                    name: index === 0 ? typeName : '​', // Zero-width space for subsequent fields
+                    value: chunk
+                });
+            });
+        };
+
+        switch (tab) {
+            case 'acc_elevators':
+                embed.setTitle(`🛗 Ascensores en ${station.name}`);
+                addFieldsFor(elevators, 'Ascensores');
+                break;
+            case 'acc_escalators':
+                embed.setTitle(`🪜 Escaleras en ${station.name}`);
+                addFieldsFor(escalators, 'Escaleras');
+                break;
+            case 'acc_accesses':
+                 embed.setTitle(`🚪 Accesos en ${station.name}`);
+                 // For now, there is no data for this tab.
+                 embed.setDescription('No hay información sobre otros tipos de acceso por el momento.');
+                break;
+            case 'accessibility':
+            case 'acc_summary':
+            default:
+                // The summary is already set at the beginning of the function.
+                break;
+        }
 
         return embed;
     }
 
+
+    async _createTransfersEmbed(station) {
+        const embed = new EmbedBuilder()
+            .setTitle(`🔄 Combinaciones en ${station.displayName}`)
+            .setColor(station.color);
+
+        const normalizedStation = normalizeStationData(station);
+        const { lines, other, bikes } = normalizedStation.connections;
+
+        if (lines && lines.length > 0) {
+            const value = lines.map(l => `${metroConfig.linesEmojis[l.toLowerCase()] || `Línea ${l}`}`).join('\n');
+            embed.addFields({ name: 'Líneas de Metro', value: value, inline: false });
+        }
+
+        const normalizedConnectionEmojis = Object.keys(metroConfig.connectionEmojis || {}).reduce((acc, key) => {
+            const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            acc[normalizedKey] = metroConfig.connectionEmojis[key];
+            return acc;
+        }, {});
+
+        if (other && other.length > 0) {
+            const value = other.map(t => `${normalizedConnectionEmojis[t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")] || '🚌'} ${t}`).join('\n');
+            embed.addFields({ name: 'Otros Transportes', value: value, inline: false });
+        }
+
+        if (bikes && bikes.length > 0) {
+            const value = bikes.map(b => `${normalizedConnectionEmojis[b.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")] || '🚲'} ${b}`).join('\n');
+            embed.addFields({ name: 'Bicicletas', value: value, inline: false });
+        }
+
+        if ((!lines || lines.length === 0) && (!other || other.length === 0) && (!bikes || bikes.length === 0)) {
+            embed.setDescription('No hay información de combinaciones para esta estación.');
+        }
+
+        return embed;
+    }
 
     async _createEmbedForTab(cacheData) {
         const { station, metroData, currentTab } = cacheData;
@@ -233,6 +329,8 @@ class DiscordMessageFormatter {
                 return this._createMainEmbed(station, metroData);
             case 'surroundings':
                 return this._createSurroundingsEmbed(station);
+            case 'transfers':
+                return this._createTransfersEmbed(station);
             case 'accessibility':
             case 'acc_summary':
             case 'acc_elevators':
