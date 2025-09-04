@@ -15,7 +15,7 @@ class WhoAvatarCommand extends BaseCommand {
         this.category = "Información";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const user = interaction.options.getUser('usuario') || interaction.user;
 
         const embed = new EmbedBuilder()

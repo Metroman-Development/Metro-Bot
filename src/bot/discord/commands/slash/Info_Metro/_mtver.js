@@ -7,7 +7,7 @@ module.exports = {
         .setName('version')
         .setDescription('Muestra la versión del sistema de datos del Metro'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const metroData = metroInfoProvider.getFullData();

@@ -6,7 +6,7 @@ module.exports = {
         .setName('info')
         .setDescription('Muestra información técnica sobre el bot.'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const { client, guild } = interaction;
 

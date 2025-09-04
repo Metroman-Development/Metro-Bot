@@ -4,7 +4,7 @@
  */
 
 const { Interaction, Message } = require('discord.js');
-const logger = require('../core/utils/logger');
+const logger = require('../events/logger');
 
 /**
  * Handles errors that occur during command execution.

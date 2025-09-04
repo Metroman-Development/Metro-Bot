@@ -10,7 +10,7 @@ module.exports = {
                 .setDescription('Busca un comando específico por nombre o descripción.')
                 .setAutocomplete(true)),
 
-    async run(interaction) {
+    async execute(interaction) {
         const searchTerm = interaction.options.getString('buscar');
         const comandoButton = new ComandoButton();
 

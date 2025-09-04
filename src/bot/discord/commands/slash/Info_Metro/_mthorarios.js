@@ -8,7 +8,7 @@ module.exports = {
         .setName('horarios')
         .setDescription('Muestra los horarios de operación del Metro'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
 
         const operatingHours = TimeHelpers.getOperatingHours();

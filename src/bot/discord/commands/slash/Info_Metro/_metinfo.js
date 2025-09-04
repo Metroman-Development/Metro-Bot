@@ -6,7 +6,7 @@ module.exports = {
         .setName('info')
         .setDescription('Muestra información del Metro de Santiago'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const metroInfo = metroInfoProvider.getFullData();

@@ -15,7 +15,7 @@ class WhoisCommand extends BaseCommand {
         this.category = "Información";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const user = interaction.options.getUser('usuario') || interaction.user;
         const member = interaction.guild.members.cache.get(user.id);
 

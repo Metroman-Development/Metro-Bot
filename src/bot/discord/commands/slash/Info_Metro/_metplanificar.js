@@ -51,7 +51,7 @@ module.exports = {
         );
     },
 
-    async run(interaction) {
+    async execute(interaction) {
         const cooldowns = new Collection();
         const userId = interaction.user.id;
         const cooldownAmount = 10_000;

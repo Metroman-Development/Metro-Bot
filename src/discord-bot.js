@@ -1,6 +1,8 @@
 const { initialize } = require('./core/bootstrap');
 require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const loadEvents = require('./events');
@@ -28,23 +30,7 @@ async function startDiscordBot() {
     }
 
     discordClient.commands = new Collection();
-    discordClient.prefixCommands = new Collection();
     discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
-
-    const prefixCommandsPath = join(__dirname, 'bot/discord/commands/prefix');
-    try {
-        readdirSync(prefixCommandsPath)
-            .filter(file => file.endsWith('.js'))
-            .forEach(file => {
-                const command = require(join(prefixCommandsPath, file));
-                if ('name' in command && 'execute' in command) {
-                    discordClient.prefixCommands.set(command.name, command);
-                }
-            });
-        logger.info('[DISCORD] Prefix commands loaded.');
-    } catch (error) {
-        logger.error('[DISCORD] ❌ Failed to load prefix commands:', { error });
-    }
 
     require('./events/interactions/interactionLoader')(discordClient);
 
@@ -74,6 +60,21 @@ async function startDiscordBot() {
 
     try {
         await connectToDiscord(discordClient);
+
+        logger.info('[DISCORD] Registering slash commands...');
+        const commandsToRegister = discordClient.commands.map(cmd => cmd.data.toJSON());
+        const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+
+        try {
+            await rest.put(
+                Routes.applicationCommands(discordClient.user.id),
+                { body: commandsToRegister },
+            );
+            logger.info('[DISCORD] ✅ Successfully registered slash commands.');
+        } catch (error) {
+            logger.error('[DISCORD] ❌ Failed to register slash commands:', error);
+        }
+
         metroInfoProvider.statusEmbedManager.setClient(discordClient);
 
         const lineMessageIds = { ...metroConfig.embedMessageIds };

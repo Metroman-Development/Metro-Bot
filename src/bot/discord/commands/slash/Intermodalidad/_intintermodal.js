@@ -22,7 +22,7 @@ module.exports = {
                 )
         ),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const stationName = interaction.options.getString('estacion');

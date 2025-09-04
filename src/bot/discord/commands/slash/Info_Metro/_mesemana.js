@@ -44,7 +44,7 @@ module.exports = {
         .setName('semana')
         .setDescription('Muestra el horario semanal agrupado con eventos extendidos'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const now = TimeHelpers.currentTime.clone();
         const weekStart = now.clone().startOf('isoWeek');

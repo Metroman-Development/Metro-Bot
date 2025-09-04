@@ -20,7 +20,7 @@ module.exports = {
                 .setRequired(false)
         ),
 
-    async run(interaction) {
+    async execute(interaction) {
         const group = interaction.options.getString('grupo') || 'all';
 
         const embed = new EmbedBuilder()

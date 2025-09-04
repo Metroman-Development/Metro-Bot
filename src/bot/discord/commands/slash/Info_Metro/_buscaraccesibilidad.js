@@ -25,7 +25,7 @@ module.exports = {
                     { name: 'Ambos', value: 'ambos' }
                 )),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const statusQuery = interaction.options.getString('estado');

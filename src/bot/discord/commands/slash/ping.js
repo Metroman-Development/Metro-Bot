@@ -12,7 +12,7 @@ class PingCommand extends BaseCommand {
         this.category = "Bot Info";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const startTime = Date.now();
         const wsLatency = Math.max(0, interaction.client.ws.ping);
 

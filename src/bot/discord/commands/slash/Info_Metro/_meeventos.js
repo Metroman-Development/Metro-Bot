@@ -50,7 +50,7 @@ module.exports = {
         .setName('eventos')
         .setDescription('Muestra información sobre eventos especiales que afectan el servicio'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
 
         const now = TimeHelpers.currentTime;

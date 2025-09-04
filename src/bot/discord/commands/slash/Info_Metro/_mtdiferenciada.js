@@ -19,7 +19,7 @@ module.exports = {
                     { name: 'Red', value: 'transantiago' }
                 )),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply({ ephemeral: false });
         const fareType = interaction.options.getString('tipo');
         await this.showSpecificFare(interaction, fareType);

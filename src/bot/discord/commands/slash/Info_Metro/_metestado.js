@@ -9,7 +9,7 @@ module.exports = {
         .setName('estado')
         .setDescription('Muestra el estado del Metro de Santiago'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const allData = metroInfoProvider.getFullData();
