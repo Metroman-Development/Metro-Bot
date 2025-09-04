@@ -107,54 +107,33 @@ function processCommerceText(commerceText, metroConfig) {
     }).join(', ');
 }
 
-function processAccessibilityText(accessibilityText, metroConfig) {
-    if (!accessibilityText) return ["No hay información de accesibilidad"];
+function processAccessibilityText(accessibility, metroConfig) {
+    if (!accessibility || accessibility.length === 0) {
+        return ["No hay información de accesibilidad"];
+    }
 
-    const accessibilityLines = accessibilityText.split('\n');
-    return accessibilityLines.map(line => {
-        let processedLine = line;
+    const allOperational = accessibility.every(item => item.status === '1');
+    const summary = allOperational
+        ? "✅ Todos los equipos de accesibilidad se encuentran operativos."
+        : "⚠️ Algunos equipos de accesibilidad presentan problemas.";
 
-        // Replace line references with emojis
-        processedLine = processedLine.replace(/Línea (\d+[a-z]?)/gi, (match, lineNum) => {
-            const lineKey = `l${lineNum.toLowerCase()}`;
-            return metroConfig.linesEmojis[lineKey] || match;
-        });
-
-        // Replace access letters with emojis (A, B, C, etc.)
-        processedLine = processedLine.replace(/\(([a-z])\)/gi, (match, letter) => {
-            const upperLetter = letter.toUpperCase();
-            return String.fromCodePoint(0x1F170 + upperLetter.charCodeAt(0) - 65) + (upperLetter > 'A' ? '' : '️');
-        });
-
-        // Replace access labels with emojis
-        processedLine = processedLine.replace(/Acceso ([A-Z])/gi, (match, letter) => {
-            const emojiCode = 0x1F170 + letter.charCodeAt(0) - 65;
-            return `Acceso ${String.fromCodePoint(emojiCode)}`;
-        });
-
-        // Normalize for comparison
-        const lowerLine = processedLine.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-        if (lowerLine.includes('todos los ascensores disponibles') ||
-            lowerLine.match(/todos los ascensores (operativos|disponibles)/)) {
-            return `${metroConfig.accessibility?.estado?.ope || '✅'} ${processedLine}`;
+    const details = accessibility.map(item => {
+        let statusEmoji = '';
+        if (metroConfig && metroConfig.accessibility && metroConfig.accessibility.estado) {
+            statusEmoji = item.status === '1' ? metroConfig.accessibility.estado.ope : metroConfig.accessibility.estado.fes;
+        } else {
+            statusEmoji = item.status === '1' ? '✅' : '⛔';
         }
 
-        if (lowerLine.includes('ascensor') || lowerLine.includes('ascensores')) {
-            if (lowerLine.includes('fuera de servicio') || lowerLine.includes('no disponible')) {
-                return `${metroConfig.accessibility?.estado?.fes || '⛔'} ${processedLine}`;
-            }
-            return `${metroConfig.accessibility?.ascensor || '🛗'} ${processedLine}`;
+        let typeEmoji = '';
+        if (metroConfig && metroConfig.accessibility) {
+            typeEmoji = metroConfig.accessibility[item.type.toLowerCase()] || '';
         }
 
-        if (lowerLine.includes('salida de estación') ||
-            lowerLine.includes('a nivel de vereda') ||
-            lowerLine.includes('a nivel de calle')) {
-            return `${metroConfig.accessibility?.salida || '🚪'} ${processedLine}`;
-        }
-
-        return processedLine;
+        return `${statusEmoji} ${typeEmoji} ${item.text}`.trim();
     });
+
+    return [summary, ...details];
 }
 
 function decorateStation(station, decorations = [], metroInfoProvider) {
