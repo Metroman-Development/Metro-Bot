@@ -60,7 +60,7 @@ function create({ station, metroData }) {
     if (normalizedStation.commerce) {
         embed.addFields({
             name: '🛍️ Comercio',
-            value: processCommerceText(normalizedStation.commerce),
+            value: processCommerceText(normalizedStation.commerce, metroConfig),
             inline: false
         });
     }
@@ -97,7 +97,7 @@ function create({ station, metroData }) {
 function addAccessibilityField(embed, station) {
     if (!station.accessibility) return;
 
-    const processedLines = processAccessibilityText(station.accessibility);
+    const processedLines = processAccessibilityText(station.accessibility, metroConfig);
     const fullText = processedLines.join('\n');
 
     embed.addFields({
