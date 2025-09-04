@@ -159,11 +159,11 @@ class AdvancedCommandLoader {
             category,
             subcommands: new Collection(),
             execute: async (interaction) => {
-                const subcommand = interaction.options.getSubcommand();
-                const handler = command.subcommands?.get(subcommand)?.execute;
+                const subcommandName = interaction.options.getSubcommand();
+                const subcommandHandler = command.subcommands?.get(subcommandName);
                 
-                if (handler) {
-                    return this.handleExecution(interaction, handler);
+                if (subcommandHandler) {
+                    return this.handleExecution(interaction, subcommandHandler);
                 }
                 return interaction.reply({
                     content: '⚠️ Subcommand not found'
@@ -252,6 +252,11 @@ class AdvancedCommandLoader {
 
     async checkCooldown(interaction, command) {
     try {
+        if (!command || !command.data || !command.data.name) {
+            logger.warn('Cooldown check skipped due to invalid command object.');
+            return null;
+        }
+
         const member = interaction.member;
         if (!member) return '⚠️ No se pudo identificar al miembro';
 
