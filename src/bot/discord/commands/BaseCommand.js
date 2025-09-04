@@ -17,7 +17,7 @@ class BaseCommand {
                 const subcommandName = interactionOrMessage.options.getSubcommand();
                 const subcommand = this.subcommands.get(subcommandName);
                 if (subcommand) {
-                    await subcommand.run(interactionOrMessage);
+                    await subcommand.execute(interactionOrMessage);
                 } else {
                     // Subcommand not found, should not happen if registered correctly
                 }

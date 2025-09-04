@@ -3,7 +3,11 @@
  * @description Utilities for handling command execution and interactions.
  */
 
-const { Interaction, Message } = require('discord.js');
+/**
+ * @file commandUtils.js
+ * @description Utilities for handling command execution and interactions.
+ */
+
 const logger = require('../events/logger');
 
 /**
@@ -13,6 +17,7 @@ const logger = require('../events/logger');
  * @param {Interaction | Message} interactionOrMessage The interaction or message where the error occurred.
  */
 async function handleCommandError(error, interactionOrMessage) {
+    const { Interaction, Message } = require('discord.js');
     logger.error(`Error executing command: ${error.message}`, {
         error,
         command: interactionOrMessage.id,
