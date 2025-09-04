@@ -58,6 +58,7 @@ module.exports = {
 
         collector.on('collect', async i => {
             try {
+                await i.deferUpdate();
                 let tab;
                 let stationId;
 
