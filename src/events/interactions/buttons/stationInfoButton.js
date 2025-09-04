@@ -38,7 +38,9 @@ async function execute(interaction) {
         }
 
         const formatter = new DiscordMessageFormatter();
-        await interaction.update(formatter._createStationMessage(cacheData, userId));
+        await interaction.deferUpdate();
+        const messagePayload = await formatter._createStationMessage(cacheData, userId);
+        await interaction.editReply(messagePayload);
     } catch (error) {
         console.error('[stationInfoButton] Interaction failed:', error);
         await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.', ephemeral: true }).catch(e => { });
