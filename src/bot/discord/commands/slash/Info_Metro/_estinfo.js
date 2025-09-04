@@ -20,15 +20,15 @@ module.exports = {
             const stations = Object.values(metroInfoProvider.getStations());
             const filteredStations = stations.filter(station => {
                 const stationName = station.name || '';
-                const stationId = station.id || '';
+                const stationCode = station.code || '';
                 return stationName.toLowerCase().includes(focusedValue) ||
-                       stationId.toLowerCase().includes(focusedValue);
+                       stationCode.toLowerCase().includes(focusedValue);
             }).slice(0, 25);
 
             await interaction.respond(
                 filteredStations.map(station => ({
-                    name: `Estación ${station.name} (L${station.line.toUpperCase()})`,
-                    value: station.id
+                    name: `Estación ${station.name} (L${station.line_id.toUpperCase()})`,
+                    value: station.name
                 }))
             );
         } catch (error) {

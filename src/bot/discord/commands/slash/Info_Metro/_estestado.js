@@ -18,15 +18,17 @@ module.exports = {
         try {
             const metroInfoProvider = MetroInfoProvider.getInstance();
             const stations = Object.values(metroInfoProvider.getStations());
-            const filteredStations = stations.filter(station =>
-                station.name.toLowerCase().includes(focusedValue) ||
-                station.id.toLowerCase().includes(focusedValue)
-            ).slice(0, 25);
+            const filteredStations = stations.filter(station => {
+                const stationName = station.name || '';
+                const stationCode = station.code || '';
+                return stationName.toLowerCase().includes(focusedValue) ||
+                       stationCode.toLowerCase().includes(focusedValue);
+            }).slice(0, 25);
 
             await interaction.respond(
                 filteredStations.map(station => ({
-                    name: `Estación ${station.name} (L${station.line.toUpperCase()})`,
-                    value: station.id
+                    name: `Estación ${station.name} (L${station.line_id.toUpperCase()})`,
+                    value: station.name
                 }))
             );
         } catch (error) {
