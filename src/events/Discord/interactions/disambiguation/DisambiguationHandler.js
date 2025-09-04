@@ -39,8 +39,7 @@ class DisambiguationHandler {
 
         if (!session || !session.matches[selectedIndex]) {
             return interaction.reply({
-                content: '⚠️ Disambiguation session expired or invalid',
-                ephemeral: true
+                content: '⚠️ Disambiguation session expired or invalid'
             });
         }
 

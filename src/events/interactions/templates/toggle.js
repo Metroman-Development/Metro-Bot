@@ -48,7 +48,7 @@ function create(options) {
             console.error(`[ToggleTemplate:${idPrefix}] Error executing onToggle:`, error);
             // Try to inform the user of the error
             if (interaction.replied || interaction.deferred) {
-                await interaction.followUp({ content: 'There was an error processing your request.', ephemeral: true }).catch(() => {});
+                await interaction.followUp({ content: 'There was an error processing your request.' }).catch(() => {});
             }
         }
     }

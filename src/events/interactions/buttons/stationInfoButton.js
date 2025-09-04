@@ -3,7 +3,7 @@ const DiscordMessageFormatter = require('../../../formatters/DiscordMessageForma
 const StationEmbedHub = require('../../../templates/embeds/StationEmbedHub');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 function _getCacheKey(stationId, userId) {
     return `${CUSTOM_ID_PREFIX}:${userId}:${stationId}`;
@@ -25,7 +25,7 @@ async function execute(interaction) {
         const [,,, stationId, tabId, userId] = interaction.customId.split(':');
 
         if (interaction.user.id !== userId) {
-            return interaction.followUp({ content: 'No puedes interactuar con los botones de otra persona.', ephemeral: true });
+            return interaction.followUp({ content: 'No puedes interactuar con los botones de otra persona.' });
         }
 
         const cacheKey = _getCacheKey(stationId, userId);
@@ -53,7 +53,7 @@ async function execute(interaction) {
         await interaction.editReply(messagePayload);
     } catch (error) {
         console.error('[stationInfoButton] Interaction failed:', error);
-        await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.', ephemeral: true }).catch(e => { });
+        await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.' }).catch(e => { });
     }
 }
 

@@ -61,8 +61,7 @@ module.exports = {
             if (Date.now() < expirationTime) {
                 const timeLeft = (expirationTime - Date.now()) / 1000;
                 return interaction.reply({
-                    content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos.`,
-                    ephemeral: true
+                    content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos.`
                 });
             }
         }
@@ -87,7 +86,7 @@ module.exports = {
 
         const routes = await RoutePlanner.getRoutes(origin.id, destination.id, farePeriod);
         if (!routes || routes.length === 0) {
-            return interaction.editReply({ content: '❌ No se encontraron rutas.', ephemeral: true });
+            return interaction.editReply({ content: '❌ No se encontraron rutas.' });
         }
 
         const routeData = {

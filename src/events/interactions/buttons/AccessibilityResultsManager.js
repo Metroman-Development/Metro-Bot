@@ -4,7 +4,7 @@ const config = require('../../../config/metro/metroConfig');
 const styles = require('../../../config/styles.json');
 
 const CUSTOM_ID_PREFIX = 'accResults';
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 const MAX_FIELD_LENGTH = 1024;
 const MAX_STATIONS_PER_PAGE = 3;
 const MAX_CONTENT_PER_PAGE = 6000;
@@ -236,7 +236,7 @@ async function execute(interaction) {
     }
 
     if (interaction.user.id !== cacheData.userId) {
-        return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.', ephemeral: true });
+        return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.' });
     }
 
     switch(action) {
@@ -262,7 +262,7 @@ async function execute(interaction) {
             // The message was likely deleted, nothing we can do.
         } else {
             // Try to notify the user of the failure.
-            interaction.followUp({ content: 'Ocurrió un error al actualizar los resultados.', ephemeral: true }).catch(e => {});
+            interaction.followUp({ content: 'Ocurrió un error al actualizar los resultados.' }).catch(e => {});
         }
     }
 }

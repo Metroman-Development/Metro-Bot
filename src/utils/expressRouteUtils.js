@@ -64,8 +64,7 @@ async function handleExpressRoute(interaction, lineKey, route, userId, embedId) 
                         .setColor('#FF0000')
                         .setTitle('❌ Sin resultados')
                         .setDescription(`No hay estaciones con ${route} en Línea ${lineKey.toUpperCase()}`)
-                ],
-                ephemeral: true
+                ]
             });
         }
 
@@ -78,8 +77,7 @@ async function handleExpressRoute(interaction, lineKey, route, userId, embedId) 
     } catch (error) {
         console.error('Error in handleExpressRoute:', error);
         await interaction[interaction.replied ? 'followUp' : 'reply']({
-            content: '❌ Error al procesar el comando',
-            ephemeral: true
+            content: '❌ Error al procesar el comando'
         });
     }
 }

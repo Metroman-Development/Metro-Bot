@@ -33,15 +33,17 @@ module.exports = {
         );
     },
 
+const { createStationInfoCollector } = require('../../../../../utils/collectorManager');
+
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const stationId = interaction.options.getString('estacion');
         const station = metroInfoProvider.getStation(stationId.toUpperCase());
 
         if (!station) {
             const errorEmbed = await createErrorEmbed('No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.');
-            return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
+            return await interaction.editReply({ embeds: [errorEmbed] });
         }
 
         station.id = station.code;
@@ -51,52 +53,6 @@ module.exports = {
 
         const message = await interaction.editReply(messagePayload);
 
-        const collector = message.createMessageComponentCollector({
-            filter: i => i.user.id === interaction.user.id,
-            time: 15 * 60 * 1000 // 15 minutes
-        });
-
-        collector.on('collect', async i => {
-            try {
-                await i.deferUpdate();
-                let tab;
-                let stationId;
-
-                if (i.isStringSelectMenu()) {
-                    const selectedValue = i.values[0];
-                    [, stationId, tab] = selectedValue.split(':');
-                } else {
-                    [, stationId, tab] = i.customId.split(':');
-                }
-
-                const cacheKey = formatter._getCacheKey(stationId, i.user.id);
-                const cacheData = cacheManager.get(cacheKey);
-
-                if (cacheData) {
-                    cacheData.currentTab = tab;
-                    cacheManager.set(cacheKey, cacheData);
-
-                    const newMessagePayload = await formatter._createStationMessage(cacheData, i.user.id);
-                    await i.editReply(newMessagePayload);
-                }
-            } catch (error) {
-                // Ignore "Unknown Interaction" errors, as they are likely caused by a race condition
-                // with the global interaction handler.
-                if (error.code === 10062) {
-                    console.warn(`[estinfo.js] Collector caught an expired interaction. Code: ${error.code}. This is likely a race condition and can be ignored.`);
-                    return;
-                }
-                console.error('[estinfo.js] Collector failed:', error);
-            }
-        });
-
-        collector.on('end', collected => {
-            // Optional: disable components after collector expires
-            const lastInteraction = collected.last();
-            if (lastInteraction) {
-                const disabledPayload = { ...lastInteraction.message, components: [] };
-                interaction.editReply(disabledPayload);
-            }
-        });
+        createStationInfoCollector(message, interaction);
     }
 };

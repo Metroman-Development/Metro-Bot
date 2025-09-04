@@ -26,8 +26,7 @@ module.exports = ToggleTemplate.create({
             
             if (!cachedData || cachedData.command !== 'tarifario') {
                 return interaction.reply({
-                    content: '⚠️ La sesión de tarifas ha expirado. Por favor ejecuta el comando /tarifario nuevamente.',
-                    ephemeral: true
+                    content: '⚠️ La sesión de tarifas ha expirado. Por favor ejecuta el comando /tarifario nuevamente.'
                 });
             }
 

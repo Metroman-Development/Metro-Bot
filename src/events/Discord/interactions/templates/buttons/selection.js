@@ -12,8 +12,7 @@ class SelectionTemplate {
                     .addOptions(options);
 
                 await interaction.reply({
-                    components: [new ActionRowBuilder().addComponents(menu)],
-                    ephemeral: true
+                    components: [new ActionRowBuilder().addComponents(menu)]
                 });
             }
         };

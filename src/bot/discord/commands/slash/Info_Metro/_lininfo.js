@@ -30,7 +30,7 @@ module.exports = {
 
         if (!lineInfo) {
             const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
-            return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
+            return await interaction.editReply({ embeds: [errorEmbed] });
         }
 
         const formatter = new DiscordMessageFormatter();

@@ -7,7 +7,6 @@ module.exports = {
         if (!categories) {
             return await interaction.reply({
                 content: '❌ No se encontraron categorías. Por favor, intenta nuevamente.',
-                ephemeral: true,
             });
         }
 
@@ -18,7 +17,6 @@ module.exports = {
         if (!categoryCommands) {
             return await interaction.reply({
                 content: '❌ Categoría no válida. Por favor, selecciona una categoría válida.',
-                ephemeral: true,
             });
         }
 

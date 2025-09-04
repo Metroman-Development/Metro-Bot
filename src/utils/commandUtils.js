@@ -20,8 +20,7 @@ async function handleCommandError(error, interactionOrMessage) {
     });
 
     const errorMessage = {
-        content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.',
-        ephemeral: true,
+        content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.'
     };
 
     if (interactionOrMessage instanceof Interaction) {

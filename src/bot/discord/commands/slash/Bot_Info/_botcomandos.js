@@ -11,21 +11,21 @@ module.exports = {
                 .setAutocomplete(true)),
 
     async execute(interaction) {
+        await interaction.deferReply();
         const searchTerm = interaction.options.getString('buscar');
         const comandoButton = new ComandoButton();
 
         if (searchTerm) {
             const results = this._searchCommands(interaction.client, searchTerm);
             if (results.length === 0) {
-                return interaction.reply({
-                    content: '🔍 No se encontraron comandos que coincidan con tu búsqueda.',
-                    ephemeral: true
+                return interaction.editReply({
+                    content: '🔍 No se encontraron comandos que coincidan con tu búsqueda.'
                 });
             }
-            return interaction.reply(await comandoButton.buildSearchView(results, searchTerm));
+            return interaction.editReply(await comandoButton.buildSearchView(results, searchTerm));
         }
 
-        interaction.reply(await comandoButton.buildCategoryView(interaction.client));
+        interaction.editReply(await comandoButton.buildCategoryView(interaction.client));
     },
 
     async autocomplete(interaction) {

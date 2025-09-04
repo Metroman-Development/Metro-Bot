@@ -34,8 +34,7 @@ class BaseCommand {
     handleCommandError(interaction, error) {
         console.error(`[${interaction.commandName}] Error:`, error);
         return interaction.editReply({
-            content: '⚠️ Ocurrió un error al procesar el comando',
-            ephemeral: true
+            content: '⚠️ Ocurrió un error al procesar el comando'
         });
     }
 }

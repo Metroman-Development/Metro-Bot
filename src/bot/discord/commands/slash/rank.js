@@ -18,6 +18,7 @@ class RankCommand extends BaseCommand {
     }
 
     async execute(interaction) {
+        await interaction.deferReply();
         const targetUser = interaction.options.getUser('usuario') || interaction.user;
         const userId = targetUser.id;
 
@@ -26,7 +27,7 @@ class RankCommand extends BaseCommand {
         const ranking = await dbManager.query('SELECT username, bip_coins FROM users ORDER BY bip_coins DESC LIMIT 10');
 
         if (user.length === 0) {
-            return interaction.reply({ content: '❌ Este usuario no tiene Bip!Coins aún.', ephemeral: true });
+            return interaction.editReply({ content: '❌ Este usuario no tiene Bip!Coins aún.' });
         }
 
         const level = bipcoinUtils.calculateLevel(user[0].bip_coins);
@@ -46,7 +47,7 @@ class RankCommand extends BaseCommand {
                 }
             );
 
-        await interaction.reply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embed] });
     }
 }
 

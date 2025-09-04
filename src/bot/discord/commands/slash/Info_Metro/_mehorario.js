@@ -72,8 +72,7 @@ module.exports = {
         } catch (error) {
             console.error('Error en /metro horario:', error);
             await interaction.editReply({
-                content: '❌ Error al obtener los horarios',
-                ephemeral: true
+                content: '❌ Error al obtener los horarios'
             });
         }
     }

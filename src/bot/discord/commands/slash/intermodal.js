@@ -35,12 +35,13 @@ class IntermodalCommand extends BaseCommand {
     }
 
     async execute(interaction) {
+        await interaction.deferReply();
         const stationId = interaction.options.getString('estacion');
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const station = metroInfoProvider.getStationById(stationId);
 
         if (!station) {
-            return interaction.reply({ content: '❌ Estación no encontrada', ephemeral: true });
+            return interaction.editReply({ content: '❌ Estación no encontrada' });
         }
 
         const embed = new EmbedBuilder()
@@ -59,7 +60,7 @@ class IntermodalCommand extends BaseCommand {
                 }
             );
 
-        await interaction.reply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embed] });
     }
 }
 
