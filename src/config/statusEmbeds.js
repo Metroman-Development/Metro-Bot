@@ -1,7 +1,7 @@
 const logger = require('../events/logger');
 const styles = require('./styles.json');
 const TimeHelpers = require('../utils/timeHelpers.js');
-const { decorateStation } = require('../utils/stationUtils.js');
+const { decorateStation, getStationStatusEmoji } = require('../utils/stationUtils.js');
 
 // Utility function to convert hex color to integer
 function hexToInt(hex) {
@@ -125,19 +125,27 @@ module.exports = {
         const lineName = lineData.name || lineData.displayName || '';
         const displayLineKey = lineName.replace('Línea ', '');
 
-        const statusCode = lineData.status_data?.status_name || 'operational';
-        const statusConfig = metroConfig.statusTypes?.[statusCode] || {};
-        const isClosed = statusCode === 'closed' || lineData.app_message?.includes('Cierre por Horario');
-        let description = isClosed
-            ? `🌙 Cierre por Horario`
-            : `${statusConfig.emoji || '❓'} ${lineData.status_data?.status_description || 'Estado desconocido'}`;
-
         const stationObjects = (stations ? Object.values(stations) : [])
             .filter(station => station.line_id === lineData.id);
 
         const stationLines = stationObjects.map(station => {
             return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms', 'transports'], metroInfoProvider);
         });
+
+        const stationStatuses = stationObjects.map(station => getStationStatusEmoji(station, metroConfig));
+        const uniqueStatuses = [...new Set(stationStatuses)];
+
+        let description = '';
+        if (uniqueStatuses.length === 1) {
+            const statusConfig = Object.values(metroConfig.statusTypes).find(st => st.discordem === uniqueStatuses[0]);
+            description = `${uniqueStatuses[0]} ${statusConfig?.description || 'Estado desconocido'}`;
+        } else {
+            description = '⚠️ Estado mixto en la línea.';
+        }
+
+        if (lineData.app_message?.includes('Cierre por Horario')) {
+            description = `🌙 Cierre por Horario`;
+        }
 
         if (lineData.express_status) {
             const expressStatus = lineData.express_status === 'active' ? 'Activo' : 'Inactivo';
