@@ -81,14 +81,23 @@ function create({ station, metroData }) {
         });
     }
 
-    if (normalizedStation.connections?.lines?.length > 0) {
-        embed.addFields({
-            name: '🔄 Conecta con',
-            value: normalizedStation.connections.lines
-                .map(l => `${metroConfig.linesEmojis[l.toLowerCase()] || `Línea ${l}`}`)
-                .join(', '),
-            inline: true
-        });
+    if (normalizedStation.connections) {
+        const lines = normalizedStation.connections.lines?.length || 0;
+        const others = normalizedStation.connections.other?.length || 0;
+        const bikes = normalizedStation.connections.bikes?.length || 0;
+
+        if (lines > 0 || others > 0 || bikes > 0) {
+            const summary = [];
+            if (lines > 0) summary.push(`${lines} línea(s)`);
+            if (others > 0) summary.push(`${others} otro(s)`);
+            if (bikes > 0) summary.push(`${bikes} bici(s)`);
+
+            embed.addFields({
+                name: '🔄 Conexiones',
+                value: `Esta estación conecta con ${summary.join(', ')}.`,
+                inline: false
+            });
+        }
     }
 
     return embed;
@@ -97,12 +106,31 @@ function create({ station, metroData }) {
 function addAccessibilityField(embed, station) {
     if (!station.accessibility) return;
 
-    const processedLines = processAccessibilityText(station.accessibility, metroConfig);
-    const fullText = processedLines.join('\n');
+    const accessibility = station.accessibility;
+    const nonOperationalElevators = accessibility.filter(item => item.tipo === 'ascensor' && item.estado !== 1).length;
+    const nonOperationalEscalators = accessibility.filter(item => item.tipo === 'escalera' && item.estado !== 1).length;
+    const nonOperationalOther = accessibility.filter(item => item.tipo !== 'ascensor' && item.tipo !== 'escalera' && item.estado !== 1).length;
+
+    let summary;
+    if (nonOperationalElevators === 0 && nonOperationalEscalators === 0 && nonOperationalOther === 0) {
+        summary = '✅ Todos los equipos de accesibilidad se encuentran operativos.';
+    } else {
+        const issues = [];
+        if (nonOperationalElevators > 0) {
+            issues.push(`${nonOperationalElevators} ascensor(es)`);
+        }
+        if (nonOperationalEscalators > 0) {
+            issues.push(`${nonOperationalEscalators} escalera(s)`);
+        }
+        if (nonOperationalOther > 0) {
+            issues.push(`${nonOperationalOther} otro(s)`);
+        }
+        summary = `⚠️ Se reportan incidencias en ${issues.join(', ')}.`;
+    }
 
     embed.addFields({
-        name: `${metroConfig.accessibility?.logo || '♿'} Accesibilidad`,
-        value: fullText,
+        name: `♿ Accesibilidad`,
+        value: summary,
         inline: false
     });
 }

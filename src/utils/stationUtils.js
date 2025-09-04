@@ -27,7 +27,7 @@ function normalizeStationData(station) {
 
     if (stationConnections && Array.isArray(stationConnections)) {
         for (const conn of stationConnections) {
-            if (conn.startsWith('l')) {
+            if (conn.toLowerCase().startsWith('l')) {
                 connections.lines.push(conn);
             } else if (conn === 'Línea Cero' || conn === 'BiciMetro' || conn === 'U Invertida') {
                 connections.bikes.push(conn);
