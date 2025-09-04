@@ -36,12 +36,14 @@ module.exports = {
         await interaction.deferReply({ ephemeral: true });
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const stationId = interaction.options.getString('estacion');
-        const station = metroInfoProvider.getStation(stationId);
+        const station = metroInfoProvider.getStation(stationId.toUpperCase());
 
         if (!station) {
             const errorEmbed = await createErrorEmbed('No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.');
             return await interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
         }
+
+        station.id = station.code;
 
         const formatter = new DiscordMessageFormatter();
         const message = await formatter.formatStationInfo(station, metroInfoProvider, interaction.user.id);
