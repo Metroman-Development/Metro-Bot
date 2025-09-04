@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const commerceResultsManager = require('../../../../../events/interactions/buttons/commerceResultsManager');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
 
 module.exports = {
     parentCommand: 'buscar',
@@ -49,37 +50,25 @@ module.exports = {
     async execute(interaction, metroInfoProvider) {
         await interaction.deferReply();
         const commerceQuery = interaction.options.getString('nombre');
-        const staticData = metroInfoProvider.getFullData();
-        const normalizedQuery = this.normalizeString(commerceQuery);
 
-        const allResults = [];
-        Object.values(staticData.stations).forEach(station => {
-            if (!station.commerce || station.commerce === 'None') return;
+        const searchCore = new SearchCore('station');
+        searchCore.setDataSource(metroInfoProvider.getFullData());
 
-            const commerceItems = station.commerce.split(',')
-                .map(item => item.trim())
-                .filter(item => item);
+        const results = await searchCore.search(commerceQuery, { commerceFilter: commerceQuery });
 
-            const matchingItems = commerceItems.filter(item => 
-                this.normalizeString(item).includes(normalizedQuery)
-            );
-
-            if (matchingItems.length > 0) {
-                allResults.push({
-                    id: station.id,
-                    name: station.displayName,
-                    line: station.line.toUpperCase(),
-                    matching: matchingItems,
-                });
-            }
-        });
-
-        if (allResults.length === 0) {
+        if (!results || results.length === 0) {
             return interaction.editReply({
                 content: `🔍 No se encontraron estaciones con comercio relacionado a "${commerceQuery}"`,
                 ephemeral: true
             });
         }
+
+        const allResults = results.map(station => ({
+            id: station.id,
+            name: station.displayName,
+            line: station.line.toUpperCase(),
+            matching: [commerceQuery],
+        }));
 
         const context = {
             query: commerceQuery,

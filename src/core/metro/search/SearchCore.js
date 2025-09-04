@@ -2,6 +2,8 @@ const ExactSearch = require('./strategies/ExactSearch');
 const FuzzySearch = require('./strategies/FuzzySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
+const CommerceFilter = require('./filters/CommerceFilter');
+const BikeFilter = require('./filters/BikeFilter');
 const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 const DatabaseManager = require('../../database/DatabaseManager');
 const logger = require('../../../events/logger');
@@ -31,7 +33,7 @@ class SearchCore {
     ];
 
     this.filters = {
-      station: [new LineFilter(), new StatusFilter()],
+      station: [new LineFilter(), new StatusFilter(), new CommerceFilter(), new BikeFilter()],
       line: [new StatusFilter()],
       train: [new StatusFilter(), new LineFilter()]
     };
@@ -229,6 +231,12 @@ async _performSearch(query, options, cacheKey) {
       if (filter instanceof LineFilter && filters.lineFilter) {
         const lineFilter = filters.lineFilter.toLowerCase();
         return results.filter(item => item.line && item.line.toLowerCase() === lineFilter);
+      }
+      if (filter instanceof CommerceFilter && filters.commerceFilter) {
+        return filter.apply(results, filters.commerceFilter);
+      }
+      if (filter instanceof BikeFilter && filters.bikeFilter) {
+        return filter.apply(results, filters.bikeFilter);
       }
       return results;
     }, matches);
