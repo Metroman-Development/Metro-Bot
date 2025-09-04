@@ -25,7 +25,6 @@ module.exports = {
         if (!projectInfo) {
             return await interaction.editReply({
                 content: '❌ No se encontró información para el proyecto de línea especificado.',
-                ephemeral: true,
             });
         }
 

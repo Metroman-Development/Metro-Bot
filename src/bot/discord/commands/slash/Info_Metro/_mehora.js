@@ -21,8 +21,7 @@ module.exports = {
         } catch (error) {
             console.error('Error en /metro-estado hora:', error);
             await interaction.reply({
-                content: '❌ Error al obtener hora del sistema',
-                ephemeral: true
+                content: '❌ Error al obtener hora del sistema'
             });
         }
     }

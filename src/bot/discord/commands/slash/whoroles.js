@@ -20,7 +20,7 @@ class WhoRolesCommand extends BaseCommand {
         const member = interaction.guild.members.cache.get(user.id);
 
         if (!member) {
-            return await interaction.reply({ content: '❌ El usuario no está en este servidor.', ephemeral: true });
+            return await interaction.reply({ content: '❌ El usuario no está en este servidor.' });
         }
 
         const roles = member.roles.cache

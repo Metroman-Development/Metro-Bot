@@ -37,8 +37,7 @@ module.exports = {
 
         if (!results || results.length === 0) {
             return interaction.editReply({
-                content: `🚴 No se encontraron estaciones con servicios de bicicletas relacionados a "${bikeQuery}"`,
-                ephemeral: true
+                content: `🚴 No se encontraron estaciones con servicios de bicicletas relacionados a "${bikeQuery}"`
             });
         }
 

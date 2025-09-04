@@ -63,6 +63,7 @@ class ScheduleOverrideCommand extends BaseCommand {
             targetId = `${targetId}-${line}`;
         }
 
+        await interaction.deferReply();
         await overrideManager.addScheduledOverride({
             targetType,
             targetId,
@@ -73,9 +74,8 @@ class ScheduleOverrideCommand extends BaseCommand {
             endAt
         });
 
-        await interaction.reply({
-            content: 'Scheduled override added successfully.',
-            ephemeral: true
+        await interaction.editReply({
+            content: 'Scheduled override added successfully.'
         });
     }
 }

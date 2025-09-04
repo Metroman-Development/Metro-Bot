@@ -15,11 +15,12 @@ class VersionCommand extends BaseCommand {
     }
 
     async execute(interaction) {
+        await interaction.deferReply();
         const cacheKey = 'bot:version:latest';
         const cachedVersion = await CacheManager.get(cacheKey);
 
         if (cachedVersion) {
-            return interaction.reply({
+            return interaction.editReply({
                 embeds: [this.buildVersionEmbed(cachedVersion)]
             });
         }
@@ -44,7 +45,7 @@ class VersionCommand extends BaseCommand {
 
         await CacheManager.set(cacheKey, versionData, 3600000); // 1 hour TTL
 
-        await interaction.reply({
+        await interaction.editReply({
             embeds: [this.buildVersionEmbed(versionData)]
         });
     }

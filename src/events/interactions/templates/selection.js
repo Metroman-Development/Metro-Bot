@@ -67,7 +67,7 @@ function create(options) {
         } catch (error) {
             console.error(`[SelectionTemplate:${idPrefix}] Error executing onSelect:`, error);
             if (interaction.replied || interaction.deferred) {
-                await interaction.followUp({ content: 'There was an error processing your selection.', ephemeral: true }).catch(() => {});
+                await interaction.followUp({ content: 'There was an error processing your selection.' }).catch(() => {});
             }
         }
     }

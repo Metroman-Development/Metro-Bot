@@ -18,7 +18,6 @@ module.exports = {
             if (interaction.user.id !== userId) {
                 return interaction.reply({
                     content: '⚠️ No puedes interactuar con los botones de otra persona.',
-                    ephemeral: true,
                 });
             }
 
@@ -37,7 +36,6 @@ module.exports = {
             console.error('Error handling express route pagination:', error);
             await interaction.reply({
                 content: '❌ Ocurrió un error al procesar la paginación.',
-                ephemeral: true,
             });
         }
     },

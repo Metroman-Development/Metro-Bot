@@ -22,8 +22,7 @@ class PreviewSelectMenu {
     async execute(interaction) {
         const selected = interaction.values[0];
         await interaction.reply({
-            content: this.previews[selected] || 'No preview available',
-            ephemeral: true
+            content: this.previews[selected] || 'No preview available'
         });
         
         // Keep the menu active

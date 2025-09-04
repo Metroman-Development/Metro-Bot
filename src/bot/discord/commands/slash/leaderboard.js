@@ -12,6 +12,7 @@ class LeaderboardCommand extends BaseCommand {
     }
 
     async execute(interaction) {
+        await interaction.deferReply();
         const dbManager = await DatabaseManager.getInstance();
         const ranking = await dbManager.query(`
             SELECT
@@ -33,7 +34,7 @@ class LeaderboardCommand extends BaseCommand {
             )
             .setColor(0x0099FF);
 
-        await interaction.reply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embed] });
     }
 }
 

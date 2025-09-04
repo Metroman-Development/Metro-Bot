@@ -23,8 +23,7 @@ module.exports = {
     async goBack(interaction, cachedData) {
         if (!cachedData.history?.length) {
             return interaction.reply({ 
-                content: '❌ No history to go back to.', 
-                ephemeral: true 
+                content: '❌ No history to go back to.'
             });
         }
 
@@ -37,8 +36,7 @@ module.exports = {
 
     denyInteraction(interaction) {
         return interaction.reply({
-            content: '❌ Only the command user can navigate.',
-            ephemeral: true
+            content: '❌ Only the command user can navigate.'
         });
     }
 };

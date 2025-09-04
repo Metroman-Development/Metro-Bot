@@ -30,8 +30,7 @@ module.exports = {
 
         if (!stationInfo) {
             return interaction.editReply({
-                content: 'ℹ️ No se encontró información para esta estación.',
-                ephemeral: true
+                content: 'ℹ️ No se encontró información para esta estación.'
             });
         }
 

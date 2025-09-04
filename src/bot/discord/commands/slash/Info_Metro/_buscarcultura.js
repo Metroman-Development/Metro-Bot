@@ -77,8 +77,7 @@ module.exports = {
 
         if (allResults.length === 0) {
             return interaction.editReply({
-                content: `🔍 No se encontraron estaciones con amenities relacionadas a "${amenityQuery}"`,
-                ephemeral: true
+                content: `🔍 No se encontraron estaciones con amenities relacionadas a "${amenityQuery}"`
             });
         }
 

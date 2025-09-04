@@ -113,8 +113,7 @@ module.exports = {
         } catch (error) {
             console.error('Error en /metro-estado periodo:', error);
             await interaction.editReply({
-                content: '❌ Error al obtener información del período operacional',
-                ephemeral: true
+                content: '❌ Error al obtener información del período operacional'
             });
         }
     }

@@ -3,7 +3,7 @@ const cacheManager = require('../../../utils/cacheManager');
 const config = require('../../../config/metro/metroConfig');
 
 const CUSTOM_ID_PREFIX = 'amnResults';
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 const RESULTS_PER_PAGE = 5;
 
 // --- Helper Functions ---
@@ -121,7 +121,7 @@ async function execute(interaction) {
     }
 
     if (interaction.user.id !== cacheData.userId) {
-        return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.', ephemeral: true });
+        return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.' });
     }
 
     switch(action) {

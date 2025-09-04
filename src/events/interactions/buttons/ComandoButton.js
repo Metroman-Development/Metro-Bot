@@ -92,7 +92,7 @@ function _createCategoryView(client, activeCategoryId) {
 
 function _createCommandView(client, commandName) {
     const command = _findCommand(client, commandName);
-    if (!command) return { content: 'Comando no encontrado.', embeds: [], components: [], ephemeral: true };
+    if (!command) return { content: 'Comando no encontrado.', embeds: [], components: [] };
 
     const embed = new EmbedBuilder()
         .setTitle(`Comando: /${command.data.name}`)
@@ -139,12 +139,16 @@ async function execute(interaction) {
                 messagePayload = _createCommandView(client, identifier);
                 break;
             default:
-                messagePayload = { content: 'Acción desconocida.', embeds: [], components: [], ephemeral: true };
+                messagePayload = { content: 'Acción desconocida.', embeds: [], components: [] };
         }
         await interaction.update(messagePayload);
     } catch (error) {
         console.error(`[${CUSTOM_ID_PREFIX}] Error handling interaction:`, error);
-        await interaction.reply({ content: 'Ocurrió un error al procesar tu solicitud.', ephemeral: true }).catch(e => {});
+        if (interaction.replied || interaction.deferred) {
+            await interaction.followUp({ content: 'Ocurrió un error al procesar tu solicitud.', ephemeral: false }).catch(e => {});
+        } else {
+            await interaction.reply({ content: 'Ocurrió un error al procesar tu solicitud.', ephemeral: false }).catch(e => {});
+        }
     }
 }
 

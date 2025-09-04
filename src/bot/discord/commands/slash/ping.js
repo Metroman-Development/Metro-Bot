@@ -16,7 +16,7 @@ class PingCommand extends BaseCommand {
         const startTime = Date.now();
         const wsLatency = Math.max(0, interaction.client.ws.ping);
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
 
         const endTime = Date.now();
         const responseTime = endTime - startTime;

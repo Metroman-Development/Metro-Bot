@@ -6,7 +6,7 @@ const { getLineColor, getLineImage } = require('../utils/metroUtils');
 const { normalizeStationData } = require('../utils/stationUtils');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 const tabs = {
     main: {
@@ -67,8 +67,7 @@ class DiscordMessageFormatter {
         const errorEmbed = await createErrorEmbed(message);
         return {
             embeds: [errorEmbed],
-            components: [],
-            ephemeral: true
+            components: []
         };
     }
 

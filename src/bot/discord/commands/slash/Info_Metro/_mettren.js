@@ -45,8 +45,7 @@ module.exports = {
 
         if (!trainInfo) {
             return interaction.editReply({
-                content: `ℹ️ No se encontró información para el modelo ${model}`,
-                ephemeral: true
+                content: `ℹ️ No se encontró información para el modelo ${model}`
             });
         }
 

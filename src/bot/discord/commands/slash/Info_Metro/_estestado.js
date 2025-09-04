@@ -32,15 +32,14 @@ module.exports = {
     },
 
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const stationId = interaction.options.getString('estacion');
         const station = metroInfoProvider.getStation(stationId);
 
         if (!station) {
             return await interaction.editReply({
-                content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.',
-                ephemeral: true
+                content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.'
             });
         }
 

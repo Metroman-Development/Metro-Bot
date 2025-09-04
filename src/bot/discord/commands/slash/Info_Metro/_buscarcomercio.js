@@ -60,8 +60,7 @@ module.exports = {
 
         if (!results || results.length === 0) {
             return interaction.editReply({
-                content: `🔍 No se encontraron estaciones con comercio relacionado a "${commerceQuery}"`,
-                ephemeral: true
+                content: `🔍 No se encontraron estaciones con comercio relacionado a "${commerceQuery}"`
             });
         }
 

@@ -155,8 +155,7 @@ module.exports = {
         }
 
         return interaction.editReply({
-            content: message,
-            ephemeral: true
+            content: message
         });
     }
 };

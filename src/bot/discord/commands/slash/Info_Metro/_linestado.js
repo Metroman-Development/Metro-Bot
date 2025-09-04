@@ -30,8 +30,7 @@ module.exports = {
 
         if (!line) {
             return await interaction.editReply({
-                content: '❌ Línea no encontrada.',
-                ephemeral: true
+                content: '❌ Línea no encontrada.'
             });
         }
 
