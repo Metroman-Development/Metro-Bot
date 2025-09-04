@@ -132,16 +132,10 @@ module.exports = {
             return decorateStation(station, ['line_connections', 'other_connections', 'bike_connections', 'platforms', 'transports'], metroInfoProvider);
         });
 
-        const stationStatuses = stationObjects.map(station => getStationStatusEmoji(station, metroConfig));
-        const uniqueStatuses = [...new Set(stationStatuses)];
+        const lineStatusName = lineData.status_data?.status_name || 'operational';
+        const statusConfig = Object.values(metroConfig.statusTypes).find(st => st.name === lineStatusName);
 
-        let description = '';
-        if (uniqueStatuses.length === 1) {
-            const statusConfig = Object.values(metroConfig.statusTypes).find(st => st.discordem === uniqueStatuses[0]);
-            description = `${uniqueStatuses[0]} ${statusConfig?.description || 'Estado desconocido'}`;
-        } else {
-            description = '⚠️ Estado mixto en la línea.';
-        }
+        let description = `${statusConfig?.emoji || '❓'} ${lineData.status_data?.status_description || 'Estado desconocido'}`;
 
         if (lineData.app_message?.includes('Cierre por Horario')) {
             description = `🌙 Cierre por Horario`;

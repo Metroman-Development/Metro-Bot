@@ -165,26 +165,32 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
     const stationName = station.display_name || station.name || '';
     let statusConfig = metroConfig.statusTypes?.['default']; // Default status
 
-    if (typeof station.is_operational !== 'undefined') {
-        if (station.is_operational === 0) { // Not operational
-            if (station.status_name) {
-                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && !st.isOperational);
+    let is_operational = station.is_operational;
+    let status_name = station.status_name;
+
+    if (station.status_data) {
+        is_operational = station.status_data.is_operational;
+        status_name = station.status_data.status_name;
+    }
+
+    if (typeof is_operational !== 'undefined') {
+        if (is_operational === 0) { // Not operational
+            if (status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === status_name && !st.isOperational);
                 if (statusType) {
                     statusConfig = statusType;
                 } else {
-                    // Fallback to a generic closed status if name doesn't match
                     statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
                 }
             } else {
                 statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
             }
         } else { // Operational
-             if (station.status_name) {
-                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && st.isOperational);
+             if (status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === status_name && st.isOperational);
                 if (statusType) {
                     statusConfig = statusType;
                 } else {
-                    // Fallback to a generic open status if name doesn't match
                     statusConfig = metroConfig.statusTypes['1']; // 'abierta'
                 }
             } else {
@@ -192,7 +198,6 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
             }
         }
     } else {
-        // Fallback to old logic if is_operational is not present
         const statusCode = station.status || '1';
         statusConfig = metroConfig.statusTypes?.[statusCode] || statusConfig;
     }
@@ -253,10 +258,18 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
 function getStationStatusEmoji(station, metroConfig) {
     let statusConfig = metroConfig.statusTypes?.['default']; // Default status
 
-    if (typeof station.is_operational !== 'undefined') {
-        if (station.is_operational === 0) { // Not operational
-            if (station.status_name) {
-                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && !st.isOperational);
+    let is_operational = station.is_operational;
+    let status_name = station.status_name;
+
+    if (station.status_data) {
+        is_operational = station.status_data.is_operational;
+        status_name = station.status_data.status_name;
+    }
+
+    if (typeof is_operational !== 'undefined') {
+        if (is_operational === 0) { // Not operational
+            if (status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === status_name && !st.isOperational);
                 if (statusType) {
                     statusConfig = statusType;
                 } else {
@@ -266,8 +279,8 @@ function getStationStatusEmoji(station, metroConfig) {
                 statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
             }
         } else { // Operational
-             if (station.status_name) {
-                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && st.isOperational);
+             if (status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === status_name && st.isOperational);
                 if (statusType) {
                     statusConfig = statusType;
                 } else {
