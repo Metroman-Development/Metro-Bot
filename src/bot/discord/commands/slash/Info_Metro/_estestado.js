@@ -28,7 +28,7 @@ module.exports = {
             await interaction.respond(
                 filteredStations.map(station => ({
                     name: `Estación ${station.name} (L${station.line_id.toUpperCase()})`,
-                    value: station.name
+                    value: station.code
                 }))
             );
         } catch (error) {
@@ -41,7 +41,7 @@ module.exports = {
         try {
             const metroInfoProvider = MetroInfoProvider.getInstance();
             const stationId = interaction.options.getString('estacion');
-            const station = metroInfoProvider.getStationById(stationId);
+            const station = metroInfoProvider.getStation(stationId);
 
             if (!station) {
                 return await interaction.editReply({ 
