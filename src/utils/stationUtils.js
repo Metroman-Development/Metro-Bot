@@ -250,6 +250,40 @@ function decorateStation(station, decorations = [], metroInfoProvider) {
     return decoratedName;
 }
 
+function getStationStatusEmoji(station, metroConfig) {
+    let statusConfig = metroConfig.statusTypes?.['default']; // Default status
+
+    if (typeof station.is_operational !== 'undefined') {
+        if (station.is_operational === 0) { // Not operational
+            if (station.status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && !st.isOperational);
+                if (statusType) {
+                    statusConfig = statusType;
+                } else {
+                    statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
+                }
+            } else {
+                statusConfig = metroConfig.statusTypes['5']; // 'cerrada'
+            }
+        } else { // Operational
+             if (station.status_name) {
+                const statusType = Object.values(metroConfig.statusTypes).find(st => st.name === station.status_name && st.isOperational);
+                if (statusType) {
+                    statusConfig = statusType;
+                } else {
+                    statusConfig = metroConfig.statusTypes['1']; // 'abierta'
+                }
+            } else {
+                statusConfig = metroConfig.statusTypes['1']; // 'abierta'
+            }
+        }
+    } else {
+        const statusCode = station.status || '1';
+        statusConfig = metroConfig.statusTypes?.[statusCode] || statusConfig;
+    }
+    return statusConfig.discordem || '❓';
+}
+
 module.exports = {
     normalizeStationData,
     getPrimaryImage,
@@ -257,4 +291,5 @@ module.exports = {
     processCommerceText,
     processAccessibilityText,
     decorateStation,
+    getStationStatusEmoji,
 };
