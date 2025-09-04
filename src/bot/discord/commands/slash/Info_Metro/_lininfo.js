@@ -28,7 +28,7 @@ module.exports = {
             await interaction.deferReply();
 
             const lineId = interaction.options.getString('linea');
-            const lineInfo = metroInfoProvider.getLineInfo(lineId);
+            const lineInfo = metroInfoProvider.getLine(lineId);
 
             if (!lineInfo) {
                 const errorEmbed = await createErrorEmbed('No se encontró información para esta línea');
