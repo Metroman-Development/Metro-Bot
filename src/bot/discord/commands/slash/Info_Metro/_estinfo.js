@@ -2,6 +2,7 @@ const { SlashCommandSubcommandBuilder } = require('discord.js');
 const { createErrorEmbed } = require('../../../../../utils/embedFactory');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
+const cacheManager = require('../../../../../utils/cacheManager');
 
 module.exports = {
     data: new SlashCommandSubcommandBuilder()
@@ -46,8 +47,47 @@ module.exports = {
         station.id = station.code;
 
         const formatter = new DiscordMessageFormatter();
-        const message = await formatter.formatStationInfo(station, metroInfoProvider, interaction.user.id);
+        const messagePayload = await formatter.formatStationInfo(station, metroInfoProvider, interaction.user.id);
 
-        await interaction.editReply(message);
+        const message = await interaction.editReply(messagePayload);
+
+        const collector = message.createMessageComponentCollector({
+            filter: i => i.user.id === interaction.user.id,
+            time: 15 * 60 * 1000 // 15 minutes
+        });
+
+        collector.on('collect', async i => {
+            await i.deferUpdate();
+
+            let tab;
+            let stationId;
+
+            if (i.isStringSelectMenu()) {
+                const selectedValue = i.values[0];
+                [, stationId, tab] = selectedValue.split(':');
+            } else {
+                [, stationId, tab] = i.customId.split(':');
+            }
+
+            const cacheKey = formatter._getCacheKey(stationId, i.user.id);
+            const cacheData = cacheManager.get(cacheKey);
+
+            if (cacheData) {
+                cacheData.currentTab = tab;
+                cacheManager.set(cacheKey, cacheData);
+
+                const newMessagePayload = await formatter._createStationMessage(cacheData, i.user.id);
+                await i.editReply(newMessagePayload);
+            }
+        });
+
+        collector.on('end', collected => {
+            // Optional: disable components after collector expires
+            const lastInteraction = collected.last();
+            if (lastInteraction) {
+                const disabledPayload = { ...lastInteraction.message, components: [] };
+                interaction.editReply(disabledPayload);
+            }
+        });
     }
 };

@@ -18,12 +18,12 @@ function create({ station, metroData }) {
     if (!station) throw new Error('Station data is required');
 
     const normalizedStation = normalizeStationData(station);
-    const stationDyna = metroData?.stations?.[normalizedStation.code?.toLowerCase()] || { status: {} };
+    const stationDyna = metroData?.stations?.[normalizedStation.code?.toUpperCase()];
     const lineColor = getLineColor(normalizedStation.line);
 
     let stationDeco = `${metroConfig.linesEmojis[normalizedStation.line.toLowerCase()] || '🚇'}`;
-    if (stationDyna.status?.code) {
-        stationDeco += metroConfig.statusTypes[parseInt(stationDyna.status.code)]?.emoji || 'ℹ️';
+    if (stationDyna?.status_data?.js_code) {
+        stationDeco += metroConfig.statusTypes[parseInt(stationDyna.status_data.js_code)]?.emoji || 'ℹ️';
     }
     if (normalizedStation.ruta) {
         const rutaKey = normalizedStation.ruta.toLowerCase().replace(/ /g, "").replace("ruta", "").replace("ú", "u");
@@ -37,7 +37,7 @@ function create({ station, metroData }) {
         .addFields(
             {
                 name: '📢 Estado',
-                value: stationDyna.status?.message || 'Sin información',
+                value: stationDyna?.status_data?.status_message || 'Sin información',
                 inline: true
             }
         );
