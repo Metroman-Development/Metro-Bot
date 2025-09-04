@@ -1,19 +1,21 @@
-// slashCommands/userRoles.js
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('whoroles')
-        .setDescription('Muestra los roles de un usuario.')
-        .addUserOption(option =>
-            option.setName('usuario')
-                .setDescription('El usuario del que quieres ver los roles.')
-                .setRequired(false)), // Make the option optional
-    
-    category: "Información", 
-    
-    async execute(interaction) {
-        // If no user is specified, default to the interaction author
+class WhoRolesCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('whoroles')
+            .setDescription('Muestra los roles de un usuario.')
+            .addUserOption(option =>
+                option.setName('usuario')
+                    .setDescription('El usuario del que quieres ver los roles.')
+                    .setRequired(false)
+            )
+        );
+        this.category = "Información";
+    }
+
+    async run(interaction) {
         const user = interaction.options.getUser('usuario') || interaction.user;
         const member = interaction.guild.members.cache.get(user.id);
 
@@ -32,6 +34,8 @@ module.exports = {
             .setColor('#009688')
             .setFooter({ text: `Solicitado por ${interaction.user.username}` });
 
-        await interaction.followUp({ embeds: [embed] });
-    },
-};
+        await interaction.reply({ embeds: [embed] });
+    }
+}
+
+module.exports = new WhoRolesCommand();

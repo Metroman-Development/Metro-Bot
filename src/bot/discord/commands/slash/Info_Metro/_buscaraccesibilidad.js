@@ -1,11 +1,10 @@
-// _buscaraccesibilidad.js - Updated to support both old and new formats
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const AccessibilityResultsManager = require('../../../../../events/interactions/buttons/AccessibilityResultsManager');
 const styles = require('../../../../../config/styles.json');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('accesibilidad')
         .setDescription('Buscar estaciones por estado de accesibilidad')
         .addStringOption(option =>
@@ -26,19 +25,17 @@ module.exports = {
                     { name: 'Ambos', value: 'ambos' }
                 )),
 
-    async execute(interaction, metroInfoProvider) {
+    async run(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const statusQuery = interaction.options.getString('estado');
         const equipmentFilter = interaction.options.getString('equipo');
-
-        // Get accessibility data from the database
         const accessibilityData = metroInfoProvider.getFullData().accessibility;
 
         if (!accessibilityData || accessibilityData.length === 0) {
             return this.sendNoResultsResponse(interaction, statusQuery, equipmentFilter);
         }
 
-        // Process the data
         const stationData = {};
         const staticStations = metroInfoProvider.getStations();
 
@@ -46,7 +43,7 @@ module.exports = {
             const stationId = `${item.station_code}-${item.line_id}`;
             if (!stationData[stationId]) {
                 const staticStation = staticStations[stationId];
-                if (!staticStation) continue; // Skip if no static data for the station
+                if (!staticStation) continue;
 
                 stationData[stationId] = {
                     id: stationId,
@@ -107,7 +104,7 @@ module.exports = {
                 } else {
                     matchesStatus = (!station.hasElevator || station.elevatorWorking) && (!station.hasEscalator || station.escalatorWorking);
                 }
-            } else { // 'FueraServicio'
+            } else {
                 if (equipmentFilter === 'ascensor') {
                     matchesStatus = !station.elevatorWorking;
                 } else if (equipmentFilter === 'escalera') {
@@ -122,12 +119,10 @@ module.exports = {
             return matchesEquipment && matchesStatus;
         });
 
-
         if (allResults.length === 0) {
             return this.sendNoResultsResponse(interaction, statusQuery, equipmentFilter);
         }
 
-        // Create and use the manager
         const manager = new AccessibilityResultsManager();
         const filters = {
             ascensor: equipmentFilter === 'ascensor' || equipmentFilter === 'ambos',
@@ -146,22 +141,19 @@ module.exports = {
         await interaction.editReply(messageData);
     },
 
-    /**
-     * Sends a response when no stations are found
-     */
     sendNoResultsResponse(interaction, statusQuery, equipmentFilter) {
         let message = `🔍 No se encontraron estaciones `;
         const statusText = statusQuery === 'Operativa' ? 'operativas' : 'con problemas de accesibilidad';
-        
+
         message += statusText;
-        
+
         if (equipmentFilter) {
             message += ' en ';
             if (equipmentFilter === 'ascensor') message += 'ascensores';
             else if (equipmentFilter === 'escalera') message += 'escaleras mecánicas';
             else message += 'ambos equipos';
         }
-        
+
         return interaction.editReply({
             content: message,
             ephemeral: true

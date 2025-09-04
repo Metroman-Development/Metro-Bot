@@ -1,16 +1,11 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 
-/**
- * @file Subcommand for the 'bot' command, displaying system iconography.
- * @description This subcommand provides a legend for the various icons and emojis used throughout the bot to represent different statuses and features.
- */
 module.exports = {
-    parentCommand: 'bot',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('iconografia')
         .setDescription('Muestra una leyenda de los iconos y emojis utilizados por el bot.')
-        .addStringOption(option => 
+        .addStringOption(option =>
             option.setName('grupo')
                 .setDescription('Selecciona un grupo específico de iconos para ver.')
                 .addChoices(
@@ -25,32 +20,22 @@ module.exports = {
                 .setRequired(false)
         ),
 
-    /**
-     * Executes the 'iconografia' subcommand.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     */
-    async execute(interaction) {
+    async run(interaction) {
         const group = interaction.options.getString('grupo') || 'all';
-        
+
         const embed = new EmbedBuilder()
             .setTitle('🚇 Leyenda de Iconografía del Sistema')
             .setColor(0x0099FF)
             .setFooter({ text: `Solicitado por ${interaction.user.username}` });
 
-        // Generate the description based on the selected group
         const description = this.generateLegendForGroup(group);
         embed.setDescription(description);
 
         await interaction.reply({ embeds: [embed] });
     },
 
-    /**
-     * Generates the legend description for a specific group.
-     * @param {string} group The selected icon group.
-     * @returns {string} The formatted legend description.
-     */
     generateLegendForGroup(group) {
-        switch(group) {
+        switch (group) {
             case 'network': return this.generateNetworkLegend();
             case 'stations': return this.generateStationsLegend();
             case 'transport': return this.generateTransportLegend();
@@ -61,10 +46,6 @@ module.exports = {
         }
     },
 
-    /**
-     * Generates the legend for network status icons.
-     * @returns {string} The formatted legend.
-     */
     generateNetworkLegend() {
         const lineStatuses = Object.values(metroConfig.statusTypes).filter(s => s.name.includes('Línea') || ['operativa', 'lenta', 'retrasos', 'parcial', 'suspendida'].includes(s.name));
         const legend = lineStatuses.map(s => `${s.emoji} = ${s.description}`);
@@ -74,10 +55,6 @@ module.exports = {
         ].join('\n');
     },
 
-    /**
-     * Generates the legend for station status icons.
-     * @returns {string} The formatted legend.
-     */
     generateStationsLegend() {
         const stationStatuses = Object.values(metroConfig.statusTypes).filter(s => !s.name.includes('Línea') && !['operativa', 'lenta', 'retrasos', 'parcial', 'suspendida'].includes(s.name));
         const legend = stationStatuses.map(s => `${s.emoji} = ${s.description}`);
@@ -87,24 +64,16 @@ module.exports = {
         ].join('\n');
     },
 
-    /**
-     * Generates the legend for transport connection icons.
-     * @returns {string} The formatted legend.
-     */
     generateTransportLegend() {
         return [
             '**🚍 Conexiones de Transporte:**',
             `${metroConfig.connectionEmojis['Centropuerto']} = Centropuerto`,
             `${metroConfig.connectionEmojis['EFE']} = EFE`,
-            `${metro.connectionEmojis['EIM']} = EIM`,
+            `${metroConfig.connectionEmojis['EIM']} = EIM`,
             `${metroConfig.connectionEmojis['Terminal de Buses']} = Terminal de Buses`
         ].join('\n');
     },
 
-    /**
-     * Generates the legend for bicycle connection icons.
-     * @returns {string} The formatted legend.
-     */
     generateBikesLegend() {
         return [
             '**🚲 Conexiones de Bicicletas:**',
@@ -114,10 +83,6 @@ module.exports = {
         ].join('\n');
     },
 
-    /**
-     * Generates the legend for access card icons.
-     * @returns {string} The formatted legend.
-     */
     generateCardsLegend() {
         return [
             '**🎫 Tarjetas de Acceso:**',
@@ -128,10 +93,6 @@ module.exports = {
         ].join('\n');
     },
 
-    /**
-     * Generates the legend for severity level icons.
-     * @returns {string} The formatted legend.
-     */
     generateSeverityLegend() {
         return [
             '**🛑 Niveles de Severidad:**',
@@ -144,10 +105,6 @@ module.exports = {
         ].join('\n');
     },
 
-    /**
-     * Generates a complete legend with all icon groups.
-     * @returns {string} The formatted full legend.
-     */
     generateFullLegend() {
         return [
             this.generateNetworkLegend(),

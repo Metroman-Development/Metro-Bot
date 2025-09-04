@@ -1,9 +1,9 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const expressButtonsHandler = require('../../../../../events/interactions/buttons/expressButtons');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'expreso',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('info')
         .setDescription('Muestra información sobre las rutas expresas')
         .addStringOption(option =>
@@ -17,17 +17,10 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metroInfoProvider) {
-        try {
-            await interaction.deferReply();
-            const messagePayload = await expressButtonsHandler.build(interaction, metroInfoProvider);
-            await interaction.editReply(messagePayload);
-        } catch (error) {
-            console.error('Expreso info command failed:', error);
-            await interaction.editReply({
-                content: '❌ Error al procesar la información de rutas expresas',
-                ephemeral: true
-            });
-        }
+    async run(interaction) {
+        await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const messagePayload = await expressButtonsHandler.build(interaction, metroInfoProvider);
+        await interaction.editReply(messagePayload);
     }
 };

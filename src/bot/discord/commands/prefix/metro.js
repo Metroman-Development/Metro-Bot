@@ -1,63 +1,41 @@
+const BaseCommand = require('../BaseCommand');
 const MetroSystem = require('../../../../core/metro/MetroSystem');
 
-/**
- * @file Prefix command for interacting with the Metro system.
- * @description This command provides various subcommands to get information and reports about the Metro system.
- */
-module.exports = {
-    name: 'metro',
-    description: 'Sistema de información y reportes del metro.',
-    
-    /**
-     * Executes the main metro command or one of its subcommands.
-     * @param {import('discord.js').Message} message The message object that triggered the command.
-     * @param {Array<string>} args The arguments passed to the command.
-     */
-    async execute(message, args) {
-        const subcommand = args.length > 0 ? args[0].toLowerCase() : 'help';
-        const remainingArgs = args.slice(1);
-        
+class MetroCommand extends BaseCommand {
+    constructor() {
+        super({
+            name: 'metro',
+            description: 'Sistema de información y reportes del metro.',
+        });
+
+        this.subcommands = new Map([
+            ['all', this.handleAll],
+            ['station', this.handleStation],
+            ['line', this.handleLine],
+            ['status', this.handleStatus],
+            ['help', this.showHelp],
+        ]);
+    }
+
+    async run(message) {
+        const args = message.content.slice(config.prefix.length).trim().split(/ +/);
+        args.shift();
+        const subcommandName = args[0]?.toLowerCase() || 'help';
+        const subArgs = args.slice(1);
+        const subcommand = this.subcommands.get(subcommandName) || this.showHelp;
+
         const system = new MetroSystem();
+        await system.initialize();
 
-        try {
-            await system.initialize();
+        await subcommand.call(this, system, message, subArgs);
+    }
 
-            switch (subcommand) {
-                case 'all':
-                    await this.handleAll(system, message);
-                    break;
-                case 'station':
-                    await this.handleStation(system, message, remainingArgs);
-                    break;
-                case 'line':
-                    await this.handleLine(system, message, remainingArgs);
-                    break;
-                case 'status':
-                    await this.handleStatus(system, message);
-                    break;
-                case 'help':
-                default:
-                    this.showHelp(message);
-                    break;
-            }
-        } catch (error) {
-            console.error(`Error executing 'metro ${subcommand}' command:`, error);
-            message.channel.send('❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
-        }
-    },
-
-    /**
-     * Handles the 'all' subcommand.
-     * @param {MetroSystem} system The MetroSystem instance.
-     * @param {import('discord.js').Message} message The message object.
-     */
     async handleAll(system, message) {
         const [stations, lines, status] = await Promise.all([
             system.verifyCriticalStations(),
             system.verifyLines(),
             system.getSystemStatus()
         ]);
-
         await message.channel.send({
             embeds: [
                 system.generateStatusReport(status),
@@ -65,46 +43,25 @@ module.exports = {
                 system.generateStationReport(stations)
             ]
         });
-    },
+    }
 
-    /**
-     * Handles the 'station' subcommand.
-     * @param {MetroSystem} system The MetroSystem instance.
-     * @param {import('discord.js').Message} message The message object.
-     * @param {Array<string>} args The arguments for the subcommand.
-     */
     async handleStation(system, message, args) {
         const embed = await system.handleStationCommand(args);
         await message.channel.send({ embeds: [embed] });
-    },
+    }
 
-    /**
-     * Handles the 'line' subcommand.
-     * @param {MetroSystem} system The MetroSystem instance.
-     * @param {import('discord.js').Message} message The message object.
-     * @param {Array<string>} args The arguments for the subcommand.
-     */
     async handleLine(system, message, args) {
         const embed = await system.handleLineCommand(args);
         await message.channel.send({ embeds: [embed] });
-    },
+    }
 
-    /**
-     * Handles the 'status' subcommand.
-     * @param {MetroSystem} system The MetroSystem instance.
-     * @param {import('discord.js').Message} message The message object.
-     */
     async handleStatus(system, message) {
         const status = await system.getSystemStatus();
         const embed = system.generateStatusReport(status);
         await message.channel.send({ embeds: [embed] });
-    },
+    }
 
-    /**
-     * Displays the help message for the metro command.
-     * @param {import('discord.js').Message} message The message object.
-     */
-    showHelp(message) {
+    showHelp(system, message) {
         const helpMessage = [
             '**Sistema de Información Metro**',
             'Subcomandos disponibles:',
@@ -115,4 +72,6 @@ module.exports = {
         ].join('\n');
         message.channel.send(helpMessage);
     }
-};
+}
+
+module.exports = new MetroCommand();

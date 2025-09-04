@@ -1,44 +1,31 @@
-// buscar.js
 const { SlashCommandBuilder } = require('discord.js');
-const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
+const BaseCommand = require('../../BaseCommand');
 const comercio = require('./_buscarcomercio');
 const bici = require('./_buscarcicletero');
 const cultura = require('./_buscarcultura');
 const access = require('./_buscaraccesibilidad');
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('buscar')
-        .setDescription('Buscar información en el sistema Metro')
-        .addSubcommand(subcommand => comercio.data(subcommand))
-    .addSubcommand(subcommand => bici.data(subcommand))
-    .addSubcommand(subcommand => cultura.data(subcommand))
-        .addSubcommand(subcommand => access.data(subcommand)),  
 
-     
-    
-    category: "Metro Info",
+class BuscarCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('buscar')
+            .setDescription('Buscar información en el sistema Metro')
+        );
+        this.category = "Metro Info";
 
-    async execute(interaction) {
-        const subcommand = interaction.options.getSubcommand();
-        const metroInfoProvider = MetroInfoProvider.getInstance();
-        
-        switch(subcommand) {
-            case 'comercio':
-                return comercio.execute(interaction, metroInfoProvider);
-                case 'cicletero':
+        this.addSubcommand(comercio);
+        this.addSubcommand(bici);
+        this.addSubcommand(cultura);
+        this.addSubcommand(access);
+    }
 
-                return bici.execute(interaction, metroInfoProvider);
-                case 'cultura':
-
-                return cultura.execute(interaction, metroInfoProvider);
-                case 'accesibilidad':
-
-                return access.execute(interaction, metroInfoProvider);
-            default:
-                return interaction.reply({ 
-                    content: '⚠️ Subcomando no reconocido', 
-                    ephemeral: true 
-                });
+    async autocomplete(interaction) {
+        const subcommandName = interaction.options.getSubcommand();
+        const subcommand = this.subcommands.get(subcommandName);
+        if (subcommand && subcommand.autocomplete) {
+            await subcommand.autocomplete(interaction);
         }
     }
-};
+}
+
+module.exports = new BuscarCommand();
