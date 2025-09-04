@@ -34,7 +34,7 @@ class IntermodalCommand extends BaseCommand {
         await interaction.respond(filtered);
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const stationId = interaction.options.getString('estacion');
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const station = metroInfoProvider.getStationById(stationId);

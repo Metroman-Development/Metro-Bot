@@ -11,7 +11,7 @@ class PremiosCommand extends BaseCommand {
         this.category = "Bip!Coin";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const embed = new EmbedBuilder()
             .setTitle('🎁 **Recompensas por Nivel**')
             .setDescription('Aquí puedes ver las recompensas que puedes obtener al alcanzar ciertos niveles:')

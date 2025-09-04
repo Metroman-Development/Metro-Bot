@@ -25,7 +25,7 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const amenityQuery = interaction.options.getString('nombre');

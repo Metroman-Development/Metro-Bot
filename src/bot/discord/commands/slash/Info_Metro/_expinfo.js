@@ -17,7 +17,7 @@ module.exports = {
                 )
         ),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const messagePayload = await expressButtonsHandler.build(interaction, metroInfoProvider);

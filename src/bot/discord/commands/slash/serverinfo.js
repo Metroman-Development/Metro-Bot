@@ -12,7 +12,7 @@ class ServerInfoCommand extends BaseCommand {
         this.active = true;
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const messagePayload = serverButtonsHandler.build(interaction);
         await interaction.editReply(messagePayload);

@@ -47,7 +47,7 @@ class ScheduleOverrideCommand extends BaseCommand {
         );
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const targetType = interaction.options.getString('target_type');
         let targetId = interaction.options.getString('target_id');
         const status = interaction.options.getString('status');

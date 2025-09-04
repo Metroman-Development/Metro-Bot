@@ -17,7 +17,7 @@ class RankCommand extends BaseCommand {
         this.category = "Bip!Coin";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const targetUser = interaction.options.getUser('usuario') || interaction.user;
         const userId = targetUser.id;
 

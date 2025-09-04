@@ -11,7 +11,7 @@ class NivelesCommand extends BaseCommand {
         this.category = "Bip!Coin";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const levels = [];
         for (let level = 1; level <= 100; level++) {
             levels.push({

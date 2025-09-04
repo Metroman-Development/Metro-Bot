@@ -6,7 +6,7 @@ module.exports = {
         .setName('ayuda')
         .setDescription('Explica cómo funcionan las rutas expresas en el Metro de Santiago'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
 
         const embed = new EmbedBuilder()

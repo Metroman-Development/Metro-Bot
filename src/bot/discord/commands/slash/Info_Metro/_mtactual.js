@@ -9,7 +9,7 @@ module.exports = {
         .setName('actual')
         .setDescription('Muestra el estado actual del servicio de Metro'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const metroData = metroInfoProvider.getFullData();

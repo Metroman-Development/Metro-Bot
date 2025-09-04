@@ -20,7 +20,7 @@ module.exports = {
         .setName('mes')
         .setDescription('Muestra el calendario mensual con eventos y horarios extendidos'),
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         moment.locale('es');
         const currentDate = TimeHelpers.currentTime;

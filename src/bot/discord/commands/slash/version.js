@@ -14,7 +14,7 @@ class VersionCommand extends BaseCommand {
         this.category = "Bot Info";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const cacheKey = 'bot:version:latest';
         const cachedVersion = await CacheManager.get(cacheKey);
 

@@ -11,7 +11,7 @@ class RedesMetroCommand extends BaseCommand {
         this.category = "Metro Info";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const embed = new EmbedBuilder()
             .setColor(0xE30613) // Metro's red color
             .setTitle('🌐 Redes Sociales del Metro de Santiago')

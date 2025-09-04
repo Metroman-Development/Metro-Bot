@@ -31,7 +31,7 @@ module.exports = {
         );
     },
 
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply({ ephemeral: true });
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const stationId = interaction.options.getString('estacion');

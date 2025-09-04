@@ -16,7 +16,7 @@ module.exports = {
                     { name: '🚇 Línea 9', value: 'l9' }
                 )
         ),
-    async run(interaction) {
+    async execute(interaction) {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const lineId = interaction.options.getString('linea');

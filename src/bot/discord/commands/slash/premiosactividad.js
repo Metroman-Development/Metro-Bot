@@ -11,7 +11,7 @@ class PremiosActividadCommand extends BaseCommand {
         this.category = "Bip!Coin";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const embed = new EmbedBuilder()
             .setTitle('💰 **Sistema de Bip!Coins**')
             .setDescription('Aquí te explicamos cómo puedes ganar **Bip!Coins** y mejorar tu rango en el servidor:')

@@ -7,7 +7,7 @@ module.exports = {
         .setName('mapa')
         .setDescription('Muestra información del Metro de Santiago'),
 
-    async run(interaction) {
+    async execute(interaction) {
         const embed = new EmbedBuilder()
             .setTitle(`${metroConfig.logoMetroEmoji} Mapa de la Red Metro`)
             .setDescription('🗺️ Aquí tienes el mapa actual de la red Metro de Santiago.')

@@ -11,7 +11,7 @@ class LeaderboardCommand extends BaseCommand {
         this.category = "Bip!Coin";
     }
 
-    async run(interaction) {
+    async execute(interaction) {
         const dbManager = await DatabaseManager.getInstance();
         const ranking = await dbManager.query(`
             SELECT
