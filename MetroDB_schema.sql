@@ -121,7 +121,21 @@ DROP TABLE IF EXISTS `train_models`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `train_models` (
   `model_id` varchar(50) NOT NULL,
-  `model_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`model_data`)),
+  `model_name` varchar(100) DEFAULT NULL,
+  `manufacturer` varchar(100) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
+  `construction_years` varchar(50) DEFAULT NULL,
+  `in_service_years` varchar(50) DEFAULT NULL,
+  `total_produced` int(11) DEFAULT NULL,
+  `in_service_count` int(11) DEFAULT NULL,
+  `formation` varchar(100) DEFAULT NULL,
+  `length_m` decimal(5,2) DEFAULT NULL,
+  `width_m` decimal(5,2) DEFAULT NULL,
+  `height_m` decimal(5,2) DEFAULT NULL,
+  `weight_ton` decimal(5,2) DEFAULT NULL,
+  `max_speed_kmh` int(11) DEFAULT NULL,
+  `traction_system` varchar(100) DEFAULT NULL,
+  `power_supply` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`model_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -164,6 +178,25 @@ LOCK TABLES `line_fleet` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `line_platforms`
+--
+
+DROP TABLE IF EXISTS `line_platforms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `line_platforms` (
+  `platform_id` int(11) NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(10) NOT NULL,
+  `via_number` tinyint(1) NOT NULL COMMENT 'Vía number: 1 or 2',
+  `direction_id` tinyint(1) NOT NULL COMMENT 'Direction identifier: 1 or 2',
+  `terminal_station` varchar(100) NOT NULL,
+  `status` tinyint(1) DEFAULT 1 COMMENT '1=active, 0=inactive',
+  PRIMARY KEY (`platform_id`),
+  UNIQUE KEY `unique_line_via` (`line_id`,`via_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `line_status`
 --
 
@@ -204,6 +237,28 @@ LOCK TABLES `line_status` WRITE;
 /*!40000 ALTER TABLE `line_status` DISABLE KEYS */;
 /*!40000 ALTER TABLE `line_status` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `future_lines`
+--
+
+DROP TABLE IF EXISTS `future_lines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `future_lines` (
+  `line_id` varchar(10) NOT NULL,
+  `communes` text DEFAULT NULL,
+  `inauguration_year` int(4) DEFAULT NULL,
+  `length_km` decimal(5,2) DEFAULT NULL,
+  `stations_count` int(11) DEFAULT NULL,
+  `electrification` varchar(255) DEFAULT NULL,
+  `characteristics` text DEFAULT NULL,
+  `fleet` varchar(255) DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
+  `interconnections` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`interconnections`)),
+  PRIMARY KEY (`line_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `loader_raw_data`
@@ -262,6 +317,8 @@ CREATE TABLE `metro_lines` (
   `status_message` varchar(500) DEFAULT NULL COMMENT 'Matches JavaScript status.message',
   `app_message` varchar(500) DEFAULT NULL COMMENT 'Matches JavaScript status.appMessage',
   `infrastructure` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`infrastructure`)),
+  `platform_details` json DEFAULT NULL,
+  `express_status` varchar(20) DEFAULT NULL,
   `status_code_str` varchar(20) GENERATED ALWAYS AS (ifnull(`status_code`,'')) VIRTUAL,
   PRIMARY KEY (`line_id`),
   KEY `display_order` (`display_order`),
@@ -310,6 +367,10 @@ CREATE TABLE `metro_stations` (
   `image_url` varchar(255) DEFAULT NULL COMMENT 'From stationData[5]',
   `access_details` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`access_details`)),
   `combinacion` varchar(255) DEFAULT NULL,
+  `connections` json DEFAULT NULL,
+  `platforms` json DEFAULT NULL,
+  `express_state` varchar(20) DEFAULT NULL COMMENT 'Express service state, it can be Operational or Only one Direction or Non operatioal',
+  `route_color` enum('V','R','C','N') DEFAULT NULL COMMENT 'Route color: V=Verde, R=Roja, C=Común, N=None',
   PRIMARY KEY (`station_id`),
   UNIQUE KEY `line_id` (`line_id`,`station_code`),
   KEY `station_name` (`station_name`),
@@ -416,6 +477,7 @@ CREATE TABLE `station_status_history` (
   `impact_level` enum('none','low','medium','high','critical') DEFAULT 'none',
   `last_updated` timestamp NOT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
+  `is_processed` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`history_id`),
   KEY `station_id` (`station_id`),
   KEY `status_type_id` (`status_type_id`),
@@ -431,6 +493,40 @@ CREATE TABLE `station_status_history` (
 LOCK TABLES `station_status_history` WRITE;
 /*!40000 ALTER TABLE `station_status_history` DISABLE KEYS */;
 /*!40000 ALTER TABLE `station_status_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `line_status_history`
+--
+
+DROP TABLE IF EXISTS `line_status_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `line_status_history` (
+  `history_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status_id` int(11) NOT NULL,
+  `line_id` varchar(10) NOT NULL,
+  `status_type_id` int(11) NOT NULL,
+  `status_description` varchar(255) DEFAULT NULL,
+  `status_message` varchar(500) DEFAULT NULL,
+  `last_updated` timestamp NOT NULL,
+  `updated_by` varchar(50) DEFAULT NULL,
+  `is_processed` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`history_id`),
+  KEY `line_id` (`line_id`),
+  KEY `status_type_id` (`status_type_id`),
+  CONSTRAINT `line_status_history_ibfk_1` FOREIGN KEY (`line_id`) REFERENCES `metro_lines` (`line_id`),
+  CONSTRAINT `line_status_history_ibfk_2` FOREIGN KEY (`status_type_id`) REFERENCES `operational_status_types` (`status_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `line_status_history`
+--
+
+LOCK TABLES `line_status_history` WRITE;
+/*!40000 ALTER TABLE `line_status_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `line_status_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -767,5 +863,54 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Table for storing metro events
+CREATE TABLE metro_events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_name VARCHAR(255) NOT NULL,
+    event_date DATE NOT NULL,
+    start_time TIME,
+    end_time TIME,
+    description TEXT,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_event_date (event_date),
+    INDEX idx_is_active (is_active)
+);
+
+-- Table for event details and restrictions
+CREATE TABLE event_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    detail_type ENUM('ingress', 'egress', 'combination', 'transfer', 'closure', 'delay', 'note') NOT NULL,
+    station_code VARCHAR(10),
+    line_code VARCHAR(3),
+    start_time TIME,
+    end_time TIME,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES metro_events(id) ON DELETE CASCADE,
+    INDEX idx_event_id (event_id),
+    INDEX idx_station_code (station_code),
+    INDEX idx_line_code (line_code),
+    INDEX idx_detail_type (detail_type)
+);
+
+-- Table for station status during specific events
+CREATE TABLE event_station_status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    station_code VARCHAR(10) NOT NULL,
+    status ENUM('normal', 'closed', 'ingress_only', 'egress_only', 'no_combination', 'delayed', 'special_hours') NOT NULL DEFAULT 'normal',
+    special_notes TEXT,
+    start_time TIME,
+    end_time TIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES metro_events(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_event_station (event_id, station_code),
+    INDEX idx_event_station (event_id, station_code),
+    INDEX idx_status (status)
+);
 
 -- Dump completed on 2025-08-13 20:13:32

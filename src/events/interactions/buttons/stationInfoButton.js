@@ -17,11 +17,13 @@ async function execute(interaction) {
             return interaction.reply({ content: 'No puedes interactuar con los botones de otra persona.', ephemeral: true });
         }
 
+        await interaction.deferUpdate();
+
         const cacheKey = _getCacheKey(stationId, userId);
         const cacheData = cacheManager.get(cacheKey);
 
         if (!cacheData) {
-            return interaction.update({
+            return interaction.editReply({
                 content: 'Esta búsqueda ha expirado. Por favor, realiza una nueva búsqueda.',
                 embeds: [],
                 components: [],
@@ -38,7 +40,7 @@ async function execute(interaction) {
         }
 
         const formatter = new DiscordMessageFormatter();
-        await interaction.update(formatter._createStationMessage(cacheData, userId));
+        await interaction.editReply(formatter._createStationMessage(cacheData, userId));
     } catch (error) {
         console.error('[stationInfoButton] Interaction failed:', error);
         await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.', ephemeral: true }).catch(e => { });

@@ -1,24 +1,22 @@
 const { SlashCommandBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
 const serverButtonsHandler = require('../../../../events/interactions/buttons/serverButtons.js');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('serverinfo')
-        .setDescription('Muestra información detallada del servidor'),
-    category: "Información",
-    active: true,
+class ServerInfoCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('serverinfo')
+            .setDescription('Muestra información detallada del servidor')
+        );
+        this.category = "Información";
+        this.active = true;
+    }
 
     async execute(interaction) {
-        try {
-            await interaction.deferReply();
-            const messagePayload = serverButtonsHandler.build(interaction);
-            await interaction.editReply(messagePayload);
-        } catch (error) {
-            console.error('Error executing serverinfo command:', error);
-            await interaction.editReply({
-                content: '❌ Ocurrió un error al obtener la información del servidor.',
-                ephemeral: true
-            });
-        }
+        await interaction.deferReply();
+        const messagePayload = serverButtonsHandler.build(interaction);
+        await interaction.editReply(messagePayload);
     }
-};
+}
+
+module.exports = new ServerInfoCommand();

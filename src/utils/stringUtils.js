@@ -1,4 +1,3 @@
-const metroConfig = require('../config/metro/metroConfig.js');
 const styles = require('../config/styles.json');
 const stations = {};
 const stationConnections = {};
@@ -127,7 +126,8 @@ function processLineText(input, options = {}) {
 
 // ===== STATION DECORATION FUNCTIONS ===== //
 
-function getStationConnections(lineKey, stationName) {
+function getStationConnections(lineKey, stationName, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   const normalizedLine = cleanLineKey(lineKey);
   const exactMatch = stationConnections[normalizedLine]?.estaciones?.find(s =>
     s.nombre === stationName
@@ -140,13 +140,15 @@ function getStationConnections(lineKey, stationName) {
   ) || { conexiones: [], bici: [] };
 }
 
-function getConnectionEmojis(connections) {
+function getConnectionEmojis(connections, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   return [
     ...(connections.conexiones || []).map(c => metroConfig.connectionEmojis[c]),
     ...(connections.bici || []).map(b => metroConfig.connectionEmojis[b])
   ].filter(e => e).join(' ');
 }
-function getStatusEmoji(statusCode) {
+function getStatusEmoji(statusCode, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   // Convert statusCode to a string (since some keys are numbers in statusTypes)
   const statusKey = String(statusCode);
 
@@ -166,7 +168,8 @@ const logDebug = (...args) => {
   if (DEBUG) console.log('[DEBUG stringUtils]', ...args);
 };
 
-function getRouteEmoji(lineKey, stationName) {
+function getRouteEmoji(lineKey, stationName, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   const cleanName = stationName;
   const routeType = stations[lineKey.toLowerCase()]?.[cleanName]?.ruta?.toLowerCase().replace(/\s+/g, '').replace("ruta", "").replace("ú","u") ;
 
@@ -183,17 +186,18 @@ function getRouteEmoji(lineKey, stationName) {
   return emoji;
 }
 
-async function getTransferLines(stationName, lineKey) {
+async function getTransferLines(stationName, lineKey, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   if (!stationName || !lineKey) return '';
 
   try {
-    const { stations } = await getCachedMetroData();
+    const { stations } = await metroInfoProvider.getFullData();
     if (!stations) return '';
 
     const station = stations[lineKey]?.[stationName];
-    if (!station || !station.combinacion) return '';
+    if (!station || !station.transfer) return '';
 
-    const transferLines = station.combinacion
+    const transferLines = station.transfer
       .map(line => metroConfig.linesEmojis[line.toLowerCase()])
       .filter(Boolean)
       .join(' ');
@@ -208,16 +212,18 @@ async function getTransferLines(stationName, lineKey) {
 
 
 // Update decorateStation function
-async function decorateStation(stationName, options = {}) {
+async function decorateStation(stationName, options = {}, metroInfoProvider) {
   try {
-    const { line, estado, ruta, combinacion, conexiones } = options;
+    const { line, status, ruta, transfer, conexiones } = options;
 
-    const statusEmoji = getStatusEmoji(estado);
-    const routeEmoji = ruta ? getRouteEmoji(line, stationName) : '';
-    const transferInfo = combinacion ? await getTransferLines(stationName, line) : '';
-    const connectionEmojis = conexiones ? getConnectionEmojiList(stationName, line) : '';
+    const statusEmoji = getStatusEmoji(status, metroInfoProvider);
+    const routeEmoji = ruta ? getRouteEmoji(line, stationName, metroInfoProvider) : '';
+    const transferInfo = transfer ? await getTransferLines(stationName, line, metroInfoProvider) : '';
+    const connectionEmojis = conexiones ? getConnectionEmojiList(stationName, line, metroInfoProvider) : '';
 
-    return `${statusEmoji} ${routeEmoji} ${removeLineSuffix(stationName)}${transferInfo} ${connectionEmojis}`.trim();
+    const parts = [statusEmoji, routeEmoji, removeLineSuffix(stationName), transferInfo, connectionEmojis];
+
+    return parts.filter(Boolean).join(' ');
   } catch (error) {
     console.error(`Error decorating station ${stationName}:`, error);
     return stationName; // Fallback to just the station name
@@ -230,9 +236,9 @@ function isTransferStation(stationName, lineKey) {
     console.log(lineKey) ;
   if (!stationName) return false;
 
-  // Check if station has combinacion in data
-  const hasCombinacion = stations[lineKey]?.[stationName]?.combinacion ||
-                        stations[lineKey]?.[stationName]?.combinacion;
+  // Check if station has transfer in data
+  const hasTransfer = stations[lineKey]?.[stationName]?.transfer ||
+                        stations[lineKey]?.[stationName]?.transfer;
 
   // Check if name ends with line suffix
   const hasSuffix = / L\d+[a-zA-Z]*$/i.test(stationName);
@@ -240,15 +246,15 @@ function isTransferStation(stationName, lineKey) {
   logDebug('Transfer station check:', {
     stationName,
     lineKey,
-    hasCombinacion,
+    hasTransfer,
     hasSuffix
   });
 
-  return hasCombinacion || hasSuffix;
+  return hasTransfer || hasSuffix;
 }
 
-function addConnectionSuffix(stationName, lineKey) {
-  const emojis = getConnectionEmojis(getStationConnections(lineKey, stationName));
+function addConnectionSuffix(stationName, lineKey, metroInfoProvider) {
+  const emojis = getConnectionEmojis(getStationConnections(lineKey, stationName, metroInfoProvider), metroInfoProvider);
   return emojis ? `${stationName} ${emojis}` : stationName;
 }
 
@@ -257,11 +263,12 @@ function formatEmbedTimestamp(date = new Date()) {
   return date.toLocaleString('es-CL', { timeZone: 'America/Santiago' });
 }
 
-function getLineEmoji(lineKey) {
+function getLineEmoji(lineKey, metroInfoProvider) {
+  const metroConfig = metroInfoProvider.getConfig();
   return metroConfig.linesEmojis[lineKey.toLowerCase()] || '';
 }
 
-function formatLineString(input, options = {}) {
+function formatLineString(input, options = {}, metroInfoProvider) {
   if (typeof input !== 'string') return '';
 
   // Helper function to extract line info
@@ -272,7 +279,7 @@ function formatLineString(input, options = {}) {
 
   const baseNum = extractLineInfo(input);
   const lineKey = `l${baseNum}`;
-  const emoji = getLineEmoji(lineKey) || '🚇'; // Fallback to generic metro emoji
+  const emoji = getLineEmoji(lineKey, metroInfoProvider) || '🚇'; // Fallback to generic metro emoji
 
   if (options.emojiReplace) {
     // Return just the emoji
@@ -317,9 +324,10 @@ function defaultReturn(options) {
 // Add to stringUtils.js
 // In stringUtils.js - Final getConnectionEmojiList function
 // In stringUtils.js - Simplified connection emoji function
-function getConnectionEmojiList(stationName, lineKey) {
+function getConnectionEmojiList(stationName, lineKey, metroInfoProvider) {
   try {
-    const connections = getStationConnections(lineKey, stationName);
+    const metroConfig = metroInfoProvider.getConfig();
+    const connections = getStationConnections(lineKey, stationName, metroInfoProvider);
     const emojis = new Set();
 
     // 1. Process all connections (including EIM)
@@ -354,14 +362,6 @@ function getConnectionEmojiList(stationName, lineKey) {
  * @param {string} lineKey - The line key (e.g., 'l1')
  * @returns {string} Emoji string of connections
  */
-// Add to module.exports at the bottom:
-/*
-module.exports = {
-  // ... keep all existing exports ...
-  getConnectionEmojiList // Add this new function
-};
-
-// ===== EXPORTS ===== //
 module.exports = {
   // Core utilities
   normalize,
@@ -390,13 +390,14 @@ module.exports = {
   formatEmbedTimestamp,
   getLineEmoji,
   formatLineString,
-    getConnectionEmojiList,
+  getConnectionEmojiList,
 
   // Legacy functions
-  decorateStationName: (name, line, route) => {
+  decorateStationName: (name, line, route, metroInfoProvider) => {
+    const metroConfig = metroInfoProvider.getConfig();
     let decorated = name;
     if (line) {
-      const emoji = getLineEmoji(line);
+      const emoji = getLineEmoji(line, metroInfoProvider);
       if (emoji) decorated = `${emoji} ${decorated}`;
     }
     if (route) {
@@ -406,4 +407,4 @@ module.exports = {
     }
     return decorated;
   }
-};*/
+};

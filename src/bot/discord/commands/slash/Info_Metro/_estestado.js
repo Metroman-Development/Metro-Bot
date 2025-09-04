@@ -1,11 +1,9 @@
-const { SlashCommandBuilder } = require('discord.js');
-const MetroInfoProvider = require('../../../../../core/metro/providers/MetroInfoProvider');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
-const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'estacion',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('estado')
         .setDescription('Muestra el estado operacional de una estación de metro.')
         .addStringOption(option =>
@@ -14,52 +12,40 @@ module.exports = {
                 .setAutocomplete(true)
                 .setRequired(true)),
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction) {
         const focusedValue = interaction.options.getFocused().toLowerCase();
-        
-        try {
-            const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(await metro.getCurrentData());
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const stations = Object.values(metroInfoProvider.getStations());
+        const filteredStations = stations.filter(station => {
+            const stationName = station.name || '';
+            const stationCode = station.code || '';
+            return stationName.toLowerCase().includes(focusedValue) ||
+                stationCode.toLowerCase().includes(focusedValue);
+        }).slice(0, 25);
 
-            const stationResults = await stationSearcher.search(focusedValue, { maxResults: 25 });
-
-            await interaction.respond(
-                stationResults.map(result => ({
-                    name: `Estación ${result.displayName} (L${result.line.toUpperCase()})`,
-                    value: result.id
-                }))
-            );
-        } catch (error) {
-            console.error('Error handling autocomplete for "estacion estado":', error);
-            await interaction.respond([]);
-        }
+        await interaction.respond(
+            filteredStations.map(station => ({
+                name: `Estación ${station.name} (L${station.line_id.toUpperCase()})`,
+                value: station.code
+            }))
+        );
     },
 
-    async execute(interaction, metro) {
-        try {
-            await interaction.deferReply();
+    async execute(interaction) {
+        await interaction.deferReply({ ephemeral: true });
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const stationId = interaction.options.getString('estacion');
+        const station = metroInfoProvider.getStation(stationId);
 
-            const stationId = interaction.options.getString('estacion');
-            const infoProvider = new MetroInfoProvider(metro);
-            const station = infoProvider.getStationById(stationId);
-
-            if (!station) {
-                return await interaction.editReply({ 
-                    content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.',
-                    ephemeral: true 
-                });
-            }
-            
-            const formatter = new DiscordMessageFormatter();
-            const message = formatter.formatStationStatus(station);
-            await interaction.editReply(message);
-
-        } catch (error) {
-            console.error('Error executing "estacion estado" command:', error);
-            await interaction.editReply({
-                content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
+        if (!station) {
+            return await interaction.editReply({
+                content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.',
                 ephemeral: true
             });
         }
+
+        const formatter = new DiscordMessageFormatter();
+        const message = formatter.formatStationStatus(station);
+        await interaction.editReply(message);
     }
 };

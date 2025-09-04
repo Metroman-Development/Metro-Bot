@@ -1,130 +1,36 @@
+console.log('Scheduler process started');
 const logger = require('./events/logger');
-const initialize = require('./core/bootstrap');
+const bootstrap = require('./core/bootstrap');
 const SchedulerService = require('./core/SchedulerService');
 const TimeHelpers = require('./utils/timeHelpers');
-const ApiService = require('./core/metro/core/services/ApiService');
-const MetroInfoProvider = require('./utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('./utils/MetroInfoProvider');
 const moment = require('moment-timezone');
 const AnnouncementService = require('./core/metro/announcers/AnnouncementService');
+const StatusManager = require('./core/status/StatusManager');
+const StatusEmbedManager = require('./core/status/StatusEmbedManager');
 const chronosConfig = require('./config/chronosConfig');
+const metroConfig = require('./config/metro/metroConfig');
+
+let statusManager;
 
 async function startScheduler() {
     logger.info('[SCHEDULER] Starting scheduler...');
-    const { metroCore } = await initialize('SCHEDULER');
-    const db = metroCore.dbManager;
+    const { metroInfoProvider, schedulerService, statusService } = await bootstrap.initialize('SCHEDULER');
+    statusManager = statusService;
 
-    const apiService = metroCore._subsystems.api;
-    const dbService = metroCore._subsystems.dbService;
-    const announcementService = new AnnouncementService();
-
-    const scheduler = new SchedulerService(metroCore, db);
-
-    // API fetching job
-    scheduler.addJob({
-        name: 'api-fetch',
-        interval: 60000, // Every minute
-        task: async () => {
-            if (TimeHelpers.isWithinOperatingHours()) {
-                const apiData = await apiService.fetchNetworkStatus();
-                MetroInfoProvider.updateFromApi(apiData);
-            }
-        }
-    });
+    const scheduler = schedulerService;
 
     // Check Events job
     scheduler.addJob({
         name: 'check-events',
         interval: 60000, // Every minute
         task: async () => {
-            try {
-                const result = await db.query('SELECT events FROM system_info WHERE id = ?', [1]);
-                let activeEvent = null;
-                if (result && result.length > 0 && result[0].events) {
-                    const events = JSON.parse(result[0].events);
-                    const now = TimeHelpers.currentTime;
-
-                    for (const event of events) {
-                        const startTime = moment.tz(event.startTime, chronosConfig.timezone);
-                        const endTime = moment.tz(event.endTime, chronosConfig.timezone);
-
-                        if (now.isBetween(startTime, endTime)) {
-                            activeEvent = event;
-                            break;
-                        }
-                    }
-                }
-                await dbService.updateActiveEvent(activeEvent);
-            } catch (error) {
-                if (error.code !== 'ER_BAD_FIELD_ERROR' && (!error.message || !error.message.includes("Cannot read property 'events' of undefined"))) {
-                     logger.error('[SCHEDULER] Error checking for events:', error);
-                }
-            }
+            await scheduler.checkAndScheduleEvents();
         }
     });
 
-    // Database fetching job
-    scheduler.addJob({
-        name: 'database-fetch',
-        interval: 30000, // Every 30 seconds
-        task: async () => {
-            // This is a placeholder for the database fetching logic
-            const dbData = {
-                stations: {
-                    // Mock data
-                    'L1_SP': { id: 'L1_SP', name: 'San Pablo', line: 'L1', status: 'operational' }
-                }
-            };
-            MetroInfoProvider.updateFromDb(dbData);
-            logger.info('[SCHEDULER] Fetching data from database...');
-        }
-    });
-
-    // Network status calculation job
-    scheduler.addJob({
-        name: 'network-status-calculation',
-        interval: 30000, // Every 30 seconds
-        task: async () => {
-            setTimeout(async () => {
-                const data = MetroInfoProvider.getFullData();
-                const lineStatus = data.lines;
-                let operationalLines = 0;
-                let totalLines = 0;
-                for (const lineId in lineStatus) {
-                    const line = lineStatus[lineId];
-                    if (line.status_type_id === 10) {
-                        operationalLines++;
-                    }
-                    totalLines++;
-                }
-
-                let networkStatus = 'operational';
-                if (operationalLines === 0) {
-                    networkStatus = 'suspended';
-                } else if (operationalLines < totalLines) {
-                    networkStatus = 'partial';
-                }
-
-                data.network_status = {
-                    status: networkStatus,
-                    timestamp: TimeHelpers.currentTime.toISOString()
-                };
-                MetroInfoProvider.updateData(data);
-                logger.info('[SCHEDULER] Calculating network status...');
-            }, 2000); // 2-second delay
-        }
-    });
-
-    scheduler.addJob({
-        name: 'check-accessibility',
-        interval: 300000, // Every 5 minutes
-        task: () => scheduler.metroCore._subsystems.accessibilityService.checkAccessibility()
-    });
-
-    scheduler.addJob({
-        name: 'send-system-status-report',
-        interval: 3600000, // Every hour
-        task: () => scheduler.metroCore.sendSystemStatusReport()
-    });
+    // The change detection and network status calculation job is now handled by the DataManager.
+    // The DataManager will be started by the main application process.
 
     // Load jobs from chronosConfig
     if (chronosConfig.jobs && Array.isArray(chronosConfig.jobs)) {
@@ -132,21 +38,33 @@ async function startScheduler() {
             const [service, method] = jobConfig.task.split('.');
             let taskFunction;
 
-            if (service === 'announcementService') {
+            if (service === 'statusManager') {
                 taskFunction = async () => {
                     logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
                     const operatingHours = TimeHelpers.getOperatingHours();
-                    const periodInfo = TimeHelpers.getCurrentPeriod();
+                    const periodInfo = jobConfig.period ? { type: jobConfig.period } : TimeHelpers.getCurrentPeriod();
 
                     switch (method) {
-                        case 'announceServiceStart':
-                            await announcementService.announceServiceTransition('start', operatingHours);
+                        case 'handleServiceStart':
+                            await statusManager.handleServiceStart(operatingHours);
                             break;
-                        case 'announceServiceEnd':
-                            await announcementService.announceServiceTransition('end', operatingHours);
+                        case 'handleServiceEnd':
+                            await statusManager.handleServiceEnd(operatingHours);
                             break;
-                        case 'announceFarePeriodChange':
-                            await announcementService.announceFarePeriodChange(periodInfo.type, periodInfo);
+                        case 'handleFarePeriodChange':
+                            await statusManager.handleFarePeriodChange(periodInfo);
+                            break;
+                    }
+                };
+            } else if (service === 'metroInfoProvider') {
+                taskFunction = async () => {
+                    logger.info(`[SCHEDULER] Running job: ${jobConfig.name}`);
+                    switch (method) {
+                        case 'activateExpressService':
+                            await metroInfoProvider.activateExpressService();
+                            break;
+                        case 'deactivateExpressService':
+                            await metroInfoProvider.deactivateExpressService();
                             break;
                     }
                 };
@@ -168,7 +86,10 @@ async function startScheduler() {
     logger.info('[SCHEDULER] ✅ Scheduler started successfully.');
 }
 
-startScheduler();
+if (require.main === module) {
+    startScheduler();
+}
+
 
 process.on('SIGINT', () => {
     logger.info('[SCHEDULER] Shutting down...');
@@ -176,3 +97,8 @@ process.on('SIGINT', () => {
     logger.info('[SCHEDULER] ✅ Scheduler shut down successfully.');
     process.exit(0);
 });
+
+module.exports = {
+    startScheduler,
+    getStatusManager: () => statusManager
+};

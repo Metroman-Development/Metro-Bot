@@ -88,33 +88,40 @@ const UI_STRINGS = {
 };
 
 class StatusUpdater extends EventEmitter {
-    constructor(metroCore, changeDetector) {
+    constructor(changeDetector, metroInfoProvider, changeAnnouncer) {
         super();
         
         // Validate dependencies
-        const client = getClient();
-        if (!client || !metroCore) {
+        let client;
+        try {
+            client = getClient();
+        } catch (e) {
+            client = null;
+        }
+
+        if (!metroInfoProvider || !changeDetector) {
             const error = new Error(UI_STRINGS.SYSTEM.ERROR.INIT_FAILED);
             logger.fatal('[StatusUpdater] Initialization failed - missing core dependencies', {
                 hasClient: !!client,
-                hasMetroCore: !!metroCore
+                hasMetroInfoProvider: !!metroInfoProvider,
+                hasChangeDetector: !!changeDetector
             });
             throw error;
         }
 
         // Core properties
         this.client = client;
-        this.metroCore = metroCore;
-        this.changeDetector = changeDetector || metroCore._subsystems.changeDetector;
+        this.metroInfoProvider = metroInfoProvider;
+        this.changeDetector = changeDetector;
         this.queue = new (require('./StatusUpdateQueue'))();
         this.UI_STRINGS = UI_STRINGS;
         this.debugMode = false;
 
         // Initialize components
         this.listener = new UpdateListener(this);
-        this.embeds = new EmbedManager(this, this.metroCore);
+        this.embeds = new EmbedManager(this);
         this.processor = new UpdateProcessor(this);
-        this.announcer = new AnnouncementHandler(this);
+        this.announcer = new AnnouncementHandler(this, changeAnnouncer);
         
         this.changeHistory = [] 
 
@@ -123,15 +130,7 @@ class StatusUpdater extends EventEmitter {
     }
     
     async triggerInitialUpdate() {
-        this.metroCore = await this.metroCore;
-        const metroInfoProvider = this.metroCore._subsystems.metroInfoProvider;
-
-        if (!metroInfoProvider) {
-            logger.error('[StatusUpdater] MetroInfoProvider not available. Skipping initial embed update.');
-            return;
-        }
-
-        const initialData = metroInfoProvider.getFullData();
+        const initialData = this.metroInfoProvider.getFullData();
         if (initialData && Object.keys(initialData.lines).length > 0) {
             logger.info('[StatusUpdater] Triggering initial embed update with full data.');
             await this.updateAllEmbeds(initialData);

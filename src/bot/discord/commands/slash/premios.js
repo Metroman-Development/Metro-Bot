@@ -1,11 +1,16 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
 const bipConfig = require('../../../../config/bipConfig');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('premios')
-        .setDescription('Muestra las recompensas disponibles por nivel'),
-    category: "Bip!Coin", 
+class PremiosCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('premios')
+            .setDescription('Muestra las recompensas disponibles por nivel')
+        );
+        this.category = "Bip!Coin";
+    }
+
     async execute(interaction) {
         const embed = new EmbedBuilder()
             .setTitle('🎁 **Recompensas por Nivel**')
@@ -19,6 +24,8 @@ module.exports = {
                 }))
             );
 
-        await interaction.followUp({ embeds: [embed] });
+        await interaction.reply({ embeds: [embed] });
     }
-};
+}
+
+module.exports = new PremiosCommand();

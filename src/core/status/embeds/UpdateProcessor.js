@@ -3,8 +3,6 @@ const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { performance } = require('perf_hooks');
 const timeUtils = require('../../../utils/timeHelpers');
-const TelegramBot = require('../../../bot/discord/commands/slash/Bot_Info/bot.js');
-const ChangeAnnouncer = require('../ChangeAnnouncer');
 const SystemStatusEmbed = require('../../../templates/embeds/SystemStatusEmbed.js');
 
 class UpdateProcessor {
@@ -91,8 +89,7 @@ class UpdateProcessor {
                 changeCount: changes.length
             });
 
-            const messages = await this._prepareChangeMessages(changes, newState);
-            await this.parent.announcer.processChangeMessages(messages, changes.severity);
+            await this.parent.announcer.announceChanges(changes, newState);
 
             await this._updateEmbedsForChanges(newState, changes);
 
@@ -304,14 +301,8 @@ class UpdateProcessor {
         logger.debug(`[UpdateProcessor] Processing data update ${updateId}`);
         this.parent.emit('updateStarted', updateId);
         
-        const changes = this.parent.changeDetector.getLatest();
-        if (!changes?.changes?.length) {
-            logger.debug('[UpdateProcessor] No changes detected');
-            this.parent.emit('updateSkipped', { updateId });
-            return;
-        }
+        this.parent.changeDetector.processChanges(data);
 
-        await this._processChanges(changes, data);
         this.parent.emit('updateCompleted', updateId);
     }
 
@@ -501,12 +492,7 @@ class UpdateProcessor {
             logger.warn('[UpdateProcessor] Using fallback station data');
         }
         
-        const changeAnnouncer = new ChangeAnnouncer();
-      
-        const rawMessages = await this.parent.announcer.generateMessages(changes, allStations);
-        const telMessages = await changeAnnouncer.generateTelegramMessages(changes, allStations);
-        console.log(telMessages)
-        await TelegramBot.sendCompactAnnouncement(telMessages);
+        const rawMessages = await this.parent.announcer.announceChanges(changes, allStations);
         
         return rawMessages.map(msg => ({
             ...(typeof msg === 'string' ? { message: msg } : msg),

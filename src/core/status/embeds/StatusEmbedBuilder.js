@@ -56,6 +56,24 @@ class StatusEmbedBuilder {
                 this.#addChangesField(embed, changes, metroCore);
             }
 
+            const currentPeriod = TimeHelpers.getCurrentPeriod();
+            if (currentPeriod) {
+                embed.addFields({
+                    name: '⏳ Período Actual',
+                    value: `Estamos en período **${currentPeriod.name}**.`,
+                    inline: true
+                });
+            }
+
+            const nextTransition = TimeHelpers.getNextTransition();
+            if (nextTransition) {
+                embed.addFields({
+                    name: '⏭️ Próximo Cambio',
+                    value: `${nextTransition.time}: ${nextTransition.message}`,
+                    inline: true
+                });
+            }
+
             embed.addFields({
                 name: '📝 Leyenda Completa',
                 value: this.#generateEnhancedStatusLegend() || "Sin Info",
@@ -259,6 +277,14 @@ class StatusEmbedBuilder {
                 .setColor(lineData.color || styles.lineColors[lineKey] || '#5865F2')
                 .setDescription(this.#formatLineStatus(lineData));
 
+            if (TimeHelpers.isExpressActive() && metroConfig.expressLines.includes(lineKey)) {
+                embed.addFields({
+                    name: '🚄 Ruta Expresa',
+                    value: 'Activa',
+                    inline: true
+                });
+            }
+
             if (Array.isArray(lineData.stations)) {
                 const MAX_FIELD_SIZE = 1020;
                 let currentChunk = [];
@@ -278,8 +304,7 @@ class StatusEmbedBuilder {
                     }
                 };
 
-                for (const stationId of lineData.stations) {
-                    const station = allStations[stationId] || { id: stationId, name: stationId };
+                for (const station of lineData.stations) {
                     const decoratedStation = decorators.decorateStation(station, metroCore, {
                         showStatus: true,
                         showLine: false,
@@ -336,7 +361,6 @@ class StatusEmbedBuilder {
                 ? `**📢 Info App:** \`${lineData.status.appMessage}\`` 
                 : '', 
             
-            TimeHelpers.isExpressActive() && metroConfig.expressLines.includes(lineData.id.toLowerCase()) ? '🚄 Rutas Expresas Operativas' : ''
         ];
 
         return parts.filter(Boolean).join('\n');

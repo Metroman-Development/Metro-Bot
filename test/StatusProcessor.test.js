@@ -2,64 +2,62 @@ const StatusProcessor = require('../src/core/status/utils/StatusProcessor');
 
 describe('StatusProcessor', () => {
     let statusProcessor;
-    let mockMetroCore;
 
     beforeEach(() => {
-        mockMetroCore = {};
-        statusProcessor = new StatusProcessor(mockMetroCore);
+        statusProcessor = new StatusProcessor();
     });
 
     describe('_transformStation', () => {
-        it('should correctly parse combinacion string into transferLines array', () => {
+        it('should correctly parse transfer string into transferLines array', () => {
             const stationData = {
-                codigo: 'SA',
-                nombre: 'Santa Ana',
-                estado: '1',
-                descripcion: 'Operativa',
-                descripcion_app: 'Operational',
-                combinacion: 'L2, L5'
+                code: 'SA',
+                name: 'Santa Ana',
+                status: '1',
+                description: 'Operativa',
+                app_description: 'Operational',
+                transfer: 'L2, L5'
             };
 
             const transformedStation = statusProcessor._transformStation(stationData, 'l1');
             expect(transformedStation.transferLines).toEqual(['l2', 'l5']);
         });
 
-        it('should handle single combinacion', () => {
+        it('should handle single transfer', () => {
             const stationData = {
-                codigo: 'LH',
-                nombre: 'Los Héroes',
-                estado: '1',
-                descripcion: 'Operativa',
-                descripcion_app: 'Operational',
-                combinacion: 'L2'
+                code: 'LH',
+                name: 'Los Héroes',
+                status: '1',
+                description: 'Operativa',
+                app_description: 'Operational',
+                transfer: 'L2'
             };
 
             const transformedStation = statusProcessor._transformStation(stationData, 'l1');
             expect(transformedStation.transferLines).toEqual(['l2']);
         });
 
-        it('should handle empty combinacion string', () => {
+        it('should handle empty transfer string', () => {
             const stationData = {
-                codigo: 'SP',
-                nombre: 'San Pablo',
-                estado: '1',
-                descripcion: 'Operativa',
-                descripcion_app: 'Operational',
-                combinacion: ''
+                code: 'SP',
+                name: 'San Pablo',
+                status: '1',
+                description: 'Operativa',
+                app_description: 'Operational',
+                transfer: ''
             };
 
             const transformedStation = statusProcessor._transformStation(stationData, 'l1');
             expect(transformedStation.transferLines).toEqual([]);
         });
 
-        it('should handle null combinacion', () => {
+        it('should handle null transfer', () => {
             const stationData = {
-                codigo: 'SP',
-                nombre: 'San Pablo',
-                estado: '1',
-                descripcion: 'Operativa',
-                descripcion_app: 'Operational',
-                combinacion: null
+                code: 'SP',
+                name: 'San Pablo',
+                status: '1',
+                description: 'Operativa',
+                app_description: 'Operational',
+                transfer: null
             };
 
             const transformedStation = statusProcessor._transformStation(stationData, 'l1');
@@ -70,10 +68,10 @@ describe('StatusProcessor', () => {
     describe('property preservation', () => {
         it('should preserve all original station properties', () => {
             const stationData = {
-                codigo: 'TEST',
-                nombre: 'Test Station',
-                estado: '1',
-                combinacion: 'L2',
+                code: 'TEST',
+                name: 'Test Station',
+                status: '1',
+                transfer: 'L2',
                 transports: 'Bus, Taxi',
                 services: 'ATM, Wifi',
                 accessibility: 'Full',

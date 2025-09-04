@@ -1,50 +1,51 @@
-// commands/intermodal.js
-const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { MetroCore } = require('../../../../core/metro/MetroCore.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
+const { MetroInfoProvider } = require('../../../../utils/MetroInfoProvider.js');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('intermodal')
-        .setDescription('Información de conexiones intermodales')
-        .addStringOption(option =>
-            option.setName('estacion')
-                .setDescription('Nombre de la estación')
-                .setAutocomplete(true)
-                .setRequired(true)
-        ),
-    category: "Metro Info",
-    
+class IntermodalCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('intermodal')
+            .setDescription('Información de conexiones intermodales')
+            .addStringOption(option =>
+                option.setName('estacion')
+                    .setDescription('Nombre de la estación')
+                    .setAutocomplete(true)
+                    .setRequired(true)
+            )
+        );
+        this.category = "Metro Info";
+    }
+
     async autocomplete(interaction) {
-        const metro = new MetroCore();
-        await metro.initialize();
-        
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const focusedValue = interaction.options.getFocused();
-        const stations = metro.stations.getAll()
-            .filter(s => s.connections.length > 0)
+        const stations = Object.values(metroInfoProvider.getStations())
+            .filter(s => s.connections && s.connections.length > 0)
             .map(s => ({
-                name: s.displayName,
-                value: s.id
+                name: s.station_name,
+                value: s.station_id
             }));
 
-        const filtered = stations.filter(station => 
+        const filtered = stations.filter(station =>
             station.name.toLowerCase().includes(focusedValue.toLowerCase())
         ).slice(0, 25);
 
         await interaction.respond(filtered);
-    },
+    }
 
     async execute(interaction) {
         const stationId = interaction.options.getString('estacion');
-        const metro = new MetroCore();
-        await metro.initialize();
-        
-        const station = metro.stations.get(stationId);
-        if (!station) return interaction.reply({ content: '❌ Estación no encontrada', ephemeral: true });
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const station = metroInfoProvider.getStationById(stationId);
 
-        // Embed con conexiones
+        if (!station) {
+            return interaction.reply({ content: '❌ Estación no encontrada', ephemeral: true });
+        }
+
         const embed = new EmbedBuilder()
-            .setTitle(`🔀 ${station.displayName} - Conexiones`)
-            .setDescription(`**Línea:** ${station.line.toUpperCase()}`)
+            .setTitle(`🔀 ${station.station_name} - Conexiones`)
+            .setDescription(`**Línea:** ${station.line_id.toUpperCase()}`)
             .addFields(
                 {
                     name: 'Transporte Público',
@@ -60,4 +61,6 @@ module.exports = {
 
         await interaction.reply({ embeds: [embed] });
     }
-};
+}
+
+module.exports = new IntermodalCommand();

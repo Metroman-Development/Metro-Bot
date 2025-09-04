@@ -1,11 +1,10 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
-const MetroInfoProvider = require('../../../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'metro',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('tren')
         .setDescription('Información técnica sobre modelos de trenes')
         .addStringOption(option =>
@@ -36,58 +35,47 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
-        try {
-            await interaction.deferReply();
-            
-            const model = interaction.options.getString('modelo');
-            const viewType = interaction.options.getString('vista') || 'summary';
-            const trainData = MetroInfoProvider.getFullData().trains || {};
-            const trainInfo = trainData[model];
+    async execute(interaction) {
+        await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const model = interaction.options.getString('modelo');
+        const viewType = interaction.options.getString('vista') || 'summary';
+        const trainData = metroInfoProvider.getFullData().trains || {};
+        const trainInfo = trainData[model];
 
-            if (!trainInfo) {
-                return interaction.editReply({
-                    content: `ℹ️ No se encontró información para el modelo ${model}`,
-                    ephemeral: true
-                });
-            }
-
-            const embed = new EmbedBuilder()
-                .setTitle(`${metroConfig.logoMetroEmoji} ${model}`)
-                .setColor(styles.defaultTheme.primaryColor);
-
-            // Show image in all views except pure technical ones
-            if (viewType !== 'technical' && viewType !== 'operational' && trainInfo.images?.exterior) {
-                embed.setImage(trainInfo.images.exterior);
-            }
-
-            switch (viewType) {
-                case 'summary':
-                    this._buildSummaryView(embed, trainInfo);
-                    break;
-                case 'specs':
-                    this._buildSpecsView(embed, trainInfo);
-                    break;
-                case 'technical':
-                    this._buildTechnicalView(embed, trainInfo);
-                    break;
-                case 'operational':
-                    this._buildOperationalView(embed, trainInfo);
-                    break;
-                case 'image':
-                    // Only image is already set above
-                    break;
-            }
-
-            await interaction.editReply({ embeds: [embed] });
-
-        } catch (error) {
-            console.error('Error en comando tren:', error);
-            await interaction.editReply({
-                content: '❌ Error al obtener datos del tren',
+        if (!trainInfo) {
+            return interaction.editReply({
+                content: `ℹ️ No se encontró información para el modelo ${model}`,
                 ephemeral: true
             });
         }
+
+        const embed = new EmbedBuilder()
+            .setTitle(`${metroConfig.logoMetroEmoji} ${model}`)
+            .setColor(styles.defaultTheme.primaryColor);
+
+        if (viewType !== 'technical' && viewType !== 'operational' && trainInfo.images?.exterior) {
+            embed.setImage(trainInfo.images.exterior);
+        }
+
+        switch (viewType) {
+            case 'summary':
+                this._buildSummaryView(embed, trainInfo);
+                break;
+            case 'specs':
+                this._buildSpecsView(embed, trainInfo);
+                break;
+            case 'technical':
+                this._buildTechnicalView(embed, trainInfo);
+                break;
+            case 'operational':
+                this._buildOperationalView(embed, trainInfo);
+                break;
+            case 'image':
+                break;
+        }
+
+        await interaction.editReply({ embeds: [embed] });
     },
 
     _buildSummaryView(embed, trainInfo) {
@@ -132,15 +120,15 @@ module.exports = {
                 {
                     name: '📊 Rendimiento',
                     value: `• Velocidad máxima: ${trainInfo.technicalSpecs?.maxSpeed || 'N/A'}\n` +
-                           `• Potencia: ${trainInfo.electricalSystems?.powerOutput || 'N/A'}\n` +
-                           `• Transmisión: ${trainInfo.technicalSpecs?.transmission || 'N/A'}`,
+                        `• Potencia: ${trainInfo.electricalSystems?.powerOutput || 'N/A'}\n` +
+                        `• Transmisión: ${trainInfo.technicalSpecs?.transmission || 'N/A'}`,
                     inline: true
                 },
                 {
                     name: '🔌 Sistema eléctrico',
                     value: `• Voltaje: ${trainInfo.electricalSystems?.voltage || 'N/A'}\n` +
-                           `• Tipo de motor: ${trainInfo.electricalSystems?.motorType || 'N/A'}\n` +
-                           `• Motores: ${trainInfo.electricalSystems?.motorCount || 'N/A'}`,
+                        `• Tipo de motor: ${trainInfo.electricalSystems?.motorType || 'N/A'}\n` +
+                        `• Motores: ${trainInfo.electricalSystems?.motorCount || 'N/A'}`,
                     inline: true
                 },
                 {
@@ -157,14 +145,14 @@ module.exports = {
                 {
                     name: '📏 Dimensiones',
                     value: `• Longitud: ${this._formatDimensions(trainInfo.dimensions?.length)}\n` +
-                           `• Ancho: ${trainInfo.dimensions?.width || 'N/A'}\n` +
-                           `• Altura: ${trainInfo.dimensions?.height || 'N/A'}`,
+                        `• Ancho: ${trainInfo.dimensions?.width || 'N/A'}\n` +
+                        `• Altura: ${trainInfo.dimensions?.height || 'N/A'}`,
                     inline: true
                 },
                 {
                     name: '⚖️ Pesos',
                     value: `• Peso: ${this._formatWeight(trainInfo.weightData?.emptyWeight)}\n` +
-                           `• Carga por eje: ${trainInfo.weightData?.axleLoad || 'N/A'}`,
+                        `• Carga por eje: ${trainInfo.weightData?.axleLoad || 'N/A'}`,
                     inline: true
                 },
                 {
@@ -186,13 +174,13 @@ module.exports = {
                 {
                     name: '🏗️ Fabricación',
                     value: `• Unidades construidas: ${trainInfo.operationalData?.totalUnits || 'N/A'}\n` +
-                           `• Trenes en servicio: ${trainInfo.operationalData?.activeTrains || '0'}`,
+                        `• Trenes en servicio: ${trainInfo.operationalData?.activeTrains || '0'}`,
                     inline: true
                 },
                 {
                     name: '🛠️ Características',
                     value: `• Climatización: ${trainInfo.comfortFeatures?.climateControl || 'N/A'}\n` +
-                           `• Espacios PMR: ${trainInfo.comfortFeatures?.wheelchairSpaces || 'N/A'}`,
+                        `• Espacios PMR: ${trainInfo.comfortFeatures?.wheelchairSpaces || 'N/A'}`,
                     inline: true
                 },
                 {

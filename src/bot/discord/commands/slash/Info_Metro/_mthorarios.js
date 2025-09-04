@@ -1,86 +1,31 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const chronosConfig = require('../../../../../config/chronosConfig');
+const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
+const TimeHelpers = require('../../../../../utils/timeHelpers');
 const metroConfig = require('../../../../../config/metro/metroConfig');
-const TimeHelpers = require('../../../../../utils/timeHelpers.js');
+const styles = require('../../../../../config/styles.json');
 
 module.exports = {
-    parentCommand: "tarifa",
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('horarios')
-        .setDescription('Muestra los horarios de los períodos tarifarios'),
+        .setDescription('Muestra los horarios de operación del Metro'),
 
     async execute(interaction) {
-        try {
-            await interaction.deferReply();
-            
-            const currentPeriod = TimeHelpers.getCurrentPeriod();
-            
-            const periodDefinitions = {
-                'PUNTA': {
-                    emoji: '🚨',
-                    name: 'Hora Punta'
-                },
-                'VALLE': {
-                    emoji: '🟢',
-                    name: 'Horario Normal'
-                },
-                'BAJO': {
-                    emoji: '🔵',
-                    name: 'Horario Bajo'
-                },
-                'NOCHE': {
-                    emoji: '🌙',
-                    name: 'Horario Nocturno'
-                }
-            };
+        await interaction.deferReply();
 
-            const formatTime = (timeStr) => {
-                // Normalize time format (6:00:00 -> 06:00)
-                const parts = timeStr.split(':');
-                if (parts[0].length === 1) parts[0] = '0' + parts[0];
-                return parts.slice(0, 2).join(':'); // Remove seconds
-            };
+        const operatingHours = TimeHelpers.getOperatingHours();
 
-            const formatPeriods = (periodType) => {
-                const periods = chronosConfig.farePeriods[periodType] || [];
-                return periods.map(p => {
-                    return `**${formatTime(p.start)} - ${formatTime(p.end)}**`;
-                }).join('\n') || 'No definido';
-            };
-
-            const embed = new EmbedBuilder()
-                .setTitle('⏰ Horarios de Períodos Tarifarios')
-                .setColor(0xFFD700)
-                .setThumbnail(metroConfig.metroLogo.v4);
-
-            // Add period fields
-            Object.entries(periodDefinitions).forEach(([periodType, {emoji, name}]) => {
-                embed.addFields({
-                    name: `${emoji} ${name} (${periodType}) ${currentPeriod.type === periodType ? '🟢 ACTUAL' : ''}`,
-                    value: formatPeriods(periodType),
-                    inline: true
-                });
+        const embed = new EmbedBuilder()
+            .setTitle(`${metroConfig.logoMetroEmoji} Horarios de Operación`)
+            .setColor(styles.defaultTheme.primaryColor)
+            .addFields(
+                { name: 'Lunes a Viernes', value: `${operatingHours.weekday.opening} - ${operatingHours.weekday.closing}`, inline: true },
+                { name: 'Sábado', value: `${operatingHours.saturday.opening} - ${operatingHours.saturday.closing}`, inline: true },
+                { name: 'Domingo y Festivos', value: `${operatingHours.sunday.opening} - ${operatingHours.sunday.closing}`, inline: true },
+            )
+            .setFooter({
+                text: 'Los horarios pueden variar por eventos especiales.',
+                iconURL: metroConfig.metroLogo.v4
             });
 
-            // Add service hours
-            embed.addFields({
-                name: '🕒 Horario de Servicio',
-                value: formatPeriods('SERVICEHOURS'),
-                inline: false
-            });
-
-            embed.setFooter({ 
-                text: 'Horarios sujetos a cambios por eventos especiales', 
-                iconURL: metroConfig.metroLogo.principal 
-            });
-
-            await interaction.editReply({ embeds: [embed] });
-        } catch (error) {
-            console.error('Error en /tarifa horarios:', error);
-            await interaction.editReply({
-                content: '❌ Error al obtener los horarios tarifarios',
-                ephemeral: true
-            });
-        }
+        await interaction.editReply({ embeds: [embed] });
     }
 };

@@ -101,7 +101,7 @@ class UpdateListener extends EventEmitter {
         this._cleanupEventListeners();
         
         this._setupMetroCoreListeners();
-        this._setupApiServiceListeners();
+        this._setupDataManagerListeners();
         this._setupSystemListeners();
         this._setupTimeEventListeners();
         this._setupEmbedListeners();
@@ -113,100 +113,11 @@ class UpdateListener extends EventEmitter {
     }
 
     _setupMetroCoreListeners() {
-        // Data Updates
-        this.parent.metroCore.on(EventRegistry.DATA_UPDATED, async (payload) => {
-            await this._trackEventTiming('DATA_UPDATED', async () => {
-                if (!this._validatePayload(payload, EventRegistry.DATA_UPDATED)) return;
-                
-                logger.debug('[UpdateListener] Handling data update', {
-                    version: payload.data.version,
-                    source: payload.metadata.source
-                });
-                
-                const updateId = this.parent.processor._generateUpdateId('data_update');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'data_update',
-                    data: payload.data,
-                    priority: 1,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        // Service Changes
-        this.parent.metroCore.on(EventRegistry.SERVICE_CHANGE, (payload) => {
-            this._trackEventTiming('SERVICE_CHANGE', () => {
-                if (!this._validatePayload(payload, EventRegistry.SERVICE_CHANGE)) return;
-                
-                const updateId = this.parent.processor._generateUpdateId('service');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'service',
-                    data: payload.data,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        // Express Updates
-        this.parent.metroCore.on(EventRegistry.EXPRESS_UPDATE, (payload) => {
-            this._trackEventTiming('EXPRESS_UPDATE', () => {
-                if (!this._validatePayload(payload, EventRegistry.EXPRESS_UPDATE)) return;
-                
-                const updateId = this.parent.processor._generateUpdateId('express');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'express',
-                    data: payload.data,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        // Special Events
-        this.parent.metroCore.on(EventRegistry.SPECIAL_EVENT, (payload) => {
-            this._trackEventTiming('SPECIAL_EVENT', () => {
-                if (!this._validatePayload(payload, EventRegistry.SPECIAL_EVENT)) return;
-                
-                const updateId = this.parent.processor._generateUpdateId('event');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'event',
-                    data: payload.data,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        this.parent.metroCore.on(EventRegistry.STATUS_REPORT, (payload) => {
-            this._trackEventTiming('STATUS_REPORT', () => {
-                if (!this._validatePayload(payload, EventRegistry.STATUS_REPORT)) return;
-
-                const updateId = this.parent.processor._generateUpdateId('status_report');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'status_report',
-                    data: payload.data,
-                    timestamp: new Date()
-                });
-            });
-        });
+        // This is now handled by bootstrap and other services
     }
 
-    _setupApiServiceListeners() {
-        this.parent.metroCore._subsystems.api.on(EventRegistry.CHANGES_DETECTED, async (payload) => {
-            await this._trackEventTiming('CHANGES_DETECTED', async () => {
-                if (!this._validatePayload(payload, EventRegistry.CHANGES_DETECTED)) return;
-                
-                const updateId = this.parent.processor._generateUpdateId('changes');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'changes',
-                    data: payload.data,
-                    priority: 2,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        this.parent.metroCore._subsystems.api.on(EventRegistry.API_HEALTH_UPDATE, (status) => {
-            this._handleApiHealthChange(status);
-        });
+    _setupDataManagerListeners() {
+        // This is now handled by bootstrap and other services
     }
 
     _setupSystemListeners() {
@@ -250,92 +161,7 @@ class UpdateListener extends EventEmitter {
     }
 
     _setupTimeEventListeners() {
-        // Service Hours Start/End
-        [EventRegistry.SERVICE_HOURS_START, EventRegistry.SERVICE_HOURS_END].forEach(event => {
-            this.parent.metroCore.on(event, (payload) => {
-                this._trackEventTiming(event, async () => {
-                    if (!this._validatePayload(payload, event)) return;
-                    
-                    const updateId = this.parent.processor._generateUpdateId('service_time');
-                    this.parent.processor._queueUpdate(updateId, {
-                        type: 'service_time',
-                        data: payload.data,
-                        timestamp: new Date()
-                    });
-                });
-            });
-        });
-
-// In _setupTimeEventListeners()
-this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
-    this._trackEventTiming('EMBED_REFRESH_TRIGGERED', async () => {
-        if (!payload?.context?.triggersEmbedRefresh) return;
-
-        const updateId = this.parent.processor._generateUpdateId('embed_refresh');
-        this.parent.processor._queueUpdate(updateId, {
-            type: 'embed_refresh',
-            data: {
-                ...payload.data,
-                refreshOptions: {
-                    force: payload.metadata?.isTimeCritical || false,
-                    priority: payload.context?.priority || 'normal'
-                }
-            },
-            timestamp: new Date(),
-            priority: this._getRefreshPriority(payload.context.priority)
-        });
-    });
-});
-
-// Priority mapping helper
-
-        
-        
-        // Fare Period Advance
-        this.parent.metroCore.on(EventRegistry.FARE_PERIOD_ADVANCE, (payload) => {
-            this._trackEventTiming('FARE_PERIOD_ADVANCE', async () => {
-                if (!this._validatePayload(payload, EventRegistry.FARE_PERIOD_ADVANCE)) return;
-                
-                const updateId = this.parent.processor._generateUpdateId('fare_period');
-                this.parent.processor._queueUpdate(updateId, {
-                    type: 'fare_period',
-                    data: payload.data,
-                    timestamp: new Date()
-                });
-            });
-        });
-
-        // Express Start/End
-        [EventRegistry.EXPRESS_START, EventRegistry.EXPRESS_END].forEach(event => {
-            this.parent.metroCore.on(event, (payload) => {
-                this._trackEventTiming(event, async () => {
-                    if (!this._validatePayload(payload, event)) return;
-                    
-                    const updateId = this.parent.processor._generateUpdateId('express_time');
-                    this.parent.processor._queueUpdate(updateId, {
-                        type: 'express_time',
-                        data: payload.data,
-                        timestamp: new Date()
-                    });
-                });
-            });
-        });
-
-        this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_STARTED, (payload) => {
-            this._trackEventTiming('EMBED_REFRESH_STARTED', async () => {
-                if (!this._validatePayload(payload, EventRegistry.EMBED_REFRESH_STARTED)) return;
-                
-                if (payload.metadata.triggersEmbedUpdate) {
-                    const updateId = this.parent.processor._generateUpdateId('embed_refresh');
-                    this.parent.processor._queueUpdate(updateId, {
-                        type: 'embed_refresh',
-                        data: payload.data,
-                        priority: 0,
-                        timestamp: new Date()
-                    });
-                }
-            });
-        });
+        // This is now handled by bootstrap and other services
     }
     
     
@@ -404,27 +230,7 @@ this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
     }
 
     _cleanupEventListeners() {
-        // MetroCore listeners
-        const metroEvents = [
-            EventRegistry.DATA_UPDATED,
-            EventRegistry.SERVICE_CHANGE,
-            EventRegistry.EXPRESS_UPDATE,
-            EventRegistry.SPECIAL_EVENT,
-            EventRegistry.SERVICE_HOURS_START,
-            EventRegistry.SERVICE_HOURS_END,
-            EventRegistry.FARE_PERIOD_ADVANCE,
-            EventRegistry.EXPRESS_START,
-            EventRegistry.EXPRESS_END,
-            EventRegistry.EMBED_REFRESH_STARTED
-        ];
-        
-        metroEvents.forEach(event => {
-            this.parent.metroCore.removeAllListeners(event);
-        });
-
-        // API Service listeners
-        this.parent.metroCore._subsystems.api.removeAllListeners(EventRegistry.CHANGES_DETECTED);
-        this.parent.metroCore._subsystems.api.removeAllListeners(EventRegistry.API_HEALTH_UPDATE);
+        // MetroCore listeners are removed
         
         // System listeners
         this.parent.removeAllListeners(EventRegistry.ERROR);
@@ -544,8 +350,6 @@ this.parent.metroCore.on(EventRegistry.EMBED_REFRESH_TRIGGERED, (payload) => {
 
     _countActiveListeners() {
         return {
-            metroCore: this.parent.metroCore.eventNames().length,
-            apiService: this.parent.metroCore._subsystems.api.eventNames().length,
             internal: this.eventNames().length
         };
     }

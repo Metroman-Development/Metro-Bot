@@ -3,19 +3,18 @@ const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
 const TimeHelpers = require('../../../utils/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
-const statusConfig = require('../../../config/metro/statusConfig');
+const statusConfig = require('../../../config/metro/metroConfig');
 const DatabaseManager = require('../../database/DatabaseManager');
 
 const DatabaseService = require('../../database/DatabaseService');
 
 class StatusProcessor {
-  constructor(metroCore, dbManager, dbService) {
-    this.metro = metroCore;
+  constructor(dbManager, dbService) {
     this.db = dbManager;
     this.dbService = dbService;
     this.timeHelpers = TimeHelpers;
     this.lineWeights = statusConfig.lineWeights;
-    this.statusMap = statusConfig.statusMap;
+    this.statusMap = statusConfig.statusTypes;
     this.severityLabels = statusConfig.severityLabels;
   }
 
@@ -51,8 +50,8 @@ class StatusProcessor {
         lines[lineId] = this._transformLine(lineId, lineData);
 
         // Process stations
-        (lineData.estaciones || []).forEach(station => {
-          const stationId = station.codigo.toUpperCase();
+        (lineData.stations || []).forEach(station => {
+          const stationId = station.code.toUpperCase();
           stations[stationId] = this._transformStation(station, lineId);
         });
       });
@@ -115,33 +114,33 @@ class StatusProcessor {
       }
 
       // Process stations with proper transfer detection
-      (lineData.estaciones || []).forEach(station => {
-        if (station.estado == null) {
-          logger.warn(`[StatusProcessor] Missing 'estado' property for station ${station.codigo} in line ${lineId}`);
+      (lineData.stations || []).forEach(station => {
+        if (station.status == null) {
+          logger.warn(`[StatusProcessor] Missing 'status' property for station ${station.code} in line ${lineId}`);
           return;
         }
-        const stationId = station.codigo.toLowerCase();
-        const stationStatusCode = station.estado.toString();
+        const stationId = station.code.toLowerCase();
+        const stationStatusCode = station.status.toString();
         const transformedStation = this._transformStation(station, lineId);
         allStations[stationId] = transformedStation;
         const stationSeverity = this._calculateStationSeverity(station, lineId);
 
         if (stationSeverity > 0) {
           let connectedLines = [];
-          const hasCombination = station.combinacion && station.combinacion.trim().length > 0;
+          const hasTransfer = station.transfer && station.transfer.trim().length > 0;
           
           // Only consider actual transfer stations (must have connections to other lines)
-          if (hasCombination) {
-            connectedLines = station.combinacion.toLowerCase()
+          if (hasTransfer) {
+            connectedLines = station.transfer.toLowerCase()
               .split(',')
               .map(line => line.trim())
               .filter(line => line.length > 0 && line !== lineId);
           }
 
-          const statusInfo = this._getStatusInfo(stationStatusCode, 'station', station.codigo);
+          const statusInfo = this._getStatusInfo(stationStatusCode, 'station', station.code);
           const stationEntry = {
             code: stationId,
-            name: station.nombre,
+            name: station.name,
             line: lineId,
             status: statusInfo.es,
             statusEn: statusInfo.en,
@@ -157,7 +156,7 @@ class StatusProcessor {
           if (connectedLines.length > 0) {
             severityDetails.transfers.push({
               station: stationId,
-              name: station.nombre,
+              name: station.name,
               lines: [lineId, ...connectedLines],
               totalSeverity: stationSeverity,
               status: statusInfo.es,
@@ -361,26 +360,26 @@ class StatusProcessor {
 
   _calculateLineSeverity(lineId, statusCode) {
     const code = statusCode.toString();
-    if (!this.statusMap[code] || typeof this.statusMap[code].lineSeverityImpact === 'undefined') {
+    if (!this.statusMap[code] || typeof this.statusMap[code].severity === 'undefined') {
       logger.warn(`[StatusProcessor] Unknown or invalid line status code '${code}' for line ${lineId}. Treating as 0 severity.`);
       return 0;
     }
-    return this.lineWeights[lineId] * this.statusMap[code].lineSeverityImpact;
+    return this.lineWeights[lineId] * this.statusMap[code].severity;
   }
 
   _calculateStationSeverity(station, lineId) {
-    if (station.estado == null) {
+    if (station.status == null) {
       return 0;
     }
-    const statusCode = station.estado.toString();
+    const statusCode = station.status.toString();
     if (['0', '1', '5'].includes(statusCode)) return 0;
 
     if (!this.statusMap[statusCode] || typeof this.statusMap[statusCode].severity === 'undefined') {
-      logger.warn(`[StatusProcessor] Unknown or invalid station status code '${statusCode}' for station ${station.codigo}. Treating as 0 severity.`);
+      logger.warn(`[StatusProcessor] Unknown or invalid station status code '${statusCode}' for station ${station.code}. Treating as 0 severity.`);
       return 0;
     }
 
-    const connectedLines = (station.combinacion || '')
+    const connectedLines = (station.transfer || '')
       .split(',')
       .map(l => l.trim().toLowerCase());
 
@@ -534,8 +533,8 @@ _getStatusInfo(code, type = 'line', id = 'unknown') {
 
   // In the _transformLine method:
 _transformLine(lineId, lineData) {
-    const estado = lineData.estado;
-    const statusCode = estado != null ? estado.toString() : 'unknown';
+    const status = lineData.status;
+    const statusCode = status != null ? status.toString() : 'unknown';
     const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
 
     return {
@@ -544,13 +543,13 @@ _transformLine(lineId, lineData) {
       displayName: `Línea ${lineId.toUpperCase().replace("L", "")}`,
       color: styles.lineColors[lineId] || '#CCCCCC',
       status: {
-        code: estado,
-        message: lineData.mensaje || '',
-        appMessage: lineData.mensaje_app || lineData.mensaje || '',
+        code: status,
+        message: lineData.message || '',
+        appMessage: lineData.app_message || lineData.message || '',
         normalized: statusInfo.es,
         normalizedEn: statusInfo.en
       },
-      stations: (lineData.estaciones || []).map(s => s.codigo.toLowerCase()),
+      stations: (lineData.stations || []).map(s => s.code.toLowerCase()),
       // Only include expressSupressed if it's true
       ...(lineData.expressSupressed === true && { expressSupressed: true })
     };
@@ -561,23 +560,23 @@ _transformStation(station, lineId) {
 
      // console.log(station);
   
-    const estado = station.estado;
-    const statusCode = estado != null ? estado.toString() : 'unknown';
-    const statusInfo = this._getStatusInfo(statusCode, 'station', station.codigo);
+    const status = station.status;
+    const statusCode = status != null ? status.toString() : 'unknown';
+    const statusInfo = this._getStatusInfo(statusCode, 'station', station.code);
 
-    const transferLines = station.combinacion 
-      ? station.combinacion.split(',').map(l => l.trim().toLowerCase())
+    const transferLines = station.transfer
+      ? station.transfer.split(',').map(l => l.trim().toLowerCase())
       : [];
 
     return {
-      code: station.codigo.toUpperCase(),
-      name: station.nombre,
-      displayName: station.nombre,
+      code: station.code.toUpperCase(),
+      name: station.name,
+      displayName: station.name,
       line: lineId,
       status: {
-        code: estado,
-        message: station.descripcion || '',
-        appMessage: station.descripcion_app || station.descripcion || '',
+        code: status,
+        message: station.description || '',
+        appMessage: station.app_description || station.description || '',
         normalized: statusInfo.es,
         normalizedEn: statusInfo.en
       },
@@ -587,7 +586,7 @@ _transformStation(station, lineId) {
       services: station.services,
       amenities: station.amenities,
       image_url: station.image_url,
-      combinacion: station.combinacion,
+      transfer: station.transfer,
       transports: station.transports,
       accessibility: station.accessibility,
       commerce: station.commerce,

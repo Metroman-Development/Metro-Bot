@@ -24,11 +24,11 @@ function getFullStationData(stationName, line) {
 
     return {
         basicInfo: {
-            name: lineStation?.nombre || stationName,
-            code: lineStation?.codigo || '',
-            status: lineStation?.estado || '1',
-            combinacion: lineStation?.combinacion || '',
-            description: lineStation?.descripcion || additionalData[4] || 'No description available',
+            name: lineStation?.name || stationName,
+            code: lineStation?.code || '',
+            status: lineStation?.status || '1',
+            transfer: lineStation?.transfer || '',
+            description: lineStation?.description || additionalData[4] || 'No description available',
         },
         services: additionalData[1]?.split(', ') || [],
         accessibility: additionalData[2] || 'No accessibility information',

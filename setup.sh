@@ -1,89 +1,103 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status.
-set -e
+# Define color codes
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-# --- Configuration ---
-ENV_FILE=".env"
-ENV_EXAMPLE_FILE=".env.example"
-DB_SCHEMA_FILE="MetroDB_schema_safe.sql"
-
-# --- Functions ---
-
-# Function to print a message in a consistent format
+# Helper functions for logging
 info() {
-    echo "INFO: $1"
+    echo -e "${BLUE}INFO: $1${NC}"
 }
 
-# Function to print an error message and exit
+success() {
+    echo -e "${GREEN}INFO: ✅ $1${NC}"
+}
+
 error() {
-    echo "ERROR: $1" >&2
-    exit 1
+    echo -e "${RED}ERROR: $1${NC}" >&2
 }
 
-# --- Main Script ---
+# Check if a command exists
+function check_command() {
+    if ! command -v "$1" &> /dev/null; then
+        error "$1 could not be found. Please install it."
+        exit 1
+    fi
+}
 
-# 1. Check for and create .env file
+# Environment file
+ENV_FILE=".env"
+DB_SCHEMA_FILE="db_schema.sql"
+
+# Create .env from .env.example if it doesn't exist
+if [ ! -f "$ENV_FILE" ]; then
+    info ".env file not found. Copying from .env.example..."
+    if [ -f ".env.example" ]; then
+        cp .env.example "$ENV_FILE"
+        success ".env file created successfully."
+    else
+        error ".env.example not found. Please create a .env file with your database credentials."
+        exit 1
+    fi
+else
+    info ".env already exists. Skipping creation."
+fi
+
+# Load environment variables
 if [ -f "$ENV_FILE" ]; then
-    info "$ENV_FILE already exists. Skipping creation."
+    export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
 else
-    info "Creating $ENV_FILE from $ENV_EXAMPLE_FILE..."
-    cp "$ENV_EXAMPLE_FILE" "$ENV_FILE"
-    info "✅ $ENV_FILE created successfully."
-    info "IMPORTANT: You must now edit the $ENV_FILE file with your bot tokens and database credentials."
+    error "Could not find $ENV_FILE"
+    exit 1
 fi
 
-# 2. Install npm dependencies
-info "Installing npm dependencies..."
-if npm install; then
-    info "✅ npm dependencies installed successfully."
-else
-    error "Failed to install npm dependencies."
-fi
+# Install npm dependencies
+# info "Installing npm dependencies..."
+# if ! npm install; then
+#     error "npm install failed."
+#     exit 1
+# fi
+# success "✅ npm dependencies installed successfully."
 
-# 3. Import database schema
+# Database setup
 info "Attempting to import database schema..."
-info "This requires the 'mysql' command-line client and the database credentials in $ENV_FILE."
+info "This requires the 'mysql' command-line client and the database credentials in .env."
 
-# Source the .env file to get DB credentials
-if [ -f "$ENV_FILE" ]; then
-    export $(grep -v '^#' $ENV_FILE | xargs)
-else
-    error "$ENV_FILE not found. Cannot proceed with database setup."
-fi
+# Check required commands
+check_command mysql
 
-# Check if required DB variables are set
+# Check for database connection variables
 if [ -z "$DB_HOST" ] || [ -z "$DB_USER" ] || [ -z "$METRODB_NAME" ]; then
     error "One or more database variables (DB_HOST, DB_USER, METRODB_NAME) are not set in $ENV_FILE."
+    exit 1
 fi
 
-info "Checking if the database '$METRODB_NAME' exists..."
+# Check if database exists
 if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" -e "USE $METRODB_NAME;" 2>/dev/null; then
-    info "Database '$METRODB_NAME' already exists. Applying schema..."
-    if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "$DB_SCHEMA_FILE"; then
-        info "✅ Database schema updated successfully."
-    info "Seeding status tables..."
-    if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "seed_status_tables.sql"; then
-        info "✅ Status tables seeded successfully."
-    else
-        error "Failed to seed status tables."
-    fi
-    else
-        error "Failed to update database schema."
-    fi
+    info "Database '$METRODB_NAME' already exists. Skipping schema import."
 else
-    info "Database '$METRODB_NAME' does not exist. Creating it..."
+    info "Database '$METRODB_NAME' does not exist. Creating and seeding..."
     if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" -e "CREATE DATABASE $METRODB_NAME;"; then
-        info "Database '$METRODB_NAME' created successfully."
-        info "Importing schema from $DB_SCHEMA_FILE..."
+        success "Database '$METRODB_NAME' created successfully."
+        info "Applying schema..."
         if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "$DB_SCHEMA_FILE"; then
-            info "✅ Database schema imported successfully."
+            success "Schema applied successfully."
         else
-            error "Failed to import database schema."
+            error "Failed to apply schema."
+            exit 1
+        fi
+        info "Seeding status tables..."
+        if mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$METRODB_NAME" < "seed_status_tables.sql"; then
+            success "Status tables seeded successfully."
+        else
+            error "Failed to seed status tables."
         fi
     else
-        error "Failed to create database '$METRODB_NAME'."
+        error "Failed to create database."
+        exit 1
     fi
 fi
 
-info "🎉 Setup complete! Please review the .env file before running the bot."
+success "Setup finished successfully!"

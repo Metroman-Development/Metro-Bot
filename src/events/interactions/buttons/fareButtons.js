@@ -1,6 +1,6 @@
 const ToggleTemplate = require('../templates/toggle');
 const FareEmbed = require('../../../templates/embeds/FareEmbed');
-const timeUtils = require('../../../utils/timeUtils.js');
+const timeUtils = require('../../../utils/timeHelpers.js');
 const metroConfig = require('../../../config/metro/metroConfig');
 
 // This is the new interaction handler for fare buttons.

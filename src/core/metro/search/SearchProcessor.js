@@ -1,4 +1,3 @@
-const SearchHelper = require('./SearchHelper.js');
 const { DisambiguationHandler } = require('disambiguate/DisambiguationHandler.js');
 const logger = require('../../../events/logger.js');
 const { EmbedBuilder } = require('discord.js');
@@ -18,17 +17,16 @@ const {
 const {
   decorateStation,
   decorateLine
-} = require('../utils/stringHandlers/decorators');
+} = require('../../../utils/stringUtils');
 const {
   isValidLine,
   isTransferStation
 } = require('../utils/stringHandlers/validators');
 
 class SearchProcessor {
-  constructor(metroCore) {
-    if (!metroCore) throw new Error('MetroCore instance required');
-    this.metroCore = metroCore;
-    this.helper = new SearchHelper(metroCore);
+  constructor(metroInfoProvider) {
+    if (!metroInfoProvider) throw new Error('MetroInfoProvider instance required');
+    this.metroInfoProvider = metroInfoProvider;
 
     // Field configuration with weights and search methods
     this.fieldConfig = {
@@ -187,7 +185,7 @@ class SearchProcessor {
   }
 
   async _searchAcrossAllFields(query, types, fields) {
-    const data = this.metroCore.getCurrentData();
+    const data = this.metroInfoProvider.getFullData();
     const results = [];
 
     for (const type of types) {
@@ -340,7 +338,7 @@ class SearchProcessor {
           line: result.item.line,
           status: result.item.status,
           transfer: decorated.isTransfer
-        });
+        }, this.metroInfoProvider);
       case 'lines':
         return `${decorated.name} ${decorateLine(result.item.id)}`;
       case 'trains':
@@ -377,7 +375,7 @@ class SearchProcessor {
   // Utility detection methods
   _looksLikeLineReference(query) {
     return /^(l|linea?)\s*[0-9]+$/i.test(query) || 
-           Object.values(this.metroCore.getCurrentData().lines || {})
+           Object.values(this.metroInfoProvider.getFullData().lines || {})
              .some(line => normalizeText(line.displayName).includes(query));
   }
 

@@ -1,3 +1,28 @@
-Pulling latest changes from git...
-Already up to date.
-Installing/updating npm dependencies...
+Hello from index.js
+[Master] Initializing master process...
+[DB] Creating new DatabaseManager instance
+[DB] Initializing new DatabaseManager instance
+[DB] Starting initialization...
+[DB] Creating new connection pool with config: {
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB',
+  port: 3306
+}
+{
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB',
+  port: 3306
+}
+[DB] Connection pool created, testing connection...
+[DB] Acquiring connection for health check...
+[DB] Executing ping test...
+[DB] Connection test successful
+[DB] Releasing health check connection
+[DB] Connection established successfully
+[DB] Starting health checks every 60 seconds
+[DB] Initialization completed successfully
+ℹ️ [2025-08-30T22:32:12-04:00] [INFO] [index.js:45] [main] [Master] ✅ DatabaseManager initialized successfully.

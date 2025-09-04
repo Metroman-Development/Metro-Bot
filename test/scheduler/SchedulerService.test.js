@@ -1,4 +1,5 @@
 const SchedulerService = require('../../src/core/SchedulerService');
+const schedule = require('node-schedule');
 const logger = require('../../src/events/logger');
 
 // Mock the logger to prevent console output during tests
@@ -9,17 +10,41 @@ jest.mock('../../src/events/logger', () => ({
     warn: jest.fn(),
 }));
 
+// Mock node-schedule
+jest.mock('node-schedule', () => ({
+    scheduleJob: jest.fn(),
+    RecurrenceRule: jest.fn().mockImplementation(() => ({
+        tz: '',
+    })),
+}));
+
+
 describe('SchedulerService', () => {
     let scheduler;
+    let mockDb, mockDataManager, mockChangeAnnouncer, mockStatusEmbedManager, mockMetroInfoProvider;
 
     beforeEach(() => {
-        scheduler = new SchedulerService();
+        mockDb = {};
+        mockDataManager = {};
+        mockChangeAnnouncer = {};
+        mockStatusEmbedManager = {};
+        mockMetroInfoProvider = {};
+
+        scheduler = new SchedulerService(
+            mockDb,
+            mockDataManager,
+            mockChangeAnnouncer,
+            mockStatusEmbedManager,
+            mockMetroInfoProvider,
+            'America/Santiago'
+        );
         jest.useFakeTimers();
     });
 
     afterEach(() => {
         scheduler.stop();
         jest.useRealTimers();
+        jest.restoreAllMocks();
     });
 
     it('should add a job to the jobs map', () => {
@@ -137,5 +162,20 @@ describe('SchedulerService', () => {
         // Fast-forward time by another second
         await jest.advanceTimersByTimeAsync(1000);
         expect(task).toHaveBeenCalledTimes(3);
+    });
+
+    it('should schedule a cron job with the correct timezone', () => {
+        const task = jest.fn();
+        const job = { name: 'cron-job', schedule: '* * * * *', task };
+
+        scheduler.addJob(job);
+        scheduler.start();
+
+        expect(schedule.scheduleJob).toHaveBeenCalled();
+
+        const firstCallArgs = schedule.scheduleJob.mock.calls[0];
+        const rule = firstCallArgs[0];
+
+        expect(rule.tz).toBe('America/Santiago');
     });
 });

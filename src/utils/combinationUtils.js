@@ -14,24 +14,24 @@ function fetchCombinacion(matchedStation) {
         return null;
     }
 
-    const combinacionLine = matchedStation.combinacion
-        ? `l${matchedStation.combinacion.replace('l', '')}`
+    const transferLine = matchedStation.transfer
+        ? `l${matchedStation.transfer.replace('l', '')}`
         : null;
 
-    if (!combinacionLine) {
-        console.error(`❌ No combinacion found for station: ${matchedStation.original}`);
+    if (!transferLine) {
+        console.error(`❌ No transfer found for station: ${matchedStation.original}`);
         return null;
     }
 
-    const combinacionStation = metroData[combinacionLine]?.estaciones
-        .find(estacion => sharedNormalize(estacion.nombre.toLowerCase()) === sharedNormalize(matchedStation.original.toLowerCase()));
+    const transferStation = metroData[transferLine]?.stations
+        .find(station => sharedNormalize(station.name.toLowerCase()) === sharedNormalize(matchedStation.original.toLowerCase()));
 
-    if (!combinacionStation) {
-        console.error(`❌ No combinacion station found for: ${matchedStation.original}`);
+    if (!transferStation) {
+        console.error(`❌ No transfer station found for: ${matchedStation.original}`);
         return null;
     }
 
-    return combinacionStation.combinacion || null;
+    return transferStation.transfer || null;
 }
 
 module.exports = { fetchCombinacion };

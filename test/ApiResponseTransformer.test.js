@@ -5,32 +5,32 @@ describe('ApiResponseTransformer', () => {
     it('should correctly transform the API response', () => {
       const apiData = {
         'L1': {
-          'estado': '1',
-          'estaciones': [
+          'status': '1',
+          'stations': [
             {
-              'codigo': 'P1',
-              'nombre': 'Station 1',
-              'estado': '1',
-              'combinacion': 'L2',
+              'code': 'P1',
+              'name': 'Station 1',
+              'status': '1',
+              'transfer': 'L2',
               'servicios': 'service1, service2'
             }
           ]
         },
         'L2': {
-          'estado': '0',
-          'estaciones': [
+          'status': '0',
+          'stations': [
             {
-              'codigo': 'P2',
-              'nombre': 'Station 2',
-              'estado': '0',
-              'combinacion': null,
+              'code': 'P2',
+              'name': 'Station 2',
+              'status': '0',
+              'transfer': null,
               'servicios': null
             }
           ]
         },
         'L3': {
-            'estado': '99',
-            'estaciones': []
+            'status': '99',
+            'stations': []
         }
       };
 
@@ -40,7 +40,6 @@ describe('ApiResponseTransformer', () => {
       expect(transformedData.lines.l1).toBeDefined();
       expect(transformedData.lines.l1.id).toBe('l1');
       expect(transformedData.lines.l1.name).toBe('Línea L1');
-      expect(transformedData.lines.l1.estado).toBe('1');
       expect(transformedData.lines.l1.status).toBe('operational');
       expect(transformedData.lines.l1.stations).toEqual(['p1']);
 
@@ -57,7 +56,6 @@ describe('ApiResponseTransformer', () => {
       expect(transformedData.lines.l2).toBeDefined();
       expect(transformedData.lines.l2.id).toBe('l2');
       expect(transformedData.lines.l2.name).toBe('Línea L2');
-      expect(transformedData.lines.l2.estado).toBe('0');
       expect(transformedData.lines.l2.status).toBe('closed');
       expect(transformedData.lines.l2.stations).toEqual(['p2']);
 
@@ -74,7 +72,6 @@ describe('ApiResponseTransformer', () => {
       expect(transformedData.lines.l3).toBeDefined();
       expect(transformedData.lines.l3.id).toBe('l3');
       expect(transformedData.lines.l3.name).toBe('Línea L3');
-      expect(transformedData.lines.l3.estado).toBe('99');
       expect(transformedData.lines.l3.status).toBe('unknown');
     });
   });

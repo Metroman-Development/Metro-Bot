@@ -7,7 +7,7 @@
 #
 
 # Exit immediately if a command exits with a non-zero status.
-set -e
+# set -e
 
 # Export environment variables from .env file
 if [ -f .env ]; then
@@ -38,8 +38,7 @@ mkdir -p "$LOG_DIR"
 # Core modules that are foundational but not runnable as standalone services
 declare -A core_modules
 core_modules=(
-    [metrocore]="./src/core/metro/MetroCore.js"
-    [metro-info-provider]="./src/core/metro/providers/MetroInfoProvider.js"
+    [metro-info-provider]="./src/utils/MetroInfoProvider.js"
 )
 
 # Application services that run as standalone processes
@@ -48,24 +47,24 @@ app_services=(
     [discord]="./src/discord-bot.js"
     [telegram]="./src/telegram-bot.js"
     [scheduler]="./src/scheduler.js"
+    [api]="./api.js"
 )
 
 # Define all services for easier lookup
 declare -A all_services
 all_services=(
-    ["metrocore"]=1
     ["metro-info-provider"]=1
     ["discord"]=2
     ["telegram"]=2
     ["scheduler"]=2
+    ["api"]=2
 )
 
 
 declare -A service_dependencies
 service_dependencies=(
-    [discord]="scheduler metrocore"
-    [telegram]="scheduler metrocore"
-    [metrocore]="metro-info-provider"
+    [discord]="scheduler"
+    [telegram]="scheduler"
 )
 
 # --- Helper Functions ---
@@ -85,14 +84,20 @@ rotate_log() {
     fi
 }
 
-# Check if a service is running
+# Check if a service is running by looking for its PID file
 is_running() {
     local service_name="$1"
     local pid_file="$RUN_DIR/$service_name.pid"
+
     if [ -f "$pid_file" ]; then
         local pid=$(cat "$pid_file")
         if ps -p "$pid" > /dev/null; then
             return 0 # Service is running
+        else
+            # The process is not running, but the PID file exists. Clean it up.
+            echo "Warning: Stale PID file found for '$service_name'. Removing it."
+            rm -f "$pid_file"
+            return 1 # Service is not running
         fi
     fi
     return 1 # Service is not running
@@ -115,11 +120,12 @@ start_service() {
     fi
 
     local service_script="${app_services[$service_name]}"
-    local pid_file="$RUN_DIR/$service_name.pid"
     local log_file="$LOG_DIR/$service_name.log"
+    local pid_file="$RUN_DIR/$service_name.pid"
 
     if is_running "$service_name"; then
-        echo "Service '$service_name' is already running."
+        local pid=$(cat "$pid_file")
+        echo "Service '$service_name' is already running with PID $pid."
         return
     fi
 
@@ -140,9 +146,23 @@ start_service() {
 
     echo "Starting service '$service_name'..."
     rotate_log "$log_file"
-    nohup env DB_HOST=localhost DB_USER=metroapi DB_PASSWORD=Metro256 METRODB_NAME=MetroDB node "$service_script" > "$log_file" 2>&1 &
+
+    # Start the service in the background and get its PID
+    nohup node "$service_script" > "$log_file" 2>&1 &
     local pid=$!
+
+    # Save the PID to a file
     echo "$pid" > "$pid_file"
+
+    sleep 1 # Give the process a moment to stabilize
+
+    # Verify that the process started correctly
+    if ! is_running "$service_name"; then
+        echo "Error: Failed to start service '$service_name'. Check the log for details: $log_file"
+        rm -f "$pid_file" # Clean up the PID file
+        exit 1
+    fi
+
     echo "Service '$service_name' started with PID $pid. Log: $log_file"
 }
 
@@ -150,7 +170,6 @@ start_service() {
 stop_service() {
     local service_name="$1"
 
-    # Core modules don't run as separate processes, so they can't be stopped.
     if [ -n "${core_modules[$service_name]}" ]; then
         echo "INFO: Core module '$service_name' cannot be stopped as it is not a running process."
         return
@@ -160,12 +179,33 @@ stop_service() {
 
     if ! is_running "$service_name"; then
         echo "Service '$service_name' is not running."
+        # Attempt to kill any lingering processes that may have escaped PID tracking
+        local service_script="${app_services[$service_name]}"
+        if pgrep -f "node $service_script" > /dev/null; then
+            echo "Warning: Found lingering processes for '$service_name' without a PID file. Attempting to stop them..."
+            pkill -f "node $service_script"
+        fi
         return
     fi
 
-    echo "Stopping service '$service_name'..."
     local pid=$(cat "$pid_file")
+    echo "Stopping service '$service_name' (PID: $pid)..."
+
+    # Try to gracefully terminate the process
     kill "$pid"
+
+    # Wait for the process to stop
+    local counter=0
+    while ps -p "$pid" > /dev/null; do
+        sleep 1
+        counter=$((counter + 1))
+        if [ "$counter" -ge 10 ]; then
+            echo "Service '$service_name' did not stop gracefully. Forcing termination..."
+            kill -9 "$pid"
+            break
+        fi
+    done
+
     rm -f "$pid_file"
     echo "Service '$service_name' stopped."
 }
@@ -175,8 +215,9 @@ show_status() {
     echo "--- Service Status ---"
     echo "Application Services:"
     for service_name in "${!app_services[@]}"; do
+        local pid_file="$RUN_DIR/$service_name.pid"
         if is_running "$service_name"; then
-            local pid=$(cat "$RUN_DIR/$service_name.pid")
+            local pid=$(cat "$pid_file")
             echo "  [RUNNING] $service_name (PID: $pid)"
         else
             echo "  [STOPPED] $service_name"

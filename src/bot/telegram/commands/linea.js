@@ -1,4 +1,4 @@
-const MetroInfoProvider = require('../../../utils/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 
 module.exports = {
     name: 'linea',

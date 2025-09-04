@@ -3,10 +3,13 @@ const TimeHelpers = require('../../../utils/timeHelpers');
 const chronosConfig = require('../../../config/chronosConfig');
 const announcementStrings = require('../../../config/announcementStrings.json');
 const { getClient, getTelegramBot } = require('../../../utils/clientManager');
+const FarePeriodChangesAnnouncer = require('./FarePeriodChangesAnnouncer');
+const ChangeAnnouncer = require('../../status/ChangeAnnouncer');
 
 class AnnouncementService {
     constructor() {
-        this.timeHelpers = new TimeHelpers();
+        this.farePeriodAnnouncer = new FarePeriodChangesAnnouncer();
+        this.changeAnnouncer = new ChangeAnnouncer();
     }
 
     async _sendDiscordEmbed(embed) {
@@ -58,7 +61,7 @@ class AnnouncementService {
                     name: 'Próximo Horario',
                     value: isStart
                         ? `Cierre programado: ${operatingHours.closing}`
-                        : `Apertura programada: ${this.timeHelpers.getNextServiceTransition().format('HH:mm')} (mañana)`,
+                        : `Apertura programada: ${TimeHelpers.getNextServiceTransition().format('HH:mm')} (mañana)`,
                     inline: true
                 }
             )
@@ -78,26 +81,34 @@ class AnnouncementService {
     }
 
     async announceFarePeriodChange(periodType, periodInfo) {
-        const strings = announcementStrings.discord.farePeriodChange[periodType];
-        const telegramStrings = announcementStrings.telegram.farePeriodChange[periodType];
-        const color = periodType === 'PUNTA' ? 0xE67E22 : (periodType === 'BAJO' ? 0x2ECC71 : 0x3498DB);
+        const discordMessages = this.farePeriodAnnouncer.generateDiscordMessages(periodInfo);
+        const telegramMessages = this.farePeriodAnnouncer.generateTelegramMessages(periodInfo);
 
-        const embed = new EmbedBuilder()
-            .setTitle(strings.title)
-            .setColor(color)
-            .setDescription(strings.description)
-            .addFields(
-                {
-                    name: 'Duración',
-                    value: `Hasta: ${periodInfo.end || this.timeHelpers.getNextTransition().time}`,
-                    inline: true
-                }
-            )
-            .setFooter({ text: this._getFooterText() })
-            .setTimestamp();
+        for (const embed of discordMessages) {
+            await this._sendDiscordEmbed(embed);
+        }
 
-        await this._sendDiscordEmbed(embed);
-        await this._sendTelegramMessage(telegramStrings);
+        for (const message of telegramMessages) {
+            await this._sendTelegramMessage(message);
+        }
+    }
+
+    async announceChanges(changePayload, allStations) {
+        const discordMessages = await this.changeAnnouncer.generateMessages(changePayload, allStations);
+        const telegramMessages = await this.changeAnnouncer.generateTelegramMessages(changePayload, allStations);
+
+        await this.processChangeMessages(discordMessages, changePayload.severity);
+        await this.processChangeMessages(telegramMessages, changePayload.severity, 'telegram');
+    }
+
+    async processChangeMessages(messages, severity, platform = 'discord') {
+        for (const message of messages) {
+            if (platform === 'discord') {
+                await this._sendDiscordEmbed(message);
+            } else {
+                await this._sendTelegramMessage(message);
+            }
+        }
     }
 
     async announceExpressTransition(type, period) {
@@ -119,7 +130,7 @@ class AnnouncementService {
                     name: 'Horario',
                     value: isStart
                         ? `De ${timeRange.start} a ${timeRange.end}`
-                        : `Servicio regular hasta ${this.timeHelpers.getOperatingHours().closing}`,
+                        : `Servicio regular hasta ${TimeHelpers.getOperatingHours().closing}`,
                     inline: true
                 },
                 {
@@ -159,7 +170,7 @@ class AnnouncementService {
                     name: 'Horario',
                     value: isStart
                         ? `Hasta: ${eventInfo.endTime}`
-                        : `Próximo cierre: ${this.timeHelpers.getOperatingHours().closing}`,
+                        : `Próximo cierre: ${TimeHelpers.getOperatingHours().closing}`,
                     inline: true
                 }
             )
@@ -210,7 +221,7 @@ class AnnouncementService {
     }
 
     _getFooterText() {
-        return `Metro Santiago • ${this.timeHelpers.currentTime.format('DD/MM/YYYY HH:mm')}`;
+        return `Metro Santiago • ${TimeHelpers.currentTime.format('DD/MM/YYYY HH:mm')}`;
     }
 }
 

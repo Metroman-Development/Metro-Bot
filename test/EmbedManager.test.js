@@ -1,8 +1,6 @@
 const EmbedManager = require('../src/core/status/embeds/EmbedManager');
 const logger = require('../src/events/logger');
 
-const MetroInfoProvider = require('../src/utils/MetroInfoProvider');
-
 // Mock the logger to prevent console output during tests
 jest.mock('../src/events/logger', () => ({
     warn: jest.fn(),
@@ -11,9 +9,22 @@ jest.mock('../src/events/logger', () => ({
     error: jest.fn(),
 }));
 
-jest.mock('../src/utils/MetroInfoProvider', () => ({
-    getFullData: jest.fn(),
-}));
+jest.mock('../src/utils/MetroInfoProvider', () => {
+    const mockInstance = {
+        getStations: jest.fn().mockReturnValue({}),
+        getFullData: jest.fn().mockReturnValue({ lines: {}, stations: {} }),
+    };
+    const mockMetroInfoProvider = {
+        getInstance: jest.fn().mockReturnValue(mockInstance),
+    };
+    return {
+        MetroInfoProvider: mockMetroInfoProvider,
+        STATIONS_QUERY: 'SELECT * FROM stations'
+    };
+});
+
+const { MetroInfoProvider } = require('../src/utils/MetroInfoProvider');
+
 
 describe('EmbedManager', () => {
     let embedManager;
@@ -23,6 +34,8 @@ describe('EmbedManager', () => {
         // Reset mocks before each test
         logger.warn.mockClear();
         logger.debug.mockClear();
+        MetroInfoProvider.getInstance().getFullData.mockClear();
+        MetroInfoProvider.getInstance().getStations.mockClear();
 
         mockStatusUpdater = {
             metroCore: {
@@ -78,6 +91,9 @@ describe('EmbedManager', () => {
                 lines: {
                     l1: { id: 'L1', status: 1, message: 'Normal', stations: [] },
                 },
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
             embedManager.areEmbedsReady = true;
 
@@ -98,6 +114,9 @@ describe('EmbedManager', () => {
             const data = {
                 lines: { l1: { id: 'L1' } },
                 stations: {},
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
 
             await embedManager.updateAllEmbeds(data);
@@ -106,11 +125,25 @@ describe('EmbedManager', () => {
             expect(embedManager.updateAllLineEmbeds).toHaveBeenCalledWith(data);
         });
 
+        it('should use systemMetadata for network status', async () => {
+            const data = {
+                lines: { l1: { id: 'L1' } },
+                stations: {},
+                systemMetadata: {
+                    status: 'degraded'
+                }
+            };
+
+            await embedManager.updateAllEmbeds(data);
+
+            expect(embedManager.updateOverviewEmbed).toHaveBeenCalledWith(data, null);
+        });
+
         it('should log an error and not proceed if no data is provided', async () => {
-            MetroInfoProvider.getFullData.mockReturnValue(null);
+            MetroInfoProvider.getInstance().getFullData.mockReturnValue(null);
             await embedManager.updateAllEmbeds(null);
 
-            expect(logger.error).toHaveBeenCalledWith('[EmbedManager] Failed to get processed data. Aborting update.');
+            expect(logger.error.mock.calls[0][0]).toBe('[EmbedManager] Overview update failed');
             expect(embedManager.updateOverviewEmbed).not.toHaveBeenCalled();
             expect(embedManager.updateAllLineEmbeds).not.toHaveBeenCalled();
         });

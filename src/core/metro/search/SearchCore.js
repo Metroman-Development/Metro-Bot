@@ -1,11 +1,14 @@
 const ExactSearch = require('./strategies/ExactSearch');
-const PartialSearch = require('./strategies/PartialSearch');
-const SimilaritySearch = require('./strategies/SimilaritySearch');
+const FuzzySearch = require('./strategies/FuzzySearch');
 const LineFilter = require('./filters/LineFilter');
 const StatusFilter = require('./filters/StatusFilter');
-const DataManager = require('../data/DataManager.js');
+const CommerceFilter = require('./filters/CommerceFilter');
+const BikeFilter = require('./filters/BikeFilter');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
+const DatabaseManager = require('../../database/DatabaseManager');
 const logger = require('../../../events/logger');
 const Normalizer = require('../utils/stringHandlers/normalization');
+const SearchIndexer = require('./SearchIndexer');
 
 class SearchCore {
   constructor(type = 'station', options = {}) {
@@ -13,26 +16,24 @@ class SearchCore {
     this.defaultThreshold = options.similarityThreshold || 0.6;
     this.phoneticWeight = options.phoneticWeight || 0.4;
     this.cache = new Map();
-    this.dataManager = new DataManager();
     this.dataSource = null;
     this.normalize = options?.normalize || Normalizer.normalize;
     this.cacheTTL = options.cacheTTL || 300000; // 5 minutes
     this.cacheTimers = new Map();
     this.disambiguationStyle = options.disambiguationStyle || 'auto';
     this.disambiguationTimeout = options.disambiguationTimeout || 120000;
+    this.indexer = null;
 
     this.strategies = [
       new ExactSearch(),
-      new PartialSearch({ minLength: 3 }),
-      new SimilaritySearch({
-        threshold: this.defaultThreshold,
+      new FuzzySearch({
         phoneticWeight: this.phoneticWeight,
-        normalize: this.normalize
+        minLength: 3
       })
     ];
 
     this.filters = {
-      station: [new LineFilter(), new StatusFilter()],
+      station: [new LineFilter(), new StatusFilter(), new CommerceFilter(), new BikeFilter()],
       line: [new StatusFilter()],
       train: [new StatusFilter(), new LineFilter()]
     };
@@ -49,15 +50,13 @@ class SearchCore {
         stations: data.stations || {},
         lines: data.lines || {}
     };
-    logger.debug('[SearchCore] External data source has been set.');
+    this.indexer = new SearchIndexer(this.dataSource);
+    this.indexer.buildIndex();
+    logger.debug('[SearchCore] External data source has been set and indexed.');
   }
 
   async init() {
-      await this.dataManager.loadData();
-      this.dataSource = {
-          stations: this.dataManager.getStations(),
-          lines: this.dataManager.getLines()
-      }
+    // Data source is now set externally
   }
 
   async getById(id) {
@@ -127,47 +126,41 @@ class SearchCore {
 
 
 
-async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
-  const searchData = this.dataSource;
-  const normalizedQuery = this.normalize(query.trim());
+async _performSearch(query, options, cacheKey) {
+    const searchData = this.indexer.getIndex();
+    const normalizedQuery = this.normalize(query.trim());
 
-  // Check for exact ID match first
-  if (this.type === 'station' && searchData.stations[normalizedQuery]) {
-    const exactMatch = this._createMatchObject(searchData.stations[normalizedQuery], 'exact');
-    this._setCache(cacheKey, [exactMatch]); // Now cacheKey is defined
-    return [exactMatch];
-  }
-
-  
-    
-    // Check for exact alias match
-    if (this.type === 'station') {
-      const aliasMatch = this._findExactAliasMatch(normalizedQuery, searchData.stations);
-      if (aliasMatch) {
-        this._setCache(cacheKey, [aliasMatch]);
-        return [aliasMatch];
-      }
+    if (this.type === 'station' && searchData.stations[normalizedQuery]) {
+        const exactMatch = this._createMatchObject(searchData.stations[normalizedQuery], 'exact');
+        this._setCache(cacheKey, [exactMatch]);
+        return [exactMatch];
     }
 
-    const searchTarget = this.type === 'station' 
-      ? Object.values(searchData.stations)
-      : Object.values(searchData.lines);
+    if (this.type === 'station') {
+        const aliasMatch = this._findExactAliasMatch(normalizedQuery, searchData.stations);
+        if (aliasMatch) {
+            this._setCache(cacheKey, [aliasMatch]);
+            return [aliasMatch];
+        }
+    }
 
-    // Check for exact name match
+    const searchTarget = this.type === 'station'
+        ? Object.values(searchData.stations)
+        : Object.values(searchData.lines);
+
     const exactNameMatch = this._findExactNameMatch(normalizedQuery, searchTarget);
     if (exactNameMatch) {
-      this._setCache(cacheKey, [exactNameMatch]);
-      return [exactNameMatch];
+        this._setCache(cacheKey, [exactNameMatch]);
+        return [exactNameMatch];
     }
 
-    // Execute search strategies
     const strategyResults = await Promise.all(
-      this.strategies.map(strategy => 
-        strategy.execute(normalizedQuery, searchTarget, {
-          ...options,
-          normalize: this.normalize
-        })
-      )
+        this.strategies.map(strategy =>
+            strategy.execute(normalizedQuery, searchTarget, {
+                ...options,
+                normalize: this.normalize
+            })
+        )
     );
 
     const matches = strategyResults.flat().filter(match => match !== null);
@@ -175,17 +168,17 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
     const dedupedMatches = this._deduplicate(filteredMatches);
 
     const result = await this._resolveOutput(dedupedMatches, {
-      needsOneMatch: options.needsOneMatch,
-      interaction: options.interaction,
-      query: normalizedQuery,
-      maxResults: options.maxResults || 10,
-      disambiguationStyle: this.disambiguationStyle,
-      timeout: this.disambiguationTimeout
+        needsOneMatch: options.needsOneMatch,
+        interaction: options.interaction,
+        query: normalizedQuery,
+        maxResults: options.maxResults || 10,
+        disambiguationStyle: this.disambiguationStyle,
+        timeout: this.disambiguationTimeout
     });
 
     this._setCache(cacheKey, result);
     return result;
-  }
+}
 
   _findExactAliasMatch(query, stations) {
     for (const [id, station] of Object.entries(stations)) {
@@ -212,9 +205,9 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
 
     return {
       id: item.id || 'unknown',
-      name: item.name || item.displayName || 'Unknown',
-      displayName: item.displayName || item.name || 'Unknown',
-      line: item.line ? item.line.toLowerCase() : 'unknown',
+      name: item.original || item.name || item.displayName || 'Unknown',
+      displayName: item.displayName || item.original || item.name || 'Unknown',
+      line: item.linea ? item.linea.toLowerCase() : (item.line ? item.line.toLowerCase() : 'unknown'),
       status: item.status?.code || 'operational',
       score: 1.0,
       matchType,
@@ -239,33 +232,38 @@ async _performSearch(query, options, cacheKey) { // Add cacheKey parameter
         const lineFilter = filters.lineFilter.toLowerCase();
         return results.filter(item => item.line && item.line.toLowerCase() === lineFilter);
       }
+      if (filter instanceof CommerceFilter && filters.commerceFilter) {
+        return filter.apply(results, filters.commerceFilter);
+      }
+      if (filter instanceof BikeFilter && filters.bikeFilter) {
+        return filter.apply(results, filters.bikeFilter);
+      }
       return results;
     }, matches);
   }
 
   _deduplicate(matches) {
-    const unique = new Map();
+    const uniqueMatches = new Map();
     matches.forEach(match => {
-      if (!match) return;
-      
-      const key = this.type === 'station' 
-        ? `${match.id}|${match.line}`
-        : match.id;
-      
-      if (!unique.has(key) || unique.get(key).score < match.score) {
-        unique.set(key, match);
-      }
+        if (!match) return;
+        const key = this.type === 'station' ? `${match.id}|${match.line}` : match.id;
+        if (!uniqueMatches.has(key) || uniqueMatches.get(key).score < match.score) {
+            uniqueMatches.set(key, match);
+        }
     });
-    return Array.from(unique.values());
-  }
+    return Array.from(uniqueMatches.values());
+}
 
   async _resolveOutput(matches, options) {
     if (matches.length === 0) {
       return options.needsOneMatch ? null : [];
     }
 
-    // Return top match if no interaction or single result needed
-    if (options.needsOneMatch || !options.interaction) {
+    // If we need one match and there are multiple matches with the same top score,
+    // we need to disambiguate.
+    if (options.needsOneMatch && matches.length > 1 && matches[0].score === matches[1].score) {
+        // continue to disambiguation
+    } else if (options.needsOneMatch || !options.interaction) {
       return [matches[0]];
     }
 

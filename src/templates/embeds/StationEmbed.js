@@ -21,7 +21,7 @@ class StationEmbed {
         if (station.connections) {
             embed.addFields({
                 name: 'Conexiones',
-                value: this._formatConnections(station.connections, station.combination),
+                value: this._formatConnections(station.connections),
                 inline: false
             });
         }
@@ -69,20 +69,18 @@ class StationEmbed {
         };
     }
 
-    static _formatConnections(connections, combination) {
+    static _formatConnections(connections) {
+        const connAr = [
+            ...(connections.lines || []),
+            ...(connections.other || []),
+            ...(connections.bikes || [])
+        ];
+
+        if (connAr.length === 0) {
+            return "Ninguna";
+        }
         
-        const connAr = [combination, connections.transports?.join(", "), connections.bikes?.join(", ")] ;
-        
- 
-        let str = connAr.join(", ");
-        
-        if (str === "" ) {
-            
-            str = "Ninguna" ;
-            
-           } 
-        
-        return str
+        return connAr.join(', ');
     }
 
     // Keeping button creation method commented but available

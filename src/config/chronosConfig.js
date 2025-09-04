@@ -1,7 +1,4 @@
-
-
 // config/chronosConfig.js
-const logger = require('../events/logger');
 
 const config = {
     // Core Configuration
@@ -89,19 +86,27 @@ const config = {
     // Job Definitions for Period Transitions
     jobs: [
         // Service start/end times
-        { name: 'service-start-weekday', schedule: '0 6 * * 1-5', task: 'announcementService.announceServiceStart' },
-        { name: 'service-end-weekday', schedule: '0 23 * * 1-5', task: 'announcementService.announceServiceEnd' },
-        { name: 'service-start-saturday', schedule: '30 6 * * 6', task: 'announcementService.announceServiceStart' },
-        { name: 'service-end-saturday', schedule: '0 23 * * 6', task: 'announcementService.announceServiceEnd' },
-        { name: 'service-start-sunday-festive', schedule: '30 7 * * 0,7', task: 'announcementService.announceServiceStart' },
-        { name: 'service-end-sunday-festive', schedule: '0 23 * * 0,7', task: 'announcementService.announceServiceEnd' },
+        { name: 'Service Start Weekday', schedule: '0 6 * * 1-5', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Weekday', schedule: '0 23 * * 1-5', task: 'statusManager.handleServiceEnd' },
+        { name: 'Service Start Saturday', schedule: '30 6 * * 6', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Saturday', schedule: '0 23 * * 6', task: 'statusManager.handleServiceEnd' },
+        { name: 'Service Start Sunday/Festive', schedule: '30 7 * * 0,7', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Sunday/Festive', schedule: '0 23 * * 0,7', task: 'statusManager.handleServiceEnd' },
 
         // Fare period transitions (weekday)
-        { name: 'fare-period-to-punta-morning', schedule: '0 7 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
-        { name: 'fare-period-to-valle-morning', schedule: '0 9 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
-        { name: 'fare-period-to-punta-evening', schedule: '0 18 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
-        { name: 'fare-period-to-valle-evening', schedule: '0 20 * * 1-5', task: 'announcementService.announceFarePeriodChange' },
-        { name: 'fare-period-to-bajo-evening', schedule: '45 20 * * 1-5', task: 'announcementService.announceFarePeriodChange' }
+        { name: 'Fare Period to Valle (Morning Start)', schedule: '0 6 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Morning)', schedule: '0 7 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Morning End)', schedule: '0 9 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Evening)', schedule: '0 18 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Evening)', schedule: '0 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Bajo (Evening)', schedule: '45 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'BAJO' },
+        { name: 'Fare Period to Noche (End of Service)', schedule: '0 23 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'NOCHE' },
+
+        // Express service transitions (weekday)
+        { name: 'Express Service Morning Start', schedule: '0 6 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Morning End', schedule: '0 9 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' },
+        { name: 'Express Service Afternoon Start', schedule: '0 18 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Afternoon End', schedule: '0 21 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' }
     ]
 };
 
