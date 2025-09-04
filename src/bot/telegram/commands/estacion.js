@@ -26,7 +26,7 @@ module.exports = {
             const stationDetails = infoProvider.getStationById(station.id);
 
             const formatter = new TelegramMessageFormatter();
-            const message = formatter.formatStationInfo(stationDetails);
+            const message = formatter.formatStationInfo(stationDetails, infoProvider);
 
             ctx.replyWithMarkdown(message);
         } catch (error) {
