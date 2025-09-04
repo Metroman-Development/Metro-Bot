@@ -28,7 +28,7 @@ module.exports = {
             await interaction.respond(
                 filteredStations.map(station => ({
                     name: `Estación ${station.name} (L${station.line_id.toUpperCase()})`,
-                    value: station.name
+                    value: station.code
                 }))
             );
         } catch (error) {
@@ -40,7 +40,7 @@ module.exports = {
     async execute(interaction, metroInfoProvider) {
         try {
             const stationId = interaction.options.getString('estacion');
-            const station = metroInfoProvider.getStationById(stationId);
+            const station = metroInfoProvider.getStation(stationId);
 
             if (!station) {
                 const errorEmbed = await createErrorEmbed('No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.');
