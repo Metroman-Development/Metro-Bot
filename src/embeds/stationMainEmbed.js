@@ -14,7 +14,7 @@ const metroConfig = require('../config/metro/metroConfig');
  * @param {object} metroData The metro data.
  * @returns {EmbedBuilder} The created embed.
  */
-function create(station, metroData) {
+function create({ station, metroData }) {
     if (!station) throw new Error('Station data is required');
 
     const normalizedStation = normalizeStationData(station);
