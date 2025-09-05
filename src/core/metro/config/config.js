@@ -17,7 +17,7 @@ module.exports = {
         periods: metroConfig.horarioPeriodos
     },*/
     fares: metroConfig.tarifario,
-    statusMapping: metroConfig.statusTypes,
+    statusTypes: metroConfig.statusTypes,
     api: {
         endpoint: metroConfig.apiEndpoint
     }

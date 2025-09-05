@@ -40,7 +40,7 @@ class DataManager extends EventEmitter {
         this.isFirstTime = true;
         this._dataVersion = `1.0.0-${Date.now()}`;
         this.lineInfoMap = new Map();
-        this.statusMapping = null;
+        this.statusTypes = null;
 
         // Service dependencies
         this.timeHelpers = TimeHelpers;
@@ -154,7 +154,7 @@ class DataManager extends EventEmitter {
             currentData.version = this._dataVersion;
 
             const jsStatusMapping = await this.dbDataManager.dbService.getAllJsStatusMapping();
-            this.statusMapping = jsStatusMapping.reduce((acc, item) => {
+            this.statusTypes = jsStatusMapping.reduce((acc, item) => {
                 acc[item.js_code] = item;
                 return acc;
             }, {});
@@ -213,7 +213,7 @@ class DataManager extends EventEmitter {
                 continue;
             }
 
-            const translatedLine = translateStatus(line, this.statusMapping);
+            const translatedLine = translateStatus(line, this.statusTypes);
 
             const sanitizedLine = {
                 ...translatedLine,
@@ -228,7 +228,7 @@ class DataManager extends EventEmitter {
                         return null;
                     }
 
-                    const translatedStation = translateStatus(station, this.statusMapping);
+                    const translatedStation = translateStatus(station, this.statusTypes);
 
                     const sanitizedStation = {
                         ...translatedStation,
@@ -491,9 +491,9 @@ class DataManager extends EventEmitter {
             data = await this.fetchNetworkStatus();
         } else if (status === 'closed') {
             const offHoursData = await this.dbDataManager._generateOffHoursData();
-            if (!this.statusMapping) {
+            if (!this.statusTypes) {
                 const jsStatusMapping = await this.dbDataManager.dbService.getAllJsStatusMapping();
-                this.statusMapping = jsStatusMapping.reduce((acc, item) => {
+                this.statusTypes = jsStatusMapping.reduce((acc, item) => {
                     acc[item.js_code] = item;
                     return acc;
                 }, {});
