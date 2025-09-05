@@ -31,7 +31,13 @@ Each station object will have the following fields:
     "display_name": "string",
     "transports": "string",
     "services": "string",
-    "accessibility": "string (newline-separated list of accessibility features)",
+    "accessibility": [
+        {
+            "type": "string",
+            "text": "string",
+            "status": "string"
+        }
+    ],
     "commerce": "string",
     "amenities": "string",
     "image_url": "string",
@@ -55,3 +61,12 @@ Each station object will have the following fields:
     }
 }
 ```
+
+## Note on `MetroInfoProvider` methods
+
+The `MetroInfoProvider` has two methods for retrieving station data:
+
+*   `getStation(stationId)`: Returns a station object with the structure defined in this document.
+*   `getStationDetails(stationName)`: Returns a differently structured object, which is used for more specific use cases.
+
+When consuming station data, prefer using `getStation` to ensure consistency.
