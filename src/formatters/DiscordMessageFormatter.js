@@ -365,6 +365,11 @@ class DiscordMessageFormatter {
     }
 
     _getStatusMapping(code) {
+        if (!metroConfig.statusMapping) {
+            console.error("metroConfig.statusMapping is not initialized.");
+            // Return a default value to avoid a crash
+            return { emoji: '❓', message: 'Desconocido' };
+        }
         const codeStr = (code || '1').toString();
         return metroConfig.statusMapping[codeStr] || metroConfig.statusMapping['1'];
     }
@@ -384,6 +389,10 @@ class DiscordMessageFormatter {
 
     formatStationStatus(station) {
         try {
+            if (!station || !station.status_data) {
+                console.error('formatStationStatus: station or station.status_data is undefined', { station_id: station?.id });
+                return this._createErrorMessage(`Error al obtener el estado de la estación ${station?.name || 'desconocida'}`);
+            }
             const enrichedStation = this._enrichStationData(station);
             const statusStyle = this._getStatusMapping(enrichedStation.status_data.js_code);
             const color = this._getColorForStatus(enrichedStation.status_data.js_code);
