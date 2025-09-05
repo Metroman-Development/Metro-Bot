@@ -32,19 +32,24 @@ module.exports = {
     },
 
     async execute(interaction) {
-        await interaction.deferReply();
-        const metroInfoProvider = MetroInfoProvider.getInstance();
-        const stationId = interaction.options.getString('estacion');
-        const station = metroInfoProvider.getStation(stationId);
+        try {
+            await interaction.deferReply();
+            const metroInfoProvider = MetroInfoProvider.getInstance();
+            const stationId = interaction.options.getString('estacion');
+            const station = metroInfoProvider.getStation(stationId);
 
-        if (!station) {
-            return await interaction.editReply({
-                content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.'
-            });
+            if (!station) {
+                return await interaction.editReply({
+                    content: '❌ No se pudo encontrar la estación especificada. Por favor, selecciónala de la lista.'
+                });
+            }
+
+            const formatter = new DiscordMessageFormatter();
+            const message = formatter.formatStationStatus(station);
+            await interaction.editReply(message);
+        } catch (error) {
+            console.error('Error executing station status command:', error);
+            await interaction.editReply({ content: '❌ Ocurrió un error al obtener el estado de la estación.' });
         }
-
-        const formatter = new DiscordMessageFormatter();
-        const message = formatter.formatStationStatus(station);
-        await interaction.editReply(message);
     }
 };
