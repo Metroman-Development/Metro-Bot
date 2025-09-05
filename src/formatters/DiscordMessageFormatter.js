@@ -375,15 +375,18 @@ class DiscordMessageFormatter {
     }
 
     _getColorForStatus(statusCode) {
-        const code = parseInt(statusCode.toString());
+        const code = parseInt((statusCode || '0').toString());
         switch (code) {
-            case 0: return '#95a5a6';
-            case 1: return '#2ecc71';
-            case 2: return '#e74c3c';
-            case 3: return '#f39c12';
-            case 4: return '#e67e22';
-            case 5: return '#4CAF50';
-            default: return '#95a5a6';
+            case 1: return '#2ecc71'; // green, abierta
+            case 2: return '#3498db'; // blue, combinación
+            case 3: return '#f1c40f'; // yellow, accesos controlados
+            case 4: return '#f1c40f'; // yellow, accesos parciales
+            case 5: return '#e74c3c'; // red, cerrada
+            case 7: return '#e67e22'; // orange, contención
+            case 8: return '#3498db'; // blue, servicio extendido solo entrada
+            case 9: return '#3498db'; // blue, servicio extendido solo salida
+            case 10: return '#2ecc71'; // green, operativa
+            default: return '#95a5a6'; // grey, default
         }
     }
 
