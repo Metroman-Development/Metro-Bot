@@ -38,14 +38,17 @@ async function performInitialization(source = 'unknown') {
         dbManagerInstance = await DatabaseManager.getInstance(dbConfig);
         const metroConfig = require('../config/metro/metroConfig');
         const statusTypesFromDb = await dbManagerInstance.query('SELECT status_type_id, status_name, emoji FROM operational_status_types');
-        const statusTypes = {};
         for (const type of statusTypesFromDb) {
-            statusTypes[type.status_type_id] = {
-                message: type.status_name,
-                emoji: type.emoji
-            };
+            const statusId = type.status_type_id.toString();
+            if (metroConfig.statusTypes[statusId]) {
+                metroConfig.statusTypes[statusId].name = type.status_name;
+                metroConfig.statusTypes[statusId].description = type.status_name;
+                metroConfig.statusTypes[statusId].emoji = type.emoji;
+                if (metroConfig.statusTypes[statusId].discordem) {
+                    metroConfig.statusTypes[statusId].discordem = type.emoji;
+                }
+            }
         }
-        metroConfig.statusTypes = statusTypes;
         logger.info('[BOOTSTRAP] Metro config initialized successfully.');
     } catch (error) {
         logger.error('[BOOTSTRAP] Failed to initialize Metro config from DB:', error);
