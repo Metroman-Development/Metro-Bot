@@ -11,8 +11,8 @@ function normalizeStationName(name) {
         .trim();
 }
 
-function translateStatus(item, statusMapping) {
-    const status = statusMapping[item.estado];
+function translateStatus(item, statusTypes) {
+    const status = statusTypes[item.estado];
     if (status) {
         item.status_type_id = status.status_type_id;
         item.severity_level = status.severity_level;

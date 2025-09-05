@@ -37,15 +37,15 @@ async function performInitialization(source = 'unknown') {
     try {
         dbManagerInstance = await DatabaseManager.getInstance(dbConfig);
         const metroConfig = require('../config/metro/metroConfig');
-        const statusTypes = await dbManagerInstance.query('SELECT status_type_id, status_name, emoji FROM operational_status_types');
-        const statusMapping = {};
-        for (const type of statusTypes) {
-            statusMapping[type.status_type_id] = {
+        const statusTypesFromDb = await dbManagerInstance.query('SELECT status_type_id, status_name, emoji FROM operational_status_types');
+        const statusTypes = {};
+        for (const type of statusTypesFromDb) {
+            statusTypes[type.status_type_id] = {
                 message: type.status_name,
                 emoji: type.emoji
             };
         }
-        metroConfig.statusMapping = statusMapping;
+        metroConfig.statusTypes = statusTypes;
         logger.info('[BOOTSTRAP] Metro config initialized successfully.');
     } catch (error) {
         logger.error('[BOOTSTRAP] Failed to initialize Metro config from DB:', error);

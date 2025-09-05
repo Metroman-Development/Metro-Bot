@@ -365,13 +365,13 @@ class DiscordMessageFormatter {
     }
 
     _getStatusMapping(code) {
-        if (!metroConfig.statusMapping) {
-            console.error("metroConfig.statusMapping is not initialized.");
+        if (!metroConfig.statusTypes) {
+            console.error("metroConfig.statusTypes is not initialized.");
             // Return a default value to avoid a crash
             return { emoji: '❓', message: 'Desconocido' };
         }
         const codeStr = (code || '1').toString();
-        return metroConfig.statusMapping[codeStr] || metroConfig.statusMapping['1'];
+        return metroConfig.statusTypes[codeStr] || metroConfig.statusTypes['1'];
     }
 
     _getColorForStatus(statusCode) {
