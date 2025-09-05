@@ -76,22 +76,6 @@ async function performInitialization(source = 'unknown') {
         const ChangeAnnouncer = require('./status/ChangeAnnouncer');
         changeAnnouncerInstance = new ChangeAnnouncer();
 
-        const SchedulerService = require('./SchedulerService');
-        schedulerServiceInstance = new SchedulerService(
-            dbManagerInstance,
-            dataManagerInstance,
-            changeAnnouncerInstance,
-            statusEmbedManagerInstance,
-            metroInfoProviderInstance,
-            'America/Santiago'
-        );
-
-        const StatusUpdater = require('./status/embeds/StatusUpdater');
-        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance, metroInfoProviderInstance, changeAnnouncerInstance);
-
-        const UpdateListener = require('./status/embeds/UpdateListener');
-        updateListenerInstance = new UpdateListener(statusUpdaterInstance);
-
         const TimeService = require('./metro/core/services/TimeService');
         timeServiceInstance = new TimeService();
 
@@ -99,6 +83,23 @@ async function performInitialization(source = 'unknown') {
         const timeHelpers = require('../utils/timeHelpers');
         const metroConfig = require('../config/metro/metroConfig');
         accessibilityServiceInstance = new AccessibilityService({ timeHelpers, config: metroConfig }, dbService);
+
+        const SchedulerService = require('./SchedulerService');
+        schedulerServiceInstance = new SchedulerService(
+            dbManagerInstance,
+            dataManagerInstance,
+            changeAnnouncerInstance,
+            statusEmbedManagerInstance,
+            metroInfoProviderInstance,
+            'America/Santiago',
+            accessibilityServiceInstance
+        );
+
+        const StatusUpdater = require('./status/embeds/StatusUpdater');
+        statusUpdaterInstance = new StatusUpdater(changeDetectorInstance, metroInfoProviderInstance, changeAnnouncerInstance);
+
+        const UpdateListener = require('./status/embeds/UpdateListener');
+        updateListenerInstance = new UpdateListener(statusUpdaterInstance);
 
         const StationManager = require('./metro/core/managers/StationManager');
         stationManagerInstance = new StationManager();
