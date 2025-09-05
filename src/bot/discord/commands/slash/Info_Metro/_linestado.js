@@ -26,15 +26,8 @@ module.exports = {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const lineId = interaction.options.getString('linea');
-        const line = metroInfoProvider.getLine(lineId);
 
-        if (!line) {
-            return await interaction.editReply({
-                content: '❌ Línea no encontrada.'
-            });
-        }
-
-        const embedData = StatusEmbeds.lineEmbed(line, metroInfoProvider.getStations(), TimeHelpers.currentTime.format('HH:mm'));
+        const embedData = StatusEmbeds.lineEmbed(lineId, metroInfoProvider, TimeHelpers.currentTime.format('HH:mm'));
         const embed = new EmbedBuilder(embedData);
         await interaction.editReply({ embeds: [embed] });
     }

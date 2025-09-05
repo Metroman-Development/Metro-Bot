@@ -105,8 +105,8 @@ module.exports = {
         const stations = metroInfoProvider.getStations();
         const metroConfig = metroInfoProvider.getConfig();
         
-        logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
         if (!lineData) {
+            logger.info(`[EmbedManager] No data found for line: ${lineId}`);
             return {
                 title: '🚇 Estado de la Línea',
                 description: '⚠️ No se pudo obtener la información de la línea.',
@@ -117,6 +117,7 @@ module.exports = {
                 }
             };
         }
+        logger.info(`[EmbedManager] Generating embed for line: ${lineData.id}`);
 
         const lineKey = lineData.id.toLowerCase();
         const lineColor = styles.lineColors?.[lineKey] || styles.defaultTheme?.primaryColor;
