@@ -29,6 +29,25 @@ async function startScheduler() {
         }
     });
 
+    // Check Accessibility job
+    scheduler.addJob({
+        name: 'check-accessibility',
+        interval: 300000, // Every 5 minutes
+        task: async () => {
+            logger.info('[SCHEDULER] Checking for accessibility updates...');
+            try {
+                if (scheduler.accessibilityService) {
+                    await scheduler.accessibilityService.checkAccessibility();
+                    logger.info('[SCHEDULER] Accessibility check complete.');
+                } else {
+                    logger.error('[SCHEDULER] AccessibilityService not available.');
+                }
+            } catch (error) {
+                logger.error('[SCHEDULER] Error during accessibility check:', error);
+            }
+        }
+    });
+
     // The change detection and network status calculation job is now handled by the DataManager.
     // The DataManager will be started by the main application process.
 

@@ -44,6 +44,21 @@ class EventEngine {
             });
         });
 
+    this.metro._subsystems.accessibilityService
+        .on(EventRegistry.ACCESSIBILITY_CHANGE, (payload) => {
+            if (!payload || !payload.data || !payload.data.changes) {
+                return this.emitError('ACCESSIBILITY_CHANGE', new Error('Invalid accessibility change payload'));
+            }
+            const { changes } = payload.data;
+            const announcements = this.metro._subsystems.changeAnnouncer.generateMessages(changes);
+            this.safeEmit(EventRegistry.SYSTEM_CHANGES, {
+                changes,
+                announcements
+            }, {
+                severity: 'medium' // Accessibility changes are medium severity
+            });
+        });
+
     // Error Handling (keep this part)
     this.metro.on(EventRegistry.ERROR, (payload) => {
         if (!payload || !payload.validate()) {

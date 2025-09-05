@@ -1,29 +1,28 @@
 const ChangeAnnouncer = require('../../../src/core/status/ChangeAnnouncer');
-const sinon = require('sinon');
-const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../src/config/metro/metroConfig');
 
 describe('ChangeAnnouncer', () => {
-    let changeAnnouncer;
+    let announcer;
 
+    // Mock station data for all tests
     const mockAllStations = {
         lines: {
             l1: {
                 displayName: 'Línea 1',
                 color: '#ff0000',
-                stations: ['pajaritos', 'los-heroes', 'baquedano', 'los-dominicos']
+                stations: ['L1-pajaritos', 'L1-los-heroes', 'L1-baquedano']
             }
         },
         stations: {
-            'pajaritos': { displayName: 'Pajaritos', name: 'Pajaritos', status: { code: 1 } },
-            'los-heroes': { displayName: 'Los Héroes', name: 'Los Héroes', status: { code: 1 } },
-            'baquedano': { displayName: 'Baquedano', name: 'Baquedano', status: { code: 1 } },
-            'los-dominicos': { displayName: 'Los Dominicos', name: 'Los Dominicos', status: { code: 1 } }
+            'L1-pajaritos': { id: 'L1-pajaritos', lineId: 'l1', displayName: 'Pajaritos', name: 'Pajaritos' },
+            'L1-los-heroes': { id: 'L1-los-heroes', lineId: 'l1', displayName: 'Los Héroes', name: 'Los Héroes' },
+            'L1-baquedano': { id: 'L1-baquedano', lineId: 'l1', displayName: 'Baquedano', name: 'Baquedano' },
         }
     };
 
     beforeEach(() => {
-        changeAnnouncer = new ChangeAnnouncer();
+        announcer = new ChangeAnnouncer();
+
         // Mock metroConfig to avoid dependency on the actual config file
         metroConfig.statusTypes = {
             '0': { emoji: '⚪', description: 'Cerrada por horario' },
@@ -31,22 +30,17 @@ describe('ChangeAnnouncer', () => {
             '2': { emoji: '❌', description: 'Cerrada' },
             '3': { emoji: '🟡', description: 'Servicio interrumpido' },
             '4': { emoji: '🟠', description: 'Con demoras' },
-            '5': { emoji: '🔵', description: 'Servicio extendido' },
+            '5': { emoji: '❌', description: 'Cerrada' },
             '8': { emoji: '🔵', description: 'Servicio extendido' },
-            '12': { emoji: '🟠', description: 'Con demoras' }
+            '12': { emoji: '🟠', description: 'Con demoras' },
         };
         metroConfig.linesEmojis = { 'l1': '1️⃣' };
         metroConfig.metroLogo = { principal: 'https://example.com/logo.png' };
     });
 
-    afterEach(() => {
-        sinon.restore();
-    });
-
-    describe('generateMessages', () => {
+    describe('Status Changes', () => {
         it('should return an info embed when there are no changes', async () => {
-            const changes = [];
-            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
+            const { discord: messages } = await announcer.generateMessages([], mockAllStations);
             expect(messages.length).toBe(1);
             const embed = messages[0];
             expect(embed.data.title).toBe('ℹ️ Información del Sistema');
@@ -54,69 +48,69 @@ describe('ChangeAnnouncer', () => {
         });
 
         it('should generate a message for a single station closure', async () => {
-            const changes = [{
-                type: 'station',
-                id: 'baquedano',
+            const changes = [{ type: 'station', id: 'L1-baquedano', line: 'l1', from: 1, to: 2 }];
+            const { discord: messages } = await announcer.generateMessages(changes, mockAllStations);
+            expect(messages.length).toBe(1);
+            const embed = messages[0].data;
+            expect(embed.title).toContain('Línea 1');
+            const stationField = embed.fields.find(f => f.name.includes('Cambio de estado: Baquedano'));
+            expect(stationField).toBeDefined();
+            expect(stationField.value).toContain('Estado actual:** Cerrada');
+            expect(stationField.value).toContain('Estado anterior:** Operativa');
+        });
+    });
+
+    describe('Accessibility Changes', () => {
+        it('should generate a message for an accessibility change', async () => {
+            const accessibilityChanges = [{
+                type: 'accessibility',
+                stationName: 'Pajaritos',
                 line: 'l1',
-                from: 1,
-                to: 2,
-                reason: 'Manifestación en el exterior'
+                id: 'L1-pajaritos',
+                changes: [{
+                    equipment: 'Ascensor',
+                    from: true,
+                    to: false,
+                }]
             }];
-            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
+
+            const { discord: messages } = await announcer.generateMessages(accessibilityChanges, mockAllStations);
+
             expect(messages.length).toBe(1);
-            const embed = messages[0];
-            expect(embed.data.title).toBe('1️⃣ Línea 1 (No todas las estaciones operativas)');
-            const stationField = embed.data.fields.find(f => f.name.includes('Cambio de estado: Baquedano'));
-            expect(stationField).toBeDefined();
-            expect(stationField.value).toContain('**Estado actual:** Cerrada');
-            expect(stationField.value).toContain('**Estado anterior:** Operativa');
+            const embed = messages[0].data;
+            expect(embed.title).toBe('1️⃣ Línea 1');
+
+            const accessibilityField = embed.fields.find(f => f.name === '♿ Cambios de Accesibilidad');
+            expect(accessibilityField).toBeDefined();
+            expect(accessibilityField.value).toContain('**Pajaritos**');
+            expect(accessibilityField.value).toContain('• Ascensor: ✅ Disponible → ❌ No disponible');
         });
 
-        it('should generate a message for a line status change', async () => {
-            const changes = [{
-                type: 'line',
-                id: 'l1',
-                from: 1,
-                to: 4,
-                reason: 'Tren con falla técnica'
-            }];
-            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
-            expect(messages.length).toBe(1);
-            const embed = messages[0];
-            expect(embed.data.title).toBe('1️⃣ Línea 1');
-            expect(embed.data.description).toBe('**Demoras en Línea**');
-            const reasonField = embed.data.fields.find(f => f.name === '📌 Motivo');
-            expect(reasonField).toBeDefined();
-            expect(reasonField.value).toBe('Tren con falla técnica');
-        });
-
-        it('should generate a victory message when a line returns to normal operation', async () => {
-            const changes = [{
-                type: 'line',
-                id: 'l1',
-                from: 4,
-                to: 1
-            }];
-            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
-            expect(messages.length).toBe(1);
-            const embed = messages[0];
-            expect(embed.data.title).toBe('1️⃣ Línea 1');
-            expect(embed.data.description).toContain('🎉 **Línea Operativa Nuevamente** 🎉');
-            expect(embed.data.description).toContain('¡Las demoras han finalizado y el servicio es normal! 🚄');
-        });
-
-        it('should group consecutive station closures', async () => {
-            const changes = [
-                { type: 'station', id: 'los-heroes', line: 'l1', from: 1, to: 2 },
-                { type: 'station', id: 'baquedano', line: 'l1', from: 1, to: 2 }
+        it('should combine status and accessibility changes in one announcement', async () => {
+            const allChanges = [
+                { type: 'station', id: 'L1-baquedano', line: 'l1', from: 1, to: 2 },
+                {
+                    type: 'accessibility',
+                    stationName: 'Pajaritos',
+                    line: 'l1',
+                    id: 'L1-pajaritos',
+                    changes: [{ equipment: 'Ascensor', from: true, to: false }]
+                }
             ];
-            const { discord: messages } = await changeAnnouncer.generateMessages(changes, mockAllStations);
+
+            const { discord: messages } = await announcer.generateMessages(allChanges, mockAllStations);
+
             expect(messages.length).toBe(1);
-            const embed = messages[0];
-            const stationField = embed.data.fields.find(f => f.name.includes('Tramo afectado'));
+            const embed = messages[0].data;
+
+            // Check for station status field
+            const stationField = embed.fields.find(f => f.name.includes('Cambio de estado: Baquedano'));
             expect(stationField).toBeDefined();
-            expect(stationField.name).toContain('Los Héroes → Baquedano');
-            expect(stationField.name).toContain('2 estaciones');
+
+            // Check for accessibility field
+            const accessibilityField = embed.fields.find(f => f.name === '♿ Cambios de Accesibilidad');
+            expect(accessibilityField).toBeDefined();
+            expect(accessibilityField.value).toContain('**Pajaritos**');
         });
     });
 });

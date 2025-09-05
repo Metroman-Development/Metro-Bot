@@ -12,12 +12,13 @@ const statusMapping = {
 };
 
 class SchedulerService {
-    constructor(db, dataManager, changeAnnouncer, statusEmbedManager, metroInfoProvider, timezone) {
+    constructor(db, dataManager, changeAnnouncer, statusEmbedManager, metroInfoProvider, timezone, accessibilityService) {
         this.db = db;
         this.dataManager = dataManager;
         this.changeAnnouncer = changeAnnouncer;
         this.statusEmbedManager = statusEmbedManager;
         this.metroInfoProvider = metroInfoProvider;
+        this.accessibilityService = accessibilityService;
         this.jobs = new Map();
         this.running = new Set();
         this.timezone = timezone;
