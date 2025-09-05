@@ -341,6 +341,34 @@ class DiscordMessageFormatter {
         }
     }
 
+    async formatLineInfo(lineInfo, userId) {
+        try {
+            if (!lineInfo) {
+                return this._createErrorMessage('Información de la línea no disponible');
+            }
+
+            const statusStyle = this._getStatusMapping(lineInfo.status.code);
+            const color = this._getColorForStatus(lineInfo.status.code);
+
+            const embed = new EmbedBuilder()
+                .setTitle(`${metroConfig.linesEmojis[lineInfo.id]} ${lineInfo.displayName}`)
+                .setColor(color)
+                .setDescription(`**Estado:** ${statusStyle.emoji} ${statusStyle.message}`)
+                .addFields(
+                    { name: 'Mensaje', value: lineInfo.app_message || 'No hay mensajes.' },
+                    { name: 'Horario', value: `${lineInfo.operating_hours_start} - ${lineInfo.operating_hours_end}` },
+                    { name: 'Estaciones', value: `${lineInfo.total_stations}`, inline: true },
+                    { name: 'Longitud', value: `${lineInfo.total_length_km} km`, inline: true }
+                )
+                .setFooter({ text: `Última actualización: ${new Date(lineInfo.updated_at).toLocaleString()}` });
+
+            return { embeds: [embed] };
+        } catch (error) {
+            console.error('[formatLineInfo] Build failed:', error);
+            return this._createErrorMessage('Error al cargar la información de la línea');
+        }
+    }
+
     async formatStationInfo(station, metroInfoProvider, userId) {
         try {
             if (!station?.id) throw new Error('Invalid station data');
