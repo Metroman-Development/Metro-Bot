@@ -1,4 +1,3 @@
-const { Interaction, Message } = require('discord.js');
 const logger = require('../events/logger');
 
 /**
@@ -8,6 +7,7 @@ const logger = require('../events/logger');
  * @param {Interaction | Message} interactionOrMessage The interaction or message where the error occurred.
  */
 async function handleCommandError(error, interactionOrMessage) {
+    const { Interaction, Message } = require('discord.js');
     if (!interactionOrMessage) {
         logger.error('handleCommandError called with null interactionOrMessage.', { error });
         return;
