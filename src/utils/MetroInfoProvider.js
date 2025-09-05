@@ -94,7 +94,7 @@ class MetroInfoProvider {
             jsStatusMapping: {},
             operationalStatusTypes: [],
             changeHistory: [],
-            systemInfo: {}
+            metroinfo: {}
         };
         this.isInitialized = true;
         this.source = 'database';
@@ -143,17 +143,17 @@ class MetroInfoProvider {
         return name.toLowerCase().replace(/\s+/g, '_');
     }
 
-    async loadMetroFromDb() {
+    async loadMetroInfoFromDb() {
         try {
             const rows = await this.databaseService.query("SELECT * FROM system_info LIMIT 1");
-            return this._transformMetro(rows[0]);
+            return this._transformMetroInfo(rows[0]);
         } catch (err) {
             // Rethrow the error to be handled by the caller
             throw err;
         }
     }
 
-    _transformMetro(data){
+    _transformMetroInfo(data){
         if (!data) return {};
         return {
             name: data.name,
@@ -394,11 +394,12 @@ class MetroInfoProvider {
     }
 
     async updateFromDb() {
-        const [lines, stations] = await Promise.all([
+        const [lines, stations, metroinfo] = await Promise.all([
             this.loadLinesFromDb(),
             this.loadStationsFromDb(),
+            this.loadMetroInfoFromDb(),
         ]);
-        this.updateData({ lines, stations });
+        this.updateData({ lines, stations, metroinfo });
         await this.fetchAndSetEventData();
     }
 

@@ -10,7 +10,7 @@ module.exports = {
         await interaction.deferReply();
         const metroInfoProvider = MetroInfoProvider.getInstance();
         const metroInfo = metroInfoProvider.getFullData();
-        const metroGeneral = metroInfo.system;
+        const metroGeneral = metroInfo.metroinfo;
 
         const embed = new EmbedBuilder()
             .setTitle(`🚇 ${metroGeneral.name}`)
