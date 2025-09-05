@@ -159,15 +159,14 @@ class AdvancedCommandLoader {
             category,
             subcommands: new Collection(),
             execute: async (interaction) => {
-                const subcommand = interaction.options.getSubcommand();
-                const handler = command.subcommands?.get(subcommand)?.execute;
+                const subcommandName = interaction.options.getSubcommand();
+                const subcommandHandler = command.subcommands?.get(subcommandName);
                 
-                if (handler) {
-                    return this.handleExecution(interaction, handler);
+                if (subcommandHandler) {
+                    return this.handleExecution(interaction, subcommandHandler);
                 }
                 return interaction.reply({
-                    content: '⚠️ Subcommand not found',
-                    ephemeral: true
+                    content: '⚠️ Subcommand not found'
                 });
             }
         };
@@ -181,8 +180,7 @@ class AdvancedCommandLoader {
             const availability = await this.checkAvailability(interaction, command);
             if (!availability.allowed) {
                 return interaction.reply({
-                    content: availability.reason,
-                    ephemeral: true
+                    content: availability.reason
                 });
             }
 
@@ -190,8 +188,7 @@ class AdvancedCommandLoader {
             const cooldownMessage = await this.checkCooldown(interaction, command);
             if (cooldownMessage) {
                 return interaction.reply({
-                    content: cooldownMessage,
-                    ephemeral: true
+                    content: cooldownMessage
                 });
             }
 
@@ -201,8 +198,7 @@ class AdvancedCommandLoader {
         } catch (error) {
             logger.error(`Error executing ${command.data?.name || 'unknown'}:`, error);
             await interaction.reply({
-                content: '❌ Error executing command',
-                ephemeral: true
+                content: '❌ Error executing command'
             }).catch(() => {});
         }
     }
@@ -256,6 +252,11 @@ class AdvancedCommandLoader {
 
     async checkCooldown(interaction, command) {
     try {
+        if (!command || !command.data || !command.data.name) {
+            logger.warn('Cooldown check skipped due to invalid command object.');
+            return null;
+        }
+
         const member = interaction.member;
         if (!member) return '⚠️ No se pudo identificar al miembro';
 

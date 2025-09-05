@@ -65,8 +65,7 @@ class SingleSelectButton extends BaseButton {
         /* Override in child classes */
         const selectedOption = this.options.find(opt => opt.id === selectedId);
         await interaction.followUp({
-            content: `You selected: ${selectedOption.label}`,
-            ephemeral: true
+            content: `You selected: ${selectedOption.label}`
         });
     }
 }

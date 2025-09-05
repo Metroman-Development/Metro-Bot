@@ -48,9 +48,9 @@ module.exports = {
     LINE_NOT_FOUND: 'data:line_not_found',
     INVALID_LINE_DATA: 'data:invalid_line_data',
     INITIAL_DATA_READY: 'data:initial_ready',   // First successful data combination
-    STATIC_DATA_LOADED: 'data:static_loaded',   // Config/static data loaded
-    DYNAMIC_DATA_LOADED: 'data:dynamic_loaded', // API data processed
-    DATA_COMBINED: 'data:combined',             // Static + dynamic merge complete
+    STATUS_DATA_LOADED: 'data:status_loaded',   // Config/status data loaded
+    DETAILS_DATA_LOADED: 'data:details_loaded', // API data processed
+    DATA_COMBINED: 'data:combined',             // Status + details merge complete
 
     // ======================
     // NETWORK EVENTS

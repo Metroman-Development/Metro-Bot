@@ -1,0 +1,15 @@
+INSERT INTO `line_platforms` VALUES
+(1,'l1',1,1,'Los Dominicos',1),
+(2,'l1',2,2,'San Pablo',1),
+(3,'l2',1,1,'Hospital El Pino',1),
+(4,'l2',2,2,'Vespucio Norte',1),
+(5,'l3',1,1,'Fernando Castillo Velasco',1),
+(6,'l3',2,2,'Plaza Quilicura',1),
+(7,'l4',1,1,'Plaza de Puente Alto',1),
+(8,'l4',2,2,'Tobalaba',1),
+(9,'l4a',1,1,'Vicuña Mackenna',1),
+(10,'l4a',2,2,'La Cisterna',1),
+(11,'l5',1,1,'Vicente Valdés',1),
+(12,'l5',2,2,'Plaza de Maipú',1),
+(13,'l6',1,1,'Los Leones',1),
+(14,'l6',2,2,'Cerrillos',1);

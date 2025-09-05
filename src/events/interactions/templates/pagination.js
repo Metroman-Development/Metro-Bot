@@ -1,7 +1,7 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
 
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 /**
  * Creates a pagination component that can be used for navigating through a list of items.
@@ -78,7 +78,7 @@ function create(options) {
         }
 
         if (interaction.user.id !== cacheData.userId) {
-            return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.', ephemeral: true });
+            return interaction.reply({ content: 'No puedes controlar los resultados de búsqueda de otra persona.' });
         }
 
         switch (action) {

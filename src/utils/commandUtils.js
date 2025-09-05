@@ -1,28 +1,36 @@
-/**
- * @file commandUtils.js
- * @description Utilities for handling command execution and interactions.
- */
-
-const { Interaction } = require('discord.js');
+const { Interaction, Message } = require('discord.js');
+const logger = require('../events/logger');
 
 /**
  * Handles errors that occur during command execution.
  * It sends a generic error message to the user and logs the full error.
  * @param {Error} error The error that was thrown.
- * @param {Interaction} interaction The interaction where the error occurred.
+ * @param {Interaction | Message} interactionOrMessage The interaction or message where the error occurred.
  */
-async function handleCommandError(error, interaction) {
-    console.error(`Error executing command for interaction ${interaction.id}:`, error);
+async function handleCommandError(error, interactionOrMessage) {
+    if (!interactionOrMessage) {
+        logger.error('handleCommandError called with null interactionOrMessage.', { error });
+        return;
+    }
+
+    logger.error(`Error executing command: ${error.message}`, {
+        error,
+        command: interactionOrMessage.id,
+        user: interactionOrMessage.user?.id || interactionOrMessage.author?.id,
+    });
 
     const errorMessage = {
-        content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.',
-        ephemeral: true,
+        content: '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.'
     };
 
-    if (interaction.deferred || interaction.replied) {
-        await interaction.editReply(errorMessage);
-    } else {
-        await interaction.reply(errorMessage);
+    if (interactionOrMessage instanceof Interaction) {
+        if (interactionOrMessage.deferred || interactionOrMessage.replied) {
+            await interactionOrMessage.followUp(errorMessage);
+        } else {
+            await interactionOrMessage.reply(errorMessage);
+        }
+    } else if (interactionOrMessage instanceof Message) {
+        await interactionOrMessage.channel.send(errorMessage.content);
     }
 }
 

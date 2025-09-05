@@ -336,8 +336,7 @@ class BipCoinSystem {
                 const channel = await client.channels.fetch(this.config.CHANNELS.VERIFICATION);
                 if (channel) {
                     await channel.send({
-                        content: `To link your Telegram account, use this verification code in Telegram: \`${code}\``,
-                        ephemeral: true
+                        content: `To link your Telegram account, use this verification code in Telegram: \`${code}\``
                     });
                 }
             }

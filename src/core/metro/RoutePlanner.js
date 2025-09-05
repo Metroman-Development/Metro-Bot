@@ -1,5 +1,4 @@
 // File: RoutePlanner.js
-require('dotenv').config();
 const logger = require('../../events/logger');
 
 

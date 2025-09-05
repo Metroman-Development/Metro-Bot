@@ -9,7 +9,7 @@ class ConfirmButton extends BaseButton {
             ...options
         });
         this.cancelStyle = options.cancelStyle || ButtonStyle.Danger;
-        this.timeout = options.timeout || 30_000; // 30 seconds
+        this.timeout = options.timeout || 300_000; // 5 minutes
     }
 
     async buildConfirmation(userId, actionMetadata) {
@@ -60,8 +60,7 @@ class ConfirmButton extends BaseButton {
 
     async handleCancel(interaction, metadata) {
         await interaction.followUp({
-            content: 'Action cancelled',
-            ephemeral: true
+            content: 'Action cancelled'
         });
     }
 }

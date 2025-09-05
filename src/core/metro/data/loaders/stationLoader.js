@@ -25,9 +25,11 @@ module.exports = {
       const id = row.station_code.toUpperCase();
       acc[id] = {
         id: id,
+        station_id: row.station_id,
         line: row.line_id,
         name: row.station_name,
-        displayName: row.station_name,
+        displayName: row.display_name || row.station_name,
+        displayOrder: row.display_order,
         status: {code: '1', message:'operational'},
         color: styles.lineColors[row.line_id] || config.defaultLineColor,
         connections: { transports: [], bikes: [] },
@@ -39,6 +41,15 @@ module.exports = {
         amenities: row.amenities,
         image: row.image_url,
         commune: row.commune,
+        address: row.address,
+        latitude: row.latitude,
+        longitude: row.longitude,
+        location: row.location,
+        opened_date: row.opened_date,
+        last_renovation_date: row.last_renovation_date,
+        created_at: row.created_at,
+        updated_at: row.updated_at,
+        combinacion: row.combinacion,
       };
       return acc;
     }, {});

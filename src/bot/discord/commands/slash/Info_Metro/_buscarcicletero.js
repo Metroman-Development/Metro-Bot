@@ -1,14 +1,11 @@
-// _buscarbike.js
-// _buscarbike.js
-// _buscarbike.js
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const BikeResultsManager = require('../../../../../events/interactions/buttons/BikeResultsManager');
-const config = require('../../../../../config/metro/metroConfig');
 const styles = require('../../../../../config/styles.json');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('cicletero')
         .setDescription('Buscar estaciones por disponibilidad de bicicletas')
         .addStringOption(option =>
@@ -28,44 +25,32 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const bikeQuery = interaction.options.getString('tipo');
-        const staticData = metro._staticData;
-        const normalizedQuery = this.normalizeString(bikeQuery);
 
-        // Find matching stations
-        const allResults = [];
-        Object.values(staticData.stations).forEach(station => {
-            const connections = station.connections
-            
-            if (!connections.bikes || !Array.isArray(connections.bikes)) return;
-            
-            const matchingServices = connections.bikes.filter(service => 
-                service && this.normalizeString(service).includes(normalizedQuery)
-            );
+        const searchCore = new SearchCore('station');
+        searchCore.setDataSource(metroInfoProvider.getFullData());
 
-            if (matchingServices.length > 0) {
-                allResults.push({
-                    id: station.id,
-                    name: station.displayName,
-                    line: station.line.toUpperCase(),
-                    matching: matchingServices,
-                    allBikes: connections.bikes,
-                    color: styles.lineColors[station.line.toLowerCase()] || '#FFA500',
-                    stationData: station
-                });
-            }
-        });
+        const results = await searchCore.search(bikeQuery, { bikeFilter: bikeQuery });
 
-        if (allResults.length === 0) {
+        if (!results || results.length === 0) {
             return interaction.editReply({
-                content: `🚴 No se encontraron estaciones con servicios de bicicletas relacionados a "${bikeQuery}"`,
-                ephemeral: true
+                content: `🚴 No se encontraron estaciones con servicios de bicicletas relacionados a "${bikeQuery}"`
             });
         }
 
-        // Create and use the manager
+        const allResults = results.map(station => ({
+            id: station.id,
+            name: station.displayName,
+            line: station.line.toUpperCase(),
+            matching: [bikeQuery],
+            allBikes: station.connections.bikes,
+            color: styles.lineColors[station.line.toLowerCase()] || '#FFA500',
+            stationData: station
+        }));
+
         const manager = new BikeResultsManager();
         const messageData = await manager.build(
             bikeQuery,

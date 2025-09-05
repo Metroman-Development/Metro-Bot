@@ -1,28 +1,20 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const os = require('os');
 
-/**
- * @file Subcommand for the 'bot' command, providing technical information about the bot.
- * @description This subcommand displays various technical details such as uptime, memory usage, and server information.
- */
 module.exports = {
-    parentCommand: 'bot',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('info')
         .setDescription('Muestra información técnica sobre el bot.'),
 
-    /**
-     * Executes the 'info' subcommand.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     */
     async execute(interaction) {
+        await interaction.deferReply();
         const { client, guild } = interaction;
-        
+
         const uptime = this.formatUptime(process.uptime());
-        
+
         const memoryUsage = process.memoryUsage().rss / 1024 / 1024;
         const totalMemory = os.totalmem() / 1024 / 1024 / 1024;
-        
+
         const embed = new EmbedBuilder()
             .setTitle('🤖 Información Técnica del Bot')
             .setColor(0x3498db)
@@ -38,8 +30,7 @@ module.exports = {
             .setFooter({ text: `Solicitado por ${interaction.user.username}` });
 
         const components = [];
-        
-        // This button is for public servers, so it's hidden in the main server.
+
         if (!guild || guild.id !== '899841261740113980') {
             const row = new ActionRowBuilder()
                 .addComponents(
@@ -51,17 +42,12 @@ module.exports = {
             components.push(row);
         }
 
-        await interaction.reply({ 
+        await interaction.editReply({
             embeds: [embed],
             components: components
         });
     },
 
-    /**
-     * Formats uptime from seconds to a human-readable string.
-     * @param {number} seconds The total seconds to format.
-     * @returns {string} The formatted uptime string (e.g., "1d 2h 3m 4s").
-     */
     formatUptime(seconds) {
         const days = Math.floor(seconds / (3600 * 24));
         seconds %= 3600 * 24;
@@ -69,7 +55,7 @@ module.exports = {
         seconds %= 3600;
         const minutes = Math.floor(seconds / 60);
         seconds = Math.floor(seconds % 60);
-        
+
         return `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 };

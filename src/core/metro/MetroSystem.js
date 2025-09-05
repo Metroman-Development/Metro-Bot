@@ -1,15 +1,11 @@
-const MetroCore = require('./core/MetroCore');
+const { MetroInfoProvider } = require('../../utils/MetroInfoProvider');
 const { EmbedBuilder } = require('discord.js');
 const SearchCore = require('./search/SearchCore');
 
-/**
- * @class MetroSystem
- * @description A class to handle Metro system reports and information.
- */
 class MetroSystem {
   constructor(options = {}) {
     this.client = options.client;
-    this.metro = null;
+    this.metroInfoProvider = null;
     this.search = new SearchCore('station', {
       similarityThreshold: 0.8,
       phoneticWeight: 0.6
@@ -17,22 +13,18 @@ class MetroSystem {
     this.searcher = new SearchCore('station');
   }
 
-  /**
-   * @description Initializes the MetroCore instance.
-   * @returns {Promise<MetroCore>} The MetroCore instance.
-   */
   async initialize() {
-    if (!this.metro) {
-      this.metro = await MetroCore.getInstance({ client: this.client });
+    this.metroInfoProvider = MetroInfoProvider.getInstance();
+    if (!this.metroInfoProvider) {
+        throw new Error('MetroInfoProvider not initialized.');
     }
+    const data = this.metroInfoProvider.getFullData();
+    this.search.setDataSource(data.stations);
+    this.searcher.setDataSource(data.stations);
     await this.searcher.init();
-    return this.metro;
+    return this.metroInfoProvider;
   }
 
-  /**
-   * @description Verifies the status of critical stations.
-   * @returns {Promise<Array<object>>} A list of verification results.
-   */
   async verifyCriticalStations() {
     const testStations = [
       { name: "Plaza Egaña", expectedLine: "l4" },
@@ -74,17 +66,14 @@ class MetroSystem {
     return results;
   }
 
-  /**
-   * @description Verifies the status of metro lines.
-   * @returns {Promise<Array<object>>} A list of verification results.
-   */
   async verifyLines() {
     const lines = ['l4', 'l5'];
     const results = [];
+    const allLines = this.metroInfoProvider.getFullData().lines;
 
     for (const lineId of lines) {
       try {
-        const line = this.metro.lines.get(lineId);
+        const line = allLines[lineId];
         if (!line) {
           throw new Error('Line not found');
         }
@@ -106,24 +95,16 @@ class MetroSystem {
     return results;
   }
 
-  /**
-   * @description Gets the overall status of the metro system.
-   * @returns {Promise<object>} An object with system status information.
-   */
   async getSystemStatus() {
-    const lines = this.metro.lines.getAll();
+    const allData = this.metroInfoProvider.getFullData();
+    const lines = Object.values(allData.lines);
     return {
       totalLines: lines.length,
       operationalLines: lines.filter(l => l.status === 'operational').length,
-      totalStations: Object.keys(this.metro.stations.getAll()).length
+      totalStations: Object.keys(allData.stations).length
     };
   }
 
-  /**
-   * @description Generates a report for critical stations.
-   * @param {Array<object>} results The verification results.
-   * @returns {EmbedBuilder} The report embed.
-   */
   generateStationReport(results) {
     const success = results.filter(r => r.status === 'success');
     const errors = results.filter(r => r.status === 'error');
@@ -147,11 +128,6 @@ class MetroSystem {
     return embed;
   }
 
-    /**
-     * @description Generates a report for metro lines.
-     * @param {Array<object>} results The verification results.
-     * @returns {EmbedBuilder} The report embed.
-     */
   generateLineReport(results) {
     const embed = new EmbedBuilder()
       .setTitle('🛤️ Reporte de Líneas')
@@ -176,11 +152,6 @@ class MetroSystem {
     return embed;
   }
 
-    /**
-     * @description Generates a report for the overall system status.
-     * @param {object} status The system status information.
-     * @returns {EmbedBuilder} The report embed.
-     */
   generateStatusReport(status) {
     return new EmbedBuilder()
       .setTitle('📡 Estado General del Sistema')
@@ -199,11 +170,6 @@ class MetroSystem {
       );
   }
 
-    /**
-     * @description Handles the 'station' subcommand.
-     * @param {Array<string>} args The command arguments.
-     * @returns {Promise<EmbedBuilder>} The response embed.
-     */
   async handleStationCommand(args) {
     if (!args || args.length === 0) {
       return new EmbedBuilder()
@@ -226,8 +192,9 @@ class MetroSystem {
       .setTitle(`🚉 Información de ${matches[0].name}`)
       .setColor(0x3498db);
 
+    const allStations = this.metroInfoProvider.getFullData().stations;
     matches.slice(0, 3).forEach((match, i) => {
-      const station = this.metro.stations.get(match.id);
+      const station = allStations[match.id];
       embed.addFields({
         name: i === 0 ? 'Mejor coincidencia' : `Alternativa ${i}`,
         value: [
@@ -243,11 +210,6 @@ class MetroSystem {
     return embed;
   }
 
-    /**
-     * @description Handles the 'line' subcommand.
-     * @param {Array<string>} args The command arguments.
-     * @returns {Promise<EmbedBuilder>} The response embed.
-     */
   async handleLineCommand(args) {
     if (!args || args.length === 0) {
       return new EmbedBuilder()
@@ -257,7 +219,8 @@ class MetroSystem {
     }
 
     const lineId = args[0].toLowerCase();
-    const line = this.metro.lines.get(lineId);
+    const allData = this.metroInfoProvider.getFullData();
+    const line = allData.lines[lineId];
 
     if (!line) {
       return new EmbedBuilder()
@@ -267,7 +230,7 @@ class MetroSystem {
     }
 
     const stations = line.stations.slice(0, 10).map(s => {
-      const station = this.metro.stations.get(s);
+      const station = allData.stations[s];
       return `${station?.name || s} (${station?.status || '?'})`;
     });
 

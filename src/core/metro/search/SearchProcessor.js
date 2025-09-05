@@ -1,4 +1,3 @@
-const SearchHelper = require('./SearchHelper.js');
 const { DisambiguationHandler } = require('disambiguate/DisambiguationHandler.js');
 const logger = require('../../../events/logger.js');
 const { EmbedBuilder } = require('discord.js');
@@ -18,17 +17,16 @@ const {
 const {
   decorateStation,
   decorateLine
-} = require('../utils/stringHandlers/decorators');
+} = require('../../../utils/stringUtils');
 const {
   isValidLine,
   isTransferStation
 } = require('../utils/stringHandlers/validators');
 
 class SearchProcessor {
-  constructor(metroCore) {
-    if (!metroCore) throw new Error('MetroCore instance required');
-    this.metroCore = metroCore;
-    this.helper = new SearchHelper(metroCore);
+  constructor(metroInfoProvider) {
+    if (!metroInfoProvider) throw new Error('MetroInfoProvider instance required');
+    this.metroInfoProvider = metroInfoProvider;
 
     // Field configuration with weights and search methods
     this.fieldConfig = {
@@ -77,7 +75,7 @@ class SearchProcessor {
       id: { weight: 1.0, searchFn: this._searchExactMatch },
       displayName: { weight: 0.9, searchFn: this._searchFuzzyMatch },
       color: { weight: 0.1, searchFn: this._searchExactMatch },
-      status: { weight: 0.3, searchFn: this._searchExactMatch },
+      status: { weight: 0.3, searchFn: (query, value) => this._searchStatusField(query, value) },
       fleet: { 
         weight: 0.4,
         searchFn: (query, value) => this._searchTrainFleet(query, value) 
@@ -106,7 +104,7 @@ class SearchProcessor {
       manufacturer: { weight: 0.6, searchFn: this._searchFuzzyMatch },
       year: { weight: 0.4, searchFn: this._searchNumeric },
       capacity: { weight: 0.3, searchFn: this._searchNumeric },
-      status: { weight: 0.7, searchFn: this._searchExactMatch },
+      status: { weight: 0.7, searchFn: (query, value) => this._searchStatusField(query, value) },
       lastMaintenance: { weight: 0.2, searchFn: this._searchDate },
       currentLocation: { weight: 0.5, searchFn: this._searchFuzzyMatch }
     };
@@ -187,7 +185,7 @@ class SearchProcessor {
   }
 
   async _searchAcrossAllFields(query, types, fields) {
-    const data = this.metroCore.getCurrentData();
+    const data = this.metroInfoProvider.getFullData();
     const results = [];
 
     for (const type of types) {
@@ -285,6 +283,15 @@ class SearchProcessor {
     return this._searchFuzzyMatch(query, accessibilityData.description || '');
   }
 
+  _searchStatusField(query, status) {
+    if (typeof status !== 'object' || status === null) return { score: 0 };
+    const values = [status.message, status.appMessage, status.normalized, status.normalizedEn];
+    const bestMatch = values
+      .map(item => this._searchFuzzyMatch(query, item))
+      .sort((a, b) => b.score - a.score)[0];
+    return bestMatch || { score: 0 };
+  }
+
   // ... (other field-specific search methods)
 
   _processResults(results, query) {
@@ -331,7 +338,7 @@ class SearchProcessor {
           line: result.item.line,
           status: result.item.status,
           transfer: decorated.isTransfer
-        });
+        }, this.metroInfoProvider);
       case 'lines':
         return `${decorated.name} ${decorateLine(result.item.id)}`;
       case 'trains':
@@ -368,7 +375,7 @@ class SearchProcessor {
   // Utility detection methods
   _looksLikeLineReference(query) {
     return /^(l|linea?)\s*[0-9]+$/i.test(query) || 
-           Object.values(this.metroCore.getCurrentData().lines || {})
+           Object.values(this.metroInfoProvider.getFullData().lines || {})
              .some(line => normalizeText(line.displayName).includes(query));
   }
 

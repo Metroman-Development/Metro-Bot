@@ -1,5 +1,4 @@
 const MemoryCache = require('./adapters/MemoryCache');
-const DatabaseCache = require('./adapters/DatabaseCache');
 const logger = require('../../events/logger');
 
 class CacheManager {
@@ -15,8 +14,7 @@ class CacheManager {
             new MemoryCache({
                 maxSize: options.memorySize || 1000,
                 gcInterval: options.gcInterval || 60000
-            }),
-            new DatabaseCache()
+            })
         ];
         
         this.stats = {
@@ -106,8 +104,7 @@ class CacheManager {
                 this.layers.map(layer => layer.cleanup())
             );
             return {
-                memory: results[0],
-                database: results[1]
+                memory: results[0]
             };
         } catch (error) {
             logger.error('CacheManager cleanup error:', error);

@@ -69,9 +69,9 @@ class StatusEmbed extends BaseEmbed {
 
 
 
-    static createStationStatus(metro, station) {
+    static async createStationStatus(metro, station) {
         const statusCode = station.status?.code || 'default';
-        const statusStyle = config.statusMapping[parseInt(statusCode)];
+        const statusStyle = config.statusTypes[parseInt(statusCode)];
         const statusText = statusStyle.message;
 
         const statusEmoji = statusStyle.emoji
@@ -81,7 +81,8 @@ class StatusEmbed extends BaseEmbed {
         if (station.transferLines.length>0){
 
             const cleanStationName = station.name.replace(/\s*L\d+[A-Z]?\s*/i, '');
-            const stationsLol = Object.values(metro.api.getProcessedData().stations)
+            const metroData = await metro.getCurrentData();
+            const stationsLol = Object.values(metroData.stations)
 
             console.log(stationsLol)
 
@@ -148,8 +149,8 @@ class StatusEmbed extends BaseEmbed {
         };
     }
 
-    static createLineStatus(metro, line) {
-    const metroData = metro.api.getProcessedData();
+    static async createLineStatus(metro, line) {
+    const metroData = await metro.getCurrentData();
     const allStations = metroData.stations;
 
     // Convert hex color to numerical
@@ -184,7 +185,7 @@ class StatusEmbed extends BaseEmbed {
     if (problematicGroups.length > 0) {
         let problemSection = '### 🚧 Estaciones con problemas\n';
         problematicGroups.forEach(group => {
-            const statusInfo = config.statusMapping[group.statusCode];
+            const statusInfo = config.statusTypes[group.statusCode];
             problemSection += `\n${statusInfo.emoji} **${group.count} estación${group.count > 1 ? 'es' : ''}:** `;
             problemSection += `${group.firstStation.displayName} → ${group.lastStation.displayName}`;
             problemSection += `\n↳ ${statusInfo.message}\n`;
@@ -229,8 +230,8 @@ class StatusEmbed extends BaseEmbed {
     );
 
     if (sideStation) {
-        const statusInfo = config.statusMapping[sideStation.status?.code] ||
-                          config.statusMapping["1"];
+        const statusInfo = config.statusTypes[sideStation.status?.code] ||
+                          config.statusTypes["1"];
 
         // Only show the full station name for the first transfer line
     //    if (index === 0) {

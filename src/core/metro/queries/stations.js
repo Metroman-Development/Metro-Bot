@@ -19,11 +19,7 @@ module.exports = ({ stationsCore, linesCore, amenitiesService }) => {
     line: (station, lineId) => station.line.toLowerCase() === lineId.toLowerCase(),
     lineStatus: (station, value) => {
       const line = getLine(station.line);
-      return line?.status === value;
-    },
-    lineType: (station, value) => {
-      const line = getLine(station.line);
-      return line?.type?.toLowerCase() === value.toLowerCase();
+      return line?.status?.code === value;
     },
 
     // Accessibility filters

@@ -1,7 +1,7 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
 
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 /**
  * Creates a navigation component, allowing users to move between different states/views.
@@ -58,7 +58,7 @@ function create(options) {
         }
 
         if (validateUser && interaction.user.id !== cacheData.userId) {
-            return interaction.reply({ content: 'You cannot control this navigation.', ephemeral: true });
+            return interaction.reply({ content: 'You cannot control this navigation.' });
         }
 
         // Navigation logic here (e.g., back, forward, to a specific view)
@@ -113,7 +113,7 @@ function backButton(targetPrefix) {
         async execute(interaction) {
             // In a real scenario, you'd need to find the parent navigation interaction
             // and trigger its 'back' action. This is non-trivial.
-            await interaction.reply({ content: 'This functionality is not fully implemented yet.', ephemeral: true });
+            await interaction.reply({ content: 'This functionality is not fully implemented yet.' });
         }
     };
 }

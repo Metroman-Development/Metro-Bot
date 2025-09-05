@@ -5,15 +5,15 @@ class ChangeAnnouncer {
     constructor() {
         this.statusMap = {
             '0' : { 
-                emoji: metroConfig.statusMapping['0'].emoji,
-                text: metroConfig.statusMapping['0'].message,
+                emoji: metroConfig.statusTypes['0'].emoji,
+                text: metroConfig.statusTypes['0'].description,
                 color: '#7289DA',
                 changeTitle: (isStation) => isStation ? 'Estación Cerrada por Horario' : 'Línea Cerrada por Horario',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '1' : { 
-                emoji: metroConfig.statusMapping['1'].emoji,
-                text: metroConfig.statusMapping['1'].message,
+                emoji: metroConfig.statusTypes['1'].emoji,
+                text: metroConfig.statusTypes['1'].description,
                 color: '#00AA00',
                 changeTitle: (isStation) => isStation ? 'Estación Operativa Nuevamente' : 'Línea Operativa Nuevamente',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`,
@@ -27,29 +27,29 @@ class ChangeAnnouncer {
                 victoryEmoji: '🎉'
             },
             '2': { 
-                emoji: metroConfig.statusMapping['2'].emoji,
-                text: metroConfig.statusMapping['2'].message,
+                emoji: metroConfig.statusTypes['5'].emoji,
+                text: metroConfig.statusTypes['5'].description,
                 color: '#FF0000',
                 changeTitle: (isStation) => isStation ? 'Estación Cerrada' : 'Línea Cerrada',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '3' : { 
-                emoji: metroConfig.statusMapping['3'].emoji,
-                text: metroConfig.statusMapping['3'].message,
+                emoji: metroConfig.statusTypes['4'].emoji,
+                text: metroConfig.statusTypes['4'].description,
                 color: '#FFA500',
                 changeTitle: (isStation) => isStation ? 'Accesos Cerrados' : 'Servicio Interrumpido',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '4' : { 
-                emoji: metroConfig.statusMapping['4'].emoji,
-                text: metroConfig.statusMapping['4'].message,
+                emoji: metroConfig.statusTypes['12'].emoji,
+                text: metroConfig.statusTypes['12'].description,
                 color: '#FFFF00',
                 changeTitle: (isStation) => isStation ? 'Demoras en Estación' : 'Demoras en Línea',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
             },
             '5' : { 
-                emoji: metroConfig.statusMapping['5'].emoji,
-                text: metroConfig.statusMapping['5'].message,
+                emoji: metroConfig.statusTypes['8'].emoji,
+                text: metroConfig.statusTypes['8'].description,
                 color: '#0000FF',
                 changeTitle: (isStation) => isStation ? 'Ruta Extendida' : 'Servicio Extendido',
                 note: (prevStatus) => `📝 Estado anterior: ${this._humanStatus(prevStatus)}`
@@ -78,8 +78,7 @@ class ChangeAnnouncer {
         if (typeof status === 'object' && status.code) {
             return this.getStatusText(status);
         }
-        return metroConfig.statusMapping[status]?.message || 
-               metroConfig.stationIcons[status]?.message || 
+        return metroConfig.statusTypes[status]?.description ||
                'Desconocido';
     }
 
@@ -88,50 +87,61 @@ class ChangeAnnouncer {
             const changeList = Array.isArray(changes) ? changes : changes.changes || [];
             
             if (changeList.length === 0) {
-                return [this._createInfoEmbed('No hay cambios para anunciar')];
+                return {
+                    discord: [this._createInfoEmbed('No hay cambios para anunciar')],
+                    telegram: [],
+                };
             }
 
             const grouped = this._groupChangesByLine(changeList);
-            const messages = [];
+            const discordMessages = [];
+            const telegramMessages = [];
             
             for (const [lineId, group] of Object.entries(grouped)) {
                 try {
-                    const embed = this._createLineEmbed(lineId, group, allStations);
-                    messages.push(embed);
+                    const discordEmbed = this._createLineEmbed(lineId, group, allStations);
+                    discordMessages.push(discordEmbed);
+
+                    const telegramMessage = await this._createTelegramMessage(lineId, group, allStations);
+                    if (telegramMessage) {
+                        telegramMessages.push(telegramMessage);
+                    }
                 } catch (error) {
                     console.error(`Error processing line ${lineId}:`, error);
-                    messages.push(this._createErrorEmbed(`Error procesando cambios para Línea ${this._formatLineNumber(lineId)}`));
+                    discordMessages.push(this._createErrorEmbed(`Error procesando cambios para Línea ${this._formatLineNumber(lineId)}`));
                 }
             }
 
-            return messages;
+            return {
+                discord: discordMessages,
+                telegram: telegramMessages,
+            };
         } catch (error) {
             console.error('Error generating messages:', error);
-            return [this._createErrorEmbed('Error al procesar actualizaciones')];
+            return {
+                discord: [this._createErrorEmbed('Error al procesar actualizaciones')],
+                telegram: [],
+            };
         }
     }
 
     getStatusEmoji(status) {
         if (typeof status === 'object' && status.code) {
-            return metroConfig.statusMapping[status.code]?.emoji || 
-                   metroConfig.stationIcons[status.code]?.emoji || 
+            return metroConfig.statusTypes[status.code]?.emoji ||
                    status.appDescription || 
                    '⚪';
         }
-        return metroConfig.statusMapping[status]?.emoji || 
-               metroConfig.stationIcons[status]?.emoji || 
+        return metroConfig.statusTypes[status]?.emoji ||
                '⚪';
     }
 
     getStatusText(status, isStation = true) {
         if (typeof status === 'object' && status.code) {
             return status.appDescription || 
-                   metroConfig.statusMapping[status.code]?.message || 
-                   metroConfig.stationIcons[status.code]?.message || 
+                   metroConfig.statusTypes[status.code]?.description ||
                    'Desconocido';
         }
-        return metroConfig.statusMapping[status]?.message || 
-               metroConfig.stationIcons[status]?.message || 
+        return metroConfig.statusTypes[status]?.description ||
                'Desconocido';
     }
 
@@ -231,31 +241,12 @@ class ChangeAnnouncer {
 
     }
 
- _checkClosedStations(group, lineData, allStations) {
-
-        return group.stationChanges.some(change => {
-
-            const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-
-            return statusCode === 2 || statusCode === 'closed';
-
-        }) || (lineData.stations || []).some(stationId => {
-
-            const station = allStations.stations?.[stationId];
-
-            const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
-
-            return statusCode === 2 || statusCode === 'closed';
-
-        });
-
-    }
 
     _addVictoryMessage(embed, statusInfo, previousStatus) {
 
         const victoryMsg = statusInfo.victoryMessage ? statusInfo.victoryMessage(previousStatus) : '';
 
-        embed.setDescription(`🎉 **${statusInfo.changeTitle(false)}** 🎉\n${victoryMsg}`);
+        embed.setDescription(`${statusInfo.victoryEmoji || '🎉'} **${statusInfo.changeTitle(false)}** ${statusInfo.victoryEmoji || '🎉'}\n${victoryMsg}`);
 
     }
 
@@ -318,15 +309,17 @@ class ChangeAnnouncer {
     }
     
     _checkClosedStations(group, lineData, allStations) {
-    return group.stationChanges.some(change => {
-        const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-        return statusCode === 2 || statusCode === 'closed';
-    }) || (lineData.stations || []).some(stationId => {
-        const station = allStations.stations?.[stationId];
-        const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
-        return statusCode === 2 || statusCode === 'closed';
-    });
-}
+        return group.stationChanges.some(change => {
+            if (!change.to) return false;
+            const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
+            return statusCode === 2 || statusCode === 'closed';
+        }) || (lineData.stations || []).some(stationId => {
+            const station = allStations.stations?.[stationId];
+            if (!station || !station.status) return false;
+            const statusCode = typeof station?.status === 'object' ? station.status.code : station?.status;
+            return statusCode === 2 || statusCode === 'closed';
+        });
+    }
 
     _addUnaffectedStationsInfo(embed, lineId, changedStations, allStations) {
 
@@ -445,8 +438,8 @@ class ChangeAnnouncer {
         const change = segment.changes.find(c => c.id === id) || {};
         
         // Get current and previous status info
-        const currentStatus = station.status || change.to || 'operational';
-        const previousStatus = change.from || station.status || 'operational';
+        const currentStatus = change.to ?? station.status ?? 'operational';
+        const previousStatus = change.from ?? station.status ?? 'operational';
         
         const statusInfo = this._getStatusInfo(currentStatus, true);
         const prevStatusInfo = this._getStatusInfo(previousStatus, true);
@@ -477,8 +470,8 @@ class ChangeAnnouncer {
         if (station.transfers?.length > 0 && 
             ((typeof currentStatus === 'object' && (currentStatus.code === 2 || currentStatus.code === 3)) || 
             currentStatus === 2 || currentStatus === 3)) {
-            const transferEmoji = metroConfig.combIcons[currentStatus.code]?.emoji || '🚫';
-            stationText += `\n   ↳ ${transferEmoji} **Transbordos:** ${metroConfig.combIcons[currentStatus.code]?.message || 'Combinaciones afectadas'}`;
+            const transferEmoji = metroConfig.statusTypes[currentStatus.code]?.emoji || '🚫';
+            stationText += `\n   ↳ ${transferEmoji} **Transbordos:** ${metroConfig.statusTypes[currentStatus.code]?.description || 'Combinaciones afectadas'}`;
         }
         
         // Add notes if available
@@ -531,47 +524,32 @@ _getCommonReason(changes) {
 }
 
     _groupChangesByLine(changes) {
-
         const groups = {};
 
-        
-
         changes.forEach(change => {
-
             let lineId = change.type === 'line' ? `${change.id}` : `${change.line || change.lineId}`;
+
+            if (!lineId || lineId === 'undefined') {
+                console.error('Change object without lineId:', change);
+                return;
+            }
 
             lineId = this._normalizeLineId(lineId);
 
-            
-
             groups[lineId] = groups[lineId] || { lineChanges: [], stationChanges: [] };
 
-            
-
             if (change.type === 'line') {
-
                 groups[lineId].lineChanges.push(change);
-
             } else {
-
                 groups[lineId].stationChanges.push({
-
                     ...change,
-
                     from: change.from,
-
                     to: change.to
-
                 });
-
             }
-
         });
 
-        
-
         return groups;
-
     }
 
     _findConsecutiveStations(lineId, stationChanges, allStations) {
@@ -702,122 +680,26 @@ _getCommonReason(changes) {
 
     }
 
-    // In ChangeAnnouncer.js, add this new method to the class
-async generateTelegramMessages(changes, allStations = { stations: {}, lines: {} }) {
-    try {
-        const changeList = Array.isArray(changes) ? changes : changes.changes || [];
-        
-        if (changeList.length === 0) {
-            return [];
-        }
 
-        const grouped = this._groupChangesByLine(changeList);
-        const messages = [];
-        
-        for (const [lineId, group] of Object.entries(grouped)) {
-            try {
-                // Skip status 0 changes (closed by schedule)
-                if (group.lineChanges.some(c => 
-                    (typeof c.to === 'object' && c.to.code === 0) || 
-                    (typeof c.from === 'object' && c.from.code === 0) ||
-                    c.to === 0 || c.from === 0)) {
-                    continue;
-                }
-
-                const lineNumber = this._formatLineNumber(lineId);
-                const lineData = allStations.lines?.[lineId] || {};
-                
-                // Process line changes
-                let lineMessage = '';
-                if (group.lineChanges.length > 0) {
-                    const lineChange = group.lineChanges[0];
-                    const statusInfo = this._getStatusInfo(lineChange.to, false);
-                    
-                    const lineEmoji = metroConfig.linesEmojis[lineId] || '🚇';
-                    const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    let muleta = lineChange.to === '4' || lineChange.to === '3' ? ' está con ' : ' está ';
-                    if (lineChange.to === '0') {
-                        muleta = ' se encuentra ';
-
-                    }
-                    
-                    if (lineChange.to === '1' || (typeof lineChange.to === 'object' && lineChange.to.code === '1')) {
-                        // Service normalized
-                        lineMessage = `${statusInfo.emoji} Servicio en #L${lineNumber} se encuentra operativo nuevamente`;
-                        
-                        if (statusInfo.victoryMessage) {
-                            lineMessage += `\n${statusInfo.victoryMessage(lineChange.from)}`;
-                        }
-                    } else {
-                        // Other line status changes
-                        lineMessage = `${statusInfo.emoji} Informamos que <b>#L${lineNumber}${muleta}${statusInfo.text}</b>`;
-                        
-                        if (lineChange.reason || lineChange.description) {
-                            lineMessage += ` ${lineChange.reason || lineChange.description}`;
-                        }
-                    }
-                    
-                    messages.push(lineMessage);
-                }
-                
-                // Process station changes (only include closed stations - status 2 or 3)
-                const closedStations = group.stationChanges.filter(change => {
-                    const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-                    return (statusCode === '2' || statusCode === '3') && 
-                           !((typeof change.from === 'object' && change.from.code === '0') || change.from === '0');
-                });
-                
-                if (closedStations.length > 0) {
-                    let stationsMessage = '';
-                    const lineName = lineData.displayName || `Línea ${lineNumber}`;
-                    
-                    // Group by status
-                    const groupedByStatus = closedStations.reduce((acc, change) => {
-                        const statusCode = typeof change.to === 'object' ? change.to.code : change.to;
-                        const statusKey = statusCode === '2' ? 'closed' : 'partial';
-                        
-                        acc[statusKey] = acc[statusKey] || [];
-                        const station = allStations.stations?.[change.id] || {};
-                        acc[statusKey].push(station.displayName || change.id);
-                        return acc;
-                    }, {});
-                    
-                    if (groupedByStatus.closed?.length > 0) {
-                        stationsMessage += `Las siguientes estaciones se encuentran sin servicio en Línea ${lineNumber}:\n\n`;
-                        stationsMessage += groupedByStatus.closed.map(name => `❌ ${name}`).join('\n');
-                    }
-                    
-                    if (groupedByStatus.partial?.length > 0) {
-                        if (stationsMessage) stationsMessage += '\n\n';
-                        stationsMessage += `Estaciones con accesos cerrados en Línea ${lineNumber}:\n\n`;
-                        stationsMessage += groupedByStatus.partial.map(name => `🟡 ${name}`).join('\n');
-                    }
-                    
-                    // Add common reason if available
-                    const commonReason = this._getCommonReason(closedStations);
-                    if (commonReason) {
-                        stationsMessage += `\n\nℹ️ Motivo: ${commonReason}`;
-                    }
-                    
-                    if (stationsMessage) {
-                        messages.push(stationsMessage);
-                    }
-                }
-                
-            } catch (error) {
-                console.error(`Error processing line ${lineId} for Telegram:`, error);
+    async _createTelegramMessage(lineId, group, allStations) {
+        // This is a simplified version of the original generateTelegramMessages method.
+        // It can be expanded to be more detailed.
+        let message = '';
+        if (group.lineChanges.length > 0) {
+            const lineChange = group.lineChanges[0];
+            const statusInfo = this._getStatusInfo(lineChange.to, false);
+            const lineNumber = this._formatLineNumber(lineId);
+            message += `${statusInfo.emoji} Línea ${lineNumber} ahora está ${statusInfo.text}.`;
+            if (lineChange.reason) {
+                message += ` Motivo: ${lineChange.reason}`;
             }
         }
-
-        console.log("Mensajes al final: ",messages)
-
-        return messages;
-    } catch (error) {
-        console.error('Error generating Telegram messages:', error);
-        return [];
+        if (group.stationChanges.length > 0) {
+            const stationNames = group.stationChanges.map(c => allStations.stations[c.id].displayName).join(', ');
+            message += ` Estaciones afectadas: ${stationNames}.`;
+        }
+        return message;
     }
-}
-
 }
 
 module.exports = ChangeAnnouncer;

@@ -1,49 +1,23 @@
-
 const { SlashCommandBuilder } = require('discord.js');
+const BaseCommand = require('../../BaseCommand');
+const actual = require('./_mtactual');
+const horarios = require('./_mthorarios');
+const diferenciada = require('./_mtdiferenciada');
+const version = require('./_mtver');
 
-// Import subcommands
-//const servicioEstado = require('./_meestado');
-const servicioHorario = require('./_mehorario');
-const servicioPeriodo = require('./_meperiodo');
-const servicioHora = require('./_mehora');
+class ServicioMetroCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('servicio-metro')
+            .setDescription('Información sobre el servicio de Metro')
+        );
+        this.category = "Metro Info";
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('servicio-metro')
-        .setDescription('Estado del servicio en tiempo real')
-        //.addSubcommand(subcommand => servicioEstado.data(subcommand))
-        .addSubcommand(subcommand => servicioHorario.data(subcommand))
-        .addSubcommand(subcommand => servicioPeriodo.data(subcommand))
-        .addSubcommand(subcommand => servicioHora.data(subcommand)),
-
-    category: "Metro Service",
-
-    async execute(interaction) {
-        const subcommand = interaction.options.getSubcommand();
-        
-        try {
-            switch(subcommand) {
-                case 'estado':
-                    return servicioEstado.execute(interaction);
-                case 'horario':
-                    return servicioHorario.execute(interaction);
-                case 'periodo':
-                    return servicioPeriodo.execute(interaction);
-                case 'hora':
-                    return servicioHora.execute(interaction);
-                default:
-                    return interaction.reply({
-                        content: '⚠️ Subcomando no reconocido',
-                        ephemeral: true
-                    });
-            }
-        } catch (error) {
-            console.error(`Error en servicio-metro ${subcommand}:`, error);
-            return interaction.reply({
-                content: '❌ Error al obtener estado del servicio',
-                ephemeral: true
-            });
-        }
+        this.addSubcommand(actual);
+        this.addSubcommand(horarios);
+        this.addSubcommand(diferenciada);
+        this.addSubcommand(version);
     }
-};
-  
+}
+
+module.exports = new ServicioMetroCommand();

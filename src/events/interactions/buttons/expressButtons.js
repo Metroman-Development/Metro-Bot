@@ -1,7 +1,7 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const cacheManager = require('../../../utils/cacheManager');
 const metroConfig = require('../../../config/metro/metroConfig');
-const MetroCore = require('../../../core/metro/core/MetroCore');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider.js');
 
 const CUSTOM_ID_PREFIX = 'expreso';
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
@@ -11,17 +11,17 @@ const STATIONS_PER_PAGE = 10;
 
 function getRouteTypes() {
     return {
-        todas: { label: 'Todas', style: ButtonStyle.Primary, emoji: metroConfig.stationIcons.redoperativa.emoji, exclusive: true },
-        verde: { label: 'Verde', style: ButtonStyle.Success, emoji: metroConfig.stationIcons.verde.emoji, filter: (s) => s.ruta === 'Ruta Verde' },
-        roja: { label: 'Roja', style: ButtonStyle.Danger, emoji: metroConfig.stationIcons.roja.emoji, filter: (s) => s.ruta === 'Ruta Roja' },
-        comun: { label: 'Común', style: ButtonStyle.Secondary, emoji: metroConfig.stationIcons.comun.emoji, filter: (s) => !s.ruta || s.ruta === 'Común' },
+        todas: { label: 'Todas', style: ButtonStyle.Primary, emoji: '🌐', exclusive: true },
+        verde: { label: 'Verde', style: ButtonStyle.Success, emoji: metroConfig.routeStyles.verde.emoji, filter: (s) => s.ruta === 'Ruta Verde' },
+        roja: { label: 'Roja', style: ButtonStyle.Danger, emoji: metroConfig.routeStyles.roja.emoji, filter: (s) => s.ruta === 'Ruta Roja' },
+        comun: { label: 'Común', style: ButtonStyle.Secondary, emoji: metroConfig.routeStyles.comun.emoji, filter: (s) => !s.ruta || s.ruta === 'Común' },
     };
 }
 
 function getStationEmoji(station) {
-    if (!station.ruta) return metroConfig.stationIcons.comun.emoji;
+    if (!station.ruta) return metroConfig.routeStyles.comun.emoji;
     const routeType = station.ruta.toLowerCase().replace('ruta ', '');
-    return metroConfig.stationIcons[routeType]?.emoji || metroConfig.stationIcons.comun.emoji;
+    return metroConfig.routeStyles[routeType]?.emoji || metroConfig.routeStyles.comun.emoji;
 }
 
 function getCurrentStations(cacheData) {
@@ -116,15 +116,12 @@ async function build(interaction, metro) {
     const userId = interaction.user.id;
     const cacheKey = `${CUSTOM_ID_PREFIX}:${userId}:${interaction.id}`;
 
-    const metroData = metro.api.getProcessedData();
-    const staticData = metro._staticData;
-    const line = metroData.lines[lineValue];
-    const allStations = Object.values(staticData.stations)
-        .filter(s => s.line === lineValue)
-        .sort((a, b) => a.order - b.order);
+    const infoProvider = new MetroInfoProvider(metro);
+    const line = infoProvider.getLineData(lineValue);
+    const allStations = infoProvider.getStationsForLine(lineValue);
 
     const cacheData = {
-        line: { id: lineValue, displayName: line.displayName, color: line.color },
+        line: { id: lineValue, displayName: line.nombre, color: line.color },
         allStations,
         currentPage: 0,
         activeRoutes: ['todas'],

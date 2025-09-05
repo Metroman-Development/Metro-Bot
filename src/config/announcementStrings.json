@@ -1,0 +1,74 @@
+{
+    "discord": {
+        "channelId": "YOUR_DISCORD_CHANNEL_ID",
+        "serviceTransition": {
+            "start": {
+                "title": "🚆 Inicio del Servicio",
+                "description": "El servicio de metro ha comenzado sus operaciones."
+            },
+            "end": {
+                "title": "🚫 Fin del Servicio",
+                "description": "El servicio de metro ha finalizado por hoy."
+            }
+        },
+        "farePeriodChange": {
+            "PUNTA": {
+                "title": "⏰ Hora Punta",
+                "description": "Se aplica tarifa de hora punta. Trenes expresos pueden estar disponibles."
+            },
+            "BAJO": {
+                "title": "🐢 Horario Bajo",
+                "description": "Se aplica tarifa reducida de horario bajo."
+            },
+            "VALLE": {
+                "title": "🕒 Hora Valle",
+                "description": "Se aplica tarifa normal de hora valle."
+            }
+        },
+        "expressTransition": {
+            "start": {
+                "title": "🚄 Inicio Trenes Expresos",
+                "description": "Trenes expresos están disponibles en la {period}."
+            },
+            "end": {
+                "title": "🚇 Fin Trenes Expresos",
+                "description": "Los trenes expresos han finalizado su operación."
+            }
+        },
+        "extendedService": {
+            "start": {
+                "title": "🕒 Horario Extendido",
+                "description": "El servicio se extenderá hasta {endTime} debido a {eventName}."
+            },
+            "end": {
+                "title": "⏰ Fin Horario Extendido",
+                "description": "El servicio ha vuelto a su horario normal."
+            }
+        },
+        "stationClosures": {
+            "title": "🚧 Estaciones Cerradas",
+            "description": "Debido a {eventName}, las siguientes estaciones están cerradas:"
+        }
+    },
+    "telegram": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "serviceTransition": {
+            "start": "🚆 *Inicio del Servicio*\nEl servicio de metro ha comenzado sus operaciones.",
+            "end": "🚫 *Fin del Servicio*\nEl servicio de metro ha finalizado por hoy."
+        },
+        "farePeriodChange": {
+            "PUNTA": "⏰ *Hora Punta*\nSe aplica tarifa de hora punta. Trenes expresos pueden estar disponibles.",
+            "BAJO": "🐢 *Horario Bajo*\nSe aplica tarifa reducida de horario bajo.",
+            "VALLE": "🕒 *Hora Valle*\nSe aplica tarifa normal de hora valle."
+        },
+        "expressTransition": {
+            "start": "🚄 *Inicio Trenes Expresos*\nTrenes expresos están disponibles en la {period}.",
+            "end": "🚇 *Fin Trenes Expresos*\nLos trenes expresos han finalizado su operación."
+        },
+        "extendedService": {
+            "start": "🕒 *Horario Extendido*\nEl servicio se extenderá hasta {endTime} debido a {eventName}.",
+            "end": "⏰ *Fin Horario Extendido*\nEl servicio ha vuelto a su horario normal."
+        },
+        "stationClosures": "🚧 *Estaciones Cerradas*\nDebido a {eventName}, las siguientes estaciones están cerradas:"
+    }
+}

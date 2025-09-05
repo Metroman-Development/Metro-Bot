@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
+const TimeHelpers = require('../../../../../utils/timeHelpers');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
@@ -103,7 +103,7 @@ module.exports = {
             if (hours.isExtended) {
                 embed.addFields({
                     name: '⚠️ Horario extendido',
-                    value: `Servicio extendido hasta **${hours.extension[1]}**\n${metroConfig.stationIcons[5].emoji} ${metroConfig.stationIcons[5].message}`,
+                    value: `Servicio extendido hasta **${hours.extension[1]}**\n${metroConfig.statusTypes['5'].emoji} ${metroConfig.statusTypes['5'].description}`,
                     inline: false
                 });
             }
@@ -113,8 +113,7 @@ module.exports = {
         } catch (error) {
             console.error('Error en /metro-estado periodo:', error);
             await interaction.editReply({
-                content: '❌ Error al obtener información del período operacional',
-                ephemeral: true
+                content: '❌ Error al obtener información del período operacional'
             });
         }
     }

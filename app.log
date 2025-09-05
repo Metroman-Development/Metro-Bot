@@ -1,24 +1,5 @@
-Starting the bot in PRODUCTION mode.
--------------------------------------
-INFO: Loaded configuration from config.json
-ℹ️ [2025-08-16T14:17:16.008Z] [INFO] [index.js:24] [startComponent] [DiscordBot] starting...
-ℹ️ [2025-08-16T14:17:16.012Z] [INFO] [index.js:24] [startComponent] [TelegramBot] starting...
-ℹ️ [2025-08-16T14:17:16.018Z] [INFO] [index.js:24] [startComponent] [Scheduler] starting...
-ℹ️ [2025-08-16T14:17:16.588Z] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
-{
-  name: 'accesibilidad',
-  description: 'Buscar estaciones por estado de accesibilidad',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /accesibilidad
-{
-  execute: [AsyncFunction: execute],
-  description: 'Muestra todos los comandos disponibles y su descripción'
-}
-Registered command: /ayuda
-{ execute: [Function: execute] }
-Registered command: /bot
-ℹ️ [2025-08-16T14:17:16.700Z] [INFO] [bootstrap.js:7] [initialize] [DISCORD] Initializing...
+Hello from index.js
+[Master] Initializing master process...
 [DB] Creating new DatabaseManager instance
 [DB] Initializing new DatabaseManager instance
 [DB] Starting initialization...
@@ -26,50 +7,22 @@ Registered command: /bot
   host: '127.0.0.1',
   user: 'metroapi',
   password: 'Metro256',
-  database: 'MetroDB'
+  database: 'MetroDB',
+  port: 3306
 }
-[DB] Connection pool created, testing connection...
-[DB] Acquiring connection for health check...
-ℹ️ [2025-08-16T14:17:16.718Z] [INFO] [bootstrap.js:7] [initialize] [SCHEDULER] Initializing...
-[DB] Creating new DatabaseManager instance
-[DB] Initializing new DatabaseManager instance
-[DB] Starting initialization...
-[DB] Creating new connection pool with config: {
+{
   host: '127.0.0.1',
   user: 'metroapi',
   password: 'Metro256',
-  database: 'MetroDB'
+  database: 'MetroDB',
+  port: 3306
 }
 [DB] Connection pool created, testing connection...
 [DB] Acquiring connection for health check...
-{
-  name: 'estacion',
-  description: 'Muestra información sobre una estación de metro.',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /estacion
-{
-  name: 'intermodal',
-  description: 'Muestra información de una estación intermodal.',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /intermodal
-{
-  name: 'linea',
-  description: 'Muestra información de una línea del Metro de Santiago.',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /linea
-{
-  name: 'metro',
-  description: 'Muestra información general del Metro de Santiago.',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /metro
-{
-  name: 'tarifa',
-  description: 'Muestra las tarifas del Metro de Santiago.',
-  execute: [AsyncFunction: execute]
-}
-Registered command: /tarifa
-ℹ️ [2025-08-16T14:17:16.769Z] [INFO] [telegram-bot.js:9] [startTelegramBot] [TELEGRAM] ✅ Telegram bot launched successfully.
+[DB] Executing ping test...
+[DB] Connection test successful
+[DB] Releasing health check connection
+[DB] Connection established successfully
+[DB] Starting health checks every 60 seconds
+[DB] Initialization completed successfully
+ℹ️ [2025-08-30T22:32:12-04:00] [INFO] [index.js:45] [main] [Master] ✅ DatabaseManager initialized successfully.

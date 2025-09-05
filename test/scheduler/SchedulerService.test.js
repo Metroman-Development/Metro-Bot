@@ -1,4 +1,5 @@
-const SchedulerService = require('../../src/core/chronos/SchedulerService');
+const SchedulerService = require('../../src/core/SchedulerService');
+const schedule = require('node-schedule');
 const logger = require('../../src/events/logger');
 
 // Mock the logger to prevent console output during tests
@@ -6,80 +7,175 @@ jest.mock('../../src/events/logger', () => ({
     info: jest.fn(),
     error: jest.fn(),
     debug: jest.fn(),
+    warn: jest.fn(),
 }));
+
+// Mock node-schedule
+jest.mock('node-schedule', () => ({
+    scheduleJob: jest.fn(),
+    RecurrenceRule: jest.fn().mockImplementation(() => ({
+        tz: '',
+    })),
+}));
+
 
 describe('SchedulerService', () => {
     let scheduler;
+    let mockDb, mockDataManager, mockChangeAnnouncer, mockStatusEmbedManager, mockMetroInfoProvider;
 
     beforeEach(() => {
-        scheduler = new SchedulerService();
+        mockDb = {};
+        mockDataManager = {};
+        mockChangeAnnouncer = {};
+        mockStatusEmbedManager = {};
+        mockMetroInfoProvider = {};
+
+        scheduler = new SchedulerService(
+            mockDb,
+            mockDataManager,
+            mockChangeAnnouncer,
+            mockStatusEmbedManager,
+            mockMetroInfoProvider,
+            'America/Santiago'
+        );
         jest.useFakeTimers();
     });
 
     afterEach(() => {
         scheduler.stop();
         jest.useRealTimers();
+        jest.restoreAllMocks();
     });
 
-    it('should add a job to the jobs list', () => {
+    it('should add a job to the jobs map', () => {
         const job = { name: 'test-job', interval: 1000, task: () => {} };
         scheduler.addJob(job);
-        expect(scheduler.jobs).toHaveLength(1);
-        expect(scheduler.jobs[0]).toEqual(job);
+        expect(scheduler.getJob('test-job')).toBeDefined();
     });
 
     it('should throw an error if a job is missing required properties', () => {
         const invalidJob = { name: 'invalid-job', interval: 1000 }; // Missing task
-        expect(() => scheduler.addJob(invalidJob)).toThrow('Job must have a name, interval, and task');
+        expect(() => scheduler.addJob(invalidJob)).toThrow('Job must have a name, task, and either an interval or schedule.');
     });
 
-    it('should start running jobs when start is called', () => {
+    it('should start running jobs when start is called', async () => {
         const task = jest.fn();
         const job = { name: 'test-job', interval: 1000, task };
         scheduler.addJob(job);
         scheduler.start();
 
-        // Fast-forward time by 1 second
-        jest.advanceTimersByTime(1000);
+        // The job should start immediately
         expect(task).toHaveBeenCalledTimes(1);
 
-        // Fast-forward time by another second
-        jest.advanceTimersByTime(1000);
+        // Fast-forward time by 1 second
+        await jest.advanceTimersByTimeAsync(1000);
         expect(task).toHaveBeenCalledTimes(2);
     });
 
-    it('should stop all running jobs when stop is called', () => {
+    it('should stop all running jobs when stop is called', async () => {
         const task = jest.fn();
         const job = { name: 'test-job', interval: 1000, task };
         scheduler.addJob(job);
         scheduler.start();
 
-        // Fast-forward time by 1 second
-        jest.advanceTimersByTime(1000);
+        // The job should start immediately
         expect(task).toHaveBeenCalledTimes(1);
 
         scheduler.stop();
 
         // Fast-forward time by another second
-        jest.advanceTimersByTime(1000);
+        await jest.advanceTimersByTimeAsync(1000);
         expect(task).toHaveBeenCalledTimes(1); // Should not have been called again
     });
 
-    it('should handle errors in tasks without stopping the scheduler', () => {
-        const failingTask = jest.fn(() => {
+    it('should handle errors in tasks without stopping the scheduler', async () => {
+        const failingTask = jest.fn(async () => {
             throw new Error('Task failed');
         });
         const job = { name: 'failing-job', interval: 1000, task: failingTask };
         scheduler.addJob(job);
         scheduler.start();
 
-        // Fast-forward time by 1 second
-        jest.advanceTimersByTime(1000);
+        // The job should start immediately
         expect(failingTask).toHaveBeenCalledTimes(1);
+
+        // Wait for the task to finish
+        await Promise.resolve();
+
         expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('Error in job failing-job'), expect.any(Error));
 
         // Fast-forward time by another second to ensure the scheduler is still running
-        jest.advanceTimersByTime(1000);
+        await jest.advanceTimersByTimeAsync(1000);
         expect(failingTask).toHaveBeenCalledTimes(2);
+    });
+
+    it('should not run a job if it is already running', async () => {
+        const longRunningTask = jest.fn(async () => {
+            // Simulate a long-running task
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        });
+        const job = { name: 'long-running-job', interval: 1000, task: longRunningTask };
+        scheduler.addJob(job);
+        scheduler.start();
+
+        // The job should start immediately
+        expect(longRunningTask).toHaveBeenCalledTimes(1);
+
+        // Fast-forward time by 1 second. The job should still be running.
+        jest.advanceTimersByTime(1000);
+
+        // The job should not have been called again because it's still running
+        expect(longRunningTask).toHaveBeenCalledTimes(1);
+
+        // Let the original task finish
+        await jest.advanceTimersByTimeAsync(1000);
+
+        // Now that the first task has finished, the next one should be scheduled and run
+        jest.advanceTimersByTime(1000);
+        expect(longRunningTask).toHaveBeenCalledTimes(2);
+    });
+
+    it('should not schedule duplicate timers if start() is called multiple times', async () => {
+        const task = jest.fn();
+        const job = { name: 'test-job', interval: 1000, task };
+        scheduler.addJob(job);
+
+        // Call start, which runs the job immediately
+        scheduler.start();
+        expect(task).toHaveBeenCalledTimes(1);
+
+        // Calling start again should not start the job again immediately,
+        // but it would, in the buggy version, schedule a second timer.
+        scheduler.start();
+        expect(task).toHaveBeenCalledTimes(1);
+
+        // A warning should be logged for the second start() call because the job is running.
+        expect(logger.warn).toHaveBeenCalledWith('[SchedulerService] Job "test-job" is already running. Skipping this execution.');
+
+        // Fast-forward time by 1 second
+        await jest.advanceTimersByTimeAsync(1000);
+
+        // The task should have been called again only once.
+        // If the bug existed, it would be called twice in quick succession.
+        expect(task).toHaveBeenCalledTimes(2);
+
+        // Fast-forward time by another second
+        await jest.advanceTimersByTimeAsync(1000);
+        expect(task).toHaveBeenCalledTimes(3);
+    });
+
+    it('should schedule a cron job with the correct timezone', () => {
+        const task = jest.fn();
+        const job = { name: 'cron-job', schedule: '* * * * *', task };
+
+        scheduler.addJob(job);
+        scheduler.start();
+
+        expect(schedule.scheduleJob).toHaveBeenCalled();
+
+        const firstCallArgs = schedule.scheduleJob.mock.calls[0];
+        const rule = firstCallArgs[0];
+
+        expect(rule.tz).toBe('America/Santiago');
     });
 });

@@ -15,9 +15,9 @@ const handleInteractionError = (interaction, error) => {
         : '❌ An error occurred while processing this interaction.';
 
     if (interaction.deferred || interaction.replied) {
-        return interaction.followUp({ content, ephemeral: true });
+        return interaction.followUp({ content });
     }
-    return interaction.reply({ content, ephemeral: true });
+    return interaction.reply({ content });
 };
 
 // Standard timeout setup for interactions

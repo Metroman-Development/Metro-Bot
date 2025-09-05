@@ -120,8 +120,7 @@ class BaseButton {
      */
     async handleInvalidInteraction(interaction) {
         await interaction.editReply({
-            content: '❌ Invalid button configuration',
-            ephemeral: true
+            content: '❌ Invalid button configuration'
         });
     }
 
@@ -131,8 +130,7 @@ class BaseButton {
      */
     async handleCooldown(interaction) {
         await interaction.reply({
-            content: '⏳ Please wait before using this button again',
-            ephemeral: true
+            content: '⏳ Please wait before using this button again'
         });
     }
 
@@ -146,8 +144,7 @@ class BaseButton {
         console.error(`[${this.constructor.name}] Error ${errorId}:`, error);
 
         const response = {
-            content: `❌ An error occurred (ID: ${errorId})`,
-            ephemeral: true
+            content: `❌ An error occurred (ID: ${errorId})`
         };
 
         if (interaction.deferred || interaction.replied) {

@@ -1,47 +1,27 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getMetroCore } = require('../../../../../utils/metroUtils');
-const { handleCommandError } = require('../../../../../utils/commandUtils');
+const BaseCommand = require('../../BaseCommand');
 const estado = require('./_estestado');
 const info = require('./_estinfo');
 
-/**
- * @file Command for retrieving information about a specific metro station.
- * @description This command provides access to various subcommands related to a metro station, such as its status and general information.
- */
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('estacion')
-        .setDescription('Proporciona información sobre una estación de metro específica.')
-        .addSubcommand(subcommand => estado.data(subcommand))
-        .addSubcommand(subcommand => info.data(subcommand)),
+class EstacionCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('estacion')
+            .setDescription('Proporciona información sobre una estación de metro específica.')
+        );
+        this.category = "Metro Info";
 
-    category: "Metro Info",
-    
-    /**
-     * Executes the 'estacion' command.
-     * @param {import('discord.js').Interaction} interaction The interaction object.
-     */
-    async execute(interaction) {
-        const subcommand = interaction.options.getSubcommand();
-        
-        try {
-            // Ensure MetroCore is available before executing any subcommand.
-            const metro = await getMetroCore(interaction);
-            
-            // Route to the appropriate subcommand handler.
-            switch(subcommand) {
-                case 'estado':
-                    return estado.execute(interaction, metro); 
-                case 'info':
-                    return info.execute(interaction, metro);
-                default:
-                    return interaction.reply({ 
-                        content: '⚠️ Subcomando no reconocido. Por favor, elige una de las opciones disponibles.',
-                        ephemeral: true 
-                    });
-            }
-        } catch (error) {
-            await handleCommandError(error, interaction);
+        this.addSubcommand(estado);
+        this.addSubcommand(info);
+    }
+
+    async autocomplete(interaction) {
+        const subcommandName = interaction.options.getSubcommand();
+        const subcommand = this.subcommands.get(subcommandName);
+        if (subcommand && subcommand.autocomplete) {
+            await subcommand.autocomplete(interaction);
         }
     }
-};
+}
+
+module.exports = new EstacionCommand();

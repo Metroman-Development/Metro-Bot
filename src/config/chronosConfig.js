@@ -1,7 +1,4 @@
-
-
 // config/chronosConfig.js
-const logger = require('../events/logger');
 
 const config = {
     // Core Configuration
@@ -84,7 +81,33 @@ const config = {
         afternoon: { start: "13:00", end: "18:00" },
         evening: { start: "19:00", end: "23:00" },
         default: { start: "12:00", end: "20:00" }
-    }
+    },
+
+    // Job Definitions for Period Transitions
+    jobs: [
+        // Service start/end times
+        { name: 'Service Start Weekday', schedule: '0 6 * * 1-5', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Weekday', schedule: '0 23 * * 1-5', task: 'statusManager.handleServiceEnd' },
+        { name: 'Service Start Saturday', schedule: '30 6 * * 6', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Saturday', schedule: '0 23 * * 6', task: 'statusManager.handleServiceEnd' },
+        { name: 'Service Start Sunday/Festive', schedule: '30 7 * * 0,7', task: 'statusManager.handleServiceStart' },
+        { name: 'Service End Sunday/Festive', schedule: '0 23 * * 0,7', task: 'statusManager.handleServiceEnd' },
+
+        // Fare period transitions (weekday)
+        { name: 'Fare Period to Valle (Morning Start)', schedule: '0 6 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Morning)', schedule: '0 7 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Morning End)', schedule: '0 9 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Punta (Evening)', schedule: '0 18 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'PUNTA' },
+        { name: 'Fare Period to Valle (Evening)', schedule: '0 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'VALLE' },
+        { name: 'Fare Period to Bajo (Evening)', schedule: '45 20 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'BAJO' },
+        { name: 'Fare Period to Noche (End of Service)', schedule: '0 23 * * 1-5', task: 'statusManager.handleFarePeriodChange', period: 'NOCHE' },
+
+        // Express service transitions (weekday)
+        { name: 'Express Service Morning Start', schedule: '0 6 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Morning End', schedule: '0 9 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' },
+        { name: 'Express Service Afternoon Start', schedule: '0 18 * * 1-5', task: 'metroInfoProvider.activateExpressService' },
+        { name: 'Express Service Afternoon End', schedule: '0 21 * * 1-5', task: 'metroInfoProvider.deactivateExpressService' }
+    ]
 };
 
 module.exports = config;

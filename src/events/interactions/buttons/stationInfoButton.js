@@ -3,7 +3,7 @@ const DiscordMessageFormatter = require('../../../formatters/DiscordMessageForma
 const StationEmbedHub = require('../../../templates/embeds/StationEmbedHub');
 
 const CUSTOM_ID_PREFIX = 'stationInfo';
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 function _getCacheKey(stationId, userId) {
     return `${CUSTOM_ID_PREFIX}:${userId}:${stationId}`;
@@ -11,21 +11,32 @@ function _getCacheKey(stationId, userId) {
 
 async function execute(interaction) {
     try {
+        await interaction.deferUpdate();
+    } catch (error) {
+        if (error.code === 10062) {
+            console.warn(`[stationInfoButton.js] Global handler caught an expired interaction. Code: ${error.code}. This is likely a race condition and can be ignored.`);
+            return;
+        }
+        console.error('[stationInfoButton.js] Global handler failed to defer update:', error);
+        return;
+    }
+
+    try {
         const [,,, stationId, tabId, userId] = interaction.customId.split(':');
 
         if (interaction.user.id !== userId) {
-            return interaction.reply({ content: 'No puedes interactuar con los botones de otra persona.', ephemeral: true });
+            return interaction.followUp({ content: 'No puedes interactuar con los botones de otra persona.' });
         }
 
         const cacheKey = _getCacheKey(stationId, userId);
         const cacheData = cacheManager.get(cacheKey);
 
         if (!cacheData) {
-            return interaction.update({
+            return interaction.editReply({
                 content: 'Esta búsqueda ha expirado. Por favor, realiza una nueva búsqueda.',
                 embeds: [],
                 components: [],
-            }).catch(err => console.error("Error updating expired interaction:", err));
+            });
         }
 
         const embedHub = new StationEmbedHub({ config: require('../../../config/metro/metroConfig') });
@@ -38,10 +49,11 @@ async function execute(interaction) {
         }
 
         const formatter = new DiscordMessageFormatter();
-        await interaction.update(formatter._createStationMessage(cacheData, userId));
+        const messagePayload = await formatter._createStationMessage(cacheData, userId);
+        await interaction.editReply(messagePayload);
     } catch (error) {
         console.error('[stationInfoButton] Interaction failed:', error);
-        await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.', ephemeral: true }).catch(e => { });
+        await interaction.followUp({ content: 'Ocurrió un error al procesar la interacción.' }).catch(e => { });
     }
 }
 

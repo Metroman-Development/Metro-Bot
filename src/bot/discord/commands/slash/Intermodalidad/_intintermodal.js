@@ -1,9 +1,9 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const intermodalButtonsHandler = require('../../../../../events/interactions/buttons/intermodalButtons.js');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'intermodalidad',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('intermodal')
         .setDescription('Información sobre estaciones intermodales')
         .addStringOption(option =>
@@ -22,33 +22,22 @@ module.exports = {
                 )
         ),
 
-    async execute(interaction, metro) {
-        try {
-            await interaction.deferReply();
-            
-            const stationName = interaction.options.getString('estacion');
-            const normalizedId = stationName.toLowerCase().replace(/\s+/g, '_');
-            const stationInfo = metro._staticData.intermodal?.[normalizedId];
+    async execute(interaction) {
+        await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const stationName = interaction.options.getString('estacion');
+        const stationInfo = metroInfoProvider.getIntermodalBuses(stationName);
 
-            if (!stationInfo) {
-                return interaction.editReply({
-                    content: 'ℹ️ No se encontró información para esta estación.',
-                    ephemeral: true
-                });
-            }
-
-            // Add the station name to the info object for the embed builder
-            stationInfo.name = stationName;
-            stationInfo.id = normalizedId;
-
-            const response = await intermodalButtonsHandler.build(interaction, stationInfo);
-            await interaction.editReply(response);
-        } catch (error) {
-            console.error('Error en /intermodal:', error);
-            await interaction.editReply({
-                content: '❌ Error al cargar la información.',
-                ephemeral: true
+        if (!stationInfo) {
+            return interaction.editReply({
+                content: 'ℹ️ No se encontró información para esta estación.'
             });
         }
+
+        stationInfo.name = stationName;
+        stationInfo.id = stationName.toLowerCase().replace(/\s+/g, '_');
+
+        const response = await intermodalButtonsHandler.build(interaction, stationInfo);
+        await interaction.editReply(response);
     }
 };

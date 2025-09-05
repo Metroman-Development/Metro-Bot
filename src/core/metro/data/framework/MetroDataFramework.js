@@ -1,6 +1,6 @@
 // modules/metro/data/framework/MetroDataFramework.js
 // modules/metro/data/framework/MetroDataFramework.js
-// modules/metro/data/framework/MetroDataFramework.js
+const { mkdirSync, accessSync } = require('fs');
 const fs = require('fs').promises;
 const path = require('path');
 const EventEmitter = require('events');
@@ -21,7 +21,7 @@ class MetroDataFramework {
 
   async loadNetwork() {
     try {
-      await this._ensureBaseStructure();
+      this._ensureBaseStructure();
       const lineDirs = await this._getLineDirectories();
       
       for (const lineId of lineDirs) {
@@ -45,7 +45,7 @@ class MetroDataFramework {
       const stationKey = this._createStationKey(lineId, stationId);
       const stationPath = this._getStationPath(lineId, data.basicInfo?.code || stationId);
 
-      await this._ensureLineDirectory(lineId);
+      this._ensureLineDirectory(lineId);
       
       const updatedData = {
         ...data,
@@ -116,20 +116,20 @@ class MetroDataFramework {
     return `${lineId.toLowerCase()}:${stationId.toLowerCase()}`;
   }
 
-  async _ensureBaseStructure() {
+  _ensureBaseStructure() {
     try {
-      await fs.access(this.basePath);
+      accessSync(this.basePath);
     } catch {
-      await fs.mkdir(this.basePath, { recursive: true });
+      mkdirSync(this.basePath, { recursive: true });
     }
   }
 
-  async _ensureLineDirectory(lineId) {
+  _ensureLineDirectory(lineId) {
     const linePath = path.join(this.basePath, lineId);
     try {
-      await fs.access(linePath);
+      accessSync(linePath);
     } catch {
-      await fs.mkdir(linePath, { recursive: true });
+      mkdirSync(linePath, { recursive: true });
     }
   }
 

@@ -2,19 +2,19 @@ const logger = require('../../../events/logger');
 const AnnouncementManager = require('./AnnouncementManager');
 const { EmbedBuilder } = require('discord.js');
 const EventRegistry = require('../../../core/EventRegistry');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const moment = require('moment-timezone');
 
 class AnnouncementHandler {
-    constructor(statusUpdater) {
+    constructor(statusUpdater, changeAnnouncer) {
         if (!statusUpdater) throw new Error('StatusUpdater instance required');
         
         this.parent = statusUpdater;
-        this.manager = new AnnouncementManager(
-            this.parent.client, 
+        this.manager = this.parent.client ? new AnnouncementManager(
+            this.parent.client,
             this.parent.UI_STRINGS
-        );
-        this.announcer = this.parent.metroCore._subsystems.changeAnnouncer;
+        ) : null;
+        this.announcer = changeAnnouncer;
         this.timeHelpers = TimeHelpers;
         this._timeEventHandlers = new Map();
 
@@ -169,6 +169,7 @@ class AnnouncementHandler {
     /* ====================== */
 
     async initialize() {
+        if (!this.manager) return;
         try {
             logger.debug('[AnnouncementHandler] Initializing AnnouncementManager');
             const success = await this.manager.initialize();
@@ -423,11 +424,14 @@ class AnnouncementHandler {
 
     enableDebugMode() {
         logger.debug('[AnnouncementHandler] Enabling debug mode');
-        this.manager.enableDebugMode();
+        if (this.manager) {
+            this.manager.enableDebugMode();
+        }
         return this;
     }
 
     async processChangeMessages(messages, severity) {
+        if (!this.manager) return;
         try {
             logger.debug('[AnnouncementHandler] Processing change messages', {
                 messageCount: messages.length,
@@ -444,6 +448,7 @@ class AnnouncementHandler {
     }
 
     async sendEventAnnouncement(data) {
+        if (!this.manager) return;
         try {
             logger.debug('[AnnouncementHandler] Sending event announcement');
             await this.manager.sendEventAnnouncement(data);
@@ -464,8 +469,8 @@ class AnnouncementHandler {
             });
 
             if (!allStations) {
-                logger.warn('[AnnouncementHandler] No allStations provided, using metroCore data');
-                allStations = this.parent.metroCore.getCurrentData();
+                logger.warn('[AnnouncementHandler] No allStations provided, using metroInfoProvider data');
+                allStations = this.parent.metroInfoProvider.getFullData();
             }
 
             const embeds = await this.announcer.generateMessages(changes, allStations);
@@ -473,7 +478,9 @@ class AnnouncementHandler {
                 count: embeds.length
             });
             
-            await this.manager.processChangeMessages(embeds, 'medium');
+            if (this.manager) {
+                await this.manager.processChangeMessages(embeds.discord, 'medium');
+            }
             return embeds;
         } catch (error) {
             logger.error('[AnnouncementHandler] Failed to generate messages', {
@@ -485,6 +492,7 @@ class AnnouncementHandler {
     }
 
     async sendEmbed(embed, severity = 'medium') {
+        if (!this.manager) return;
         try {
             logger.debug('[AnnouncementHandler] Sending direct embed');
             await this.manager._sendSafeEmbed(embed, 'system', severity);

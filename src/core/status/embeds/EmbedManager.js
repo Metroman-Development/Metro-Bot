@@ -1,34 +1,17 @@
 // modules/status/EmbedManager.js
+const { EmbedBuilder } = require('discord.js');
 const logger = require('../../../events/logger');
 const StatusEmbeds = require('../../../config/statusEmbeds');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const EventRegistry = require('../../../core/EventRegistry');
 const EventPayload = require('../../../core/EventPayload');
 const { setTimeout } = require('timers/promises');
-
-function _transformToRawStation(station) {
-    return {
-        codigo: station.id,
-        nombre: station.name,
-        estado: station.status,
-        descripcion: station.description,
-        descripcion_app: station.description_app,
-        combinacion: station.transfer || '',
-    };
-}
-
-function _transformToRawLine(line) {
-    return {
-        estado: line.status,
-        mensaje: line.message,
-        mensaje_app: line.message_app,
-        estaciones: line.stations?.map(_transformToRawStation) || [],
-    };
-}
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 
 class EmbedManager {
     constructor(statusUpdater) {
         this.parent = statusUpdater;
+        this.infoProvider = MetroInfoProvider.getInstance();
         this.embedMessages = new Map();
         this.isFetchingEmbeds = false;
         this.areEmbedsReady = false;
@@ -95,72 +78,74 @@ class EmbedManager {
  * @returns {Promise<void>}
  */
 async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false } = {}) {
-    // 1. Check if we should queue or proceed
-    if (!this.areEmbedsReady && !force) {
-        logger.debug('[EmbedManager] Embeds not ready, queuing update');
-        this._queueUpdate('full', { data, changes });
-        return;
-    }
-
-    if (this._updateLock && !bypassQueue) {
-        logger.debug('[EmbedManager] Update in progress, queuing');
-        this._queueUpdate('full', { data, changes });
-        return;
-    }
-
-    // 2. Lock and prepare for update
-    this._updateLock = true;
-    const startTime = Date.now();
-    
-    try {
-        logger.debug('[EmbedManager] Starting full embed update', {
-            forceUpdate: force,
-            bypassQueue: bypassQueue,
-            hasChanges: !!changes
-        });
-
-        this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATING);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
-
-        // 3. Always get fresh data for time-based updates
-        const processedData = data;
-        if (!processedData) {
-            logger.error('[EmbedManager] updateAllEmbeds called without data. Aborting.');
-            this._updateLock = false;
+        if (!this.areEmbedsReady && !force) {
+            logger.debug('[EmbedManager] Embeds not ready, queuing update');
+            this._queueUpdate('full', { data, changes });
             return;
         }
 
-        // 4. Execute the full update cycle
-        await this._executeBatchUpdate(processedData, changes);
+        if (this._updateLock && !bypassQueue) {
+            logger.debug('[EmbedManager] Update in progress, queuing');
+            this._queueUpdate('full', { data, changes });
+            return;
+        }
 
-        // 5. Emit completion events
-        this._emitEvent(EventRegistry.EMBEDS_UPDATED);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_COMPLETED, {
-            durationMs: Date.now() - startTime
-        });
-        this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATED);
+        this._updateLock = true;
+        const startTime = Date.now();
 
-        logger.info('[EmbedManager] Full embed update completed', {
-            durationMs: Date.now() - startTime
-        });
+        try {
+            logger.debug('[EmbedManager] Starting full embed update', {
+                forceUpdate: force,
+                bypassQueue: bypassQueue,
+                hasChanges: !!changes
+            });
 
-    } catch (error) {
-        logger.error('[EmbedManager] Full update failed', error);
-        this._emitEvent(EventRegistry.EMBED_REFRESH_FAILED, { 
-            error: error.message 
-        });
-        this._emitStatusUpdate(
-            this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'all')
-        );
-        throw error;
-    } finally {
-        // 6. Release lock and process any queued updates
-        this._updateLock = false;
-        if (bypassQueue) {
-            await this._processQueuedUpdates();
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATING);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_STARTED);
+
+            let currentData = data;
+            if (!currentData) {
+                logger.debug('[EmbedManager] No data provided, fetching fresh data from MetroInfoProvider.');
+                currentData = this.infoProvider.getFullData();
+            }
+
+            if (!currentData || !currentData.lines || !currentData.stations) {
+                logger.error('[EmbedManager] Failed to get processed data or data is incomplete. Aborting update.', {
+                hasData: !!currentData,
+                hasLines: !!currentData?.lines,
+                hasStations: !!currentData?.stations
+                });
+                this._updateLock = false;
+                return;
+            }
+
+            await this._executeBatchUpdate(currentData, changes);
+
+            this._emitEvent(EventRegistry.EMBEDS_UPDATED);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_COMPLETED, {
+                durationMs: Date.now() - startTime
+            });
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.UPDATED);
+
+            logger.info('[EmbedManager] Full embed update completed', {
+                durationMs: Date.now() - startTime
+            });
+
+        } catch (error) {
+            logger.error('[EmbedManager] Full update failed', error);
+            this._emitEvent(EventRegistry.EMBED_REFRESH_FAILED, {
+                error: error.message
+            });
+            this._emitStatusUpdate(
+                this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'all')
+            );
+        } finally {
+            this._updateLock = false;
+            if (bypassQueue) {
+                await this._processQueuedUpdates();
+            }
         }
     }
-}
 
 // Add these to EventRegistry if not already present:
 // EMBED_REFRESH_STARTED: 'embed:refresh_started',
@@ -169,23 +154,20 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
 
     async updateOverviewEmbed(data, changes = null) {
         try {
-            if (!this.areEmbedsReady) return;
-            
-            logger.debug('[EmbedManager] Updating overview embed');
-            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
-            
-            // Transform processed data to raw API structure for the embed function
-            const rawLines = {};
-            if (data && data.lines) {
-                for (const lineKey in data.lines) {
-                    rawLines[lineKey] = _transformToRawLine(data.lines[lineKey]);
-                }
-            }
-
-            const embed = StatusEmbeds.overviewEmbed(
-                rawLines,
+            const embedData = StatusEmbeds.overviewEmbed(
+                data,
                 TimeHelpers.currentTime.format('HH:mm')
             );
+            const embed = new EmbedBuilder(embedData);
+
+            if (!this.areEmbedsReady) {
+                logger.info('[EmbedManager] Discord bot not available. Logging overview embed to console.');
+                this._logEmbedToConsole('overview', embed);
+                return;
+            }
+
+            logger.debug('[EmbedManager] Updating overview embed');
+            this._emitStatusUpdate(this.parent.UI_STRINGS.EMBEDS.OVERVIEW_UPDATE);
 
             const message = this.embedMessages.get('overview');
             if (message && embed) {
@@ -197,7 +179,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             this._emitStatusUpdate(
                 this.parent.UI_STRINGS.EMBEDS.UPDATE_FAILED.replace('{type}', 'overview')
             );
-            throw error;
         }
     }
 
@@ -218,11 +199,8 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             
             for (let i = 0; i < lineKeys.length; i += BATCH_SIZE) {
                 const batch = lineKeys.slice(i, i + BATCH_SIZE);
-                await Promise.all(batch.map(lineKey => 
-                    this.updateLineEmbed({
-                        ...data.lines[lineKey],
-                        _allStations: data.stations
-                    })
+                await Promise.all(batch.map(lineKey =>
+                    this.updateLineEmbed(data.lines[lineKey], data.stations)
                 ));
                 
                 // Rate limit between batches
@@ -236,19 +214,24 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         }
     }
 
-    async updateLineEmbed(lineData) {
+    async updateLineEmbed(lineData, stations) {
         try {
             const lineKey = lineData.id.toLowerCase();
+            const allStations = this.infoProvider.getStations();
 
-            // Transform processed line data to raw API structure
-            const rawLineData = _transformToRawLine(lineData);
-
-            const embed = StatusEmbeds.lineEmbed(
-                lineKey,
-                rawLineData,
+            const embedData = StatusEmbeds.lineEmbed(
+                lineData,
+                allStations,
                 TimeHelpers.currentTime.format('HH:mm')
             );
-            
+            const embed = new EmbedBuilder(embedData);
+
+            if (!this.areEmbedsReady) {
+                logger.info(`[EmbedManager] Discord bot not available. Logging ${lineKey} embed to console.`);
+                this._logEmbedToConsole(lineKey, embed);
+                return;
+            }
+
             const message = this.embedMessages.get(lineKey);
             if (message && embed) {
                 await this._safeEmbedEdit(message, embed);
@@ -256,19 +239,25 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
             }
         } catch (error) {
             logger.error(`[EmbedManager] Line ${lineData.id} update failed`, error);
-            throw error;
         }
     }
 
     // ==================== PRIVATE METHODS ====================
 
+    _logEmbedToConsole(embedName, embed) {
+        console.log(`--- [Embed Log: ${embedName}] ---`);
+        console.log(JSON.stringify(embed.toJSON(), null, 2));
+        console.log(`--- [End Embed Log: ${embedName}] ---`);
+    }
+
     async _fetchEmbedChannel() {
         try {
+            const config = this.infoProvider.getConfig();
             logger.debug('[EmbedManager] Fetching embed channel', {
-                channelId: this.parent.metroCore.config.embedsChannelId
+                channelId: config.embedsChannelId
             });
             return await this.parent.client.channels.fetch(
-                this.parent.metroCore.config.embedsChannelId
+                config.embedsChannelId
             );
         } catch (error) {
             logger.error('[EmbedManager] Channel fetch failed', error);
@@ -277,7 +266,8 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     }
 
     async _fetchAllEmbedMessages(channel) {
-        const fetchPromises = Object.entries(this.parent.metroCore.config.embedMessageIds).map(
+        const config = this.infoProvider.getConfig();
+        const fetchPromises = Object.entries(config.embedMessageIds).map(
             async ([embedName, messageId]) => {
                 try {
                     const message = await channel.messages.fetch(messageId);
@@ -295,15 +285,6 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
         );
 
         await Promise.all(fetchPromises);
-    }
-
-    _prepareData(data) {
-        return {
-            network: data.network || {},
-            lines: data.lines || {},
-            stations: data.stations || {},
-            lastUpdated: data.lastUpdated || TimeHelpers.currentTime.toISOString()
-        };
     }
 
     async _executeBatchUpdate(data, changes) {
@@ -419,7 +400,7 @@ async updateAllEmbeds(data, changes = null, { force = false, bypassQueue = false
     async refreshAllEmbeds() {
     try {
         logger.debug('[EmbedManager] Starting full refresh');
-        const currentData = this.parent.metroCore.api.getProcessedData();
+        const currentData = this.infoProvider.getFullData();
         
         // Bypass normal queue for time-critical updates
         if (this._updateLock) {

@@ -1,11 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder } = require('discord.js');
 const commerceResultsManager = require('../../../../../events/interactions/buttons/commerceResultsManager');
-const metroConfig = require('../../../../../config/metro/metroConfig');
-const styles = require('../../../../../config/styles.json');
+const SearchCore = require('../../../../../core/metro/search/SearchCore');
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'buscar',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('comercio')
         .setDescription('Buscar estaciones por tipo de comercio')
         .addStringOption(option =>
@@ -21,10 +20,11 @@ module.exports = {
             .replace(/[^a-z0-9]/g, '');
     },
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction) {
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const focusedValue = this.normalizeString(interaction.options.getFocused());
-        const staticData = metro._staticData;
-        
+        const staticData = metroInfoProvider.getFullData();
+
         const commerceTypes = new Set();
         Object.values(staticData.stations).forEach(station => {
             if (station.commerce && station.commerce !== 'None') {
@@ -48,40 +48,28 @@ module.exports = {
         );
     },
 
-    async execute(interaction, metro) {
+    async execute(interaction) {
         await interaction.deferReply();
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const commerceQuery = interaction.options.getString('nombre');
-        const staticData = metro._staticData;
-        const normalizedQuery = this.normalizeString(commerceQuery);
 
-        const allResults = [];
-        Object.values(staticData.stations).forEach(station => {
-            if (!station.commerce || station.commerce === 'None') return;
+        const searchCore = new SearchCore('station');
+        searchCore.setDataSource(metroInfoProvider.getFullData());
 
-            const commerceItems = station.commerce.split(',')
-                .map(item => item.trim())
-                .filter(item => item);
+        const results = await searchCore.search(commerceQuery, { commerceFilter: commerceQuery });
 
-            const matchingItems = commerceItems.filter(item => 
-                this.normalizeString(item).includes(normalizedQuery)
-            );
-
-            if (matchingItems.length > 0) {
-                allResults.push({
-                    id: station.id,
-                    name: station.displayName,
-                    line: station.line.toUpperCase(),
-                    matching: matchingItems,
-                });
-            }
-        });
-
-        if (allResults.length === 0) {
+        if (!results || results.length === 0) {
             return interaction.editReply({
-                content: `🔍 No se encontraron estaciones con comercio relacionado a "${commerceQuery}"`,
-                ephemeral: true
+                content: `🔍 No se encontraron estaciones con comercio relacionado a "${commerceQuery}"`
             });
         }
+
+        const allResults = results.map(station => ({
+            id: station.id,
+            name: station.displayName,
+            line: station.line.toUpperCase(),
+            matching: [commerceQuery],
+        }));
 
         const context = {
             query: commerceQuery,

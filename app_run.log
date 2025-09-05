@@ -1,26 +1,29 @@
-Starting the bot in PRODUCTION mode.
--------------------------------------
-INFO: Loaded configuration from config.json
-[Master] Initializing master process...
+ℹ️ [2025-09-05T07:44:06-04:00] [INFO] [telegram-bot.js:6] [startTelegramBot] [TELEGRAM] Initializing...
+ℹ️ [2025-09-05T07:44:06-04:00] [INFO] [bootstrap.js:23] [performInitialization] [TELEGRAM] Initializing...
+DB_HOST from bootstrap: 127.0.0.1
+dbConfig {
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB',
+  port: undefined
+}
 [DB] Creating new DatabaseManager instance
 [DB] Initializing new DatabaseManager instance
 [DB] Starting initialization...
 [DB] Creating new connection pool with config: {
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'metroapi',
   password: 'Metro256',
   database: 'MetroDB',
-  port: 3306
+  port: undefined
+}
+{
+  host: '127.0.0.1',
+  user: 'metroapi',
+  password: 'Metro256',
+  database: 'MetroDB',
+  port: undefined
 }
 [DB] Connection pool created, testing connection...
 [DB] Acquiring connection for health check...
-[DB] Executing ping test...
-[DB] Connection test successful
-[DB] Releasing health check connection
-[DB] Connection established successfully
-[DB] Starting health checks every 60 seconds
-[DB] Initialization completed successfully
-ℹ️ [2025-08-16T18:28:39.966Z] [INFO] [index.js:40] [main] [Master] ✅ DatabaseManager initialized successfully.
-ℹ️ [2025-08-16T18:28:39.972Z] [INFO] [index.js:134] [startComponent] [Master] Starting component: DiscordBot...
-ℹ️ [2025-08-16T18:28:39.976Z] [INFO] [index.js:134] [startComponent] [Master] Starting component: TelegramBot...
-ℹ️ [2025-08-16T18:28:39.978Z] [INFO] [index.js:134] [startComponent] [Master] Starting component: Scheduler...

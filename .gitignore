@@ -2,6 +2,8 @@
 node_modules/
 package-lock.json
 
+src/data
+
 # Environment variables
 .env
 .env.local
@@ -12,7 +14,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 errors/
-run.log
+errors_new/
+*.log
+logs/
+
+# Runtime files
+run/
+*.pid
 
 # OS-specific files
 .DS_Store
@@ -28,8 +36,18 @@ build/
 .vscode/
 *.swp
 
-# Ignore JSON file modifications
-*.json
+# Ignore generated JSON files
+src/data/accessibilityCache.json
+src/data/accessibilityCache1.json
+src/data/accessibilityCacheOLD2.json
+src/data/estadoRed.json
+src/data/lastAccessState.json
+src/data/lineStationHistory.json
+src/data/processedEstadoRed.json
+src/data/processedEstadoRed (1).json
+src/data/change_log.json
+src/data/estadoRed.json
 
 # Ignore local development files
 *.local
+errors_new/error.log

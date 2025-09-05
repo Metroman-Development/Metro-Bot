@@ -1,30 +1,28 @@
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
-// modules/embeds/StatusEmbedBuilder.js
-// modules/status/utils/StatusProcessor.js
-
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
-// modules/status/utils/StatusProcessor.js
 const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const stationGrouper = require('../../../templates/utils/stationGrouper');
-const statusConfig = require('../../../config/metro/statusConfig');
+const statusConfig = require('../../../config/metro/metroConfig');
 const DatabaseManager = require('../../database/DatabaseManager');
 
+const DatabaseService = require('../../database/DatabaseService');
+
 class StatusProcessor {
-  constructor(metroCore, dbManager) {
-    this.metro = metroCore;
+  constructor(dbManager, dbService) {
     this.db = dbManager;
+    this.dbService = dbService;
     this.timeHelpers = TimeHelpers;
     this.lineWeights = statusConfig.lineWeights;
-    this.statusMap = statusConfig.statusMap;
+    this.statusMap = statusConfig.statusTypes;
     this.severityLabels = statusConfig.severityLabels;
   }
 
-  async processRawAPIData(rawData) {
+  async processRawAPIData(rawData, user = 'system') {
+
+
+    //logger.info("STARTING STATUS PROCESSOR DATA PROCESSING WITH DATA; ", rawData);
+
     try {
       if (!rawData || typeof rawData !== 'object') {
         throw new Error('Invalid rawData received');
@@ -38,7 +36,7 @@ class StatusProcessor {
       const networkStatusDetails = this._transformNetworkStatus(dataToProcess);
       const network = {
           status: this._mapNetworkStatus(networkStatusDetails.status),
-          lastUpdated: networkStatusDetails.timestamp
+          timestamp: networkStatusDetails.timestamp
       };
 
       // Process lines and stations
@@ -52,13 +50,13 @@ class StatusProcessor {
         lines[lineId] = this._transformLine(lineId, lineData);
 
         // Process stations
-        (lineData.estaciones || []).forEach(station => {
-          const stationId = station.codigo.toUpperCase();
+        (lineData.stations || []).forEach(station => {
+          const stationId = station.code.toUpperCase();
           stations[stationId] = this._transformStation(station, lineId);
         });
       });
 
-      const processedData = {
+      const currentData = {
         network,
         lines,
         stations,
@@ -67,9 +65,9 @@ class StatusProcessor {
         isFallback: false
       };
 
-      await this._updateDatabase(processedData);
+      //console.log(stations)
 
-      return processedData;
+      return currentData;
     } catch (error) {
       logger.error('[StatusProcessor] Processing failed', {
         error: error.message,
@@ -79,166 +77,6 @@ class StatusProcessor {
     }
   }
 
-  async _updateDatabase(data) {
-    const db = this.db;
-    if (!db) {
-      logger.error('[StatusProcessor] Database connection not available.');
-      return;
-    }
-
-    try {
-      await db.transaction(async (connection) => {
-        const lineQueries = [];
-        const lineStatusQueries = [];
-        const stationQueries = [];
-        const stationStatusQueries = [];
-        const stationHistoryQueries = [];
-        const statusChangeLogQueries = [];
-
-        // Prepare line queries
-        for (const line of Object.values(data.lines)) {
-          lineQueries.push({
-            sql: `INSERT INTO metro_lines (line_id, line_name, line_color, status_code, status_message, app_message)
-                  VALUES (?, ?, ?, ?, ?, ?)
-                  ON DUPLICATE KEY UPDATE
-                    line_name = VALUES(line_name),
-                    line_color = VALUES(line_color),
-                    status_code = VALUES(status_code),
-                    status_message = VALUES(status_message),
-                    app_message = VALUES(app_message),
-                    updated_at = NOW()`,
-            params: [line.id, line.name, line.color, line.status.code, line.status.message, line.status.appMessage]
-          });
-
-          const statusTypeId = await this._getStatusTypeId(connection, line.status.code);
-          if (statusTypeId) {
-            lineStatusQueries.push({
-              sql: `INSERT INTO line_status (line_id, status_type_id, status_description, status_message, last_updated, updated_by)
-                    VALUES (?, ?, ?, ?, NOW(), 'system')
-                    ON DUPLICATE KEY UPDATE
-                      status_type_id = VALUES(status_type_id),
-                      status_description = VALUES(status_description),
-                      status_message = VALUES(status_message),
-                      last_updated = NOW()`,
-              params: [line.id, statusTypeId, line.status.normalized, line.status.message]
-            });
-          }
-        }
-
-        // Execute line queries first to ensure foreign key constraints are met
-        for (const query of [
-          ...lineQueries,
-          ...lineStatusQueries,
-        ]) {
-          await connection.query(query.sql, query.params);
-        }
-
-        // Prepare station queries
-        for (const station of Object.values(data.stations)) {
-          const fullStationData = this.metro.getStationManager().getByCode(station.id);
-
-          if (!fullStationData) {
-            logger.warn(`[StatusProcessor] Could not find full station data for ${station.id}, skipping database update for this station.`);
-            continue;
-          }
-
-          let [stationRow] = await connection.query('SELECT station_id FROM metro_stations WHERE line_id = ? AND station_code = ?', [station.line, station.id]);
-          let station_id;
-
-          if (stationRow) {
-            station_id = stationRow.station_id;
-            stationQueries.push({
-              sql: `UPDATE metro_stations SET
-                      station_name = ?, display_name = ?, transports = ?, services = ?,
-                      accessibility = ?, commerce = ?, amenities = ?, image_url = ?,
-                      access_details = ?, updated_at = NOW()
-                    WHERE station_id = ?`,
-              params: [
-                station.name,
-                station.displayName,
-                fullStationData?.transports,
-                fullStationData?.services,
-                fullStationData?.accessibility,
-                fullStationData?.commerce,
-                fullStationData?.amenities,
-                fullStationData?.image,
-                JSON.stringify(fullStationData?.accessDetails),
-                station_id
-              ]
-            });
-          } else {
-            const [result] = await connection.query(
-              `INSERT INTO metro_stations (line_id, station_code, station_name, display_name, location,
-                                        transports, services, accessibility, commerce, amenities, image_url, access_details)
-               VALUES (?, ?, ?, ?, POINT(0,0), ?, ?, ?, ?, ?, ?, ?)`,
-              [
-                station.line,
-                station.id,
-                station.name,
-                station.displayName,
-                fullStationData?.transports,
-                fullStationData?.services,
-                fullStationData?.accessibility,
-                fullStationData?.commerce,
-                fullStationData?.amenities,
-                fullStationData?.image,
-                JSON.stringify(fullStationData?.accessDetails)
-              ]
-            );
-            station_id = result.insertId;
-          }
-
-          const statusTypeId = await this._getStatusTypeId(connection, station.status.code);
-          if (statusTypeId) {
-            const [currentStatus] = await connection.query('SELECT status_type_id FROM station_status WHERE station_id = ?', [station_id]);
-
-            if (!currentStatus || currentStatus.status_type_id !== statusTypeId) {
-              if (currentStatus) {
-                stationHistoryQueries.push({
-                  sql: 'INSERT INTO station_status_history (status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by) SELECT status_id, station_id, status_type_id, status_description, status_message, last_updated, updated_by FROM station_status WHERE station_id = ?',
-                  params: [station_id]
-                });
-                statusChangeLogQueries.push({
-                  sql: "INSERT INTO status_change_log (station_id, line_id, old_status_type_id, new_status_type_id, change_description, changed_by) VALUES (?, ?, ?, ?, ?, 'system')",
-                  params: [station_id, station.line, currentStatus.status_type_id, statusTypeId, `Status changed from ${currentStatus.status_type_id} to ${statusTypeId}`]
-                });
-              }
-              stationStatusQueries.push({
-                sql: 'INSERT INTO station_status (station_id, status_type_id, status_description, status_message, last_updated, updated_by) VALUES (?, ?, ?, ?, NOW(), "system") ON DUPLICATE KEY UPDATE status_type_id = VALUES(status_type_id), status_description = VALUES(status_description), status_message = VALUES(status_message), last_updated = NOW()',
-                params: [station_id, statusTypeId, station.status.normalized, station.status.message]
-              });
-            }
-          }
-        }
-
-        // Execute station queries
-        for (const query of [
-          ...stationQueries,
-          ...stationHistoryQueries,
-          ...statusChangeLogQueries,
-          ...stationStatusQueries,
-        ]) {
-          await connection.query(query.sql, query.params);
-        }
-      });
-      logger.info('[StatusProcessor] Database updated successfully.');
-    } catch (error) {
-      logger.error('[StatusProcessor] Database update failed', {
-        error: error.message,
-        stack: error.stack
-      });
-    }
-  }
-
-  async _getStatusTypeId(db, statusCode) {
-    try {
-        const [mapping] = await db.query('SELECT status_type_id FROM js_status_mapping WHERE js_code = ?', [statusCode]);
-        return mapping ? mapping.status_type_id : null;
-    } catch(error) {
-        logger.error(`Error getting status type id for code ${statusCode}`, error);
-        return null;
-    }
-  }
 
   _transformNetworkStatus(rawData) {
     let totalSeverity = 0;
@@ -263,10 +101,11 @@ class StatusProcessor {
       
       const lineSeverity = this._calculateLineSeverity(lineId, statusCode);
       if (lineSeverity > 0) {
+        const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
         severityDetails.lines[lineId] = {
           name: `Línea ${lineId.slice(1)}`,
-          status: this.statusMap[statusCode].es,
-          statusEn: this.statusMap[statusCode].en,
+          status: statusInfo.es,
+          statusEn: statusInfo.en,
           severity: lineSeverity,
           connectedTransfers: [],
           code: statusCode // Track raw status code
@@ -275,31 +114,36 @@ class StatusProcessor {
       }
 
       // Process stations with proper transfer detection
-      (lineData.estaciones || []).forEach(station => {
-        const stationId = station.codigo.toLowerCase();
-        const stationStatusCode = station.estado.toString();
+      (lineData.stations || []).forEach(station => {
+        if (station.status == null) {
+          logger.warn(`[StatusProcessor] Missing 'status' property for station ${station.code} in line ${lineId}`);
+          return;
+        }
+        const stationId = station.code.toLowerCase();
+        const stationStatusCode = station.status.toString();
         const transformedStation = this._transformStation(station, lineId);
         allStations[stationId] = transformedStation;
         const stationSeverity = this._calculateStationSeverity(station, lineId);
 
         if (stationSeverity > 0) {
           let connectedLines = [];
-          const hasCombination = station.combinacion && station.combinacion.trim().length > 0;
+          const hasTransfer = station.transfer && station.transfer.trim().length > 0;
           
           // Only consider actual transfer stations (must have connections to other lines)
-          if (hasCombination) {
-            connectedLines = station.combinacion.toLowerCase()
+          if (hasTransfer) {
+            connectedLines = station.transfer.toLowerCase()
               .split(',')
               .map(line => line.trim())
               .filter(line => line.length > 0 && line !== lineId);
           }
 
+          const statusInfo = this._getStatusInfo(stationStatusCode, 'station', station.code);
           const stationEntry = {
-            id: stationId,
-            name: station.nombre,
+            code: stationId,
+            name: station.name,
             line: lineId,
-            status: this.statusMap[stationStatusCode].es,
-            statusEn: this.statusMap[stationStatusCode].en,
+            status: statusInfo.es,
+            statusEn: statusInfo.en,
             severity: stationSeverity,
             connectedLines,
             code: stationStatusCode // Track raw status code
@@ -312,11 +156,11 @@ class StatusProcessor {
           if (connectedLines.length > 0) {
             severityDetails.transfers.push({
               station: stationId,
-              name: station.nombre,
+              name: station.name,
               lines: [lineId, ...connectedLines],
               totalSeverity: stationSeverity,
-              status: this.statusMap[stationStatusCode].es,
-              statusEn: this.statusMap[stationStatusCode].en,
+              status: statusInfo.es,
+              statusEn: statusInfo.en,
               code: stationStatusCode
             });
           }
@@ -327,6 +171,10 @@ class StatusProcessor {
     // Second pass: identify affected segments
     Object.entries(rawData).forEach(([lineId, lineData]) => {
       if (!lineId.startsWith('l')) return;
+      if (lineData.estado == null) {
+        logger.warn(`[StatusProcessor] Missing 'estado' property for lineId: ${lineId} in second pass`);
+        return;
+      }
       const statusCode = lineData.estado.toString();
       if (['0', '1', '5'].includes(statusCode)) return;
       
@@ -341,13 +189,14 @@ class StatusProcessor {
       );
 
       if (segments.length > 0) {
+        const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
         affectedSegments[lineId] = segments.map(segment => ({
           line: lineId,
-          status: this.statusMap[statusCode].es,
-          statusEn: this.statusMap[statusCode].en,
-          stations: segment.stations.map(s => s.id.toUpperCase()),
-          firstStation: segment.firstStation.id.toUpperCase(),
-          lastStation: segment.lastStation.id.toUpperCase(),
+          status: statusInfo.es,
+          statusEn: statusInfo.en,
+          stations: segment.stations.map(s => s.code.toUpperCase()),
+          firstStation: segment.firstStation.code.toUpperCase(),
+          lastStation: segment.lastStation.code.toUpperCase(),
           count: segment.count,
           severity: this._calculateLineSeverity(lineId, statusCode),
           code: statusCode
@@ -511,14 +360,26 @@ class StatusProcessor {
 
   _calculateLineSeverity(lineId, statusCode) {
     const code = statusCode.toString();
-    return this.lineWeights[lineId] * this.statusMap[code].lineSeverityImpact;
+    if (!this.statusMap[code] || typeof this.statusMap[code].severity === 'undefined') {
+      logger.warn(`[StatusProcessor] Unknown or invalid line status code '${code}' for line ${lineId}. Treating as 0 severity.`);
+      return 0;
+    }
+    return this.lineWeights[lineId] * this.statusMap[code].severity;
   }
 
   _calculateStationSeverity(station, lineId) {
-    const statusCode = station.estado.toString();
+    if (station.status == null) {
+      return 0;
+    }
+    const statusCode = station.status.toString();
     if (['0', '1', '5'].includes(statusCode)) return 0;
 
-    const connectedLines = (station.combinacion || '')
+    if (!this.statusMap[statusCode] || typeof this.statusMap[statusCode].severity === 'undefined') {
+      logger.warn(`[StatusProcessor] Unknown or invalid station status code '${statusCode}' for station ${station.code}. Treating as 0 severity.`);
+      return 0;
+    }
+
+    const connectedLines = (station.transfer || '')
       .split(',')
       .map(l => l.trim().toLowerCase());
 
@@ -661,23 +522,34 @@ class StatusProcessor {
     };
   }
 
+_getStatusInfo(code, type = 'line', id = 'unknown') {
+    const statusInfo = this.statusMap[code.toString()];
+    if (!statusInfo) {
+      logger.warn(`[StatusProcessor] Unknown ${type} status code '${code}' for ID ${id}. Using default status.`);
+      return { es: 'Estado desconocido', en: 'Unknown status' };
+    }
+    return statusInfo;
+  }
+
   // In the _transformLine method:
 _transformLine(lineId, lineData) {
-    const statusCode = lineData.estado.toString();
-    const statusInfo = this.statusMap[statusCode];
+    const status = lineData.status;
+    const statusCode = status != null ? status.toString() : 'unknown';
+    const statusInfo = this._getStatusInfo(statusCode, 'line', lineId);
+
     return {
       id: lineId,
       name: `Línea ${lineId.slice(1)}`,
       displayName: `Línea ${lineId.toUpperCase().replace("L", "")}`,
       color: styles.lineColors[lineId] || '#CCCCCC',
       status: {
-        code: lineData.estado,
-        message: lineData.mensaje || '',
-        appMessage: lineData.mensaje_app || lineData.mensaje || '',
+        code: status,
+        message: lineData.message || '',
+        appMessage: lineData.app_message || lineData.message || '',
         normalized: statusInfo.es,
         normalizedEn: statusInfo.en
       },
-      stations: (lineData.estaciones || []).map(s => s.codigo.toLowerCase()),
+      stations: (lineData.stations || []).map(s => s.code.toLowerCase()),
       // Only include expressSupressed if it's true
       ...(lineData.expressSupressed === true && { expressSupressed: true })
     };
@@ -685,26 +557,47 @@ _transformLine(lineId, lineData) {
 
 // In the _transformStation method:
 _transformStation(station, lineId) {
-    const statusCode = station.estado.toString();
-    const statusInfo = this.statusMap[statusCode];
-    const transferLines = station.combinacion 
-      ? station.combinacion.split(',').map(l => l.trim().toLowerCase())
+
+     // console.log(station);
+
+    const status = station.status;
+    const statusCode = status != null ? status.toString() : 'unknown';
+    const statusInfo = this._getStatusInfo(statusCode, 'station', station.code);
+
+    const transferLines = station.transfer
+      ? station.transfer.split(',').map(l => l.trim().toLowerCase())
       : [];
 
     return {
-      id: station.codigo.toUpperCase(),
-      name: station.nombre,
-      displayName: station.nombre,
+      code: station.code.toUpperCase(),
+      name: station.name,
+      displayName: station.name,
       line: lineId,
       status: {
-        code: station.estado,
-        message: station.descripcion || '',
-        appMessage: station.descripcion_app || station.descripcion || '',
+        code: status,
+        message: station.description || '',
+        appMessage: station.app_description || station.description || '',
         normalized: statusInfo.es,
         normalizedEn: statusInfo.en
       },
       transferLines,
       lastUpdated: this.timeHelpers.currentTime.toISOString(),
+      // Explicitly add all fields from the station object
+      services: station.services,
+      amenities: station.amenities,
+      image_url: station.image_url,
+      transfer: station.transfer,
+      transports: station.transports,
+      accessibility: station.accessibility,
+      commerce: station.commerce,
+      commune: station.commune,
+      address: station.address,
+      latitude: station.latitude,
+      longitude: station.longitude,
+      location: station.location,
+      opened_date: station.opened_date,
+      last_renovation_date: station.last_renovation_date,
+      access_details: station.access_details,
       // Only include these properties if they're true
       ...(station.isTransferOperational === true && { isTransferOperational: true }),
       ...(station.accessPointsOperational === true && { accessPointsOperational: true })

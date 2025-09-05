@@ -1,30 +1,36 @@
-const path = require('path'); // Import the path module
-const fs = require('fs'); // Import the file system module
+const path = require('path');
+const fs = require('fs');
+const moment = require('moment-timezone');
 const { createEmbed } = require('../utils/embeds');
-const { getClient } = require('../utils/clientManager'); // Import clientManager to get the client
+const { getClient } = require('../utils/clientManager');
+const { truncate } = require('../utils/logUtils');
+const chronosConfig = require('../config/chronosConfig');
 
-const ERROR_CHANNEL_ID = '1350243847271092295'; // Channel ID for error summaries
-const ERROR_LOG_DIR = './errors_new'; // Directory for error logs
+const ERROR_CHANNEL_ID = '1350243847271092295';
+const ERROR_LOG_DIR = './errors_new';
 
-// Ensure the errors directory exists
 if (!fs.existsSync(ERROR_LOG_DIR)) {
     fs.mkdirSync(ERROR_LOG_DIR, { recursive: true });
 }
 
-// Initialize debugMode
 let debugMode = true;
 
-// Function to log error to file
 function logErrorToFile(error, metadata = {}) {
     try {
-        const timestamp = new Date().toISOString();
-        const logFileName = path.join(ERROR_LOG_DIR, `error.log`);
-        
+        const timestamp = moment().tz(chronosConfig.timezone).format();
+        const logFileName = path.join(ERROR_LOG_DIR, 'error.log');
+        const oldLogFileName = path.join(ERROR_LOG_DIR, 'error.log.old');
+
+        // If the log file exists, rotate it
+        if (fs.existsSync(logFileName)) {
+            fs.renameSync(logFileName, oldLogFileName);
+        }
+
         const logContent = `[${timestamp}] ERROR: ${error.name}: ${error.message}\n` +
-                           `Stack: ${error.stack}\n` +
-                           `Metadata: ${JSON.stringify(metadata, null, 2)}\n\n`;
-        
-        fs.appendFileSync(logFileName, logContent);
+            `Stack: ${error.stack}\n` +
+            `Metadata: ${JSON.stringify(metadata, null, 2)}\n\n`;
+
+        fs.writeFileSync(logFileName, logContent); // Use writeFileSync to create a new file
     } catch (fileError) {
         console.error(`Failed to write error log to file: ${fileError.message}`);
     }
@@ -74,6 +80,7 @@ const LOG_LEVELS = {
     TRACE: 'TRACE', // Very detailed logs for debugging
     DEBUG: 'DEBUG', // Debugging information
     INFO: 'INFO',   // General information
+    DETAILED: 'DETAILED', // Detailed logs with truncated data
     WARN: 'WARN',   // Warnings
     ERROR: 'ERROR', // Errors
     FATAL: 'FATAL', // Critical errors
@@ -105,73 +112,90 @@ function getCallerInfo() {
 
 // Format the log message
 function formatLog(level, message, metadata = {}) {
-    const timestamp = new Date().toISOString();
-    const { fileName, lineNumber, functionName } = getCallerInfo();
-    return `[${timestamp}] [${level}] [${fileName}:${lineNumber}] [${functionName}] ${message}` +
-           (Object.keys(metadata).length > 0 ? `\nMetadata: ${JSON.stringify(metadata, null, 2)}` : '');
+    const timestamp = moment().tz(chronosConfig.timezone).format();
+    let callerInfo = '';
+    if (debugMode) {
+        const { fileName, lineNumber, functionName } = getCallerInfo();
+        callerInfo = `[${fileName}:${lineNumber}] [${functionName}] `;
+    }
+    return `[${timestamp}] [${level}] ${callerInfo}${message}` +
+        (Object.keys(metadata).length > 0 ? `\nMetadata: ${JSON.stringify(metadata, null, 2)}` : '');
 }
 
 // Logger functions
 const logger = {
     silly: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🤪", formatLog(LOG_LEVELS.SILLY, message, metadata));
         }
     },
 
     trace: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.trace("🔍", formatLog(LOG_LEVELS.TRACE, message, metadata));
         }
     },
 
     system: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🔩", formatLog(LOG_LEVELS.INFO, message, metadata));
         }
     },
     
     debug: (message, metadata = {}) => {
-        if (debugMode) {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
             console.log("🐛", formatLog(LOG_LEVELS.INFO, message, metadata));
         }
     },
 
     info: (message, metadata = {}) => {
-        console.log("ℹ️", formatLog(LOG_LEVELS.INFO, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.log("ℹ️", formatLog(LOG_LEVELS.INFO, message, metadata));
+        }
     },
     
     success: (message, metadata = {}) => {
-        console.log("🎉", formatLog(LOG_LEVELS.INFO, message, metadata));
+        if (process.env.NODE_ENV !== 'test') {
+            console.log("🎉", formatLog(LOG_LEVELS.INFO, message, metadata));
+        }
     },
     
     warn: (message, metadata = {}) => {
-        console.warn("⚠️", formatLog(LOG_LEVELS.WARN, message, metadata));
-    },
-
-    error: (message, metadata = {}) => {
-        console.error("❌", formatLog(LOG_LEVELS.ERROR, message, metadata));
-
-        // If the message is an Error object, send it as an embed
-        if (message instanceof Error) {
-            sendErrorEmbed(message, metadata);
-        } else {
-            // If the message is a string, wrap it in an Error object
-            const error = new Error(message);
-            sendErrorEmbed(error, metadata);
+        if (process.env.NODE_ENV !== 'test') {
+            console.warn("⚠️", formatLog(LOG_LEVELS.WARN, message, metadata));
         }
     },
 
-    fatal: (message, metadata = {}) => {
-        console.error("💀", formatLog(LOG_LEVELS.FATAL, message, metadata));
+    error: async (message, metadata = {}) => {
+        if (process.env.NODE_ENV !== 'test') {
+            console.error("❌", formatLog(LOG_LEVELS.ERROR, message, metadata));
+        }
 
-        // If the message is an Error object, send it as an embed
-        if (message instanceof Error) {
-            sendErrorEmbed(message, metadata);
-        } else {
-            // If the message is a string, wrap it in an Error object
-            const error = new Error(message);
-            sendErrorEmbed(error, metadata);
+        try {
+            const error = message instanceof Error ? message : new Error(message);
+            if (process.env.NODE_ENV !== 'test') await sendErrorEmbed(error, metadata);
+        } catch (err) {
+            console.error('Failed to send error embed:', err);
+        }
+    },
+
+    fatal: async (message, metadata = {}) => {
+        if (process.env.NODE_ENV !== 'test') {
+            console.error("💀", formatLog(LOG_LEVELS.FATAL, message, metadata));
+        }
+
+        try {
+            const error = message instanceof Error ? message : new Error(message);
+            if (process.env.NODE_ENV !== 'test') await sendErrorEmbed(error, metadata);
+        } catch (err) {
+            console.error('Failed to send fatal error embed:', err);
+        }
+    },
+
+    detailed: (message, data = {}) => {
+        if (debugMode && process.env.NODE_ENV !== 'test') {
+            const truncatedData = truncate(data);
+            console.log("📝", formatLog(LOG_LEVELS.DETAILED, message, truncatedData));
         }
     },
 

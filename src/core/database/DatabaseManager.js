@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mariadb = require('mariadb');
 const { EventEmitter } = require('events');
 
@@ -30,15 +29,16 @@ class DatabaseManager extends EventEmitter {
 
     async createConnectionPool() {
         console.log('[DB] Creating new connection pool with config:', this.config);
+        console.log(this.config);
 
         this.pool = mariadb.createPool({
             host: this.config.host,
             user: this.config.user,
             password: this.config.password,
             database: this.config.database,
-            port: this.config.port || process.env.DB_PORT || 3306,
+            port: this.config.port || 3306,
             connectionLimit: 50,
-            connectTimeout: 10000, // 10 seconds
+            connectTimeout: 30000, // 30 seconds
             timezone: 'Z',
         });
 

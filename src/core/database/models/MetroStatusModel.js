@@ -1,4 +1,4 @@
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 
 class MetroStatusModel {
     constructor(db) {

@@ -1,4 +1,6 @@
-module.exports = class ExactSearch {
+const BaseSearch = require('./BaseSearch');
+
+module.exports = class ExactSearch extends BaseSearch {
   execute(query, data, options = {}) {
     const normalizedQuery = options.normalize(query);
     return data.filter(item => {

@@ -1,11 +1,16 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
 const bipConfig = require('../../../../config/bipConfig');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('premiosactividad')
-        .setDescription('Explica cómo ganar Bip!Coins a través de actividades'),
-    category: "Bip!Coin",
+class PremiosActividadCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('premiosactividad')
+            .setDescription('Explica cómo ganar Bip!Coins a través de actividades')
+        );
+        this.category = "Bip!Coin";
+    }
+
     async execute(interaction) {
         const embed = new EmbedBuilder()
             .setTitle('💰 **Sistema de Bip!Coins**')
@@ -45,6 +50,8 @@ module.exports = {
             )
             .setFooter({ text: '¡Participa activamente y conviértete en una Leyenda del Metro!' });
 
-        await interaction.followUp({ embeds: [embed] });
+        await interaction.reply({ embeds: [embed] });
     }
-};
+}
+
+module.exports = new PremiosActividadCommand();

@@ -1,9 +1,10 @@
-require('dotenv').config();
+const { initialize } = require('./core/bootstrap');
 const logger = require('./events/logger');
 const TelegramBot = require('./bot/telegram/bot.js');
 
 async function startTelegramBot() {
     logger.info('[TELEGRAM] Initializing...');
+    await initialize('TELEGRAM');
     try {
         TelegramBot.launch();
         logger.info('[TELEGRAM] ✅ Telegram bot launched successfully.');

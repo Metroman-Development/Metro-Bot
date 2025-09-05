@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js');
 const config = require('../config/statusConfig');
 const metroConfig = require('../../../config/metro/metroConfig');
 const { decorateStation } = require('../../metro/utils/stringHandlers/decorators');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const logger = require('../../../events/logger');
 
 class StatusEmbedBuilder {
@@ -104,11 +104,11 @@ class StatusEmbedBuilder {
             embed.addFields({
                 name: '📝 Leyenda',
                 value: [
-                    `${metroConfig.statusMapping['1'].emoji} = Operativa`,
-                    `${metroConfig.statusMapping['2'].emoji} = Cerrada`,
-                    `${metroConfig.statusMapping['3'].emoji} = Parcial`,
-                    `${metroConfig.statusMapping['4'].emoji} = Retrasos`,
-                    `${metroConfig.statusMapping['5'].emoji} = Extendida`,
+                    `${metroConfig.statusTypes['1'].emoji} = Operativa`,
+                    `${metroConfig.statusTypes['2'].emoji} = Cerrada`,
+                    `${metroConfig.statusTypes['3'].emoji} = Parcial`,
+                    `${metroConfig.statusTypes['4'].emoji} = Retrasos`,
+                    `${metroConfig.statusTypes['5'].emoji} = Extendida`,
                     '↔️ = Combinación'
                 ].join('\n'),
                 inline: true
@@ -135,8 +135,8 @@ class StatusEmbedBuilder {
         // Get service information
         const serviceStatus = TimeHelpers.getServiceStatus();
         const lineClosedStations = TimeHelpers.getClosedStations(lineIdUpper);
-        const statusInfo = metroConfig.statusMapping[lineData.status?.code] || 
-                         metroConfig.statusMapping['1'];
+        const statusInfo = metroConfig.statusTypes[lineData.status?.code] ||
+                         metroConfig.statusTypes['1'];
 
         // Create base embed
         const embed = new EmbedBuilder()

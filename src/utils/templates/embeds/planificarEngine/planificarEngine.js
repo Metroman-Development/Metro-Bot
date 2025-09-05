@@ -52,7 +52,7 @@ function formatLineName(line) {
  */
 function getRouteEmoji(routeType) {
   const normalizedType = normalize(routeType?.replace("Ruta ", "") || '');
-  return metroConfig.stationIcons[normalizedType]?.emoji || '';
+  return metroConfig.routeStyles[normalizedType]?.emoji || '';
 }
 
 /**

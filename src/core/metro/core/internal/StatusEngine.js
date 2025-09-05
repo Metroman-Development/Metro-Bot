@@ -28,7 +28,7 @@ class StatusEngine {
         
         // Update all subsystems
         this.metro._subsystems.statusService.updateStatus('critical');
-        this.metro._subsystems.api.stopPolling();
+        this.metro._subsystems.dataManager.stopPolling();
         
         logger.critical('[StatusEngine] Entered safe mode', { reason });
     }
@@ -46,14 +46,14 @@ class StatusEngine {
         );
 
         this.metro._safeEmit(EventRegistry.SAFE_MODE_EXITED, payload);
-        this.metro._subsystems.api.startPolling();
+        this.metro._subsystems.dataManager.startPolling();
     }
 
     _getSystemState() {
         return {
             version: this.metro._combinedData.version,
             network: this.metro._combinedData.network,
-            lines: Object.values(this.metro._combinedData.lines).map(line => ({
+        lines: this.metro.getLineManager().getAll().map(line => ({
                 id: line.id,
                 status: line.status,
                 stations: line.stations.length
@@ -66,7 +66,7 @@ class StatusEngine {
         const state = {
             operational: !this._safeMode,
             subsystems: {
-                api: this.metro._subsystems.api.getMetrics(),
+                dataManager: this.metro._subsystems.dataManager.getMetrics(),
                 event: this._getEventSystemHealth(),
                 data: {
                     lastUpdated: this.metro._combinedData.lastUpdated,
@@ -97,9 +97,9 @@ class StatusEngine {
             timestamp: new Date(),
             system: this._getSystemState(),
             health: this.healthCheck(),
-            changes: this.metro._subsystems.api.api.changes.stats(),
+            changes: this.metro._subsystems.dataManager.api.changes.stats(),
             metrics: {
-                api: this.metro._subsystems.api.getMetrics(),
+                dataManager: this.metro._subsystems.dataManager.getMetrics(),
                 memory: process.memoryUsage()
             }
         };

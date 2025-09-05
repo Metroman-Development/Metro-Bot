@@ -1,6 +1,5 @@
-const MetroInfoProvider = require('../../../core/metro/providers/MetroInfoProvider');
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 const TelegramMessageFormatter = require('../../../formatters/TelegramMessageFormatter');
-const MetroCore = require('../../../core/metro/core/MetroCore');
 const SearchCore = require('../../../core/metro/search/SearchCore');
 
 module.exports = {
@@ -14,9 +13,9 @@ module.exports = {
         }
 
         try {
-            const metroCore = await MetroCore.getInstance();
+            const infoProvider = MetroInfoProvider.getInstance();
             const searchCore = new SearchCore('station');
-            searchCore.setDataSource(metroCore.api.getProcessedData());
+            searchCore.setDataSource(infoProvider.getFullData());
             const results = await searchCore.search(stationName);
 
             if (results.length === 0) {
@@ -24,11 +23,10 @@ module.exports = {
             }
 
             const station = results[0];
-            const infoProvider = new MetroInfoProvider(metroCore);
             const stationDetails = infoProvider.getStationById(station.id);
 
             const formatter = new TelegramMessageFormatter();
-            const message = formatter.formatStationInfo(stationDetails);
+            const message = formatter.formatStationInfo(stationDetails, infoProvider);
 
             ctx.replyWithMarkdown(message);
         } catch (error) {

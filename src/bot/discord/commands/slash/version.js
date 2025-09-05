@@ -1,75 +1,55 @@
 const { SlashCommandBuilder } = require('discord.js');
+const BaseCommand = require('../BaseCommand');
 const { createEmbed } = require('../../../../utils/embeds');
 const DatabaseService = require('../../../../core/database/DatabaseService');
 const { CacheManager } = require('../../../../core/cache/CacheManager.js');
 
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('version')
-        .setDescription('Muestra la información de la versión actual del bot'),
-    
-    active: true,
-    category: "Bot Info",
-    
+class VersionCommand extends BaseCommand {
+    constructor() {
+        super(new SlashCommandBuilder()
+            .setName('version')
+            .setDescription('Muestra la información de la versión actual del bot')
+        );
+        this.active = true;
+        this.category = "Bot Info";
+    }
+
     async execute(interaction) {
-        try {
-            // Check cache first
-            const cacheKey = 'bot:version:latest';
-            const cachedVersion = await CacheManager.get(cacheKey);
-            
-            if (cachedVersion) {
-                return interaction.reply({ 
-                    embeds: [this.buildVersionEmbed(cachedVersion)]
-                });
-            }
+        await interaction.deferReply();
+        const cacheKey = 'bot:version:latest';
+        const cachedVersion = await CacheManager.get(cacheKey);
 
-            // Get from database if not in cache
-            const databaseService = await DatabaseService.getInstance();
-            const row = await databaseService.getBotVersion();
-
-            let versionData;
-            if (row) {
-                versionData = {
-                    version: row.version,
-                    date: row.release_date,
-                    changes: row.changelog
-                };
-            } else {
-                // Fallback to default version
-                versionData = {
-                    version: "5.0.0",
-                    date: "No registrada",
-                    changes: "Versión inicial del bot"
-                };
-            }
-
-            // Cache the result for 1 hour
-            await CacheManager.set(
-                cacheKey,
-                versionData,
-                3600000 // 1 hour TTL
-            );
-
-            await interaction.reply({
-                embeds: [this.buildVersionEmbed(versionData)]
-            });
-        } catch (error) {
-            console.error('Error en comando /version:', error);
-            
-            // Fallback embed if everything fails
-            const fallbackEmbed = createEmbed(
-                '**Versión:** 5.0.0\n**Fecha:** No disponible\n**Cambios:** No se pudo cargar la información',
-                'error',
-                '⚠️ Información de Versión'
-            );
-            
-            await interaction.reply({ 
-                embeds: [fallbackEmbed],
-                ephemeral: true 
+        if (cachedVersion) {
+            return interaction.editReply({
+                embeds: [this.buildVersionEmbed(cachedVersion)]
             });
         }
-    },
-    
+
+        const databaseService = await DatabaseService.getInstance();
+        const row = await databaseService.getBotVersion();
+
+        let versionData;
+        if (row) {
+            versionData = {
+                version: row.version,
+                date: row.release_date,
+                changes: row.changelog
+            };
+        } else {
+            versionData = {
+                version: "5.0.0",
+                date: "No registrada",
+                changes: "Versión inicial del bot"
+            };
+        }
+
+        await CacheManager.set(cacheKey, versionData, 3600000); // 1 hour TTL
+
+        await interaction.editReply({
+            embeds: [this.buildVersionEmbed(versionData)]
+        });
+    }
+
     buildVersionEmbed(versionData) {
         return createEmbed(
             `**Versión:** ${versionData.version}\n` +
@@ -79,4 +59,6 @@ module.exports = {
             '📜 Información de la Versión'
         );
     }
-};
+}
+
+module.exports = new VersionCommand();

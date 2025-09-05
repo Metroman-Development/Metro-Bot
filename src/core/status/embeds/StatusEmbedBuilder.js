@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js');
 const metroConfig = require('../../../config/metro/metroConfig');
 const styles = require('../../../config/metro/styles.json');
 const logger = require('../../../events/logger');
-const TimeHelpers = require('../../chronos/timeHelpers');
+const TimeHelpers = require('../../../utils/timeHelpers');
 const decorators = require('../../metro/utils/stringHandlers/decorators');
 
 class StatusEmbedBuilder {
@@ -21,22 +21,22 @@ class StatusEmbedBuilder {
     // Helper methods for consistent status code handling
     static #getStatusMapping(code) {
         const codeStr = code.toString();
-        return metroConfig.statusMapping[codeStr] || metroConfig.statusMapping['1'];
+        return metroConfig.statusTypes[codeStr] || metroConfig.statusTypes['1'];
     }
 
     static #getStationIcon(code) {
         const codeNum = parseInt(code);
-        return metroConfig.stationIcons[codeNum] || metroConfig.stationIcons[1];
+        return metroConfig.statusTypes[codeNum] || metroConfig.statusTypes[1];
     }
 
     static #getCombIcon(code) {
         const codeNum = parseInt(code);
-        return metroConfig.combIcons[codeNum] || metroConfig.combIcons[1];
+        return metroConfig.statusTypes[codeNum] || metroConfig.statusTypes[2];
     }
 
-    static buildOverviewEmbed(networkData = {}, changes = [], metroCore = {}, UI_STRINGS = {}) {
+    static async buildOverviewEmbed(networkData = {}, changes = [], metroCore = {}, UI_STRINGS = {}) {
         try {
-            const validatedData = this.#validateNetworkData(networkData, metroCore);
+            const validatedData = await this.#validateNetworkData(networkData, metroCore);
             if (!validatedData) return this.buildErrorEmbed('Datos de red no válidos');
 
             const networkStatus = this.#getNetworkStatus(networkData);
@@ -54,6 +54,24 @@ class StatusEmbedBuilder {
 
             if (changes?.changes?.length > 0) {
                 this.#addChangesField(embed, changes, metroCore);
+            }
+
+            const currentPeriod = TimeHelpers.getCurrentPeriod();
+            if (currentPeriod) {
+                embed.addFields({
+                    name: '⏳ Período Actual',
+                    value: `Estamos en período **${currentPeriod.name}**.`,
+                    inline: true
+                });
+            }
+
+            const nextTransition = TimeHelpers.getNextTransition();
+            if (nextTransition) {
+                embed.addFields({
+                    name: '⏭️ Próximo Cambio',
+                    value: `${nextTransition.time}: ${nextTransition.message}`,
+                    inline: true
+                });
             }
 
             embed.addFields({
@@ -110,8 +128,8 @@ class StatusEmbedBuilder {
         });
     }
 
-    static #validateNetworkData(data, metroCore) {
-        const allData = metroCore.api?.getProcessedData();
+    static async #validateNetworkData(data, metroCore) {
+        const allData = await metroCore.getCurrentData();
         if (!allData) return null;
         
         const network = data.network || data;
@@ -194,7 +212,7 @@ class StatusEmbedBuilder {
                 
                 return [
                     `🔄 **${transfer.station?.toUpperCase() || 'Transferencia'}:** ${lines}`,
-                    `${transferStatus.emoji} **Estado:** ${transferStatus.message}`,
+                    `${transferStatus.emoji} **Estado:** ${transferStatus.description}`,
                     `• Impacto: ${severityInfo.emoji} ${severityInfo.display}`
                 ].join('\n');
             }).filter(Boolean).join('\n\n');
@@ -223,7 +241,7 @@ class StatusEmbedBuilder {
                 case 'line':
                     return `${time}: ${decorators.decorateLine(change.id, metroCore)} → ${this.#getStatusMapping(change.to).emoji}`;
                 case 'network':
-                    return `${time}: Red → ${metroConfig.NETWORK_STATUS_MAP[parseInt(change.to)]?.emoji || '❓'}`;
+                    return `${time}: Red → ${metroConfig.statusTypes[parseInt(change.to)]?.emoji || '❓'}`;
                 default:
                     return `${time}: ${change.id} → ${this.#getStatusEmoji(change.to)}`;
             }
@@ -243,11 +261,29 @@ class StatusEmbedBuilder {
     static buildLineEmbed(lineData = {}, allStations = {}, metroCore = {}) {
         try {
             const lineKey = lineData.id?.toLowerCase() || 'unknown';
+            logger.info(`Building embed for line: ${lineKey}`);
+
+            if (!allStations || Object.keys(allStations).length === 0) {
+                logger.error('LINE_EMBED_FAILED - allStations is empty or null', {
+                    line: lineKey,
+                    lineData: lineData
+                });
+                return this.buildErrorEmbed(`Error al mostrar línea ${lineData?.displayName || 'desconocida'}: No se encontraron estaciones.`);
+            }
+
             const lineStatus = this.#getLineStatus(lineData);
             const embed = new EmbedBuilder()
                 .setTitle(`${metroConfig.linesEmojis[lineKey]} ${lineData.displayName}`)
                 .setColor(lineData.color || styles.lineColors[lineKey] || '#5865F2')
                 .setDescription(this.#formatLineStatus(lineData));
+
+            if (TimeHelpers.isExpressActive() && metroConfig.expressLines.includes(lineKey)) {
+                embed.addFields({
+                    name: '🚄 Ruta Expresa',
+                    value: 'Activa',
+                    inline: true
+                });
+            }
 
             if (Array.isArray(lineData.stations)) {
                 const MAX_FIELD_SIZE = 1020;
@@ -268,8 +304,7 @@ class StatusEmbedBuilder {
                     }
                 };
 
-                for (const stationId of lineData.stations) {
-                    const station = allStations[stationId] || { id: stationId, name: stationId };
+                for (const station of lineData.stations) {
                     const decoratedStation = decorators.decorateStation(station, metroCore, {
                         showStatus: true,
                         showLine: false,
@@ -326,7 +361,6 @@ class StatusEmbedBuilder {
                 ? `**📢 Info App:** \`${lineData.status.appMessage}\`` 
                 : '', 
             
-            TimeHelpers.isExpressActive() && metroConfig.expressLines.includes(lineData.id.toLowerCase()) ? '🚄 Rutas Expresas Operativas' : ''
         ];
 
         return parts.filter(Boolean).join('\n');
@@ -341,10 +375,10 @@ class StatusEmbedBuilder {
         const statusCode = data.status?.code || 
                          (data.status === 'partial_outage' ? '3' : 
                           data.status === 'major_outage' ? '2' : '1');
-        const statusInfo = metroConfig.NETWORK_STATUS_MAP[parseInt(statusCode)] || metroConfig.NETWORK_STATUS_MAP[1];
+        const statusInfo = metroConfig.statusTypes[parseInt(statusCode)] || metroConfig.statusTypes[1];
         return {
             emoji: statusInfo.emoji,
-            display: statusInfo.message,
+            display: statusInfo.description,
             color: this.#getColorForStatus(statusCode)
         };
     }

@@ -94,7 +94,7 @@ class EventValidator {
                 },
                 network: {
                     type: 'object',
-                    required: ['status', 'lastUpdated'],
+                    required: ['status', 'timestamp'],
                     status: { type: 'string', enum: ['operational', 'degraded', 'outage'] }
                 }
             },
@@ -216,71 +216,83 @@ class EventValidator {
             return []; // No schema = no validation
         }
 
+        this._validateObject(payload.data, schema, errors);
+
+        return errors;
+    }
+
+    _validateObject(data, schema, errors, prefix = '') {
         // 1. Check required fields
         if (schema.required) {
             schema.required.forEach(field => {
-                if (payload.data[field] === undefined) {
-                    errors.push(`Missing required field: ${field}`);
+                if (data[field] === undefined) {
+                    errors.push(`Missing required field: '${prefix}${field}'`);
                 }
             });
         }
 
         // 2. Validate field types and constraints
-        Object.entries(schema).forEach(([field, rules]) => {
-            if (field === 'required') return;
+        for (const [field, rules] of Object.entries(schema)) {
+            if (field === 'required') continue;
 
-            const value = payload.data[field];
-            if (value === undefined) return;
+            const value = data[field];
+            if (value === undefined) continue;
+
+            const fieldName = `${prefix}${field}`;
 
             // Type checking
             if (rules.type && typeof value !== rules.type) {
-                errors.push(`Field ${field} must be type ${rules.type}`);
+                errors.push(`Invalid type for '${fieldName}'. Expected ${rules.type}, got ${typeof value}`);
+                continue; // Skip other checks if type is wrong
             }
 
             // Custom validators
             if (this.validators[field]) {
-                const valid = this.validators[field](value, payload.data);
-                if (!valid) {
-                    errors.push(`Field ${field} failed custom validation`);
+                if (!this.validators[field](value, data)) {
+                    errors.push(`Custom validation failed for '${fieldName}'`);
                 }
             }
 
             // String constraints
             if (typeof value === 'string') {
-                if (rules.minLength && value.length < rules.minLength) {
-                    errors.push(`Field ${field} too short (min ${rules.minLength})`);
+                if (rules.minLength !== undefined && value.length < rules.minLength) {
+                    errors.push(`'${fieldName}' must be at least ${rules.minLength} characters long.`);
                 }
                 if (rules.pattern && !rules.pattern.test(value)) {
-                    errors.push(`Field ${field} must match pattern ${rules.pattern}`);
+                    errors.push(`'${fieldName}' does not match the required pattern.`);
                 }
                 if (rules.enum && !rules.enum.includes(value)) {
-                    errors.push(`Field ${field} must be one of: ${rules.enum.join(', ')}`);
+                    errors.push(`'${fieldName}' has an invalid value. Must be one of: ${rules.enum.join(', ')}`);
                 }
             }
 
             // Number constraints
             if (typeof value === 'number') {
                 if (rules.min !== undefined && value < rules.min) {
-                    errors.push(`Field ${field} too small (min ${rules.min})`);
+                    errors.push(`'${fieldName}' must be at least ${rules.min}.`);
                 }
                 if (rules.max !== undefined && value > rules.max) {
-                    errors.push(`Field ${field} too large (max ${rules.max})`);
+                    errors.push(`'${fieldName}' must be no more than ${rules.max}.`);
                 }
             }
+
+            // Nested object validation
+            if (rules.type === 'object' && !rules.validate) {
+                this._validateObject(value, rules, errors, `${fieldName}.`);
+            }
+
 
             // Object validation
             if (rules.validate && typeof rules.validate === 'function') {
                 try {
                     if (!rules.validate(value)) {
-                        errors.push(`Field ${field} failed custom validation`);
+                        errors.push(`Validation failed for object '${fieldName}'`);
                     }
                 } catch (error) {
-                    errors.push(`Validation failed for ${field}: ${error.message}`);
+                    errors.push(`Error during validation for '${fieldName}': ${error.message}`);
                 }
             }
-        });
-
-        return errors;
+        }
     }
 
     /**

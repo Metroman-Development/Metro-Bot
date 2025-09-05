@@ -44,11 +44,11 @@ async function confirmAction(message, prompt) {
 }
 
 /**
- * Checks if a station has a combinacion.
+ * Checks if a station has a transfer.
  * @param {string} stationName - The name of the station (may include line suffix, e.g., "San Pablo L4A").
- * @returns {boolean} - Returns `true` if the station has a combinacion, otherwise `false`.
+ * @returns {boolean} - Returns `true` if the station has a transfer, otherwise `false`.
  */
-function isCombinacion(stationName) {
+function isTransfer(stationName) {
     const metroData = getCachedMetroData();
 
     if (!metroData) {
@@ -63,33 +63,33 @@ function isCombinacion(stationName) {
     // Normalize the station name for comparison
     const normalizedStationName = normalize(cleanedStationName.toLowerCase());
 
-    // Count occurrences of the station name and check combinacion field
+    // Count occurrences of the station name and check transfer field
     let stationCount = 0;
-    let hasCombinacion = false;
+    let hasTransfer = false;
 
     // Iterate through each line in metroData
     for (const lineKey in metroData) {
         const line = metroData[lineKey];
-        if (line && line.estaciones) {
-            // Find all stations in the current line's estaciones array
-            const matchingStations = line.estaciones.filter(estacion =>
-                normalize(estacion.nombre.toLowerCase()) === normalizedStationName
+        if (line && line.stations) {
+            // Find all stations in the current line's stations array
+            const matchingStations = line.stations.filter(station =>
+                normalize(station.name.toLowerCase()) === normalizedStationName
             );
 
-            // Update station count and check combinacion field
+            // Update station count and check transfer field
             matchingStations.forEach(station => {
                 stationCount++;
-                if (station.combinacion && station.combinacion.trim() !== "") {
-                    hasCombinacion = true;
+                if (station.transfer && station.transfer.trim() !== "") {
+                    hasTransfer = true;
                 }
             });
         }
     }
 
-    // A station is a combinacion if:
+    // A station is a transfer if:
     // 1. It appears at least twice in the metro data.
-    // 2. It has a non-empty combinacion field.
-    return stationCount >= 2 && hasCombinacion;
+    // 2. It has a non-empty transfer field.
+    return stationCount >= 2 && hasTransfer;
 }
 
 /**
@@ -126,7 +126,7 @@ function createActionRow(buttons) {
 
 module.exports = {
     confirmAction,
-    isCombinacion,
+    isTransfer,
     generateInteractionId,
     createButton,
     createActionRow,

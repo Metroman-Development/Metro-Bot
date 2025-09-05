@@ -1,12 +1,16 @@
+const { initialize } = require('./core/bootstrap');
+require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const loadEvents = require('./events');
 const { setClient } = require('./utils/clientManager');
 const AdvancedCommandLoader = require('./core/loaders/AdvancedCommandLoader');
 const logger = require('./events/logger');
-const initialize = require('./core/bootstrap');
 const DatabaseManager = require('./core/database/DatabaseManager');
+const metroConfig = require('./config/metro/metroConfig');
 
 async function startDiscordBot() {
     const discordClient = new Client({
@@ -19,30 +23,14 @@ async function startDiscordBot() {
     });
     setClient(discordClient);
 
-    const { metroCore } = await initialize('DISCORD');
+    const { metroInfoProvider, schedulerService } = await initialize('DISCORD');
 
-    if (!metroCore.isReady) {
-        await new Promise(resolve => metroCore.once('ready', resolve));
+    if (!metroInfoProvider.isInitialized) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for initialization
     }
 
     discordClient.commands = new Collection();
-    discordClient.prefixCommands = new Collection();
     discordClient.commandLoader = new AdvancedCommandLoader(discordClient);
-
-    const prefixCommandsPath = join(__dirname, 'bot/discord/commands/prefix');
-    try {
-        readdirSync(prefixCommandsPath)
-            .filter(file => file.endsWith('.js'))
-            .forEach(file => {
-                const command = require(join(prefixCommandsPath, file));
-                if ('name' in command && 'execute' in command) {
-                    discordClient.prefixCommands.set(command.name, command);
-                }
-            });
-        logger.info('[DISCORD] Prefix commands loaded.');
-    } catch (error) {
-        logger.error('[DISCORD] ❌ Failed to load prefix commands:', { error });
-    }
 
     require('./events/interactions/interactionLoader')(discordClient);
 
@@ -72,13 +60,68 @@ async function startDiscordBot() {
 
     try {
         await connectToDiscord(discordClient);
-        await metroCore.setClient(discordClient);
 
-        const SchedulerService = require('./core/chronos/SchedulerService');
-        const discordScheduler = new SchedulerService();
+        logger.info('[DISCORD] Registering slash commands...');
+        const commandsToRegister = discordClient.commands.map(cmd => cmd.data.toJSON());
+        const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+
+        try {
+            await rest.put(
+                Routes.applicationCommands(discordClient.user.id),
+                { body: commandsToRegister },
+            );
+            logger.info('[DISCORD] ✅ Successfully registered slash commands.');
+        } catch (error) {
+            logger.error('[DISCORD] ❌ Failed to register slash commands:', error);
+        }
+
+        metroInfoProvider.statusEmbedManager.setClient(discordClient);
+
+        const lineMessageIds = { ...metroConfig.embedMessageIds };
+        delete lineMessageIds.overview;
+
+        await metroInfoProvider.statusEmbedManager.initialize(
+            metroConfig.embedsChannelId,
+            metroConfig.embedMessageIds.overview,
+            lineMessageIds
+        );
+
+        await metroInfoProvider.triggerInitialEmbedUpdate();
+
+        process.on('message', async (message) => {
+            const { type, payload } = message;
+            if (type === 'send-message') {
+                const { type: payloadType, channelId, message, link, photo } = payload;
+
+                const channel = await discordClient.channels.fetch(channelId);
+                if (!channel) {
+                    logger.warn(`[DISCORD] Channel ${channelId} not found.`);
+                    return;
+                }
+
+                if (payloadType === 'announcement') {
+                    if (link || photo) {
+                        const { EmbedBuilder } = require('discord.js');
+                        const embed = new EmbedBuilder()
+                            .setColor(0x0099FF)
+                            .setDescription(message)
+                            .setURL(link)
+                            .setImage(photo);
+                        await channel.send({ embeds: [embed] });
+                    } else {
+                        await channel.send(message);
+                    }
+                } else {
+                    // Default behavior for other message types (e.g., network-info)
+                    await channel.send(message);
+                }
+            }
+        });
+
+        const { updatePresence } = require('./modules/presence/presence.js');
 
         let lastEmbedUpdate = null;
-        discordScheduler.addJob({
+        schedulerService.addJob({
             name: 'update-embeds',
             interval: 10000, // Every 10 seconds
             task: async () => {
@@ -89,11 +132,12 @@ async function startDiscordBot() {
                         const lastUpdated = new Date(result[0].last_updated);
                         if (!lastEmbedUpdate || lastUpdated > lastEmbedUpdate) {
                             logger.info('[DISCORD] Detected change in network_status, updating embeds...');
-                            if (metroCore._subsystems.statusUpdater && typeof metroCore._subsystems.statusUpdater.updateEmbeds === 'function') {
-                                await metroCore._subsystems.statusUpdater.updateEmbeds();
+                            if (metroInfoProvider.statusEmbedManager && typeof metroInfoProvider.statusEmbedManager.updateAllEmbeds === 'function') {
+                                await metroInfoProvider.updateFromDb();
+                                await metroInfoProvider.statusEmbedManager.updateAllEmbeds(metroInfoProvider);
                                 lastEmbedUpdate = lastUpdated;
                             } else {
-                                logger.warn('[DISCORD] statusUpdater or updateEmbeds method not available.');
+                                logger.warn('[DISCORD] statusEmbedManager or updateAllEmbeds method not available.');
                             }
                         }
                     }
@@ -103,12 +147,24 @@ async function startDiscordBot() {
             }
         });
 
-        discordScheduler.start();
+        schedulerService.addJob({
+            name: 'update-presence',
+            interval: 60000, // Every minute
+            task: async () => {
+                if (discordClient.isReady()) {
+                    await updatePresence(discordClient, metroInfoProvider);
+                }
+            }
+        });
 
     } catch (error) {
-        logger.warn(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}.`);
-        // In a subprocess, we should exit if we can't connect to Discord
-        process.exit(1);
+        if (error.code === 'TokenInvalid') {
+            logger.warn(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. The bot will not be available on Discord, but other systems will continue to run.`);
+        } else {
+            logger.fatal(`[DISCORD] ⚠️ Could not connect to Discord: ${error.message}. Exiting...`, error);
+            // In a subprocess, we should exit if we can't connect to Discord
+            process.exit(1);
+        }
     }
 }
 

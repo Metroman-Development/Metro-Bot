@@ -1,15 +1,11 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, Collection } = require('discord.js');
 const SearchCore = require('../../../../../core/metro/search/SearchCore');
 const RoutePlanner = require('../../../../../core/metro/RoutePlanner');
 const routeButtonsHandler = require('../../../../../events/interactions/buttons/routeButtons');
-const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
-const { Collection } = require('discord.js');
-
-const cooldowns = new Collection();
+const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 
 module.exports = {
-    parentCommand: 'metro',
-    data: (subcommand) => subcommand
+    data: new SlashCommandSubcommandBuilder()
         .setName('planificar')
         .setDescription('Planifica un viaje en el Metro de Santiago')
         .addStringOption(option =>
@@ -36,12 +32,13 @@ module.exports = {
                 .setDescription('Modo discreto (oculta la información de tu ruta)')
                 .setRequired(false)),
 
-    async autocomplete(interaction, metro) {
+    async autocomplete(interaction) {
+        const metroInfoProvider = MetroInfoProvider.getInstance();
         const focusedValue = interaction.options.getFocused().toLowerCase();
         const stationSearcher = new SearchCore('station');
-        stationSearcher.setDataSource(metro.api.getProcessedData());
+        stationSearcher.setDataSource(metroInfoProvider.getFullData());
 
-        const results = await stationSearcher.search(focusedValue, { 
+        const results = await stationSearcher.search(focusedValue, {
             maxResults: 25,
             searchFields: ['name', 'id']
         });
@@ -54,76 +51,71 @@ module.exports = {
         );
     },
 
-    async execute(interaction, metro) {
-        try {
-            const userId = interaction.user.id;
-            const cooldownAmount = 10_000;
+    async execute(interaction) {
+        const cooldowns = new Collection();
+        const userId = interaction.user.id;
+        const cooldownAmount = 10_000;
 
-            if (cooldowns.has(userId)) {
-                const expirationTime = cooldowns.get(userId) + cooldownAmount;
-                if (Date.now() < expirationTime) {
-                    const timeLeft = (expirationTime - Date.now()) / 1000;
-                    return interaction.reply({
-                        content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos.`,
-                        ephemeral: true
-                    });
-                }
+        if (cooldowns.has(userId)) {
+            const expirationTime = cooldowns.get(userId) + cooldownAmount;
+            if (Date.now() < expirationTime) {
+                const timeLeft = (expirationTime - Date.now()) / 1000;
+                return interaction.reply({
+                    content: `⏱️ Por favor espera ${timeLeft.toFixed(1)} segundos.`
+                });
             }
-
-            cooldowns.set(userId, Date.now());
-            setTimeout(() => cooldowns.delete(userId), cooldownAmount);
-
-            await interaction.deferReply({ ephemeral: interaction.options.getBoolean('discreto') || false });
-            
-            const originId = interaction.options.getString('origen');
-            const destinationId = interaction.options.getString('destino');
-            const farePeriod = interaction.options.getString('periodo');
-            
-            const stationSearcher = new SearchCore('station');
-            stationSearcher.setDataSource(metro.api.getProcessedData());
-            
-            const [origin, destination] = await Promise.all([
-                this._validateStation(originId, stationSearcher, 'origen'),
-                this._validateStation(destinationId, stationSearcher, 'destino')
-            ]);
-            
-            const routes = await RoutePlanner.getRoutes(origin.id, destination.id, farePeriod);
-            if (!routes || routes.length === 0) {
-                return interaction.editReply({ content: '❌ No se encontraron rutas.', ephemeral: true });
-            }
-            
-            const routeData = {
-                id: `${origin.id}-${destination.id}-${Date.now()}`,
-                origin: { id: origin.id, name: origin.displayName, line: origin.line },
-                destination: { id: destination.id, name: destination.displayName, line: destination.line },
-                farePeriod,
-                options: {
-                    fastest: routes[0],
-                    slowest: routes[routes.length - 1],
-                    rawData: routes
-                }
-            };
-            
-            if (routes.length > 2) {
-                routeData.options.balanced = routes[Math.floor(routes.length / 2)];
-            }
-            
-            const context = {
-                route: routeData,
-                metroData: metro.api.getProcessedData(),
-                staticData: metro._staticData
-            };
-
-            const message = await routeButtonsHandler.build(interaction, context);
-            
-            await interaction.editReply(message);
-            
-        } catch (error) {
-            console.error('Error en comando planificar:', error);
-            await interaction.editReply({ content: '❌ Error al planificar el viaje.', ephemeral: true });
         }
+
+        cooldowns.set(userId, Date.now());
+        setTimeout(() => cooldowns.delete(userId), cooldownAmount);
+
+        await interaction.deferReply({ ephemeral: interaction.options.getBoolean('discreto') || false });
+
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const originId = interaction.options.getString('origen');
+        const destinationId = interaction.options.getString('destino');
+        const farePeriod = interaction.options.getString('periodo');
+
+        const stationSearcher = new SearchCore('station');
+        stationSearcher.setDataSource(metroInfoProvider.getFullData());
+
+        const [origin, destination] = await Promise.all([
+            this._validateStation(originId, stationSearcher, 'origen'),
+            this._validateStation(destinationId, stationSearcher, 'destino')
+        ]);
+
+        const routes = await RoutePlanner.getRoutes(origin.id, destination.id, farePeriod);
+        if (!routes || routes.length === 0) {
+            return interaction.editReply({ content: '❌ No se encontraron rutas.' });
+        }
+
+        const routeData = {
+            id: `${origin.id}-${destination.id}-${Date.now()}`,
+            origin: { id: origin.id, name: origin.displayName, line: origin.line },
+            destination: { id: destination.id, name: destination.displayName, line: destination.line },
+            farePeriod,
+            options: {
+                fastest: routes[0],
+                slowest: routes[routes.length - 1],
+                rawData: routes
+            }
+        };
+
+        if (routes.length > 2) {
+            routeData.options.balanced = routes[Math.floor(routes.length / 2)];
+        }
+
+        const context = {
+            route: routeData,
+            metroData: metroInfoProvider.getFullData(),
+            staticData: metroInfoProvider.getFullData()
+        };
+
+        const message = await routeButtonsHandler.build(interaction, context);
+
+        await interaction.editReply(message);
     },
-    
+
     async _validateStation(stationId, searcher, type) {
         const results = await searcher.search(stationId, { maxResults: 1, needsOneMatch: true });
         if (!results?.length) throw new Error(`Estación de ${type} no encontrada.`);

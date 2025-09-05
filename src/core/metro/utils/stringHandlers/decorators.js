@@ -1,5 +1,4 @@
 // modules/metro/utils/stringHandlers/decorators.js
-const config = require('../../../../config/metro/metroConfig');
 const logger = require('../../../../events/logger');
 
 // 1. HELPER FUNCTIONS (PRIVATE) =======================================
@@ -28,7 +27,8 @@ function getEnhancedStationData(station, metroCore) {
     return enhanced;
 }
 
-function getStatusComponents(station, isTransfer) {
+function getStatusComponents(station, isTransfer, metroCore) {
+    const config = metroCore.getConfig();
     const statusCode = station.status?.code || station.normalizedStatus || '1';
     return {
         emoji: config.statusTypes[statusCode]?.emoji || '🟩',
@@ -36,14 +36,15 @@ function getStatusComponents(station, isTransfer) {
     };
 }
 
-function getRouteEmoji(routeType) {
-   
+function getRouteEmoji(routeType, metroCore) {
+   const config = metroCore.getConfig();
    // console.log("Hols ", routeType) 
     const routeKey = routeType.toLowerCase().replace("ruta ", "").replace("ú", "u");
-    return config.stationIcons[routeKey]?.emoji || '';
+    return config.routeStyles[routeKey]?.emoji || '';
 }
 
 function getLineEmoji(station, metroCore) {
+    const config = metroCore.getConfig();
     const lineKey = station.line.toLowerCase();
     return metroCore?.utils?.getLineEmoji?.(lineKey) || 
           config.linesEmojis[lineKey] || 
@@ -94,7 +95,8 @@ function checkIsTransfer(station, metroCore) {
            (metroCore?.stations?.connections?.(station.id)?.length > 0));
 }
 
-function getConnectionEmojis(station) {
+function getConnectionEmojis(station, metroCore) {
+    const config = metroCore.getConfig();
     if (!station.connections) return '';
     
     const emojis = [];
@@ -146,22 +148,23 @@ module.exports = {
             
         //    console.log("Checkando Estado") ;
             
-            const status = getStatusComponents(enhancedStation, isTransfer);
+            const status = getStatusComponents(enhancedStation, isTransfer, metroCore);
             
             //console.log(status) ;
            
             const statusEmoji = status.emoji// + station.status.code
             
+            const config = metroCore.getConfig();
             return buildStationString(
                 statusEmoji,
-                enhancedStation.ruta ? getRouteEmoji(enhancedStation.ruta) : '',
+                enhancedStation.ruta ? getRouteEmoji(enhancedStation.ruta, metroCore) : '',
                 getLineEmoji(enhancedStation, metroCore),
                 
                 
                 cleanStationName(enhancedStation),
                 isTransfer ? config.linesEmojis[enhancedStation.line.toLowerCase()] + '↔️' + config.linesEmojis[enhancedStation.combination.toLowerCase()] : '',
                 
-                getConnectionEmojis(enhancedStation)
+                getConnectionEmojis(enhancedStation, metroCore)
             );
         } catch (error) {
             console.error('Station decoration failed', {
@@ -180,6 +183,7 @@ module.exports = {
      */
     decorateLine: function(lineId, metroCore) {
         try {
+            const config = metroCore.getConfig();
             const lineKey = lineId.toLowerCase();
             const lineEmoji = metroCore?.utils?.getLineEmoji?.(lineKey) || 
                             config.linesEmojis[lineKey] || 

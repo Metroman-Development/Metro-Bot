@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const TimeHelpers = require('../../../../../core/chronos/timeHelpers');
+const TimeHelpers = require('../../../../../utils/timeHelpers');
 const metroConfig = require('../../../../../config/metro/metroConfig');
 
 module.exports = {
@@ -72,8 +72,7 @@ module.exports = {
         } catch (error) {
             console.error('Error en /metro horario:', error);
             await interaction.editReply({
-                content: '❌ Error al obtener los horarios',
-                ephemeral: true
+                content: '❌ Error al obtener los horarios'
             });
         }
     }

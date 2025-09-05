@@ -14,20 +14,20 @@ const metroConfig = require('../config/metro/metroConfig');
  * @param {object} metroData The metro data.
  * @returns {EmbedBuilder} The created embed.
  */
-function create(station, metroData) {
+function create({ station, metroData }) {
     if (!station) throw new Error('Station data is required');
 
     const normalizedStation = normalizeStationData(station);
-    const stationDyna = metroData?.stations?.[normalizedStation.code?.toLowerCase()] || { status: {} };
+    const stationDyna = metroData?.stations?.[normalizedStation.code?.toUpperCase()];
     const lineColor = getLineColor(normalizedStation.line);
 
     let stationDeco = `${metroConfig.linesEmojis[normalizedStation.line.toLowerCase()] || '🚇'}`;
-    if (stationDyna.status?.code) {
-        stationDeco += metroConfig.stationIcons[parseInt(stationDyna.status.code)]?.emoji || 'ℹ️';
+    if (stationDyna?.status_data?.js_code) {
+        stationDeco += metroConfig.statusTypes[parseInt(stationDyna.status_data.js_code)]?.emoji || 'ℹ️';
     }
     if (normalizedStation.ruta) {
         const rutaKey = normalizedStation.ruta.toLowerCase().replace(/ /g, "").replace("ruta", "").replace("ú", "u");
-        stationDeco += metroConfig.stationIcons[rutaKey]?.emoji || '';
+        stationDeco += metroConfig.routeStyles[rutaKey]?.emoji || '';
     }
 
     const embed = new EmbedBuilder()
@@ -37,7 +37,7 @@ function create(station, metroData) {
         .addFields(
             {
                 name: '📢 Estado',
-                value: stationDyna.status?.appMessage || 'Sin información',
+                value: stationDyna?.status_data?.status_message || 'Sin información',
                 inline: true
             }
         );
@@ -60,7 +60,7 @@ function create(station, metroData) {
     if (normalizedStation.commerce) {
         embed.addFields({
             name: '🛍️ Comercio',
-            value: processCommerceText(normalizedStation.commerce),
+            value: processCommerceText(normalizedStation.commerce, metroConfig),
             inline: false
         });
     }
@@ -81,14 +81,23 @@ function create(station, metroData) {
         });
     }
 
-    if (normalizedStation.transferLines?.length > 0) {
-        embed.addFields({
-            name: '🔄 Conecta con',
-            value: normalizedStation.transferLines
-                .map(l => `${metroConfig.linesEmojis[l.toLowerCase()] || `Línea ${l}`}`)
-                .join(', '),
-            inline: true
-        });
+    if (normalizedStation.connections) {
+        const lines = normalizedStation.connections.lines?.length || 0;
+        const others = normalizedStation.connections.other?.length || 0;
+        const bikes = normalizedStation.connections.bikes?.length || 0;
+
+        if (lines > 0 || others > 0 || bikes > 0) {
+            const summary = [];
+            if (lines > 0) summary.push(`${lines} línea(s)`);
+            if (others > 0) summary.push(`${others} otro(s)`);
+            if (bikes > 0) summary.push(`${bikes} bici(s)`);
+
+            embed.addFields({
+                name: '🔄 Conexiones',
+                value: `Esta estación conecta con ${summary.join(', ')}.`,
+                inline: false
+            });
+        }
     }
 
     return embed;
@@ -97,26 +106,33 @@ function create(station, metroData) {
 function addAccessibilityField(embed, station) {
     if (!station.accessibility) return;
 
-    const processedLines = processAccessibilityText(station.accessibility);
-    const fullText = processedLines.join('\n');
+    const accessibility = station.accessibility;
+    const nonOperationalElevators = accessibility.filter(item => item.tipo === 'ascensor' && item.estado !== 1).length;
+    const nonOperationalEscalators = accessibility.filter(item => item.tipo === 'escalera' && item.estado !== 1).length;
+    const nonOperationalOther = accessibility.filter(item => item.tipo !== 'ascensor' && item.tipo !== 'escalera' && item.estado !== 1).length;
 
-    const displayText = fullText.length > 300
-        ? `${fullText.substring(0, 300)}...`
-        : fullText;
+    let summary;
+    if (nonOperationalElevators === 0 && nonOperationalEscalators === 0 && nonOperationalOther === 0) {
+        summary = '✅ Todos los equipos de accesibilidad se encuentran operativos.';
+    } else {
+        const issues = [];
+        if (nonOperationalElevators > 0) {
+            issues.push(`${nonOperationalElevators} ascensor(es)`);
+        }
+        if (nonOperationalEscalators > 0) {
+            issues.push(`${nonOperationalEscalators} escalera(s)`);
+        }
+        if (nonOperationalOther > 0) {
+            issues.push(`${nonOperationalOther} otro(s)`);
+        }
+        summary = `⚠️ Se reportan incidencias en ${issues.join(', ')}.`;
+    }
 
     embed.addFields({
-        name: `${metroConfig.accessibility?.logo || '♿'} Accesibilidad`,
-        value: displayText,
+        name: `♿ Accesibilidad`,
+        value: summary,
         inline: false
     });
-
-    if (fullText.length > 300) {
-        embed.addFields({
-            name: '\u200B',
-            value: `*Para ver la información completa de accesibilidad, haz clic en el botón ♿*`,
-            inline: false
-        });
-    }
 }
 
 module.exports = {

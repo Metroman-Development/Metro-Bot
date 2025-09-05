@@ -58,7 +58,7 @@ class DisambiguationHandler {
 
     static formatMatchForDisplay(match, index) {
         const lineEmoji = metroConfig.linesEmojis[match.item.line?.toLowerCase()] || 'ℹ️';
-        const statusEmoji = metroConfig.statusMapping[match.item.status?.code]?.emoji || '🔵';
+        const statusEmoji = metroConfig.statusTypes[match.item.status?.code]?.emoji || '🔵';
         
         let displayText;
         switch(match.type) {

@@ -9,6 +9,23 @@ jest.mock('../src/events/logger', () => ({
     error: jest.fn(),
 }));
 
+jest.mock('../src/utils/MetroInfoProvider', () => {
+    const mockInstance = {
+        getStations: jest.fn().mockReturnValue({}),
+        getFullData: jest.fn().mockReturnValue({ lines: {}, stations: {} }),
+    };
+    const mockMetroInfoProvider = {
+        getInstance: jest.fn().mockReturnValue(mockInstance),
+    };
+    return {
+        MetroInfoProvider: mockMetroInfoProvider,
+        STATIONS_QUERY: 'SELECT * FROM stations'
+    };
+});
+
+const { MetroInfoProvider } = require('../src/utils/MetroInfoProvider');
+
+
 describe('EmbedManager', () => {
     let embedManager;
     let mockStatusUpdater;
@@ -17,14 +34,12 @@ describe('EmbedManager', () => {
         // Reset mocks before each test
         logger.warn.mockClear();
         logger.debug.mockClear();
+        MetroInfoProvider.getInstance().getFullData.mockClear();
+        MetroInfoProvider.getInstance().getStations.mockClear();
 
         mockStatusUpdater = {
-            parent: {
-                metroCore: {
-                    api: {
-                        getProcessedData: jest.fn(),
-                    },
-                },
+            metroCore: {
+                getCurrentData: jest.fn(),
             },
             UI_STRINGS: {
                 EMBEDS: {
@@ -57,16 +72,16 @@ describe('EmbedManager', () => {
             expect(logger.warn).toHaveBeenCalledWith('[EmbedManager] updateAllLineEmbeds called without line data. Skipping.');
         });
 
-        it('should call updateLineEmbed for each line', async () => {
+        it('should call updateLineEmbed for each line with stations data', async () => {
             const data = {
                 lines: {
                     l1: { id: 'L1' },
                 },
-                stations: {},
+                stations: { 'ST1': { id: 'ST1', name: 'Station 1' } },
             };
             embedManager.updateLineEmbed = jest.fn();
             await embedManager.updateAllLineEmbeds(data);
-            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith({ id: 'L1', _allStations: {} });
+            expect(embedManager.updateLineEmbed).toHaveBeenCalledWith(data.lines.l1, data.stations);
         });
     });
 
@@ -76,12 +91,15 @@ describe('EmbedManager', () => {
                 lines: {
                     l1: { id: 'L1', status: 1, message: 'Normal', stations: [] },
                 },
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
             embedManager.areEmbedsReady = true;
 
             await embedManager.updateOverviewEmbed(data);
-            // Verify that getProcessedData was NOT called
-            expect(mockStatusUpdater.parent.metroCore.api.getProcessedData).not.toHaveBeenCalled();
+            // Verify that getCurrentData was NOT called
+            expect(mockStatusUpdater.metroCore.getCurrentData).not.toHaveBeenCalled();
         });
     });
 
@@ -96,6 +114,9 @@ describe('EmbedManager', () => {
             const data = {
                 lines: { l1: { id: 'L1' } },
                 stations: {},
+                systemMetadata: {
+                    status: 'operational'
+                }
             };
 
             await embedManager.updateAllEmbeds(data);
@@ -104,10 +125,25 @@ describe('EmbedManager', () => {
             expect(embedManager.updateAllLineEmbeds).toHaveBeenCalledWith(data);
         });
 
+        it('should use systemMetadata for network status', async () => {
+            const data = {
+                lines: { l1: { id: 'L1' } },
+                stations: {},
+                systemMetadata: {
+                    status: 'degraded'
+                }
+            };
+
+            await embedManager.updateAllEmbeds(data);
+
+            expect(embedManager.updateOverviewEmbed).toHaveBeenCalledWith(data, null);
+        });
+
         it('should log an error and not proceed if no data is provided', async () => {
+            MetroInfoProvider.getInstance().getFullData.mockReturnValue(null);
             await embedManager.updateAllEmbeds(null);
 
-            expect(logger.error).toHaveBeenCalledWith('[EmbedManager] updateAllEmbeds called without data. Aborting.');
+            expect(logger.error.mock.calls[0][0]).toBe('[EmbedManager] Overview update failed');
             expect(embedManager.updateOverviewEmbed).not.toHaveBeenCalled();
             expect(embedManager.updateAllLineEmbeds).not.toHaveBeenCalled();
         });

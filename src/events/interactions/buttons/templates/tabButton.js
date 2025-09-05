@@ -34,8 +34,7 @@ class TabButton extends BaseButton {
         // Validate tab owner
         if (metadata.userId !== interaction.user.id) {
             return interaction.reply({
-                content: "You can't control these tabs",
-                ephemeral: true
+                content: "You can't control these tabs"
             });
         }
 
