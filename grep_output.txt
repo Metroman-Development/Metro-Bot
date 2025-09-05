@@ -1,0 +1,2 @@
+./src/bot/discord/commands/slash/Info_Metro/metro.js:const tren = require('./_mettren');
+./server.log:🐛 [2025-08-14T01:22:02.927Z] [INFO] [AdvancedCommandLoader.js:41] [AdvancedCommandLoader.loadCommands] Successfully loaded command _mettren.js

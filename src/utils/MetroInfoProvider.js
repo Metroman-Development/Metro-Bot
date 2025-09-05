@@ -393,13 +393,74 @@ class MetroInfoProvider {
         }
     }
 
+    async loadTrainsFromDb() {
+        try {
+            const trains = await this.databaseService.query("SELECT * FROM train_models");
+            const trainData = {};
+            for (const train of trains) {
+                trainData[train.model_id] = {
+                    id: train.model_id,
+                    generalInfo: {
+                        manufacturer: train.manufacturer,
+                        manufacturingYears: train.construction_years,
+                        serviceType: 'N/A',
+                        registrationNumbers: 'N/A'
+                    },
+                    technicalSpecs: {
+                        maxSpeed: train.max_speed_kmh ? `${train.max_speed_kmh} km/h` : 'N/A',
+                        propulsionType: train.traction_system,
+                        transmission: 'N/A',
+                        brakingSystems: []
+                    },
+                    composition: {
+                        configurations: train.formation ? [train.formation] : []
+                    },
+                    comfortFeatures: {
+                        standingCapacity: 'N/A',
+                        climateControl: 'N/A',
+                        wheelchairSpaces: 'N/A'
+                    },
+                    dimensions: {
+                        length: train.length_m ? `${train.length_m} m` : 'N/A',
+                        width: train.width_m ? `${train.width_m} m` : 'N/A',
+                        height: train.height_m ? `${train.height_m} m` : 'N/A'
+                    },
+                    weightData: {
+                        emptyWeight: train.weight_ton ? `${train.weight_ton} t` : 'N/A',
+                        axleLoad: 'N/A'
+                    },
+                    electricalSystems: {
+                        voltage: train.power_supply,
+                        motorType: 'N/A',
+                        motorCount: 'N/A'
+                    },
+                    safetyFeatures: {
+                        protectionSystems: []
+                    },
+                    operationalData: {
+                        totalUnits: train.total_produced,
+                        activeTrains: train.in_service_count
+                    },
+                    images: {
+                        exterior: train.image_url
+                    }
+                };
+            }
+            return trainData;
+        } catch (error) {
+            console.error('Error loading train data from database:', error);
+            throw error;
+        }
+    }
+
     async updateFromDb() {
-        const [lines, stations, metroinfo] = await Promise.all([
+        const [lines, stations, metroinfo, trains] = await Promise.all([
             this.loadLinesFromDb(),
             this.loadStationsFromDb(),
             this.loadMetroInfoFromDb(),
+            this.loadTrainsFromDb()
         ]);
-        this.updateData({ lines, stations, metroinfo });
+        this.updateData({ lines, stations, metroinfo, trains });
         await this.fetchAndSetEventData();
     }
 
