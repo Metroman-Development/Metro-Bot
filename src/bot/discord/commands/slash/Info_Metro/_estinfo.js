@@ -3,6 +3,7 @@ const { createErrorEmbed } = require('../../../../../utils/embedFactory');
 const DiscordMessageFormatter = require('../../../../../formatters/DiscordMessageFormatter');
 const { MetroInfoProvider } = require('../../../../../utils/MetroInfoProvider');
 const cacheManager = require('../../../../../utils/cacheManager');
+const { createStationInfoCollector } = require('../../../../../utils/collectorManager');
 
 module.exports = {
     data: new SlashCommandSubcommandBuilder()
@@ -32,8 +33,6 @@ module.exports = {
             }))
         );
     },
-
-const { createStationInfoCollector } = require('../../../../../utils/collectorManager');
 
     async execute(interaction) {
         await interaction.deferReply();

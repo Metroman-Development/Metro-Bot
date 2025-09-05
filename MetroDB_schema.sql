@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS=0;
 /*M!999999\- enable the sandbox mode */
 -- MariaDB dump 10.19  Distrib 10.11.13-MariaDB, for debian-linux-gnu (x86_64)
 --
@@ -865,21 +866,10 @@ SET character_set_client = @saved_cs_client;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Table for storing metro events
-CREATE TABLE metro_events (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    event_name VARCHAR(255) NOT NULL,
-    event_date DATE NOT NULL,
-    start_time TIME,
-    end_time TIME,
-    description TEXT,
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    INDEX idx_event_date (event_date),
-    INDEX idx_is_active (is_active)
-);
+DROP TABLE IF EXISTS `metro_events`;
 
 -- Table for event details and restrictions
+DROP TABLE IF EXISTS `event_details`;
 CREATE TABLE event_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     event_id INT NOT NULL,
@@ -898,6 +888,7 @@ CREATE TABLE event_details (
 );
 
 -- Table for station status during specific events
+DROP TABLE IF EXISTS `event_station_status`;
 CREATE TABLE event_station_status (
     id INT AUTO_INCREMENT PRIMARY KEY,
     event_id INT NOT NULL,
@@ -913,4 +904,19 @@ CREATE TABLE event_station_status (
     INDEX idx_status (status)
 );
 
+CREATE TABLE metro_events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_name VARCHAR(255) NOT NULL,
+    event_date DATE NOT NULL,
+    start_time TIME,
+    end_time TIME,
+    description TEXT,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_event_date (event_date),
+    INDEX idx_is_active (is_active)
+);
+
 -- Dump completed on 2025-08-13 20:13:32
+SET FOREIGN_KEY_CHECKS=1;
