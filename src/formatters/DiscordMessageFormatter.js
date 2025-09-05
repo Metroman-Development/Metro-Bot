@@ -208,13 +208,13 @@ class DiscordMessageFormatter {
         const notOperationalEmoji = metroConfig.accessibility.estado.fes;
 
         const summaryLines = [];
-        const elevators = accessibility.filter(item => item.tipo === 'ascensor');
-        const escalators = accessibility.filter(item => item.tipo === 'escalera');
-        const other = accessibility.filter(item => item.tipo !== 'ascensor' && item.tipo !== 'escalera');
+        const elevators = accessibility.filter(item => item && item.tipo === 'ascensor');
+        const escalators = accessibility.filter(item => item && item.tipo === 'escalera');
+        const other = accessibility.filter(item => item && item.tipo !== 'ascensor' && item.tipo !== 'escalera');
 
-        const nonOperationalElevators = elevators.filter(item => item.estado !== 1);
-        const nonOperationalEscalators = escalators.filter(item => item.estado !== 1);
-        const nonOperationalOther = other.filter(item => item.estado !== 1);
+        const nonOperationalElevators = elevators.filter(item => item && item.estado !== 1);
+        const nonOperationalEscalators = escalators.filter(item => item && item.estado !== 1);
+        const nonOperationalOther = other.filter(item => item && item.estado !== 1);
 
         if (nonOperationalElevators.length > 0) {
             summaryLines.push(`**${nonOperationalElevators.length}** ascensores con problemas.`);
@@ -242,15 +242,19 @@ class DiscordMessageFormatter {
             const fieldChunks = [];
 
             for (const item of items) {
-                const statusEmoji = item.estado === 1 ? operationalEmoji : notOperationalEmoji;
-                const line = `${statusEmoji} ${item.texto}\n`;
-                if (description.length + line.length > 1024) {
-                    fieldChunks.push(description);
-                    description = '';
+                if (item && item.texto) {
+                    const statusEmoji = item.estado === 1 ? operationalEmoji : notOperationalEmoji;
+                    const line = `${statusEmoji} ${item.texto}\n`;
+                    if (description.length + line.length > 1024) {
+                        fieldChunks.push(description);
+                        description = '';
+                    }
+                    description += line;
                 }
-                description += line;
             }
-            fieldChunks.push(description);
+            if (description) {
+                fieldChunks.push(description);
+            }
 
             fieldChunks.forEach((chunk, index) => {
                 embed.addFields({
@@ -425,8 +429,8 @@ class DiscordMessageFormatter {
                 return this._createErrorMessage(`Error al obtener el estado de la estación ${station?.name || 'desconocida'}`);
             }
             const enrichedStation = this._enrichStationData(station);
-            const statusStyle = this._getStatusMapping(enrichedStation.status_data.js_code);
-            const color = this._getColorForStatus(enrichedStation.status_data.js_code);
+            const statusStyle = this._getStatusMapping(enrichedStation.status_data?.js_code);
+            const color = this._getColorForStatus(enrichedStation.status_data?.js_code);
 
             const embed = new EmbedBuilder()
                 .setTitle(`${metroConfig.linesEmojis[enrichedStation.line_id]} Estación ${enrichedStation.name || 'Desconocida'}`)
