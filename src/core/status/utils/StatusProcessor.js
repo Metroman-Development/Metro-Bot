@@ -1,4 +1,3 @@
-const { normalizeStatus } = require('./statusHelpers');
 const logger = require('../../../events/logger');
 const styles = require('../../../config/styles.json');
 const TimeHelpers = require('../../../utils/timeHelpers');
