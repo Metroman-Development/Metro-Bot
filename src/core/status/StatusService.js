@@ -2,7 +2,75 @@
 // modules/status/StatusService.js
 const EventEmitter = require('events');
 const logger = require('../../events/logger');
-const { normalizeStatus, STATUS_MAP, SEVERITY_LEVELS } = require('./utils/statusHelpers');
+const { statusTypes, lineWeights, severityLabels } = require('../../config/metro/metroConfig');
+
+// ---- Start of content from statusHelpers.js ----
+
+// Status code to human-readable mapping
+const STATUS_MAP = Object.fromEntries(
+  Object.entries(statusTypes).map(([code, { name }]) => [code, name])
+);
+STATUS_MAP.unknown = 'Status Unknown';
+
+// Status to severity level mapping
+const SEVERITY_LEVELS = {
+  operational: 'low',
+  delayed: 'medium',
+  partial_outage: 'high',
+  major_outage: 'critical',
+  extended_service: 'medium',
+  outage: 'critical',
+  unknown: 'low',
+  open: 'low',
+  transfer: 'low',
+  'controlled_access': 'medium',
+  'partial_access': 'medium',
+  closed: 'high',
+  containment: 'high',
+  'extended_service_(entry_only)': 'medium',
+  'extended_service_(exit_only)': 'medium',
+  slow: 'medium',
+  delays: 'high',
+  partial: 'high',
+  suspended: 'critical',
+  'off-service': 'low',
+  'with_delays': 'high',
+  'partial_service': 'high',
+};
+
+// Status code to normalized form mapping
+const CODE_NORMALIZATION = Object.fromEntries(
+  Object.entries(statusTypes).map(([code, { name }]) => [
+    code,
+    name.replace(/ /g, '_'),
+  ])
+);
+
+/**
+ * Normalizes status codes to consistent status strings
+ * @param {string|number} code - Raw status code from API
+ * @returns {string} Normalized status
+ */
+function normalizeStatus(code) {
+  if (code === undefined || code === null) {
+    logger.warn('Received empty status code, defaulting to unknown');
+    return 'unknown';
+  }
+
+  // Convert to string if it's a number
+  const codeStr = code.toString();
+  const normalized = CODE_NORMALIZATION[codeStr];
+
+  if (!normalized) {
+    logger.error(`Unknown status code: ${codeStr}`);
+    return 'unknown';
+  }
+
+  return normalized;
+}
+
+// ---- End of content from statusHelpers.js ----
+
 
 class StatusService extends EventEmitter {
   constructor() {
