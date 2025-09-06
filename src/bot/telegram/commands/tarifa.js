@@ -5,8 +5,9 @@ module.exports = {
     name: 'tarifa',
     description: 'Muestra las tarifas del Metro de Santiago.',
     async execute(ctx) {
-        const currentPeriod = TimeHelpers.getCurrentPeriod();
-        const nextTransition = TimeHelpers.getNextTransition();
+        const timeHelper = new TimeHelpers();
+        const currentPeriod = timeHelper.getCurrentPeriod();
+        const nextTransition = timeHelper.getNextTransition();
 
         const fares = {
             'Punta': {
@@ -30,7 +31,7 @@ module.exports = {
         };
 
         let response = `*Tarifas del Metro de Santiago*\n\n`;
-        response += `*Período Actual:* ${currentPeriod.name} (${TimeHelpers.currentTime.format('HH:mm')})\n`;
+        response += `*Período Actual:* ${currentPeriod.name} (${timeHelper.currentTime.format('HH:mm')})\n`;
         response += `*Próximo Cambio:* ${nextTransition.time} - ${nextTransition.message}\n\n`;
 
         for (const period in fares) {

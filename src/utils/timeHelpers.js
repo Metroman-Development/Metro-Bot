@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
 const config = require('../config/chronosConfig');
-const logger = require('../events/logger');
+const logger =require('../events/logger');
 
 class TimeHelpers {
     static #DEFAULT_SCHEDULE = {
@@ -25,10 +25,11 @@ class TimeHelpers {
         }
     };
 
-    static #currentEvent = null;
+    #currentEvent = null;
+    currentTime = null;
 
-    static get currentTime() {
-        return moment().tz(config.timezone);
+    constructor(date) {
+        this.currentTime = date ? moment(date).tz(config.timezone) : moment().tz(config.timezone);
     }
 
     static getScheduleConfig() {
@@ -53,10 +54,10 @@ class TimeHelpers {
         }
     }
 
-    static getOperatingHours(dayType = this.getDayType()) {
+    getOperatingHours() {
         try {
-            const schedule = this.getScheduleConfig();
-            const daySchedule = schedule[dayType] || schedule.weekday;
+            const schedule = TimeHelpers.getScheduleConfig();
+            const daySchedule = schedule[this.getDayType()] || schedule.weekday;
 
             return {
                 opening: daySchedule.service[0],
@@ -75,9 +76,9 @@ class TimeHelpers {
         }
     }
 
-    static getDayType(date) {
+    getDayType() {
         try {
-            const time = date ? moment(date).tz(config.timezone) : this.currentTime;
+            const time = this.currentTime;
             const dateStr = time.format('YYYY-MM-DD');
 
             if (config.festiveDays && config.festiveDays.includes(dateStr)) {
@@ -93,24 +94,24 @@ class TimeHelpers {
         }
     }
 
-    static isWeekday(date) {
-        const time = date ? moment(date).tz(config.timezone) : this.currentTime;
+    isWeekday() {
+        const time = this.currentTime;
         const day = time.day();
         return day >= 1 && day <= 5;
     }
 
-    static getCurrentPeriod(date) {
+    getCurrentPeriod() {
         try {
-            const time = date ? moment(date).tz(config.timezone) : this.currentTime;
+            const time = this.currentTime;
 
-            if (!this.isWithinOperatingHours(time)) {
+            if (!this.isWithinOperatingHours()) {
                 return { type: 'CERRADO', name: 'Servicio Cerrado' };
             }
 
             const timeStr = time.format('HH:mm');
-            const dayType = this.getDayType(time.toDate());
+            const dayType = this.getDayType();
 
-            if (this.isSpecialEventActive(time.toDate())) {
+            if (this.isSpecialEventActive()) {
                 return { type: 'EVENT', name: 'Evento Especial' };
             }
 
@@ -121,7 +122,7 @@ class TimeHelpers {
             for (const periodType in config.farePeriods) {
                 if (config.farePeriods.hasOwnProperty(periodType)) {
                     const isCurrentPeriod = config.farePeriods[periodType].some(period =>
-                        this.isTimeBetween(time, period.start, period.end)
+                        TimeHelpers.isTimeBetween(time, period.start, period.end)
                     );
                     if (isCurrentPeriod) {
                         let name = 'Desconocido';
@@ -141,11 +142,11 @@ class TimeHelpers {
         }
     }
 
-    static isSpecialEventActive(date) {
+    isSpecialEventActive() {
         try {
             if (!config.events || !Array.isArray(config.events)) return false;
 
-            const now = date ? moment(date).tz(config.timezone) : this.currentTime;
+            const now = this.currentTime;
             return config.events.some(event => {
                 if (!event.date || !event.startTime || !event.endTime) return false;
 
@@ -160,18 +161,18 @@ class TimeHelpers {
         }
     }
 
-    static isWithinOperatingHours(date) {
+    isWithinOperatingHours() {
         try {
-            const now = date ? moment(date).tz(config.timezone) : this.currentTime;
-            const operatingHours = this.getOperatingHours(this.getDayType(now.toDate()));
-            return this.isTimeBetween(now, operatingHours.opening, operatingHours.closing);
+            const now = this.currentTime;
+            const operatingHours = this.getOperatingHours();
+            return TimeHelpers.isTimeBetween(now, operatingHours.opening, operatingHours.closing);
         } catch (error) {
             logger.error('Failed to check if within operating hours:', error);
             return false;
         }
     }
 
-    static isExtendedHoursActive() {
+    isExtendedHoursActive() {
         try {
             // Implement your extended hours logic here
             return false;
@@ -222,11 +223,11 @@ class TimeHelpers {
         }
     }
 
-    static getEventDetails() {
+    getEventDetails() {
         try {
             if (!this.#currentEvent) {
                 const activeEvent = config.events?.find(event =>
-                    this.isSpecialEventActive(moment(`${event.date} ${event.startTime}`))
+                    this.isSpecialEventActive()
                 );
                 this.#currentEvent = activeEvent || null;
             }
@@ -237,69 +238,6 @@ class TimeHelpers {
         }
     }
 
-
-_getDefaultHours() {
-
-    try {
-
-        return {
-
-            weekday: this.#DEFAULT_SCHEDULE.weekday.service,
-
-            saturday: this.#DEFAULT_SCHEDULE.saturday.service,
-
-            sunday: this.#DEFAULT_SCHEDULE.sunday.service,
-
-            festive: this.#DEFAULT_SCHEDULE.festive.service
-
-        };
-
-    } catch (error) {
-
-        logger.error('Failed to get default hours:', error);
-
-        return {
-
-            weekday: ['06:00', '23:00'],
-
-            saturday: ['06:30', '23:00'],
-
-            sunday: ['07:30', '23:00'],
-
-            festive: ['07:30', '23:00']
-
-        };
-
-    }
-
-}
-
-// In timeHelpers.js - adding to the TimeHelpers class
-
-static getRawScheduleConfig() {
-
-    try {
-
-        return this.getScheduleConfig();
-
-    } catch (error) {
-
-        logger.error('Failed to get raw schedule config:', error);
-
-        return this.#DEFAULT_SCHEDULE;
-
-    }
-
-}
-
-    /**
-     * Formats milliseconds into a human-readable duration string
-     * @param {number} ms - Duration in milliseconds
-     * @param {object} [options] - Formatting options
-     * @param {boolean} [options.compact=false] - Use compact format (e.g., "1h5m" instead of "1 hour 5 minutes")
-     * @param {number} [options.precision=2] - Number of time units to include
-     * @returns {string} Formatted duration string
-     */
     static formatDuration(ms, options = {}) {
         if (ms < 0) ms = -ms;
         if (ms === 0) return '0ms';
@@ -340,8 +278,8 @@ static getRawScheduleConfig() {
         return parts[0];
     }
 
-    static getNextTransition() {
-        const now = moment().tz(config.timezone);
+    getNextTransition() {
+        const now = this.currentTime;
         const operatingHours = this.getOperatingHours();
         const transitions = [];
 

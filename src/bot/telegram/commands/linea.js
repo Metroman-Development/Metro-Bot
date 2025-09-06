@@ -11,19 +11,23 @@ module.exports = {
 
         const lineId = args[0].toLowerCase();
         const infoProvider = MetroInfoProvider.getInstance();
-        const lineInfo = infoProvider.getLineData(lineId);
+        const lineInfo = infoProvider.getLine(lineId);
 
         if (!lineInfo) {
             return ctx.reply('No se encontró información para esta línea.');
         }
 
-        let response = `*Información de la ${lineInfo.nombre}*\n\n`;
-        response += `*Nombre:* ${lineInfo.nombre}\n`;
+        const stations = infoProvider.getStations();
+        const lineStations = Object.values(stations).filter(s => s.line_id === lineId);
+        const communes = [...new Set(lineStations.map(s => s.commune))];
+
+        let response = `*Información de la ${lineInfo.name}*\n\n`;
+        response += `*Nombre:* ${lineInfo.name}\n`;
         response += `*Color:* ${lineInfo.color}\n`;
-        response += `*Estado:* ${lineInfo.mensaje_app}\n`;
-        response += `*Total de estaciones:* ${lineInfo.data['N° estaciones']}\n`;
-        response += `*Longitud total:* ${lineInfo.data.Longitud}\n`;
-        response += `*Comunas:* ${lineInfo.data.Comunas.join(', ')}\n`;
+        response += `*Estado:* ${lineInfo.app_message}\n`;
+        response += `*Total de estaciones:* ${lineInfo.total_stations}\n`;
+        response += `*Longitud total:* ${lineInfo.total_length_km} km\n`;
+        response += `*Comunas:* ${communes.join(', ')}\n`;
 
         return ctx.replyWithMarkdown(response);
     }

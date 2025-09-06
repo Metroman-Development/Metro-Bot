@@ -555,6 +555,33 @@ class MetroInfoProvider {
         return null;
     }
 
+    getExpressData(lineId) {
+        const stations = this.getStations();
+        const lineStations = Object.values(stations).filter(s => s.line_id === lineId);
+
+        if (lineStations.length === 0) {
+            return null;
+        }
+
+        const expressData = {
+            roja: [],
+            verde: [],
+            comun: []
+        };
+
+        for (const station of lineStations) {
+            if (station.route_color === 'R') {
+                expressData.roja.push(station.name);
+            } else if (station.route_color === 'V') {
+                expressData.verde.push(station.name);
+            } else if (station.route_color === 'C') {
+                expressData.comun.push(station.name);
+            }
+        }
+
+        return expressData;
+    }
+
     getIntermodalBuses(stationName) {
         return this.data.intermodal.buses[stationName];
     }

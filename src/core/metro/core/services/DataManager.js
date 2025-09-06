@@ -43,7 +43,7 @@ class DataManager extends EventEmitter {
         this.statusTypes = null;
 
         // Service dependencies
-        this.timeHelpers = TimeHelpers;
+        this.timeHelpers = new TimeHelpers();
         this.statusProcessor = options.statusProcessor;
         this.changeDetector = options.changeDetector;
 
@@ -170,7 +170,9 @@ class DataManager extends EventEmitter {
             };
             delete processedData.lineas;
 
+            console.log('currentData:', JSON.stringify(currentData, null, 2));
             const finalData = await this.dataEngine.handleRawData(processedData, currentData.changeHistory);
+            console.log('finalData:', JSON.stringify(finalData, null, 2));
 
             if (finalData) {
                 this.lastRawData = currentData; // Store the original raw data

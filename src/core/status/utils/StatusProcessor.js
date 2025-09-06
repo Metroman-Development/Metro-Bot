@@ -11,7 +11,7 @@ class StatusProcessor {
   constructor(dbManager, dbService) {
     this.db = dbManager;
     this.dbService = dbService;
-    this.timeHelpers = TimeHelpers;
+    this.timeHelpers = new TimeHelpers();
     this.lineWeights = statusConfig.lineWeights;
     this.statusMap = statusConfig.statusTypes;
     this.severityLabels = statusConfig.severityLabels;

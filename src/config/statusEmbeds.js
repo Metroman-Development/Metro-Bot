@@ -61,7 +61,8 @@ module.exports = {
             };
         });
 
-        const serviceStatus = TimeHelpers.getOperatingHours();
+        const timeHelper = new TimeHelpers();
+        const serviceStatus = timeHelper.getOperatingHours();
         if (serviceStatus) {
             fields.push({
                 name: '🕒 Horario de Servicio',
@@ -70,7 +71,7 @@ module.exports = {
             });
         }
 
-        const currentPeriod = TimeHelpers.getCurrentPeriod();
+        const currentPeriod = timeHelper.getCurrentPeriod();
         if (currentPeriod) {
             fields.push({
                 name: '💲 Periodo Tarifario',
@@ -79,7 +80,7 @@ module.exports = {
             });
         }
 
-        const nextTransition = TimeHelpers.getNextTransition();
+        const nextTransition = timeHelper.getNextTransition();
         if (nextTransition) {
             fields.push({
                 name: '⏭️ Próximo Cambio',
