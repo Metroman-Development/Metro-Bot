@@ -30,7 +30,7 @@ module.exports = {
         };
 
         let response = `*Tarifas del Metro de Santiago*\n\n`;
-        response += `*Período Actual:* ${currentPeriod.name} (${TimeHelpers.formatForEmbed()})\n`;
+        response += `*Período Actual:* ${currentPeriod.name} (${TimeHelpers.currentTime.format('HH:mm')})\n`;
         response += `*Próximo Cambio:* ${nextTransition.time} - ${nextTransition.message}\n\n`;
 
         for (const period in fares) {
