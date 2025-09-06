@@ -5,7 +5,7 @@ module.exports = {
     description: 'Muestra información de una estación intermodal.',
     async execute(ctx, metro) {
         const args = ctx.message.text.split(' ').slice(1);
-        const infoProvider = MetroInfoProvider;
+        const infoProvider = MetroInfoProvider.getInstance();
         const intermodalData = infoProvider.getFullData().intermodal;
 
         if (args.length === 0) {
