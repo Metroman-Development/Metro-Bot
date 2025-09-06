@@ -12,7 +12,7 @@ class EventPayload {
      */
     constructor(eventType, data = {}, metadata = {}) {
         this.type = eventType;
-        this.timestamp = TimeHelpers.currentTime.toISOString();
+        this.timestamp = new TimeHelpers().currentTime.toISOString();
         this.data = data;
         this.metadata = {
             source: 'unknown',

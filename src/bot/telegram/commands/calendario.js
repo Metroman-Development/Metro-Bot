@@ -41,7 +41,7 @@ module.exports = {
     const viewType = args[0] || 'semana';
 
     if (viewType === 'semana') {
-      const now = TimeHelpers.currentTime.clone();
+      const now = new TimeHelpers().currentTime.clone();
       const weekStart = now.clone().startOf('isoWeek');
       const weekEnd = weekStart.clone().add(6, 'days');
 
@@ -49,10 +49,7 @@ module.exports = {
 
       const days = Array.from({ length: 7 }, (_, i) => weekStart.clone().add(i, 'days'));
       const dailySchedules = days.map(date => {
-          const dayHelper = Object.create(TimeHelpers);
-          Object.assign(dayHelper, TimeHelpers);
-          dayHelper.currentTime = date.clone();
-
+          const dayHelper = new TimeHelpers(date.clone());
           const event = dayHelper.getEventDetails();
           const operatingHours = dayHelper.getOperatingHours();
 

@@ -1,5 +1,15 @@
 const StatusProcessor = require('../src/core/status/utils/StatusProcessor');
 
+jest.mock('../src/utils/timeHelpers', () => {
+    return jest.fn().mockImplementation(() => {
+        return {
+            currentTime: {
+                toISOString: () => '2025-09-01T22:01:22.287Z'
+            }
+        };
+    });
+});
+
 describe('StatusProcessor', () => {
     let statusProcessor;
 

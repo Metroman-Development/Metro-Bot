@@ -81,9 +81,10 @@ describe('Telegram Commands', () => {
 
     metroInfoProviderStub = sinon.stub(MetroInfoProvider, 'getInstance').returns({
       getFullData: () => fullData,
-      getLineData: () => ({ nombre: 'Línea 1', color: 'rojo', mensaje_app: 'Operativa', data: { 'N° estaciones': 27, Longitud: '20 km', Comunas: ['Providencia'] } }),
+      getLine: () => ({ name: 'Línea 1', color: 'rojo', app_message: 'Operativa', total_stations: 27, total_length_km: '20', communes: ['Providencia'] }),
       getExpressData: () => ({ roja: ['a'], verde: ['b'], comun: ['c'] }),
       getStationById: () => fullData.stations['L1-BAQ'],
+      getStations: () => fullData.stations,
     });
 
     dbStub = sinon.stub(DatabaseManager, 'getInstance').resolves({

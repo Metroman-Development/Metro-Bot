@@ -10,9 +10,10 @@ module.exports = {
       const metroInfoProvider = MetroInfoProvider.getInstance();
       const metroData = metroInfoProvider.getFullData();
       const networkStatus = metroData.network_status;
-      const currentPeriod = TimeHelpers.getCurrentPeriod();
+      const timeHelper = new TimeHelpers();
+      const currentPeriod = timeHelper.getCurrentPeriod();
       const isExpressActive = TimeHelpers.isExpressActive();
-      const operatingHours = TimeHelpers.getOperatingHours();
+      const operatingHours = timeHelper.getOperatingHours();
 
       const response = `
 **Estado Actual del Servicio**
