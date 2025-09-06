@@ -3,8 +3,8 @@ const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 module.exports = {
     name: 'metro',
     description: 'Muestra información general del Metro de Santiago.',
-    async execute(ctx, metro) {
-        const infoProvider = MetroInfoProvider;
+    async execute(ctx) {
+        const infoProvider = MetroInfoProvider.getInstance();
         const systemInfo = infoProvider.getFullData().system;
 
         if (!systemInfo) {

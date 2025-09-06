@@ -3,14 +3,14 @@ const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 module.exports = {
     name: 'linea',
     description: 'Muestra información de una línea del Metro de Santiago.',
-    async execute(ctx, metro) {
+    async execute(ctx) {
         const args = ctx.message.text.split(' ').slice(1);
         if (args.length === 0) {
             return ctx.reply('Por favor, especifica una línea (ej: /linea l1).');
         }
 
         const lineId = args[0].toLowerCase();
-        const infoProvider = MetroInfoProvider;
+        const infoProvider = MetroInfoProvider.getInstance();
         const lineInfo = infoProvider.getLineData(lineId);
 
         if (!lineInfo) {

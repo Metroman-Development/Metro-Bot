@@ -207,7 +207,7 @@ async _performSearch(query, options, cacheKey) {
       id: item.id || 'unknown',
       name: item.original || item.name || item.displayName || 'Unknown',
       displayName: item.displayName || item.original || item.name || 'Unknown',
-      line: item.linea ? item.linea.toLowerCase() : (item.line ? item.line.toLowerCase() : 'unknown'),
+      line: item.linea ? item.linea.toLowerCase() : (item.line ? item.line.id.toLowerCase() : 'unknown'),
       status: item.status?.code || 'operational',
       score: 1.0,
       matchType,

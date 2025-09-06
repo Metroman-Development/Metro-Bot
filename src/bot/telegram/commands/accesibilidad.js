@@ -1,9 +1,12 @@
 const styles = require('../../../config/styles.json');
 
+const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
+const DatabaseManager = require('../../../core/database/DatabaseManager');
+
 module.exports = {
     name: 'accesibilidad',
     description: 'Buscar estaciones por estado de accesibilidad',
-    async execute(ctx, metro) {
+    async execute(ctx) {
         const args = ctx.message.text.split(' ').slice(1);
         if (args.length === 0) {
             return ctx.reply('Por favor, especifica un estado de accesibilidad (operativa/fueraservicio) y opcionalmente un tipo de equipo (ascensor/escalera/ambos).');
@@ -12,8 +15,11 @@ module.exports = {
         const statusQuery = args[0].toLowerCase() === 'operativa' ? 'Operativa' : 'FueraServicio';
         const equipmentFilter = args[1] ? args[1].toLowerCase() : null;
 
+        const metroInfoProvider = MetroInfoProvider.getInstance();
+        const db = await DatabaseManager.getInstance();
+
         // Get accessibility data from the database
-        const accessibilityData = await metro.db.getAccessibilityStatus();
+        const accessibilityData = await db.getAccessibilityStatus();
 
         if (!accessibilityData || accessibilityData.length === 0) {
             return ctx.reply('No se encontró información de accesibilidad.');
@@ -21,7 +27,7 @@ module.exports = {
 
         // Process the data
         const stationData = {};
-        const staticStations = metro._staticData.stations;
+        const staticStations = metroInfoProvider.getFullData().stations;
 
         for (const item of accessibilityData) {
             const stationId = `${item.station_code}-${item.line_id}`;

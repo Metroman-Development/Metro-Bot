@@ -3,7 +3,7 @@ const { MetroInfoProvider } = require('../../../utils/MetroInfoProvider');
 module.exports = {
     name: 'intermodal',
     description: 'Muestra información de una estación intermodal.',
-    async execute(ctx, metro) {
+    async execute(ctx) {
         const args = ctx.message.text.split(' ').slice(1);
         const infoProvider = MetroInfoProvider.getInstance();
         const intermodalData = infoProvider.getFullData().intermodal;

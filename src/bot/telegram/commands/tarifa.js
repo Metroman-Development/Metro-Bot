@@ -4,7 +4,7 @@ const TimeHelpers = require('../../../utils/timeHelpers');
 module.exports = {
     name: 'tarifa',
     description: 'Muestra las tarifas del Metro de Santiago.',
-    async execute(ctx, metro) {
+    async execute(ctx) {
         const currentPeriod = TimeHelpers.getCurrentPeriod();
         const nextTransition = TimeHelpers.getNextTransition();
 
