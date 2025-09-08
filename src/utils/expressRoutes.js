@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 });
 
 // Main bot endpoint
-router.post('/bot', (req, res) => {
+router.post('/', (req, res) => {
   console.log('Received bot request:', req.body);
   
   const { type, data } = req.body;
