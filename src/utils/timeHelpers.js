@@ -290,12 +290,12 @@ class TimeHelpers {
                     transitions.push({
                         time: start,
                         type: `start-${periodType.toLowerCase()}`,
-                        message: this.getPeriodStartMessage(periodType)
+                        message: TimeHelpers.getPeriodStartMessage(periodType)
                     });
                     transitions.push({
                         time: end,
                         type: `end-${periodType.toLowerCase()}`,
-                        message: this.getPeriodEndMessage(periodType)
+                        message: TimeHelpers.getPeriodEndMessage(periodType)
                     });
                 });
             });
