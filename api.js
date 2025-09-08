@@ -7,6 +7,7 @@ BigInt.prototype.toJSON = function() {
 
 const path = require('path');
 const fs = require('fs');
+const { fork } = require('child_process');
 const logger = require('./src/events/logger');
 const DatabaseManager = require('./src/core/database/DatabaseManager');
 const express = require('express');
@@ -14,6 +15,24 @@ const botRoutes = require('./src/utils/expressRoutes');
 
 async function main() {
     console.log('[API] Initializing API server...');
+
+    // Fork bot processes
+    const bots = {};
+    if (process.env.DISCORD_TOKEN) {
+        const discordBotProcess = fork(path.join(__dirname, 'src', 'discord-bot.js'));
+        bots['DiscordBot'] = discordBotProcess;
+        logger.info('[API] Forked Discord bot process.');
+    } else {
+        logger.warn('[API] ⚠️ DISCORD_TOKEN not found. Discord bot will not be started.');
+    }
+
+    if (process.env.TELEGRAM_TOKEN) {
+        const telegramBotProcess = fork(path.join(__dirname, 'src', 'telegram-bot.js'));
+        bots['TelegramBot'] = telegramBotProcess;
+        logger.info('[API] Forked Telegram bot process.');
+    } else {
+        logger.warn('[API] ⚠️ TELEGRAM_TOKEN not found. Telegram bot will not be started.');
+    }
 
     let dbConfig;
     // Environment variables take precedence
@@ -59,10 +78,15 @@ async function main() {
     // Middleware to handle JSON payloads
     app.use(express.json());
 
-    // A simple function to pass to routes if they need to send messages
-    // to other components (currently a no-op in this standalone server)
+    // Function to send messages to forked bot processes
     const sendMessage = (target, payload) => {
-        logger.info(`[API] sendMessage called, but this is a standalone server. Target: ${target}, Payload: ${JSON.stringify(payload)}`);
+        const botProcess = bots[target];
+        if (botProcess && botProcess.connected) {
+            botProcess.send({ type: 'send-message', payload });
+            logger.info(`[API] Sent message to ${target}`);
+        } else {
+            logger.warn(`[API] ⚠️ ${target} is not running or not connected. This is expected if you are running without bot tokens.`);
+        }
     };
     app.set('sendMessage', sendMessage);
 
@@ -72,6 +96,13 @@ async function main() {
     // Start server
     app.listen(port, host, () => {
         logger.info(`[API] ✅ API server listening on http://${host}:${port}`);
+    });
+
+    // Handle bot process exit
+    Object.values(bots).forEach(botProcess => {
+        botProcess.on('exit', (code) => {
+            logger.warn(`[API] Bot process exited with code ${code}.`);
+        });
     });
 }
 
